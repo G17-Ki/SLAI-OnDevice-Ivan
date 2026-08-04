@@ -1,0 +1,524 @@
+{
+  "all_model_language_scores": {
+    "falcon_h1_15b": {
+      "en": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 46.666666666666664,
+        "score_exact_fraction": "140/3"
+      },
+      "es": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 38.233333333333334,
+        "score_exact_fraction": "1147/30"
+      },
+      "fr": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 39.983333333333334,
+        "score_exact_fraction": "2399/60"
+      },
+      "ru": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 34.041666666666664,
+        "score_exact_fraction": "817/24"
+      },
+      "zh": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 43.333333333333336,
+        "score_exact_fraction": "130/3"
+      }
+    },
+    "qwen25_15b": {
+      "en": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 42.5,
+        "score_exact_fraction": "85/2"
+      },
+      "es": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 44.06666666666667,
+        "score_exact_fraction": "661/15"
+      },
+      "fr": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 45,
+        "score_exact_fraction": "45/1"
+      },
+      "ru": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 43.916666666666664,
+        "score_exact_fraction": "527/12"
+      },
+      "zh": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 54.875,
+        "score_exact_fraction": "439/8"
+      }
+    },
+    "qwen35_08b": {
+      "en": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 43.3,
+        "score_exact_fraction": "433/10"
+      },
+      "es": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 31.466666666666665,
+        "score_exact_fraction": "472/15"
+      },
+      "fr": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 34.166666666666664,
+        "score_exact_fraction": "205/6"
+      },
+      "ru": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 34,
+        "score_exact_fraction": "34/1"
+      },
+      "zh": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 47.5,
+        "score_exact_fraction": "95/2"
+      }
+    },
+    "qwen3_06b": {
+      "en": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 27.5,
+        "score_exact_fraction": "55/2"
+      },
+      "es": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 34.983333333333334,
+        "score_exact_fraction": "2099/60"
+      },
+      "fr": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 24.166666666666668,
+        "score_exact_fraction": "145/6"
+      },
+      "ru": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 20.833333333333332,
+        "score_exact_fraction": "125/6"
+      },
+      "zh": {
+        "evidence_class": "HOST",
+        "n": 120,
+        "score_0_100": 34.875,
+        "score_exact_fraction": "279/8"
+      }
+    }
+  },
+  "completed_at_utc": "2026-08-02T08:51:03Z",
+  "confidence": "LIMITED: deterministic HOST screen at n=120/language with only 40 machine-scored native prompts and no native-speaker validation.",
+  "decision_trace": {
+    "equality_passes": true,
+    "failed_languages": [
+      "es"
+    ],
+    "proceeding_stacks": [
+      "Q"
+    ],
+    "q_vs_f": {
+      "deciding_step": "language_wins",
+      "leader_model_id": "qwen25_15b",
+      "status": "DECIDED",
+      "trace": [
+        {
+          "counts": {
+            "falcon_h1_15b": 1,
+            "qwen25_15b": 4,
+            "ties": 0
+          },
+          "per_language": {
+            "en": "falcon_h1_15b",
+            "es": "qwen25_15b",
+            "fr": "qwen25_15b",
+            "ru": "qwen25_15b",
+            "zh": "qwen25_15b"
+          },
+          "step": "language_wins"
+        }
+      ]
+    },
+    "qwen35_english_score_0_100": 43.3,
+    "qwen35_english_score_exact_fraction": "433/10",
+    "qwen35_outcome": "MOVE_TO_Q_OR_F",
+    "qwen35_ratio_exact_fractions": {
+      "es": "944/1299",
+      "fr": "1025/1299",
+      "ru": "340/433"
+    },
+    "qwen35_ratios": {
+      "es": 0.7267128560431101,
+      "fr": 0.7890685142417244,
+      "ru": 0.7852193995381063
+    },
+    "selected_backbone_class": "Q_OR_F_1_5B",
+    "selected_model_id": "qwen25_15b",
+    "threshold": 0.75,
+    "threshold_exact_fraction": "3/4",
+    "verdict_code": "MOVE_TO_Q"
+  },
+  "evidence_class": "HOST",
+  "per_language": {
+    "en": {
+      "bootstrap_95": [
+        34.166666666666664,
+        50.833333333333336
+      ],
+      "evidence_class": "HOST",
+      "model_id": "qwen25_15b",
+      "n": 120,
+      "ratio_to_own_english": 1,
+      "ratio_to_own_english_exact_fraction": "1/1",
+      "score_0_100": 42.5,
+      "score_exact_fraction": "85/2"
+    },
+    "es": {
+      "bootstrap_95": [
+        35,
+        53.083333333333336
+      ],
+      "evidence_class": "HOST",
+      "model_id": "qwen25_15b",
+      "n": 120,
+      "ratio_to_own_english": 1.0368627450980392,
+      "ratio_to_own_english_exact_fraction": "1322/1275",
+      "score_0_100": 44.06666666666667,
+      "score_exact_fraction": "661/15"
+    },
+    "fr": {
+      "bootstrap_95": [
+        35.833333333333336,
+        53.333333333333336
+      ],
+      "evidence_class": "HOST",
+      "model_id": "qwen25_15b",
+      "n": 120,
+      "ratio_to_own_english": 1.0588235294117647,
+      "ratio_to_own_english_exact_fraction": "18/17",
+      "score_0_100": 45,
+      "score_exact_fraction": "45/1"
+    },
+    "ru": {
+      "bootstrap_95": [
+        35,
+        52.96145833333329
+      ],
+      "evidence_class": "HOST",
+      "model_id": "qwen25_15b",
+      "n": 120,
+      "ratio_to_own_english": 1.0333333333333334,
+      "ratio_to_own_english_exact_fraction": "31/30",
+      "score_0_100": 43.916666666666664,
+      "score_exact_fraction": "527/12"
+    },
+    "zh": {
+      "bootstrap_95": [
+        45.833333333333336,
+        63.333333333333336
+      ],
+      "evidence_class": "HOST",
+      "model_id": "qwen25_15b",
+      "n": 120,
+      "ratio_to_own_english": 1.2911764705882354,
+      "ratio_to_own_english_exact_fraction": "439/340",
+      "score_0_100": 54.875,
+      "score_exact_fraction": "439/8"
+    }
+  },
+  "proceeding_stacks": [
+    "Q"
+  ],
+  "protocol": {
+    "append_only_execution_records": [
+      {
+        "candidate_result_rows_observed": null,
+        "parent_records": [],
+        "path": "b1_execution_clarifications.json",
+        "recorded_after_candidate_inference": false,
+        "recorded_after_failed_unscored_candidate_attempt": false,
+        "recorded_at_utc": "2026-08-02T05:40:27Z",
+        "recorded_before_candidate_inference": true,
+        "schema_version": "lane-b-execution-clarification/1.0",
+        "sha256": "cb3921b1dbfa9a38040d6ffae13f04606dbcebe72b2806a14193d89f06140b91"
+      },
+      {
+        "candidate_result_rows_observed": null,
+        "parent_records": [],
+        "path": "b1_execution_clarification_correction.json",
+        "recorded_after_candidate_inference": false,
+        "recorded_after_failed_unscored_candidate_attempt": false,
+        "recorded_at_utc": "2026-08-02T05:55:05Z",
+        "recorded_before_candidate_inference": true,
+        "schema_version": "lane-b-execution-clarification-correction/1.0",
+        "sha256": "d5df5eb593a6e93995c9dbb21039407328709b90ed940520950a0d3e2ef57482"
+      },
+      {
+        "candidate_result_rows_observed": null,
+        "parent_records": [
+          {
+            "path": "b1_execution_clarifications.json",
+            "sha256": "cb3921b1dbfa9a38040d6ffae13f04606dbcebe72b2806a14193d89f06140b91"
+          },
+          {
+            "path": "b1_execution_clarification_correction.json",
+            "sha256": "d5df5eb593a6e93995c9dbb21039407328709b90ed940520950a0d3e2ef57482"
+          }
+        ],
+        "path": "b1_execution_clarification_addendum.json",
+        "recorded_after_candidate_inference": false,
+        "recorded_after_failed_unscored_candidate_attempt": false,
+        "recorded_at_utc": "2026-08-02T06:20:43Z",
+        "recorded_before_candidate_inference": true,
+        "schema_version": "lane-b-execution-clarification-addendum/1.0",
+        "sha256": "691ac3e99c2751d3e3b33bc3edfc931b9cd90c56ad43ce5c0f1ad212b5eb57d0"
+      },
+      {
+        "candidate_result_rows_observed": 0,
+        "failed_attempt_log_evidence": {
+          "bytes": 854,
+          "cumulative_candidate_result_rows": 0,
+          "path": "artifacts/failures/qwen35_08b.mcq.batch4096.parallel4.sigkill.log",
+          "sha256": "d63d8bf77af8c0353236e3c3abca580736daf034fad5eeb7367ba6864b1e150e"
+        },
+        "parent_records": [
+          {
+            "path": "b1_execution_clarifications.json",
+            "sha256": "cb3921b1dbfa9a38040d6ffae13f04606dbcebe72b2806a14193d89f06140b91"
+          },
+          {
+            "path": "b1_execution_clarification_correction.json",
+            "sha256": "d5df5eb593a6e93995c9dbb21039407328709b90ed940520950a0d3e2ef57482"
+          },
+          {
+            "path": "b1_execution_clarification_addendum.json",
+            "sha256": "691ac3e99c2751d3e3b33bc3edfc931b9cd90c56ad43ce5c0f1ad212b5eb57d0"
+          }
+        ],
+        "path": "b1_execution_resource_correction.json",
+        "recorded_after_candidate_inference": false,
+        "recorded_after_failed_unscored_candidate_attempt": true,
+        "recorded_at_utc": "2026-08-02T07:21:29Z",
+        "recorded_before_candidate_inference": false,
+        "schema_version": "lane-b-execution-resource-correction/1.0",
+        "sha256": "b58ee65ee9c58b8dc180aeaa352f80690d791b5a947274ef21964851a82dcac4"
+      },
+      {
+        "candidate_result_rows_observed": 0,
+        "failed_attempt_log_evidence": {
+          "bytes": 854,
+          "cumulative_candidate_result_rows": 0,
+          "path": "artifacts/failures/qwen35_08b.mcq.ctx4096.batch1024.ubatch128.parallel4.sigkill.log",
+          "sha256": "c6a4e4eac96c54be575f2dcfe0236210c2c15d53233884b6e6bbcdc7c22f5f51"
+        },
+        "parent_records": [
+          {
+            "path": "b1_execution_resource_correction.json",
+            "sha256": "b58ee65ee9c58b8dc180aeaa352f80690d791b5a947274ef21964851a82dcac4"
+          }
+        ],
+        "path": "b1_execution_resource_correction_fallback.json",
+        "recorded_after_candidate_inference": false,
+        "recorded_after_failed_unscored_candidate_attempt": true,
+        "recorded_at_utc": "2026-08-02T07:36:08Z",
+        "recorded_before_candidate_inference": false,
+        "schema_version": "lane-b-execution-resource-correction-fallback/1.0",
+        "sha256": "e1a46e0dc06cc5e42abdb5e0327ff6280919beba178596a180a5048818f173c8"
+      },
+      {
+        "candidate_result_rows_observed": 0,
+        "failed_attempt_log_evidence": {
+          "bytes": 854,
+          "cumulative_candidate_result_rows": 0,
+          "path": "artifacts/failures/qwen35_08b.mcq.ctx3072.batch1024.ubatch128.parallel4.sigkill.log",
+          "sha256": "10338b94d465016699295e5031a2671cea2661434ab40ca0b7303a385e16d2fd"
+        },
+        "parent_records": [
+          {
+            "path": "b1_execution_resource_correction_fallback.json",
+            "sha256": "e1a46e0dc06cc5e42abdb5e0327ff6280919beba178596a180a5048818f173c8"
+          }
+        ],
+        "path": "b1_execution_tool_memory_patch.json",
+        "recorded_after_candidate_inference": false,
+        "recorded_after_failed_unscored_candidate_attempt": true,
+        "recorded_at_utc": "2026-08-02T07:59:33Z",
+        "recorded_before_candidate_inference": false,
+        "schema_version": "lane-b-execution-tool-memory-patch/1.0",
+        "sha256": "ebce8ee04882ad42de8b03446bb3cc68b95b36ec7680056c5e1ac822a13fad15"
+      },
+      {
+        "candidate_result_rows_observed": 600,
+        "parent_records": [
+          {
+            "path": "b1_execution_tool_memory_patch.json",
+            "sha256": "ebce8ee04882ad42de8b03446bb3cc68b95b36ec7680056c5e1ac822a13fad15"
+          }
+        ],
+        "path": "b1_execution_build_provenance_addendum.json",
+        "recorded_after_candidate_inference": true,
+        "recorded_after_failed_unscored_candidate_attempt": false,
+        "recorded_at_utc": "2026-08-02T08:23:46Z",
+        "recorded_before_candidate_inference": false,
+        "schema_version": "lane-b-execution-build-provenance-addendum/1.0",
+        "sha256": "803e4214a4f22a009023172054e8f7d2314b9e0425a5087450d4c889282a560b",
+        "superseded_evidence_archive": {
+          "excluded_from_final_analysis": true,
+          "path": "artifacts/superseded/9f99a37e/archives/qwen35_08b.evidence.tar.gz",
+          "sha256": "14c49cafc005206763efe9c1300cacd55056a529b2ed431b58b7b30cab3b265d"
+        }
+      }
+    ],
+    "assembly_environment": {
+      "python_version": "3.11.11",
+      "sys.version": "3.11.11 (main, Dec 11 2024, 10:25:04) [Clang 14.0.6 ]"
+    },
+    "b1_prereg_sha256": "6107258882449913b9136ad9eba930e88952192b6df08a301eafc00f03f6255b",
+    "bootstrap_implementation": {
+      "language_traversal_order": [
+        "en",
+        "zh",
+        "es",
+        "fr",
+        "ru"
+      ],
+      "model_traversal_order": [
+        "qwen35_08b",
+        "qwen25_15b",
+        "qwen3_06b",
+        "falcon_h1_15b"
+      ],
+      "partial_pack_state_rule": "Unavailable cells consume the same 120 random() values per replicate so every later available cell retains its frozen global-stream position.",
+      "percentile_interpolation": "Hyndman-Fan type 7: h=(N-1)*p, linear interpolation between floor(h) and ceil(h), p=0.025/0.975",
+      "rng": "Python stdlib random.Random (MT19937/Mersenne Twister)",
+      "score_formula": "100 * (sum(MCQ draws) + sum(generation draws)) / 120",
+      "seed_scope": "Initialized once per complete assembly at seed 20260801; never reset per model-language cell.",
+      "within_replicate_resampling_order": "80 equal-weight MCQ draws with replacement, then 40 equal-weight native-generation draws with replacement"
+    },
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260801,
+    "colab_setup_script_sha256": "0372a681cfc3aaf885586d8b5f64fce1abd7ab7c790f88f45dc80a717bb013ca",
+    "committed_harness_source_sha256": "3e9b03db7da7ce3e126a4fed80959a2db2b579a59a87cd859c784b9c496c9c2a",
+    "committed_native_scorer_source_sha256": "8fe0dff8b3c081d26a55358ad39340700a57876cbeecdf4b7dccc3116b4290ca",
+    "evidence_class": "HOST",
+    "global_mmlu_manifest_sha256": "2ecb1833861c1cb5f7ce617c4aa692b3060e3f39beb9e7597baffaef118e1849",
+    "global_mmlu_n_per_language": 80,
+    "llama_cpp_commit": "11924d4c17abc27383376a1ac6a24fa3e36c1c0c",
+    "llama_cpp_tool_patch": {
+      "implementation_library_relative_path": "bin/libllama-perplexity-impl.so",
+      "implementation_library_sha256": "2adce2e89998bbcbf220ee92af3ac5b91d8d080712db7cfc7cb7809dbd33f714",
+      "launcher_sha256": "3407a0ae6bb48bd300799b965fbe937f4b06a040ff9dcea7917e88cc239dc255",
+      "patch_relative_path": "llama_mcq_memory.patch",
+      "patch_sha256": "2539f2da48852fa44fdacdba26154e144a01b3986ff7c88dfe6974ac3e4f9dd7",
+      "source_original_sha256": "380aadd9d8000bf1b95cc3a338708385ac75240a5ba1c1f2bb34b208892a1777",
+      "source_patched_sha256": "65051abf6eb3e68d26cb2f24b62e2fa1af1bf7ddea96a2db53f944c3f0232b78",
+      "source_relative_path": "tools/perplexity/perplexity.cpp",
+      "source_status": " M tools/perplexity/perplexity.cpp",
+      "stock_scoring_unmodified": true
+    },
+    "mcq_execution_batching": {
+      "batch_size": 1024,
+      "ctx_size": 4096,
+      "parallel": 4,
+      "ubatch_size": 128
+    },
+    "n_per_language": 120,
+    "native_generation_manifest_sha256": "aa8160ab5aacb180c2e1869878c947ed3e9987daa0169b934f22f89519d20e80",
+    "native_generation_n_per_language": 40,
+    "screen_warning": "Reduced-n screen, not n>=1,200 non-inferiority evidence and not native-speaker validation."
+  },
+  "qwen35_decision_per_language": {
+    "en": {
+      "bootstrap_95": [
+        34.93333333333333,
+        52.41708333333332
+      ],
+      "evidence_class": "HOST",
+      "n": 120,
+      "ratio_to_en": 1,
+      "ratio_to_en_exact_fraction": "1/1",
+      "score_0_100": 43.3,
+      "score_exact_fraction": "433/10"
+    },
+    "es": {
+      "bootstrap_95": [
+        23.216666666666665,
+        39.783333333333324
+      ],
+      "evidence_class": "HOST",
+      "n": 120,
+      "ratio_to_en": 0.7267128560431101,
+      "ratio_to_en_exact_fraction": "944/1299",
+      "score_0_100": 31.466666666666665,
+      "score_exact_fraction": "472/15"
+    },
+    "fr": {
+      "bootstrap_95": [
+        25.833333333333332,
+        42.5
+      ],
+      "evidence_class": "HOST",
+      "n": 120,
+      "ratio_to_en": 0.7890685142417244,
+      "ratio_to_en_exact_fraction": "1025/1299",
+      "score_0_100": 34.166666666666664,
+      "score_exact_fraction": "205/6"
+    },
+    "ru": {
+      "bootstrap_95": [
+        25.707291666666666,
+        42.917708333333316
+      ],
+      "evidence_class": "HOST",
+      "n": 120,
+      "ratio_to_en": 0.7852193995381063,
+      "ratio_to_en_exact_fraction": "340/433",
+      "score_0_100": 34,
+      "score_exact_fraction": "34/1"
+    },
+    "zh": {
+      "bootstrap_95": [
+        39.166666666666664,
+        56.666666666666664
+      ],
+      "evidence_class": "HOST",
+      "n": 120,
+      "ratio_to_en": 1.0969976905311778,
+      "ratio_to_en_exact_fraction": "475/433",
+      "score_0_100": 47.5,
+      "score_exact_fraction": "95/2"
+    }
+  },
+  "schema_version": "lane-b-backbone-verdict/1.0",
+  "selected_backbone_class": "Q_OR_F_1_5B",
+  "selected_model_id": "qwen25_15b",
+  "sprint_id": "B6",
+  "unknowns": [
+    "Native grammaticality, cultural appropriateness and naturalness remain UNKNOWN.",
+    "Phone latency, memory, thermals and accelerator portability remain UNKNOWN in Lane B."
+  ],
+  "verdict": "MOVE TO Q — the sub-1B branch fails and Qwen2.5-1.5B leads Falcon-H1 under the frozen tie-break.",
+  "verdict_code": "MOVE_TO_Q"
+}

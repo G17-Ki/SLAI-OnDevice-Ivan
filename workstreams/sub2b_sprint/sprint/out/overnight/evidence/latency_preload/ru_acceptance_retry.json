@@ -1,0 +1,1126 @@
+{
+  "schemaVersion": 2,
+  "startedAt": "2026-08-04T19:22:43.265Z",
+  "target": {
+    "id": "4BBD36A6EB186583A322ACA11B447FE1",
+    "title": "LFM2.5 Audio · On-device demo",
+    "url": "http://127.0.0.1:8765/",
+    "description": "{\"attached\":true,\"empty\":false,\"height\":2688,\"never_attached\":false,\"screenX\":0,\"screenY\":0,\"visible\":true,\"width\":1216}"
+  },
+  "plan": {
+    "schema_version": 3,
+    "name": "latency-preload-final-ru",
+    "resetTelemetry": true,
+    "cooldownMs": 500,
+    "expectedResponseBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+    "expectedResponseModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+    "expectedFinishReason": "stop",
+    "expectedNoReasoning": true,
+    "cases": [
+      {
+        "name": "explicit_ru_preloaded_full_turn",
+        "serverWarmth": "warm",
+        "mode": "tts",
+        "language": "ru",
+        "audio": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/question_ru_simple_16k.wav",
+        "expectedAudioSha256": "fe502fecd14168059c2b4346369bad09ebc27da71b5eed8acee18546981e5dfa",
+        "contextEnabled": false,
+        "clearHistoryBefore": true,
+        "expectedOutcome": "complete",
+        "expectedResolvedLanguage": "ru",
+        "expectedResponseMode": "tts",
+        "expectedVoiceBackend": "android_native_tts",
+        "ttsPolicy": "auto",
+        "expectedAsrBackend": "zipformer_ru_cpu",
+        "expectedAsrProvider": "cpu",
+        "expectedNpuExecuted": false,
+        "expectedNpuSelected": false,
+        "expectedCompanionLanguages": [
+          "ru"
+        ],
+        "expectedTranscriptIncludes": "столица России",
+        "expectedResponseIncludes": "Москва",
+        "expectedResponseExcludes": [
+          "Эрмитаж",
+          "Летний сад",
+          "Сенная площадь",
+          "Летающий китель"
+        ],
+        "expectedResponseScript": "cyrillic",
+        "expectedMinResponseCharacters": 5,
+        "expectedMaxDuplicateGramRatio": 0.2,
+        "maxFirstAudioMs": 5000,
+        "minNativeTtsPlaybackMs": 300,
+        "expectedTtsPolicy": "auto",
+        "expectedTtsEngine": "piper_ru_ruslan",
+        "expectedTtsRequestedLocale": "ru-RU",
+        "expectedTtsResolvedLocale": "ru",
+        "expectedTtsGenerationLanguage": "ru",
+        "maxTtsFirstChunkMs": 500,
+        "maxTtsRtf": 0.5,
+        "maxTtsDroppedChunks": 0,
+        "expectedTtsTerminalStatus": "completed",
+        "expectedHistoryTurnsAfter": 0
+      }
+    ]
+  },
+  "staticInspection": {
+    "title": "LFM2.5 Audio · On-device demo",
+    "url": "http://127.0.0.1:8765/",
+    "modelReady": true,
+    "componentReadiness": {
+      "asr": true,
+      "text": true,
+      "lfm": true
+    },
+    "deviceStatus": "Offline ASR · Qwen · voice ready",
+    "mode": "tts",
+    "inputMode": "push",
+    "runtimeState": {
+      "inputBusy": false,
+      "nativeRecording": false,
+      "mediaRecorderState": null,
+      "currentTurn": null,
+      "vad": {
+        "requested": false,
+        "active": false,
+        "stopping": false,
+        "phase": "stopped",
+        "sessionId": null,
+        "stoppingSessionId": null,
+        "processingTurn": null,
+        "lastEvent": null,
+        "lastError": null
+      },
+      "buttons": {
+        "chatDisabled": false,
+        "asrDisabled": false,
+        "ttsDisabled": false,
+        "recordDisabled": false
+      }
+    },
+    "prompts": {
+      "asr": "Perform ASR.",
+      "response": "Answer the current user directly and accurately. Use prior messages only when they are relevant. Before answering a memory or recall question, check whether prior user and assistant messages are actually present. If none are present, explicitly say that conversation memory is unavailable and never invent a phrase, fact, or prior request. Keep simple factual answers to one or two concise sentences, omit details you are not certain about, and provide a longer answer only when the user explicitly requests detail. Use only the requested language. Never output hidden reasoning or <think> tags."
+    },
+    "languageOptions": [
+      {
+        "value": "auto",
+        "label": "Auto (EN / 中文 / 日本語 / 한국어 / RU)"
+      },
+      {
+        "value": "en",
+        "label": "English"
+      },
+      {
+        "value": "zh",
+        "label": "Chinese (Mandarin)"
+      },
+      {
+        "value": "ja",
+        "label": "Japanese"
+      },
+      {
+        "value": "ko",
+        "label": "Korean"
+      },
+      {
+        "value": "ru",
+        "label": "Russian"
+      },
+      {
+        "value": "es",
+        "label": "Spanish (CPU)"
+      },
+      {
+        "value": "fr",
+        "label": "French (CPU)"
+      },
+      {
+        "value": "it",
+        "label": "Italian"
+      }
+    ],
+    "controls": {
+      "chat": true,
+      "asr": true,
+      "tts": true,
+      "englishResponseStyle": true,
+      "selectedEnglishResponseStyle": "exact",
+      "push": true,
+      "vad": true,
+      "clearHistory": true
+    },
+    "nativeBridge": {
+      "present": true,
+      "telemetry": true,
+      "resetTelemetry": true,
+      "tts": true,
+      "vadStart": true,
+      "vadResume": true,
+      "vadStop": true,
+      "ttsEngineAvailable": true,
+      "defaultTtsLocale": "en-GB"
+    },
+    "npuFacts": {
+      "auto": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "broad_auto_requires_cpu_multilingual_asr"
+      },
+      "en": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "app_owned_qnn_runtime_unavailable"
+      },
+      "zh": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "app_owned_qnn_runtime_unavailable"
+      },
+      "ja": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "app_owned_qnn_runtime_unavailable"
+      },
+      "ko": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "app_owned_qnn_runtime_unavailable"
+      },
+      "fr": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "language_not_supported_by_sensevoice_qnn"
+      }
+    },
+    "history": {
+      "turns": 0,
+      "characters": 0,
+      "approximateTokens": 0,
+      "limits": {
+        "maxTurns": 2,
+        "maxCharacters": 1600,
+        "maxApproxTokens": 480
+      },
+      "lastMutation": {
+        "action": "cleared",
+        "reason": null,
+        "removedTurns": 0
+      }
+    },
+    "historyEnabled": false,
+    "historySwitch": {
+      "ariaChecked": "false",
+      "text": "Memory: off (recommended)"
+    },
+    "asrCompanion": {
+      "url": "http://127.0.0.1:6010/asr"
+    },
+    "responseCompanion": {
+      "apiUrl": "http://127.0.0.1:6020/v1/chat/completions",
+      "healthUrl": "http://127.0.0.1:6020/health",
+      "backend": "qwen2_5_1_5b_q4_k_m_cpu",
+      "requestModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+      "health": {
+        "url": "http://127.0.0.1:6020/health",
+        "httpStatus": 200,
+        "httpOk": true,
+        "body": {
+          "status": "ok"
+        },
+        "bodyCharacters": 15,
+        "error": null
+      },
+      "models": {
+        "url": "http://127.0.0.1:6020/v1/models",
+        "httpStatus": 200,
+        "httpOk": true,
+        "body": {
+          "models": [
+            {
+              "name": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+              "model": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+              "modified_at": "",
+              "size": "",
+              "digest": "",
+              "type": "model",
+              "description": "",
+              "tags": [
+                ""
+              ],
+              "capabilities": [
+                "completion"
+              ],
+              "parameters": "",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "",
+                "families": [
+                  ""
+                ],
+                "parameter_size": "",
+                "quantization_level": ""
+              }
+            }
+          ],
+          "object": "list",
+          "data": [
+            {
+              "id": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+              "aliases": [
+                "Qwen2.5-1.5B-Instruct-Q4_K_M"
+              ],
+              "tags": [],
+              "object": "model",
+              "created": 1785871375,
+              "owned_by": "llamacpp",
+              "meta": {
+                "vocab_type": 2,
+                "n_vocab": 151936,
+                "n_ctx": 2048,
+                "n_ctx_train": 32768,
+                "n_embd": 1536,
+                "n_params": 1777088000,
+                "size": 1111370240,
+                "ftype": "Q4_K - Medium"
+              }
+            }
+          ]
+        },
+        "bodyCharacters": 666,
+        "error": null
+      },
+      "modelIds": [
+        "Qwen2.5-1.5B-Instruct-Q4_K_M"
+      ]
+    },
+    "directResponse": {
+      "apiUrl": "http://127.0.0.1:8080/v1/chat/completions",
+      "backend": "lfm2_5_audio_interleaved_q4_cpu",
+      "requestModel": "LFM2.5-Audio-1.5B",
+      "modelReady": true,
+      "healthUrl": "http://127.0.0.1:8080/",
+      "health": {
+        "url": "http://127.0.0.1:8080/",
+        "httpStatus": null,
+        "httpOk": false,
+        "body": null,
+        "bodyCharacters": 0,
+        "error": "Failed to fetch"
+      },
+      "systemPrompt": "Respond with interleaved text and audio."
+    },
+    "autoRoutes": {
+      "en": {
+        "selection": "auto",
+        "language": "en",
+        "confidence": 0.96,
+        "reason": "13 lexical points with 12-point margin",
+        "fallbackUsed": false,
+        "localeTag": "en-US"
+      },
+      "zh": {
+        "selection": "auto",
+        "language": "zh",
+        "confidence": 0.9700000000000001,
+        "reason": "8 Han-script characters",
+        "fallbackUsed": false,
+        "localeTag": "zh-CN"
+      },
+      "ja": {
+        "selection": "auto",
+        "language": "ja",
+        "confidence": 0.98,
+        "reason": "8 kana characters",
+        "fallbackUsed": false,
+        "localeTag": "ja-JP"
+      },
+      "ko": {
+        "selection": "auto",
+        "language": "ko",
+        "confidence": 0.99,
+        "reason": "10 Hangul-script characters",
+        "fallbackUsed": false,
+        "localeTag": "ko-KR"
+      },
+      "ru": {
+        "selection": "auto",
+        "language": "ru",
+        "confidence": 0.98,
+        "reason": "22 Cyrillic-script characters",
+        "fallbackUsed": false,
+        "localeTag": "ru-RU"
+      },
+      "fr": {
+        "selection": "auto",
+        "language": "fr",
+        "confidence": 0.96,
+        "reason": "8 lexical points with 8-point margin",
+        "fallbackUsed": false,
+        "localeTag": "fr-FR"
+      },
+      "it": {
+        "selection": "auto",
+        "language": "it",
+        "confidence": 0.96,
+        "reason": "6 lexical points with 5-point margin",
+        "fallbackUsed": false,
+        "localeTag": "it-IT"
+      },
+      "es": {
+        "selection": "auto",
+        "language": "es",
+        "confidence": 0.96,
+        "reason": "9 lexical points with 9-point margin",
+        "fallbackUsed": false,
+        "localeTag": "es-ES"
+      }
+    },
+    "protocol": {
+      "asrInputAudioParts": 1,
+      "asrInputAudioKeys": 1,
+      "responseInputAudioParts": 0,
+      "responseInputAudioKeys": 0,
+      "asrRoles": [
+        "system",
+        "user"
+      ],
+      "responseRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "responseUserType": "string",
+      "responseUserText": "Remember turquoise.",
+      "asrModalities": [
+        "text"
+      ]
+    },
+    "serviceWorker": {
+      "controlled": true,
+      "scriptURL": "http://127.0.0.1:8765/service-worker.js",
+      "cacheKeys": null,
+      "cacheInspection": "omitted because caches.keys() can stall Android WebView CDP"
+    }
+  },
+  "responseServicePreflight": {
+    "route": "qwen_companion",
+    "healthOk": true,
+    "modelsOk": true,
+    "expectedModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+    "observedModels": [
+      "Qwen2.5-1.5B-Instruct-Q4_K_M"
+    ],
+    "modelIdentityMatched": true,
+    "expectedBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+    "observedBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+    "backendMatched": true
+  },
+  "setup": {
+    "fetchCapture": {
+      "installed": true,
+      "captureCount": 0,
+      "fileInputBlocked": true,
+      "nativeTtsCaptureSupported": true,
+      "nativeTtsOriginalHandlerPresent": true
+    },
+    "clear": {
+      "cleared": {
+        "removedTurns": 0,
+        "turns": 0,
+        "characters": 0,
+        "approximateTokens": 0,
+        "limits": {
+          "maxTurns": 2,
+          "maxCharacters": 1600,
+          "maxApproxTokens": 480
+        },
+        "lastMutation": {
+          "action": "cleared",
+          "reason": null,
+          "removedTurns": 0
+        }
+      },
+      "telemetryReset": true
+    }
+  },
+  "cases": [
+    {
+      "name": "explicit_ru_preloaded_full_turn",
+      "requestedMode": "tts",
+      "selectedLanguage": "ru",
+      "requestedEnglishResponseStyle": null,
+      "selectedEnglishResponseStyle": "exact",
+      "serverWarmth": "warm",
+      "contextEnabledRequested": false,
+      "ttsPolicySetup": {
+        "requested": "auto",
+        "accepted": true,
+        "live": "auto"
+      },
+      "historyEnabled": false,
+      "historySwitchAriaChecked": "false",
+      "preModeState": {
+        "mode": "tts",
+        "inputBusy": false,
+        "historyEnabled": false,
+        "historySwitchAriaChecked": "false",
+        "nativeRecording": false,
+        "mediaRecorderState": null,
+        "vadRequested": false,
+        "vadStopping": false,
+        "currentTurnId": null,
+        "currentTurnTerminal": null
+      },
+      "turnId": "1785871375707-5",
+      "generation": 1785870100447005,
+      "elapsedMs": 3923.10000000149,
+      "thrown": null,
+      "drain": {
+        "status": "tts_terminal"
+      },
+      "responseMode": "tts",
+      "voiceBackend": "android_native_tts",
+      "playback": {
+        "firstTextMs": 135.20000000298023,
+        "firstPcmMs": null,
+        "firstAudioScheduledMs": 248.38364499807358,
+        "firstOutputHeadMs": null,
+        "firstVoicedPcmOffsetMs": null,
+        "firstVoicedScheduledMs": null,
+        "firstVoicedOutputHeadMs": null,
+        "underflows": 0,
+        "pcmDurationSeconds": 0,
+        "audioChunks": 0,
+        "completedMs": 213.40000000596046
+      },
+      "languageRoute": {
+        "selection": "ru",
+        "language": "ru",
+        "localeTag": "ru-RU",
+        "confidence": 1,
+        "reason": "explicit user selection via zipformer_ru_cpu",
+        "fallbackUsed": false,
+        "asrFacts": {
+          "backend": "zipformer_ru_cpu",
+          "provider": "cpu",
+          "npu_candidate": "sensevoice_qnn_sm8850",
+          "npu_executed": false,
+          "npu_selected": false,
+          "npu_gate": "not_executed",
+          "npu_fallback_reason": "russian_not_supported_by_sensevoice",
+          "asr_companion": true,
+          "candidate_summaries": [
+            {
+              "backend": "zipformer_ru_cpu",
+              "provider": "cpu",
+              "ok": true,
+              "transcript_characters": 21,
+              "language_hint": null,
+              "mean_token_log_probability": -0.14725055555555555,
+              "han_characters": 0,
+              "kana_characters": 0,
+              "hangul_characters": 0,
+              "cyrillic_characters": 19,
+              "latin_characters": 0
+            }
+          ],
+          "segmented_input": false,
+          "input_duration_seconds": 1.670625,
+          "segment_count": 1,
+          "segment_summaries": [
+            {
+              "index": 0,
+              "backend": "zipformer_ru_cpu",
+              "provider": "cpu",
+              "npu_executed": false,
+              "npu_selected": false,
+              "transcript_characters": 21
+            }
+          ]
+        }
+      },
+      "asrFacts": {
+        "backend": "zipformer_ru_cpu",
+        "provider": "cpu",
+        "npu_candidate": "sensevoice_qnn_sm8850",
+        "npu_executed": false,
+        "npu_selected": false,
+        "npu_gate": "not_executed",
+        "npu_fallback_reason": "russian_not_supported_by_sensevoice",
+        "asr_companion": true,
+        "candidate_summaries": [
+          {
+            "backend": "zipformer_ru_cpu",
+            "provider": "cpu",
+            "ok": true,
+            "transcript_characters": 21,
+            "language_hint": null,
+            "mean_token_log_probability": -0.14725055555555555,
+            "han_characters": 0,
+            "kana_characters": 0,
+            "hangul_characters": 0,
+            "cyrillic_characters": 19,
+            "latin_characters": 0
+          }
+        ],
+        "segmented_input": false,
+        "input_duration_seconds": 1.670625,
+        "segment_count": 1,
+        "segment_summaries": [
+          {
+            "index": 0,
+            "backend": "zipformer_ru_cpu",
+            "provider": "cpu",
+            "npu_executed": false,
+            "npu_selected": false,
+            "transcript_characters": 21
+          }
+        ]
+      },
+      "observedOutcome": "complete",
+      "expectations": {
+        "outcome": "complete",
+        "resolvedLanguage": "ru",
+        "responseMode": "tts",
+        "voiceBackend": "android_native_tts",
+        "responseBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+        "responseModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+        "finishReason": "stop",
+        "noReasoning": true,
+        "maxFirstAudioMs": 5000,
+        "maxFirstVoicedAudioMs": null,
+        "minPcmDurationMs": null,
+        "minNativeTtsPlaybackMs": 300,
+        "ttsTerminalStatus": "completed",
+        "ttsPolicy": "auto",
+        "ttsEngine": "piper_ru_ruslan",
+        "ttsRequestedLocale": "ru-RU",
+        "ttsResolvedLocale": "ru",
+        "ttsGenerationLanguage": "ru",
+        "maxTtsFirstChunkMs": 500,
+        "maxTtsRtf": 0.5,
+        "maxTtsDroppedChunks": 0,
+        "asrBackend": "zipformer_ru_cpu",
+        "asrProvider": "cpu",
+        "asrLanguageHint": null,
+        "npuExecuted": false,
+        "npuSelected": false,
+        "errorIncludes": null,
+        "historyTurnsAfter": 0,
+        "responseRequestIncludes": [],
+        "responseRequestExcludes": [],
+        "companionLanguages": [
+          "ru"
+        ],
+        "responseIncludes": [
+          "Москва"
+        ],
+        "responseExcludes": [
+          "Эрмитаж",
+          "Летний сад",
+          "Сенная площадь",
+          "Летающий китель"
+        ],
+        "transcriptIncludes": [
+          "столица России"
+        ],
+        "requiredTranscriptScript": null,
+        "requiredResponseScript": "cyrillic",
+        "minResponseCharacters": 5,
+        "maxDuplicateGramRatio": 0.2
+      },
+      "acceptanceAssertions": {
+        "outcome": true,
+        "resolvedLanguage": true,
+        "responseMode": true,
+        "voiceBackend": true,
+        "responseBackend": true,
+        "responseModel": true,
+        "finishReason": true,
+        "noReasoning": true,
+        "maxFirstAudioMs": true,
+        "maxFirstVoicedAudioMs": null,
+        "minPcmDurationMs": null,
+        "nativeTtsEvidenceSupported": true,
+        "nativeTtsEventsParseClean": true,
+        "nativeTtsOriginalHandlerHealthy": true,
+        "ttsPolicy": true,
+        "ttsEngine": true,
+        "ttsRequestedLocale": true,
+        "ttsResolvedLocale": true,
+        "ttsMetricsComplete": false,
+        "ttsMetricsEngine": true,
+        "ttsGenerationLanguage": true,
+        "ttsMetricsGeneration": true,
+        "maxTtsFirstChunkMs": true,
+        "maxTtsRtf": true,
+        "maxTtsDroppedChunks": true,
+        "ttsTerminalStatus": false,
+        "minNativeTtsPlaybackMs": true,
+        "asrBackend": true,
+        "asrProvider": true,
+        "asrLanguageHint": null,
+        "npuExecuted": true,
+        "npuSelected": true,
+        "errorIncludes": null,
+        "contextEnabled": true,
+        "historyTurnsAfter": true,
+        "responseRequestIncludes": null,
+        "responseRequestExcludes": null,
+        "companionLanguages": true,
+        "responseIncludes": true,
+        "responseExcludes": true,
+        "transcriptIncludes": true,
+        "transcriptScript": null,
+        "responseScript": true,
+        "minResponseCharacters": true,
+        "maxDuplicateGramRatio": true,
+        "protocol": true,
+        "allPassed": false
+      },
+      "response": "Москва.",
+      "transcript": "какова столица россии",
+      "transcriptScriptEvidence": {
+        "letters": 19,
+        "han": 0,
+        "hiragana": 0,
+        "katakana": 0,
+        "kana": 0,
+        "hangul": 0,
+        "cyrillic": 19,
+        "latin": 0,
+        "hanRatio": 0,
+        "kanaRatio": 0,
+        "japaneseRatio": 0,
+        "hangulRatio": 0,
+        "cyrillicRatio": 1,
+        "latinRatio": 0
+      },
+      "responseQuality": {
+        "characters": 7,
+        "scriptEvidence": {
+          "letters": 6,
+          "han": 0,
+          "hiragana": 0,
+          "katakana": 0,
+          "kana": 0,
+          "hangul": 0,
+          "cyrillic": 6,
+          "latin": 0,
+          "hanRatio": 0,
+          "kanaRatio": 0,
+          "japaneseRatio": 0,
+          "hangulRatio": 0,
+          "cyrillicRatio": 1,
+          "latinRatio": 0
+        },
+        "repetition": {
+          "token_count": 1,
+          "gram_size": 4,
+          "duplicate_gram_ratio": 0,
+          "max_gram_count": 0
+        }
+      },
+      "responseRequestText": "Ответь на запрос пользователя только по-русски, кириллицей. Если вопрос о столице, назови только город одним коротким предложением без описания. Не выдумывай достопримечательности или другие подробности.\nкакова столица россии",
+      "languageStatus": "Russian · 100% · explicit user selection via zipformer_ru_cpu",
+      "historyStatus": "Memory off · no prior turns are sent",
+      "historyBefore": {
+        "turns": 0,
+        "characters": 0,
+        "approximateTokens": 0,
+        "limits": {
+          "maxTurns": 2,
+          "maxCharacters": 1600,
+          "maxApproxTokens": 480
+        },
+        "lastMutation": {
+          "action": "cleared",
+          "reason": null,
+          "removedTurns": 0
+        }
+      },
+      "historyAfter": {
+        "turns": 0,
+        "characters": 0,
+        "approximateTokens": 0,
+        "limits": {
+          "maxTurns": 2,
+          "maxCharacters": 1600,
+          "maxApproxTokens": 480
+        },
+        "lastMutation": {
+          "action": "cleared",
+          "reason": null,
+          "removedTurns": 0
+        }
+      },
+      "historySnapshot": [],
+      "error": "playback: Offline voice failed while playing a speech chunk: playback_drain_timeout",
+      "timer": "Not ready",
+      "recordLabel": "Try again",
+      "fetches": [
+        {
+          "url": "http://127.0.0.1:6010/asr?language=ru",
+          "at": "2026-08-04T19:22:55.712Z",
+          "stage": "asr_companion",
+          "method": "POST",
+          "requestedLanguage": "ru",
+          "contentType": "audio/wav",
+          "bodyBytes": 53504,
+          "roles": null,
+          "modalities": null,
+          "inputAudioParts": 0,
+          "inputAudioKeys": 0,
+          "userContentType": null,
+          "userText": null,
+          "httpStatus": 200,
+          "httpOk": true
+        },
+        {
+          "url": "http://127.0.0.1:6020/v1/chat/completions",
+          "at": "2026-08-04T19:22:55.803Z",
+          "method": "POST",
+          "stage": "response_companion",
+          "systemPrompt": "Answer the current user directly and accurately. Use prior messages only when they are relevant. Before answering a memory or recall question, check whether prior user and assistant messages are actually present. If none are present, explicitly say that conversation memory is unavailable and never invent a phrase, fact, or prior request. Keep simple factual answers to one or two concise sentences, omit details you are not certain about, and provide a longer answer only when the user explicitly requests detail. Use only the requested language. Never output hidden reasoning or <think> tags.",
+          "bodyBytes": 1229,
+          "contentType": "application/json",
+          "maxTokens": 768,
+          "enableThinking": null,
+          "stream": true,
+          "requestBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+          "requestModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+          "requestModelIdentity": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+          "roles": [
+            "system",
+            "user"
+          ],
+          "modalities": null,
+          "inputAudioParts": 0,
+          "inputAudioKeys": 0,
+          "userContentType": "string",
+          "userText": "Ответь на запрос пользователя только по-русски, кириллицей. Если вопрос о столице, назови только город одним коротким предложением без описания. Не выдумывай достопримечательности или другие подробности.\nкакова столица россии",
+          "httpStatus": 200,
+          "httpOk": true,
+          "responseBodyBytes": 1829,
+          "responseModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+          "responseModelIdentity": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+          "finishReason": "stop",
+          "reasoningContentCharacters": 0,
+          "responseCharacters": 7,
+          "thinkTagSeen": false,
+          "sseDoneSeen": true,
+          "sseParseErrors": 0
+        }
+      ],
+      "nativeTtsEvents": [
+        {
+          "sequence": 0,
+          "captured_wall_time": "2026-08-04T19:22:55.805Z",
+          "captured_performance_ms": 1275428.9000000022,
+          "event": {
+            "schema_version": 1,
+            "type": "ready",
+            "turn_id": "1785871375707-5",
+            "monotonic_ms": 130230590.676189,
+            "details": {
+              "engine": "piper_ru_ruslan",
+              "tts_policy": "auto",
+              "tts_engine_id": "piper_ru_ruslan",
+              "engine_label": "Piper RU (ruslan)",
+              "engine_family": "vits",
+              "threads": 8,
+              "requested_locale": "ru-RU",
+              "resolved_locale": "ru",
+              "sample_rate_hz": 22050,
+              "generation": 1785870100447005
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"ready\",\"turn_id\":\"1785871375707-5\",\"monotonic_ms\":1.30230590676189E8,\"details\":{\"engine\":\"piper_ru_ruslan\",\"tts_policy\":\"auto\",\"tts_engine_id\":\"piper_ru_ruslan\",\"engine_label\":\"Piper RU (ruslan)\",\"engine_family\":\"vits\",\"threads\":8,\"requested_locale\":\"ru-RU\",\"resolved_locale\":\"ru\",\"sample_rate_hz\":22050,\"generation\":1785870100447005}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 1,
+          "captured_wall_time": "2026-08-04T19:22:55.921Z",
+          "captured_performance_ms": 1275544.6999999993,
+          "event": {
+            "schema_version": 1,
+            "type": "chunk_queued",
+            "turn_id": "1785871375707-5",
+            "monotonic_ms": 130230708.226189,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785870100447005,
+              "character_count": 7,
+              "tts_policy": "auto",
+              "tts_engine_id": "piper_ru_ruslan",
+              "queue_mode": "flush",
+              "pending_utterances": 1
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"chunk_queued\",\"turn_id\":\"1785871375707-5\",\"monotonic_ms\":1.30230708226189E8,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785870100447005,\"character_count\":7,\"tts_policy\":\"auto\",\"tts_engine_id\":\"piper_ru_ruslan\",\"queue_mode\":\"flush\",\"pending_utterances\":1}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 2,
+          "captured_wall_time": "2026-08-04T19:22:55.921Z",
+          "captured_performance_ms": 1275545.4000000022,
+          "event": {
+            "schema_version": 1,
+            "type": "queue_closed",
+            "turn_id": "1785871375707-5",
+            "monotonic_ms": 130230708.614522,
+            "details": {
+              "pending_utterances": 1,
+              "chunks_queued": 1,
+              "generation": 1785870100447005
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"queue_closed\",\"turn_id\":\"1785871375707-5\",\"monotonic_ms\":1.30230708614522E8,\"details\":{\"pending_utterances\":1,\"chunks_queued\":1,\"generation\":1785870100447005}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 3,
+          "captured_wall_time": "2026-08-04T19:22:55.958Z",
+          "captured_performance_ms": 1275581.6999999993,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_start",
+            "turn_id": "1785871375707-5",
+            "monotonic_ms": 130230743.419418,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785870100447005,
+              "character_count": 7,
+              "tts_policy": "auto",
+              "tts_engine_id": "piper_ru_ruslan"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_start\",\"turn_id\":\"1785871375707-5\",\"monotonic_ms\":1.30230743419418E8,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785870100447005,\"character_count\":7,\"tts_policy\":\"auto\",\"tts_engine_id\":\"piper_ru_ruslan\"}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 4,
+          "captured_wall_time": "2026-08-04T19:22:55.958Z",
+          "captured_performance_ms": 1275581.9000000022,
+          "event": {
+            "schema_version": 1,
+            "type": "first_audio_start_proxy",
+            "turn_id": "1785871375707-5",
+            "monotonic_ms": 130230743.469209,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785870100447005,
+              "character_count": 7,
+              "tts_policy": "auto",
+              "tts_engine_id": "piper_ru_ruslan",
+              "proxy": "UtteranceProgressListener.onStart"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"first_audio_start_proxy\",\"turn_id\":\"1785871375707-5\",\"monotonic_ms\":1.30230743469209E8,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785870100447005,\"character_count\":7,\"tts_policy\":\"auto\",\"tts_engine_id\":\"piper_ru_ruslan\",\"proxy\":\"UtteranceProgressListener.onStart\"}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 5,
+          "captured_wall_time": "2026-08-04T19:22:55.958Z",
+          "captured_performance_ms": 1275581.9999999963,
+          "event": {
+            "schema_version": 1,
+            "type": "engine_metrics",
+            "turn_id": "1785871375707-5",
+            "monotonic_ms": 130230743.546605,
+            "details": {
+              "engine_id": "piper_ru_ruslan",
+              "engine_family": "vits",
+              "engine_generation": 3,
+              "generation_language": "ru",
+              "threads": 8,
+              "first_chunk_ms": 34,
+              "synthesis_ms": 35,
+              "audio_seconds": 0.603718820861678,
+              "rtf": 0.057974008413461536,
+              "dropped_chunks": 0,
+              "applied_gain_db": 1.0964479731743992,
+              "sample_rate_hz": 22050,
+              "serialized_synthesis": true,
+              "pending_synthesis_tasks": 0,
+              "audio_track_started": false,
+              "audio_track_buffer_frames": 22050,
+              "audio_track_write_quantum_ms": 20,
+              "audio_track_zero_write_retries": 0,
+              "generation": 1785870100447005
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"engine_metrics\",\"turn_id\":\"1785871375707-5\",\"monotonic_ms\":1.30230743546605E8,\"details\":{\"engine_id\":\"piper_ru_ruslan\",\"engine_family\":\"vits\",\"engine_generation\":3,\"generation_language\":\"ru\",\"threads\":8,\"first_chunk_ms\":34,\"synthesis_ms\":35,\"audio_seconds\":0.603718820861678,\"rtf\":0.057974008413461536,\"dropped_chunks\":0,\"applied_gain_db\":1.0964479731743992,\"sample_rate_hz\":22050,\"serialized_synthesis\":true,\"pending_synthesis_tasks\":0,\"audio_track_started\":false,\"audio_track_buffer_frames\":22050,\"audio_track_write_quantum_ms\":20,\"audio_track_zero_write_retries\":0,\"generation\":1785870100447005}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 6,
+          "captured_wall_time": "2026-08-04T19:22:59.616Z",
+          "captured_performance_ms": 1279240.0999999978,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_error",
+            "turn_id": "1785871375707-5",
+            "monotonic_ms": 130234354.355771,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785870100447005,
+              "character_count": 7,
+              "tts_policy": "auto",
+              "tts_engine_id": "piper_ru_ruslan",
+              "pending_utterances": 0,
+              "terminal": true,
+              "stage": "playback",
+              "error_code": -1,
+              "native_reason": "playback_drain_timeout"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_error\",\"turn_id\":\"1785871375707-5\",\"monotonic_ms\":1.30234354355771E8,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785870100447005,\"character_count\":7,\"tts_policy\":\"auto\",\"tts_engine_id\":\"piper_ru_ruslan\",\"pending_utterances\":0,\"terminal\":true,\"stage\":\"playback\",\"error_code\":-1,\"native_reason\":\"playback_drain_timeout\"}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 7,
+          "captured_wall_time": "2026-08-04T19:22:59.616Z",
+          "captured_performance_ms": 1279240.0999999978,
+          "event": {
+            "schema_version": 1,
+            "type": "terminal",
+            "turn_id": "1785871375707-5",
+            "monotonic_ms": 130234402.936239,
+            "details": {
+              "status": "failed",
+              "pending_utterances": 0,
+              "chunks_queued": 1,
+              "generation": 1785870100447005,
+              "tts_policy": "auto",
+              "tts_engine_id": "piper_ru_ruslan",
+              "message": "playback: Offline voice failed while playing a speech chunk: playback_drain_timeout"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"terminal\",\"turn_id\":\"1785871375707-5\",\"monotonic_ms\":1.30234402936239E8,\"details\":{\"status\":\"failed\",\"pending_utterances\":0,\"chunks_queued\":1,\"generation\":1785870100447005,\"tts_policy\":\"auto\",\"tts_engine_id\":\"piper_ru_ruslan\",\"message\":\"playback: Offline voice failed while playing a speech chunk: playback_drain_timeout\"}}",
+          "parse_error": null,
+          "original_handler_error": null
+        }
+      ],
+      "nativeTtsEvidence": {
+        "supported": true,
+        "unsupportedReason": null,
+        "recordsCaptured": 8,
+        "eventsCaptured": 8,
+        "parseClean": true,
+        "originalHandlerHealthy": true,
+        "readyCount": 1,
+        "readyPolicy": "auto",
+        "readyEngine": "piper_ru_ruslan",
+        "readyRequestedLocale": "ru-RU",
+        "readyResolvedLocale": "ru",
+        "engineMetricsCount": 1,
+        "generationLanguages": [
+          "ru"
+        ],
+        "engineMetricGenerations": [
+          1785870100447005
+        ],
+        "engineMetricEngineIds": [
+          "piper_ru_ruslan"
+        ],
+        "firstChunkMsValues": [
+          34
+        ],
+        "rtfValues": [
+          0.057974008413461536
+        ],
+        "droppedChunkValues": [
+          0
+        ],
+        "startCount": 1,
+        "doneCount": 0,
+        "terminalCount": 1,
+        "firstStartMonotonicMs": 130230743.419418,
+        "terminalMonotonicMs": 130234402.936239,
+        "playbackSpanMs": 3659.5168209969997,
+        "terminalStatus": "failed",
+        "terminalMessage": "playback: Offline voice failed while playing a speech chunk: playback_drain_timeout"
+      },
+      "protocolAssertions": {
+        "asrRequestPlanValid": true,
+        "asrEachRequestHasOneInput": true,
+        "companionUsesRawWav": true,
+        "responseRequestPresent": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "asrRolesOnlySystemAndUser": true,
+        "responseRolesSupported": true,
+        "responseThinkingDisabled": true
+      },
+      "audio": {
+        "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/question_ru_simple_16k.wav",
+        "bytes": 53504,
+        "expectedSha256": "fe502fecd14168059c2b4346369bad09ebc27da71b5eed8acee18546981e5dfa",
+        "actualSha256": "fe502fecd14168059c2b4346369bad09ebc27da71b5eed8acee18546981e5dfa",
+        "sha256Matched": true
+      },
+      "contextSetup": {
+        "requested": false,
+        "accepted": true,
+        "historyEnabled": false,
+        "switchAriaChecked": "false",
+        "switchText": "Memory: off (recommended)",
+        "summary": {
+          "turns": 0,
+          "characters": 0,
+          "approximateTokens": 0,
+          "limits": {
+            "maxTurns": 2,
+            "maxCharacters": 1600,
+            "maxApproxTokens": 480
+          },
+          "lastMutation": {
+            "action": "cleared",
+            "reason": null,
+            "removedTurns": 0
+          }
+        }
+      }
+    }
+  ],
+  "failure": {
+    "at": "2026-08-04T19:22:47.772Z",
+    "name": "AcceptanceFailure",
+    "message": "Full-turn acceptance failed: {\"total\":1,\"passed\":0,\"failed\":1,\"caseAssertionsPassed\":false,\"cleanupPassed\":true,\"operationalFailure\":false,\"allPassed\":false,\"failedCases\":[\"explicit_ru_preloaded_full_turn\"]}",
+    "stack": null
+  },
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "caseAssertionsPassed": false,
+    "cleanupPassed": true,
+    "operationalFailure": true,
+    "allPassed": false,
+    "failedCases": [
+      "explicit_ru_preloaded_full_turn"
+    ]
+  },
+  "cleanup": {
+    "removed": true,
+    "blockedFileInputEvents": 0,
+    "nativeTtsHandlerRestored": true,
+    "nativeTtsCaptureCount": 8,
+    "nativeTtsOriginalHandlerErrors": []
+  },
+  "finishedAt": "2026-08-04T19:22:47.772Z"
+}

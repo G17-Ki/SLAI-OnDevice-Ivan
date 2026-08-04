@@ -1,0 +1,331 @@
+{
+  "artifacts": {
+    "attention_mask_step0.u16le.bin": {
+      "bytes": 400,
+      "dtype": "uint16_le",
+      "role": "decoder step-0 attention mask; 199 masked slots then index 199 unmasked",
+      "sha256": "116af0fc853dad9b457ed09d126242b536b4f9258a0b500d22d69cb42a1de71f",
+      "shape": [
+        1,
+        1,
+        1,
+        200
+      ]
+    },
+    "input_features.u16le.bin": {
+      "bytes": 480000,
+      "dtype": "uint16_le",
+      "role": "canonical encoder input_features for question_en.wav",
+      "sha256": "29c478d40bb98b7782280dcfbc98662cee514df7e62c180c5ba849db24a2f6a1",
+      "shape": [
+        1,
+        80,
+        3000
+      ]
+    },
+    "input_ids_step0.i32le.bin": {
+      "bytes": 4,
+      "dtype": "int32_le",
+      "role": "decoder step-0 start-of-transcript token",
+      "sha256": "eea21505fadd32ed72c78271dfbdf37c5bcb00f41b51e44e0e8a8d8eb9dbdfe7",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    "mel_filters.f32le.bin": {
+      "bytes": 64320,
+      "dtype": "float32_le",
+      "role": "canonical Hugging Face Slaney mel projection matrix",
+      "sha256": "d18b48f33345d958ea71098bb990b5e32cebc78d9a2cf65ca0d7302f34ebe8a9",
+      "shape": [
+        201,
+        80
+      ]
+    },
+    "position_ids_step0.i32le.bin": {
+      "bytes": 4,
+      "dtype": "int32_le",
+      "role": "decoder step-0 position ID",
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "shape": [
+        1
+      ]
+    },
+    "self_kv_zero_template.u8.bin": {
+      "bytes": 152832,
+      "dtype": "uint8",
+      "role": "one logical-zero byte template reusable for each of 12 self-K and 12 self-V tensors; V has shape [12,1,199,64] with equal byte count",
+      "sha256": "df75a967b954ebddbc0176f41a5564065e193b165586c071481e6cc1bf71aedb",
+      "shape": [
+        12,
+        1,
+        64,
+        199
+      ]
+    }
+  },
+  "blockers": [
+    {
+      "code": "full_asr_output_tokens_unavailable_offline",
+      "detail": "Whisper-small host weights and host encoder/decoder outputs are not cached. This fixture therefore pins frontend bytes, decoder step-0 state, and detokenization only; it does not invent inference tokens."
+    },
+    {
+      "code": "runner_and_app_uid_evidence_pending",
+      "detail": "The ORT-QNN readiness gate still requires a bound Android runner manifest and app-UID execution evidence on the SM8850 phone."
+    }
+  ],
+  "canonical_audio": {
+    "bytes": 105682,
+    "channels": 1,
+    "filename": "question_en.wav",
+    "frames": 52819,
+    "normalization": "float32(int16) / 32768.0",
+    "padded_samples": 480000,
+    "pcm_sha256": "e46de49ab58c33d12ffa8502f8a12d9ed0810bb38ece8f7522be57ef236cff4f",
+    "sample_rate_hz": 16000,
+    "sample_width_bytes": 2,
+    "sha256": "b5fa81a74e608624b52fb3e4cf895d6982a455022597a0da0ad3dc52866f8b69",
+    "text": "What is the capital of France? Answer in one short sentence."
+  },
+  "decoder_step0": {
+    "attention_mask": {
+      "logical_negative": -100.0,
+      "logical_zero_index": 199,
+      "quantization": {
+        "dtype": "uint16",
+        "scale": 0.0015259021893143654,
+        "zero_point": 65535
+      },
+      "quantized_negative": 0,
+      "quantized_zero": 65535
+    },
+    "decode_length": 200,
+    "input_id": 50258,
+    "position_id": 0,
+    "self_kv": {
+      "k_shape_per_layer": [
+        12,
+        1,
+        64,
+        199
+      ],
+      "layers": 12,
+      "logical_zero_uint8": 128,
+      "template_reuse_count": 24,
+      "v_shape_per_layer": [
+        12,
+        1,
+        199,
+        64
+      ]
+    }
+  },
+  "fixture_id": "whisper_small_quantized_ort_qnn_frontend_golden_v1",
+  "frontend": {
+    "algorithm": [
+      "right-pad float32 PCM to 480000 samples",
+      "periodic Hann window; n_fft=400; hop_length=160",
+      "torch.stft centered with reflective padding; drop final frame",
+      "square complex magnitudes",
+      "multiply by the pinned 201x80 Hugging Face Slaney mel matrix",
+      "clamp to 1e-10 and take log10",
+      "clamp to global maximum minus 8",
+      "apply (x + 4) / 4",
+      "cast to float64, affine-quantize with np.rint, then clamp to uint16"
+    ],
+    "float_output": {
+      "dtype": "float32_le",
+      "maximum": 1.3470911979675293,
+      "minimum": -0.6529088020324707,
+      "sha256": "8864a2c385f2f768e7719297735cc857a2d3c938c9f775f9e706506f516c6f41",
+      "shape": [
+        1,
+        80,
+        3000
+      ]
+    },
+    "input_features_quantization": {
+      "dtype": "uint16",
+      "intermediate_dtype": "float64",
+      "maximum": 60874,
+      "minimum": 18112,
+      "rounding": "np.rint (ties to even)",
+      "scale": 4.677007018472068e-05,
+      "zero_point": 32072
+    },
+    "mel_filters": {
+      "dtype": "float32_le",
+      "norm": "slaney",
+      "scale": "slaney",
+      "sha256": "d18b48f33345d958ea71098bb990b5e32cebc78d9a2cf65ca0d7302f34ebe8a9",
+      "shape": [
+        201,
+        80
+      ]
+    },
+    "sample_rate_hz": 16000
+  },
+  "model": {
+    "attention_dimension": 768,
+    "decoder_heads": 12,
+    "decoder_layers": 12,
+    "id": "whisper_small_quantized",
+    "metadata_sha256": "451c583967ff6262c4afeee71ec32add18c54c49cefa5a4fc464b4388b31a9c0",
+    "precision": "w8a16",
+    "runtime": "precompiled_qnn_onnx"
+  },
+  "policy": {
+    "adb_invoked": false,
+    "android_modules_edited": false,
+    "host_model_inference_run": false,
+    "network_used": false,
+    "phone_mutated": false,
+    "training_or_finetuning_run": false
+  },
+  "schema_version": 1,
+  "scope": {
+    "does_not_prove": [
+      "encoder or decoder execution",
+      "NPU delegation",
+      "ASR transcript correctness",
+      "on-device latency"
+    ],
+    "proves": [
+      "canonical audio preprocessing bytes",
+      "release input quantization semantics",
+      "decoder step-0 initialization bytes",
+      "QAI tiktoken-to-vocab equivalence",
+      "byte-safe UTF-8 detokenization semantics"
+    ]
+  },
+  "sources": {
+    "mlx_whisper_tokenizer_wheel": {
+      "bytes": 890544,
+      "filename": "2cdfd52d92d49743bb243f8964da47f7058730ae2f8066049bd80ee7.body",
+      "member": "mlx_whisper/assets/multilingual.tiktoken",
+      "member_bytes": 816730,
+      "member_sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+      "sha256": "6b82b6597a994643a3e5496c7bc229a672e5ca308458455bfe276e76ae024489",
+      "version": "0.4.3"
+    },
+    "model_release": {
+      "bytes": 294053273,
+      "filename": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5-v0.55.0.zip",
+      "sha256": "3cc2d238a167b7fc9094ae02a08d5cfdab0238fd8211ccde97bb7ff2897dd1be"
+    },
+    "qai_hub_models_wheel": {
+      "bytes": 5468385,
+      "filename": "fc2b9e9ac8cc7c49cdc2cd3b13a7596f301eaea0f6b12a0f252f1d12.body",
+      "requested_transformers": "4.56.2",
+      "sha256": "496bec7d97e8bc1a646ce51f921864a32ab2eea94b0c02258ddf6385cc23cabb",
+      "source_members": {
+        "qai_hub_models-0.55.0.dist-info/METADATA": {
+          "bytes": 108454,
+          "sha256": "f102660dfb02ee07b1c54832f5286621ef8ae7e009c706fe21943401a0dae02e"
+        },
+        "qai_hub_models/models/_shared/hf_whisper/app.py": {
+          "bytes": 13575,
+          "sha256": "3cab6d02bc59fbacfd7cd16b6cbc8cb95cbc64df7dcbcb939aeaf6658044db11"
+        },
+        "qai_hub_models/models/_shared/hf_whisper/model.py": {
+          "bytes": 12366,
+          "sha256": "25493f6ca1fa3a1b2a26ede34159930cde0377c8d490baf7ef993b24f94cd72e"
+        },
+        "qai_hub_models/models/_shared/hf_whisper/utils.py": {
+          "bytes": 4096,
+          "sha256": "658abce4a4443ae747d861ee562183074bb5c745a6198ac375c92724f91592c9"
+        },
+        "qai_hub_models/models/whisper_small/model.py": {
+          "bytes": 823,
+          "sha256": "93ebf47f5c154e7727065a1b92ddd30edef4cddf4f981074dd90de1e3893c65c"
+        },
+        "qai_hub_models/models/whisper_small_quantized/model.py": {
+          "bytes": 4778,
+          "sha256": "b4fddf87c1d215da32cf12d31061a37e64e9dbcf91e2500d277dee69d5213425"
+        },
+        "qai_hub_models/utils/runtime_torch_wrapper.py": {
+          "bytes": 15775,
+          "sha256": "7023b4278eb345f3ba4f055a2f1a767b99b05879eba5bd2d4a28b6e1adb4ee4c"
+        }
+      },
+      "version": "0.55.0"
+    },
+    "transformers_reference_wheel": {
+      "bytes": 11608197,
+      "filename": "d33ed4d1e74a493f2a4360a20a9e457c38c63959ac014f11e6fc341a.body",
+      "note": "QAI 0.55 requests 4.56.2, which is not cached. The explicit canonical algorithm is pinned to source/output hashes and the available 4.56.1 reference implementation.",
+      "sha256": "1697af6addfb6ddbce9618b763f4b52d5a756f6da4899ffd1b4febf58b779248",
+      "source_members": {
+        "transformers/audio_utils.py": {
+          "bytes": 54305,
+          "sha256": "9c4179a3bd2859ac094056e083f735d11a04e02b4014bb88059c380da65476f5"
+        },
+        "transformers/models/whisper/feature_extraction_whisper.py": {
+          "bytes": 16171,
+          "sha256": "e37bf304b0c28d4f1ad3637cfa6b8b4d8d95e017bb4390f46d23f491d537df88"
+        }
+      },
+      "version": "4.56.1"
+    },
+    "voice_ai_release": {
+      "bytes": 294167485,
+      "filename": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip",
+      "sha256": "7472bd2bdc06d71dd95039ff2202e8bd8bf8e89dcd1a8cef02c8724dd91af69c",
+      "vocab_member": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/vocab.bin",
+      "vocab_sha256": "0ba87984671b92e03b56b84ce9b217020663f6a269b5a9800901391430b79c4b"
+    }
+  },
+  "tokenizer": {
+    "byte_decode": "concatenate token bytes, then decode UTF-8 once",
+    "empty_token_id": 50256,
+    "first_special_token_id": 50257,
+    "mergeable_token_count": 50257,
+    "model_output_ids_at_or_above_first_special": "skip during byte detokenization",
+    "raw_nul_token_id": 188,
+    "reference_text": {
+      "leading_space_token_ids": [
+        708,
+        307,
+        264,
+        4238,
+        295,
+        6190,
+        30,
+        24545,
+        294,
+        472,
+        2099,
+        8174,
+        13
+      ],
+      "text": "What is the capital of France? Answer in one short sentence.",
+      "token_ids": [
+        3748,
+        307,
+        264,
+        4238,
+        295,
+        6190,
+        30,
+        24545,
+        294,
+        472,
+        2099,
+        8174,
+        13
+      ]
+    },
+    "special_token_ids": {
+      "english": 50259,
+      "eot": 50257,
+      "no_timestamps": 50363,
+      "sot": 50258,
+      "transcribe": 50359,
+      "translate": 50358
+    },
+    "tiktoken_sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+    "voice_vocab_bytes": 357313,
+    "voice_vocab_sha256": "0ba87984671b92e03b56b84ce9b217020663f6a269b5a9800901391430b79c4b"
+  }
+}

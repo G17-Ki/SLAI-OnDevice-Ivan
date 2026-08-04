@@ -1,0 +1,624 @@
+{
+  "schema_version": 1,
+  "candidates": [
+    {
+      "id": "matcha_zh_baker",
+      "label": "Matcha ZH (baker)",
+      "language": "zh",
+      "engine": "matcha",
+      "num_threads": 1,
+      "sid": 0,
+      "speed": 1.0,
+      "auto_priority": 10,
+      "files": {
+        "acoustic_model": "matcha-icefall-zh-baker/model-steps-3.onnx",
+        "vocoder": "shared/vocos-22khz-univ.onnx",
+        "lexicon": "matcha-icefall-zh-baker/lexicon.txt",
+        "tokens": "matcha-icefall-zh-baker/tokens.txt",
+        "dict_dir": "matcha-icefall-zh-baker/dict"
+      },
+      "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+    },
+    {
+      "id": "kokoro_en_sarah_v1",
+      "label": "Kokoro EN — Sarah",
+      "language": "en",
+      "engine": "kokoro",
+      "num_threads": 4,
+      "sid": 9,
+      "speed": 1.0,
+      "auto_priority": 0,
+      "files": {
+        "model": "kokoro-multi-lang-v1_0/model.onnx",
+        "voices": "kokoro-multi-lang-v1_0/voices.bin",
+        "tokens": "kokoro-multi-lang-v1_0/tokens.txt",
+        "lexicon": "kokoro-multi-lang-v1_0/lexicon-us-en.txt,kokoro-multi-lang-v1_0/lexicon-zh.txt",
+        "data_dir": "shared/espeak-ng-data",
+        "dict_dir": "kokoro-multi-lang-v1_0/dict"
+      },
+      "notes": "Kokoro-82M v1.0 af_sarah (speaker id 9); user listening approval pending."
+    },
+    {
+      "id": "supertonic3_en_v0_s5",
+      "label": "Supertonic 3 EN — voice 0",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 0,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 0; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_en_v1_s5",
+      "label": "Supertonic 3 EN — voice 1",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 1,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 1; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_en_v2_s5",
+      "label": "Supertonic 3 EN — voice 2",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 2,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 2; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_en_v3_s5",
+      "label": "Supertonic 3 EN — voice 3",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 3,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 3; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_en_v4_s5",
+      "label": "Supertonic 3 EN — voice 4",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 4,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 20,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 4; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_en_v5_s5",
+      "label": "Supertonic 3 EN — voice 5",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 5,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 5; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_en_s5",
+      "label": "Supertonic 3 EN — 5 steps",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+    },
+    {
+      "id": "supertonic3_en_v7_s5",
+      "label": "Supertonic 3 EN — voice 7",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 7,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 7; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_en_v8_s5",
+      "label": "Supertonic 3 EN — voice 8",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 8,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 8; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_en_v9_s5",
+      "label": "Supertonic 3 EN — voice 9",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 9,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 9; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_ru_v0_s5",
+      "label": "Supertonic 3 RU — voice 0",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 0,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 0; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_ru_v1_s5",
+      "label": "Supertonic 3 RU — voice 1",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 1,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 1; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_ru_v2_s5",
+      "label": "Supertonic 3 RU — voice 2",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 2,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 2; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_ru_v3_s5",
+      "label": "Supertonic 3 RU — voice 3",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 3,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 3; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_ru_v4_s5",
+      "label": "Supertonic 3 RU — voice 4",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 4,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 4; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_ru_v5_s5",
+      "label": "Supertonic 3 RU — voice 5",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 5,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 5; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_s5",
+      "label": "Supertonic 3 RU — 5 steps",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+    },
+    {
+      "id": "supertonic3_ru_v7_s5",
+      "label": "Supertonic 3 RU — voice 7",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 7,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 7; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_ru_v8_s5",
+      "label": "Supertonic 3 RU — voice 8",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 8,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 8; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "supertonic3_ru_v9_s5",
+      "label": "Supertonic 3 RU — voice 9",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 9,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "Bundled voice-bank SID 9; same Supertonic graph and 5-step setting as the current voice. Intelligibility and naturalness are unmeasured; user audition required."
+    },
+    {
+      "id": "piper_ru_irina",
+      "label": "Piper RU (irina)",
+      "language": "ru",
+      "engine": "vits",
+      "num_threads": 8,
+      "sid": 0,
+      "speed": 1.0,
+      "auto_priority": 0,
+      "files": {
+        "model": "vits-piper-ru_RU-irina-medium/ru_RU-irina-medium.onnx",
+        "tokens": "vits-piper-ru_RU-irina-medium/tokens.txt",
+        "data_dir": "shared/espeak-ng-data"
+      },
+      "notes": "Best measured Russian intelligibility. Corpus licence Unknown — reference only."
+    },
+    {
+      "id": "piper_ru_ruslan",
+      "label": "Piper RU (ruslan)",
+      "language": "ru",
+      "engine": "vits",
+      "num_threads": 8,
+      "sid": 0,
+      "speed": 1.0,
+      "auto_priority": 20,
+      "files": {
+        "model": "vits-piper-ru_RU-ruslan-medium/ru_RU-ruslan-medium.onnx",
+        "tokens": "vits-piper-ru_RU-ruslan-medium/tokens.txt",
+        "data_dir": "shared/espeak-ng-data"
+      },
+      "notes": "Highest proxy score of the Russian voices. Corpus is CC BY-NC-SA 4.0."
+    },
+    {
+      "id": "supertonic3_es_s5",
+      "label": "Supertonic 3 ES — 5 steps",
+      "language": "es",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "es",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+    },
+    {
+      "id": "supertonic3_fr_s5",
+      "label": "Supertonic 3 FR — 5 steps",
+      "language": "fr",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "fr",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+    }
+  ]
+}

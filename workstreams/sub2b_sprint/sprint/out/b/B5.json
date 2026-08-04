@@ -1,0 +1,947 @@
+{
+  "completed_at_utc": "2026-08-02T08:51:03Z",
+  "denominator": "Exactly 40 native generations per language and 200 per complete model. The >=200 sprint requirement is met across all five languages per model, not per model-language.",
+  "detector_limit": "Mechanical marker detector is a reproducible lower bound; marker-free prose reasoning can be missed.",
+  "evidence_class": "HOST",
+  "missing_or_invalid_models": {},
+  "models": {
+    "falcon_h1_15b": {
+      "all_language_reasoning_leakage": {
+        "count": 0,
+        "n": 200,
+        "rate": 0.0,
+        "wilson_95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "denominator_at_least_200": true,
+      "languages": {
+        "en": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 36,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09641862859446367
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 36,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09641862859446367
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "es": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 36,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09641862859446367
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 37,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09405782583720251
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "fr": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 33,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.10426999754245206
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 36,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09641862859446367
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "ru": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": {
+            "mean": 0.9660251841292469,
+            "minimum": 0.0,
+            "n": 36,
+            "name": "cyrillic_ratio"
+          },
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 32,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.1071791982550706
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 1,
+            "n": 34,
+            "rate": 0.029411764705882353,
+            "wilson_95": [
+              0.0052109062762689395,
+              0.1491557329268593
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "zh": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": {
+            "mean": 0.91937564499484,
+            "minimum": 0.0,
+            "n": 34,
+            "name": "han_ratio"
+          },
+          "traditional_han_leakage": {
+            "count": 0,
+            "maximum_changed_han_fraction": 0.0,
+            "mean_changed_han_fraction": 0.0,
+            "n": 32,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.1071791982550706
+            ]
+          },
+          "wrong_language": {
+            "count": 1,
+            "n": 17,
+            "rate": 0.058823529411764705,
+            "wilson_95": [
+              0.010460400984997592,
+              0.26982030637575405
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 2,
+            "n": 23,
+            "rate": 0.08695652173913043,
+            "wilson_95": [
+              0.024180004484220363,
+              0.26795981075743663
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        }
+      },
+      "mode_pin": {
+        "n": 200,
+        "output_marker_or_initial_deliberation_violations": 0,
+        "prompt_template_violations": 0,
+        "ranking_void": false,
+        "rate": 0.0,
+        "total_violations": 0,
+        "void_threshold": ">0.5%"
+      },
+      "n": 200,
+      "source_hashes": {
+        "build_receipt_sha256": "c94e5a24252c136239cb669e3c3a9e329714c8fc36f58febc20f8cb8e77adfdf",
+        "global_mmlu_raw_sha256": "d84ec5ed9b9e76d3df6e922e7bda70aed186db1b074e09ced3555fa19df54d29",
+        "global_mmlu_receipt_sha256": "96ceeaa32423915c7ab04af76e22eaccc29903c8a39272337ccedbb8bc98eae3",
+        "global_mmlu_rendered_sha256": "11337bc2d42a691931dd7c02490d25ac3423f81e46769750e8ae23d466f410ee",
+        "harness_source_sha256": "3e9b03db7da7ce3e126a4fed80959a2db2b579a59a87cd859c784b9c496c9c2a",
+        "llama_perplexity_launcher_sha256": "3407a0ae6bb48bd300799b965fbe937f4b06a040ff9dcea7917e88cc239dc255",
+        "multiple_choice_binary_sha256": "e85607101c03ea05093c352de99679f0151f9d273e06f94f8face1a646d893c1",
+        "multiple_choice_impl_library_sha256": "2adce2e89998bbcbf220ee92af3ac5b91d8d080712db7cfc7cb7809dbd33f714",
+        "multiple_choice_patch_sha256": "2539f2da48852fa44fdacdba26154e144a01b3986ff7c88dfe6974ac3e4f9dd7",
+        "multiple_choice_patched_source_sha256": "65051abf6eb3e68d26cb2f24b62e2fa1af1bf7ddea96a2db53f944c3f0232b78",
+        "native_generation_raw_sha256": "87445d4efff09ce75ad0c0f9a437d951896d5dd730fb3798d515a649ea421190",
+        "native_generation_receipt_sha256": "33a0c9d3a6bc607dd32b10fbf49bd098107df5abebee50e0fdec0b7f15a8f228",
+        "native_generation_rendered_sha256": "2ebf2023c02bd6a6eeb7439d9981a2d9e698230c22f2741b1f352d486d82279f",
+        "native_score_report_sha256": "e0c45b3168205e64ed4dc65e403e28b5a041f4120f9e1c32716c9835b8c8c8ff",
+        "render_receipt_sha256": "db28ce60352017749a0c328245d878e6d0d08dc098294d6a8218498c0de9fcc6",
+        "scorer_source_sha256": "8fe0dff8b3c081d26a55358ad39340700a57876cbeecdf4b7dccc3116b4290ca"
+      }
+    },
+    "qwen25_15b": {
+      "all_language_reasoning_leakage": {
+        "count": 0,
+        "n": 200,
+        "rate": 0.0,
+        "wilson_95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "denominator_at_least_200": true,
+      "languages": {
+        "en": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 38,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09180986822558396
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "es": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 38,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09180986822558396
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "fr": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 38,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09180986822558396
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "ru": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": {
+            "mean": 0.9270721349675242,
+            "minimum": 0.0,
+            "n": 35,
+            "name": "cyrillic_ratio"
+          },
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 23,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.14311661845042686
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 2,
+            "n": 30,
+            "rate": 0.06666666666666667,
+            "wilson_95": [
+              0.018477023791270378,
+              0.2132345836261692
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "zh": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": {
+            "mean": 0.9611111111111111,
+            "minimum": 0.0,
+            "n": 36,
+            "name": "han_ratio"
+          },
+          "traditional_han_leakage": {
+            "count": 0,
+            "maximum_changed_han_fraction": 0.0,
+            "mean_changed_han_fraction": 0.0,
+            "n": 35,
+            "rate": 0.0,
+            "wilson_95": [
+              6.938893903907228e-18,
+              0.09890099232440402
+            ]
+          },
+          "wrong_language": {
+            "count": 0,
+            "n": 14,
+            "rate": 0.0,
+            "wilson_95": [
+              1.3877787807814457e-17,
+              0.2153108027376358
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 1,
+            "n": 23,
+            "rate": 0.043478260869565216,
+            "wilson_95": [
+              0.007716666143453149,
+              0.20991155070258877
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        }
+      },
+      "mode_pin": {
+        "n": 200,
+        "output_marker_or_initial_deliberation_violations": 0,
+        "prompt_template_violations": 0,
+        "ranking_void": false,
+        "rate": 0.0,
+        "total_violations": 0,
+        "void_threshold": ">0.5%"
+      },
+      "n": 200,
+      "source_hashes": {
+        "build_receipt_sha256": "c94e5a24252c136239cb669e3c3a9e329714c8fc36f58febc20f8cb8e77adfdf",
+        "global_mmlu_raw_sha256": "4a065dbd33147eee34719c70fa7102a8ef3484210d1b22c55d0204db1536f5ba",
+        "global_mmlu_receipt_sha256": "a90f68eadd081975650e2b2f5375e83dd4002420156653f25231287dff3087f5",
+        "global_mmlu_rendered_sha256": "129474e0220088a7110b294231750b5f9cf9abbff89ec162c6f18770118789a7",
+        "harness_source_sha256": "3e9b03db7da7ce3e126a4fed80959a2db2b579a59a87cd859c784b9c496c9c2a",
+        "llama_perplexity_launcher_sha256": "3407a0ae6bb48bd300799b965fbe937f4b06a040ff9dcea7917e88cc239dc255",
+        "multiple_choice_binary_sha256": "bed6ea17507e43b426272874c85d6e21c7dbbc5e19cf39baf34dfb65f121940a",
+        "multiple_choice_impl_library_sha256": "2adce2e89998bbcbf220ee92af3ac5b91d8d080712db7cfc7cb7809dbd33f714",
+        "multiple_choice_patch_sha256": "2539f2da48852fa44fdacdba26154e144a01b3986ff7c88dfe6974ac3e4f9dd7",
+        "multiple_choice_patched_source_sha256": "65051abf6eb3e68d26cb2f24b62e2fa1af1bf7ddea96a2db53f944c3f0232b78",
+        "native_generation_raw_sha256": "d316f32e9d1985c080f9d56e02b752e66f7035db2c3fa578487e19b19a9b0482",
+        "native_generation_receipt_sha256": "a1456104b2aa850f5e542739728593059772bbffd13e47bfc16515dfb753def7",
+        "native_generation_rendered_sha256": "27049abd6472718e6528c74b7c463fde6440c21b1ed63452b6b0423ffe5acd41",
+        "native_score_report_sha256": "ecba8cad70aafeda4c720d373f152d4c524bedfb6e7bf793a58c899845918a55",
+        "render_receipt_sha256": "23b7f1fbb9cbf26adbf32102c420cff70bb16be80f762832aaef7c80788831cb",
+        "scorer_source_sha256": "8fe0dff8b3c081d26a55358ad39340700a57876cbeecdf4b7dccc3116b4290ca"
+      }
+    },
+    "qwen35_08b": {
+      "all_language_reasoning_leakage": {
+        "count": 1,
+        "n": 200,
+        "rate": 0.005,
+        "wilson_95": [
+          0.0008831687156009814,
+          0.02777370439789293
+        ]
+      },
+      "denominator_at_least_200": true,
+      "languages": {
+        "en": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "es": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 1,
+            "n": 40,
+            "rate": 0.025,
+            "wilson_95": [
+              0.0044268315026814095,
+              0.1288136896347409
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 36,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09641862859446367
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 36,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09641862859446367
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "fr": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "ru": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": {
+            "mean": 0.9613087122067212,
+            "minimum": 0.0,
+            "n": 36,
+            "name": "cyrillic_ratio"
+          },
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 30,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.11351339317396876
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 2,
+            "n": 35,
+            "rate": 0.05714285714285714,
+            "wilson_95": [
+              0.015813161857108654,
+              0.1860705742016492
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "zh": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": {
+            "mean": 1.0,
+            "minimum": 1.0,
+            "n": 37,
+            "name": "han_ratio"
+          },
+          "traditional_han_leakage": {
+            "count": 0,
+            "maximum_changed_han_fraction": 0.0,
+            "mean_changed_han_fraction": 0.0,
+            "n": 37,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09405782583720251
+            ]
+          },
+          "wrong_language": {
+            "count": 0,
+            "n": 26,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.1287289218592153
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 33,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.10426999754245206
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        }
+      },
+      "mode_pin": {
+        "n": 200,
+        "output_marker_or_initial_deliberation_violations": 1,
+        "prompt_template_violations": 0,
+        "ranking_void": false,
+        "rate": 0.005,
+        "total_violations": 1,
+        "void_threshold": ">0.5%"
+      },
+      "n": 200,
+      "source_hashes": {
+        "build_receipt_sha256": "c94e5a24252c136239cb669e3c3a9e329714c8fc36f58febc20f8cb8e77adfdf",
+        "global_mmlu_raw_sha256": "9d33083195a9e97a3351b0be36c0dfb5c7e00495d1901bed3f8a46d412e8c80d",
+        "global_mmlu_receipt_sha256": "7bf500dc600eb4a1b6fa4188acf042efff28ae7de4aa76f7b44a7e271eaba474",
+        "global_mmlu_rendered_sha256": "db5ba33e0c364a640482eaad0ca21651a62ce31c9277d13f7a6b99e9e010dd62",
+        "harness_source_sha256": "3e9b03db7da7ce3e126a4fed80959a2db2b579a59a87cd859c784b9c496c9c2a",
+        "llama_perplexity_launcher_sha256": "3407a0ae6bb48bd300799b965fbe937f4b06a040ff9dcea7917e88cc239dc255",
+        "multiple_choice_binary_sha256": "36434beae0a46dcdd48cea6ea554f58aa1982878d52207903dd1f6f0c9b2ae60",
+        "multiple_choice_impl_library_sha256": "2adce2e89998bbcbf220ee92af3ac5b91d8d080712db7cfc7cb7809dbd33f714",
+        "multiple_choice_patch_sha256": "2539f2da48852fa44fdacdba26154e144a01b3986ff7c88dfe6974ac3e4f9dd7",
+        "multiple_choice_patched_source_sha256": "65051abf6eb3e68d26cb2f24b62e2fa1af1bf7ddea96a2db53f944c3f0232b78",
+        "native_generation_raw_sha256": "cfdc2f797ebdd99058f4a9b31f04fc4dfbe321f9f4a9ae52ae71f5a4a8699426",
+        "native_generation_receipt_sha256": "4c94f49204542d8efa31212ea5083a9de68739199d29f4a7c186c35546de2339",
+        "native_generation_rendered_sha256": "6eaa2a15e06c9f471f405eed19ca934c7a9086e533f323e1d249f439525146da",
+        "native_score_report_sha256": "a3499fcdcfacffabba4f5fc5c2a790b57aebb920bc2b946696552f5dbf9d1ab8",
+        "render_receipt_sha256": "d264b7c93317a44200fc104e9c082111bde5eb227f2e658070851d780dd90033",
+        "scorer_source_sha256": "8fe0dff8b3c081d26a55358ad39340700a57876cbeecdf4b7dccc3116b4290ca"
+      }
+    },
+    "qwen3_06b": {
+      "all_language_reasoning_leakage": {
+        "count": 2,
+        "n": 200,
+        "rate": 0.01,
+        "wilson_95": [
+          0.0027466581335444384,
+          0.0357217617161768
+        ]
+      },
+      "denominator_at_least_200": true,
+      "languages": {
+        "en": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 1,
+            "n": 40,
+            "rate": 0.025,
+            "wilson_95": [
+              0.0044268315026814095,
+              0.1288136896347409
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 36,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09641862859446367
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 37,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09405782583720251
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "es": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 39,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08966685370757144
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "fr": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": null,
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 37,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09405782583720251
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 0,
+            "n": 38,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.09180986822558396
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "ru": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 0,
+            "n": 40,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.08762160119728664
+            ]
+          },
+          "script_ratio": {
+            "mean": 0.9579106858054226,
+            "minimum": 0.0,
+            "n": 38,
+            "name": "cyrillic_ratio"
+          },
+          "traditional_han_leakage": null,
+          "wrong_language": {
+            "count": 0,
+            "n": 34,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.10151455415332376
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 2,
+            "n": 36,
+            "rate": 0.05555555555555555,
+            "wilson_95": [
+              0.015369986664161853,
+              0.18144657208647252
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        },
+        "zh": {
+          "n_native_generations": 40,
+          "reasoning_leakage": {
+            "count": 1,
+            "n": 40,
+            "rate": 0.025,
+            "wilson_95": [
+              0.0044268315026814095,
+              0.1288136896347409
+            ]
+          },
+          "script_ratio": {
+            "mean": 0.9351351351351351,
+            "minimum": 0.0,
+            "n": 37,
+            "name": "han_ratio"
+          },
+          "traditional_han_leakage": {
+            "count": 0,
+            "maximum_changed_han_fraction": 0.0,
+            "mean_changed_han_fraction": 0.0,
+            "n": 35,
+            "rate": 0.0,
+            "wilson_95": [
+              6.938893903907228e-18,
+              0.09890099232440402
+            ]
+          },
+          "wrong_language": {
+            "count": 0,
+            "n": 17,
+            "rate": 0.0,
+            "wilson_95": [
+              0.0,
+              0.1843181350088518
+            ]
+          },
+          "wrong_language_eligibility_rule": ">=8 Unicode letters; ineligible short answers are excluded",
+          "wrong_script": {
+            "count": 2,
+            "n": 27,
+            "rate": 0.07407407407407407,
+            "wilson_95": [
+              0.020554654060988622,
+              0.23369592683023144
+            ]
+          },
+          "wrong_script_eligibility_rule": ">=4 script-assigned characters"
+        }
+      },
+      "mode_pin": {
+        "n": 200,
+        "output_marker_or_initial_deliberation_violations": 2,
+        "prompt_template_violations": 0,
+        "ranking_void": true,
+        "rate": 0.01,
+        "total_violations": 2,
+        "void_threshold": ">0.5%"
+      },
+      "n": 200,
+      "source_hashes": {
+        "build_receipt_sha256": "c94e5a24252c136239cb669e3c3a9e329714c8fc36f58febc20f8cb8e77adfdf",
+        "global_mmlu_raw_sha256": "24d6afe82bebfa52c2e16422320279c2a2e40c0d1d847a74b348823a4396cd5e",
+        "global_mmlu_receipt_sha256": "57181b712202a908557e156b97e79617c6e248d6b84787ee38600f19205ca577",
+        "global_mmlu_rendered_sha256": "64d1b3118fe652225ef1ac6cef3975628e9aca4332221856eb4f5883092960e6",
+        "harness_source_sha256": "3e9b03db7da7ce3e126a4fed80959a2db2b579a59a87cd859c784b9c496c9c2a",
+        "llama_perplexity_launcher_sha256": "3407a0ae6bb48bd300799b965fbe937f4b06a040ff9dcea7917e88cc239dc255",
+        "multiple_choice_binary_sha256": "1cda2ae8cce38bbd662b26f84c3280a5574883218aaa91f0e500f1b244f6c2c1",
+        "multiple_choice_impl_library_sha256": "2adce2e89998bbcbf220ee92af3ac5b91d8d080712db7cfc7cb7809dbd33f714",
+        "multiple_choice_patch_sha256": "2539f2da48852fa44fdacdba26154e144a01b3986ff7c88dfe6974ac3e4f9dd7",
+        "multiple_choice_patched_source_sha256": "65051abf6eb3e68d26cb2f24b62e2fa1af1bf7ddea96a2db53f944c3f0232b78",
+        "native_generation_raw_sha256": "2c78fbde254826b879b8279d5731776d97c03d0a0ae23c5cc746606e1df1d4b8",
+        "native_generation_receipt_sha256": "729946b6ce90a9986ff46f576a29aa1a35388098396ea5b8a4dee03c2d576668",
+        "native_generation_rendered_sha256": "d10b34bea09fa4e80e52dc849ecb54083ef2341576d8f132c2cc982eca8e3c34",
+        "native_score_report_sha256": "5a3dd1344ba77aeb817d120a5a5efda551b8206bc90777c647c52af28201c6c7",
+        "render_receipt_sha256": "9a1c7778e35c49acd8cf1af07a233da128712adfd1d633d98c157ec3c553ff0f",
+        "scorer_source_sha256": "8fe0dff8b3c081d26a55358ad39340700a57876cbeecdf4b7dccc3116b4290ca"
+      }
+    }
+  },
+  "prior_context": {
+    "evidence_class": "PRIOR",
+    "n": 63,
+    "not_substituted_for_current_measurement": true,
+    "rate": 0.1746031746031746,
+    "reasoning_leakage_count": 11
+  },
+  "schema_version": "lane-b-b3-b6-assembly/1.0",
+  "sprint_id": "B5",
+  "status": "COMPLETE"
+}

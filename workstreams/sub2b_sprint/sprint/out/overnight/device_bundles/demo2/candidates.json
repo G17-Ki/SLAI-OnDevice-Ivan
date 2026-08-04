@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "candidates": [
+    {
+      "id": "matcha_zh_baker",
+      "label": "Matcha ZH (baker)",
+      "language": "zh",
+      "engine": "matcha",
+      "num_threads": 1,
+      "sid": 0,
+      "speed": 1.0,
+      "auto_priority": 10,
+      "files": {
+        "acoustic_model": "matcha-icefall-zh-baker/model-steps-3.onnx",
+        "vocoder": "shared/vocos-22khz-univ.onnx",
+        "lexicon": "matcha-icefall-zh-baker/lexicon.txt",
+        "tokens": "matcha-icefall-zh-baker/tokens.txt",
+        "dict_dir": "matcha-icefall-zh-baker/dict"
+      },
+      "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+    },
+    {
+      "id": "melotts_zh",
+      "label": "MeloTTS ZH (float32)",
+      "language": "zh",
+      "engine": "vits",
+      "num_threads": 8,
+      "sid": 0,
+      "speed": 1.0,
+      "files": {
+        "model": "vits-melo-tts-zh_en/model.onnx",
+        "lexicon": "vits-melo-tts-zh_en/lexicon.txt",
+        "tokens": "vits-melo-tts-zh_en/tokens.txt",
+        "dict_dir": "vits-melo-tts-zh_en/dict"
+      },
+      "notes": "MIT, no eSpeak dependency, exact-QRD NPU chain passes. Host RTF 0.715 — too slow on CPU."
+    },
+    {
+      "id": "melotts_zh_int8",
+      "label": "MeloTTS ZH (INT8)",
+      "language": "zh",
+      "engine": "vits",
+      "num_threads": 8,
+      "sid": 0,
+      "speed": 1.0,
+      "files": {
+        "model": "vits-melo-tts-zh_en/model.int8.onnx",
+        "lexicon": "vits-melo-tts-zh_en/lexicon.txt",
+        "tokens": "vits-melo-tts-zh_en/tokens.txt",
+        "dict_dir": "vits-melo-tts-zh_en/dict"
+      },
+      "notes": "Included to confirm the host finding on device.",
+      "known_issue": "Host RTF 2.0-2.9, three times slower than float32. Expect it to be unusable."
+    },
+    {
+      "id": "piper_zh_huayan",
+      "label": "Piper ZH (huayan)",
+      "language": "zh",
+      "engine": "vits",
+      "num_threads": 8,
+      "sid": 0,
+      "speed": 1.0,
+      "files": {
+        "model": "vits-piper-zh_CN-huayan-medium/zh_CN-huayan-medium.onnx",
+        "tokens": "vits-piper-zh_CN-huayan-medium/tokens.txt",
+        "data_dir": "shared/espeak-ng-data"
+      },
+      "notes": "Fast and clean on host. Corpus licence is Unknown, so it cannot be recommended."
+    },
+    {
+      "id": "kokoro_zh_fp32",
+      "label": "Kokoro ZH (float32)",
+      "language": "zh",
+      "engine": "kokoro",
+      "num_threads": 4,
+      "sid": 3,
+      "speed": 1.0,
+      "files": {
+        "model": "kokoro-multi-lang-v1_1/model.onnx",
+        "voices": "kokoro-multi-lang-v1_1/voices.bin",
+        "tokens": "kokoro-multi-lang-v1_1/tokens.txt",
+        "lexicon": "kokoro-multi-lang-v1_1/lexicon-us-en.txt,kokoro-multi-lang-v1_1/lexicon-zh.txt",
+        "data_dir": "shared/espeak-ng-data",
+        "dict_dir": "kokoro-multi-lang-v1_1/dict"
+      },
+      "notes": "Correct at short inputs, unlike the INT8 build. Host RTF ~0.97 — barely faster than real time."
+    },
+    {
+      "id": "kokoro_zh_int8",
+      "label": "Kokoro ZH (INT8)",
+      "language": "zh",
+      "engine": "kokoro",
+      "num_threads": 4,
+      "sid": 3,
+      "speed": 1.0,
+      "files": {
+        "model": "kokoro-int8-v1_1-zh/kokoro-int8-multi-lang-v1_1/model.int8.onnx",
+        "voices": "kokoro-int8-v1_1-zh/kokoro-int8-multi-lang-v1_1/voices.bin",
+        "tokens": "kokoro-int8-v1_1-zh/kokoro-int8-multi-lang-v1_1/tokens.txt",
+        "lexicon": "kokoro-int8-v1_1-zh/kokoro-int8-multi-lang-v1_1/lexicon-us-en.txt,kokoro-int8-v1_1-zh/kokoro-int8-multi-lang-v1_1/lexicon-zh.txt",
+        "data_dir": "shared/espeak-ng-data",
+        "dict_dir": "kokoro-int8-v1_1-zh/kokoro-int8-multi-lang-v1_1/dict"
+      },
+      "notes": "Included only so the INT8 defect can be reproduced on device.",
+      "known_issue": "Returns all-non-finite PCM for inputs under 3 Han characters. The app's gate drops those chunks; you will hear silence, not noise."
+    },
+    {
+      "id": "zipvoice_zh",
+      "label": "ZipVoice-distill ZH (ceiling)",
+      "language": "zh",
+      "engine": "zipvoice",
+      "num_threads": 4,
+      "sid": 0,
+      "speed": 1.0,
+      "files": {
+        "encoder": "sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/encoder.int8.onnx",
+        "decoder": "sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/decoder.int8.onnx",
+        "vocoder": "shared/vocos-24khz.onnx",
+        "tokens": "sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/tokens.txt",
+        "lexicon": "sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/lexicon.txt",
+        "data_dir": "shared/espeak-ng-data"
+      },
+      "reference_wav": "sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/test_wavs/news-female.wav",
+      "reference_text": "各位村民, 大家新年好! 近期, 湖北省武汉市等多个地区",
+      "notes": "Zero-shot: clones the prompt clip. Quality ceiling reference, not a phone candidate.",
+      "known_issue": "Host RTF 0.8-3.4 and 1 GiB peak RSS. Expect multi-second first audio."
+    },
+    {
+      "id": "supertonic3_en_s5",
+      "label": "Supertonic 3 EN — 5 steps",
+      "language": "en",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "en",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+    },
+    {
+      "id": "supertonic3_s4",
+      "label": "Supertonic 3 RU — 4 steps",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 4,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: first chunk 0.437 s P95, WER 8.3%"
+    },
+    {
+      "id": "supertonic3_s5",
+      "label": "Supertonic 3 RU — 5 steps",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+    },
+    {
+      "id": "supertonic3_s6",
+      "label": "Supertonic 3 RU — 6 steps",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 6,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: first chunk 0.704 s P95"
+    },
+    {
+      "id": "supertonic3_s8",
+      "label": "Supertonic 3 RU — 8 steps",
+      "language": "ru",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 8,
+      "auto_priority": 0,
+      "extra": {
+        "lang": "ru",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: first chunk 1.316 s P95, RTF P95 0.679 — near the RTF gate"
+    },
+    {
+      "id": "piper_ru_dmitri",
+      "label": "Piper RU (dmitri, CC0)",
+      "language": "ru",
+      "engine": "vits",
+      "num_threads": 8,
+      "sid": 0,
+      "speed": 1.0,
+      "files": {
+        "model": "vits-piper-ru_RU-dmitri-medium/ru_RU-dmitri-medium.onnx",
+        "tokens": "vits-piper-ru_RU-dmitri-medium/tokens.txt",
+        "data_dir": "shared/espeak-ng-data"
+      },
+      "notes": "Only 'clear' verdict on host and the only CC0 Russian corpus found."
+    },
+    {
+      "id": "piper_ru_irina",
+      "label": "Piper RU (irina)",
+      "language": "ru",
+      "engine": "vits",
+      "num_threads": 8,
+      "sid": 0,
+      "speed": 1.0,
+      "files": {
+        "model": "vits-piper-ru_RU-irina-medium/ru_RU-irina-medium.onnx",
+        "tokens": "vits-piper-ru_RU-irina-medium/tokens.txt",
+        "data_dir": "shared/espeak-ng-data"
+      },
+      "notes": "Best measured Russian intelligibility. Corpus licence Unknown — reference only."
+    },
+    {
+      "id": "piper_ru_ruslan",
+      "label": "Piper RU (ruslan)",
+      "language": "ru",
+      "engine": "vits",
+      "num_threads": 8,
+      "sid": 0,
+      "speed": 1.0,
+      "files": {
+        "model": "vits-piper-ru_RU-ruslan-medium/ru_RU-ruslan-medium.onnx",
+        "tokens": "vits-piper-ru_RU-ruslan-medium/tokens.txt",
+        "data_dir": "shared/espeak-ng-data"
+      },
+      "notes": "Highest proxy score of the Russian voices. Corpus is CC BY-NC-SA 4.0."
+    },
+    {
+      "id": "supertonic3_ja_s5",
+      "label": "Supertonic 3 JA — 5 steps",
+      "language": "ja",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "ja",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: first chunk 0.467 s P95; broader Japanese ASR backchecks remain mixed"
+    },
+    {
+      "id": "supertonic3_ko_s5",
+      "label": "Supertonic 3 KO — 5 steps",
+      "language": "ko",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "ko",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: first chunk 0.628 s P95; short Korean sample retranscribed exactly"
+    },
+    {
+      "id": "supertonic3_es_s5",
+      "label": "Supertonic 3 ES — 5 steps",
+      "language": "es",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "es",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+    },
+    {
+      "id": "supertonic3_fr_s5",
+      "label": "Supertonic 3 FR — 5 steps",
+      "language": "fr",
+      "engine": "supertonic",
+      "num_threads": 4,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5,
+      "auto_priority": 10,
+      "extra": {
+        "lang": "fr",
+        "seed": "0"
+      },
+      "files": {
+        "duration_predictor": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/duration_predictor.int8.onnx",
+        "text_encoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/text_encoder.int8.onnx",
+        "vector_estimator": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vector_estimator.int8.onnx",
+        "vocoder": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/vocoder.int8.onnx",
+        "tts_json": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/tts.json",
+        "unicode_indexer": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/unicode_indexer.bin",
+        "voice_style": "supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11/voice.bin"
+      },
+      "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+    }
+  ]
+}

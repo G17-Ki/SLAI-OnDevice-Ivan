@@ -1,0 +1,158 @@
+{
+  "sprint_id": "E6",
+  "title": "Stage the Nubia NX809J deployment bundle and guarded phone scripts",
+  "captured_at_utc": "2026-08-02T05:56:40Z",
+  "status": "STAGED_BLOCKED_APP_RUNNER_MISSING_CPU_STAGE_ONLY",
+  "headline": "A hash-pinned, fail-closed offline bundle and phone runbook are staged, but no execution is authorized: there is no app runner and all staged SM8850 Parakeet contexts compile at QNN 2.40 rather than the exact programme pin QAIRT 2.45.0.260326154327.",
+  "evidence_policy": {
+    "local_file_sizes_and_sha256": "HOST",
+    "binary_header_compile_version": "EXACT",
+    "phone_execution": "NOT_PERFORMED",
+    "phone_measurement": "NONE",
+    "unknowns": "Remain blockers; no compatibility, app or placement result is inferred"
+  },
+  "target": {
+    "device": "Nubia NX809J",
+    "soc": "SM8850",
+    "abi": "arm64-v8a",
+    "htp_arch": "v81"
+  },
+  "version_contract": {
+    "qairt_pin": "2.45.0.260326154327",
+    "match_rule": "EXACT_STRING_EQUALITY",
+    "older_context_allowed": false,
+    "newer_context_allowed": false,
+    "unknown_context_version_allowed": false,
+    "multiple_runtime_providers_per_apk_or_process_allowed": false,
+    "silent_cpu_fallback_allowed": false,
+    "refusal_point": "Before any context is handed to QNN"
+  },
+  "bundle": {
+    "path": "workstreams/sub2b_sprint/sprint/out/e/artifacts/nubia_bundle/",
+    "git_ignored": true,
+    "commit_policy": "Large model, audio and Qualcomm runtime payloads remain ignored; only small control-plane scripts, manifests and marker files are force-added to the lane commit.",
+    "total_files": 46,
+    "total_file_bytes": 760928954,
+    "model_payload_files": 8,
+    "model_payload_bytes": 635553382,
+    "qnn_context_files": 3,
+    "qnn_context_bytes": 634474496,
+    "qnn_context_compile_version": "2.40.0.251030114326_189385",
+    "qnn_context_state": "REFERENCE_ONLY_NPU_BLOCKED",
+    "exact_pin_context_pairs_enabled": 0,
+    "scripts": [
+      "install.sh",
+      "verify.sh",
+      "run.sh",
+      "collect.sh"
+    ],
+    "manifests": [
+      "manifest/qairt_pin.txt",
+      "manifest/npu_pairs.psv",
+      "manifest/payload.psv",
+      "manifest/install_payload.psv",
+      "manifest/blocked_artifacts.json",
+      "manifest/placement_contract.json",
+      "manifest/bundle_manifest.json",
+      "manifest/bundle.sha256",
+      "manifest/artifact_registry.pointer.psv"
+    ]
+  },
+  "runtime": {
+    "provider": "RAW_QAIRT_2_45_MEMBERS",
+    "exact_build": "2.45.0.260326154327",
+    "archive_url": "https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.45.0.260326/v2.45.0.260326.zip",
+    "archive_bytes": 1657471677,
+    "archive_sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+    "archive_disposition": "deleted after verified extraction",
+    "staged_members": 11,
+    "staged_member_bytes": 125314830,
+    "all_staged_member_sizes_and_sha256_match": true,
+    "device_runtime_members": [
+      "libQnnHtp.so",
+      "libQnnHtpV81Stub.so",
+      "libQnnSystem.so",
+      "libQnnHtpV81.so",
+      "libQnnHtpV81Skel.so"
+    ],
+    "app_integrated": false,
+    "qnn_net_run_policy": "ENGINEERING_INPUT_ONLY_NEVER_SHELL_EXECUTE",
+    "licence_boundary": "Runtime object code must be incorporated into the authorized application under the bundled Qualcomm licence and notice."
+  },
+  "app": {
+    "apk_present": false,
+    "package_identity": null,
+    "apk_sha256": null,
+    "runner_protocol_present": false,
+    "status": "BLOCKED_APP_RUNNER_MISSING",
+    "shell_runner_substitution_allowed": false
+  },
+  "script_contract": {
+    "host_assumptions": [
+      "POSIX shell and normal POSIX utilities",
+      "adb"
+    ],
+    "device_assumptions": [
+      "Android toybox",
+      "run-as enabled for the authorized harness package"
+    ],
+    "device_selection": "Exactly one adb row and it must be state=device; verify NX809J, SM8850 and arm64-v8a properties",
+    "hashing": "Local payload and runtime bytes are streamed through device toybox sha256sum; installed files are hashed at final app-owned paths",
+    "ownership": "Package-manager UID must equal run-as UID; root, shell and non-package inference processes are rejected",
+    "networking": "Any adb forward is rejected; run.sh forces and verifies airplane mode",
+    "runtime_mapping": "collect.sh rejects QNN mappings from /system or /vendor",
+    "mismatch_signatures": [
+      "Using newer context binary on old SDK",
+      "err 0x1388",
+      "Qnn API version ... mismatch",
+      "Can't create context from binary. Error 5000",
+      "Qnn System library version ... mismatch"
+    ]
+  },
+  "validation": {
+    "bash_n": "PASS",
+    "shellcheck": "PASS",
+    "mock_adb": {
+      "real_adb_invocations": 0,
+      "cases": 7,
+      "passed": 7,
+      "checks": [
+        "missing APK blocks before adb",
+        "direct NPU request blocks on 2.40/2.45 mismatch",
+        "zero devices rejected",
+        "non-SM8850 target rejected",
+        "one mocked NX809J/SM8850 arm64 target accepted",
+        "adb forward rejected",
+        "adb-forward query failure rejected"
+      ]
+    }
+  },
+  "phone_activity": {
+    "phone_connected": false,
+    "adb_calls_to_real_device": 0,
+    "files_pushed": 0,
+    "apks_installed": 0,
+    "contexts_loaded": 0,
+    "inference_runs": 0
+  },
+  "hard_blocks": [
+    "BLOCKED_APP_RUNNER_MISSING",
+    "CPU_STAGE_ONLY: no complete CPU five-language stack is staged",
+    "Zero exact-2.45 QNN contexts are staged",
+    "The staged 2.40 Parakeet contexts must never be paired with the staged 2.45 runtime",
+    "E1 account cannot currently select SM8850 for the required Parakeet recompile",
+    "Sample-audio redistribution rights remain unresolved"
+  ],
+  "next_authorized_actions": [
+    "Integrate a hash-pinned app-UID runner and exact one QAIRT provider",
+    "Acquire or compile SM8850 contexts at exact 2.45 and register their hashes",
+    "Integrate the selected complete CPU and/or NPU stack from lanes A-D",
+    "Then follow PHONE_RUNBOOK.md when the phone is physically available"
+  ],
+  "sources": [
+    "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+    "workstreams/sub2b_sprint/sprint/out/e/E5.json",
+    "workstreams/sub2b_sprint/sprint/out/e/artifact_registry.json",
+    "reports/android_phone/model_sweep_20260729/qairt245_supertonic_isolated_spec.json"
+  ]
+}

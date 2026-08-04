@@ -1,0 +1,518 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T10:10:48.960945+00:00",
+  "input_audio": {
+    "filename": "ko_short.wav",
+    "sha256": "143dc3f8d4718083e21dd104479adc4810967008d91c45f833038a1c6a3ee1cb"
+  },
+  "playback_simulation": {
+    "initial_cushion_ms": 140.0,
+    "later_margin_ms": 20.0,
+    "note": "Scheduled playback is a deterministic simulation of the Android WebView queue. It is not an acoustic measurement of the speaker output."
+  },
+  "summary": {
+    "measured_runs": 3,
+    "timing": {
+      "first_text_ms": {
+        "min": 134.0357093140483,
+        "median": 135.12783264741302,
+        "p95": 141.86933264136314,
+        "max": 141.86933264136314,
+        "mean": 137.01095820094147
+      },
+      "first_speakable_text_ms": {
+        "min": 250.37033390253782,
+        "median": 251.1189579963684,
+        "p95": 258.1032500602305,
+        "max": 258.1032500602305,
+        "mean": 253.1975139863789
+      },
+      "response_complete_ms": {
+        "min": 260.2944169193506,
+        "median": 260.35208301618695,
+        "p95": 268.10620771721005,
+        "max": 268.10620771721005,
+        "mean": 262.9175692175825
+      },
+      "largest_pcm_arrival_gap_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    "runs_with_simulated_underflow": 0,
+    "total_simulated_underflows": 0,
+    "runs_with_simulated_gap": 0,
+    "max_simulated_gap_ms": 0.0,
+    "cushion_comparison": {
+      "100": {
+        "runs_with_gap": 0,
+        "total_gaps": 0,
+        "max_gap_ms": 0.0,
+        "first_playback_scheduled_ms": {
+          "min": null,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "mean": null
+        }
+      },
+      "140": {
+        "runs_with_gap": 0,
+        "total_gaps": 0,
+        "max_gap_ms": 0.0,
+        "first_playback_scheduled_ms": {
+          "min": null,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "mean": null
+        }
+      },
+      "200": {
+        "runs_with_gap": 0,
+        "total_gaps": 0,
+        "max_gap_ms": 0.0,
+        "first_playback_scheduled_ms": {
+          "min": null,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "mean": null
+        }
+      },
+      "300": {
+        "runs_with_gap": 0,
+        "total_gaps": 0,
+        "max_gap_ms": 0.0,
+        "first_playback_scheduled_ms": {
+          "min": null,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "mean": null
+        }
+      },
+      "400": {
+        "runs_with_gap": 0,
+        "total_gaps": 0,
+        "max_gap_ms": 0.0,
+        "first_playback_scheduled_ms": {
+          "min": null,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "mean": null
+        }
+      },
+      "500": {
+        "runs_with_gap": 0,
+        "total_gaps": 0,
+        "max_gap_ms": 0.0,
+        "first_playback_scheduled_ms": {
+          "min": null,
+          "median": null,
+          "p95": null,
+          "max": null,
+          "mean": null
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_index": 0,
+      "measured": false,
+      "mode": "asr",
+      "audio": "ko_short.wav",
+      "url": "http://127.0.0.1:8080/v1/chat/completions",
+      "headers_ms": 16.072416212409735,
+      "first_event_ms": 465.4405410401523,
+      "first_text_ms": 465.4405410401523,
+      "first_speakable_text_ms": 580.4451662115753,
+      "first_speakable_text": "Bullo nijo sega tuadri keo.",
+      "first_pcm_ms": null,
+      "first_playback_scheduled_ms": null,
+      "response_complete_ms": 590.2831661514938,
+      "playback_complete_scheduled_ms": null,
+      "audio_stream_tail_buffer_ms": null,
+      "largest_pcm_arrival_gap_ms": 0.0,
+      "playback_underflows_simulated": 0,
+      "playback_gap_count_simulated": 0,
+      "playback_max_gap_ms_simulated": 0.0,
+      "playback_total_gap_ms_simulated": 0.0,
+      "playback_simulations": {
+        "100": {
+          "initial_cushion_ms": 100.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "140": {
+          "initial_cushion_ms": 140.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "200": {
+          "initial_cushion_ms": 200.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "300": {
+          "initial_cushion_ms": 300.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "400": {
+          "initial_cushion_ms": 400.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "500": {
+          "initial_cushion_ms": 500.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        }
+      },
+      "audio_packet_timeline": [],
+      "audio_chunks": 0,
+      "audio_samples": 0,
+      "sample_rate": null,
+      "first_chunk_ms": null,
+      "generated_audio_seconds": null,
+      "sse_events": 14,
+      "text": "Bullo nijo sega tuadri keo."
+    },
+    {
+      "run_index": 1,
+      "measured": true,
+      "mode": "asr",
+      "audio": "ko_short.wav",
+      "url": "http://127.0.0.1:8080/v1/chat/completions",
+      "headers_ms": 4.794915672391653,
+      "first_event_ms": 141.86933264136314,
+      "first_text_ms": 141.86933264136314,
+      "first_speakable_text_ms": 258.1032500602305,
+      "first_speakable_text": "Bullo nijo sega tuadri keo.",
+      "first_pcm_ms": null,
+      "first_playback_scheduled_ms": null,
+      "response_complete_ms": 268.10620771721005,
+      "playback_complete_scheduled_ms": null,
+      "audio_stream_tail_buffer_ms": null,
+      "largest_pcm_arrival_gap_ms": 0.0,
+      "playback_underflows_simulated": 0,
+      "playback_gap_count_simulated": 0,
+      "playback_max_gap_ms_simulated": 0.0,
+      "playback_total_gap_ms_simulated": 0.0,
+      "playback_simulations": {
+        "100": {
+          "initial_cushion_ms": 100.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "140": {
+          "initial_cushion_ms": 140.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "200": {
+          "initial_cushion_ms": 200.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "300": {
+          "initial_cushion_ms": 300.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "400": {
+          "initial_cushion_ms": 400.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "500": {
+          "initial_cushion_ms": 500.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        }
+      },
+      "audio_packet_timeline": [],
+      "audio_chunks": 0,
+      "audio_samples": 0,
+      "sample_rate": null,
+      "first_chunk_ms": null,
+      "generated_audio_seconds": null,
+      "sse_events": 14,
+      "text": "Bullo nijo sega tuadri keo."
+    },
+    {
+      "run_index": 2,
+      "measured": true,
+      "mode": "asr",
+      "audio": "ko_short.wav",
+      "url": "http://127.0.0.1:8080/v1/chat/completions",
+      "headers_ms": 2.9440843500196934,
+      "first_event_ms": 134.0357093140483,
+      "first_text_ms": 134.0357093140483,
+      "first_speakable_text_ms": 250.37033390253782,
+      "first_speakable_text": "Bullo nijo sega tuadri keo.",
+      "first_pcm_ms": null,
+      "first_playback_scheduled_ms": null,
+      "response_complete_ms": 260.2944169193506,
+      "playback_complete_scheduled_ms": null,
+      "audio_stream_tail_buffer_ms": null,
+      "largest_pcm_arrival_gap_ms": 0.0,
+      "playback_underflows_simulated": 0,
+      "playback_gap_count_simulated": 0,
+      "playback_max_gap_ms_simulated": 0.0,
+      "playback_total_gap_ms_simulated": 0.0,
+      "playback_simulations": {
+        "100": {
+          "initial_cushion_ms": 100.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "140": {
+          "initial_cushion_ms": 140.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "200": {
+          "initial_cushion_ms": 200.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "300": {
+          "initial_cushion_ms": 300.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "400": {
+          "initial_cushion_ms": 400.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "500": {
+          "initial_cushion_ms": 500.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        }
+      },
+      "audio_packet_timeline": [],
+      "audio_chunks": 0,
+      "audio_samples": 0,
+      "sample_rate": null,
+      "first_chunk_ms": null,
+      "generated_audio_seconds": null,
+      "sse_events": 14,
+      "text": "Bullo nijo sega tuadri keo."
+    },
+    {
+      "run_index": 3,
+      "measured": true,
+      "mode": "asr",
+      "audio": "ko_short.wav",
+      "url": "http://127.0.0.1:8080/v1/chat/completions",
+      "headers_ms": 3.0153747648000717,
+      "first_event_ms": 135.12783264741302,
+      "first_text_ms": 135.12783264741302,
+      "first_speakable_text_ms": 251.1189579963684,
+      "first_speakable_text": "Bullo nijo sega tuadri keo.",
+      "first_pcm_ms": null,
+      "first_playback_scheduled_ms": null,
+      "response_complete_ms": 260.35208301618695,
+      "playback_complete_scheduled_ms": null,
+      "audio_stream_tail_buffer_ms": null,
+      "largest_pcm_arrival_gap_ms": 0.0,
+      "playback_underflows_simulated": 0,
+      "playback_gap_count_simulated": 0,
+      "playback_max_gap_ms_simulated": 0.0,
+      "playback_total_gap_ms_simulated": 0.0,
+      "playback_simulations": {
+        "100": {
+          "initial_cushion_ms": 100.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "140": {
+          "initial_cushion_ms": 140.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "200": {
+          "initial_cushion_ms": 200.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "300": {
+          "initial_cushion_ms": 300.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "400": {
+          "initial_cushion_ms": 400.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        },
+        "500": {
+          "initial_cushion_ms": 500.0,
+          "later_margin_ms": 20.0,
+          "first_playback_scheduled_ms": null,
+          "playback_complete_scheduled_ms": null,
+          "underflows": 0,
+          "gap_count": 0,
+          "total_gap_ms": 0.0,
+          "max_gap_ms": 0.0,
+          "trace": []
+        }
+      },
+      "audio_packet_timeline": [],
+      "audio_chunks": 0,
+      "audio_samples": 0,
+      "sample_rate": null,
+      "first_chunk_ms": null,
+      "generated_audio_seconds": null,
+      "sse_events": 14,
+      "text": "Bullo nijo sega tuadri keo."
+    }
+  ]
+}

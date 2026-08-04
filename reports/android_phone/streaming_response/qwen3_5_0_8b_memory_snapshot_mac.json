@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "created_at_local": "2026-07-22T23:17:00+08:00",
+  "evidence_class": "Steady process snapshot after the 84-request Apple M2 diagnostic; not peak RSS and not phone/NPU evidence.",
+  "model": {
+    "name": "Qwen3.5-0.8B-Q4_0",
+    "gguf_filename": "Qwen3.5-0.8B-Q4_0.gguf",
+    "gguf_size_bytes": 563036064,
+    "gguf_sha256": "57d1997790d1744fba5b40a7317df71ea5e2acee28c47e78f0cce39c0703f8cf"
+  },
+  "server": {
+    "llama_cpp_build_directory": "llama-cpp-b10083",
+    "context_tokens": 512,
+    "gpu_layers": 99,
+    "reasoning": "off"
+  },
+  "measurement": {
+    "command": "ps -p PID -o pid=,rss=,%cpu=,etime=,command=",
+    "rss_kib": 1377824,
+    "rss_mib": 1345.53125,
+    "cpu_percent_at_snapshot": 0.3,
+    "server_elapsed_at_snapshot": "00:53"
+  },
+  "gate": {
+    "model_process_peak_gate_mib": 1331,
+    "interpretation": "The steady snapshot already exceeds the 1331 MiB peak gate; a peak measurement cannot improve this verdict."
+  },
+  "provenance": "Hand-recorded from the terminal process snapshot immediately before stopping the detached server. No measured value was transformed except KiB-to-MiB division by 1024."
+}

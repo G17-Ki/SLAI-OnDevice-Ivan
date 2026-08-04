@@ -1,0 +1,5945 @@
+{
+  "schema_version": 1,
+  "sprint_id": "G3",
+  "lane": "G",
+  "status": "COMPLETE_WITH_CAP_FAILURES_AND_PLAUSIBLE_DURATION_UNRESOLVED",
+  "evidence_class": "HOST",
+  "exact_hash_evidence_class": "EXACT",
+  "final_verdict": {
+    "overall": "FAIL",
+    "by_language": {
+      "en": "FAIL",
+      "es": "FAIL",
+      "fr": "FAIL",
+      "ru": "UNRESOLVED",
+      "zh": "FAIL"
+    },
+    "registered_waveform_gate": "PASS_42_OF_42",
+    "supplemental_cap_gate": "FAIL_23_OF_42",
+    "effective_safe_attempts": 0,
+    "effective_unsafe_attempts": 23,
+    "effective_unresolved_attempts": 19,
+    "safe_languages": [],
+    "unsafe_languages": [
+      "en",
+      "es",
+      "fr",
+      "zh"
+    ],
+    "unresolved_languages": [
+      "ru"
+    ],
+    "plausible_duration_warning_is_route_clearance_disqualifying": true
+  },
+  "headline": {
+    "attempted": 42,
+    "registered_raw_stereo_gate_passed": 42,
+    "registered_serialized_mono_gate_passed": 42,
+    "max_new_frames_hit_count": 23,
+    "effective_safe": 0,
+    "effective_unsafe": 23,
+    "effective_unresolved": 19,
+    "unsafe_language_count": 4,
+    "safe_language_count": 0,
+    "unresolved_language_count": 1
+  },
+  "model": {
+    "tts_repo": "OpenMOSS-Team/MOSS-TTS-Nano-100M",
+    "tts_revision": "44502f80dbf9743528fa921cc544d662c685ebec",
+    "tts_weight_sha256": "24003f2f11ac8a2cbf70514db2d8f1c02fb451aa6b3c0bffc9da09f31cd7caa5",
+    "tts_parameters": 117311232,
+    "codec_repo": "OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano",
+    "codec_revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+    "codec_weight_sha256": "34d9880d805eecb21bde975202b1c256dbd0eb98c8680b9d3aeffd2bc6ac2f67",
+    "codec_parameters": 21969664,
+    "combined_parameters": 139280896,
+    "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be"
+  },
+  "registered_waveform_gate": {
+    "source_path": "D3.json",
+    "source_sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+    "definition": {
+      "finite": "all PCM samples finite",
+      "nonempty": "sample_count > 0",
+      "minimum_rms_dbfs_exclusive": -50,
+      "minimum_rms_linear_exclusive": 0.0031622776601683794,
+      "duration_seconds_inclusive": [
+        0.15,
+        30.0
+      ],
+      "sustained_clipping_dbfs": -0.1,
+      "sustained_clipping_linear": 0.9885530946569389,
+      "failure_rule": "fail if a contiguous run above the clipping threshold exceeds 5 ms"
+    },
+    "definition_canonical_sha256": "a050a65b134a0c32c0664b5f9b5f3a902e3f7b29f25c1c250ead1a38bce5f299",
+    "preserved_without_modification": true,
+    "application_order": [
+      "raw 48 kHz stereo decoder tensor",
+      "registered waveform gate",
+      "arithmetic-mean downmix to mono",
+      "PCM16 WAV serialization",
+      "same registered waveform gate on retained file"
+    ],
+    "raw_stereo_passed": 42,
+    "serialized_mono_passed": 42
+  },
+  "supplemental_probable_nontermination_or_truncation_gate": {
+    "id": "MAX_NEW_FRAMES_HIT",
+    "predeclared_for_G3_aggregation": true,
+    "rule": "FAIL when generated_frames >= max_new_frames",
+    "configured_max_new_frames": 120,
+    "failure_label": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+    "reason": "A short-input output that reaches the hard generation ceiling did not demonstrate normal termination; the retained audio may be nonterminated or truncated.",
+    "relationship_to_registered_gate": "Separate supplemental disqualifier; it does not modify or retroactively reinterpret the registered waveform gate.",
+    "passed": 19,
+    "failed": 23
+  },
+  "protocol": {
+    "battery": {
+      "texts_by_language": {
+        "en": [
+          "A",
+          "OK",
+          "Yes",
+          "Hello",
+          "Hello there",
+          "Hello there friend"
+        ],
+        "es": [
+          "A",
+          "Sí",
+          "Sol",
+          "Hola",
+          "Hola mundo",
+          "Hola mundo ahora"
+        ],
+        "fr": [
+          "À",
+          "Ça",
+          "Oui",
+          "Bonjour",
+          "Bonjour Marie",
+          "Bonjour mon ami"
+        ],
+        "ru": [
+          "Я",
+          "Да",
+          "Нет",
+          "Привет",
+          "Привет мир",
+          "Привет мой друг"
+        ],
+        "zh": [
+          "好",
+          "好的",
+          "没问题",
+          "你",
+          "你好",
+          "你好呀"
+        ]
+      },
+      "attempts_by_language": {
+        "en": 6,
+        "es": 6,
+        "fr": 6,
+        "ru": 6,
+        "zh": 18
+      },
+      "repeat_policy": "one draw per non-ZH text; three draws per ZH text",
+      "total_attempts": 42
+    },
+    "generation": {
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "do_sample": true,
+      "seed_derivation": "big-endian uint32 from first four bytes of SHA-256('lane-g-moss-v1:g3:{case_id}:{repeat}')",
+      "all_seeds_recomputed_and_matched": true,
+      "external_text_preprocessing": "none; exact frozen input passed to SentencePiece",
+      "sample_rate_hz": 48000,
+      "decoder_channels": 2,
+      "audio_codebooks": 16,
+      "attention_implementation": "sdpa"
+    },
+    "prompts": {
+      "en_4.wav": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "zh_1.wav": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      }
+    },
+    "host": {
+      "platform": "macOS-15.4.1-arm64-arm-64bit",
+      "machine": "arm64",
+      "cpu": "Apple M2",
+      "python": "3.11.11",
+      "torch": "2.9.1",
+      "transformers": "4.57.1",
+      "numpy": "2.2.6",
+      "soundfile": "0.13.1",
+      "threads": 4,
+      "device": "cpu"
+    }
+  },
+  "language_results": [
+    {
+      "language": "en",
+      "attempted": 6,
+      "registered_raw_stereo_gate_passed": 6,
+      "registered_serialized_mono_gate_passed": 6,
+      "supplemental_cap_gate_passed": 3,
+      "supplemental_cap_gate_failed": 3,
+      "effective_safe_attempts": 0,
+      "effective_unresolved_attempts": 3,
+      "effective_unsafe_attempts": 3,
+      "cap_hit_record_ids": [
+        "en_01_r1",
+        "en_04_r1",
+        "en_05_r1"
+      ],
+      "unresolved_record_ids": [
+        "en_02_r1",
+        "en_03_r1",
+        "en_06_r1"
+      ],
+      "duration_s": {
+        "min": 2.88,
+        "median": 8.96,
+        "max": 9.6
+      },
+      "verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+      "warning": null
+    },
+    {
+      "language": "es",
+      "attempted": 6,
+      "registered_raw_stereo_gate_passed": 6,
+      "registered_serialized_mono_gate_passed": 6,
+      "supplemental_cap_gate_passed": 4,
+      "supplemental_cap_gate_failed": 2,
+      "effective_safe_attempts": 0,
+      "effective_unresolved_attempts": 4,
+      "effective_unsafe_attempts": 2,
+      "cap_hit_record_ids": [
+        "es_01_r1",
+        "es_04_r1"
+      ],
+      "unresolved_record_ids": [
+        "es_02_r1",
+        "es_03_r1",
+        "es_05_r1",
+        "es_06_r1"
+      ],
+      "duration_s": {
+        "min": 0.56,
+        "median": 5.880000000000001,
+        "max": 9.6
+      },
+      "verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+      "warning": null
+    },
+    {
+      "language": "fr",
+      "attempted": 6,
+      "registered_raw_stereo_gate_passed": 6,
+      "registered_serialized_mono_gate_passed": 6,
+      "supplemental_cap_gate_passed": 3,
+      "supplemental_cap_gate_failed": 3,
+      "effective_safe_attempts": 0,
+      "effective_unresolved_attempts": 3,
+      "effective_unsafe_attempts": 3,
+      "cap_hit_record_ids": [
+        "fr_01_r1",
+        "fr_02_r1",
+        "fr_05_r1"
+      ],
+      "unresolved_record_ids": [
+        "fr_03_r1",
+        "fr_04_r1",
+        "fr_06_r1"
+      ],
+      "duration_s": {
+        "min": 1.76,
+        "median": 6.08,
+        "max": 9.6
+      },
+      "verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+      "warning": null
+    },
+    {
+      "language": "ru",
+      "attempted": 6,
+      "registered_raw_stereo_gate_passed": 6,
+      "registered_serialized_mono_gate_passed": 6,
+      "supplemental_cap_gate_passed": 6,
+      "supplemental_cap_gate_failed": 0,
+      "effective_safe_attempts": 0,
+      "effective_unresolved_attempts": 6,
+      "effective_unsafe_attempts": 0,
+      "cap_hit_record_ids": [],
+      "unresolved_record_ids": [
+        "ru_01_r1",
+        "ru_02_r1",
+        "ru_03_r1",
+        "ru_04_r1",
+        "ru_05_r1",
+        "ru_06_r1"
+      ],
+      "duration_s": {
+        "min": 0.56,
+        "median": 3.68,
+        "max": 8.72
+      },
+      "verdict": "UNRESOLVED_PLAUSIBLE_DURATION_NO_TEXT_RELATIVE_THRESHOLD",
+      "warning": null
+    },
+    {
+      "language": "zh",
+      "attempted": 18,
+      "registered_raw_stereo_gate_passed": 18,
+      "registered_serialized_mono_gate_passed": 18,
+      "supplemental_cap_gate_passed": 3,
+      "supplemental_cap_gate_failed": 15,
+      "effective_safe_attempts": 0,
+      "effective_unresolved_attempts": 3,
+      "effective_unsafe_attempts": 15,
+      "cap_hit_record_ids": [
+        "zh_01_r1",
+        "zh_01_r2",
+        "zh_01_r3",
+        "zh_02_r1",
+        "zh_02_r2",
+        "zh_03_r1",
+        "zh_03_r2",
+        "zh_03_r3",
+        "zh_04_r2",
+        "zh_04_r3",
+        "zh_05_r1",
+        "zh_05_r2",
+        "zh_05_r3",
+        "zh_06_r1",
+        "zh_06_r3"
+      ],
+      "unresolved_record_ids": [
+        "zh_02_r3",
+        "zh_04_r1",
+        "zh_06_r2"
+      ],
+      "duration_s": {
+        "min": 0.48,
+        "median": 9.6,
+        "max": 9.6
+      },
+      "verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+      "warning": null
+    }
+  ],
+  "routes": [
+    {
+      "engine": "moss",
+      "language": "en",
+      "attempted": 6,
+      "waveform_gate_passed": 6,
+      "waveform_gate_failed": 0,
+      "generation_cap_hits": 3,
+      "cap_hit_cases": [
+        "en_01_r1",
+        "en_04_r1",
+        "en_05_r1"
+      ],
+      "duration_s": {
+        "min": 2.88,
+        "median": 8.96,
+        "max": 9.6
+      },
+      "verdict": "FAIL",
+      "verdict_detail": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+      "warning": null
+    },
+    {
+      "engine": "moss",
+      "language": "es",
+      "attempted": 6,
+      "waveform_gate_passed": 6,
+      "waveform_gate_failed": 0,
+      "generation_cap_hits": 2,
+      "cap_hit_cases": [
+        "es_01_r1",
+        "es_04_r1"
+      ],
+      "duration_s": {
+        "min": 0.56,
+        "median": 5.880000000000001,
+        "max": 9.6
+      },
+      "verdict": "FAIL",
+      "verdict_detail": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+      "warning": null
+    },
+    {
+      "engine": "moss",
+      "language": "fr",
+      "attempted": 6,
+      "waveform_gate_passed": 6,
+      "waveform_gate_failed": 0,
+      "generation_cap_hits": 3,
+      "cap_hit_cases": [
+        "fr_01_r1",
+        "fr_02_r1",
+        "fr_05_r1"
+      ],
+      "duration_s": {
+        "min": 1.76,
+        "median": 6.08,
+        "max": 9.6
+      },
+      "verdict": "FAIL",
+      "verdict_detail": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+      "warning": null
+    },
+    {
+      "engine": "moss",
+      "language": "ru",
+      "attempted": 6,
+      "waveform_gate_passed": 6,
+      "waveform_gate_failed": 0,
+      "generation_cap_hits": 0,
+      "cap_hit_cases": [],
+      "duration_s": {
+        "min": 0.56,
+        "median": 3.68,
+        "max": 8.72
+      },
+      "verdict": "UNRESOLVED",
+      "verdict_detail": "UNRESOLVED_PLAUSIBLE_DURATION_NO_TEXT_RELATIVE_THRESHOLD",
+      "warning": {
+        "id": "PLAUSIBLE_DURATION_UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+        "affected_non_cap_attempt_count": 19,
+        "affected_record_ids": [
+          "en_02_r1",
+          "en_03_r1",
+          "en_06_r1",
+          "es_02_r1",
+          "es_03_r1",
+          "es_05_r1",
+          "es_06_r1",
+          "fr_03_r1",
+          "fr_04_r1",
+          "fr_06_r1",
+          "ru_01_r1",
+          "ru_02_r1",
+          "ru_03_r1",
+          "ru_04_r1",
+          "ru_05_r1",
+          "ru_06_r1",
+          "zh_02_r3",
+          "zh_04_r1",
+          "zh_06_r2"
+        ],
+        "affected_record_ids_by_language": {
+          "en": [
+            "en_02_r1",
+            "en_03_r1",
+            "en_06_r1"
+          ],
+          "es": [
+            "es_02_r1",
+            "es_03_r1",
+            "es_05_r1",
+            "es_06_r1"
+          ],
+          "fr": [
+            "fr_03_r1",
+            "fr_04_r1",
+            "fr_06_r1"
+          ],
+          "ru": [
+            "ru_01_r1",
+            "ru_02_r1",
+            "ru_03_r1",
+            "ru_04_r1",
+            "ru_05_r1",
+            "ru_06_r1"
+          ],
+          "zh": [
+            "zh_02_r3",
+            "zh_04_r1",
+            "zh_06_r2"
+          ]
+        },
+        "conspicuous_examples": [
+          {
+            "record_id": "en_03_r1",
+            "text": "Yes",
+            "duration_s": 8.32
+          },
+          {
+            "record_id": "ru_01_r1",
+            "text": "Я",
+            "duration_s": 8.72
+          },
+          {
+            "record_id": "ru_02_r1",
+            "text": "Да",
+            "duration_s": 6.48
+          }
+        ],
+        "route_clearance_disqualifying": true,
+        "reason": "Lane G requires plausible duration on every short input, but no text-relative duration rule was predeclared. Passing the broad registered [0.15, 30] s waveform-duration gate and avoiding the frame cap therefore cannot be promoted to a plausible-duration PASS."
+      }
+    },
+    {
+      "engine": "moss",
+      "language": "zh",
+      "attempted": 18,
+      "waveform_gate_passed": 18,
+      "waveform_gate_failed": 0,
+      "generation_cap_hits": 15,
+      "cap_hit_cases": [
+        "zh_01_r1",
+        "zh_01_r2",
+        "zh_01_r3",
+        "zh_02_r1",
+        "zh_02_r2",
+        "zh_03_r1",
+        "zh_03_r2",
+        "zh_03_r3",
+        "zh_04_r2",
+        "zh_04_r3",
+        "zh_05_r1",
+        "zh_05_r2",
+        "zh_05_r3",
+        "zh_06_r1",
+        "zh_06_r3"
+      ],
+      "duration_s": {
+        "min": 0.48,
+        "median": 9.6,
+        "max": 9.6
+      },
+      "verdict": "FAIL",
+      "verdict_detail": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+      "warning": null
+    }
+  ],
+  "exact_cap_hit_records": [
+    {
+      "record_id": "en_01_r1",
+      "language": "en",
+      "case_id": "en_01",
+      "repeat": 1,
+      "text": "A",
+      "unicode_character_count": 1,
+      "seed": 3463600079,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/en/en_01_r1.wav",
+        "bytes": 921644,
+        "sha256": "1b151624d44ade40dcfff308c6917ad97e15e383c4fe1fe68bdcb70b5f9cd16e"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "en_04_r1",
+      "language": "en",
+      "case_id": "en_04",
+      "repeat": 1,
+      "text": "Hello",
+      "unicode_character_count": 5,
+      "seed": 2494936114,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/en/en_04_r1.wav",
+        "bytes": 921644,
+        "sha256": "57cc87d4981dc23e6fa857bd552cc81dd45c650b4558ea4530db75121baaefef"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "en_05_r1",
+      "language": "en",
+      "case_id": "en_05",
+      "repeat": 1,
+      "text": "Hello there",
+      "unicode_character_count": 11,
+      "seed": 4130394623,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/en/en_05_r1.wav",
+        "bytes": 921644,
+        "sha256": "3ed76b5d4db6d2317d903f702467df1501213177700d10a67e633551973d92a4"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "es_01_r1",
+      "language": "es",
+      "case_id": "es_01",
+      "repeat": 1,
+      "text": "A",
+      "unicode_character_count": 1,
+      "seed": 1742486022,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/es/es_01_r1.wav",
+        "bytes": 921644,
+        "sha256": "d02040b817e365e74d3a52e860ad5ab1f6c164371565c9109308e521582515c0"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "es_04_r1",
+      "language": "es",
+      "case_id": "es_04",
+      "repeat": 1,
+      "text": "Hola",
+      "unicode_character_count": 4,
+      "seed": 2853691575,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/es/es_04_r1.wav",
+        "bytes": 921644,
+        "sha256": "c618b78c9cad13e8ebd211e2c864500c49260b0ba34a9ad1086b5f7595562978"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "fr_01_r1",
+      "language": "fr",
+      "case_id": "fr_01",
+      "repeat": 1,
+      "text": "À",
+      "unicode_character_count": 1,
+      "seed": 1172159573,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/fr/fr_01_r1.wav",
+        "bytes": 921644,
+        "sha256": "247ac433bfee6f505282ddd4993617dc6b6e6a4d12d4e70263d1c94c77aec2a1"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "fr_02_r1",
+      "language": "fr",
+      "case_id": "fr_02",
+      "repeat": 1,
+      "text": "Ça",
+      "unicode_character_count": 2,
+      "seed": 1857290185,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/fr/fr_02_r1.wav",
+        "bytes": 921644,
+        "sha256": "7e0a63303abed137200c1aef3948068f79e7b14d97be059c187174b6e68719a8"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "fr_05_r1",
+      "language": "fr",
+      "case_id": "fr_05",
+      "repeat": 1,
+      "text": "Bonjour Marie",
+      "unicode_character_count": 13,
+      "seed": 1376779853,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/fr/fr_05_r1.wav",
+        "bytes": 921644,
+        "sha256": "178a8f52f6d15ad466584ac5417932b02071c78045486f65c6f6454ddeb88e07"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_01_r1",
+      "language": "zh",
+      "case_id": "zh_01",
+      "repeat": 1,
+      "text": "好",
+      "unicode_character_count": 1,
+      "seed": 3515067961,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_01_r1.wav",
+        "bytes": 921644,
+        "sha256": "aa430e5fa0cebb975846594649bc51d5cbc1ea445a2d8bacc585548ef596bf81"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_01_r2",
+      "language": "zh",
+      "case_id": "zh_01",
+      "repeat": 2,
+      "text": "好",
+      "unicode_character_count": 1,
+      "seed": 1336071552,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_01_r2.wav",
+        "bytes": 921644,
+        "sha256": "f45f8fb9e2d7e9b2d438b338207f844f2fbdb2ea9beb307ce08c94386a823d90"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_01_r3",
+      "language": "zh",
+      "case_id": "zh_01",
+      "repeat": 3,
+      "text": "好",
+      "unicode_character_count": 1,
+      "seed": 4178222375,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_01_r3.wav",
+        "bytes": 921644,
+        "sha256": "02c929df060b10a54b73af76e71f1d2a774735cb0ba000aab81caaf2a0b971ea"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_02_r1",
+      "language": "zh",
+      "case_id": "zh_02",
+      "repeat": 1,
+      "text": "好的",
+      "unicode_character_count": 2,
+      "seed": 796729854,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_02_r1.wav",
+        "bytes": 921644,
+        "sha256": "aeca1d49d83d64cfae0f1369e06c14436a10aafae695db0d4d57bea088b52c14"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_02_r2",
+      "language": "zh",
+      "case_id": "zh_02",
+      "repeat": 2,
+      "text": "好的",
+      "unicode_character_count": 2,
+      "seed": 776968820,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_02_r2.wav",
+        "bytes": 921644,
+        "sha256": "155b2c9b0640ddabfd3a6700857073fc77f07ce966d099da99c0dc8a31676891"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_03_r1",
+      "language": "zh",
+      "case_id": "zh_03",
+      "repeat": 1,
+      "text": "没问题",
+      "unicode_character_count": 3,
+      "seed": 1318661877,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_03_r1.wav",
+        "bytes": 921644,
+        "sha256": "ec1d38a485ca4964f97f8afc7dc7440c50f97d9f7d9adabdba3a0bb03d57d3e8"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_03_r2",
+      "language": "zh",
+      "case_id": "zh_03",
+      "repeat": 2,
+      "text": "没问题",
+      "unicode_character_count": 3,
+      "seed": 270867450,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_03_r2.wav",
+        "bytes": 921644,
+        "sha256": "9c2f883f1f08ea18ce697cc919392391541e56424e64602fcad3eb14754129fc"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_03_r3",
+      "language": "zh",
+      "case_id": "zh_03",
+      "repeat": 3,
+      "text": "没问题",
+      "unicode_character_count": 3,
+      "seed": 232311268,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_03_r3.wav",
+        "bytes": 921644,
+        "sha256": "5daa0e3ab04beb6dfa6deabddd7a46e8dc8acc09eab0a6a551190cae4e7871a4"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_04_r2",
+      "language": "zh",
+      "case_id": "zh_04",
+      "repeat": 2,
+      "text": "你",
+      "unicode_character_count": 1,
+      "seed": 452451790,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_04_r2.wav",
+        "bytes": 921644,
+        "sha256": "a687cdb9ac9c84ea683726ab868d3bfa372ef1a2569ac962d7e2ec92bbeedbbd"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_04_r3",
+      "language": "zh",
+      "case_id": "zh_04",
+      "repeat": 3,
+      "text": "你",
+      "unicode_character_count": 1,
+      "seed": 363378051,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_04_r3.wav",
+        "bytes": 921644,
+        "sha256": "42e8a54ea853e07e908281e78589290d76291697b6a62a6cf83bf302774537fc"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_05_r1",
+      "language": "zh",
+      "case_id": "zh_05",
+      "repeat": 1,
+      "text": "你好",
+      "unicode_character_count": 2,
+      "seed": 478416880,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_05_r1.wav",
+        "bytes": 921644,
+        "sha256": "cde46d8e3453c4e62f918c15833d7ae5d10d8dea0a376bcacca85edaa614553e"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_05_r2",
+      "language": "zh",
+      "case_id": "zh_05",
+      "repeat": 2,
+      "text": "你好",
+      "unicode_character_count": 2,
+      "seed": 238448294,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_05_r2.wav",
+        "bytes": 921644,
+        "sha256": "dcebd207780fc3fdccada5866c57c02122c21ceba7345d7a0ccdc6efa4f46b00"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_05_r3",
+      "language": "zh",
+      "case_id": "zh_05",
+      "repeat": 3,
+      "text": "你好",
+      "unicode_character_count": 2,
+      "seed": 2553689668,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_05_r3.wav",
+        "bytes": 921644,
+        "sha256": "e677ccf51d23348bfff138cbe984a1b47c2fc9e984f9033df83d7f2d4e4d5ba0"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_06_r1",
+      "language": "zh",
+      "case_id": "zh_06",
+      "repeat": 1,
+      "text": "你好呀",
+      "unicode_character_count": 3,
+      "seed": 1838586534,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_06_r1.wav",
+        "bytes": 921644,
+        "sha256": "daea828659c74ea167360ff1ed3395948bf14e008c320e6d3c312136f5cf6f64"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    },
+    {
+      "record_id": "zh_06_r3",
+      "language": "zh",
+      "case_id": "zh_06",
+      "repeat": 3,
+      "text": "你好呀",
+      "unicode_character_count": 3,
+      "seed": 1530362185,
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "duration_s": 9.6,
+      "raw_stereo_registered_gate_passed": true,
+      "serialized_mono_registered_gate_passed": true,
+      "wav": {
+        "path": "artifacts/moss/audio/g3/zh/zh_06_r3.wav",
+        "bytes": 921644,
+        "sha256": "08d9c05eab2874ca66a60bb50b0c2d08808eecf6997a60f075e3227ef09f2c44"
+      },
+      "supplemental_disposition": "FAIL_MAX_NEW_FRAMES_HIT_PROBABLE_NONTERMINATION_OR_TRUNCATION"
+    }
+  ],
+  "warnings": [
+    {
+      "id": "PLAUSIBLE_DURATION_UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "affected_non_cap_attempt_count": 19,
+      "affected_record_ids": [
+        "en_02_r1",
+        "en_03_r1",
+        "en_06_r1",
+        "es_02_r1",
+        "es_03_r1",
+        "es_05_r1",
+        "es_06_r1",
+        "fr_03_r1",
+        "fr_04_r1",
+        "fr_06_r1",
+        "ru_01_r1",
+        "ru_02_r1",
+        "ru_03_r1",
+        "ru_04_r1",
+        "ru_05_r1",
+        "ru_06_r1",
+        "zh_02_r3",
+        "zh_04_r1",
+        "zh_06_r2"
+      ],
+      "affected_record_ids_by_language": {
+        "en": [
+          "en_02_r1",
+          "en_03_r1",
+          "en_06_r1"
+        ],
+        "es": [
+          "es_02_r1",
+          "es_03_r1",
+          "es_05_r1",
+          "es_06_r1"
+        ],
+        "fr": [
+          "fr_03_r1",
+          "fr_04_r1",
+          "fr_06_r1"
+        ],
+        "ru": [
+          "ru_01_r1",
+          "ru_02_r1",
+          "ru_03_r1",
+          "ru_04_r1",
+          "ru_05_r1",
+          "ru_06_r1"
+        ],
+        "zh": [
+          "zh_02_r3",
+          "zh_04_r1",
+          "zh_06_r2"
+        ]
+      },
+      "conspicuous_examples": [
+        {
+          "record_id": "en_03_r1",
+          "text": "Yes",
+          "duration_s": 8.32
+        },
+        {
+          "record_id": "ru_01_r1",
+          "text": "Я",
+          "duration_s": 8.72
+        },
+        {
+          "record_id": "ru_02_r1",
+          "text": "Да",
+          "duration_s": 6.48
+        }
+      ],
+      "route_clearance_disqualifying": true,
+      "reason": "Lane G requires plausible duration on every short input, but no text-relative duration rule was predeclared. Passing the broad registered [0.15, 30] s waveform-duration gate and avoiding the frame cap therefore cannot be promoted to a plausible-duration PASS."
+    }
+  ],
+  "attempts": [
+    {
+      "record_id": "en_01_r1",
+      "case_id": "en_01",
+      "repeat": 1,
+      "language": "en",
+      "text": "A",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3463600079,
+      "seed_recomputed": 3463600079,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          324
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁A"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "A",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "0475f1419f2f763d958f3de198d50a541f2f90d76ae376c0b57cc29c49b0c56d",
+      "timing": {
+        "generation_s": 46.06431879196316,
+        "decode_s": 1.1741815418936312,
+        "inference_s": 47.23850033385679,
+        "rtf": 4.920677118110083
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.05839693173766136,
+        "peak_abs": 0.603325366973877,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.05839691311120987,
+        "peak_abs": 0.60333251953125,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/en/en_01_r1.wav",
+        "bytes": 921644,
+        "sha256": "1b151624d44ade40dcfff308c6917ad97e15e383c4fe1fe68bdcb70b5f9cd16e",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "en_02_r1",
+      "case_id": "en_02",
+      "repeat": 1,
+      "language": "en",
+      "text": "OK",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3499271904,
+      "seed_recomputed": 3499271904,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          543,
+          10649
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁O",
+          "K"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "OK",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 75,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        75,
+        16
+      ],
+      "audio_token_sha256": "600594aff85315d8c7c4674414dfe2b503982b64c30f692e9f3b799cbe2ccafe",
+      "timing": {
+        "generation_s": 8.728750957990997,
+        "decode_s": 0.6195920000318438,
+        "inference_s": 9.34834295802284,
+        "rtf": 1.5580571596704733
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 288000,
+        "sample_count": 576000,
+        "duration_s": 6.0,
+        "rms": 0.06345932930707932,
+        "peak_abs": 0.7088408470153809,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 288000,
+        "sample_count": 288000,
+        "duration_s": 6.0,
+        "rms": 0.06345934420824051,
+        "peak_abs": 0.70867919921875,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/en/en_02_r1.wav",
+        "bytes": 576044,
+        "sha256": "bea90d4e52ec10a4cdf7fc878e6956d7d3096f9047522cd40e8f61bd95932b9c",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "en_03_r1",
+      "case_id": "en_03",
+      "repeat": 1,
+      "language": "en",
+      "text": "Yes",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3578711580,
+      "seed_recomputed": 3578711580,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          2632
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁Yes"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Yes",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 104,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        104,
+        16
+      ],
+      "audio_token_sha256": "299685607384792b3baf770de17e1a839864dc76fa40f68ef125d1f0cad686c8",
+      "timing": {
+        "generation_s": 12.576976959011517,
+        "decode_s": 1.441622875048779,
+        "inference_s": 14.018599834060296,
+        "rtf": 1.6849278646707087
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 399360,
+        "sample_count": 798720,
+        "duration_s": 8.32,
+        "rms": 0.10322224348783493,
+        "peak_abs": 0.739161491394043,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 399360,
+        "sample_count": 399360,
+        "duration_s": 8.32,
+        "rms": 0.10322225093841553,
+        "peak_abs": 0.739105224609375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/en/en_03_r1.wav",
+        "bytes": 798764,
+        "sha256": "dd19def6d17c931dc6cca90fab22301638981fb64701c60154cb17a2548b7d4b",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "en_04_r1",
+      "case_id": "en_04",
+      "repeat": 1,
+      "language": "en",
+      "text": "Hello",
+      "unicode_character_count": 5,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 2494936114,
+      "seed_recomputed": 2494936114,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          7026
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁Hello"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Hello",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "e2e71be73b124444a7858e73c6099056dde257f5b18a2e3fbd7af7202c68904f",
+      "timing": {
+        "generation_s": 14.467718124971725,
+        "decode_s": 1.4273182499455288,
+        "inference_s": 15.895036374917254,
+        "rtf": 1.6557329557205474
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.10215426981449127,
+        "peak_abs": 0.6685742139816284,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.10215425491333008,
+        "peak_abs": 0.66851806640625,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/en/en_04_r1.wav",
+        "bytes": 921644,
+        "sha256": "57cc87d4981dc23e6fa857bd552cc81dd45c650b4558ea4530db75121baaefef",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "en_05_r1",
+      "case_id": "en_05",
+      "repeat": 1,
+      "language": "en",
+      "text": "Hello there",
+      "unicode_character_count": 11,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 4130394623,
+      "seed_recomputed": 4130394623,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          7026,
+          458
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁Hello",
+          "▁there"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Hello there",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "52226261d6332204efe47deb748444ec08575ae8dcb3e2ac452473f836094750",
+      "timing": {
+        "generation_s": 12.762277125031687,
+        "decode_s": 1.6460868750000373,
+        "inference_s": 14.408364000031725,
+        "rtf": 1.5008712500033048
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.09917554259300232,
+        "peak_abs": 0.5868306756019592,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.09917553514242172,
+        "peak_abs": 0.5867919921875,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/en/en_05_r1.wav",
+        "bytes": 921644,
+        "sha256": "3ed76b5d4db6d2317d903f702467df1501213177700d10a67e633551973d92a4",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "en_06_r1",
+      "case_id": "en_06",
+      "repeat": 1,
+      "language": "en",
+      "text": "Hello there friend",
+      "unicode_character_count": 18,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3282505072,
+      "seed_recomputed": 3282505072,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          7026,
+          458,
+          1517
+        ],
+        "token_count": 3,
+        "pieces": [
+          "▁Hello",
+          "▁there",
+          "▁friend"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Hello there friend",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 36,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        36,
+        16
+      ],
+      "audio_token_sha256": "27d0f847426d6f9dffe48e1a6a53cb4c62be19a6c5cc75566c9424802f482e8d",
+      "timing": {
+        "generation_s": 3.746812333003618,
+        "decode_s": 0.09685379092115909,
+        "inference_s": 3.843666123924777,
+        "rtf": 1.3346062930294365
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 138240,
+        "sample_count": 276480,
+        "duration_s": 2.88,
+        "rms": 0.10788276046514511,
+        "peak_abs": 0.5928964614868164,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 138240,
+        "sample_count": 138240,
+        "duration_s": 2.88,
+        "rms": 0.10788274556398392,
+        "peak_abs": 0.592864990234375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/en/en_06_r1.wav",
+        "bytes": 276524,
+        "sha256": "0e621b5fe2cf278f323a113b0c43772001d9eab19411b424764359dcfa56c88d",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "es_01_r1",
+      "case_id": "es_01",
+      "repeat": 1,
+      "language": "es",
+      "text": "A",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1742486022,
+      "seed_recomputed": 1742486022,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          324
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁A"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "A",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "7d728f7dcbb890c6b8f371b13ed51fe190fd168f86ef7a0714acafd2360821c2",
+      "timing": {
+        "generation_s": 25.632248250069097,
+        "decode_s": 5.507953709107824,
+        "inference_s": 31.14020195917692,
+        "rtf": 3.2437710374142625
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.07906084507703781,
+        "peak_abs": 0.669637143611908,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.07906084507703781,
+        "peak_abs": 0.66961669921875,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/es/es_01_r1.wav",
+        "bytes": 921644,
+        "sha256": "d02040b817e365e74d3a52e860ad5ab1f6c164371565c9109308e521582515c0",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "es_02_r1",
+      "case_id": "es_02",
+      "repeat": 1,
+      "language": "es",
+      "text": "Sí",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3596425956,
+      "seed_recomputed": 3596425956,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          348,
+          10824
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁S",
+          "í"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Sí",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 81,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        81,
+        16
+      ],
+      "audio_token_sha256": "f22bd729d8024dfccb98095fc141c51ec5bebf7f1efbc4889d67ce740d06481e",
+      "timing": {
+        "generation_s": 61.639716665958986,
+        "decode_s": 1.948317209025845,
+        "inference_s": 63.58803387498483,
+        "rtf": 9.812968190584078
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 311040,
+        "sample_count": 622080,
+        "duration_s": 6.48,
+        "rms": 0.0836210697889328,
+        "peak_abs": 0.5489978790283203,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 311040,
+        "sample_count": 311040,
+        "duration_s": 6.48,
+        "rms": 0.08362103998661041,
+        "peak_abs": 0.5489501953125,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/es/es_02_r1.wav",
+        "bytes": 622124,
+        "sha256": "8c06606ca526802d70b97baf97d6eb0e1c9846b7117de821bf2ac9beb98a6e04",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "es_03_r1",
+      "case_id": "es_03",
+      "repeat": 1,
+      "language": "es",
+      "text": "Sol",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 4179978008,
+      "seed_recomputed": 4179978008,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          415,
+          10368
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁So",
+          "l"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Sol",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 7,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        7,
+        16
+      ],
+      "audio_token_sha256": "37bfcca4adea565e681176b022b71f51afe3c207c1e5b407d7d9724df7ce9d10",
+      "timing": {
+        "generation_s": 4.547164042014629,
+        "decode_s": 0.10782716702669859,
+        "inference_s": 4.654991209041327,
+        "rtf": 8.312484301859513
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 26880,
+        "sample_count": 53760,
+        "duration_s": 0.56,
+        "rms": 0.1578867882490158,
+        "peak_abs": 0.6284528374671936,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 26880,
+        "sample_count": 26880,
+        "duration_s": 0.56,
+        "rms": 0.15788674354553223,
+        "peak_abs": 0.62841796875,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/es/es_03_r1.wav",
+        "bytes": 53804,
+        "sha256": "7e735e26e2ab0f1e03bac336b44c6045617e2f590449afa6c16e8233b9c4151f",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "es_04_r1",
+      "case_id": "es_04",
+      "repeat": 1,
+      "language": "es",
+      "text": "Hola",
+      "unicode_character_count": 4,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 2853691575,
+      "seed_recomputed": 2853691575,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          444,
+          9104
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁H",
+          "ola"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Hola",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "f09d99714569f85ae3f4407a0ddd261c08825acc3bf3e32f2d8d7f7ccd63182e",
+      "timing": {
+        "generation_s": 103.00433633290231,
+        "decode_s": 3.8038172089727595,
+        "inference_s": 106.80815354187507,
+        "rtf": 11.125849327278654
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.07678131014108658,
+        "peak_abs": 0.6605250835418701,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.07678133994340897,
+        "peak_abs": 0.66046142578125,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/es/es_04_r1.wav",
+        "bytes": 921644,
+        "sha256": "c618b78c9cad13e8ebd211e2c864500c49260b0ba34a9ad1086b5f7595562978",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "es_05_r1",
+      "case_id": "es_05",
+      "repeat": 1,
+      "language": "es",
+      "text": "Hola mundo",
+      "unicode_character_count": 10,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3931871395,
+      "seed_recomputed": 3931871395,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          444,
+          9104,
+          601,
+          7652
+        ],
+        "token_count": 4,
+        "pieces": [
+          "▁H",
+          "ola",
+          "▁mu",
+          "ndo"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Hola mundo",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 45,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        45,
+        16
+      ],
+      "audio_token_sha256": "f141e978c825827eee5e452cb43ab6babe1af82419be7fefc750ca36ee301da0",
+      "timing": {
+        "generation_s": 33.66602291597519,
+        "decode_s": 0.6522123330505565,
+        "inference_s": 34.31823524902575,
+        "rtf": 9.532843124729373
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 172800,
+        "sample_count": 345600,
+        "duration_s": 3.6,
+        "rms": 0.08914200216531754,
+        "peak_abs": 0.4554623067378998,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 172800,
+        "sample_count": 172800,
+        "duration_s": 3.6,
+        "rms": 0.08914204686880112,
+        "peak_abs": 0.455413818359375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/es/es_05_r1.wav",
+        "bytes": 345644,
+        "sha256": "f250e565ffa3ff511c1e0e10f37354ad631f96df8afcfd3b3c6e71d50d172fee",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "es_06_r1",
+      "case_id": "es_06",
+      "repeat": 1,
+      "language": "es",
+      "text": "Hola mundo ahora",
+      "unicode_character_count": 16,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 157588062,
+      "seed_recomputed": 157588062,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          444,
+          9104,
+          601,
+          7652,
+          273,
+          9121
+        ],
+        "token_count": 6,
+        "pieces": [
+          "▁H",
+          "ola",
+          "▁mu",
+          "ndo",
+          "▁a",
+          "hora"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Hola mundo ahora",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 66,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        66,
+        16
+      ],
+      "audio_token_sha256": "1636f86755977c629aa31992cb4d4c3881dc191e1d1e61dda317ffdd6ffbc282",
+      "timing": {
+        "generation_s": 18.87715091696009,
+        "decode_s": 1.5759528749622405,
+        "inference_s": 20.45310379192233,
+        "rtf": 3.8736938999852897
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 253440,
+        "sample_count": 506880,
+        "duration_s": 5.28,
+        "rms": 0.11506155133247375,
+        "peak_abs": 0.5555359721183777,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 253440,
+        "sample_count": 253440,
+        "duration_s": 5.28,
+        "rms": 0.11506154388189316,
+        "peak_abs": 0.555511474609375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/es/es_06_r1.wav",
+        "bytes": 506924,
+        "sha256": "962b37bd736d454e806d323d221f471da5df1e54976d7192925e81aa9cd48daf",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "fr_01_r1",
+      "case_id": "fr_01",
+      "repeat": 1,
+      "language": "fr",
+      "text": "À",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1172159573,
+      "seed_recomputed": 1172159573,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          14152
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁",
+          "À"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "À",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "a069774015f598fec3e9c6f5b60a631690d9b300e77b5ea212a05d228816f685",
+      "timing": {
+        "generation_s": 16.330776375019923,
+        "decode_s": 0.958010375034064,
+        "inference_s": 17.288786750053987,
+        "rtf": 1.800915286463957
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.08499216288328171,
+        "peak_abs": 0.8041871786117554,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.08499214798212051,
+        "peak_abs": 0.804168701171875,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/fr/fr_01_r1.wav",
+        "bytes": 921644,
+        "sha256": "247ac433bfee6f505282ddd4993617dc6b6e6a4d12d4e70263d1c94c77aec2a1",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "fr_02_r1",
+      "case_id": "fr_02",
+      "repeat": 1,
+      "language": "fr",
+      "text": "Ça",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1857290185,
+      "seed_recomputed": 1857290185,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          13869,
+          10359
+        ],
+        "token_count": 3,
+        "pieces": [
+          "▁",
+          "Ç",
+          "a"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Ça",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "ad838640e6c7df51aba6e964f3040f284ede8f2e89bb8dbc63bf8c4f675f640c",
+      "timing": {
+        "generation_s": 45.92543945799116,
+        "decode_s": 3.6717861669603735,
+        "inference_s": 49.597225624951534,
+        "rtf": 5.166377669265785
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.0913296639919281,
+        "peak_abs": 0.8280209302902222,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.0913296714425087,
+        "peak_abs": 0.827972412109375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/fr/fr_02_r1.wav",
+        "bytes": 921644,
+        "sha256": "7e0a63303abed137200c1aef3948068f79e7b14d97be059c187174b6e68719a8",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "fr_03_r1",
+      "case_id": "fr_03",
+      "repeat": 1,
+      "language": "fr",
+      "text": "Oui",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 314334430,
+      "seed_recomputed": 314334430,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          543,
+          419
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁O",
+          "ui"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Oui",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 22,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        22,
+        16
+      ],
+      "audio_token_sha256": "bd40ec78202c5ba26f5c922bbaa79f29d6f1189f9d5a57b1e3802cc64a3129f6",
+      "timing": {
+        "generation_s": 14.494410374900326,
+        "decode_s": 0.4838691250188276,
+        "inference_s": 14.978279499919154,
+        "rtf": 8.510386079499519
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 84480,
+        "sample_count": 168960,
+        "duration_s": 1.76,
+        "rms": 0.09160243719816208,
+        "peak_abs": 0.5754843950271606,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 84480,
+        "sample_count": 84480,
+        "duration_s": 1.76,
+        "rms": 0.09160242229700089,
+        "peak_abs": 0.575439453125,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/fr/fr_03_r1.wav",
+        "bytes": 169004,
+        "sha256": "1ba2ba9da53831bb10fde513fb8e09fc757ccacd70a54be8d7db551f5f905498",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "fr_04_r1",
+      "case_id": "fr_04",
+      "repeat": 1,
+      "language": "fr",
+      "text": "Bonjour",
+      "unicode_character_count": 7,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 339860603,
+      "seed_recomputed": 339860603,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          379,
+          282,
+          10392,
+          451
+        ],
+        "token_count": 4,
+        "pieces": [
+          "▁B",
+          "on",
+          "j",
+          "our"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Bonjour",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 32,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        32,
+        16
+      ],
+      "audio_token_sha256": "9664f4d3d68c945999570099bcd89f866fd3c64ae49defe37db290c8f25fc701",
+      "timing": {
+        "generation_s": 18.49089408305008,
+        "decode_s": 0.5498981669079512,
+        "inference_s": 19.04079224995803,
+        "rtf": 7.437809472639856
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 122880,
+        "sample_count": 245760,
+        "duration_s": 2.56,
+        "rms": 0.11108080297708511,
+        "peak_abs": 0.5813201069831848,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 122880,
+        "sample_count": 122880,
+        "duration_s": 2.56,
+        "rms": 0.1110808253288269,
+        "peak_abs": 0.58123779296875,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/fr/fr_04_r1.wav",
+        "bytes": 245804,
+        "sha256": "20e614c6217686e83bcb6b7e045da5d8f26e56a69ce29577ddf6b57b1c91aca1",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "fr_05_r1",
+      "case_id": "fr_05",
+      "repeat": 1,
+      "language": "fr",
+      "text": "Bonjour Marie",
+      "unicode_character_count": 13,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1376779853,
+      "seed_recomputed": 1376779853,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          379,
+          282,
+          10392,
+          451,
+          2417,
+          413
+        ],
+        "token_count": 6,
+        "pieces": [
+          "▁B",
+          "on",
+          "j",
+          "our",
+          "▁Mar",
+          "ie"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Bonjour Marie",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "88121430bfc6a45c28363f1a689271c48a7541e1abaf0987d412c04f8b2d0f13",
+      "timing": {
+        "generation_s": 71.88562987500336,
+        "decode_s": 3.342873041983694,
+        "inference_s": 75.22850291698705,
+        "rtf": 7.8363023871861515
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.10938151925802231,
+        "peak_abs": 0.6208835244178772,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.10938151180744171,
+        "peak_abs": 0.620849609375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/fr/fr_05_r1.wav",
+        "bytes": 921644,
+        "sha256": "178a8f52f6d15ad466584ac5417932b02071c78045486f65c6f6454ddeb88e07",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "fr_06_r1",
+      "case_id": "fr_06",
+      "repeat": 1,
+      "language": "fr",
+      "text": "Bonjour mon ami",
+      "unicode_character_count": 15,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 4267436296,
+      "seed_recomputed": 4267436296,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          379,
+          282,
+          10392,
+          451,
+          1246,
+          899,
+          10362
+        ],
+        "token_count": 7,
+        "pieces": [
+          "▁B",
+          "on",
+          "j",
+          "our",
+          "▁mon",
+          "▁am",
+          "i"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Bonjour mon ami",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 27,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        27,
+        16
+      ],
+      "audio_token_sha256": "a47863ad7deaf55ad9f6cd4dfecbd4d94fd3db25aede21bc98099844c3468c24",
+      "timing": {
+        "generation_s": 12.289644707925618,
+        "decode_s": 0.10122437495738268,
+        "inference_s": 12.390869082883,
+        "rtf": 5.736513464297685
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 103680,
+        "sample_count": 207360,
+        "duration_s": 2.16,
+        "rms": 0.13295520842075348,
+        "peak_abs": 0.5569747090339661,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 103680,
+        "sample_count": 103680,
+        "duration_s": 2.16,
+        "rms": 0.13295522332191467,
+        "peak_abs": 0.556976318359375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/fr/fr_06_r1.wav",
+        "bytes": 207404,
+        "sha256": "bc26b9466f17782647c9491a43a3759d27137c3e2aa176fd2a7161108c8b9b1b",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "ru_01_r1",
+      "case_id": "ru_01",
+      "repeat": 1,
+      "language": "ru",
+      "text": "Я",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3161136905,
+      "seed_recomputed": 3161136905,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          14042
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁",
+          "Я"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Я",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 109,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        109,
+        16
+      ],
+      "audio_token_sha256": "e796a065d783fe7ff9873bed0c8722ab6eadcf06cdffef2c2599dc2d08e2aa2a",
+      "timing": {
+        "generation_s": 31.541909416904673,
+        "decode_s": 1.8287016249960288,
+        "inference_s": 33.3706110419007,
+        "rtf": 3.8269049359977867
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 418560,
+        "sample_count": 837120,
+        "duration_s": 8.72,
+        "rms": 0.08600154519081116,
+        "peak_abs": 0.5189513564109802,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 418560,
+        "sample_count": 418560,
+        "duration_s": 8.72,
+        "rms": 0.08600153774023056,
+        "peak_abs": 0.518951416015625,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/ru/ru_01_r1.wav",
+        "bytes": 837164,
+        "sha256": "db3f4091acd3b4b33c0b4cd3fcb6768139e5df1cb0951a5ff1aa39d8b3dbabdf",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "ru_02_r1",
+      "case_id": "ru_02",
+      "repeat": 1,
+      "language": "ru",
+      "text": "Да",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3434723515,
+      "seed_recomputed": 3434723515,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          13592,
+          10822
+        ],
+        "token_count": 3,
+        "pieces": [
+          "▁",
+          "Д",
+          "а"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Да",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 81,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        81,
+        16
+      ],
+      "audio_token_sha256": "95b1258bdaa83a9e0da4eb0a1f42cbb5f72082e76016f62a7db10fe64f97d5fb",
+      "timing": {
+        "generation_s": 13.143261249992065,
+        "decode_s": 0.3313525830162689,
+        "inference_s": 13.474613833008334,
+        "rtf": 2.079415714970422
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 311040,
+        "sample_count": 622080,
+        "duration_s": 6.48,
+        "rms": 0.0893532931804657,
+        "peak_abs": 0.603985071182251,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 311040,
+        "sample_count": 311040,
+        "duration_s": 6.48,
+        "rms": 0.0893532782793045,
+        "peak_abs": 0.60394287109375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/ru/ru_02_r1.wav",
+        "bytes": 622124,
+        "sha256": "d7265f1464b395201092eb1fb2a62b91e76ef48a4c2e2c7d4a7d813e9444b733",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "ru_03_r1",
+      "case_id": "ru_03",
+      "repeat": 1,
+      "language": "ru",
+      "text": "Нет",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 2269285620,
+      "seed_recomputed": 2269285620,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          13179,
+          5973
+        ],
+        "token_count": 3,
+        "pieces": [
+          "▁",
+          "Н",
+          "ет"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Нет",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 7,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        7,
+        16
+      ],
+      "audio_token_sha256": "93b9560509f555d6048fea38d6c1e943b0fec6492e2af54ab732d9357e257058",
+      "timing": {
+        "generation_s": 0.8779025829862803,
+        "decode_s": 0.024643416982144117,
+        "inference_s": 0.9025459999684244,
+        "rtf": 1.6116892856579006
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 26880,
+        "sample_count": 53760,
+        "duration_s": 0.56,
+        "rms": 0.1333451271057129,
+        "peak_abs": 0.5691478848457336,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 26880,
+        "sample_count": 26880,
+        "duration_s": 0.56,
+        "rms": 0.13334520161151886,
+        "peak_abs": 0.569122314453125,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/ru/ru_03_r1.wav",
+        "bytes": 53804,
+        "sha256": "708fd7e111a5a6ee6c440658f96ddbfe4c01f590f4ca96d26bfe5f58e309f4e8",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "ru_04_r1",
+      "case_id": "ru_04",
+      "repeat": 1,
+      "language": "ru",
+      "text": "Привет",
+      "unicode_character_count": 6,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1117383611,
+      "seed_recomputed": 1117383611,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          13387,
+          7229,
+          11174,
+          5973
+        ],
+        "token_count": 5,
+        "pieces": [
+          "▁",
+          "П",
+          "ри",
+          "в",
+          "ет"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Привет",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 12,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        12,
+        16
+      ],
+      "audio_token_sha256": "d5fd011e287609e568cf66115e057578fed87f96cf511d6b292173201d750b12",
+      "timing": {
+        "generation_s": 1.3156157090561464,
+        "decode_s": 0.03984183294232935,
+        "inference_s": 1.3554575419984758,
+        "rtf": 1.4119349395817458
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 46080,
+        "sample_count": 92160,
+        "duration_s": 0.96,
+        "rms": 0.13614188134670258,
+        "peak_abs": 0.6164435148239136,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 46080,
+        "sample_count": 46080,
+        "duration_s": 0.96,
+        "rms": 0.13614189624786377,
+        "peak_abs": 0.6163330078125,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/ru/ru_04_r1.wav",
+        "bytes": 92204,
+        "sha256": "c6d4b281908ad8f1c371802831b0476327f5c4eb63a2cf28b975ce1b5854106a",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "ru_05_r1",
+      "case_id": "ru_05",
+      "repeat": 1,
+      "language": "ru",
+      "text": "Привет мир",
+      "unicode_character_count": 10,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 2520388047,
+      "seed_recomputed": 2520388047,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          13387,
+          7229,
+          11174,
+          5973,
+          5352,
+          10943,
+          11148
+        ],
+        "token_count": 8,
+        "pieces": [
+          "▁",
+          "П",
+          "ри",
+          "в",
+          "ет",
+          "▁м",
+          "и",
+          "р"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Привет мир",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 52,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        52,
+        16
+      ],
+      "audio_token_sha256": "429f30322ca49a27ac57dea983e9291cb02a67364b861580f12928b21c6b61b0",
+      "timing": {
+        "generation_s": 8.931220417027362,
+        "decode_s": 0.3880347500089556,
+        "inference_s": 9.319255167036317,
+        "rtf": 2.2402055689991145
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 199680,
+        "sample_count": 399360,
+        "duration_s": 4.16,
+        "rms": 0.09364974498748779,
+        "peak_abs": 0.5079802870750427,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 199680,
+        "sample_count": 199680,
+        "duration_s": 4.16,
+        "rms": 0.0936497375369072,
+        "peak_abs": 0.507904052734375,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/ru/ru_05_r1.wav",
+        "bytes": 399404,
+        "sha256": "e0d08a484a7663d106d62db0a91aa3ce885c775ae176186bcc9216bcf8cf2b7c",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "ru_06_r1",
+      "case_id": "ru_06",
+      "repeat": 1,
+      "language": "ru",
+      "text": "Привет мой друг",
+      "unicode_character_count": 15,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1238972543,
+      "seed_recomputed": 1238972543,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "en_4.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/en_4.wav",
+        "bytes": 458948,
+        "sha256": "cdd4f0ba5a4c0499f5194f5767ffaa9e988ea912210e369f66e2812278ba45ff",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 59,
+        "codebooks": 16,
+        "encode_s": 0.8592190420022234
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          13387,
+          7229,
+          11174,
+          5973,
+          5352,
+          10723,
+          12023,
+          4699,
+          11148,
+          11409,
+          11742
+        ],
+        "token_count": 12,
+        "pieces": [
+          "▁",
+          "П",
+          "ри",
+          "в",
+          "ет",
+          "▁м",
+          "о",
+          "й",
+          "▁д",
+          "р",
+          "у",
+          "г"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "Привет мой друг",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 40,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        40,
+        16
+      ],
+      "audio_token_sha256": "658f8162ccb27c495c8f5d7ab610c33695ea129e0da97315b00bab7b80b59f20",
+      "timing": {
+        "generation_s": 5.124636000022292,
+        "decode_s": 0.13104058301541954,
+        "inference_s": 5.255676583037712,
+        "rtf": 1.642398932199285
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 153600,
+        "sample_count": 307200,
+        "duration_s": 3.2,
+        "rms": 0.1095607653260231,
+        "peak_abs": 0.7118712067604065,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 153600,
+        "sample_count": 153600,
+        "duration_s": 3.2,
+        "rms": 0.10956073552370071,
+        "peak_abs": 0.71173095703125,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/ru/ru_06_r1.wav",
+        "bytes": 307244,
+        "sha256": "e0f22dc9e2e6609d842f140c862d52387805767d1fd189fc4ba98500747ab507",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_01_r1",
+      "case_id": "zh_01",
+      "repeat": 1,
+      "language": "zh",
+      "text": "好",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 3515067961,
+      "seed_recomputed": 3515067961,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          5603
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁好"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "好",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "5dd9aa8864a5368d2fd2e3f56d4c7d642f707a87f5038f91d04f73a73e34fdcc",
+      "timing": {
+        "generation_s": 14.327715917024761,
+        "decode_s": 1.154732916969806,
+        "inference_s": 15.482448833994567,
+        "rtf": 1.6127550868744343
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.12457474321126938,
+        "peak_abs": 1.0946688652038574,
+        "longest_contiguous_clip_run_s": 8.333333333333333e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.12455308437347412,
+        "peak_abs": 0.999969482421875,
+        "longest_contiguous_clip_run_s": 8.333333333333333e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_01_r1.wav",
+        "bytes": 921644,
+        "sha256": "aa430e5fa0cebb975846594649bc51d5cbc1ea445a2d8bacc585548ef596bf81",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_01_r2",
+      "case_id": "zh_01",
+      "repeat": 2,
+      "language": "zh",
+      "text": "好",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1336071552,
+      "seed_recomputed": 1336071552,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          5603
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁好"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "好",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "d77a8783b8e4f762bcad812459ead98cf478d54ef2ac2cbe75840eda76c25696",
+      "timing": {
+        "generation_s": 14.29315658309497,
+        "decode_s": 1.0377351249335334,
+        "inference_s": 15.330891708028503,
+        "rtf": 1.596967886252969
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.09652586281299591,
+        "peak_abs": 1.0055328607559204,
+        "longest_contiguous_clip_run_s": 6.25e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.09652575850486755,
+        "peak_abs": 0.999969482421875,
+        "longest_contiguous_clip_run_s": 6.25e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_01_r2.wav",
+        "bytes": 921644,
+        "sha256": "f45f8fb9e2d7e9b2d438b338207f844f2fbdb2ea9beb307ce08c94386a823d90",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_01_r3",
+      "case_id": "zh_01",
+      "repeat": 3,
+      "language": "zh",
+      "text": "好",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 4178222375,
+      "seed_recomputed": 4178222375,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          5603
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁好"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "好",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "88a6466fcbab4cf3ef4c524ef92353191b867d4e25d3e65a88c2799a0fcdb075",
+      "timing": {
+        "generation_s": 12.878876416012645,
+        "decode_s": 1.1748025841079652,
+        "inference_s": 14.05367900012061,
+        "rtf": 1.463924895845897
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.103506900370121,
+        "peak_abs": 1.1971102952957153,
+        "longest_contiguous_clip_run_s": 0.000125,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.10347383469343185,
+        "peak_abs": 0.999969482421875,
+        "longest_contiguous_clip_run_s": 0.000125,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_01_r3.wav",
+        "bytes": 921644,
+        "sha256": "02c929df060b10a54b73af76e71f1d2a774735cb0ba000aab81caaf2a0b971ea",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_02_r1",
+      "case_id": "zh_02",
+      "repeat": 1,
+      "language": "zh",
+      "text": "好的",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 796729854,
+      "seed_recomputed": 796729854,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          1163
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁",
+          "好的"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "好的",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "aa87943c91d1e89a41f7326086a9180c1bf769b443dbeb943a632023fab54380",
+      "timing": {
+        "generation_s": 15.696414500009269,
+        "decode_s": 1.2282279999926686,
+        "inference_s": 16.924642500001937,
+        "rtf": 1.7629835937502019
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.07131510972976685,
+        "peak_abs": 1.1137096881866455,
+        "longest_contiguous_clip_run_s": 0.000125,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.07129591703414917,
+        "peak_abs": 0.999969482421875,
+        "longest_contiguous_clip_run_s": 0.000125,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_02_r1.wav",
+        "bytes": 921644,
+        "sha256": "aeca1d49d83d64cfae0f1369e06c14436a10aafae695db0d4d57bea088b52c14",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_02_r2",
+      "case_id": "zh_02",
+      "repeat": 2,
+      "language": "zh",
+      "text": "好的",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 776968820,
+      "seed_recomputed": 776968820,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          1163
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁",
+          "好的"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "好的",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "465ba705e63e2a094a42c8f880ea3a3605e0b5c1a2106347e3ac977f5fbb175e",
+      "timing": {
+        "generation_s": 13.059028875082731,
+        "decode_s": 1.0071374999824911,
+        "inference_s": 14.066166375065222,
+        "rtf": 1.465225664069294
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.0986100509762764,
+        "peak_abs": 1.1439025402069092,
+        "longest_contiguous_clip_run_s": 0.00022916666666666666,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.0985371395945549,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 0.00022916666666666666,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_02_r2.wav",
+        "bytes": 921644,
+        "sha256": "155b2c9b0640ddabfd3a6700857073fc77f07ce966d099da99c0dc8a31676891",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_02_r3",
+      "case_id": "zh_02",
+      "repeat": 3,
+      "language": "zh",
+      "text": "好的",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1236790434,
+      "seed_recomputed": 1236790434,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          1163
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁",
+          "好的"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "好的",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 8,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        8,
+        16
+      ],
+      "audio_token_sha256": "6e90132595fab87f766984c8c0749c11a2a34993985896cfe601ace2d65e8c41",
+      "timing": {
+        "generation_s": 1.0191729170037434,
+        "decode_s": 0.027182749938219786,
+        "inference_s": 1.0463556669419631,
+        "rtf": 1.6349307295968174
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 30720,
+        "sample_count": 61440,
+        "duration_s": 0.64,
+        "rms": 0.11944540590047836,
+        "peak_abs": 0.9945231676101685,
+        "longest_contiguous_clip_run_s": 2.0833333333333333e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 30720,
+        "sample_count": 30720,
+        "duration_s": 0.64,
+        "rms": 0.11944542825222015,
+        "peak_abs": 0.9942626953125,
+        "longest_contiguous_clip_run_s": 2.0833333333333333e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_02_r3.wav",
+        "bytes": 61484,
+        "sha256": "2359092db73c9b32db6b90d72435cc78bbb7795c5843dbbd8721a0b3f32161b3",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_03_r1",
+      "case_id": "zh_03",
+      "repeat": 1,
+      "language": "zh",
+      "text": "没问题",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1318661877,
+      "seed_recomputed": 1318661877,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          8560
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁",
+          "没问题"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "没问题",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "dded7839cedb694b3a9894f8a3c1b467821fe98542f04252732e988f0f9c03c5",
+      "timing": {
+        "generation_s": 15.55113562499173,
+        "decode_s": 1.5281008339952677,
+        "inference_s": 17.079236458986998,
+        "rtf": 1.779087131144479
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.1029244139790535,
+        "peak_abs": 1.0943727493286133,
+        "longest_contiguous_clip_run_s": 0.0001875,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.10290764272212982,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 0.0001875,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_03_r1.wav",
+        "bytes": 921644,
+        "sha256": "ec1d38a485ca4964f97f8afc7dc7440c50f97d9f7d9adabdba3a0bb03d57d3e8",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_03_r2",
+      "case_id": "zh_03",
+      "repeat": 2,
+      "language": "zh",
+      "text": "没问题",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 270867450,
+      "seed_recomputed": 270867450,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          8560
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁",
+          "没问题"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "没问题",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "f5984328e920111c3138a7834a9a7aa8ec2ab0765711ebb0e3b299bca19d8c41",
+      "timing": {
+        "generation_s": 20.75421720801387,
+        "decode_s": 1.096577666932717,
+        "inference_s": 21.850794874946587,
+        "rtf": 2.2761244661402698
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.058537691831588745,
+        "peak_abs": 0.6579281687736511,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.05853768065571785,
+        "peak_abs": 0.65777587890625,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_03_r2.wav",
+        "bytes": 921644,
+        "sha256": "9c2f883f1f08ea18ce697cc919392391541e56424e64602fcad3eb14754129fc",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_03_r3",
+      "case_id": "zh_03",
+      "repeat": 3,
+      "language": "zh",
+      "text": "没问题",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 232311268,
+      "seed_recomputed": 232311268,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          10356,
+          8560
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁",
+          "没问题"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "没问题",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "6f611323b1cb37db17df975a5c584761c94fc91a5ffd4e9aac7ae1aa485d4751",
+      "timing": {
+        "generation_s": 19.634645082987845,
+        "decode_s": 1.956236208905466,
+        "inference_s": 21.59088129189331,
+        "rtf": 2.24905013457222
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.12029208987951279,
+        "peak_abs": 1.224244236946106,
+        "longest_contiguous_clip_run_s": 0.0003958333333333333,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.11995062232017517,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 0.0003958333333333333,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_03_r3.wav",
+        "bytes": 921644,
+        "sha256": "5daa0e3ab04beb6dfa6deabddd7a46e8dc8acc09eab0a6a551190cae4e7871a4",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_04_r1",
+      "case_id": "zh_04",
+      "repeat": 1,
+      "language": "zh",
+      "text": "你",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 2771267637,
+      "seed_recomputed": 2771267637,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁你"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 6,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        6,
+        16
+      ],
+      "audio_token_sha256": "5e909b1566d4ebab8242b57aae517e815ec58a23168e288fab6b6ee1739d7bc9",
+      "timing": {
+        "generation_s": 4.28685245802626,
+        "decode_s": 0.12091099994722754,
+        "inference_s": 4.407763457973488,
+        "rtf": 9.182840537444767
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 23040,
+        "sample_count": 46080,
+        "duration_s": 0.48,
+        "rms": 0.13481728732585907,
+        "peak_abs": 0.7509610652923584,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 23040,
+        "sample_count": 23040,
+        "duration_s": 0.48,
+        "rms": 0.13481725752353668,
+        "peak_abs": 0.750885009765625,
+        "longest_contiguous_clip_run_s": 0.0,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_04_r1.wav",
+        "bytes": 46124,
+        "sha256": "e5427b00c22cf3368f566850a00fcda7c81dec672079ab928905c606cbdbb5f8",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_04_r2",
+      "case_id": "zh_04",
+      "repeat": 2,
+      "language": "zh",
+      "text": "你",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 452451790,
+      "seed_recomputed": 452451790,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁你"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "05031ec2b44e117640691fffedb38b722119e7e56c261fd97fe7add97e071ec5",
+      "timing": {
+        "generation_s": 16.910982667002827,
+        "decode_s": 1.2013314591022208,
+        "inference_s": 18.112314126105048,
+        "rtf": 1.8866993881359426
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.12946033477783203,
+        "peak_abs": 1.1444143056869507,
+        "longest_contiguous_clip_run_s": 0.0004166666666666667,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.12941192090511322,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 0.0004166666666666667,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_04_r2.wav",
+        "bytes": 921644,
+        "sha256": "a687cdb9ac9c84ea683726ab868d3bfa372ef1a2569ac962d7e2ec92bbeedbbd",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_04_r3",
+      "case_id": "zh_04",
+      "repeat": 3,
+      "language": "zh",
+      "text": "你",
+      "unicode_character_count": 1,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 363378051,
+      "seed_recomputed": 363378051,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985
+        ],
+        "token_count": 1,
+        "pieces": [
+          "▁你"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "0e3b6ec1e04cd0c37d0a726c3fad5411b259a1a522aa3041e6516d99ad351ca6",
+      "timing": {
+        "generation_s": 15.245288874953985,
+        "decode_s": 1.0094139999710023,
+        "inference_s": 16.254702874924988,
+        "rtf": 1.6931982161380197
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.10628624260425568,
+        "peak_abs": 1.1067302227020264,
+        "longest_contiguous_clip_run_s": 0.0003125,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.10626156628131866,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 0.0003125,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_04_r3.wav",
+        "bytes": 921644,
+        "sha256": "42e8a54ea853e07e908281e78589290d76291697b6a62a6cf83bf302774537fc",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_05_r1",
+      "case_id": "zh_05",
+      "repeat": 1,
+      "language": "zh",
+      "text": "你好",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 478416880,
+      "seed_recomputed": 478416880,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985,
+          10445
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁你",
+          "好"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你好",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "58626ecc3a4521c348f415a837820aebd7ae5776ccc38fa893968c40b074664e",
+      "timing": {
+        "generation_s": 21.4491290000733,
+        "decode_s": 1.426663624937646,
+        "inference_s": 22.875792625010945,
+        "rtf": 2.382895065105307
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.09609483182430267,
+        "peak_abs": 1.0430736541748047,
+        "longest_contiguous_clip_run_s": 6.25e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.09609272330999374,
+        "peak_abs": 0.999969482421875,
+        "longest_contiguous_clip_run_s": 6.25e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_05_r1.wav",
+        "bytes": 921644,
+        "sha256": "cde46d8e3453c4e62f918c15833d7ae5d10d8dea0a376bcacca85edaa614553e",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_05_r2",
+      "case_id": "zh_05",
+      "repeat": 2,
+      "language": "zh",
+      "text": "你好",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 238448294,
+      "seed_recomputed": 238448294,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985,
+          10445
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁你",
+          "好"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你好",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "717af9793e0f480c01528f302090b2ffcac6b995099348a309f24235677eb12e",
+      "timing": {
+        "generation_s": 18.155281749903224,
+        "decode_s": 0.8888495840365067,
+        "inference_s": 19.04413133393973,
+        "rtf": 1.983763680618722
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.136825293302536,
+        "peak_abs": 1.1670302152633667,
+        "longest_contiguous_clip_run_s": 0.00047916666666666664,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.13672223687171936,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 0.00047916666666666664,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_05_r2.wav",
+        "bytes": 921644,
+        "sha256": "dcebd207780fc3fdccada5866c57c02122c21ceba7345d7a0ccdc6efa4f46b00",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_05_r3",
+      "case_id": "zh_05",
+      "repeat": 3,
+      "language": "zh",
+      "text": "你好",
+      "unicode_character_count": 2,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 2553689668,
+      "seed_recomputed": 2553689668,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985,
+          10445
+        ],
+        "token_count": 2,
+        "pieces": [
+          "▁你",
+          "好"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你好",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "9c4966db2285d3f890f7ba97be98d3ba614be16b4e47ff162bd2ed6875bcc968",
+      "timing": {
+        "generation_s": 15.08457449998241,
+        "decode_s": 1.3827766659669578,
+        "inference_s": 16.467351165949367,
+        "rtf": 1.7153490797863924
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.09932534396648407,
+        "peak_abs": 1.1685799360275269,
+        "longest_contiguous_clip_run_s": 0.0004583333333333333,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.09919973462820053,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 0.0004583333333333333,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_05_r3.wav",
+        "bytes": 921644,
+        "sha256": "e677ccf51d23348bfff138cbe984a1b47c2fc9e984f9033df83d7f2d4e4d5ba0",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_06_r1",
+      "case_id": "zh_06",
+      "repeat": 1,
+      "language": "zh",
+      "text": "你好呀",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1838586534,
+      "seed_recomputed": 1838586534,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985,
+          10445,
+          10719
+        ],
+        "token_count": 3,
+        "pieces": [
+          "▁你",
+          "好",
+          "呀"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你好呀",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "2b8bf3350413e1c2563fe0d57ade4093df4b13662ceced5bf7164a2386934f5a",
+      "timing": {
+        "generation_s": 13.409586083958857,
+        "decode_s": 1.8169139580568299,
+        "inference_s": 15.226500042015687,
+        "rtf": 1.586093754376634
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.13087528944015503,
+        "peak_abs": 1.3272472620010376,
+        "longest_contiguous_clip_run_s": 0.0002708333333333333,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.13059861958026886,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 0.0002708333333333333,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_06_r1.wav",
+        "bytes": 921644,
+        "sha256": "daea828659c74ea167360ff1ed3395948bf14e008c320e6d3c312136f5cf6f64",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_06_r2",
+      "case_id": "zh_06",
+      "repeat": 2,
+      "language": "zh",
+      "text": "你好呀",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 159532982,
+      "seed_recomputed": 159532982,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985,
+          10445,
+          10719
+        ],
+        "token_count": 3,
+        "pieces": [
+          "▁你",
+          "好",
+          "呀"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你好呀",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 11,
+      "max_new_frames": 120,
+      "max_new_frames_hit": false,
+      "audio_token_shape": [
+        11,
+        16
+      ],
+      "audio_token_sha256": "f98d0c87619f902fa75070d4bb78909b6cbd48bb1252c2003205ba195faa0197",
+      "timing": {
+        "generation_s": 1.6760645830072463,
+        "decode_s": 0.052138208062388,
+        "inference_s": 1.7282027910696343,
+        "rtf": 1.9638668080336752
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 42240,
+        "sample_count": 84480,
+        "duration_s": 0.88,
+        "rms": 0.13991546630859375,
+        "peak_abs": 1.0800273418426514,
+        "longest_contiguous_clip_run_s": 6.25e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 42240,
+        "sample_count": 42240,
+        "duration_s": 0.88,
+        "rms": 0.1398831605911255,
+        "peak_abs": 0.999969482421875,
+        "longest_contiguous_clip_run_s": 6.25e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_06_r2.wav",
+        "bytes": 84524,
+        "sha256": "cc8de4a778cfbd32f28e338f5dc7934b463e24e33ebf3f887369982d98762c5d",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "PASS",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNRESOLVED_PLAUSIBLE_DURATION",
+      "warnings": []
+    },
+    {
+      "record_id": "zh_06_r3",
+      "case_id": "zh_06",
+      "repeat": 3,
+      "language": "zh",
+      "text": "你好呀",
+      "unicode_character_count": 3,
+      "external_text_normalization": "DISABLED_EXACT_FROZEN_INPUT",
+      "seed": 1530362185,
+      "seed_recomputed": 1530362185,
+      "seed_verified": true,
+      "sampling": {
+        "do_sample": true,
+        "text_temperature": 1.0,
+        "text_top_p": 1.0,
+        "text_top_k": 50,
+        "audio_temperature": 0.8,
+        "audio_top_p": 0.95,
+        "audio_top_k": 25,
+        "audio_repetition_penalty": 1.2,
+        "use_kv_cache": true
+      },
+      "prompt_name": "zh_1.wav",
+      "prompt": {
+        "path": "artifacts/moss/prompts/zh_1.wav",
+        "bytes": 314286,
+        "sha256": "f64a53490acf7337358832d1da7c562e08e2f3caf4385727b318cdc4f4da50d2",
+        "source_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+        "encoded_frames": 98,
+        "codebooks": 16,
+        "encode_s": 1.125647749984637
+      },
+      "text_tokenization": {
+        "token_ids": [
+          3985,
+          10445,
+          10719
+        ],
+        "token_count": 3,
+        "pieces": [
+          "▁你",
+          "好",
+          "呀"
+        ],
+        "unk_token_id": 0,
+        "unk_count": 0,
+        "decoded": "你好呀",
+        "roundtrip_exact_after_strip": true
+      },
+      "generated_frames": 120,
+      "max_new_frames": 120,
+      "max_new_frames_hit": true,
+      "audio_token_shape": [
+        120,
+        16
+      ],
+      "audio_token_sha256": "f1f740f8c6fae1ecd543cfb809eb07a5ca8f011036325444219476b5c1759546",
+      "timing": {
+        "generation_s": 15.837991415988654,
+        "decode_s": 1.4776743749389425,
+        "inference_s": 17.315665790927596,
+        "rtf": 1.803715186554958
+      },
+      "raw_stereo_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "frames": 460800,
+        "sample_count": 921600,
+        "duration_s": 9.6,
+        "rms": 0.08960538357496262,
+        "peak_abs": 1.0104783773422241,
+        "longest_contiguous_clip_run_s": 6.25e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true
+      },
+      "serialization": {
+        "source": "raw 48 kHz stereo decoder tensor",
+        "operation": "arithmetic mean across two channels",
+        "retained_format": "mono PCM16 WAV"
+      },
+      "serialized_mono_waveform_gate": {
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "frames": 460800,
+        "sample_count": 460800,
+        "duration_s": 9.6,
+        "rms": 0.08960510045289993,
+        "peak_abs": 1.0,
+        "longest_contiguous_clip_run_s": 6.25e-05,
+        "assertions": {
+          "nonempty": true,
+          "finite": true,
+          "rms_above_floor": true,
+          "duration_in_range": true,
+          "no_sustained_clipping": true
+        },
+        "passed": true,
+        "path": "artifacts/moss/audio/g3/zh/zh_06_r3.wav",
+        "bytes": 921644,
+        "sha256": "08d9c05eab2874ca66a60bb50b0c2d08808eecf6997a60f075e3227ef09f2c44",
+        "format": "WAV",
+        "subtype": "PCM_16"
+      },
+      "registered_waveform_gate_verdict": "PASS",
+      "supplemental_cap_gate_verdict": "FAIL",
+      "lane_required_plausible_duration_verdict": "UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+      "effective_safety_verdict": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION",
+      "warnings": []
+    }
+  ],
+  "artifacts": {
+    "synthesis": {
+      "path": "artifacts/moss/results/g3_synthesis.json",
+      "bytes": 148696,
+      "sha256": "f8f7a2fb48f38204db4f11d9e9cdbcbc24586f28056ce998db789dde0026ac15"
+    },
+    "runner_execution": {
+      "path": "run_moss_g.py",
+      "sha256": null,
+      "evidence_class": "UNKNOWN",
+      "note": "G3 executed before the untracked runner's exact source hash was retained. The synthesis receipt pins model revisions, weights, prompts, seeds, sampling, text preprocessing, generated-token hashes, and output hashes, but the exact execution-time Python file hash is unavailable."
+    },
+    "runner_current_reproduction_version": {
+      "path": "run_moss_g.py",
+      "bytes": 30673,
+      "sha256": "9b3a853ad70c57ef2cc7ef00d2ce1d277e7707f694c5834c5463babdacbf05f2",
+      "evidence_class": "EXACT",
+      "note": "Current committed-candidate runner; not misattributed as the G3 execution-time file."
+    },
+    "tts_weights": {
+      "path": "artifacts/moss/tts/pytorch_model.bin",
+      "bytes": 234693095,
+      "sha256": "24003f2f11ac8a2cbf70514db2d8f1c02fb451aa6b3c0bffc9da09f31cd7caa5"
+    },
+    "codec_weights": {
+      "path": "artifacts/moss/audio_tokenizer/model-00001-of-00001.safetensors",
+      "bytes": 87922568,
+      "sha256": "34d9880d805eecb21bde975202b1c256dbd0eb98c8680b9d3aeffd2bc6ac2f67"
+    },
+    "retained_wav_count": 42
+  },
+  "limits": [
+    "A generation-cap hit identifies probable nontermination or truncation but does not distinguish between them.",
+    "Non-ZH inputs have one sampled draw each; ZH inputs have three. These are not stochastic failure-rate estimates.",
+    "Raw stereo tensors were measured before downmix but not retained, so raw metrics cannot be independently recomputed from mono files.",
+    "The exact execution-time runner source hash was not retained for G3; the synthesis receipt still pins the effective model, prompt, seed, sampling, token, and waveform evidence.",
+    "No text-relative duration threshold was predeclared. Because Lane G nevertheless requires plausible duration on every output, all 19 non-cap draws remain unresolved rather than being promoted to PASS.",
+    "The English prompt served EN/ES/FR/RU and the Mandarin prompt served ZH; speaker and prompt diversity were not tested.",
+    "This short-input safety probe does not establish intelligibility, correct language, naturalness, licensing, or product acceptance."
+  ],
+  "reproducibility": {
+    "helper_path": "build_g3_moss_report.py",
+    "helper_sha256": "bdb5cb1dfe0aa1b786debc0d507116493206dfa4e8052aa382c74debcb9f6b62",
+    "storage_cap_bytes": 3000000000,
+    "out_d_regular_file_bytes_before_G3_reports": 2841164682
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "status": "passed",
+  "validation_scope": "serialized PT2 reload versus saved local golden tensors",
+  "torch": "2.8.0",
+  "cases": [
+    {
+      "name": "fastconformer",
+      "status": "passed",
+      "model": "<workspace>/work/lfm-feasibility/exports/fastconformer_adapter_mel80.pt2",
+      "model_bytes": 483240917,
+      "input_shapes": [
+        [
+          1,
+          128,
+          80
+        ]
+      ],
+      "output_errors": [
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        }
+      ],
+      "absolute_tolerance": 0.0,
+      "load_seconds": 2.055248500080779,
+      "inference_seconds": 0.27793216705322266,
+      "total_seconds": 2.339161291019991
+    },
+    {
+      "name": "backbone_conv",
+      "status": "passed",
+      "model": "<workspace>/work/lfm-feasibility/exports/lfm2_layer0_conv_seq16.pt2",
+      "model_bytes": 268688488,
+      "input_shapes": [
+        [
+          1,
+          16,
+          2048
+        ]
+      ],
+      "output_errors": [
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        }
+      ],
+      "absolute_tolerance": 0.0,
+      "load_seconds": 0.42589899990707636,
+      "inference_seconds": 0.05623700004070997,
+      "total_seconds": 0.48380508413538337
+    },
+    {
+      "name": "backbone_attention",
+      "status": "passed",
+      "model": "<workspace>/work/lfm-feasibility/exports/lfm2_layer2_attention_seq16.pt2",
+      "model_bytes": 243608981,
+      "input_shapes": [
+        [
+          1,
+          16,
+          2048
+        ]
+      ],
+      "output_errors": [
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        }
+      ],
+      "absolute_tolerance": 0.0,
+      "load_seconds": 0.3665853338316083,
+      "inference_seconds": 0.06486591696739197,
+      "total_seconds": 0.43327554198913276
+    },
+    {
+      "name": "backbone_conv_cached_decode",
+      "status": "passed",
+      "model": "<workspace>/work/lfm-feasibility/exports/lfm2_layer0_conv_decode_cache.pt2",
+      "model_bytes": 268572583,
+      "input_shapes": [
+        [
+          1,
+          1,
+          2048
+        ],
+        [
+          1,
+          2048,
+          3
+        ]
+      ],
+      "output_errors": [
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        },
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        }
+      ],
+      "absolute_tolerance": 0.0,
+      "load_seconds": 0.44532641721889377,
+      "inference_seconds": 0.08011579094454646,
+      "total_seconds": 0.5281599159352481
+    },
+    {
+      "name": "backbone_attention_cached_decode",
+      "status": "passed",
+      "model": "<workspace>/work/lfm-feasibility/exports/lfm2_layer2_attention_decode_kv16_past8.pt2",
+      "model_bytes": 243507905,
+      "input_shapes": [
+        [
+          1,
+          1,
+          2048
+        ],
+        [
+          1,
+          8,
+          16,
+          64
+        ],
+        [
+          1,
+          8,
+          16,
+          64
+        ]
+      ],
+      "output_errors": [
+        {
+          "shape_equal": true,
+          "exact_equal": false,
+          "max_abs_error": 5.960464477539063e-08,
+          "mean_abs_error": 5.447304829431232e-09
+        },
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        },
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        }
+      ],
+      "absolute_tolerance": 1e-07,
+      "load_seconds": 0.48269225005060434,
+      "inference_seconds": 0.08088066708296537,
+      "total_seconds": 0.5646197500173002
+    },
+    {
+      "name": "depth_decoder",
+      "status": "passed",
+      "model": "<workspace>/work/lfm-feasibility/exports/depth_decoder_hidden1x2048.pt2",
+      "model_bytes": 776869068,
+      "input_shapes": [
+        [
+          1,
+          2048
+        ]
+      ],
+      "output_errors": [
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        },
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        }
+      ],
+      "absolute_tolerance": 0.0,
+      "load_seconds": 6.554316791938618,
+      "inference_seconds": 0.3093907500151545,
+      "total_seconds": 6.88701366703026
+    },
+    {
+      "name": "detokenizer_t4",
+      "status": "passed",
+      "model": "<workspace>/work/lfm-feasibility/exports/detok_neural_probe_codes_t4.pt2",
+      "model_bytes": 315538773,
+      "input_shapes": [
+        [
+          1,
+          8,
+          4
+        ]
+      ],
+      "output_errors": [
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        },
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        }
+      ],
+      "absolute_tolerance": 0.0,
+      "load_seconds": 3.4079087080899626,
+      "inference_seconds": 0.7022280420642346,
+      "total_seconds": 4.157500666100532
+    },
+    {
+      "name": "detokenizer_t8",
+      "status": "passed",
+      "model": "<workspace>/work/lfm-feasibility/exports/detok_neural_probe_codes_t8.pt2",
+      "model_bytes": 315539221,
+      "input_shapes": [
+        [
+          1,
+          8,
+          8
+        ]
+      ],
+      "output_errors": [
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        },
+        {
+          "shape_equal": true,
+          "exact_equal": true,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0
+        }
+      ],
+      "absolute_tolerance": 0.0,
+      "load_seconds": 3.3032219579908997,
+      "inference_seconds": 0.46914012520574033,
+      "total_seconds": 3.889099249849096
+    }
+  ]
+}

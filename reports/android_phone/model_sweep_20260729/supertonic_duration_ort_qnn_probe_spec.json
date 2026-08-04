@@ -1,0 +1,77 @@
+{
+  "accepted_packages": {
+    "ai.liquid.lfmdemo": {
+      "sha256": "a24e203a30dcaaf9215dc3f0d5b99fa4b893a9e0ceca71c99c13e49bdb1b020a"
+    },
+    "ai.liquid.lfmdemo.runtime": {
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "apk": {
+    "bytes": 55486252,
+    "sha256": "698940112aa2c197315f1cc996554ca9171ab46c7a8ff65623166f3c850a8801"
+  },
+  "apk_policy": {
+    "compile_sdk": 35,
+    "launcher": "ai.liquid.lfmdemo.supertonicprobe.ProbeActivity",
+    "min_sdk": 28,
+    "native_abis": [
+      "arm64-v8a"
+    ],
+    "optional_native_libraries": [
+      "libcdsprpc.so"
+    ],
+    "package": "ai.liquid.lfmdemo.supertonicprobe",
+    "permissions": [],
+    "signing_certificate_sha256": "9ad7b2846b7c18853b99e444d4d05323321b3a9118c13c5a8fc242e58b5859e4",
+    "target_sdk": 35,
+    "version_code": 1,
+    "version_name": "0.1.0-duration-raw-onnx-qnn-probe"
+  },
+  "claim_boundary": "Raw-ONNX duration-component compatibility only. No full TTS, audio quality, end-to-end latency, or production-runtime claim.",
+  "gate_id": "supertonic3_duration_raw_onnx_ort_qnn_sm8850_probe_v1",
+  "model": {
+    "bytes": 3700147,
+    "component": "duration_predictor",
+    "format": "raw_onnx",
+    "sha256": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db",
+    "symbolic_dimension_overrides": {
+      "batch_size": 1,
+      "text_length": 32
+    }
+  },
+  "payload_manifest": {
+    "bytes": 4493,
+    "sha256": "93bace8607936706851fe432338fb1c1a22fe38552784be3e5ed890ed52c688d"
+  },
+  "runtime": {
+    "disable_cpu_ep_fallback": true,
+    "onnx_runtime": "1.25.0",
+    "qairt": "2.42.0.251225135753_193295",
+    "qnn_provider": "QNNExecutionProvider"
+  },
+  "schema_version": 1,
+  "target": {
+    "abi": "arm64-v8a",
+    "htp_arch": "v81",
+    "package": "ai.liquid.lfmdemo.supertonicprobe",
+    "soc": "SM8850"
+  },
+  "verification_toolchain": {
+    "aapt2": {
+      "bytes": 10240448,
+      "relative_path": "aapt2",
+      "sha256": "22d092d529b050c71016f3f4402f53fadcd358a65fe16df408c400f0fe9ffe62"
+    },
+    "apksigner": {
+      "bytes": 2959,
+      "relative_path": "apksigner",
+      "sha256": "b47549e373b895ce6ca620d0c7887e674d9615ffa837a86ac601dcfd04adb0f0"
+    },
+    "zipalign": {
+      "bytes": 559232,
+      "relative_path": "zipalign",
+      "sha256": "4e0bf80ede4ddb7f48d83a7f0d09b343acebf44b8ff3224a6130f9f470957706"
+    }
+  }
+}

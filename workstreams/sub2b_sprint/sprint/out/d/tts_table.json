@@ -1,0 +1,1765 @@
+{
+  "schema_version": 1,
+  "task": "Lane D + G five-language TTS route table",
+  "status": "NO_SINGLE_SAFE_COMMERCIALLY_UNBLOCKED_FIVE_LANGUAGE_ENGINE",
+  "evidence_classes": [
+    "EXACT",
+    "HOST",
+    "PRIOR",
+    "PROJECTED",
+    "UNKNOWN",
+    "VENDOR"
+  ],
+  "evidence_note": "Technical measurements are HOST; hashes/counts and pinned source text are EXACT; earlier phone anchors are PRIOR; replacement arithmetic is PROJECTED; unmeasured or unpriced quantities remain UNKNOWN.",
+  "headline": {
+    "single_engine_safe_all_five": false,
+    "single_engine_commercially_unblocked_all_five": false,
+    "general_zh_ship_route_from_tested_set": false,
+    "reason": "MOSS was measured, but it is not a shippable Mandarin route on current evidence: its ZH technical bucket is unsafe, personal listening is pending, and the pinned weight/export snapshots lack the root licence file required by their own README.",
+    "best_supported_sprint_routes": {
+      "en": [
+        "kokoro",
+        "supertonic"
+      ],
+      "es": [
+        "kokoro",
+        "supertonic"
+      ],
+      "fr": [
+        "kokoro",
+        "supertonic"
+      ],
+      "ru": [
+        "supertonic"
+      ],
+      "zh": []
+    }
+  },
+  "interpretation": {
+    "technical_candidate": "Completed D1 point-estimate arm, passed D3, and complete D5 bundle. This is not full TH-13 or product acceptance.",
+    "commercial_candidate": "No lane-identified model licence blocker, or OpenRAIL-M conditional use. This is not legal advice or a complete training-data audit.",
+    "naturalness": "USER_LISTENING_REQUIRED; MOSS ZH clips and mixed-script pairs are in LISTEN.md"
+  },
+  "languages": {
+    "en": {
+      "technical_candidates_on_sprint_evidence": [
+        "kokoro",
+        "piper",
+        "supertonic"
+      ],
+      "candidate_routes_without_an_identified_lane_commercial_blocker": [
+        "kokoro",
+        "supertonic"
+      ],
+      "unsafe_routes": [
+        "moss"
+      ],
+      "limited_or_evidence_incomplete_routes": [],
+      "no_lane_evidence_or_unsupported": [
+        "matcha",
+        "silero"
+      ],
+      "routes": [
+        {
+          "engine_id": "kokoro",
+          "display_name": "Kokoro-82M v1.0",
+          "model": "onnx-community/Kokoro-82M-v1.0-ONNX q8f16",
+          "revision": "1939ad2a8e416c0acfeecc08a694d14ef25f2231",
+          "voice_or_style": "af_sarah",
+          "model_license": "Apache-2.0",
+          "license_disposition": "NO_LANE_IDENTIFIED_MODEL_LICENSE_BLOCKER; TRAINING_DATA_NOT_LEGALLY_AUDITED",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "NO_LANE_IDENTIFIED_MODEL_LICENSE_BLOCKER",
+          "overall": "CANDIDATE_PENDING_FULL_GATE_AND_LISTENING",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -8.333333333333332,
+            "delta_ci95_percent_points": [
+              -11.600928074245942,
+              -5.405405405405405
+            ],
+            "normalizer_control_status": "STABLE",
+            "ranking_inadmissible": false,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Kokoro v1.0 EN passed the Lane D D3 short-input gate."
+          ]
+        },
+        {
+          "engine_id": "piper",
+          "display_name": "Piper medium",
+          "model": "rhasspy/piper-voices",
+          "revision": "9f967d15e9ccdf43078586d1476ee70f314401bd",
+          "voice_or_style": "en_US-lessac-medium",
+          "model_license": "repo tag MIT; voice-specific provenance controls",
+          "license_disposition": "BLOCKED_ALL_TESTED_VOICES_LESSAC_DERIVED_RESEARCH_ONLY_CHAIN",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "BLOCKED_LESSAC_PROVENANCE",
+          "overall": "TECHNICAL_ONLY_NOT_SHIPPABLE_ON_PINNED_EVIDENCE",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -6.36574074074074,
+            "delta_ci95_percent_points": [
+              -9.741844795937624,
+              -3.128530561993051
+            ],
+            "normalizer_control_status": "STABLE",
+            "ranking_inadmissible": false,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Piper Lessac EN passed D3.",
+            "Commercial provenance remains blocked by the Lessac-derived training chain."
+          ]
+        },
+        {
+          "engine_id": "supertonic",
+          "display_name": "Supertonic-3",
+          "model": "Supertone/supertonic-3",
+          "revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+          "voice_or_style": "M1",
+          "model_license": "BigScience OpenRAIL-M",
+          "license_disposition": "COMMERCIAL_USE_CONDITIONAL_ON_OPENRAIL_M_RESTRICTIONS_AND_NOTICES",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "OPENRAIL_M_CONDITIONAL",
+          "overall": "CANDIDATE_PENDING_FULL_GATE_AND_LISTENING",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -8.912037037037036,
+            "delta_ci95_percent_points": [
+              -12.336930385437272,
+              -5.749621606134031
+            ],
+            "normalizer_control_status": "STABLE",
+            "ranking_inadmissible": false,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Supertonic EN passed D3."
+          ]
+        },
+        {
+          "engine_id": "moss",
+          "display_name": "MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "model": "OpenMOSS-Team/MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "revision": "44502f80dbf9743528fa921cc544d662c685ebec",
+          "codec_revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+          "voice_or_style": "upstream built-in en_4 reference",
+          "model_license": "HF metadata Apache-2.0; required root licence absent from pinned weight/export snapshots",
+          "license_disposition": "BLOCKED_PENDING_UPSTREAM_ROOT_LICENSE_OR_EXPLICIT_WRITTEN_CONFIRMATION",
+          "technical": "UNSAFE_ON_G3_SHORT_INPUT_PROBE",
+          "commercial": "BLOCKED_PINNED_WEIGHT_REDISTRIBUTION_SCOPE_UNLICENSED",
+          "overall": "REJECT_UNSAFE_DIAGNOSTIC_ONLY",
+          "g1": {
+            "tts_parameters": {
+              "value": 117311232,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "codec_parameters": {
+              "value": 21969664,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "combined_parameters": {
+              "value": 139280896,
+              "unit": "parameters",
+              "evidence_class": "PROJECTED",
+              "derivation": "117,311,232 EXACT + 21,969,664 EXACT"
+            },
+            "onnx_tied_weight_trap": "CONFIRMED_TWO_REDUNDANT_MATERIALIZATIONS_THREE_PHYSICAL_COPIES_TOTAL"
+          },
+          "g3": {
+            "engine": "moss",
+            "language": "en",
+            "attempted": 6,
+            "waveform_gate_passed": 6,
+            "waveform_gate_failed": 0,
+            "generation_cap_hits": 3,
+            "cap_hit_cases": [
+              "en_01_r1",
+              "en_04_r1",
+              "en_05_r1"
+            ],
+            "duration_s": {
+              "min": 2.88,
+              "median": 8.96,
+              "max": 9.6
+            },
+            "verdict": "FAIL",
+            "verdict_detail": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+            "warning": null
+          },
+          "commercial_evidence": {
+            "hf_metadata": {
+              "tts": "apache-2.0",
+              "audio_tokenizer": "apache-2.0",
+              "tts_onnx": "apache-2.0",
+              "audio_tokenizer_onnx": "apache-2.0",
+              "evidence_class": "VENDOR"
+            },
+            "snapshot_license_file_present": false,
+            "upstream_card_instruction": {
+              "quote": "This repository will follow the license specified in the root LICENSE file. If you are reading this before that file is published, please treat the repository as not yet licensed for redistribution.",
+              "source": "artifacts/moss/tts/README.md",
+              "source_sha256": "f7e1f8ef414fabfc4079f59dd73ae5eaa7e128e897f3b190a848145d5e300306",
+              "evidence_class": "VENDOR"
+            }
+          },
+          "notes": [
+            "All retained Lane G synthesis used local CPU and is labelled HOST.",
+            "Sampling and an upstream built-in reference voice were used; no greedy/reference-audio comparison is inferred.",
+            "Apache-2.0 HF metadata does not override the pinned README's explicit no-redistribution-until-root-LICENSE instruction."
+          ],
+          "g4": {
+            "coverage_verdict": "PASS",
+            "result": {
+              "language": "en",
+              "coverage_verdict": "PASS",
+              "waveform_and_cap_safety": {
+                "record_count": 10,
+                "failed_record_count": 0,
+                "timeout_count": 0,
+                "waveform_passed_count": 10,
+                "max_new_frames_hit_count": 0,
+                "max_new_frames_unknown_count": 0,
+                "waveform_and_cap_safe_count": 10,
+                "waveform_and_cap_safe": true,
+                "named_failures": []
+              },
+              "reduced_n_point_screen": {
+                "metric": "primary_matched_human_delta_pp",
+                "operator": "<=",
+                "threshold_pp": 5.0,
+                "observed_pp": -6.3559322033898304,
+                "passed": true,
+                "status": "RUN_COMPLETE_10_OF_10"
+              },
+              "comparison": {
+                "language": "en",
+                "metric": "WER",
+                "status": "SCORED_COMPLETE_10_OF_10",
+                "classification": "EXPLORATORY_REDUCED_N",
+                "n": 10,
+                "fixed_item_ids": [
+                  "fleurs_02",
+                  "fleurs_03",
+                  "fleurs_04",
+                  "fleurs_08",
+                  "fleurs_11",
+                  "fleurs_17",
+                  "fleurs_23",
+                  "fleurs_32",
+                  "fleurs_34",
+                  "fleurs_40"
+                ],
+                "primary": {
+                  "human": {
+                    "n": 10,
+                    "substitutions": 11,
+                    "deletions": 1,
+                    "insertions": 17,
+                    "errors": 29,
+                    "reference_units": 236,
+                    "point": 0.1228813559322034,
+                    "point_pp": 12.288135593220339,
+                    "ci95_lo": 0.023346303501945526,
+                    "ci95_hi": 0.26887211473996736,
+                    "ci95_lo_pp": 2.3346303501945527,
+                    "ci95_hi_pp": 26.887211473996736
+                  },
+                  "synth": {
+                    "n": 10,
+                    "substitutions": 3,
+                    "deletions": 1,
+                    "insertions": 10,
+                    "errors": 14,
+                    "reference_units": 236,
+                    "point": 0.059322033898305086,
+                    "point_pp": 5.932203389830509,
+                    "ci95_lo": 0.0,
+                    "ci95_hi": 0.1658291457286432,
+                    "ci95_lo_pp": 0.0,
+                    "ci95_hi_pp": 16.582914572864322
+                  },
+                  "delta": {
+                    "point": -0.0635593220338983,
+                    "point_pp": -6.3559322033898304,
+                    "ci95_lo": -0.15639810426540282,
+                    "ci95_hi": 0.007633587786259541,
+                    "ci95_lo_pp": -15.639810426540283,
+                    "ci95_hi_pp": 0.7633587786259541,
+                    "n": 10,
+                    "bootstrap_B": 10000,
+                    "seed": 20260801,
+                    "ci_method": "paired_utterance_bootstrap_percentile_ratio_of_sums",
+                    "cluster_unit": "utterance"
+                  }
+                },
+                "basic_control": {
+                  "human": {
+                    "n": 10,
+                    "substitutions": 11,
+                    "deletions": 1,
+                    "insertions": 17,
+                    "errors": 29,
+                    "reference_units": 238,
+                    "point": 0.12184873949579832,
+                    "point_pp": 12.184873949579831,
+                    "ci95_lo": 0.023074712643678164,
+                    "ci95_hi": 0.2679425837320574,
+                    "ci95_lo_pp": 2.307471264367816,
+                    "ci95_hi_pp": 26.794258373205743
+                  },
+                  "synth": {
+                    "n": 10,
+                    "substitutions": 3,
+                    "deletions": 1,
+                    "insertions": 10,
+                    "errors": 14,
+                    "reference_units": 238,
+                    "point": 0.058823529411764705,
+                    "point_pp": 5.88235294117647,
+                    "ci95_lo": 0.0,
+                    "ci95_hi": 0.16355352591333897,
+                    "ci95_lo_pp": 0.0,
+                    "ci95_hi_pp": 16.355352591333897
+                  },
+                  "delta": {
+                    "point": -0.06302521008403361,
+                    "point_pp": -6.302521008403361,
+                    "ci95_lo": -0.1559633027522936,
+                    "ci95_hi": 0.007435637796149351,
+                    "ci95_lo_pp": -15.59633027522936,
+                    "ci95_hi_pp": 0.743563779614935,
+                    "n": 10,
+                    "bootstrap_B": 10000,
+                    "seed": 20260801,
+                    "ci_method": "paired_utterance_bootstrap_percentile_ratio_of_sums",
+                    "cluster_unit": "utterance"
+                  }
+                },
+                "normalizer_control": {
+                  "threshold_pp": 2.0,
+                  "primary_human_rate_pp": 12.288135593220339,
+                  "basic_human_rate_pp": 12.184873949579831,
+                  "human_abs_difference_pp": 0.10326164364050783,
+                  "primary_synth_rate_pp": 5.932203389830509,
+                  "basic_synth_rate_pp": 5.88235294117647,
+                  "synth_abs_difference_pp": 0.04985044865403854,
+                  "primary_matched_delta_pp": -6.3559322033898304,
+                  "basic_matched_delta_pp": -6.302521008403361,
+                  "matched_delta_abs_difference_pp": 0.05341119498646929,
+                  "cells": {
+                    "human_error_rate": {
+                      "abs_difference_pp": 0.10326164364050783,
+                      "status": "STABLE"
+                    },
+                    "synth_error_rate": {
+                      "abs_difference_pp": 0.04985044865403854,
+                      "status": "STABLE"
+                    },
+                    "matched_human_delta": {
+                      "abs_difference_pp": 0.05341119498646929,
+                      "status": "STABLE"
+                    }
+                  },
+                  "status": "STABLE",
+                  "ranking_inadmissible": true,
+                  "ranking_inadmissible_reasons": [
+                    "EXPLORATORY_REDUCED_N",
+                    "INSUFFICIENT_N_10_LT_60"
+                  ]
+                },
+                "ranking_inadmissible": true,
+                "th13": "INSUFFICIENT_N_10_LT_60",
+                "imputation": {
+                  "performed": false,
+                  "imputed_item_count": 0,
+                  "missing_item_count": 0,
+                  "status": "NO_IMPUTATION_COMPLETE_10_OF_10"
+                }
+              },
+              "scoring_status": "SCORED_COMPLETE_10_OF_10",
+              "classification": "EXPLORATORY_REDUCED_N",
+              "reduced_n_exploratory": true,
+              "ranking_inadmissible": true,
+              "th13": "INSUFFICIENT_N_10_LT_60",
+              "no_imputation": true
+            },
+            "scope": "REDUCED_N_EXPLORATORY"
+          },
+          "g5": {
+            "status": "NO_G5_LISTENING_CLIPS_FOR_THIS_LANGUAGE"
+          }
+        }
+      ]
+    },
+    "zh": {
+      "technical_candidates_on_sprint_evidence": [],
+      "candidate_routes_without_an_identified_lane_commercial_blocker": [],
+      "unsafe_routes": [
+        "kokoro",
+        "moss"
+      ],
+      "limited_or_evidence_incomplete_routes": [
+        "matcha"
+      ],
+      "no_lane_evidence_or_unsupported": [
+        "supertonic",
+        "piper",
+        "silero"
+      ],
+      "routes": [
+        {
+          "engine_id": "kokoro",
+          "display_name": "Kokoro-82M v1.1 ZH",
+          "model": "hexgrad/Kokoro-82M-v1.1-zh via sherpa-onnx dynamic INT8",
+          "revision": "01e7505bd6a7a2ac4975463114c3a7650a9f7218",
+          "voice_or_style": "zf_001 / sid 3",
+          "model_license": "Apache-2.0",
+          "license_disposition": "NO_LANE_IDENTIFIED_MODEL_LICENSE_BLOCKER; ROUTE_UNSAFE",
+          "technical": "UNSAFE_HARD_FAIL_NONFINITE_PCM",
+          "commercial": "NO_LANE_IDENTIFIED_MODEL_LICENSE_BLOCKER",
+          "overall": "REJECT_UNSAFE_DIAGNOSTIC_ONLY",
+          "d1": {
+            "status": "UNSAFE_INCOMPLETE_NOT_SCORED",
+            "attempted": 40,
+            "valid": 33,
+            "nonfinite": 7
+          },
+          "d3": {
+            "attempted": 9,
+            "passed": 5,
+            "failed": 4,
+            "verdict": "UNSAFE_HARD_FAIL_NONFINITE_PCM"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 18,
+            "missing": [
+              "zh_kokoro_09.wav",
+              "zh_kokoro_14.wav"
+            ],
+            "listening_disposition": "diagnostic_unsafe_route"
+          },
+          "notes": [
+            "Kokoro v1.1-zh hard-failed D3 with four non-finite outputs out of nine.",
+            "D5 indices 09 and 14 also produced non-finite PCM and were correctly not serialized."
+          ]
+        },
+        {
+          "engine_id": "matcha",
+          "display_name": "Matcha Baker + Vocos",
+          "model": "csukuangfj/matcha-icefall-zh-baker + vocos-22khz-univ",
+          "revision": "75e64a57a80fb370abb18a4e4d86bb090ed46e93",
+          "voice_or_style": "DataBaker female speaker",
+          "model_license": "checkpoint licence absent; Baker corpus non-commercial; Vocos Apache-2.0",
+          "license_disposition": "BLOCKED_PENDING_WRITTEN_RIGHTS_OR_REPLACEMENT",
+          "technical": "HAN_SAFE_BUT_MIXED_SCRIPT_OOV_OMISSION",
+          "commercial": "BLOCKED_BAKER_AND_ABSENT_CHECKPOINT_LICENSE",
+          "overall": "LIMITED_DIAGNOSTIC_NOT_GENERAL_SHIP_ROUTE",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "CER",
+            "n": 40,
+            "delta_percent_points": -0.35137034434293835,
+            "delta_ci95_percent_points": [
+              -3.143389907785568,
+              2.414536973082274
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 9,
+            "passed": 9,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_HAN_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate_except_flagged_diagnostics"
+          },
+          "notes": [
+            "Matcha ZH passed D3.",
+            "Its frontend can silently omit Latin/OOV material; flagged D5 indices require omission-focused listening.",
+            "Commercial use is blocked by Baker-corpus/checkpoint licensing."
+          ]
+        },
+        {
+          "engine_id": "moss",
+          "display_name": "MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "model": "OpenMOSS-Team/MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "revision": "44502f80dbf9743528fa921cc544d662c685ebec",
+          "codec_revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+          "voice_or_style": "upstream built-in zh_1 reference",
+          "model_license": "HF metadata Apache-2.0; required root licence absent from pinned weight/export snapshots",
+          "license_disposition": "BLOCKED_PENDING_UPSTREAM_ROOT_LICENSE_OR_EXPLICIT_WRITTEN_CONFIRMATION",
+          "technical": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+          "commercial": "BLOCKED_PINNED_WEIGHT_REDISTRIBUTION_SCOPE_UNLICENSED",
+          "overall": "REJECT_UNSAFE_DIAGNOSTIC_ONLY",
+          "g1": {
+            "tts_parameters": {
+              "value": 117311232,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "codec_parameters": {
+              "value": 21969664,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "combined_parameters": {
+              "value": 139280896,
+              "unit": "parameters",
+              "evidence_class": "PROJECTED",
+              "derivation": "117,311,232 EXACT + 21,969,664 EXACT"
+            },
+            "onnx_tied_weight_trap": "CONFIRMED_TWO_REDUNDANT_MATERIALIZATIONS_THREE_PHYSICAL_COPIES_TOTAL"
+          },
+          "g3": {
+            "engine": "moss",
+            "language": "zh",
+            "attempted": 18,
+            "waveform_gate_passed": 18,
+            "waveform_gate_failed": 0,
+            "generation_cap_hits": 15,
+            "cap_hit_cases": [
+              "zh_01_r1",
+              "zh_01_r2",
+              "zh_01_r3",
+              "zh_02_r1",
+              "zh_02_r2",
+              "zh_03_r1",
+              "zh_03_r2",
+              "zh_03_r3",
+              "zh_04_r2",
+              "zh_04_r3",
+              "zh_05_r1",
+              "zh_05_r2",
+              "zh_05_r3",
+              "zh_06_r1",
+              "zh_06_r3"
+            ],
+            "duration_s": {
+              "min": 0.48,
+              "median": 9.6,
+              "max": 9.6
+            },
+            "verdict": "FAIL",
+            "verdict_detail": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+            "warning": null
+          },
+          "commercial_evidence": {
+            "hf_metadata": {
+              "tts": "apache-2.0",
+              "audio_tokenizer": "apache-2.0",
+              "tts_onnx": "apache-2.0",
+              "audio_tokenizer_onnx": "apache-2.0",
+              "evidence_class": "VENDOR"
+            },
+            "snapshot_license_file_present": false,
+            "upstream_card_instruction": {
+              "quote": "This repository will follow the license specified in the root LICENSE file. If you are reading this before that file is published, please treat the repository as not yet licensed for redistribution.",
+              "source": "artifacts/moss/tts/README.md",
+              "source_sha256": "f7e1f8ef414fabfc4079f59dd73ae5eaa7e128e897f3b190a848145d5e300306",
+              "evidence_class": "VENDOR"
+            }
+          },
+          "notes": [
+            "All retained Lane G synthesis used local CPU and is labelled HOST.",
+            "Sampling and an upstream built-in reference voice were used; no greedy/reference-audio comparison is inferred.",
+            "Apache-2.0 HF metadata does not override the pinned README's explicit no-redistribution-until-root-LICENSE instruction.",
+            "Mixed-script coverage remains governed only by G2's explicit verdict; full/ablated waveform differences are not proof that Latin spans were spoken."
+          ],
+          "g2": {
+            "status": "COMPLETE_WITH_MIXED_SCRIPT_COVERAGE_UNRESOLVED",
+            "headline": {
+              "d1_attempted": 40,
+              "d1_safe_and_scored": 40,
+              "human_cer_percent": 6.886858749121575,
+              "moss_cer_percent": 6.2543921293042875,
+              "delta_cer_percent_points": -0.6324666198172874,
+              "delta_ci95_percent_points": [
+                -3.4746351633078523,
+                2.1939195408140226
+              ],
+              "normalizer_control_status": "UNSTABLE",
+              "mixed_safe_wavs": 12,
+              "mixed_cap_hit_count": 4
+            },
+            "final_verdict": {
+              "d1_complete_and_scored": true,
+              "zh_point_estimate_technical_screen": "PASS",
+              "zh_point_estimate_explanation": "Primary matched-human ΔCER is -0.632 pp against the +5 pp screen. This is a point-estimate screen only; TH-13 remains insufficient at n=40.",
+              "mixed_script_coverage": "UNRESOLVED",
+              "mixed_script_explanation": "Four of twelve arms hit the 160-frame generation cap, so two-arm termination is absent for three pairs; the ZH reference ASR is also not sufficient to certify Latin acronym pronunciation.",
+              "th13_gate": "INSUFFICIENT_N_40_LT_60",
+              "ranking_admissible": false
+            }
+          },
+          "g5": {
+            "expected": 20,
+            "present": 20,
+            "safe": 20,
+            "missing": [],
+            "listening_disposition": "PENDING_USER_LISTENING"
+          }
+        }
+      ]
+    },
+    "es": {
+      "technical_candidates_on_sprint_evidence": [
+        "kokoro",
+        "supertonic"
+      ],
+      "candidate_routes_without_an_identified_lane_commercial_blocker": [
+        "kokoro",
+        "supertonic"
+      ],
+      "unsafe_routes": [
+        "piper",
+        "moss"
+      ],
+      "limited_or_evidence_incomplete_routes": [],
+      "no_lane_evidence_or_unsupported": [
+        "matcha",
+        "silero"
+      ],
+      "routes": [
+        {
+          "engine_id": "kokoro",
+          "display_name": "Kokoro-82M v1.0",
+          "model": "onnx-community/Kokoro-82M-v1.0-ONNX q8f16",
+          "revision": "1939ad2a8e416c0acfeecc08a694d14ef25f2231",
+          "voice_or_style": "ef_dora",
+          "model_license": "Apache-2.0",
+          "license_disposition": "NO_LANE_IDENTIFIED_MODEL_LICENSE_BLOCKER; TRAINING_DATA_NOT_LEGALLY_AUDITED",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "NO_LANE_IDENTIFIED_MODEL_LICENSE_BLOCKER",
+          "overall": "CANDIDATE_PENDING_FULL_GATE_AND_LISTENING",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -7.735321528424977,
+            "delta_ci95_percent_points": [
+              -10.531706023801535,
+              -4.890739403092886
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Kokoro v1.0 ES passed D3."
+          ]
+        },
+        {
+          "engine_id": "piper",
+          "display_name": "Piper medium",
+          "model": "rhasspy/piper-voices",
+          "revision": "9f967d15e9ccdf43078586d1476ee70f314401bd",
+          "voice_or_style": "es_ES-davefx-medium",
+          "model_license": "repo tag MIT; voice-specific provenance controls",
+          "license_disposition": "BLOCKED_ALL_TESTED_VOICES_LESSAC_DERIVED_RESEARCH_ONLY_CHAIN",
+          "technical": "UNSAFE_D3_DURATION_FAILURE",
+          "commercial": "BLOCKED_LESSAC_PROVENANCE",
+          "overall": "REJECT_UNSAFE_DIAGNOSTIC_ONLY",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -1.4911463187325253,
+            "delta_ci95_percent_points": [
+              -4.719805794412829,
+              1.688926453143535
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 5,
+            "failed": 1,
+            "verdict": "UNSAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "diagnostic_unsafe_route"
+          },
+          "notes": [
+            "Piper DaveFX ES failed D3: one-character input \"A\" produced 0.081270 s, below the 0.15 s floor.",
+            "Commercial provenance is also blocked by the Lessac-derived training chain."
+          ]
+        },
+        {
+          "engine_id": "supertonic",
+          "display_name": "Supertonic-3",
+          "model": "Supertone/supertonic-3",
+          "revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+          "voice_or_style": "M1",
+          "model_license": "BigScience OpenRAIL-M",
+          "license_disposition": "COMMERCIAL_USE_CONDITIONAL_ON_OPENRAIL_M_RESTRICTIONS_AND_NOTICES",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "OPENRAIL_M_CONDITIONAL",
+          "overall": "CANDIDATE_PENDING_FULL_GATE_AND_LISTENING",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -7.548928238583411,
+            "delta_ci95_percent_points": [
+              -9.829867674858223,
+              -5.158578698655038
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Supertonic ES passed D3."
+          ]
+        },
+        {
+          "engine_id": "moss",
+          "display_name": "MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "model": "OpenMOSS-Team/MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "revision": "44502f80dbf9743528fa921cc544d662c685ebec",
+          "codec_revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+          "voice_or_style": "upstream built-in en_4 reference",
+          "model_license": "HF metadata Apache-2.0; required root licence absent from pinned weight/export snapshots",
+          "license_disposition": "BLOCKED_PENDING_UPSTREAM_ROOT_LICENSE_OR_EXPLICIT_WRITTEN_CONFIRMATION",
+          "technical": "UNSAFE_ON_G3_SHORT_INPUT_PROBE",
+          "commercial": "BLOCKED_PINNED_WEIGHT_REDISTRIBUTION_SCOPE_UNLICENSED",
+          "overall": "REJECT_UNSAFE_DIAGNOSTIC_ONLY",
+          "g1": {
+            "tts_parameters": {
+              "value": 117311232,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "codec_parameters": {
+              "value": 21969664,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "combined_parameters": {
+              "value": 139280896,
+              "unit": "parameters",
+              "evidence_class": "PROJECTED",
+              "derivation": "117,311,232 EXACT + 21,969,664 EXACT"
+            },
+            "onnx_tied_weight_trap": "CONFIRMED_TWO_REDUNDANT_MATERIALIZATIONS_THREE_PHYSICAL_COPIES_TOTAL"
+          },
+          "g3": {
+            "engine": "moss",
+            "language": "es",
+            "attempted": 6,
+            "waveform_gate_passed": 6,
+            "waveform_gate_failed": 0,
+            "generation_cap_hits": 2,
+            "cap_hit_cases": [
+              "es_01_r1",
+              "es_04_r1"
+            ],
+            "duration_s": {
+              "min": 0.56,
+              "median": 5.880000000000001,
+              "max": 9.6
+            },
+            "verdict": "FAIL",
+            "verdict_detail": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+            "warning": null
+          },
+          "commercial_evidence": {
+            "hf_metadata": {
+              "tts": "apache-2.0",
+              "audio_tokenizer": "apache-2.0",
+              "tts_onnx": "apache-2.0",
+              "audio_tokenizer_onnx": "apache-2.0",
+              "evidence_class": "VENDOR"
+            },
+            "snapshot_license_file_present": false,
+            "upstream_card_instruction": {
+              "quote": "This repository will follow the license specified in the root LICENSE file. If you are reading this before that file is published, please treat the repository as not yet licensed for redistribution.",
+              "source": "artifacts/moss/tts/README.md",
+              "source_sha256": "f7e1f8ef414fabfc4079f59dd73ae5eaa7e128e897f3b190a848145d5e300306",
+              "evidence_class": "VENDOR"
+            }
+          },
+          "notes": [
+            "All retained Lane G synthesis used local CPU and is labelled HOST.",
+            "Sampling and an upstream built-in reference voice were used; no greedy/reference-audio comparison is inferred.",
+            "Apache-2.0 HF metadata does not override the pinned README's explicit no-redistribution-until-root-LICENSE instruction."
+          ],
+          "g4": {
+            "coverage_verdict": "FAIL",
+            "result": {
+              "language": "es",
+              "coverage_verdict": "FAIL",
+              "waveform_and_cap_safety": {
+                "record_count": 10,
+                "failed_record_count": 1,
+                "timeout_count": 1,
+                "waveform_passed_count": 9,
+                "max_new_frames_hit_count": 0,
+                "max_new_frames_unknown_count": 1,
+                "waveform_and_cap_safe_count": 9,
+                "waveform_and_cap_safe": false,
+                "named_failures": [
+                  {
+                    "language": "es",
+                    "item_id": "fleurs_02",
+                    "case_id": "es_fleurs_02",
+                    "failure_type": "TimeoutError",
+                    "failure_message": "case exceeded 300 wall-clock seconds",
+                    "max_new_frames_hit": null,
+                    "output_retained": false
+                  }
+                ]
+              },
+              "reduced_n_point_screen": {
+                "metric": "primary_matched_human_delta_pp",
+                "operator": "<=",
+                "threshold_pp": 5.0,
+                "observed_pp": null,
+                "passed": false,
+                "status": "NOT_RUN_INCOMPLETE_ARM"
+              },
+              "comparison": {
+                "language": "es",
+                "metric": "WER",
+                "status": "UNSCORED_INCOMPLETE_ARM",
+                "classification": "EXPLORATORY_REDUCED_N",
+                "n": 0,
+                "expected_n": 10,
+                "available_audio_n": 9,
+                "available_asr_n": 0,
+                "missing_audio_item_ids": [
+                  "fleurs_02"
+                ],
+                "missing_asr_item_ids": [
+                  "fleurs_02",
+                  "fleurs_03",
+                  "fleurs_04",
+                  "fleurs_08",
+                  "fleurs_11",
+                  "fleurs_17",
+                  "fleurs_23",
+                  "fleurs_32",
+                  "fleurs_34",
+                  "fleurs_40"
+                ],
+                "primary": null,
+                "basic_control": null,
+                "normalizer_control": null,
+                "ranking_inadmissible": true,
+                "th13": "INSUFFICIENT_N_10_LT_60",
+                "imputation": {
+                  "performed": false,
+                  "imputed_item_count": 0,
+                  "missing_item_count": 10,
+                  "status": "NO_IMPUTATION_ARM_LEFT_UNSCORED"
+                }
+              },
+              "scoring_status": "UNSCORED_INCOMPLETE_ARM",
+              "classification": "EXPLORATORY_REDUCED_N",
+              "reduced_n_exploratory": true,
+              "ranking_inadmissible": true,
+              "th13": "INSUFFICIENT_N_10_LT_60",
+              "no_imputation": true
+            },
+            "scope": "REDUCED_N_EXPLORATORY"
+          },
+          "g5": {
+            "status": "NO_G5_LISTENING_CLIPS_FOR_THIS_LANGUAGE"
+          }
+        }
+      ]
+    },
+    "fr": {
+      "technical_candidates_on_sprint_evidence": [
+        "kokoro",
+        "piper",
+        "supertonic"
+      ],
+      "candidate_routes_without_an_identified_lane_commercial_blocker": [
+        "kokoro",
+        "supertonic"
+      ],
+      "unsafe_routes": [
+        "moss"
+      ],
+      "limited_or_evidence_incomplete_routes": [],
+      "no_lane_evidence_or_unsupported": [
+        "matcha",
+        "silero"
+      ],
+      "routes": [
+        {
+          "engine_id": "kokoro",
+          "display_name": "Kokoro-82M v1.0",
+          "model": "onnx-community/Kokoro-82M-v1.0-ONNX q8f16",
+          "revision": "1939ad2a8e416c0acfeecc08a694d14ef25f2231",
+          "voice_or_style": "ff_siwis",
+          "model_license": "Apache-2.0",
+          "license_disposition": "NO_LANE_IDENTIFIED_MODEL_LICENSE_BLOCKER; TRAINING_DATA_NOT_LEGALLY_AUDITED",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "NO_LANE_IDENTIFIED_MODEL_LICENSE_BLOCKER",
+          "overall": "CANDIDATE_PENDING_FULL_GATE_AND_LISTENING",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -17.5,
+            "delta_ci95_percent_points": [
+              -23.04724948641863,
+              -12.298820046600001
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Kokoro v1.0 FR passed D3."
+          ]
+        },
+        {
+          "engine_id": "piper",
+          "display_name": "Piper medium",
+          "model": "rhasspy/piper-voices",
+          "revision": "9f967d15e9ccdf43078586d1476ee70f314401bd",
+          "voice_or_style": "fr_FR-siwis-medium",
+          "model_license": "repo tag MIT; voice-specific provenance controls",
+          "license_disposition": "BLOCKED_ALL_TESTED_VOICES_LESSAC_DERIVED_RESEARCH_ONLY_CHAIN",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "BLOCKED_LESSAC_PROVENANCE",
+          "overall": "TECHNICAL_ONLY_NOT_SHIPPABLE_ON_PINNED_EVIDENCE",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -15.499999999999996,
+            "delta_ci95_percent_points": [
+              -22.278764910209308,
+              -8.959502394875926
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Piper Siwis FR passed D3.",
+            "Commercial provenance remains blocked by the Lessac-derived training chain."
+          ]
+        },
+        {
+          "engine_id": "supertonic",
+          "display_name": "Supertonic-3",
+          "model": "Supertone/supertonic-3",
+          "revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+          "voice_or_style": "M1",
+          "model_license": "BigScience OpenRAIL-M",
+          "license_disposition": "COMMERCIAL_USE_CONDITIONAL_ON_OPENRAIL_M_RESTRICTIONS_AND_NOTICES",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "OPENRAIL_M_CONDITIONAL",
+          "overall": "CANDIDATE_PENDING_FULL_GATE_AND_LISTENING",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": -18.499999999999996,
+            "delta_ci95_percent_points": [
+              -24.461944027511258,
+              -12.87004732181021
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Supertonic FR passed D3."
+          ]
+        },
+        {
+          "engine_id": "moss",
+          "display_name": "MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "model": "OpenMOSS-Team/MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "revision": "44502f80dbf9743528fa921cc544d662c685ebec",
+          "codec_revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+          "voice_or_style": "upstream built-in en_4 reference",
+          "model_license": "HF metadata Apache-2.0; required root licence absent from pinned weight/export snapshots",
+          "license_disposition": "BLOCKED_PENDING_UPSTREAM_ROOT_LICENSE_OR_EXPLICIT_WRITTEN_CONFIRMATION",
+          "technical": "UNSAFE_ON_G3_SHORT_INPUT_PROBE",
+          "commercial": "BLOCKED_PINNED_WEIGHT_REDISTRIBUTION_SCOPE_UNLICENSED",
+          "overall": "REJECT_UNSAFE_DIAGNOSTIC_ONLY",
+          "g1": {
+            "tts_parameters": {
+              "value": 117311232,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "codec_parameters": {
+              "value": 21969664,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "combined_parameters": {
+              "value": 139280896,
+              "unit": "parameters",
+              "evidence_class": "PROJECTED",
+              "derivation": "117,311,232 EXACT + 21,969,664 EXACT"
+            },
+            "onnx_tied_weight_trap": "CONFIRMED_TWO_REDUNDANT_MATERIALIZATIONS_THREE_PHYSICAL_COPIES_TOTAL"
+          },
+          "g3": {
+            "engine": "moss",
+            "language": "fr",
+            "attempted": 6,
+            "waveform_gate_passed": 6,
+            "waveform_gate_failed": 0,
+            "generation_cap_hits": 3,
+            "cap_hit_cases": [
+              "fr_01_r1",
+              "fr_02_r1",
+              "fr_05_r1"
+            ],
+            "duration_s": {
+              "min": 1.76,
+              "median": 6.08,
+              "max": 9.6
+            },
+            "verdict": "FAIL",
+            "verdict_detail": "UNSAFE_PROBABLE_NONTERMINATION_OR_TRUNCATION_CAP_HIT",
+            "warning": null
+          },
+          "commercial_evidence": {
+            "hf_metadata": {
+              "tts": "apache-2.0",
+              "audio_tokenizer": "apache-2.0",
+              "tts_onnx": "apache-2.0",
+              "audio_tokenizer_onnx": "apache-2.0",
+              "evidence_class": "VENDOR"
+            },
+            "snapshot_license_file_present": false,
+            "upstream_card_instruction": {
+              "quote": "This repository will follow the license specified in the root LICENSE file. If you are reading this before that file is published, please treat the repository as not yet licensed for redistribution.",
+              "source": "artifacts/moss/tts/README.md",
+              "source_sha256": "f7e1f8ef414fabfc4079f59dd73ae5eaa7e128e897f3b190a848145d5e300306",
+              "evidence_class": "VENDOR"
+            }
+          },
+          "notes": [
+            "All retained Lane G synthesis used local CPU and is labelled HOST.",
+            "Sampling and an upstream built-in reference voice were used; no greedy/reference-audio comparison is inferred.",
+            "Apache-2.0 HF metadata does not override the pinned README's explicit no-redistribution-until-root-LICENSE instruction."
+          ],
+          "g4": {
+            "coverage_verdict": "FAIL",
+            "result": {
+              "language": "fr",
+              "coverage_verdict": "FAIL",
+              "waveform_and_cap_safety": {
+                "record_count": 10,
+                "failed_record_count": 3,
+                "timeout_count": 3,
+                "waveform_passed_count": 7,
+                "max_new_frames_hit_count": 0,
+                "max_new_frames_unknown_count": 3,
+                "waveform_and_cap_safe_count": 7,
+                "waveform_and_cap_safe": false,
+                "named_failures": [
+                  {
+                    "language": "fr",
+                    "item_id": "fleurs_02",
+                    "case_id": "fr_fleurs_02",
+                    "failure_type": "TimeoutError",
+                    "failure_message": "case exceeded 300 wall-clock seconds",
+                    "max_new_frames_hit": null,
+                    "output_retained": false
+                  },
+                  {
+                    "language": "fr",
+                    "item_id": "fleurs_03",
+                    "case_id": "fr_fleurs_03",
+                    "failure_type": "TimeoutError",
+                    "failure_message": "case exceeded 300 wall-clock seconds",
+                    "max_new_frames_hit": null,
+                    "output_retained": false
+                  },
+                  {
+                    "language": "fr",
+                    "item_id": "fleurs_04",
+                    "case_id": "fr_fleurs_04",
+                    "failure_type": "TimeoutError",
+                    "failure_message": "case exceeded 300 wall-clock seconds",
+                    "max_new_frames_hit": null,
+                    "output_retained": false
+                  }
+                ]
+              },
+              "reduced_n_point_screen": {
+                "metric": "primary_matched_human_delta_pp",
+                "operator": "<=",
+                "threshold_pp": 5.0,
+                "observed_pp": null,
+                "passed": false,
+                "status": "NOT_RUN_INCOMPLETE_ARM"
+              },
+              "comparison": {
+                "language": "fr",
+                "metric": "WER",
+                "status": "UNSCORED_INCOMPLETE_ARM",
+                "classification": "EXPLORATORY_REDUCED_N",
+                "n": 0,
+                "expected_n": 10,
+                "available_audio_n": 7,
+                "available_asr_n": 0,
+                "missing_audio_item_ids": [
+                  "fleurs_02",
+                  "fleurs_03",
+                  "fleurs_04"
+                ],
+                "missing_asr_item_ids": [
+                  "fleurs_02",
+                  "fleurs_03",
+                  "fleurs_04",
+                  "fleurs_08",
+                  "fleurs_11",
+                  "fleurs_17",
+                  "fleurs_23",
+                  "fleurs_32",
+                  "fleurs_34",
+                  "fleurs_40"
+                ],
+                "primary": null,
+                "basic_control": null,
+                "normalizer_control": null,
+                "ranking_inadmissible": true,
+                "th13": "INSUFFICIENT_N_10_LT_60",
+                "imputation": {
+                  "performed": false,
+                  "imputed_item_count": 0,
+                  "missing_item_count": 10,
+                  "status": "NO_IMPUTATION_ARM_LEFT_UNSCORED"
+                }
+              },
+              "scoring_status": "UNSCORED_INCOMPLETE_ARM",
+              "classification": "EXPLORATORY_REDUCED_N",
+              "reduced_n_exploratory": true,
+              "ranking_inadmissible": true,
+              "th13": "INSUFFICIENT_N_10_LT_60",
+              "no_imputation": true
+            },
+            "scope": "REDUCED_N_EXPLORATORY"
+          },
+          "g5": {
+            "status": "NO_G5_LISTENING_CLIPS_FOR_THIS_LANGUAGE"
+          }
+        }
+      ]
+    },
+    "ru": {
+      "technical_candidates_on_sprint_evidence": [
+        "supertonic"
+      ],
+      "candidate_routes_without_an_identified_lane_commercial_blocker": [
+        "supertonic"
+      ],
+      "unsafe_routes": [
+        "piper"
+      ],
+      "limited_or_evidence_incomplete_routes": [
+        "silero",
+        "moss"
+      ],
+      "no_lane_evidence_or_unsupported": [
+        "kokoro",
+        "matcha"
+      ],
+      "routes": [
+        {
+          "engine_id": "piper",
+          "display_name": "Piper medium",
+          "model": "rhasspy/piper-voices",
+          "revision": "9f967d15e9ccdf43078586d1476ee70f314401bd",
+          "voice_or_style": "ru_RU-dmitri-medium",
+          "model_license": "repo tag MIT; voice-specific provenance controls",
+          "license_disposition": "BLOCKED_ALL_TESTED_VOICES_LESSAC_DERIVED_RESEARCH_ONLY_CHAIN",
+          "technical": "UNSAFE_D3_DURATION_FAILURE_DMITRI",
+          "commercial": "BLOCKED_LESSAC_PROVENANCE",
+          "overall": "REJECT_UNSAFE_DIAGNOSTIC_ONLY",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": 3.007518796992481,
+            "delta_ci95_percent_points": [
+              0.8695652173913049,
+              5.4727635706816224
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 5,
+            "failed": 1,
+            "verdict": "UNSAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "diagnostic_unsafe_route"
+          },
+          "notes": [
+            "Piper Dmitri RU failed D3: input \"Да\" produced 0.116100 s, below the 0.15 s floor.",
+            "Commercial provenance is also blocked by the Lessac-derived training chain.",
+            "Alternate Irina passed D3 6/6 but has no D1/D5 evidence and an unknown immediate dataset licence."
+          ]
+        },
+        {
+          "engine_id": "silero",
+          "display_name": "Silero v5_cis_base",
+          "model": "snakers4/silero-models v5_cis_base",
+          "revision": "d9355348e2781dc8fa25a135d1602c530afae24c",
+          "voice_or_style": "ru_zhadyra",
+          "model_license": "MIT for v5_cis_base only",
+          "license_disposition": "MIT_NOTICE_REQUIRED; EXTERNAL_RU_STRESS_FRONTEND_REQUIRED",
+          "technical": "D3_SAFE_BUT_NO_D1_BACKCHECK_AND_STRESS_UNKNOWN",
+          "commercial": "MIT_WITH_NOTICE",
+          "overall": "EVIDENCE_INCOMPLETE_LISTEN_FOR_STRESS",
+          "d1": {
+            "status": "NO_D1_BACKCHECK"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate_with_frontend_caveat"
+          },
+          "notes": [
+            "Silero v5_cis_base RU passed D3.",
+            "A production route still needs an external Russian stress frontend.",
+            "D5 used exact unmarked prompts; stress correctness is UNKNOWN and is a listening target."
+          ]
+        },
+        {
+          "engine_id": "supertonic",
+          "display_name": "Supertonic-3",
+          "model": "Supertone/supertonic-3",
+          "revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+          "voice_or_style": "M1",
+          "model_license": "BigScience OpenRAIL-M",
+          "license_disposition": "COMMERCIAL_USE_CONDITIONAL_ON_OPENRAIL_M_RESTRICTIONS_AND_NOTICES",
+          "technical": "SPRINT_CANDIDATE_NOT_GATE_CLEARED",
+          "commercial": "OPENRAIL_M_CONDITIONAL",
+          "overall": "CANDIDATE_PENDING_FULL_GATE_AND_LISTENING",
+          "d1": {
+            "status": "SCORED_POINT_ESTIMATE_ONLY",
+            "metric": "WER",
+            "n": 40,
+            "delta_percent_points": 1.5037593984962405,
+            "delta_ci95_percent_points": [
+              -0.38512148922057504,
+              3.2846835224493316
+            ],
+            "normalizer_control_status": "UNSTABLE",
+            "ranking_inadmissible": true,
+            "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60"
+          },
+          "d3": {
+            "attempted": 6,
+            "passed": 6,
+            "failed": 0,
+            "verdict": "SAFE_ON_D3_PROBE"
+          },
+          "d5": {
+            "expected": 20,
+            "present": 20,
+            "missing": [],
+            "listening_disposition": "comparison_candidate"
+          },
+          "notes": [
+            "Supertonic RU passed D3."
+          ]
+        },
+        {
+          "engine_id": "moss",
+          "display_name": "MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "model": "OpenMOSS-Team/MOSS-TTS-Nano-100M + MOSS-Audio-Tokenizer-Nano",
+          "revision": "44502f80dbf9743528fa921cc544d662c685ebec",
+          "codec_revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+          "voice_or_style": "upstream built-in en_4 reference",
+          "model_license": "HF metadata Apache-2.0; required root licence absent from pinned weight/export snapshots",
+          "license_disposition": "BLOCKED_PENDING_UPSTREAM_ROOT_LICENSE_OR_EXPLICIT_WRITTEN_CONFIRMATION",
+          "technical": "REDUCED_N_G4_TECHNICAL_SCREEN_FAILED",
+          "commercial": "BLOCKED_PINNED_WEIGHT_REDISTRIBUTION_SCOPE_UNLICENSED",
+          "overall": "REJECT_REDUCED_N_SCREEN_AND_COMMERCIAL_BLOCKED",
+          "g1": {
+            "tts_parameters": {
+              "value": 117311232,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "codec_parameters": {
+              "value": 21969664,
+              "unit": "parameters",
+              "evidence_class": "EXACT"
+            },
+            "combined_parameters": {
+              "value": 139280896,
+              "unit": "parameters",
+              "evidence_class": "PROJECTED",
+              "derivation": "117,311,232 EXACT + 21,969,664 EXACT"
+            },
+            "onnx_tied_weight_trap": "CONFIRMED_TWO_REDUNDANT_MATERIALIZATIONS_THREE_PHYSICAL_COPIES_TOTAL"
+          },
+          "g3": {
+            "engine": "moss",
+            "language": "ru",
+            "attempted": 6,
+            "waveform_gate_passed": 6,
+            "waveform_gate_failed": 0,
+            "generation_cap_hits": 0,
+            "cap_hit_cases": [],
+            "duration_s": {
+              "min": 0.56,
+              "median": 3.68,
+              "max": 8.72
+            },
+            "verdict": "UNRESOLVED",
+            "verdict_detail": "UNRESOLVED_PLAUSIBLE_DURATION_NO_TEXT_RELATIVE_THRESHOLD",
+            "warning": {
+              "id": "PLAUSIBLE_DURATION_UNRESOLVED_NO_PREDECLARED_TEXT_RELATIVE_THRESHOLD",
+              "affected_non_cap_attempt_count": 19,
+              "affected_record_ids": [
+                "en_02_r1",
+                "en_03_r1",
+                "en_06_r1",
+                "es_02_r1",
+                "es_03_r1",
+                "es_05_r1",
+                "es_06_r1",
+                "fr_03_r1",
+                "fr_04_r1",
+                "fr_06_r1",
+                "ru_01_r1",
+                "ru_02_r1",
+                "ru_03_r1",
+                "ru_04_r1",
+                "ru_05_r1",
+                "ru_06_r1",
+                "zh_02_r3",
+                "zh_04_r1",
+                "zh_06_r2"
+              ],
+              "affected_record_ids_by_language": {
+                "en": [
+                  "en_02_r1",
+                  "en_03_r1",
+                  "en_06_r1"
+                ],
+                "es": [
+                  "es_02_r1",
+                  "es_03_r1",
+                  "es_05_r1",
+                  "es_06_r1"
+                ],
+                "fr": [
+                  "fr_03_r1",
+                  "fr_04_r1",
+                  "fr_06_r1"
+                ],
+                "ru": [
+                  "ru_01_r1",
+                  "ru_02_r1",
+                  "ru_03_r1",
+                  "ru_04_r1",
+                  "ru_05_r1",
+                  "ru_06_r1"
+                ],
+                "zh": [
+                  "zh_02_r3",
+                  "zh_04_r1",
+                  "zh_06_r2"
+                ]
+              },
+              "conspicuous_examples": [
+                {
+                  "record_id": "en_03_r1",
+                  "text": "Yes",
+                  "duration_s": 8.32
+                },
+                {
+                  "record_id": "ru_01_r1",
+                  "text": "Я",
+                  "duration_s": 8.72
+                },
+                {
+                  "record_id": "ru_02_r1",
+                  "text": "Да",
+                  "duration_s": 6.48
+                }
+              ],
+              "route_clearance_disqualifying": true,
+              "reason": "Lane G requires plausible duration on every short input, but no text-relative duration rule was predeclared. Passing the broad registered [0.15, 30] s waveform-duration gate and avoiding the frame cap therefore cannot be promoted to a plausible-duration PASS."
+            }
+          },
+          "commercial_evidence": {
+            "hf_metadata": {
+              "tts": "apache-2.0",
+              "audio_tokenizer": "apache-2.0",
+              "tts_onnx": "apache-2.0",
+              "audio_tokenizer_onnx": "apache-2.0",
+              "evidence_class": "VENDOR"
+            },
+            "snapshot_license_file_present": false,
+            "upstream_card_instruction": {
+              "quote": "This repository will follow the license specified in the root LICENSE file. If you are reading this before that file is published, please treat the repository as not yet licensed for redistribution.",
+              "source": "artifacts/moss/tts/README.md",
+              "source_sha256": "f7e1f8ef414fabfc4079f59dd73ae5eaa7e128e897f3b190a848145d5e300306",
+              "evidence_class": "VENDOR"
+            }
+          },
+          "notes": [
+            "All retained Lane G synthesis used local CPU and is labelled HOST.",
+            "Sampling and an upstream built-in reference voice were used; no greedy/reference-audio comparison is inferred.",
+            "Apache-2.0 HF metadata does not override the pinned README's explicit no-redistribution-until-root-LICENSE instruction."
+          ],
+          "g4": {
+            "coverage_verdict": "FAIL",
+            "result": {
+              "language": "ru",
+              "coverage_verdict": "FAIL",
+              "waveform_and_cap_safety": {
+                "record_count": 10,
+                "failed_record_count": 0,
+                "timeout_count": 0,
+                "waveform_passed_count": 10,
+                "max_new_frames_hit_count": 0,
+                "max_new_frames_unknown_count": 0,
+                "waveform_and_cap_safe_count": 10,
+                "waveform_and_cap_safe": true,
+                "named_failures": []
+              },
+              "reduced_n_point_screen": {
+                "metric": "primary_matched_human_delta_pp",
+                "operator": "<=",
+                "threshold_pp": 5.0,
+                "observed_pp": 9.859154929577466,
+                "passed": false,
+                "status": "RUN_COMPLETE_10_OF_10"
+              },
+              "comparison": {
+                "language": "ru",
+                "metric": "WER",
+                "status": "SCORED_COMPLETE_10_OF_10",
+                "classification": "EXPLORATORY_REDUCED_N",
+                "n": 10,
+                "fixed_item_ids": [
+                  "fleurs_02",
+                  "fleurs_03",
+                  "fleurs_04",
+                  "fleurs_08",
+                  "fleurs_11",
+                  "fleurs_17",
+                  "fleurs_23",
+                  "fleurs_32",
+                  "fleurs_34",
+                  "fleurs_40"
+                ],
+                "primary": {
+                  "human": {
+                    "n": 10,
+                    "substitutions": 5,
+                    "deletions": 3,
+                    "insertions": 1,
+                    "errors": 9,
+                    "reference_units": 213,
+                    "point": 0.04225352112676056,
+                    "point_pp": 4.225352112676056,
+                    "ci95_lo": 0.015384615384615385,
+                    "ci95_hi": 0.0714365791159512,
+                    "ci95_lo_pp": 1.5384615384615385,
+                    "ci95_hi_pp": 7.1436579115951195
+                  },
+                  "synth": {
+                    "n": 10,
+                    "substitutions": 18,
+                    "deletions": 10,
+                    "insertions": 2,
+                    "errors": 30,
+                    "reference_units": 213,
+                    "point": 0.14084507042253522,
+                    "point_pp": 14.084507042253522,
+                    "ci95_lo": 0.07425284195086175,
+                    "ci95_hi": 0.21621621621621623,
+                    "ci95_lo_pp": 7.425284195086175,
+                    "ci95_hi_pp": 21.62162162162162
+                  },
+                  "delta": {
+                    "point": 0.09859154929577466,
+                    "point_pp": 9.859154929577466,
+                    "ci95_lo": 0.031578947368421054,
+                    "ci95_hi": 0.16418090705890837,
+                    "ci95_lo_pp": 3.1578947368421053,
+                    "ci95_hi_pp": 16.418090705890837,
+                    "n": 10,
+                    "bootstrap_B": 10000,
+                    "seed": 20260801,
+                    "ci_method": "paired_utterance_bootstrap_percentile_ratio_of_sums",
+                    "cluster_unit": "utterance"
+                  }
+                },
+                "basic_control": {
+                  "human": {
+                    "n": 10,
+                    "substitutions": 11,
+                    "deletions": 1,
+                    "insertions": 21,
+                    "errors": 33,
+                    "reference_units": 191,
+                    "point": 0.17277486910994763,
+                    "point_pp": 17.277486910994764,
+                    "ci95_lo": 0.06432748538011696,
+                    "ci95_hi": 0.3463687150837989,
+                    "ci95_lo_pp": 6.432748538011696,
+                    "ci95_hi_pp": 34.63687150837989
+                  },
+                  "synth": {
+                    "n": 10,
+                    "substitutions": 18,
+                    "deletions": 2,
+                    "insertions": 16,
+                    "errors": 36,
+                    "reference_units": 191,
+                    "point": 0.18848167539267016,
+                    "point_pp": 18.848167539267017,
+                    "ci95_lo": 0.08695652173913043,
+                    "ci95_hi": 0.35100232683014126,
+                    "ci95_lo_pp": 8.695652173913043,
+                    "ci95_hi_pp": 35.10023268301413
+                  },
+                  "delta": {
+                    "point": 0.01570680628272253,
+                    "point_pp": 1.570680628272253,
+                    "ci95_lo": -0.026668449197860964,
+                    "ci95_hi": 0.06735896838796061,
+                    "ci95_lo_pp": -2.6668449197860964,
+                    "ci95_hi_pp": 6.735896838796061,
+                    "n": 10,
+                    "bootstrap_B": 10000,
+                    "seed": 20260801,
+                    "ci_method": "paired_utterance_bootstrap_percentile_ratio_of_sums",
+                    "cluster_unit": "utterance"
+                  }
+                },
+                "normalizer_control": {
+                  "threshold_pp": 2.0,
+                  "primary_human_rate_pp": 4.225352112676056,
+                  "basic_human_rate_pp": 17.277486910994764,
+                  "human_abs_difference_pp": 13.052134798318708,
+                  "primary_synth_rate_pp": 14.084507042253522,
+                  "basic_synth_rate_pp": 18.848167539267017,
+                  "synth_abs_difference_pp": 4.763660497013495,
+                  "primary_matched_delta_pp": 9.859154929577466,
+                  "basic_matched_delta_pp": 1.570680628272253,
+                  "matched_delta_abs_difference_pp": 8.288474301305213,
+                  "cells": {
+                    "human_error_rate": {
+                      "abs_difference_pp": 13.052134798318708,
+                      "status": "UNSTABLE"
+                    },
+                    "synth_error_rate": {
+                      "abs_difference_pp": 4.763660497013495,
+                      "status": "UNSTABLE"
+                    },
+                    "matched_human_delta": {
+                      "abs_difference_pp": 8.288474301305213,
+                      "status": "UNSTABLE"
+                    }
+                  },
+                  "status": "UNSTABLE",
+                  "ranking_inadmissible": true,
+                  "ranking_inadmissible_reasons": [
+                    "EXPLORATORY_REDUCED_N",
+                    "INSUFFICIENT_N_10_LT_60",
+                    "NORMALIZER_CONTROL_UNSTABLE"
+                  ]
+                },
+                "ranking_inadmissible": true,
+                "th13": "INSUFFICIENT_N_10_LT_60",
+                "imputation": {
+                  "performed": false,
+                  "imputed_item_count": 0,
+                  "missing_item_count": 0,
+                  "status": "NO_IMPUTATION_COMPLETE_10_OF_10"
+                }
+              },
+              "scoring_status": "SCORED_COMPLETE_10_OF_10",
+              "classification": "EXPLORATORY_REDUCED_N",
+              "reduced_n_exploratory": true,
+              "ranking_inadmissible": true,
+              "th13": "INSUFFICIENT_N_10_LT_60",
+              "no_imputation": true
+            },
+            "scope": "REDUCED_N_EXPLORATORY"
+          },
+          "g5": {
+            "status": "NO_G5_LISTENING_CLIPS_FOR_THIS_LANGUAGE"
+          }
+        }
+      ]
+    }
+  },
+  "cross_cutting_findings": [
+    "All complete D1 point estimates are <=5 pp, but n=40 is below TH-13's n>=60 requirement.",
+    "All tested Piper voices are directly or indirectly Lessac-derived and commercially blocked on pinned evidence.",
+    "Silero v5_cis_base is 20,926,952 learned parameters [EXACT], MIT, and D3-safe, but has no D1 backcheck and needs an external Russian stress frontend.",
+    "Matcha ZH is Han-short-input safe but silently ignores Latin/OOV tokens and is commercially blocked.",
+    "Kokoro v1.1 ZH reproduced non-finite PCM on short and long inputs and is rejected.",
+    "MOSS Lane G: 139,280,896 combined learned parameters [PROJECTED from two EXACT component counts]; the official ONNX TTS export redundantly materialises tied codebook tables.",
+    "MOSS Lane G: HF metadata says Apache-2.0, but all pinned weight/export snapshots lack a root licence file and the TTS README says to treat redistribution as unlicensed until it appears.",
+    "MOSS Lane G: reduced-n EN/ES/FR/RU evidence remains exploratory and cannot establish a safe single-engine five-language replacement."
+  ],
+  "evidence": {
+    "D1": "D1.json",
+    "D2": "D2.json",
+    "D3": "D3.json",
+    "D4": "D4.json",
+    "D5": "D5.json",
+    "listening_guide": "LISTEN.md",
+    "G1": "G1.json",
+    "G2": "G2.json",
+    "G3": "G3.json",
+    "G4": "G4.json",
+    "G5": "G5.json"
+  },
+  "lane_g_moss": {
+    "historical_lane_d_route_rows_sha256": "128b85645f76ec9309e76f0561635aac369753f85f66dfed0185922e8de79af2",
+    "zh_bucket": "unsafe",
+    "commercially_unblocked": false,
+    "commercial_blocker": "BLOCKED_PENDING_UPSTREAM_ROOT_LICENSE_OR_EXPLICIT_WRITTEN_CONFIRMATION",
+    "naturalness": "PENDING_USER_LISTENING"
+  }
+}

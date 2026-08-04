@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "milestone": "demo2_no_lfm_source_build",
+  "created_at": "2026-08-03T02:21:38+08:00",
+  "branch": "sprint/overnight",
+  "source_parent_commit": "2393518dc14976694898d7cec6df14dbbfb6fcd8",
+  "source_files": [
+    "android-app/app/src/main/assets/demo-ui/index.html",
+    "android-app/app/src/main/java/ai/liquid/lfmdemo/MainActivity.java",
+    "android-app/app/src/main/java/ai/liquid/lfmdemo/NativeAudioBridge.java",
+    "scripts/test_android_native_tts_bridge.py",
+    "scripts/test_streaming_audio_ui.mjs"
+  ],
+  "deployment_policy": {
+    "lfm_runtime_enabled": false,
+    "legacy_lfm_service_started_by_main_activity": false,
+    "required_loopback_services": [
+      "http://127.0.0.1:6010/health",
+      "http://127.0.0.1:6020/health"
+    ],
+    "port_8080_readiness_contacted": false,
+    "english_route": "runtime companion ASR -> Qwen text companion -> native offline TTS",
+    "mandarin_route": "runtime companion ASR -> Qwen text companion -> native offline TTS"
+  },
+  "build": {
+    "command": "env JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home ANDROID_HOME=<USER_HOME>/Library/Android/sdk android-app/gradlew --max-workers=2 -p android-app :app:assembleDebug",
+    "result": "BUILD SUCCESSFUL",
+    "apk_repo_path": "android-app/app/build/outputs/apk/debug/app-debug.apk",
+    "apk_absolute_path": "<REPO_ROOT>/android-app/app/build/outputs/apk/debug/app-debug.apk",
+    "apk_bytes": 20197812,
+    "apk_sha256": "a415970f73950ddd1214e2a9b8bda874b06f806e3714d3db2647c7a78d3677ea",
+    "apk_modified_at": "2026-08-03T02:20:52+08:00"
+  },
+  "verification": {
+    "passed": [
+      "python3 scripts/test_android_native_tts_bridge.py",
+      "node scripts/test_streaming_audio_ui.mjs",
+      "python3 scripts/test_android_asr_companion.py",
+      "python3 scripts/test_runtime_companion_source.py",
+      "python3 scripts/test_android_streaming_telemetry.py",
+      "python3 scripts/test_streaming_tts_queue.py",
+      "python3 scripts/test_streaming_text_chunks.py",
+      "python3 scripts/test_tts_candidate_registry_contract.py"
+    ]
+  },
+  "acceptance_status": "source_and_build_only",
+  "limits": [
+    "This APK was not installed on or exercised against the connected Nubia NX809J in this milestone.",
+    "This record is not physical-demo acceptance evidence and makes no latency, audio-quality, or NPU-execution claim.",
+    "The source identity is the commit containing this record, based on source_parent_commit plus the listed source files."
+  ]
+}

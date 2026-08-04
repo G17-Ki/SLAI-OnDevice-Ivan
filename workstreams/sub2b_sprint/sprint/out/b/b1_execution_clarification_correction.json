@@ -1,0 +1,23 @@
+{
+  "schema_version": "lane-b-execution-clarification-correction/1.0",
+  "sprint_id": "B1",
+  "recorded_at_utc": "2026-08-02T05:55:05Z",
+  "recorded_before_candidate_inference": true,
+  "corrects": {
+    "path": "b1_execution_clarifications.json",
+    "sha256": "cb3921b1dbfa9a38040d6ffae13f04606dbcebe72b2806a14193d89f06140b91",
+    "field": "native_rubric_execution.generic_match_field"
+  },
+  "reason": "The frozen native-generation manifest contains 21 rubrics declaring unicode_case_sensitive_regex. The earlier clarification incorrectly described unicode_case_insensitive_regex as the only accepted declared value. This append-only correction records the manifest-required execution before any candidate-model inference.",
+  "corrected_execution": {
+    "accepted_declared_values": [
+      "unicode_case_insensitive_regex",
+      "unicode_case_sensitive_regex"
+    ],
+    "unicode_case_insensitive_regex": "Execute Unicode regex matching with case-insensitive comparison.",
+    "unicode_case_sensitive_regex": "Execute Unicode regex matching without IGNORECASE.",
+    "undeclared_match": "Retain the earlier default: Unicode case-insensitive matching.",
+    "all_other_values": "Fail closed."
+  },
+  "scope": "No model, item, prompt, decoding parameter, rubric pattern, scoring weight, threshold, or manifest byte is changed."
+}

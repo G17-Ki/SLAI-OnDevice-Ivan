@@ -1,0 +1,2886 @@
+{
+  "schema_version": 1,
+  "purpose": "Lane D D1 matched-human ASR backcheck corpus",
+  "dataset": "google/fleurs",
+  "dataset_source_ref": "refs/convert/parquet",
+  "dataset_source_ref_status": "MUTABLE_REF_NOT_RESOLVED_OR_HASHED_AT_FETCH",
+  "source_parquet_hashes_retained": false,
+  "local_evidence_integrity": "The committed manifest and every retained human WAV are SHA-256 pinned; the source Parquet blobs were deleted without retained hashes.",
+  "split": "test",
+  "selection_method": "deterministic shared-ID stratification; first recording per semantic sentence ID",
+  "target_count_per_language": 40,
+  "coverage_targets": {
+    "question": 1,
+    "numbers": 8,
+    "dates": 6,
+    "names": 8,
+    "acronyms": 6,
+    "long_clause": 10
+  },
+  "coverage_achieved": {
+    "acronyms": 9,
+    "dates": 9,
+    "long_clause": 10,
+    "names": 35,
+    "numbers": 13,
+    "question": 1
+  },
+  "languages": {
+    "en": "en_us",
+    "zh": "cmn_hans_cn",
+    "es": "es_419",
+    "fr": "fr_fr",
+    "ru": "ru_ru"
+  },
+  "items": [
+    {
+      "sentence_id": 1660,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Romanticism had a large element of cultural determinism, drawn from writers such as Goethe, Fichte, and Schlegel.",
+        "zh": "浪漫主义具有很强的文化决定论色彩。这源于歌德、费希特和施莱格尔等作家。",
+        "es": "El elemento del determinismo cultural se encontraba muy presente en el romanticismo, según estudiosos como Goether, Fichte y Schlegel.",
+        "fr": "Le romantisme présentait un important élément de déterminisme culturel, tiré d'écrivains tels que Goethe, Fichte et Schlegel.",
+        "ru": "Романтизм во многом включал в себя культурный детерминизм, почерпнутый у таких писателей, как Гёте, Фихте и Шлегель."
+      },
+      "en_length": 113,
+      "item_id": "fleurs_01"
+    },
+    {
+      "sentence_id": 1665,
+      "categories": [
+        "numbers",
+        "dates",
+        "names",
+        "long_clause"
+      ],
+      "texts": {
+        "en": "The document, according to the leak, will refer to the borders dispute, which Palestine wants based on the borders before the 1967 Mideast War.",
+        "zh": "据透露，这份文件将提及边界争端，巴勒斯坦希望以1967年中东战争前的边界为基础。",
+        "es": "Según la información que se filtró, el documento tratará sobre el conflicto fronterizo, que Palestina pretende resolver basándose en los límites vigentes en forma previa a la Guerra del Medio Oriente de 1967.",
+        "fr": "D'après la fuite, le document portera sur le différend à la frontière que la Palestine revendique sur la base des frontières existantes avant la guerre du Moyen-Orient de 1967.",
+        "ru": "Документ, согласно утечке информации, будет касаться спора насчёт границ, которые Палестина хочет установить на основе тех, что существовали до начала Шестидневной войны 1967 года."
+      },
+      "en_length": 143,
+      "item_id": "fleurs_02"
+    },
+    {
+      "sentence_id": 1668,
+      "categories": [
+        "acronyms",
+        "names",
+        "long_clause"
+      ],
+      "texts": {
+        "en": "It may also be beneficial for one to buy a Wild Card, which provides entry to either selections of parks in South Africa or all of the South African National Parks.",
+        "zh": "买一张万能卡（Wild Card）也有不少好处。带着这张卡，你可以进入南非的一些公园或全部的国家公园。",
+        "es": "También puede ser conveniente comprar una Wild Card que permite la entrada a selecciones de parques en Sudáfrica o a todos los Parques Nacionales del país.",
+        "fr": "Il peut être avantageux de se procurer une Wild Card qui donne accès à certains parcs d'Afrique du Sud, ainsi qu’à tous les parcs nationaux sud-africains.",
+        "ru": "Также может быть выгодно купить Wild Card, которая позволяет посещать национальные парки ЮАР либо выборочно, либо все."
+      },
+      "en_length": 164,
+      "item_id": "fleurs_03"
+    },
+    {
+      "sentence_id": 1694,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Children are placed in Foster Care for a wide variety of reasons that range from neglect, to abuse, and even to extortion.",
+        "zh": "孩子们因为各种原因被寄养，原因有被忽视、被虐待，甚至是被勒索。",
+        "es": "Se acoge a los niños en hogares de guarda por una amplia variedad de motivos, desde negligencia hasta abuso e, incluso, extorsión.",
+        "fr": "Les enfants sont placés dans des familles d’accueil pour des raisons très diverses qui vont de la négligence à la maltraitance, en passant par l’extorsion.",
+        "ru": "Дети передаются под опеку по множеству разнообразных причин: от беспризорности до жестокого обращения и даже вымогательств."
+      },
+      "en_length": 122,
+      "item_id": "fleurs_04"
+    },
+    {
+      "sentence_id": 1702,
+      "categories": [
+        "numbers",
+        "names"
+      ],
+      "texts": {
+        "en": "In just two weeks the Americans and Free French forces had liberated southern France and were turning towards Germany.",
+        "zh": "仅仅两个星期，美国和自由法国的军队就解放了法国南部，并转向德国。",
+        "es": "En apenas dos semanas, las fuerzas norteamericanas y las de la Francia Libre habían logrado la liberación del sur de Francia y seguían rumbo a Alemania.",
+        "fr": "En à peine deux semaines, les Américains et les Forces de la France Libre avaient libéré le sud de la France et se dirigeaient vers l'Allemagne.",
+        "ru": "Всего за 2 недели силы Свободной Франции и американцы освободили южную Францию и отправились в сторону Германии."
+      },
+      "en_length": 118,
+      "item_id": "fleurs_05"
+    },
+    {
+      "sentence_id": 1707,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "It is one of the main attractions of South Africa and it is considered the flagship of South African National Parks (SANParks).",
+        "zh": "它是南非的主要景点之一，被认为是南非国家公园体系 (SANParks) 的主打景点。",
+        "es": "Esta es una de las atracciones más importantes de Sudáfrica y se la reconoce como ícono principal de los Parques Nacionales de Sudáfrica (SANParks).",
+        "fr": "Il s'agit de l'un des parcs d'attraction les plus connus en Afrique du Sud et considéré comme le fleuron des parcs Nationaux sud-africains (SANParks).",
+        "ru": "Он является одной из главных достопримечательностей Южной Африки и считается ведущим среди южноафриканских национальных парков (SANParks)."
+      },
+      "en_length": 127,
+      "item_id": "fleurs_06"
+    },
+    {
+      "sentence_id": 1712,
+      "categories": [
+        "numbers",
+        "dates",
+        "names",
+        "long_clause"
+      ],
+      "texts": {
+        "en": "Since 1966 the Sundarbans have been a wildlife sanctuary, and it is estimated that there are now 400 Royal Bengal tigers and about 30,000 spotted deer in the area.",
+        "zh": "自 1966 年以来，孙德尔本斯一直是野生动物保护区。据估计，目前该区生活着 400 只皇家孟加拉虎和大约 3 万只梅花鹿。",
+        "es": "Los Sundarbans han sido, desde 1966, un templo de la vida silvestre y se calcula que en la actualidad existen en el área 400 tigres reales de Bengala y unos 30 000 ciervos moteados.",
+        "fr": "Sundarbans est une réserve naturelle depuis 1966, vous pourrez y trouver environ 400 tigres du Bengale royal et 30 000 cerfs tachetés.",
+        "ru": "С 1966 года Сундарбан является заповедником дикой природы, и, по имеющимся подсчётам, на его территории в настоящее время обитают 400 бенгальских тигров и около 30 000 пятнистых оленей."
+      },
+      "en_length": 163,
+      "item_id": "fleurs_07"
+    },
+    {
+      "sentence_id": 1721,
+      "categories": [
+        "numbers",
+        "dates"
+      ],
+      "texts": {
+        "en": "After the dam was built in 1963, the seasonal floods that would spread sediment throughout the river were halted.",
+        "zh": "1963 年大坝建成后，季节性洪水被控制住了，沉积物不再冲散到河流里。",
+        "es": "Con la construcción de la presa en 1963, se frenaron las inundaciones estacionales que dejaban sedimentos a lo largo del río.",
+        "fr": "Après la construction du barrage en 1963, les inondations saisonnières qui devaient répandre des sédiments dans le fleuve ont été stoppées.",
+        "ru": "После строительства плотины в 1963 году сезонные паводки, распространявшие по реке отложения, прекратились."
+      },
+      "en_length": 113,
+      "item_id": "fleurs_08"
+    },
+    {
+      "sentence_id": 1723,
+      "categories": [
+        "numbers",
+        "dates",
+        "acronyms",
+        "names",
+        "long_clause"
+      ],
+      "texts": {
+        "en": "The harbor was the site of an infamous naval standoff in 1889 when seven ships from Germany, the US, and Britain refused to leave the harbor.",
+        "zh": "该海湾曾在 1889 年发生过一场臭名昭著的海军对峙，当时来自德国、美国和英国的七艘舰船拒绝驶离这个海湾。",
+        "es": "En 1889, el puerto fue el escenario de un nefasto enfrentamiento naval cuando siete barcos alemanes, americanos y e ingleses se negaron a salir del puerto.",
+        "fr": "Le port a été le site d’une impasse navale tristement célèbre en 1889, lorsque sept navires d’Allemagne, des États-Unis et de Grande-Bretagne ont refusé de quitter le port.",
+        "ru": "Бухта была местом печально известного военно-морского противостояния в 1889 году, когда семь кораблей из Германии, США и Британии отказались покидать бухту."
+      },
+      "en_length": 141,
+      "item_id": "fleurs_09"
+    },
+    {
+      "sentence_id": 1725,
+      "categories": [
+        "numbers",
+        "dates",
+        "acronyms",
+        "names"
+      ],
+      "texts": {
+        "en": "ASUS Eee PC, earlier launched world-wide for cost-saving and functionality factors, became a hot topic in 2007 Taipei IT Month.",
+        "zh": "早先于全球发布的华硕 Eee PC 个人笔记本，因成本节约及功能性因素，成为 2007 年台北 IT 资讯月备受瞩目的话题。",
+        "es": "ASUS Eee PC, que anteriormente fue lanzada a nivel global por sus ventajas de ahorro de costos y funcionalidad, se volvió sujeto de candentes debates en el Mes de la Tecnología de la Información de Taipei 2007.",
+        "fr": "L'ASUS Eee PC, lancé précédemment à l'échelle mondiale pour des raisons d'économies et de fonctionnalités, est devenu un sujet brûlant lors du Taipei IT Month de 2007.",
+        "ru": "Серия ASUS Eee PC, ранее представленная во всём мире с ориентацией на такие факторы, как экономия средств и функциональность, стала горячей темой во время месяца информационных технологий в Тайбэе в 2007 году."
+      },
+      "en_length": 127,
+      "item_id": "fleurs_10"
+    },
+    {
+      "sentence_id": 1726,
+      "categories": [
+        "long_clause"
+      ],
+      "texts": {
+        "en": "Field trips are a large part of any classroom. Quite often a teacher would love to take her students places to which a bus trip is not an option.",
+        "zh": "实地考察是任何教学活动的重要组成部分。通常，老师会很乐意带学生去那些公交车无法到达的地方。",
+        "es": "Los viajes de estudio constituyen una parte importante de todo salón de clases. Es muy frecuente que una docente desee llevar a sus estudiantes a sitios a los que no es posible llegar en autobús.",
+        "fr": "Les excursions font partie intégrante de n'importe quelle classe d'école. Bien souvent, un enseignant aimerait emmener ses élèves dans des endroits où un voyage en bus n’est pas envisageable.",
+        "ru": "Учебные экскурсии очень важны для любого класса. Очень часто учителям хочется отвезти своих учеников туда, куда нельзя доехать на автобусе."
+      },
+      "en_length": 145,
+      "item_id": "fleurs_11"
+    },
+    {
+      "sentence_id": 1732,
+      "categories": [
+        "numbers",
+        "acronyms",
+        "names",
+        "long_clause"
+      ],
+      "texts": {
+        "en": "The age where the events took place is commonly referred as the High Middle Ages the period of European history in the 11th, 12th, and 13th centuries (AD 1000–1300).",
+        "zh": "事件发生的时代通常被称为欧洲史的中世纪盛时，即的 11、12 和 13世纪时期（公元 1000-1300 年）。",
+        "es": "El período histórico europeo en el que se sitúan estos acontecimientos se conoce habitualmente como Alta Edad Media, entre los siglos XI, XII y XIII (es decir, entre los años 1000 y 1300 d. C.).",
+        "fr": "Ces événements ont eu lieu dans la période généralement considérée comme le Haut Moyen Âge – période de l'histoire en Europe courant du XIe au XIIIe siècle (1000-1300).",
+        "ru": "Эпоху, в которой происходили данные события, принято называть Высоким Средневековьем, периодом европейской истории, затрагивающим XI, XII и XIII века (1000–1300 гг. н. э.)."
+      },
+      "en_length": 165,
+      "item_id": "fleurs_12"
+    },
+    {
+      "sentence_id": 1739,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Resting on the top of one of the mountains north of Mecca, the cave is completely isolated from the rest of the world.",
+        "zh": "该洞穴坐落在麦加 (Mecca) 北部的一座山顶上，与外界完全隔绝。",
+        "es": "En la cúspide de una de las montañas al norte de La Meca, yace una cueva totalmente abstraída del resto del planeta.",
+        "fr": "Située au sommet d'une des montagnes au nord de La Mecque, la grotte est totalement isolée du reste du monde.",
+        "ru": "Пещера располагается на вершине горы к северу от Мекки и полностью изолирована от остального мира."
+      },
+      "en_length": 118,
+      "item_id": "fleurs_13"
+    },
+    {
+      "sentence_id": 1742,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Hong Kong Island gives the territory of Hong Kong its name and is the place that many tourists regard as the main focus.",
+        "zh": "香港岛是香港地区的代名词，也是众多游客心目中的焦点所在。",
+        "es": "El territorio de Hong Kong toma el nombre de la isla homónima, que es el destino gran parte de los turistas considera la atracción principal.",
+        "fr": "L'île de Hong Kong donne son nom au territoire de Hong Kong et représente le principal centre d'intérêt pour de nombreux touristes.",
+        "ru": "Территория Гонконга была названа в честь острова Гонконг, места, которое многие туристы считают главным объектом  своего внимания."
+      },
+      "en_length": 120,
+      "item_id": "fleurs_14"
+    },
+    {
+      "sentence_id": 1763,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Just like the moon exerts a pull on the earth, causing tides, so does the Milky Way exert a force on the Sagittarius galaxy.",
+        "zh": "就像月球对地球施加拉力，引起潮汐一样，银河系也对人马座星系施加着作用力。",
+        "es": "La Vía Láctea influeye en la galaxia de Sagitario del mismo modo en que la luna ejerce una fuerza de atracción sobre nuestro planeta y causa las mareas.",
+        "fr": "Tout comme la lune exerce une traction sur la terre, provoquant des marées, la Voie lactée exerce une force sur la galaxie du Sagittaire.",
+        "ru": "Так же, как Луна притягивает Землю, при этом вызывая приливы, так и Млечный Путь воздействует на галактику в Стрельце."
+      },
+      "en_length": 124,
+      "item_id": "fleurs_15"
+    },
+    {
+      "sentence_id": 1767,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "This offers a good opportunity to see the Aurora borealis, as the sky will be dark more or less around the clock.",
+        "zh": "这提供了一个可以看到北极光的绝佳机会，因为天空将或多或少连续一整天都是暗的。",
+        "es": "Dado que el cielo se mantendrá oscuro casi durante todo el día, es una gran oportunidad para contemplar las auroras boreales.",
+        "fr": "C'est une bonne occasion d'admirer les aurores boréales, car le ciel sera sombre pratiquement toute la journée.",
+        "ru": "Это представляет хорошую возможность увидеть северное сияние, потому что небо будет более или менее тёмным круглые сутки."
+      },
+      "en_length": 113,
+      "item_id": "fleurs_16"
+    },
+    {
+      "sentence_id": 1770,
+      "categories": [
+        "question",
+        "names"
+      ],
+      "texts": {
+        "en": "This seems sensible, because the Earth doesn't feel as if it's moving, does it?",
+        "zh": "这似乎是合理的，因为地球感觉不到自己在移动，不是吗？",
+        "es": "Esto parece tener sentido, ya que en la Tierra no se percibe su movimiento, ¿cierto?",
+        "fr": "Cela semble raisonnable, car la Terre n'a pas l'impression de bouger, n'est-ce pas ?",
+        "ru": "Это кажется разумной идеей, потому что мы не чувствуем, что Земля движется, не так ли?"
+      },
+      "en_length": 79,
+      "item_id": "fleurs_17"
+    },
+    {
+      "sentence_id": 1810,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors.",
+        "zh": "加利福尼亚州长阿诺德·施瓦辛格签署了一项法案，禁止向未成年人出售或出租暴力电子游戏。",
+        "es": "Una propuesta de ley fue dictada por el gobernador de California, Arnold Schwarzenegger, que no permite vender o rentar videojuegos violentos a menores de edad.",
+        "fr": "Le gouverneur de Californie, Arnold Schwarzenegger, a promulgué une loi qui interdit la vente ou la location de jeux vidéo violents aux mineurs.",
+        "ru": "Губернатор Калифорнии Арнольд Шварценеггер подписал закон, запрещающий продажу или прокат видеоигр с применением насилия несовершеннолетним лицам."
+      },
+      "en_length": 127,
+      "item_id": "fleurs_18"
+    },
+    {
+      "sentence_id": 1816,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Duvall, who is married with two adult children, did not leave a big impression on Miller, to whom the story was related.",
+        "zh": "杜瓦尔已婚，有两个已经成年的孩子，他并没有给故事的讲述者米勒留下太大印象。",
+        "es": "Duvall, que está casado y tiene dos hijos adultos, no causó una buena impresión a Miller, que fue a quien le relató la historia.",
+        "fr": "Duvall, qui est marié et a deux enfants adultes, n’a pas fait bonne impression à Miller, à qui l’histoire a été relatée.",
+        "ru": "Дюваль, который женат и имеет двух совершеннолетних детей, не произвел большого впечатления на Миллера, которому рассказали эту историю."
+      },
+      "en_length": 120,
+      "item_id": "fleurs_19"
+    },
+    {
+      "sentence_id": 1819,
+      "categories": [
+        "names",
+        "long_clause"
+      ],
+      "texts": {
+        "en": "Ancient China had a unique way of showing different time periods; each stage of China or each family that was in power was a distinctive dynasty.",
+        "zh": "中国古代的不同时期各有特点；中国的每个时期或每个执掌天下的家族都是一个特点鲜明的王朝。",
+        "es": "La antigua China tenía una forma única de delimitar los diferentes períodos de tiempo. Cada etapa o cada familia en el poder constituía una dinastía distinta.",
+        "fr": "La Chine ancienne avait une façon unique de montrer les différentes époques ; chaque étape de la Chine ou chaque famille qui était au pouvoir était une dynastie distincte.",
+        "ru": "В древнем Китае использовали уникальный способ обозначения периодов времени; каждый этап Китая или каждая семья, находившаяся у власти, были особой династией."
+      },
+      "en_length": 145,
+      "item_id": "fleurs_20"
+    },
+    {
+      "sentence_id": 1830,
+      "categories": [
+        "acronyms",
+        "names"
+      ],
+      "texts": {
+        "en": "The ruling party, South West Africa People's Organisation (SWAPO), also retained a majority in the parliamentary elections.",
+        "zh": "执政党西南非洲人民组织 (SWAPO) 也在议会选举中保持了多数席位。",
+        "es": "El partido a cargo del gobierno, la Organización Popular de África del Sudoeste (SWAPO), obtuvo también la mayoría de votos en las elecciones legislativas.",
+        "fr": "Le parti au pouvoir, l'Organisation du peuple du Sud-Ouest africain (SWAPO), a lui aussi réussi à conserver la majorité aux élections législatives.",
+        "ru": "Правящая партия Организация народов Юго‑Западной Африки (СВАПО) также сохранила большинство на парламентских выборах."
+      },
+      "en_length": 123,
+      "item_id": "fleurs_21"
+    },
+    {
+      "sentence_id": 1834,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Also to the north visit the great Sanctuary of Our Lady of Fatima (Shrine), a place of worldwide famous Marian apparitions.",
+        "zh": "也可以到北部参观法蒂玛圣母院（圣地），它是举世闻名的圣母玛丽亚显现之地。",
+        "es": "También debe visitar, hacia el norte, el gran Santuario de Nuestra Señora de Fátima (Santuario) que es un sitio donde hubo apariciones de la Virgen María, famosas en todo el mundo.",
+        "fr": "En vous rendant au nord, ne manquez pas de visiter le superbe sanctuaire de Notre-Dame de Fatima (temple), un lieu mondialement connu pour les apparitions de Marie.",
+        "ru": "Севернее посетите также великий Храм Фатимской Богоматери (усыпальница) — место всемирно известных явлений Девы Марии."
+      },
+      "en_length": 123,
+      "item_id": "fleurs_22"
+    },
+    {
+      "sentence_id": 1846,
+      "categories": [
+        "numbers"
+      ],
+      "texts": {
+        "en": "The aspect ratio of this format (dividing by twelve to obtain the simplest whole-number ratio) is therefore said to be 3:2.",
+        "zh": "因此，这种格式的宽高比（除以 12 得到最简单的整数比）便是 3:2。",
+        "es": "Por ello se dice que la relación dimensional de este formato (dividir por doce a fin de calcular la razón de números enteros más sencilla) equivale a 3:2.",
+        "fr": "On dit donc que le rapport d'aspect de ce format (en divisant par douze pour obtenir le plus simple des rapports de nombres entiers) est de 3:2.",
+        "ru": "Соотношение сторон этого формата (поделенное на двенадцать, чтобы получить соотношение с небольшими целыми числами) поэтому принято за 3:2."
+      },
+      "en_length": 123,
+      "item_id": "fleurs_23"
+    },
+    {
+      "sentence_id": 1857,
+      "categories": [
+        "long_clause"
+      ],
+      "texts": {
+        "en": "He added that \"they should not, however, be asked to take on obligations that go beyond their development stage, responsibility and capabilities.\"",
+        "zh": "他补充道，“然而，他们不应该被要求承担超出其发展阶段、责任和能力范围的义务。”",
+        "es": "Agregó: «Aun así, no es correcto exigirles que asuman obligaciones que sobrepasan su fase de desarrollo, su nivel de responsabilidad y sus capacidades».",
+        "fr": "Il a ajouté qu’« on ne devrait cependant pas leur demander d’assumer des obligations qui dépassent leur stade de développement, leur responsabilité et leurs capacités. »",
+        "ru": "Он добавил, что \"их, однако, не следует просить брать на себя обязательства, которые выходят за рамки их стадии разработки, ответственности и возможностей\"."
+      },
+      "en_length": 146,
+      "item_id": "fleurs_24"
+    },
+    {
+      "sentence_id": 1865,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Saint Petersburg cruises include time in town. Cruise passengers are exempted from visa requirements (check the terms).",
+        "zh": "圣彼得堡游轮包括城内观光活动。游轮乘客可获豁免签证（详情请参阅服务条款）。",
+        "es": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desembarcan de los requerimientos de visado (consulte términos).",
+        "fr": "Les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisières sont exemptés de l'obligation de visa (voir les conditions).",
+        "ru": "Круизы в Санкт-Петербург включают прогулки по городу. Пассажиры круизов освобождены от визовых требований (уточните условия)."
+      },
+      "en_length": 119,
+      "item_id": "fleurs_25"
+    },
+    {
+      "sentence_id": 1882,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Scientists hope to understand how planets form, especially how the Earth formed, since comets collided with the Earth long ago.",
+        "zh": "科学家希望了解自从彗星很久以前与地球相撞以来，行星是如何形成的，尤其是地球的形成方式。",
+        "es": "La expectativa de los científicos es comprender cómo se originan los planetas, en particular el nuestro, dado que los cometas se estrellaron en la Tierra mucho tiempo atrás.",
+        "fr": "Les scientifiques espèrent comprendre comment les planètes se forment, et plus particulièrement comment la Terre s'est formée, puisque des comètes sont entrées en collision avec elle il y a longtemps.",
+        "ru": "Учёные надеются понять, как образуются планеты, особенно то, как образовалась Земля, поскольку кометы сталкивались  с Землёй очень давно."
+      },
+      "en_length": 127,
+      "item_id": "fleurs_26"
+    },
+    {
+      "sentence_id": 1912,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Most of the smaller islands are independent nations, or associated with France, and known as luxury beach resorts.",
+        "zh": "较小的岛屿大多是独立国家，或所属于法国，它们以豪华海滩度假胜地而闻名。",
+        "es": "La mayor parte de las islas más pequeñas constituyen estados independientes o asociadas con Francia y son populares por sus playas y complejos turísticos de lujo.",
+        "fr": "La plupart des petites îles sont des nations indépendantes, ou associées à la France, et sont connues pour être des stations balnéaires de luxe.",
+        "ru": "Почти все более мелкие острова являются независимыми государствами или ассоциированы с Францией и известны как шикарные пляжные курорты."
+      },
+      "en_length": 114,
+      "item_id": "fleurs_27"
+    },
+    {
+      "sentence_id": 1919,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "The city is also the base to climb the Nyiragongo volcano along with some of the cheapest Mountain Gorilla tracking in Africa.",
+        "zh": "这座城市也是攀登尼拉贡戈火山（Nyiragongo）以及非洲最便宜的山地大猩猩追踪项目的基地。",
+        "es": "A su vez, la ciudad es la base para escalar el volcán Nyiragongo y sus excursiones de avistamiento de gorilas de montaña son de las más económicas de África.",
+        "fr": "La ville est également le point de départ pour l'ascension du volcan Nyiragongo ainsi que pour des treks de pistage des gorilles des montagnes parmi les moins chers d'Afrique.",
+        "ru": "Этот город также является отправной точкой для восхождения на вулкан Ньирагонго, а также здесь можно посмотреть на горных горилл в дикой природе по одной из самых дешёвых цен в Африке."
+      },
+      "en_length": 126,
+      "item_id": "fleurs_28"
+    },
+    {
+      "sentence_id": 1925,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "The work done was mostly theoretical, but the program was written to simulate observations made of the Sagittarius galaxy.",
+        "zh": "完成的工作大多是理论性的，但编写程序的目的，是为了模拟对人马座星系的观测。",
+        "es": "Si bien se trató de un trabajo eminentemente teórico, el programa se redactó con la finalidad de simular las observaciones realizadas a la galaxia de Sagitario.",
+        "fr": "Le travail effectué était principalement théorique, mais le programme a été écrit pour simuler les observations faites de la galaxie du Sagittaire.",
+        "ru": "Проведенная работа была в основном теоретической, но программа была написана для имитации наблюдений галактики в Стрельце."
+      },
+      "en_length": 122,
+      "item_id": "fleurs_29"
+    },
+    {
+      "sentence_id": 1927,
+      "categories": [
+        "numbers",
+        "dates",
+        "names"
+      ],
+      "texts": {
+        "en": "Angel (2006), explains the Continuum approach as a method being used to help organizations reach a higher level of performance.",
+        "zh": "《天使》(2006) 将连续体方案解释为可以帮助组织达到更高绩效水平的一种方法。",
+        "es": "Angel (2006) explica el enfoque continuo como un método utilizado para ayudar a las organizaciones a lograr un mayor nivel de desempeño.",
+        "fr": "Angel (2006) présente l'approche Continuum comme une méthode employée pour aider les organisations à obtenir de meilleurs résultats.",
+        "ru": "Эйнджел (2006 г.) объясняет подход \"Континуум\" как метод, используемый для помощи организациям в достижении более высокого уровня эффективности."
+      },
+      "en_length": 127,
+      "item_id": "fleurs_30"
+    },
+    {
+      "sentence_id": 1939,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "Also after the Revolution occupations were open to all male applicants allowing the most ambitious and successful to succeed.",
+        "zh": "此外，在革命之后，官职面向全体男性开放申请，这使得最有抱负、最成功之人有机会飞黄腾达。",
+        "es": "Asimismo, luego de la Revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el éxito de los más ambiciosos y prestigiosos.",
+        "fr": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talentueux de réussir.",
+        "ru": "Также после Революции открылись возможности работы открылись всем мужчинам, что позволило самым амбициозным и талантливым добиться успеха."
+      },
+      "en_length": 125,
+      "item_id": "fleurs_31"
+    },
+    {
+      "sentence_id": 1946,
+      "categories": [
+        "numbers",
+        "dates",
+        "names",
+        "long_clause"
+      ],
+      "texts": {
+        "en": "Cancellation policies vary, but as of late March most coronavirus-based cancellation policies don't extend to July 2020, when the Olympics had been scheduled.",
+        "zh": "取消政策各不相同，但截至三月末，大多数由于新冠病毒而出台的取消政策并没有延长到 2020 年 7 月——原定奥运会举办时间。",
+        "es": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo, la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de 2020, que es para cuando están programados los Juegos Olímpicos.",
+        "fr": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur les coronavirus ne s'étendent pas jusqu'en juillet 2020, date à laquelle les Jeux olympiques avaient été prévus.",
+        "ru": "Правила отмены заказов могут отличаться, но по состоянию на конец марта большая часть правил, связанных с коронавирусом, не распространяется на июль 2020 года, когда были запланированы Олимпийские игры."
+      },
+      "en_length": 158,
+      "item_id": "fleurs_32"
+    },
+    {
+      "sentence_id": 1947,
+      "categories": [
+        "numbers",
+        "dates",
+        "acronyms",
+        "names"
+      ],
+      "texts": {
+        "en": "Prior to the arrival of troops, Haiti had not encountered problems related to the disease since the 1800s.",
+        "zh": "在军队到来之前，海地自 19 世纪初以来从未遇到过与该疾病有关的问题。",
+        "es": "Previo al arribo de las fuerzas de paz, Haití no había enfrentado problemas asociados a la enfermedad desde el siglo XIX.",
+        "fr": "Avant l'arrivée des troupes, Haïti n'avait pas rencontré de problèmes liés à la maladie depuis les années 1800.",
+        "ru": "До прибытия войск государство Гаити не сталкивалось с проблемами, касающимися данного заболевания, с начала 19 века."
+      },
+      "en_length": 106,
+      "item_id": "fleurs_33"
+    },
+    {
+      "sentence_id": 1955,
+      "categories": [
+        "acronyms"
+      ],
+      "texts": {
+        "en": "MS is a disease that affects the central nervous system, which is made up of the brain, the spinal cord and the optic nerve.",
+        "zh": "多发性硬化是一种影响中枢神经系统（由脑、脊髓和视神经组成）的疾病。",
+        "es": "El sistema nervioso central, unión del cerebro, la médula espinal y el nervio óptico, es el objeto de ataque de la esclerosis múltiple.",
+        "fr": "La sclérose en plaques est une maladie qui affecte le système nerveux central, composé du cerveau, de la moelle épinière et du nerf optique.",
+        "ru": "Рассеянный склероз – это заболевание, поражающее центральную нервную систему, которая состоит из головного мозга, спинного мозга и зрительного нерва."
+      },
+      "en_length": 124,
+      "item_id": "fleurs_34"
+    },
+    {
+      "sentence_id": 1958,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "The city is in stark contrast to the rest of the country's cities, because it has more of an Arabic flair than of an African.",
+        "zh": "这座城市与该国其他城市形成了鲜明对比，因为它更多的是阿拉伯风格，而不是非洲风格。",
+        "es": "La ciudad contrasta mucho con las restantes del país, ya que posee un estilo más árabe que africano.",
+        "fr": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain.",
+        "ru": "Данный город сильно отличается от других городов страны, так как в нем преобладает арабский колорит, а не африканский."
+      },
+      "en_length": 125,
+      "item_id": "fleurs_35"
+    },
+    {
+      "sentence_id": 1979,
+      "categories": [
+        "acronyms",
+        "names"
+      ],
+      "texts": {
+        "en": "The official Falklands currency is the Falkland pound (FKP) whose value is set equivalent to that of one British pound (GBP).",
+        "zh": "福克兰群岛的官方货币是福克兰英镑，与英镑等值。",
+        "es": "El valor de la libra de las Malvinas (FKP), moneda oficial de las Islas Malvinas, se fija en equivalencia con la británica (GBP).",
+        "fr": "La monnaie officielle des Îles Malouines est la livre des Îles Malouines (FKP) dont la valeur est équivalente à une livre sterling (GBP).",
+        "ru": "Официальной валютой Фолклендских островов является фунт Фолкендских островов (FKP), стоимость которого эквивалентна стоимости одного британского фунта стерлингов (GBP)."
+      },
+      "en_length": 125,
+      "item_id": "fleurs_36"
+    },
+    {
+      "sentence_id": 1986,
+      "categories": [
+        "numbers",
+        "dates",
+        "names"
+      ],
+      "texts": {
+        "en": "The presence of a true “invisible team” (Larson and LaFasto, 1989, p109) is also a unique component of a virtual team.",
+        "zh": "真正“隐形团队”的存在 (Larson 和 LaFasto，1989，p109），也是虚拟团队的一个独特组成部分。",
+        "es": "La existencia de un real «equipo invisible» (Larson y LaFasto, 1989 p. 109) constituye también un elemento exclusivo de los equipos virtuales.",
+        "fr": "La présence d'une réelle « équipe invisible » (Larson et LaFasto, 1989, p109) est également un élément unique d'une équipe virtuelle.",
+        "ru": "Наличие настоящей \"невидимой команды\" (Ларсон и ЛаФасто, 1989 г., с. 109) также является уникальным компонентом виртуальной команды."
+      },
+      "en_length": 118,
+      "item_id": "fleurs_37"
+    },
+    {
+      "sentence_id": 1991,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "During this period of European history, the Catholic Church, which had become rich and powerful, came under scrutiny.",
+        "zh": "在欧洲历史上的这段时期，已然富有而强大起来的天主教会受到了密切监督。",
+        "es": "Durante esta fase de la historia de Europa, la iglesia católica, que había acumulado riqueza y poder, fue cuestionada.",
+        "fr": "Pendant cette période de l'histoire européenne, l'Église catholique, qui était devenue riche et puissante, a été remise en question.",
+        "ru": "В течение этого периода европейской истории, католическая церковь, ставшая богатой и сильной, оказалась объектом пристального внимания."
+      },
+      "en_length": 117,
+      "item_id": "fleurs_38"
+    },
+    {
+      "sentence_id": 1992,
+      "categories": [
+        "names"
+      ],
+      "texts": {
+        "en": "The term safari in popular use refers to overland travel to view the stunning African wildlife, particularly on savanna.",
+        "zh": "“游猎 (safari)”一词，在常见的用法中是指通过陆路旅行去观赏令人惊叹的非洲野生动物，尤其是在热带草原上。",
+        "es": "El uso popular del término safari hace referencia a los viajes por tierra para ver la sorprendente vida salvaje de África, en particular en la sabana.",
+        "fr": "Dans le langage courant, le terme « safari » désigne une excursion sur la terre africaine, et en particulier dans la savane, ayant pour but d'assister au spectacle saisissant des animaux sauvages dans leur milieu.",
+        "ru": "Термин \"сафари\" в повседневном использовании означает наземную поездку с целью посмотреть поразительную дикую природу Африки, особенно в саванне."
+      },
+      "en_length": 120,
+      "item_id": "fleurs_39"
+    },
+    {
+      "sentence_id": 1997,
+      "categories": [
+        "numbers",
+        "acronyms",
+        "names",
+        "long_clause"
+      ],
+      "texts": {
+        "en": "However, the percentage of XDR-TB in the entire group of people with tuberculosis still seems to be low; 6,000 of the total 330,000 people infected at any particular moment in South Africa.",
+        "zh": "然而，广泛耐药结核病在整个结核病患者群体中所占的比例似乎仍然很低；在南非，在任意特定时刻，总计 33 万人中只有 6000 人感染。",
+        "es": "De todas formas, el porcentaje de XDR-TB en el grupo total de enfermos de tuberculosis aún parece ser reducido: 6000 de un total de 333 000 individuos infectados en un momento particular en Sudáfrica.",
+        "fr": "Cependant, le pourcentage de TB-UR dans l’ensemble du groupe de personnes atteintes de tuberculose semble encore faible ; 6 000 personnes sur un total de 330 000 ont été infectées à un moment donné en Afrique du Sud.",
+        "ru": "Однако, процент людей с туберкулёзом с множественной лекарственной устойчивостью в целой группе больных туберкулезом все еще кажется низким; 6000 от общего числа 330 000 зараженных в данный конкретный момент в ЮАР."
+      },
+      "en_length": 189,
+      "item_id": "fleurs_40"
+    }
+  ],
+  "human_audio": {
+    "en": [
+      {
+        "item_id": "fleurs_01",
+        "sentence_id": 1660,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_01_human.wav",
+        "sha256": "f17abcd4a9abded45086642ab68174b5447b6e73dcb2c0fcf6a9b1f5e788688c",
+        "sample_rate_hz": 16000,
+        "frames": 170880,
+        "duration_s": 10.68,
+        "channels": 1,
+        "source_row_index": 107
+      },
+      {
+        "item_id": "fleurs_02",
+        "sentence_id": 1665,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_02_human.wav",
+        "sha256": "e0d5a14a08db942a49abe3e607f0b27ccf1f618e375e9f17553447a7960af9ce",
+        "sample_rate_hz": 16000,
+        "frames": 132480,
+        "duration_s": 8.28,
+        "channels": 1,
+        "source_row_index": 386
+      },
+      {
+        "item_id": "fleurs_03",
+        "sentence_id": 1668,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_03_human.wav",
+        "sha256": "d6ab97bb7e3232b60b61910d3ac7e1cf37acbcbfd062773b453c76217682f49e",
+        "sample_rate_hz": 16000,
+        "frames": 213120,
+        "duration_s": 13.32,
+        "channels": 1,
+        "source_row_index": 94
+      },
+      {
+        "item_id": "fleurs_04",
+        "sentence_id": 1694,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_04_human.wav",
+        "sha256": "620f3f57e848e454e40fc54621e89283abefa65bf94e61c14a04afab5293a7e8",
+        "sample_rate_hz": 16000,
+        "frames": 171520,
+        "duration_s": 10.72,
+        "channels": 1,
+        "source_row_index": 157
+      },
+      {
+        "item_id": "fleurs_05",
+        "sentence_id": 1702,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_05_human.wav",
+        "sha256": "a41d177f65328292fe3e6f2da501aaa88ce259f07ca8be91df60d99ba9058d6c",
+        "sample_rate_hz": 16000,
+        "frames": 162880,
+        "duration_s": 10.18,
+        "channels": 1,
+        "source_row_index": 181
+      },
+      {
+        "item_id": "fleurs_06",
+        "sentence_id": 1707,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_06_human.wav",
+        "sha256": "a1fa381a4bd8368991de7a0a07e3926f7b28ea8198ac040b4c6fab6eff44c0d6",
+        "sample_rate_hz": 16000,
+        "frames": 174720,
+        "duration_s": 10.92,
+        "channels": 1,
+        "source_row_index": 557
+      },
+      {
+        "item_id": "fleurs_07",
+        "sentence_id": 1712,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_07_human.wav",
+        "sha256": "96c5cde39f15883c5f8ba875581f862cd70e4ab0000ac5f6daae1c15e8c88ef0",
+        "sample_rate_hz": 16000,
+        "frames": 279360,
+        "duration_s": 17.46,
+        "channels": 1,
+        "source_row_index": 68
+      },
+      {
+        "item_id": "fleurs_08",
+        "sentence_id": 1721,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_08_human.wav",
+        "sha256": "68bd31e1773977f91f43611e1e2965350b1ef88491717e0577565dc2f1c989c0",
+        "sample_rate_hz": 16000,
+        "frames": 147840,
+        "duration_s": 9.24,
+        "channels": 1,
+        "source_row_index": 235
+      },
+      {
+        "item_id": "fleurs_09",
+        "sentence_id": 1723,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_09_human.wav",
+        "sha256": "e9216146bc8a9054526e538464eea6f016a25753658c7b46a82c0c337a780aab",
+        "sample_rate_hz": 16000,
+        "frames": 204480,
+        "duration_s": 12.78,
+        "channels": 1,
+        "source_row_index": 50
+      },
+      {
+        "item_id": "fleurs_10",
+        "sentence_id": 1725,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_10_human.wav",
+        "sha256": "57448498af379da01c7d63d4eb95589087704059d0243d76bb4a735d730fa105",
+        "sample_rate_hz": 16000,
+        "frames": 171840,
+        "duration_s": 10.74,
+        "channels": 1,
+        "source_row_index": 411
+      },
+      {
+        "item_id": "fleurs_11",
+        "sentence_id": 1726,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_11_human.wav",
+        "sha256": "3e6a7e4c53871947f946fc408879b3529316e3f03acf8e1d66f13ae09d1e7e44",
+        "sample_rate_hz": 16000,
+        "frames": 157440,
+        "duration_s": 9.84,
+        "channels": 1,
+        "source_row_index": 521
+      },
+      {
+        "item_id": "fleurs_12",
+        "sentence_id": 1732,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_12_human.wav",
+        "sha256": "66c664de816225fdbbd1d60eb397974f016ab80e95890d8d9efc85e8bc78b0a7",
+        "sample_rate_hz": 16000,
+        "frames": 218880,
+        "duration_s": 13.68,
+        "channels": 1,
+        "source_row_index": 91
+      },
+      {
+        "item_id": "fleurs_13",
+        "sentence_id": 1739,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_13_human.wav",
+        "sha256": "407cd52649cd6661482324bf8c5fc72f072a72a1d4f9b5f68a4e3f133b57355b",
+        "sample_rate_hz": 16000,
+        "frames": 162240,
+        "duration_s": 10.14,
+        "channels": 1,
+        "source_row_index": 219
+      },
+      {
+        "item_id": "fleurs_14",
+        "sentence_id": 1742,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_14_human.wav",
+        "sha256": "8cf279eb0a7ac5d6579b6e0179a9d807f371c66c491bc1cbc60cb8e05bd02a03",
+        "sample_rate_hz": 16000,
+        "frames": 112320,
+        "duration_s": 7.02,
+        "channels": 1,
+        "source_row_index": 316
+      },
+      {
+        "item_id": "fleurs_15",
+        "sentence_id": 1763,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_15_human.wav",
+        "sha256": "35f5a7b4eec8a9eb0bd119416d3fe8d31c038d9d5475db61a9fa18dea644cf1f",
+        "sample_rate_hz": 16000,
+        "frames": 114240,
+        "duration_s": 7.14,
+        "channels": 1,
+        "source_row_index": 488
+      },
+      {
+        "item_id": "fleurs_16",
+        "sentence_id": 1767,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_16_human.wav",
+        "sha256": "21d03f6c0fe3dda3ca9d0d83bc8cd585a06ae37253245264045da9e7a1149b4d",
+        "sample_rate_hz": 16000,
+        "frames": 107520,
+        "duration_s": 6.72,
+        "channels": 1,
+        "source_row_index": 381
+      },
+      {
+        "item_id": "fleurs_17",
+        "sentence_id": 1770,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_17_human.wav",
+        "sha256": "858f37c081126b38f2e4cef7f486d5c886bde89b416914c3f54ab8c74cc72700",
+        "sample_rate_hz": 16000,
+        "frames": 90240,
+        "duration_s": 5.64,
+        "channels": 1,
+        "source_row_index": 393
+      },
+      {
+        "item_id": "fleurs_18",
+        "sentence_id": 1810,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_18_human.wav",
+        "sha256": "50d15a6e36d9eb5981617058564c78dc4065bde19d191eb95043d2e6f319fad0",
+        "sample_rate_hz": 16000,
+        "frames": 181440,
+        "duration_s": 11.34,
+        "channels": 1,
+        "source_row_index": 164
+      },
+      {
+        "item_id": "fleurs_19",
+        "sentence_id": 1816,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_19_human.wav",
+        "sha256": "7cc1949fd90651fac9d2e68c19b85674a5328aba274825412961d5be920066db",
+        "sample_rate_hz": 16000,
+        "frames": 99840,
+        "duration_s": 6.24,
+        "channels": 1,
+        "source_row_index": 290
+      },
+      {
+        "item_id": "fleurs_20",
+        "sentence_id": 1819,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_20_human.wav",
+        "sha256": "1e51e41f447de5d4a89598e46847b1e9ca1412e6d1a7e64a654e2056dfc1f412",
+        "sample_rate_hz": 16000,
+        "frames": 207040,
+        "duration_s": 12.94,
+        "channels": 1,
+        "source_row_index": 470
+      },
+      {
+        "item_id": "fleurs_21",
+        "sentence_id": 1830,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_21_human.wav",
+        "sha256": "e814b6357fba30d26b3ac82a466f532b9b1d529db0fff6fadb8ad8d87e249c74",
+        "sample_rate_hz": 16000,
+        "frames": 170240,
+        "duration_s": 10.64,
+        "channels": 1,
+        "source_row_index": 65
+      },
+      {
+        "item_id": "fleurs_22",
+        "sentence_id": 1834,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_22_human.wav",
+        "sha256": "af71eb442d32fe2fb76027ce277d2b825e99e2d93582d1a2421d35e8db78368a",
+        "sample_rate_hz": 16000,
+        "frames": 120960,
+        "duration_s": 7.56,
+        "channels": 1,
+        "source_row_index": 314
+      },
+      {
+        "item_id": "fleurs_23",
+        "sentence_id": 1846,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_23_human.wav",
+        "sha256": "8152d901627ad1bb88fee68b1f3adb706e33d2292bca02ef4d92465e2db4c84f",
+        "sample_rate_hz": 16000,
+        "frames": 176640,
+        "duration_s": 11.04,
+        "channels": 1,
+        "source_row_index": 8
+      },
+      {
+        "item_id": "fleurs_24",
+        "sentence_id": 1857,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_24_human.wav",
+        "sha256": "fbd27e88a133ec2328a0ad1e72eda245c233ccee8f19215eb95b2d8707903580",
+        "sample_rate_hz": 16000,
+        "frames": 195520,
+        "duration_s": 12.22,
+        "channels": 1,
+        "source_row_index": 179
+      },
+      {
+        "item_id": "fleurs_25",
+        "sentence_id": 1865,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_25_human.wav",
+        "sha256": "67a85b342548c72ba0fdfa0408a31473be055ebb21cc36d3088fd6ebb13b302d",
+        "sample_rate_hz": 16000,
+        "frames": 120000,
+        "duration_s": 7.5,
+        "channels": 1,
+        "source_row_index": 228
+      },
+      {
+        "item_id": "fleurs_26",
+        "sentence_id": 1882,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_26_human.wav",
+        "sha256": "1a70d8dcac8e35870aad704f4c679c3dfdd3f38ebde9fc0804168a9f959a8b99",
+        "sample_rate_hz": 16000,
+        "frames": 98880,
+        "duration_s": 6.18,
+        "channels": 1,
+        "source_row_index": 55
+      },
+      {
+        "item_id": "fleurs_27",
+        "sentence_id": 1912,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_27_human.wav",
+        "sha256": "3adf709912ee86af585328a98f9ea8dedb43a3c695097b698f095fbc9b902022",
+        "sample_rate_hz": 16000,
+        "frames": 168320,
+        "duration_s": 10.52,
+        "channels": 1,
+        "source_row_index": 202
+      },
+      {
+        "item_id": "fleurs_28",
+        "sentence_id": 1919,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_28_human.wav",
+        "sha256": "f93693f080704373d85c2761a4fe12c2a2a4a6ea721576c5c3bf4226dfefa44c",
+        "sample_rate_hz": 16000,
+        "frames": 180480,
+        "duration_s": 11.28,
+        "channels": 1,
+        "source_row_index": 13
+      },
+      {
+        "item_id": "fleurs_29",
+        "sentence_id": 1925,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_29_human.wav",
+        "sha256": "cb8af3f60606a1aa7893f23dc0623103376163c46a5c19b6537b5847cef0d217",
+        "sample_rate_hz": 16000,
+        "frames": 172800,
+        "duration_s": 10.8,
+        "channels": 1,
+        "source_row_index": 416
+      },
+      {
+        "item_id": "fleurs_30",
+        "sentence_id": 1927,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_30_human.wav",
+        "sha256": "3abdd90182e2379240067ea8c7c0dc05e05e5c916d15f2a5ef3b21e2064f5aa1",
+        "sample_rate_hz": 16000,
+        "frames": 132480,
+        "duration_s": 8.28,
+        "channels": 1,
+        "source_row_index": 501
+      },
+      {
+        "item_id": "fleurs_31",
+        "sentence_id": 1939,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_31_human.wav",
+        "sha256": "749cadddc168b40d0e26dff9b6c572e6ebc3a665976289613304aca43d85e958",
+        "sample_rate_hz": 16000,
+        "frames": 112320,
+        "duration_s": 7.02,
+        "channels": 1,
+        "source_row_index": 70
+      },
+      {
+        "item_id": "fleurs_32",
+        "sentence_id": 1946,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_32_human.wav",
+        "sha256": "86d79ac7052a03aaad3be819cb57ca5c5b8325c157a2f49f57032e0423028c70",
+        "sample_rate_hz": 16000,
+        "frames": 148800,
+        "duration_s": 9.3,
+        "channels": 1,
+        "source_row_index": 276
+      },
+      {
+        "item_id": "fleurs_33",
+        "sentence_id": 1947,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_33_human.wav",
+        "sha256": "623a932e472a62924a04f4f499cfe330cd8912d79391edb2c16cb8045eac314b",
+        "sample_rate_hz": 16000,
+        "frames": 118080,
+        "duration_s": 7.38,
+        "channels": 1,
+        "source_row_index": 446
+      },
+      {
+        "item_id": "fleurs_34",
+        "sentence_id": 1955,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_34_human.wav",
+        "sha256": "a63e19301dab38eed28455ff19676878b5de1c1b0f8d1a7e55c00a16f24845c7",
+        "sample_rate_hz": 16000,
+        "frames": 115200,
+        "duration_s": 7.2,
+        "channels": 1,
+        "source_row_index": 84
+      },
+      {
+        "item_id": "fleurs_35",
+        "sentence_id": 1958,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_35_human.wav",
+        "sha256": "ca2974ef8698d1aeb132782a02aaf50a18707489d1cb132af7a83efbc72bc236",
+        "sample_rate_hz": 16000,
+        "frames": 107520,
+        "duration_s": 6.72,
+        "channels": 1,
+        "source_row_index": 326
+      },
+      {
+        "item_id": "fleurs_36",
+        "sentence_id": 1979,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_36_human.wav",
+        "sha256": "410ba2c57ff958f9d61fd6845a9711858387847e3c8051a878720fd52d4993d3",
+        "sample_rate_hz": 16000,
+        "frames": 161280,
+        "duration_s": 10.08,
+        "channels": 1,
+        "source_row_index": 345
+      },
+      {
+        "item_id": "fleurs_37",
+        "sentence_id": 1986,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_37_human.wav",
+        "sha256": "19b44cd0629afe26c1187b35089a3efbdc25aefa09add02b9e0c4d0aacb6ab0a",
+        "sample_rate_hz": 16000,
+        "frames": 191040,
+        "duration_s": 11.94,
+        "channels": 1,
+        "source_row_index": 348
+      },
+      {
+        "item_id": "fleurs_38",
+        "sentence_id": 1991,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_38_human.wav",
+        "sha256": "81df6287d12095143e798c36bc6a2809f14e2ad09ed3e176d81b8a574bf448f2",
+        "sample_rate_hz": 16000,
+        "frames": 182400,
+        "duration_s": 11.4,
+        "channels": 1,
+        "source_row_index": 44
+      },
+      {
+        "item_id": "fleurs_39",
+        "sentence_id": 1992,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_39_human.wav",
+        "sha256": "32bafaf58802bef28cbde443d173e51c0afe7c58c8260cb0f5776e2c60a2a3a5",
+        "sample_rate_hz": 16000,
+        "frames": 138240,
+        "duration_s": 8.64,
+        "channels": 1,
+        "source_row_index": 17
+      },
+      {
+        "item_id": "fleurs_40",
+        "sentence_id": 1997,
+        "relative_path": "artifacts/corpora/human_audio/en/fleurs_40_human.wav",
+        "sha256": "331fac445a2f9db2ace679b4eca8e0abb91a78c8ecc661331ab4c8d2c483a559",
+        "sample_rate_hz": 16000,
+        "frames": 208320,
+        "duration_s": 13.02,
+        "channels": 1,
+        "source_row_index": 540
+      }
+    ],
+    "zh": [
+      {
+        "item_id": "fleurs_01",
+        "sentence_id": 1660,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_01_human.wav",
+        "sha256": "f5e034bd47fd46f93e51dd5353916843db0b9e364f31bf4aa9d3585b552cee98",
+        "sample_rate_hz": 16000,
+        "frames": 153600,
+        "duration_s": 9.6,
+        "channels": 1,
+        "source_row_index": 235
+      },
+      {
+        "item_id": "fleurs_02",
+        "sentence_id": 1665,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_02_human.wav",
+        "sha256": "01ef9680f388c6254fb0f5c83800b063c9197d99a403cd92337e91560d579f4d",
+        "sample_rate_hz": 16000,
+        "frames": 241600,
+        "duration_s": 15.1,
+        "channels": 1,
+        "source_row_index": 69
+      },
+      {
+        "item_id": "fleurs_03",
+        "sentence_id": 1668,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_03_human.wav",
+        "sha256": "7b95a45446dc31d99d50232a7a6dbda26cc9c87eb26aec1263f73e7f9dd6405f",
+        "sample_rate_hz": 16000,
+        "frames": 140160,
+        "duration_s": 8.76,
+        "channels": 1,
+        "source_row_index": 271
+      },
+      {
+        "item_id": "fleurs_04",
+        "sentence_id": 1694,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_04_human.wav",
+        "sha256": "7764425ecf9130aa6170d79e40624684d0ea6c8194986621d66ab697d5da1a80",
+        "sample_rate_hz": 16000,
+        "frames": 188800,
+        "duration_s": 11.8,
+        "channels": 1,
+        "source_row_index": 101
+      },
+      {
+        "item_id": "fleurs_05",
+        "sentence_id": 1702,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_05_human.wav",
+        "sha256": "4322b4db821acc441091f9c334cd45da98ff4b39929209b5c273084e4341e822",
+        "sample_rate_hz": 16000,
+        "frames": 178240,
+        "duration_s": 11.14,
+        "channels": 1,
+        "source_row_index": 325
+      },
+      {
+        "item_id": "fleurs_06",
+        "sentence_id": 1707,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_06_human.wav",
+        "sha256": "16a97f34779581ba901264b32854f5f0a1d2dd5cb174ad4e31bb2b85ffa89e16",
+        "sample_rate_hz": 16000,
+        "frames": 103680,
+        "duration_s": 6.48,
+        "channels": 1,
+        "source_row_index": 515
+      },
+      {
+        "item_id": "fleurs_07",
+        "sentence_id": 1712,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_07_human.wav",
+        "sha256": "5a478dd626fa441fceae23b6e9fa13d91a42b8255dce010aacc01e42f21c2f03",
+        "sample_rate_hz": 16000,
+        "frames": 191040,
+        "duration_s": 11.94,
+        "channels": 1,
+        "source_row_index": 31
+      },
+      {
+        "item_id": "fleurs_08",
+        "sentence_id": 1721,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_08_human.wav",
+        "sha256": "379999ca5e729d35f81b0d62087e78f23481e0eb47bf8aca2c66208e90a072ce",
+        "sample_rate_hz": 16000,
+        "frames": 242880,
+        "duration_s": 15.18,
+        "channels": 1,
+        "source_row_index": 6
+      },
+      {
+        "item_id": "fleurs_09",
+        "sentence_id": 1723,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_09_human.wav",
+        "sha256": "71276e151ca251c9e47beb8cdf4ac22fbf4fea3453824ab866381388af8d2869",
+        "sample_rate_hz": 16000,
+        "frames": 196800,
+        "duration_s": 12.3,
+        "channels": 1,
+        "source_row_index": 47
+      },
+      {
+        "item_id": "fleurs_10",
+        "sentence_id": 1725,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_10_human.wav",
+        "sha256": "8dd8d4bc2caa032ce793c228a70d4b1333c41f293abe0c2b38b180ba47a11c31",
+        "sample_rate_hz": 16000,
+        "frames": 193920,
+        "duration_s": 12.12,
+        "channels": 1,
+        "source_row_index": 30
+      },
+      {
+        "item_id": "fleurs_11",
+        "sentence_id": 1726,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_11_human.wav",
+        "sha256": "11e0d4fda3ad7894c0f9985a56376be709c06d8536c1f1cdf91c224d7158f2bb",
+        "sample_rate_hz": 16000,
+        "frames": 211200,
+        "duration_s": 13.2,
+        "channels": 1,
+        "source_row_index": 96
+      },
+      {
+        "item_id": "fleurs_12",
+        "sentence_id": 1732,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_12_human.wav",
+        "sha256": "910e492eeadfd1b3c280b16648edf894913eb4fd6158c95eaf8ff995a4f37087",
+        "sample_rate_hz": 16000,
+        "frames": 231360,
+        "duration_s": 14.46,
+        "channels": 1,
+        "source_row_index": 480
+      },
+      {
+        "item_id": "fleurs_13",
+        "sentence_id": 1739,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_13_human.wav",
+        "sha256": "83c2ff75343a163f2c6951adc907f995e866798ac7b6fff038870304c385b01e",
+        "sample_rate_hz": 16000,
+        "frames": 177600,
+        "duration_s": 11.1,
+        "channels": 1,
+        "source_row_index": 520
+      },
+      {
+        "item_id": "fleurs_14",
+        "sentence_id": 1742,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_14_human.wav",
+        "sha256": "8d854dc87742c17e98bd8246c793758c0f36cd3cfc9f6ef784dbe6631de1a12b",
+        "sample_rate_hz": 16000,
+        "frames": 178560,
+        "duration_s": 11.16,
+        "channels": 1,
+        "source_row_index": 81
+      },
+      {
+        "item_id": "fleurs_15",
+        "sentence_id": 1763,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_15_human.wav",
+        "sha256": "ecd3e9b8e3398fa0ae3cbaf88db7d352b94573c154951a56876ac2380758ef8f",
+        "sample_rate_hz": 16000,
+        "frames": 240000,
+        "duration_s": 15.0,
+        "channels": 1,
+        "source_row_index": 16
+      },
+      {
+        "item_id": "fleurs_16",
+        "sentence_id": 1767,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_16_human.wav",
+        "sha256": "6779906d5604d0829ede6c3770395a08b87be0a446ec4b56d59c0d36fa3c5939",
+        "sample_rate_hz": 16000,
+        "frames": 213440,
+        "duration_s": 13.34,
+        "channels": 1,
+        "source_row_index": 802
+      },
+      {
+        "item_id": "fleurs_17",
+        "sentence_id": 1770,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_17_human.wav",
+        "sha256": "d78a26f2bc9199e6c7518746254e8cead26bede207ad1fa01b71ef0782afa8c6",
+        "sample_rate_hz": 16000,
+        "frames": 115200,
+        "duration_s": 7.2,
+        "channels": 1,
+        "source_row_index": 170
+      },
+      {
+        "item_id": "fleurs_18",
+        "sentence_id": 1810,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_18_human.wav",
+        "sha256": "a4452a234a3e3878f2812ea781d4a2998b27065f9745092912a8e7f6c0ee043b",
+        "sample_rate_hz": 16000,
+        "frames": 200640,
+        "duration_s": 12.54,
+        "channels": 1,
+        "source_row_index": 703
+      },
+      {
+        "item_id": "fleurs_19",
+        "sentence_id": 1816,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_19_human.wav",
+        "sha256": "d13303bf728b731673ac864e2d19d6a6a53c9e940b9b8431a9949399784161c9",
+        "sample_rate_hz": 16000,
+        "frames": 168960,
+        "duration_s": 10.56,
+        "channels": 1,
+        "source_row_index": 46
+      },
+      {
+        "item_id": "fleurs_20",
+        "sentence_id": 1819,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_20_human.wav",
+        "sha256": "2a289dee1beae1b26b5bd604f6e20c6e6c0a3423490189ab1ae25d3f67c3dbe3",
+        "sample_rate_hz": 16000,
+        "frames": 144000,
+        "duration_s": 9.0,
+        "channels": 1,
+        "source_row_index": 71
+      },
+      {
+        "item_id": "fleurs_21",
+        "sentence_id": 1830,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_21_human.wav",
+        "sha256": "3f4b1c4d04301904d8f33fad773e71ba13cc5adb69d96d241c3867ba6c13495e",
+        "sample_rate_hz": 16000,
+        "frames": 101760,
+        "duration_s": 6.36,
+        "channels": 1,
+        "source_row_index": 12
+      },
+      {
+        "item_id": "fleurs_22",
+        "sentence_id": 1834,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_22_human.wav",
+        "sha256": "340644eaf5a284b50c522435188d094a5a758624f018ee559c07b93b752991df",
+        "sample_rate_hz": 16000,
+        "frames": 273280,
+        "duration_s": 17.08,
+        "channels": 1,
+        "source_row_index": 53
+      },
+      {
+        "item_id": "fleurs_23",
+        "sentence_id": 1846,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_23_human.wav",
+        "sha256": "9a9311171623f1d175e118fbd758654889f72187472ce19df2f96c4d87e61ca4",
+        "sample_rate_hz": 16000,
+        "frames": 184000,
+        "duration_s": 11.5,
+        "channels": 1,
+        "source_row_index": 429
+      },
+      {
+        "item_id": "fleurs_24",
+        "sentence_id": 1857,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_24_human.wav",
+        "sha256": "c4c33884f206082dcbe103c8e6612c1cb52899d68b141fd9e9ea878089607e32",
+        "sample_rate_hz": 16000,
+        "frames": 275200,
+        "duration_s": 17.2,
+        "channels": 1,
+        "source_row_index": 169
+      },
+      {
+        "item_id": "fleurs_25",
+        "sentence_id": 1865,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_25_human.wav",
+        "sha256": "74703fb1fdb87aa59ddb46a277b539e3a3052a941fcba08ec0949053a9834bf9",
+        "sample_rate_hz": 16000,
+        "frames": 185280,
+        "duration_s": 11.58,
+        "channels": 1,
+        "source_row_index": 377
+      },
+      {
+        "item_id": "fleurs_26",
+        "sentence_id": 1882,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_26_human.wav",
+        "sha256": "075ce96e1b6f42ee75cce2142012011eda7041258df3e652bf0fb9c400e9ec7c",
+        "sample_rate_hz": 16000,
+        "frames": 204480,
+        "duration_s": 12.78,
+        "channels": 1,
+        "source_row_index": 177
+      },
+      {
+        "item_id": "fleurs_27",
+        "sentence_id": 1912,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_27_human.wav",
+        "sha256": "b7008bcb66c2e4150f4f7108b24b15f7c910a3cc56453aa80c04032d56f3949d",
+        "sample_rate_hz": 16000,
+        "frames": 164160,
+        "duration_s": 10.26,
+        "channels": 1,
+        "source_row_index": 157
+      },
+      {
+        "item_id": "fleurs_28",
+        "sentence_id": 1919,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_28_human.wav",
+        "sha256": "c5bf8ef0012915e9565626da477accf59f5b96503706186fcb3ddaa7e2821a32",
+        "sample_rate_hz": 16000,
+        "frames": 150720,
+        "duration_s": 9.42,
+        "channels": 1,
+        "source_row_index": 670
+      },
+      {
+        "item_id": "fleurs_29",
+        "sentence_id": 1925,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_29_human.wav",
+        "sha256": "3783cd617aeb503b956b2de87e512724178fdb7973ec8117b882bfe0ebc205f1",
+        "sample_rate_hz": 16000,
+        "frames": 133440,
+        "duration_s": 8.34,
+        "channels": 1,
+        "source_row_index": 231
+      },
+      {
+        "item_id": "fleurs_30",
+        "sentence_id": 1927,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_30_human.wav",
+        "sha256": "fd775382821db604b540e0342564491e022cb8aa4e11329c75c7db5cd12fbb28",
+        "sample_rate_hz": 16000,
+        "frames": 173760,
+        "duration_s": 10.86,
+        "channels": 1,
+        "source_row_index": 284
+      },
+      {
+        "item_id": "fleurs_31",
+        "sentence_id": 1939,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_31_human.wav",
+        "sha256": "c47fa405f1e89a980c4f7d7e787e0611009b3776efd2972fa00d0cb7eed55e24",
+        "sample_rate_hz": 16000,
+        "frames": 251840,
+        "duration_s": 15.74,
+        "channels": 1,
+        "source_row_index": 112
+      },
+      {
+        "item_id": "fleurs_32",
+        "sentence_id": 1946,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_32_human.wav",
+        "sha256": "1eb8e5c98e2d1dcf23bd3068e5a3f054c2c56d23370313d1ef904b6e385dadd2",
+        "sample_rate_hz": 16000,
+        "frames": 183360,
+        "duration_s": 11.46,
+        "channels": 1,
+        "source_row_index": 509
+      },
+      {
+        "item_id": "fleurs_33",
+        "sentence_id": 1947,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_33_human.wav",
+        "sha256": "0a6b80656a65604fb8cf3ecd5e9fdebfab2c157a1f13c43dc1c5effe01b1f3ed",
+        "sample_rate_hz": 16000,
+        "frames": 168000,
+        "duration_s": 10.5,
+        "channels": 1,
+        "source_row_index": 114
+      },
+      {
+        "item_id": "fleurs_34",
+        "sentence_id": 1955,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_34_human.wav",
+        "sha256": "ea2f9816cb4c7f1e224accc12795b98a552d3434c6f6eb7559a32d64944f4f06",
+        "sample_rate_hz": 16000,
+        "frames": 211520,
+        "duration_s": 13.22,
+        "channels": 1,
+        "source_row_index": 90
+      },
+      {
+        "item_id": "fleurs_35",
+        "sentence_id": 1958,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_35_human.wav",
+        "sha256": "f2df2f22ebb505f9f1af8411ed0da69d7a496df66cf9a0d849c229ed28ac7936",
+        "sample_rate_hz": 16000,
+        "frames": 154560,
+        "duration_s": 9.66,
+        "channels": 1,
+        "source_row_index": 25
+      },
+      {
+        "item_id": "fleurs_36",
+        "sentence_id": 1979,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_36_human.wav",
+        "sha256": "43ed5544e0f638c960a78e9af41bc89bab3628afdc21ee732d3e43aec325689b",
+        "sample_rate_hz": 16000,
+        "frames": 100800,
+        "duration_s": 6.3,
+        "channels": 1,
+        "source_row_index": 127
+      },
+      {
+        "item_id": "fleurs_37",
+        "sentence_id": 1986,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_37_human.wav",
+        "sha256": "402ab12cccce44ae768727189fc2cbdaf1e9183c19f49cc83da3191036f95af3",
+        "sample_rate_hz": 16000,
+        "frames": 354560,
+        "duration_s": 22.16,
+        "channels": 1,
+        "source_row_index": 238
+      },
+      {
+        "item_id": "fleurs_38",
+        "sentence_id": 1991,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_38_human.wav",
+        "sha256": "60b65f7dc458d918025634584f47fb07c4b673b62853043b11abc2ddb2bc14f4",
+        "sample_rate_hz": 16000,
+        "frames": 126720,
+        "duration_s": 7.92,
+        "channels": 1,
+        "source_row_index": 237
+      },
+      {
+        "item_id": "fleurs_39",
+        "sentence_id": 1992,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_39_human.wav",
+        "sha256": "a73ac2130407437e11370f576988a334e83f2e6160758f8273f561d3bad22fd4",
+        "sample_rate_hz": 16000,
+        "frames": 223680,
+        "duration_s": 13.98,
+        "channels": 1,
+        "source_row_index": 493
+      },
+      {
+        "item_id": "fleurs_40",
+        "sentence_id": 1997,
+        "relative_path": "artifacts/corpora/human_audio/zh/fleurs_40_human.wav",
+        "sha256": "d9ba238ac071e345d3f39cf46d756c6f0d9c9349dfa65d01bce6510523e9a515",
+        "sample_rate_hz": 16000,
+        "frames": 256320,
+        "duration_s": 16.02,
+        "channels": 1,
+        "source_row_index": 119
+      }
+    ],
+    "es": [
+      {
+        "item_id": "fleurs_01",
+        "sentence_id": 1660,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_01_human.wav",
+        "sha256": "f36cb07c39594c60d300dada873ef6d80b18301002cb298919a6bcf53fa3cd7e",
+        "sample_rate_hz": 16000,
+        "frames": 173760,
+        "duration_s": 10.86,
+        "channels": 1,
+        "source_row_index": 393
+      },
+      {
+        "item_id": "fleurs_02",
+        "sentence_id": 1665,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_02_human.wav",
+        "sha256": "34dbd05643615944df17bbf14cbc7e1b5996cc4640715f000b6d7a6c88d85a88",
+        "sample_rate_hz": 16000,
+        "frames": 273600,
+        "duration_s": 17.1,
+        "channels": 1,
+        "source_row_index": 79
+      },
+      {
+        "item_id": "fleurs_03",
+        "sentence_id": 1668,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_03_human.wav",
+        "sha256": "6dfe16a4d96fbd096e9af296ce7719721d498a680c51a407bce1822e9f88cf62",
+        "sample_rate_hz": 16000,
+        "frames": 201600,
+        "duration_s": 12.6,
+        "channels": 1,
+        "source_row_index": 358
+      },
+      {
+        "item_id": "fleurs_04",
+        "sentence_id": 1694,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_04_human.wav",
+        "sha256": "db96e47fc6e1ac15fddba7f7416c319d55c25489572904f4481c9100e4dd9f5c",
+        "sample_rate_hz": 16000,
+        "frames": 170880,
+        "duration_s": 10.68,
+        "channels": 1,
+        "source_row_index": 106
+      },
+      {
+        "item_id": "fleurs_05",
+        "sentence_id": 1702,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_05_human.wav",
+        "sha256": "591aa4e76b53b2a13a02d4a5deec3be73469bc6ba560c6c87ee50fecb2dbaf0c",
+        "sample_rate_hz": 16000,
+        "frames": 168960,
+        "duration_s": 10.56,
+        "channels": 1,
+        "source_row_index": 90
+      },
+      {
+        "item_id": "fleurs_06",
+        "sentence_id": 1707,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_06_human.wav",
+        "sha256": "dcca886097061b944fabd31ea0b652b337eeff704f963882759e29b177370076",
+        "sample_rate_hz": 16000,
+        "frames": 174720,
+        "duration_s": 10.92,
+        "channels": 1,
+        "source_row_index": 42
+      },
+      {
+        "item_id": "fleurs_07",
+        "sentence_id": 1712,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_07_human.wav",
+        "sha256": "b3a516e5f110531d87ddc72ec4093dea4b5a0199732f9630db37245536e8d407",
+        "sample_rate_hz": 16000,
+        "frames": 262080,
+        "duration_s": 16.38,
+        "channels": 1,
+        "source_row_index": 709
+      },
+      {
+        "item_id": "fleurs_08",
+        "sentence_id": 1721,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_08_human.wav",
+        "sha256": "84e994928d0b5de5bffa456d2212a18103c0408d41cb1c67a5ec30c22d6a1b7d",
+        "sample_rate_hz": 16000,
+        "frames": 218880,
+        "duration_s": 13.68,
+        "channels": 1,
+        "source_row_index": 903
+      },
+      {
+        "item_id": "fleurs_09",
+        "sentence_id": 1723,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_09_human.wav",
+        "sha256": "20a8088b3fa448f7665ab0d5665bd7136319c0b159283db9fa7e660c214bb22f",
+        "sample_rate_hz": 16000,
+        "frames": 213120,
+        "duration_s": 13.32,
+        "channels": 1,
+        "source_row_index": 368
+      },
+      {
+        "item_id": "fleurs_10",
+        "sentence_id": 1725,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_10_human.wav",
+        "sha256": "1bd3b4084c593629ebf852e1c38ac229f42dce5a2dbd9235795da3bb4b05e6fb",
+        "sample_rate_hz": 16000,
+        "frames": 276480,
+        "duration_s": 17.28,
+        "channels": 1,
+        "source_row_index": 66
+      },
+      {
+        "item_id": "fleurs_11",
+        "sentence_id": 1726,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_11_human.wav",
+        "sha256": "d5ec5fc9152298ca8e44ed1e78ea30cbc783a266558f03920a77de3e23c8e677",
+        "sample_rate_hz": 16000,
+        "frames": 202560,
+        "duration_s": 12.66,
+        "channels": 1,
+        "source_row_index": 134
+      },
+      {
+        "item_id": "fleurs_12",
+        "sentence_id": 1732,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_12_human.wav",
+        "sha256": "eb30314f552aeecd3c2e0b5f912efac5eeea9b633922af561ac8238ef00d0299",
+        "sample_rate_hz": 16000,
+        "frames": 289920,
+        "duration_s": 18.12,
+        "channels": 1,
+        "source_row_index": 195
+      },
+      {
+        "item_id": "fleurs_13",
+        "sentence_id": 1739,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_13_human.wav",
+        "sha256": "ac2bf9d9aeb742b6f7fdbb79b30680403d4bcc879288a91f922df1bce4e9cb17",
+        "sample_rate_hz": 16000,
+        "frames": 147840,
+        "duration_s": 9.24,
+        "channels": 1,
+        "source_row_index": 111
+      },
+      {
+        "item_id": "fleurs_14",
+        "sentence_id": 1742,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_14_human.wav",
+        "sha256": "b6fa69498b3c18a3a45fd589f90c5410dbc2de1a9143ae61e2317fe8212ce022",
+        "sample_rate_hz": 16000,
+        "frames": 161280,
+        "duration_s": 10.08,
+        "channels": 1,
+        "source_row_index": 154
+      },
+      {
+        "item_id": "fleurs_15",
+        "sentence_id": 1763,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_15_human.wav",
+        "sha256": "d054c8c204f6b3136dc25564efb8129c5f65587aec461b851a0434884feacab7",
+        "sample_rate_hz": 16000,
+        "frames": 201600,
+        "duration_s": 12.6,
+        "channels": 1,
+        "source_row_index": 608
+      },
+      {
+        "item_id": "fleurs_16",
+        "sentence_id": 1767,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_16_human.wav",
+        "sha256": "a6e05a126fb0d88ba8619cac12f14e979b234268fb6f13d7d4b3d6711e357aed",
+        "sample_rate_hz": 16000,
+        "frames": 149760,
+        "duration_s": 9.36,
+        "channels": 1,
+        "source_row_index": 333
+      },
+      {
+        "item_id": "fleurs_17",
+        "sentence_id": 1770,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_17_human.wav",
+        "sha256": "275d5d9dcbfb7099b9aac08ea81fc7383b94e085a683d127ce4d8ff742cb3961",
+        "sample_rate_hz": 16000,
+        "frames": 137280,
+        "duration_s": 8.58,
+        "channels": 1,
+        "source_row_index": 3
+      },
+      {
+        "item_id": "fleurs_18",
+        "sentence_id": 1810,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_18_human.wav",
+        "sha256": "b26d30dbbb221fb4afa95dd864e220be544f12ce8bbf0645f3f45d002b32f144",
+        "sample_rate_hz": 16000,
+        "frames": 207360,
+        "duration_s": 12.96,
+        "channels": 1,
+        "source_row_index": 459
+      },
+      {
+        "item_id": "fleurs_19",
+        "sentence_id": 1816,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_19_human.wav",
+        "sha256": "41b0e8fe385400d1d4653717d017c4b6f6666b63a21e5b13eb7e3d4d6149c3d4",
+        "sample_rate_hz": 16000,
+        "frames": 164160,
+        "duration_s": 10.26,
+        "channels": 1,
+        "source_row_index": 7
+      },
+      {
+        "item_id": "fleurs_20",
+        "sentence_id": 1819,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_20_human.wav",
+        "sha256": "0e060f23c22a985d0b531f57561983c0d81a21dfe35a62d60b9f14ffde05c405",
+        "sample_rate_hz": 16000,
+        "frames": 199680,
+        "duration_s": 12.48,
+        "channels": 1,
+        "source_row_index": 317
+      },
+      {
+        "item_id": "fleurs_21",
+        "sentence_id": 1830,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_21_human.wav",
+        "sha256": "36b0c48cb6f31aba7b776e62782f8d6287d7ce8ed5150151ddec7cf2b8aaab48",
+        "sample_rate_hz": 16000,
+        "frames": 192000,
+        "duration_s": 12.0,
+        "channels": 1,
+        "source_row_index": 276
+      },
+      {
+        "item_id": "fleurs_22",
+        "sentence_id": 1834,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_22_human.wav",
+        "sha256": "a2e07f9c755f8e0fce69e62bac97e3fb3eeb84ac76c05db19af60b45e61c09ec",
+        "sample_rate_hz": 16000,
+        "frames": 182400,
+        "duration_s": 11.4,
+        "channels": 1,
+        "source_row_index": 260
+      },
+      {
+        "item_id": "fleurs_23",
+        "sentence_id": 1846,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_23_human.wav",
+        "sha256": "6b61f85fc82a6d143d61cf3391ac798ed80f7e35ac26648477f95a8303b15223",
+        "sample_rate_hz": 16000,
+        "frames": 199680,
+        "duration_s": 12.48,
+        "channels": 1,
+        "source_row_index": 313
+      },
+      {
+        "item_id": "fleurs_24",
+        "sentence_id": 1857,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_24_human.wav",
+        "sha256": "057ea65ea77d5bb2c7d1333eefdff9e653e54250bdfe27a47c096e385a7c3fc3",
+        "sample_rate_hz": 16000,
+        "frames": 200640,
+        "duration_s": 12.54,
+        "channels": 1,
+        "source_row_index": 13
+      },
+      {
+        "item_id": "fleurs_25",
+        "sentence_id": 1865,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_25_human.wav",
+        "sha256": "89dfcc827b8ad84ad00333411494df6db1bdf596e9e00bc9ad85041c156ddbd7",
+        "sample_rate_hz": 16000,
+        "frames": 222720,
+        "duration_s": 13.92,
+        "channels": 1,
+        "source_row_index": 588
+      },
+      {
+        "item_id": "fleurs_26",
+        "sentence_id": 1882,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_26_human.wav",
+        "sha256": "3c752e7eb5982818ef7fd051d61a44e9cfe8b3af5ad3887715b2caa3fe5e8f2d",
+        "sample_rate_hz": 16000,
+        "frames": 205440,
+        "duration_s": 12.84,
+        "channels": 1,
+        "source_row_index": 76
+      },
+      {
+        "item_id": "fleurs_27",
+        "sentence_id": 1912,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_27_human.wav",
+        "sha256": "6e4efea4a025f37e9339ba7cea4b6a0bdffee3105e16ca2643b0a47292105474",
+        "sample_rate_hz": 16000,
+        "frames": 195840,
+        "duration_s": 12.24,
+        "channels": 1,
+        "source_row_index": 25
+      },
+      {
+        "item_id": "fleurs_28",
+        "sentence_id": 1919,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_28_human.wav",
+        "sha256": "bb5958d9406f075c5ea32751dafc7f2a86f87b4f987305ed26d41cbdad4e0296",
+        "sample_rate_hz": 16000,
+        "frames": 251520,
+        "duration_s": 15.72,
+        "channels": 1,
+        "source_row_index": 214
+      },
+      {
+        "item_id": "fleurs_29",
+        "sentence_id": 1925,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_29_human.wav",
+        "sha256": "c77af0a7f4aeeaa70f24518cd2bc8364ee63c5a8e8a2b2a7f8f0914ed9c3704e",
+        "sample_rate_hz": 16000,
+        "frames": 186240,
+        "duration_s": 11.64,
+        "channels": 1,
+        "source_row_index": 412
+      },
+      {
+        "item_id": "fleurs_30",
+        "sentence_id": 1927,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_30_human.wav",
+        "sha256": "432db48c2567ac516c5cb1aa1eaef2cdf28842fbbcb3f6cb5e5457ff98376768",
+        "sample_rate_hz": 16000,
+        "frames": 174720,
+        "duration_s": 10.92,
+        "channels": 1,
+        "source_row_index": 73
+      },
+      {
+        "item_id": "fleurs_31",
+        "sentence_id": 1939,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_31_human.wav",
+        "sha256": "c2f57c37b32995586ef10959fca1bf62128920b82481e350c27ab867bd609bf0",
+        "sample_rate_hz": 16000,
+        "frames": 205440,
+        "duration_s": 12.84,
+        "channels": 1,
+        "source_row_index": 104
+      },
+      {
+        "item_id": "fleurs_32",
+        "sentence_id": 1946,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_32_human.wav",
+        "sha256": "e6ff826204e6b630e1766da473b7c03ad4de83542c518a28ceb2c720cb67d0b9",
+        "sample_rate_hz": 16000,
+        "frames": 270720,
+        "duration_s": 16.92,
+        "channels": 1,
+        "source_row_index": 757
+      },
+      {
+        "item_id": "fleurs_33",
+        "sentence_id": 1947,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_33_human.wav",
+        "sha256": "94eba93578802fda6276e0dbbb241e0d18aadd03cfd3d8611f50d7dbf7d190bf",
+        "sample_rate_hz": 16000,
+        "frames": 142080,
+        "duration_s": 8.88,
+        "channels": 1,
+        "source_row_index": 29
+      },
+      {
+        "item_id": "fleurs_34",
+        "sentence_id": 1955,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_34_human.wav",
+        "sha256": "dce8e3c6054122dc22cdd9468ab2fbd5eb3b1082f383c47fd151a4870e84ec8c",
+        "sample_rate_hz": 16000,
+        "frames": 209280,
+        "duration_s": 13.08,
+        "channels": 1,
+        "source_row_index": 81
+      },
+      {
+        "item_id": "fleurs_35",
+        "sentence_id": 1958,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_35_human.wav",
+        "sha256": "501d3d508e3b19a8c8b2256ad2e0492e95549901d3e34c55086e397b1b55939b",
+        "sample_rate_hz": 16000,
+        "frames": 125760,
+        "duration_s": 7.86,
+        "channels": 1,
+        "source_row_index": 475
+      },
+      {
+        "item_id": "fleurs_36",
+        "sentence_id": 1979,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_36_human.wav",
+        "sha256": "155d34bf5890d3334c0654af76eb000ae4c99e0c1f26f735e7f17464dba02596",
+        "sample_rate_hz": 16000,
+        "frames": 171840,
+        "duration_s": 10.74,
+        "channels": 1,
+        "source_row_index": 487
+      },
+      {
+        "item_id": "fleurs_37",
+        "sentence_id": 1986,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_37_human.wav",
+        "sha256": "64333b2ea3a2e74ab83299cecac19932ad7b35797042b928ddf45a05c1dc7287",
+        "sample_rate_hz": 16000,
+        "frames": 234240,
+        "duration_s": 14.64,
+        "channels": 1,
+        "source_row_index": 211
+      },
+      {
+        "item_id": "fleurs_38",
+        "sentence_id": 1991,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_38_human.wav",
+        "sha256": "5af01582969586342dab091aa28cdb5a4f230f5dbda8692468e875fcb17027c3",
+        "sample_rate_hz": 16000,
+        "frames": 142080,
+        "duration_s": 8.88,
+        "channels": 1,
+        "source_row_index": 618
+      },
+      {
+        "item_id": "fleurs_39",
+        "sentence_id": 1992,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_39_human.wav",
+        "sha256": "718be7f7cb0ab95958f9e3473d46846f566073aff3a653ee9a14a4e95cc9e8bd",
+        "sample_rate_hz": 16000,
+        "frames": 207360,
+        "duration_s": 12.96,
+        "channels": 1,
+        "source_row_index": 291
+      },
+      {
+        "item_id": "fleurs_40",
+        "sentence_id": 1997,
+        "relative_path": "artifacts/corpora/human_audio/es/fleurs_40_human.wav",
+        "sha256": "a523a277f98e649715fcd5b60f7662b103bb219567002c0a6f3183c3fe9ed2ff",
+        "sample_rate_hz": 16000,
+        "frames": 286080,
+        "duration_s": 17.88,
+        "channels": 1,
+        "source_row_index": 190
+      }
+    ],
+    "fr": [
+      {
+        "item_id": "fleurs_01",
+        "sentence_id": 1660,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_01_human.wav",
+        "sha256": "0c5d9c9461baf95d294fad94d7444c103fe2c55668bee21a0bc9fb34e4bc2593",
+        "sample_rate_hz": 16000,
+        "frames": 125760,
+        "duration_s": 7.86,
+        "channels": 1,
+        "source_row_index": 440
+      },
+      {
+        "item_id": "fleurs_02",
+        "sentence_id": 1665,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_02_human.wav",
+        "sha256": "ac5d312b74d9d25a824d93dc8d0531e32ab8b02c6a38a2680f70b046e39ff973",
+        "sample_rate_hz": 16000,
+        "frames": 262080,
+        "duration_s": 16.38,
+        "channels": 1,
+        "source_row_index": 262
+      },
+      {
+        "item_id": "fleurs_03",
+        "sentence_id": 1668,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_03_human.wav",
+        "sha256": "d12cfb142501a9897103af94cebcc544e5ab04b50d217ec8922b44720d11e36d",
+        "sample_rate_hz": 16000,
+        "frames": 121920,
+        "duration_s": 7.62,
+        "channels": 1,
+        "source_row_index": 280
+      },
+      {
+        "item_id": "fleurs_04",
+        "sentence_id": 1694,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_04_human.wav",
+        "sha256": "fde4d43fa3d2a174fa6b5a6b60ebc95e6d0a31fc3ace59b25380a1a2a22f320c",
+        "sample_rate_hz": 16000,
+        "frames": 135360,
+        "duration_s": 8.46,
+        "channels": 1,
+        "source_row_index": 107
+      },
+      {
+        "item_id": "fleurs_05",
+        "sentence_id": 1702,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_05_human.wav",
+        "sha256": "7508e061a335f3f86f08192693911841c585ffc4a23dada9bf031dabb1f4605f",
+        "sample_rate_hz": 16000,
+        "frames": 148800,
+        "duration_s": 9.3,
+        "channels": 1,
+        "source_row_index": 192
+      },
+      {
+        "item_id": "fleurs_06",
+        "sentence_id": 1707,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_06_human.wav",
+        "sha256": "7923ce5db0b63dd1493a5450e9ddcd6900e9526f079a30b026f41a5b90b7ef3a",
+        "sample_rate_hz": 16000,
+        "frames": 131520,
+        "duration_s": 8.22,
+        "channels": 1,
+        "source_row_index": 315
+      },
+      {
+        "item_id": "fleurs_07",
+        "sentence_id": 1712,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_07_human.wav",
+        "sha256": "09d50929d8e9d1132461541a57c9d560a5b8a6a3e242afd5ac5cea7bfeb22b3f",
+        "sample_rate_hz": 16000,
+        "frames": 178560,
+        "duration_s": 11.16,
+        "channels": 1,
+        "source_row_index": 68
+      },
+      {
+        "item_id": "fleurs_08",
+        "sentence_id": 1721,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_08_human.wav",
+        "sha256": "6a7b32e5374febfab4fe0d0d938cc03e7f9599a42f6159dc8a41057541a81bdd",
+        "sample_rate_hz": 16000,
+        "frames": 203520,
+        "duration_s": 12.72,
+        "channels": 1,
+        "source_row_index": 264
+      },
+      {
+        "item_id": "fleurs_09",
+        "sentence_id": 1723,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_09_human.wav",
+        "sha256": "d14c8b438d6de6a4683d5e32dedd4b98161ab796c6f163b4f13b9d8035b0f248",
+        "sample_rate_hz": 16000,
+        "frames": 171840,
+        "duration_s": 10.74,
+        "channels": 1,
+        "source_row_index": 217
+      },
+      {
+        "item_id": "fleurs_10",
+        "sentence_id": 1725,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_10_human.wav",
+        "sha256": "da8fe78f2cabb686b2945744101ec8c5ee4af074927e550932eb254747ebecbf",
+        "sample_rate_hz": 16000,
+        "frames": 184320,
+        "duration_s": 11.52,
+        "channels": 1,
+        "source_row_index": 453
+      },
+      {
+        "item_id": "fleurs_11",
+        "sentence_id": 1726,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_11_human.wav",
+        "sha256": "106b10e7553a3d974fdcf4acb99dcd016f26485bddaf74c08d0837ee9a439841",
+        "sample_rate_hz": 16000,
+        "frames": 257280,
+        "duration_s": 16.08,
+        "channels": 1,
+        "source_row_index": 71
+      },
+      {
+        "item_id": "fleurs_12",
+        "sentence_id": 1732,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_12_human.wav",
+        "sha256": "8f69407a9d3bd1678148d47e2aa00e118c1a584f53ca2b0f9efd07c9801eb4e9",
+        "sample_rate_hz": 16000,
+        "frames": 255360,
+        "duration_s": 15.96,
+        "channels": 1,
+        "source_row_index": 639
+      },
+      {
+        "item_id": "fleurs_13",
+        "sentence_id": 1739,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_13_human.wav",
+        "sha256": "0a3098c5bffcee805b64cb2129edc340c8488f35f3d1bccfc76127e7c7dc9af2",
+        "sample_rate_hz": 16000,
+        "frames": 117120,
+        "duration_s": 7.32,
+        "channels": 1,
+        "source_row_index": 235
+      },
+      {
+        "item_id": "fleurs_14",
+        "sentence_id": 1742,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_14_human.wav",
+        "sha256": "a0763906f4dcc15b77778aed84583383d22ef762d26ffcbfc7e1e58b9770329c",
+        "sample_rate_hz": 16000,
+        "frames": 161280,
+        "duration_s": 10.08,
+        "channels": 1,
+        "source_row_index": 19
+      },
+      {
+        "item_id": "fleurs_15",
+        "sentence_id": 1763,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_15_human.wav",
+        "sha256": "6bb7a3677d4c7e4a5f3ed24626ee38f06fd2791b9bd60351783f580ea9a3f6b8",
+        "sample_rate_hz": 16000,
+        "frames": 112320,
+        "duration_s": 7.02,
+        "channels": 1,
+        "source_row_index": 632
+      },
+      {
+        "item_id": "fleurs_16",
+        "sentence_id": 1767,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_16_human.wav",
+        "sha256": "1017251c86f655998c261c7fffc97161bd2d61af986c0ba24bb5cff800022c95",
+        "sample_rate_hz": 16000,
+        "frames": 108480,
+        "duration_s": 6.78,
+        "channels": 1,
+        "source_row_index": 114
+      },
+      {
+        "item_id": "fleurs_17",
+        "sentence_id": 1770,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_17_human.wav",
+        "sha256": "8b10ab2cbf07574d2704cfd6d1aaccc0e8380fcd0367cadcf964043d212469f2",
+        "sample_rate_hz": 16000,
+        "frames": 78720,
+        "duration_s": 4.92,
+        "channels": 1,
+        "source_row_index": 156
+      },
+      {
+        "item_id": "fleurs_18",
+        "sentence_id": 1810,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_18_human.wav",
+        "sha256": "383bfcdf558e172caf3f657b1cca4083d0d3f939bd04edde45b3d31dd22aa04a",
+        "sample_rate_hz": 16000,
+        "frames": 124800,
+        "duration_s": 7.8,
+        "channels": 1,
+        "source_row_index": 120
+      },
+      {
+        "item_id": "fleurs_19",
+        "sentence_id": 1816,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_19_human.wav",
+        "sha256": "3d50f2183fb58e43c871976b69d73faf447bcbff10842337247a3541bdf58ee9",
+        "sample_rate_hz": 16000,
+        "frames": 110400,
+        "duration_s": 6.9,
+        "channels": 1,
+        "source_row_index": 583
+      },
+      {
+        "item_id": "fleurs_20",
+        "sentence_id": 1819,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_20_human.wav",
+        "sha256": "e29d73d6cb6344c96842046610185fa2f217e5fcc27d90ad9f53eacbf9bc7191",
+        "sample_rate_hz": 16000,
+        "frames": 240000,
+        "duration_s": 15.0,
+        "channels": 1,
+        "source_row_index": 206
+      },
+      {
+        "item_id": "fleurs_21",
+        "sentence_id": 1830,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_21_human.wav",
+        "sha256": "75ad15dbb52247e4de53167f34d7411babc6abb90b817f8bac0c3f34d7149d7d",
+        "sample_rate_hz": 16000,
+        "frames": 159360,
+        "duration_s": 9.96,
+        "channels": 1,
+        "source_row_index": 499
+      },
+      {
+        "item_id": "fleurs_22",
+        "sentence_id": 1834,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_22_human.wav",
+        "sha256": "d5894d74e1dd4e8b106a66e3ed2048ce3f91a3c64514147ac7db4534ff24ef7a",
+        "sample_rate_hz": 16000,
+        "frames": 184320,
+        "duration_s": 11.52,
+        "channels": 1,
+        "source_row_index": 392
+      },
+      {
+        "item_id": "fleurs_23",
+        "sentence_id": 1846,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_23_human.wav",
+        "sha256": "6cd8e2d401d81378347d246dda38cf87931c45ec70e37b71b08644678c8b4e2a",
+        "sample_rate_hz": 16000,
+        "frames": 128640,
+        "duration_s": 8.04,
+        "channels": 1,
+        "source_row_index": 171
+      },
+      {
+        "item_id": "fleurs_24",
+        "sentence_id": 1857,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_24_human.wav",
+        "sha256": "05ccf3ccc2ab4b72d056c3f02e3ffcf6ea0f37b1c42bea5c35789c85291fbdc5",
+        "sample_rate_hz": 16000,
+        "frames": 132480,
+        "duration_s": 8.28,
+        "channels": 1,
+        "source_row_index": 2
+      },
+      {
+        "item_id": "fleurs_25",
+        "sentence_id": 1865,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_25_human.wav",
+        "sha256": "5ecc6b67c325299152a3444329403f852fcdd734d370500682f744f3d114d932",
+        "sample_rate_hz": 16000,
+        "frames": 153600,
+        "duration_s": 9.6,
+        "channels": 1,
+        "source_row_index": 642
+      },
+      {
+        "item_id": "fleurs_26",
+        "sentence_id": 1882,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_26_human.wav",
+        "sha256": "8aa4a7a32be5080ab3a528d31a20010d4e87d1b1976108dbfb18eb3485dfc2d2",
+        "sample_rate_hz": 16000,
+        "frames": 228480,
+        "duration_s": 14.28,
+        "channels": 1,
+        "source_row_index": 18
+      },
+      {
+        "item_id": "fleurs_27",
+        "sentence_id": 1912,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_27_human.wav",
+        "sha256": "a72a8c578f42f18202d671aaf173ba8cc938f559d833429b08f997d89bc6e802",
+        "sample_rate_hz": 16000,
+        "frames": 124800,
+        "duration_s": 7.8,
+        "channels": 1,
+        "source_row_index": 17
+      },
+      {
+        "item_id": "fleurs_28",
+        "sentence_id": 1919,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_28_human.wav",
+        "sha256": "c4ea544011f4693e62159313d8452130e59da710fa332d79808670bd590a43e8",
+        "sample_rate_hz": 16000,
+        "frames": 137280,
+        "duration_s": 8.58,
+        "channels": 1,
+        "source_row_index": 89
+      },
+      {
+        "item_id": "fleurs_29",
+        "sentence_id": 1925,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_29_human.wav",
+        "sha256": "3e7573d7e6e87b92c0e95671acac187cb16c0fb433f87f5facea4ce20fa54b88",
+        "sample_rate_hz": 16000,
+        "frames": 142080,
+        "duration_s": 8.88,
+        "channels": 1,
+        "source_row_index": 82
+      },
+      {
+        "item_id": "fleurs_30",
+        "sentence_id": 1927,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_30_human.wav",
+        "sha256": "9ea075b43e1f4d0c86561d1426606d7009258f9c53346448d2280c2b18d737a1",
+        "sample_rate_hz": 16000,
+        "frames": 132480,
+        "duration_s": 8.28,
+        "channels": 1,
+        "source_row_index": 404
+      },
+      {
+        "item_id": "fleurs_31",
+        "sentence_id": 1939,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_31_human.wav",
+        "sha256": "2d57244391ef1fd23b62fc5777239e36f95ee01d201b9228b90c25ad9efd5801",
+        "sample_rate_hz": 16000,
+        "frames": 190080,
+        "duration_s": 11.88,
+        "channels": 1,
+        "source_row_index": 92
+      },
+      {
+        "item_id": "fleurs_32",
+        "sentence_id": 1946,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_32_human.wav",
+        "sha256": "24d7869d76418478da2d01e73fd62b5dc41110c437be8cf7dbd094b7befbc9cb",
+        "sample_rate_hz": 16000,
+        "frames": 189120,
+        "duration_s": 11.82,
+        "channels": 1,
+        "source_row_index": 308
+      },
+      {
+        "item_id": "fleurs_33",
+        "sentence_id": 1947,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_33_human.wav",
+        "sha256": "acd6a57ed0827c24a8b7ce1febe0b16628856faab35fd6d7e14f1407a2febe56",
+        "sample_rate_hz": 16000,
+        "frames": 96000,
+        "duration_s": 6.0,
+        "channels": 1,
+        "source_row_index": 398
+      },
+      {
+        "item_id": "fleurs_34",
+        "sentence_id": 1955,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_34_human.wav",
+        "sha256": "f330ae5ea41f4bab1d2635103fa46327246d9d1e7447367a7def56d2b29eaff3",
+        "sample_rate_hz": 16000,
+        "frames": 186240,
+        "duration_s": 11.64,
+        "channels": 1,
+        "source_row_index": 292
+      },
+      {
+        "item_id": "fleurs_35",
+        "sentence_id": 1958,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_35_human.wav",
+        "sha256": "3f293b4cceb61f321a3f798fd47236969a9804943267c293405ff1d3a229dc81",
+        "sample_rate_hz": 16000,
+        "frames": 170880,
+        "duration_s": 10.68,
+        "channels": 1,
+        "source_row_index": 234
+      },
+      {
+        "item_id": "fleurs_36",
+        "sentence_id": 1979,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_36_human.wav",
+        "sha256": "49470c04eec75b08485c53e45ce4c3a90a29cd4fbc48ce576944b58708f1d11f",
+        "sample_rate_hz": 16000,
+        "frames": 142080,
+        "duration_s": 8.88,
+        "channels": 1,
+        "source_row_index": 124
+      },
+      {
+        "item_id": "fleurs_37",
+        "sentence_id": 1986,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_37_human.wav",
+        "sha256": "d6989bf7f3c4d564134cd78fd5de3ca2a269038462f40bbccbb620e7a4c41d87",
+        "sample_rate_hz": 16000,
+        "frames": 152640,
+        "duration_s": 9.54,
+        "channels": 1,
+        "source_row_index": 551
+      },
+      {
+        "item_id": "fleurs_38",
+        "sentence_id": 1991,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_38_human.wav",
+        "sha256": "0945d5ef1282cf6336c4f048e499d41d9570a7b7c125a5493c5722f56f51945e",
+        "sample_rate_hz": 16000,
+        "frames": 111360,
+        "duration_s": 6.96,
+        "channels": 1,
+        "source_row_index": 355
+      },
+      {
+        "item_id": "fleurs_39",
+        "sentence_id": 1992,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_39_human.wav",
+        "sha256": "b6ea5141f6d40fd0cd49f0368a9f3ec12ea2df218246b7886d8f522092158512",
+        "sample_rate_hz": 16000,
+        "frames": 168000,
+        "duration_s": 10.5,
+        "channels": 1,
+        "source_row_index": 243
+      },
+      {
+        "item_id": "fleurs_40",
+        "sentence_id": 1997,
+        "relative_path": "artifacts/corpora/human_audio/fr/fleurs_40_human.wav",
+        "sha256": "e3f5925f802e4edd634aa93b3d4a2aa0bb04e11cf82a0ae1ce4dd60a0faf0f99",
+        "sample_rate_hz": 16000,
+        "frames": 217920,
+        "duration_s": 13.62,
+        "channels": 1,
+        "source_row_index": 157
+      }
+    ],
+    "ru": [
+      {
+        "item_id": "fleurs_01",
+        "sentence_id": 1660,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_01_human.wav",
+        "sha256": "bfe6fde5c41e1797ebb77d588282ef48de37053e66726954e3d5ba84b610182d",
+        "sample_rate_hz": 16000,
+        "frames": 204480,
+        "duration_s": 12.78,
+        "channels": 1,
+        "source_row_index": 385
+      },
+      {
+        "item_id": "fleurs_02",
+        "sentence_id": 1665,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_02_human.wav",
+        "sha256": "9a00094c658bd64a906324cf19d88b079515b32e3ba828940cb4f8c11636db51",
+        "sample_rate_hz": 16000,
+        "frames": 190080,
+        "duration_s": 11.88,
+        "channels": 1,
+        "source_row_index": 148
+      },
+      {
+        "item_id": "fleurs_03",
+        "sentence_id": 1668,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_03_human.wav",
+        "sha256": "db29c176a2c6c7b8973d30e123e6bb25dbfba3b274d204ebf2bdad182683ba3d",
+        "sample_rate_hz": 16000,
+        "frames": 146880,
+        "duration_s": 9.18,
+        "channels": 1,
+        "source_row_index": 13
+      },
+      {
+        "item_id": "fleurs_04",
+        "sentence_id": 1694,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_04_human.wav",
+        "sha256": "283a809359ec2130ba1f06cf292865a96029ad3ea916117e57b3381ff47e06b1",
+        "sample_rate_hz": 16000,
+        "frames": 144000,
+        "duration_s": 9.0,
+        "channels": 1,
+        "source_row_index": 371
+      },
+      {
+        "item_id": "fleurs_05",
+        "sentence_id": 1702,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_05_human.wav",
+        "sha256": "130f97265299c1b666b4ed1f716999f682fad72e4296f97079b3209f672fa4a7",
+        "sample_rate_hz": 16000,
+        "frames": 133440,
+        "duration_s": 8.34,
+        "channels": 1,
+        "source_row_index": 341
+      },
+      {
+        "item_id": "fleurs_06",
+        "sentence_id": 1707,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_06_human.wav",
+        "sha256": "a447581e8f07d85aea9a2a494d8240f5f33f4c8385fc0aba1c9755e41dd05c08",
+        "sample_rate_hz": 16000,
+        "frames": 168960,
+        "duration_s": 10.56,
+        "channels": 1,
+        "source_row_index": 235
+      },
+      {
+        "item_id": "fleurs_07",
+        "sentence_id": 1712,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_07_human.wav",
+        "sha256": "594cf44890ecbd170cc2e9b9678af01f75d527732ccaf822e04e0c29af3a5b1f",
+        "sample_rate_hz": 16000,
+        "frames": 251520,
+        "duration_s": 15.72,
+        "channels": 1,
+        "source_row_index": 218
+      },
+      {
+        "item_id": "fleurs_08",
+        "sentence_id": 1721,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_08_human.wav",
+        "sha256": "e30c001d5b4c95224cb2d2f7cafd67087d46a0d50b346b2591b515d6c70d662e",
+        "sample_rate_hz": 16000,
+        "frames": 182400,
+        "duration_s": 11.4,
+        "channels": 1,
+        "source_row_index": 58
+      },
+      {
+        "item_id": "fleurs_09",
+        "sentence_id": 1723,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_09_human.wav",
+        "sha256": "dfe7a4338ea1cadcf2f1ae4f0d570ac313d9f0b68ec1c712c75c3dc65ed35fcb",
+        "sample_rate_hz": 16000,
+        "frames": 197760,
+        "duration_s": 12.36,
+        "channels": 1,
+        "source_row_index": 154
+      },
+      {
+        "item_id": "fleurs_10",
+        "sentence_id": 1725,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_10_human.wav",
+        "sha256": "da4a2afd75bf1220ed1680677825dbb10f881ddfa7bc388019445dc40b8fa4ad",
+        "sample_rate_hz": 16000,
+        "frames": 261120,
+        "duration_s": 16.32,
+        "channels": 1,
+        "source_row_index": 11
+      },
+      {
+        "item_id": "fleurs_11",
+        "sentence_id": 1726,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_11_human.wav",
+        "sha256": "cf1d152bd013b45c4d798c6aca22558e023d7e66159b9031a14bc9ed147570a3",
+        "sample_rate_hz": 16000,
+        "frames": 150720,
+        "duration_s": 9.42,
+        "channels": 1,
+        "source_row_index": 374
+      },
+      {
+        "item_id": "fleurs_12",
+        "sentence_id": 1732,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_12_human.wav",
+        "sha256": "4100eb6edb2fa86b3a52927ec042708cac570925635cf978c511d284b742b848",
+        "sample_rate_hz": 16000,
+        "frames": 312960,
+        "duration_s": 19.56,
+        "channels": 1,
+        "source_row_index": 185
+      },
+      {
+        "item_id": "fleurs_13",
+        "sentence_id": 1739,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_13_human.wav",
+        "sha256": "c815b2b988e5d35d4e6a9e7b8d1ad57fce7e22f8b60a8668977ac006411df404",
+        "sample_rate_hz": 16000,
+        "frames": 149760,
+        "duration_s": 9.36,
+        "channels": 1,
+        "source_row_index": 138
+      },
+      {
+        "item_id": "fleurs_14",
+        "sentence_id": 1742,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_14_human.wav",
+        "sha256": "7f51a6b88c6bd9edc0e119e2080b94052e3def5a5f7e969aa9ade38074ddad5f",
+        "sample_rate_hz": 16000,
+        "frames": 151680,
+        "duration_s": 9.48,
+        "channels": 1,
+        "source_row_index": 107
+      },
+      {
+        "item_id": "fleurs_15",
+        "sentence_id": 1763,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_15_human.wav",
+        "sha256": "b05da93d6e6d5ec9c31efa53754f9dcf19a3e98b7c7b3720d362aa7c085268f4",
+        "sample_rate_hz": 16000,
+        "frames": 132480,
+        "duration_s": 8.28,
+        "channels": 1,
+        "source_row_index": 17
+      },
+      {
+        "item_id": "fleurs_16",
+        "sentence_id": 1767,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_16_human.wav",
+        "sha256": "8fa8d112e1d8cd36741b8c5f65b50bf9846f64b3aae76779fc6e35a44a637950",
+        "sample_rate_hz": 16000,
+        "frames": 153600,
+        "duration_s": 9.6,
+        "channels": 1,
+        "source_row_index": 669
+      },
+      {
+        "item_id": "fleurs_17",
+        "sentence_id": 1770,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_17_human.wav",
+        "sha256": "40300f845342da0c5c7f8b1e050445b02c7b242bdc3ecd9f7b9cb18409247f5b",
+        "sample_rate_hz": 16000,
+        "frames": 147840,
+        "duration_s": 9.24,
+        "channels": 1,
+        "source_row_index": 63
+      },
+      {
+        "item_id": "fleurs_18",
+        "sentence_id": 1810,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_18_human.wav",
+        "sha256": "7fdda7eee8574112c1187c66e03ca4464109df461bc9fc3855e50ebf3c81cca0",
+        "sample_rate_hz": 16000,
+        "frames": 230400,
+        "duration_s": 14.4,
+        "channels": 1,
+        "source_row_index": 202
+      },
+      {
+        "item_id": "fleurs_19",
+        "sentence_id": 1816,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_19_human.wav",
+        "sha256": "6a08b7c50dc0907247954117b623f97b4ab84e7267d539fc65c494486dffceac",
+        "sample_rate_hz": 16000,
+        "frames": 187200,
+        "duration_s": 11.7,
+        "channels": 1,
+        "source_row_index": 163
+      },
+      {
+        "item_id": "fleurs_20",
+        "sentence_id": 1819,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_20_human.wav",
+        "sha256": "08d7f2cd51bb0de6d00655368d9926888930a8a2482ee48153c1b099dcc2a7e4",
+        "sample_rate_hz": 16000,
+        "frames": 270720,
+        "duration_s": 16.92,
+        "channels": 1,
+        "source_row_index": 0
+      },
+      {
+        "item_id": "fleurs_21",
+        "sentence_id": 1830,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_21_human.wav",
+        "sha256": "ac8df5b4c57d3feefa704e049c1b88fab2e2ce909006e4d12064af763852f5a9",
+        "sample_rate_hz": 16000,
+        "frames": 150720,
+        "duration_s": 9.42,
+        "channels": 1,
+        "source_row_index": 178
+      },
+      {
+        "item_id": "fleurs_22",
+        "sentence_id": 1834,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_22_human.wav",
+        "sha256": "8b2109b697899dcb1c8c6a08814dd6a2793bd1f7093d7c98aed4717409e30d50",
+        "sample_rate_hz": 16000,
+        "frames": 145920,
+        "duration_s": 9.12,
+        "channels": 1,
+        "source_row_index": 74
+      },
+      {
+        "item_id": "fleurs_23",
+        "sentence_id": 1846,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_23_human.wav",
+        "sha256": "2b930f26685e8e9c1539ff4f586c7a5a2577e7c0cd78c4777b14855369860647",
+        "sample_rate_hz": 16000,
+        "frames": 168960,
+        "duration_s": 10.56,
+        "channels": 1,
+        "source_row_index": 172
+      },
+      {
+        "item_id": "fleurs_24",
+        "sentence_id": 1857,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_24_human.wav",
+        "sha256": "7283bbc65f7881909fe3769800d7f750240ca4d93e085baf5d66e14b63180ee5",
+        "sample_rate_hz": 16000,
+        "frames": 175680,
+        "duration_s": 10.98,
+        "channels": 1,
+        "source_row_index": 446
+      },
+      {
+        "item_id": "fleurs_25",
+        "sentence_id": 1865,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_25_human.wav",
+        "sha256": "5165dcf7d9e325ba28067efe04362c22a4cf7ff9987b497f46cd4eb4534b5086",
+        "sample_rate_hz": 16000,
+        "frames": 167040,
+        "duration_s": 10.44,
+        "channels": 1,
+        "source_row_index": 47
+      },
+      {
+        "item_id": "fleurs_26",
+        "sentence_id": 1882,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_26_human.wav",
+        "sha256": "3b74c886bace69d9f02573ccd695aaf5bcceb8897a10eda3d0dcdc9241012d1d",
+        "sample_rate_hz": 16000,
+        "frames": 153600,
+        "duration_s": 9.6,
+        "channels": 1,
+        "source_row_index": 25
+      },
+      {
+        "item_id": "fleurs_27",
+        "sentence_id": 1912,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_27_human.wav",
+        "sha256": "db938a12b2427f6173d677ea1a0e5d17b4c5cdd24cbf5c164090a115dbdbb3f1",
+        "sample_rate_hz": 16000,
+        "frames": 170880,
+        "duration_s": 10.68,
+        "channels": 1,
+        "source_row_index": 357
+      },
+      {
+        "item_id": "fleurs_28",
+        "sentence_id": 1919,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_28_human.wav",
+        "sha256": "6385b0838268357e2261e822644db4d7d37689fbe40061a885a32744cc1c8a18",
+        "sample_rate_hz": 16000,
+        "frames": 228480,
+        "duration_s": 14.28,
+        "channels": 1,
+        "source_row_index": 310
+      },
+      {
+        "item_id": "fleurs_29",
+        "sentence_id": 1925,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_29_human.wav",
+        "sha256": "23a6921c0650d111c2810501aa9139ff7ad23ca9200234f803d86854a3c4f15c",
+        "sample_rate_hz": 16000,
+        "frames": 155520,
+        "duration_s": 9.72,
+        "channels": 1,
+        "source_row_index": 575
+      },
+      {
+        "item_id": "fleurs_30",
+        "sentence_id": 1927,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_30_human.wav",
+        "sha256": "0d60d1e529f37252de4a1ef3762c2255a81ea3cf64851e1afb69e872aa59fa81",
+        "sample_rate_hz": 16000,
+        "frames": 183360,
+        "duration_s": 11.46,
+        "channels": 1,
+        "source_row_index": 506
+      },
+      {
+        "item_id": "fleurs_31",
+        "sentence_id": 1939,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_31_human.wav",
+        "sha256": "29cff713665f4e441a727ebc30b2b64d4673eb4c9396cae1ab010f6463ad5b86",
+        "sample_rate_hz": 16000,
+        "frames": 188160,
+        "duration_s": 11.76,
+        "channels": 1,
+        "source_row_index": 331
+      },
+      {
+        "item_id": "fleurs_32",
+        "sentence_id": 1946,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_32_human.wav",
+        "sha256": "ba93353c452fcce1236d36705a0aab5dafaab1db75ab74b23dc2e957281b0720",
+        "sample_rate_hz": 16000,
+        "frames": 324480,
+        "duration_s": 20.28,
+        "channels": 1,
+        "source_row_index": 312
+      },
+      {
+        "item_id": "fleurs_33",
+        "sentence_id": 1947,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_33_human.wav",
+        "sha256": "399cf696b8a6ca15b88d03d6bf23794a56d1fff22cd96c5bb6c39098c5c7205e",
+        "sample_rate_hz": 16000,
+        "frames": 130560,
+        "duration_s": 8.16,
+        "channels": 1,
+        "source_row_index": 317
+      },
+      {
+        "item_id": "fleurs_34",
+        "sentence_id": 1955,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_34_human.wav",
+        "sha256": "0f21259a9c0bdc0a9a9f84925d21eda91504e7dd648f2ecd52093d5bf8eccf7d",
+        "sample_rate_hz": 16000,
+        "frames": 178560,
+        "duration_s": 11.16,
+        "channels": 1,
+        "source_row_index": 252
+      },
+      {
+        "item_id": "fleurs_35",
+        "sentence_id": 1958,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_35_human.wav",
+        "sha256": "04ce4e8ca3fda13b868dce13b19faa3b39f4a65ab3f9befc39fd58d6c3c18476",
+        "sample_rate_hz": 16000,
+        "frames": 165120,
+        "duration_s": 10.32,
+        "channels": 1,
+        "source_row_index": 269
+      },
+      {
+        "item_id": "fleurs_36",
+        "sentence_id": 1979,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_36_human.wav",
+        "sha256": "d6580beecfff1c7ea0d173d55c10dddb362c34bbee5dd123b645258ffe1299e4",
+        "sample_rate_hz": 16000,
+        "frames": 207360,
+        "duration_s": 12.96,
+        "channels": 1,
+        "source_row_index": 311
+      },
+      {
+        "item_id": "fleurs_37",
+        "sentence_id": 1986,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_37_human.wav",
+        "sha256": "bf20c6585fa054111c41bdf944bec75c575868131cd9e93be1df56a1e55536ce",
+        "sample_rate_hz": 16000,
+        "frames": 195840,
+        "duration_s": 12.24,
+        "channels": 1,
+        "source_row_index": 480
+      },
+      {
+        "item_id": "fleurs_38",
+        "sentence_id": 1991,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_38_human.wav",
+        "sha256": "85734e69392e5dd754ad9d2a071000444c49eea767725bc5d2c5e9b413b5810d",
+        "sample_rate_hz": 16000,
+        "frames": 152640,
+        "duration_s": 9.54,
+        "channels": 1,
+        "source_row_index": 397
+      },
+      {
+        "item_id": "fleurs_39",
+        "sentence_id": 1992,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_39_human.wav",
+        "sha256": "50da74385918a19581282a891f0e262f3c01c7cf3c89de9db7cfcceaa46b4a57",
+        "sample_rate_hz": 16000,
+        "frames": 213120,
+        "duration_s": 13.32,
+        "channels": 1,
+        "source_row_index": 396
+      },
+      {
+        "item_id": "fleurs_40",
+        "sentence_id": 1997,
+        "relative_path": "artifacts/corpora/human_audio/ru/fleurs_40_human.wav",
+        "sha256": "1df2752578cecc3eebfb72e0ff0b9ef9790b89b24a83d3f0c9cfff30cd7c0a60",
+        "sample_rate_hz": 16000,
+        "frames": 258240,
+        "duration_s": 16.14,
+        "channels": 1,
+        "source_row_index": 171
+      }
+    ]
+  }
+}

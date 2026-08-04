@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "stage": "local_fixed_shape_cached_decode_export",
+  "component": "conv",
+  "model": "LiquidAI/LFM2.5-Audio-1.5B",
+  "model_revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+  "layer_idx": 0,
+  "layer_type": "conv",
+  "dtype": "float32",
+  "decode_semantics": {
+    "tokens_per_call": 1,
+    "prefill_tokens_used_to_build_test_cache": 8,
+    "cache_update": "drop oldest conv state and append current projected B*x",
+    "position": 8
+  },
+  "fixed_input_shapes": {
+    "hidden_states": [
+      1,
+      1,
+      2048
+    ],
+    "conv_cache": [
+      1,
+      2048,
+      3
+    ]
+  },
+  "fixed_output_shapes": {
+    "output": [
+      1,
+      1,
+      2048
+    ],
+    "updated_conv_cache": [
+      1,
+      2048,
+      3
+    ]
+  },
+  "official_eager_vs_explicit_eager": {
+    "output": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0
+    },
+    "conv_cache": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0
+    }
+  },
+  "official_eager_vs_serialized_reload": {
+    "output": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0
+    },
+    "conv_cache": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0
+    }
+  },
+  "benchmark": {
+    "runs": 5,
+    "median_ms": 6.303333910182118,
+    "min_ms": 5.7958748657256365,
+    "max_ms": 6.390040973201394
+  },
+  "memory": {
+    "process_max_rss_bytes": 1319387136
+  },
+  "export": {
+    "format": "torch.export pt2",
+    "artifact": "<workspace>/work/lfm-feasibility/exports/lfm2_layer0_conv_decode_cache.pt2",
+    "artifact_bytes": 268572583,
+    "numpy_io": "<workspace>/work/lfm-feasibility/exports/lfm2_layer0_conv_decode_cache.npz",
+    "export_seconds": 0.4188548750244081,
+    "operator_counts": {
+      "<built-in function getitem>": 3,
+      "aten._assert_tensor_metadata.default": 4,
+      "aten.add.Tensor": 4,
+      "aten.cat.default": 1,
+      "aten.chunk.default": 1,
+      "aten.linear.default": 5,
+      "aten.mean.dim": 2,
+      "aten.mul.Tensor": 8,
+      "aten.pow.Tensor_Scalar": 2,
+      "aten.rsqrt.default": 2,
+      "aten.select.int": 1,
+      "aten.silu.default": 1,
+      "aten.slice.Tensor": 5,
+      "aten.sum.dim_IntList": 1,
+      "aten.to.dtype": 4,
+      "aten.transpose.int": 2,
+      "aten.unsqueeze.default": 1
+    }
+  },
+  "selected_checkpoint_keys": [
+    "lfm.layers.0.conv.conv.weight",
+    "lfm.layers.0.conv.in_proj.weight",
+    "lfm.layers.0.conv.out_proj.weight",
+    "lfm.layers.0.feed_forward.w1.weight",
+    "lfm.layers.0.feed_forward.w2.weight",
+    "lfm.layers.0.feed_forward.w3.weight",
+    "lfm.layers.0.ffn_norm.weight",
+    "lfm.layers.0.operator_norm.weight"
+  ],
+  "limitations": [
+    "One decoder layer only; no multi-layer cache routing.",
+    "One token per invocation and batch size 1 are fixed.",
+    "The cache state is explicit, but the absolute position is baked into this graph."
+  ]
+}

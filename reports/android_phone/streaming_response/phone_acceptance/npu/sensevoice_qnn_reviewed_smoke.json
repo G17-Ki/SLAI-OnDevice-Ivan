@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "runtime_load": "pass",
+  "provider": "qnn",
+  "soc": "SM8850",
+  "htp_arch": "v81",
+  "qnn_version": "2.40.0.251030",
+  "model_bin_sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30",
+  "tokens_sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+  "transcript_parity": {
+    "en": "pass",
+    "zh": "pass"
+  },
+  "input_contract": "fixed_10_seconds_zero_padded",
+  "runs": {
+    "en": {
+      "wav_sha256": "eb1eb008904465b74c304aad8342e8c7d3c6e61ffe9f66adcaca9cf0f76a93f4",
+      "duration_seconds": 7.152,
+      "language_tag": "<|en|>",
+      "transcript": "The tribal chieftain called for the boy and presented him with 50 pieces of gold.",
+      "qnn_decode_ms": 41.0,
+      "whole_command_wall_ms": 585.3359579923563,
+      "cpu_fixed_10s_decode_ms": 367.12425,
+      "exact_fixed_10s_cpu_parity": true,
+      "unpadded_cpu_transcript": "The tribal chieftain called for the boy and presented him with 50 pieces of code.",
+      "unpadded_matches_qnn": false
+    },
+    "zh": {
+      "wav_sha256": "b77f1794fe374a0ba1ee1dc458bfaf9349496cbbfc32780c50ba3c5a7ad8e373",
+      "duration_seconds": 5.592,
+      "language_tag": "<|zh|>",
+      "transcript": "开饭时间早上9点至下午5点。",
+      "qnn_decode_ms": 36.0,
+      "whole_command_wall_ms": 639.8276659892872,
+      "cpu_fixed_10s_decode_ms": 354.471041,
+      "exact_fixed_10s_cpu_parity": true,
+      "unpadded_cpu_transcript": "开放时间早上9点至下午5点。",
+      "unpadded_matches_qnn": false
+    }
+  },
+  "artifacts": {
+    "runtime": {
+      "libQnnHtp.so": {
+        "bytes": 2516048,
+        "sha256": "328cf737ca8942c2dde5c6f3e32a113378df2750afb9af1aafdd1775bef59875"
+      },
+      "libQnnHtpPrepare.so": {
+        "bytes": 74225392,
+        "sha256": "05cfaff3c2180d7d9006320c16579c5869c2261ba5f891bcaab172ced21c266c"
+      },
+      "libQnnHtpV81Skel.so": {
+        "bytes": 10561352,
+        "sha256": "2dff3367e70920742e8122cdbebfe4d5f9aa1d88d863a200b663842551d2b6f0"
+      },
+      "libQnnHtpV81Stub.so": {
+        "bytes": 632336,
+        "sha256": "0fccba2bd6b66d3e5ac32381cfbf5b10b80088055ff6dab712ce99633e3bc8c9"
+      },
+      "libQnnSystem.so": {
+        "bytes": 2590072,
+        "sha256": "2d42b6bb2710155fa963ee623ce3c320f8a9896b9cfd8dcc25506affb41ab8ab"
+      }
+    },
+    "runner": {
+      "libonnxruntime.so": {
+        "bytes": 21688920,
+        "sha256": "994848008526a934dfb579ac773b00e5867929234852b061005d45aacaee9533"
+      },
+      "sherpa-onnx-offline": {
+        "bytes": 2546312,
+        "sha256": "e7ab43565de5fa6d4f7badf1569a38c423f6afe361e5baa0f231ebf7d3a4ef40"
+      }
+    },
+    "cpu_model_sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51"
+  },
+  "limitations": [
+    "single physical QNN run per language",
+    "no APK/JNI integration yet",
+    "no sustained latency, RSS, thermal, or microphone/VAD QNN run",
+    "unpadded CPU inference differs by one word/character; exact parity requires the fixed 10-second contract"
+  ]
+}

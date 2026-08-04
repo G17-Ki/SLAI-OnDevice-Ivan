@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "sprint_id": "F5",
+  "lane": "F",
+  "title": "Deployment delta for Spanish and French",
+  "status": "COMPLETE",
+  "changed_steps": {
+    "1": "unchanged",
+    "2": "unchanged",
+    "3": "unchanged command; must build from the Lane F branch",
+    "4": "unchanged command; its five-language gate still passes",
+    "4b": "NEW - install_esfr.sh then verify_esfr.sh",
+    "5": "re-stage candidates.json, then install_main_app_tts_bundle.sh --manifest-only",
+    "6": "unchanged",
+    "7": "two acceptance turns added",
+    "8": "unchanged; ES/FR added to the airplane-mode turn set",
+    "nubia_apps_ai_control": "unchanged - no third package is introduced"
+  },
+  "acceptance_per_language": {
+    "es": {
+      "selector": "Spanish (CPU)",
+      "asr_backend": "parakeet_v3_cpu",
+      "asr_provider": "cpu",
+      "tts_candidate": "supertonic3_es_s5",
+      "expected_wait_seconds_band": [
+        7,
+        11
+      ],
+      "expected_wait_class": "PROJECTED"
+    },
+    "fr": {
+      "selector": "French (CPU)",
+      "asr_backend": "parakeet_v3_cpu",
+      "asr_provider": "cpu",
+      "tts_candidate": "supertonic3_fr_s5",
+      "expected_wait_seconds_band": [
+        7,
+        11
+      ],
+      "expected_wait_class": "PROJECTED"
+    }
+  },
+  "rollback": {
+    "corrected_premise": "There is no 0.4.14 APK. android-app/releases/ retains only lfm-audio-demo-0.4.13-expressive-lfm-debug.apk, which predates the runtime companion and is not a fallback for the two-package deployment.",
+    "retained_apk": {
+      "name": "lfm-audio-demo-0.4.13-expressive-lfm-debug.apk",
+      "exists": true,
+      "bytes": 4814778,
+      "sha256": "b178c93f05d614f8156843755ea52697f55b299c5bb0b6812209d9ce5f139baf",
+      "version_name": "0.4.13-expressive-lfm",
+      "version_code": 21,
+      "suitability": "LAST_RESORT_ABANDONS_THE_TWO_PACKAGE_DEMO"
+    },
+    "ladder": [
+      "rollback_esfr.sh - remove four Parakeet files; ES/FR fail closed, EN/ZH/JA/KO/RU untouched, no uninstall, no data clear",
+      "rollback_esfr.sh --also-tts - revert the TTS catalog, metadata only",
+      "git revert the Lane F commits and rerun the two installers with -r",
+      "the retained 0.4.13 APK, which abandons the demo rather than restoring it"
+    ]
+  },
+  "filming": {
+    "must_show": [
+      "airplane mode visible from the first frame",
+      "both packages installed",
+      "a fast language before a slow one",
+      "the Spanish and French waits uncut"
+    ],
+    "must_not_claim": [
+      "NPU execution for Spanish or French",
+      "the physical-unplug claim, which is still open",
+      "Italian working - it deliberately falls through to eSpeak"
+    ]
+  },
+  "artifacts": [
+    "F5.md"
+  ]
+}

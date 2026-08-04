@@ -1,0 +1,50 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+}
+
+android {
+    namespace "ai.liquid.ttsbench"
+    compileSdk 35
+    buildToolsVersion "34.0.0"
+
+    defaultConfig {
+        applicationId "ai.liquid.ttsbench"
+        minSdk 28
+        targetSdk 35
+        versionCode 1
+        versionName "0.1.0-tts-bench"
+        // Only arm64 ships; the other ABIs in the AAR would triple the APK for
+        // no benefit on the target phone.
+        ndk {
+            abiFilters "arm64-v8a"
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    // Resolved from the flatDir repository configured in settings.gradle. The
+    // AAR is not stored in this repository; run tools/fetch_sherpa_aar.sh first.
+    implementation(name: "sherpa-onnx-1.13.4", ext: "aar")
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    implementation "com.google.android.material:material:1.12.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+}

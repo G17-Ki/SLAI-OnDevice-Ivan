@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T10:07:25.972572+00:00",
+  "evidence_class": "Apple Silicon architecture experiment; not phone/NPU/glasses",
+  "settings": {
+    "audio": "question.wav",
+    "asr_url": "http://127.0.0.1:8080/v1/chat/completions",
+    "llm_url": "http://127.0.0.1:8082/v1/chat/completions",
+    "llm_model": "Qwen3-0.6B-Q4_0",
+    "tts_model": "sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+    "language": "en",
+    "threads": 2,
+    "steps": 4,
+    "speaker": 6,
+    "speed": 1.05,
+    "flush_chars": 64,
+    "playback_cushion_ms": 140.0,
+    "tts_load_ms": 519.5785420946777,
+    "warmups": 1,
+    "runs": 10
+  },
+  "summary": {
+    "asr_first_text": {
+      "min": 202.21779169514775,
+      "median": 217.29752025566995,
+      "p95": 359.4227498397231,
+      "max": 359.4227498397231,
+      "mean": 253.21558332070708
+    },
+    "asr_complete": {
+      "min": 362.8927497193217,
+      "median": 398.50893756374717,
+      "p95": 557.1298338472843,
+      "max": 557.1298338472843,
+      "mean": 434.7979625687003
+    },
+    "llm_first_token_from_llm_start": {
+      "min": 16.38870919123292,
+      "median": 30.720042064785957,
+      "p95": 40.87899997830391,
+      "max": 40.87899997830391,
+      "mean": 29.35665436089039
+    },
+    "llm_first_visible_from_llm_start": {
+      "min": 16.38870919123292,
+      "median": 30.720042064785957,
+      "p95": 40.87899997830391,
+      "max": 40.87899997830391,
+      "mean": 29.35665436089039
+    },
+    "first_chunk_ready_from_llm_start": {
+      "min": 109.77808386087418,
+      "median": 148.55406270362437,
+      "p95": 243.9833339303732,
+      "max": 243.9833339303732,
+      "mean": 163.5667834430933
+    },
+    "llm_complete_from_llm_start": {
+      "min": 131.11720886081457,
+      "median": 179.2830831836909,
+      "p95": 295.96312483772635,
+      "max": 295.96312483772635,
+      "mean": 199.15091237053275
+    },
+    "tts_first_callback_from_tts_start": {
+      "min": 514.034042134881,
+      "median": 687.8509586676955,
+      "p95": 1034.478667192161,
+      "max": 1034.478667192161,
+      "mean": 692.7206168416888
+    },
+    "tts_complete_from_tts_start": {
+      "min": 514.3661671318114,
+      "median": 688.0722087807953,
+      "p95": 1034.8522090353072,
+      "max": 1034.8522090353072,
+      "mean": 693.0179335176945
+    },
+    "pipeline_first_pcm": {
+      "min": 1003.9262911304832,
+      "median": 1321.8492295127362,
+      "p95": 1584.5581670291722,
+      "max": 1584.5581670291722,
+      "mean": 1292.2767791897058
+    },
+    "pipeline_first_audible_scheduled": {
+      "min": 1143.9262912608683,
+      "median": 1461.8492296431214,
+      "p95": 1724.5581671595573,
+      "max": 1724.5581671595573,
+      "mean": 1432.276779320091
+    },
+    "pipeline_complete": {
+      "min": 1009.3869580887258,
+      "median": 1330.2860835101455,
+      "p95": 1605.904916767031,
+      "max": 1605.904916767031,
+      "mean": 1301.4275833033025
+    }
+  },
+  "runs": [
+    {
+      "run_index": 0,
+      "measured": false,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 271.28816628828645,
+        "asr_complete": 428.70475025847554,
+        "llm_first_token_from_llm_start": 78.0453342013061,
+        "llm_first_visible_from_llm_start": 78.0453342013061,
+        "first_chunk_ready_from_llm_start": 172.09758423268795,
+        "llm_complete_from_llm_start": 193.60162504017353,
+        "tts_first_callback_from_tts_start": 508.8805831037462,
+        "tts_complete_from_tts_start": 509.19141713529825,
+        "pipeline_first_pcm": 1111.290333326906,
+        "pipeline_first_audible_scheduled": 1251.2903334572911,
+        "pipeline_complete": 1118.6881670728326
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 1,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 212.19258336350322,
+        "asr_complete": 377.8293333016336,
+        "llm_first_token_from_llm_start": 17.35662529245019,
+        "llm_first_visible_from_llm_start": 17.35662529245019,
+        "first_chunk_ready_from_llm_start": 110.42808322235942,
+        "llm_complete_from_llm_start": 131.45829131826758,
+        "tts_first_callback_from_tts_start": 515.2134159579873,
+        "tts_complete_from_tts_start": 515.3867909684777,
+        "pipeline_first_pcm": 1003.9262911304832,
+        "pipeline_first_audible_scheduled": 1143.9262912608683,
+        "pipeline_complete": 1009.3869580887258
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 2,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 215.35033266991377,
+        "asr_complete": 381.89850002527237,
+        "llm_first_token_from_llm_start": 27.775208931416273,
+        "llm_first_visible_from_llm_start": 27.775208931416273,
+        "first_chunk_ready_from_llm_start": 122.10224987939,
+        "llm_complete_from_llm_start": 142.85762514919043,
+        "tts_first_callback_from_tts_start": 514.034042134881,
+        "tts_complete_from_tts_start": 514.3661671318114,
+        "pipeline_first_pcm": 1018.7196671031415,
+        "pipeline_first_audible_scheduled": 1158.7196672335267,
+        "pipeline_complete": 1023.7771249376237
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 3,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 207.97058381140232,
+        "asr_complete": 362.8927497193217,
+        "llm_first_token_from_llm_start": 16.38870919123292,
+        "llm_first_visible_from_llm_start": 16.38870919123292,
+        "first_chunk_ready_from_llm_start": 109.77808386087418,
+        "llm_complete_from_llm_start": 131.11720886081457,
+        "tts_first_callback_from_tts_start": 576.6012920066714,
+        "tts_complete_from_tts_start": 576.8186673521996,
+        "pipeline_first_pcm": 1049.7073326259851,
+        "pipeline_first_audible_scheduled": 1189.7073327563703,
+        "pipeline_complete": 1055.333707947284
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 4,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 243.72291704639792,
+        "asr_complete": 418.57937490567565,
+        "llm_first_token_from_llm_start": 19.130832981318235,
+        "llm_first_visible_from_llm_start": 19.130832981318235,
+        "first_chunk_ready_from_llm_start": 112.26341594010592,
+        "llm_complete_from_llm_start": 137.71704072132707,
+        "tts_first_callback_from_tts_start": 705.8855830691755,
+        "tts_complete_from_tts_start": 706.1131251975894,
+        "pipeline_first_pcm": 1237.4717080965638,
+        "pipeline_first_audible_scheduled": 1377.471708226949,
+        "pipeline_complete": 1244.481208268553
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 5,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 208.87108333408833,
+        "asr_complete": 389.1146252863109,
+        "llm_first_token_from_llm_start": 27.540083043277264,
+        "llm_first_visible_from_llm_start": 27.540083043277264,
+        "first_chunk_ready_from_llm_start": 157.66654210165143,
+        "llm_complete_from_llm_start": 194.08983318135142,
+        "tts_first_callback_from_tts_start": 1034.478667192161,
+        "tts_complete_from_tts_start": 1034.8522090353072,
+        "pipeline_first_pcm": 1584.5581670291722,
+        "pipeline_first_audible_scheduled": 1724.5581671595573,
+        "pipeline_complete": 1605.904916767031
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 6,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 323.9033748395741,
+        "asr_complete": 540.936625096947,
+        "llm_first_token_from_llm_start": 40.87899997830391,
+        "llm_first_visible_from_llm_start": 40.87899997830391,
+        "first_chunk_ready_from_llm_start": 171.67433397844434,
+        "llm_complete_from_llm_start": 228.08750020340085,
+        "tts_first_callback_from_tts_start": 805.5066666565835,
+        "tts_complete_from_tts_start": 806.0037079267204,
+        "pipeline_first_pcm": 1520.201874896884,
+        "pipeline_first_audible_scheduled": 1660.2018750272691,
+        "pipeline_complete": 1529.5468750409782
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 7,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 219.24470784142613,
+        "asr_complete": 407.9032498411834,
+        "llm_first_token_from_llm_start": 37.22691675648093,
+        "llm_first_visible_from_llm_start": 37.22691675648093,
+        "first_chunk_ready_from_llm_start": 243.9833339303732,
+        "llm_complete_from_llm_start": 295.96312483772635,
+        "tts_first_callback_from_tts_start": 603.703792206943,
+        "tts_complete_from_tts_start": 603.9381669834256,
+        "pipeline_first_pcm": 1256.9159171544015,
+        "pipeline_first_audible_scheduled": 1396.9159172847867,
+        "pipeline_complete": 1262.5153749249876
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 8,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 359.4227498397231,
+        "asr_complete": 538.658166769892,
+        "llm_first_token_from_llm_start": 35.01387499272823,
+        "llm_first_visible_from_llm_start": 35.01387499272823,
+        "first_chunk_ready_from_llm_start": 233.05866681039333,
+        "llm_complete_from_llm_start": 281.36799996718764,
+        "tts_first_callback_from_tts_start": 669.8163342662156,
+        "tts_complete_from_tts_start": 670.0312923640013,
+        "pipeline_first_pcm": 1442.1431669034064,
+        "pipeline_first_audible_scheduled": 1582.1431670337915,
+        "pipeline_complete": 1453.5501669161022
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 9,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 202.21779169514775,
+        "asr_complete": 373.0371668934822,
+        "llm_first_token_from_llm_start": 33.66487519815564,
+        "llm_first_visible_from_llm_start": 33.66487519815564,
+        "first_chunk_ready_from_llm_start": 235.2715414017439,
+        "llm_complete_from_llm_start": 284.3741662800312,
+        "tts_first_callback_from_tts_start": 777.5034168735147,
+        "tts_complete_from_tts_start": 778.0449171550572,
+        "pipeline_first_pcm": 1386.7825418710709,
+        "pipeline_first_audible_scheduled": 1526.782542001456,
+        "pipeline_complete": 1398.0567920953035
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 10,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Yes, I can help you come up with a slogan for your woodworking site business.",
+      "first_tts_chunk": "Yes, I can help you come up with a slogan for your woodworking",
+      "timing_ms": {
+        "asr_first_text": 339.2597087658942,
+        "asr_complete": 557.1298338472843,
+        "llm_first_token_from_llm_start": 38.59041724354029,
+        "llm_first_visible_from_llm_start": 38.59041724354029,
+        "first_chunk_ready_from_llm_start": 139.4415833055973,
+        "llm_complete_from_llm_start": 164.4763331860304,
+        "tts_first_callback_from_tts_start": 724.4629580527544,
+        "tts_complete_from_tts_start": 724.624291062355,
+        "pipeline_first_pcm": 1422.34112508595,
+        "pipeline_first_audible_scheduled": 1562.341125216335,
+        "pipeline_complete": 1431.7227080464363
+      },
+      "tts_audio_seconds": 3.9865986394557824,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    }
+  ]
+}

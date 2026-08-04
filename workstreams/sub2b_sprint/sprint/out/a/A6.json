@@ -1,0 +1,509 @@
+{
+ "sprint_id": "A6",
+ "lane": "A",
+ "date_utc": "2026-08-02",
+ "title": "Licence traffic-light, per component",
+ "headline": "Stack M is the only stack with a clean licence sheet end to end. H, D, Q and F each carry at least one RED. The single most consequential finding is that EVERY Piper voice in the programme is finetuned from a voice trained on a corpus whose licence is research-only and expressly non-sublicensable -- which puts H, Q and F's entire TTS bank behind a legal question.",
+ "components": [
+  {
+   "component_id": "H4/Q3/F3",
+   "component": "Piper medium voice bank (all voices)",
+   "stacks": "H,Q,F",
+   "model_licence": "MIT (rhasspy/piper-voices repo)",
+   "training_data_licence": "Blizzard 2013 Lessac corpus -- RESEARCH LICENCE ONLY",
+   "redistribution": "Repo says MIT; upstream corpus grants NO right to sub-licence",
+   "commercial_use": "BLOCKED pending legal review",
+   "output_restrictions": "none stated in the corpus licence",
+   "traffic_light": "RED",
+   "finding": "Piper's OWN MODEL_CARDs establish the chain: en_US-lessac-medium was 'Trained from scratch' on the Blizzard 2013 Lessac corpus, and kusal, davefx(es), siwis(fr), dmitri(ru) and huayan(zh) are EACH 'Finetuned from U.S. English lessac voice (medium quality)'. The corpus licence is a RESEARCH LICENCE AGREEMENT: 'Licensors hereby grant to the User a non-exclusive and non-transferable licence, WITHOUT THE RIGHT TO SUB-LICENCE, to use the Materials EXCLUSIVELY FOR RESEARCH PURPOSES ONLY throughout the world.' Access requires per-organisation manual registration and approval. The repo's MIT label describes the packaging, not the derivation chain. Every Piper voice in every stack sits on this chain -- 5 voices in H, 4 in Q, 4 in F.",
+   "evidence_class": "EXACT (both the corpus licence text and the vendor's own derivation metadata are archived verbatim)",
+   "archived_capture": [
+    "licences/blizzard2013-lessac-research-licence_2026-08-02.txt",
+    "licences/piper-lessac-medium-model-card_2026-08-02.txt",
+    "licences/piper-dmitri-ru-medium-model-card_2026-08-02.txt",
+    "licences/piper-huayan-zh-medium-model-card_2026-08-02.txt"
+   ],
+   "closing_action": "LEGAL REVIEW REQUIRED: are TTS weights finetuned from a voice trained on the Materials themselves a derivative of the Materials? This lane cannot settle that and does not try. What is settled and documented: the corpus licence is research-only and non-sublicensable, and Piper's own metadata says every voice descends from it. If the answer is yes, H, Q and F all lose their TTS bank."
+  },
+  {
+   "component_id": "H4(zh)",
+   "component": "Piper zh_CN-huayan-medium",
+   "stacks": "H",
+   "model_licence": "MIT (repo)",
+   "training_data_licence": "DECLARED 'Unknown' by Piper's own MODEL_CARD",
+   "redistribution": "unknown",
+   "commercial_use": "unknown",
+   "output_restrictions": "unknown",
+   "traffic_light": "RED",
+   "finding": "The MODEL_CARD for zh_CN-huayan states 'License: Unknown' for its dataset (github.com/PlayVoice/HuaYan_TTS). An unknown training-data licence cannot be cleared, only avoided. Affects H only: H ships a FIVE-voice bank including zh_CN-huayan, whereas Q and F ship four voices (en/es/fr/ru) and serve zh from Matcha instead.",
+   "evidence_class": "EXACT (vendor metadata)",
+   "archived_capture": [
+    "licences/piper-huayan-zh-medium-model-card_2026-08-02.txt"
+   ],
+   "closing_action": "Either clear the HuaYan corpus licence or drop the zh Piper route."
+  },
+  {
+   "component_id": "D5a/Q4/F4",
+   "component": "Matcha zh-baker (ZH TTS acoustic)",
+   "stacks": "D,Q,F",
+   "model_licence": "NONE DECLARED on the repo",
+   "training_data_licence": "Baker (data-baker.com) free dataset -- NON-COMMERCIAL",
+   "redistribution": "unclear (no model licence exists)",
+   "commercial_use": "BLOCKED",
+   "output_restrictions": "none stated",
+   "traffic_light": "RED",
+   "finding": "The repo declares no licence at all, and its own README states verbatim: '**Note**: The dataset is for non-commercial use only.' This is the vendor's own statement in the model repo, not an inference. Matcha is the ZH TTS acoustic model in D, Q and F.",
+   "evidence_class": "EXACT (verbatim from the model's own README, archived)",
+   "archived_capture": [
+    "licences/matcha-icefall-zh-baker-readme_2026-08-02.txt"
+   ],
+   "closing_action": "Replace the ZH acoustic model, obtain a commercial Baker licence, or ship without a ZH TTS route. For Q and F an alternative already exists in-stack: serve zh from the Piper huayan voice -- but that voice has its own RED flags."
+  },
+  {
+   "component_id": "F2",
+   "component": "Falcon-H1-1.5B-Instruct (backbone)",
+   "stacks": "F",
+   "model_licence": "'other' / falcon-llm-license -- NO LICENSE FILE IN THE REPO",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted under the TII licence, subject to the Acceptable Use Policy",
+   "commercial_use": "royalty-free grant, but see finding",
+   "output_restrictions": "'You may not use the Work or any Derivative Work or any output from the Work or Derivative Work, whether directly or indirectly, to create other works for any purpose which conflicts with the Acceptable Use Policy.'",
+   "traffic_light": "RED",
+   "finding": "THREE separate problems. (1) IDENTITY GAP: the repo carries no LICENSE file; its cardData license_link points at https://falconllm.tii.ae/falcon-terms-and-conditions.html. That page contains ZERO occurrences of 'Falcon H1' or 'Falcon-H1' (verified by exhaustive string search of the captured text). It carries licences for Falcon 2 11B, Falcon 180B, Falcon Mamba 7B and Falcon 3 only. The terms governing THIS model are therefore not established. (2) MUTABILITY: the licence defines 'Acceptable Use Policy' as 'the latest version from time to time of the policy designated as such hosted at FalconLLM' and instructs 'You should monitor the web address at which the Acceptable Use Policy is hosted to ensure that your use of the Work or any Derivative Work complies with the updated Acceptable Use Policy.' That is a unilaterally mutable, forward-binding obligation. (3) UNDISCHARGEABLE FOR THIS PRODUCT: the target is an OFFLINE ON-DEVICE product. A device already in a user's hand cannot be re-licensed when the AUP changes, and there is no mechanism to withdraw or update it. The obligation cannot be met by construction.",
+   "evidence_class": "EXACT (full page captured, sha256 recorded, dated)",
+   "archived_capture": [
+    "licences/falcon-terms-and-conditions_2026-08-02.txt",
+    "licences/falcon3-tii-falcon-license_2026-08-02.txt"
+   ],
+   "closing_action": "Obtain from TII a written statement naming Falcon-H1-1.5B-Instruct and the licence version that governs it, plus a snapshot of the AUP as of the ship date. Until then F's backbone licence is UNRESOLVED. Note Q's backbone (Qwen2.5-1.5B-Instruct, Apache-2.0) has none of these problems and costs 11,149,184 fewer parameters."
+  },
+  {
+   "component_id": "H7",
+   "component": "TEN VAD",
+   "stacks": "H",
+   "model_licence": "Apache-2.0 PLUS an Agora rider",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted",
+   "commercial_use": "permitted BUT non-compete restricted",
+   "output_restrictions": "none",
+   "traffic_light": "AMBER",
+   "finding": "Not in the plan's blocker list -- found by this lane. The licence is Apache-2.0 with additional conditions, the first of which reads: 'You may not Deploy the ten-vad in a way that competes with Agora's offerings and/or that allows others to compete with Agora's offerings, including without limitation enabling any third party to develop or deploy Applications.' A field-of-use non-compete is not an Apache-2.0 term and it is not an OSI-open term. Clause 2 restricts deployment to 'your Application(s) solely for your benefit and the benefit of your direct End Users'. Clause 6 notes BSD-3-Clause and BSD-2-Clause derived code requiring NOTICES propagation.",
+   "evidence_class": "EXACT (full licence text archived)",
+   "archived_capture": [
+    "licences/ten-vad-license_2026-08-02.txt"
+   ],
+   "closing_action": "Confirm the product is not 'competing with Agora's offerings' as Agora would read it. Silero-VAD (MIT, used by L/D/M/Q/F and measured at 545,391) is a clean drop-in alternative for H."
+  },
+  {
+   "component_id": "D6a/D6b",
+   "component": "Supertonic-3",
+   "stacks": "D",
+   "model_licence": "BigScience Open RAIL-M",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted, but use-based restrictions MUST propagate",
+   "commercial_use": "permitted subject to Attachment A",
+   "output_restrictions": "Attachment A use restrictions bind downstream users and must be passed on",
+   "traffic_light": "AMBER",
+   "finding": "Open RAIL-M is not an OSI-open licence. Its Attachment A use-based restrictions must be reproduced in every downstream licence and EULA, and the obligation flows to end users. For a consumer device this means the restrictions have to appear in the product's terms. Upstream is archived per the plan's note, so supply risk is separate from licence risk.",
+   "evidence_class": "EXACT (full licence text archived)",
+   "archived_capture": [
+    "licences/supertonic-3-openrail-m_2026-08-02.txt"
+   ],
+   "closing_action": "Propagate Attachment A into the product EULA. Confirm with legal that the OpenRAIL-M restriction set is acceptable in the target markets."
+  },
+  {
+   "component_id": "D1",
+   "component": "SenseVoiceSmall",
+   "stacks": "D",
+   "model_licence": "FunASR Model Open Source License v1.1",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted with attribution",
+   "commercial_use": "permitted",
+   "output_restrictions": "none on outputs",
+   "traffic_light": "AMBER",
+   "finding": "Section 2.1 grants a broad right to 'use, copy, modify, and share'. Section 2.2 requires attribution and retention of model names. Two oddities worth flagging rather than hiding: section 3 says the software 'is provided for reference and learning purposes only' -- read together with 2.1's explicit grant this is a liability disclaimer, not a field-of-use limit, but the wording is ambiguous. Section 4.2 terminates all licences for 'unjustified denigration, malicious smearing, or baseless insults' against the software -- a reputational-conduct clause with no analogue in any OSI licence.",
+   "evidence_class": "EXACT (full licence text archived)",
+   "archived_capture": [
+    "licences/funasr-model-license-v1.1_2026-08-02.txt"
+   ],
+   "closing_action": "Ask Alibaba to confirm section 3 is a disclaimer, not a field-of-use restriction. Low risk, cheap to close."
+  },
+  {
+   "component_id": "H4/H5/Q8/F8",
+   "component": "eSpeak NG phonemiser",
+   "stacks": "H,Q,F",
+   "model_licence": "GPL-3.0",
+   "training_data_licence": "n/a (rule tables)",
+   "redistribution": "GPL-3.0 copyleft",
+   "commercial_use": "permitted, but copyleft attaches on linking",
+   "output_restrictions": "none",
+   "traffic_light": "AMBER",
+   "finding": "CONFIRMED PER VOICE, not inferred: every Piper voice config audited (lessac, kusal, davefx, siwis, dmitri, huayan) declares phoneme_type=espeak. GPL-3.0 copyleft attaches to whatever links eSpeak NG. Zero parameters, so this is a licence row, not a ledger row -- but on a shipped consumer binary it is the row most likely to force an architecture change (separate process, IPC boundary, or dynamic-link-with-source-offer).",
+   "evidence_class": "EXACT (per-voice config)",
+   "archived_capture": null,
+   "closing_action": "Decide the isolation boundary now, not at ship. Note that Supertonic (D) and MOSS (M) have NO eSpeak dependency at all -- they delete this row entirely."
+  },
+  {
+   "component_id": "L5/L5b",
+   "component": "Magpie TTS + nemo-nano-codec",
+   "stacks": "L",
+   "model_licence": "NVIDIA Open Model License",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted under NVIDIA OML",
+   "commercial_use": "permitted",
+   "output_restrictions": "see NVIDIA OML",
+   "traffic_light": "AMBER",
+   "finding": "Magpie is NVIDIA Open Model License. The codec dependency (nvidia/nemo-nano-codec-22khz-1.89kbps-21.5fps) was discovered by this lane in A3 and has therefore NEVER been licence-reviewed by the programme. It ships under NVIDIA 'other'.",
+   "evidence_class": "VENDOR (licence label from repo metadata; full text not captured)",
+   "archived_capture": null,
+   "closing_action": "Capture and review the NVIDIA Open Model License text for both Magpie and the codec. The codec is a new dependency, so this is a genuine gap, not a re-review."
+  },
+  {
+   "component_id": "H5",
+   "component": "charsiu byT5 G2P",
+   "stacks": "H",
+   "model_licence": "NONE DECLARED",
+   "training_data_licence": "not disclosed",
+   "redistribution": "unclear",
+   "commercial_use": "unclear",
+   "output_restrictions": "unclear",
+   "traffic_light": "AMBER",
+   "finding": "The repo declares no licence field and ships no LICENSE file. An absent licence is not a permissive licence -- by default no rights are granted. 20,653,952 parameters of Stack H's front end rest on it.",
+   "evidence_class": "EXACT (absence verified via HF API cardData and full file tree)",
+   "archived_capture": null,
+   "closing_action": "Contact the charsiu authors for an explicit licence grant, or replace the row. H is a disposable rig so this is low urgency, but it should not be inherited by a product stack."
+  },
+  {
+   "component_id": "L7/H6",
+   "component": "g2pM",
+   "stacks": "H,L",
+   "model_licence": "Apache-2.0 (PyPI package)",
+   "training_data_licence": "CC-CEDICT derived (see finding)",
+   "redistribution": "permitted",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "AMBER",
+   "finding": "The HF repo kakaobrain/g2pM does NOT exist; the shipped artefact is the PyPI wheel g2pM 0.1.2.5, which is Apache-2.0. The wheel also bundles digest_cedict.pkl, a CC-CEDICT derivative -- CC-CEDICT is CC-BY-SA 4.0, a share-alike licence on the DATA. Data, not parameters, so it does not touch the ledger, but the attribution and share-alike terms attach to whatever ships it.",
+   "evidence_class": "EXACT (artefact inspected directly)",
+   "archived_capture": null,
+   "closing_action": "Propagate CC-BY-SA attribution for the bundled CEDICT data."
+  },
+  {
+   "component_id": "M1/M2/M3/M4/M5",
+   "component": "Qwen3-ASR-0.6B, Qwen3.5-0.8B, MOSS-TTS-Nano, MOSS-Audio-Tokenizer, silero-vad",
+   "stacks": "M",
+   "model_licence": "Apache-2.0 (all four) + MIT (silero-vad)",
+   "training_data_licence": "not disclosed by any vendor",
+   "redistribution": "permitted",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "Stack M is the ONLY stack with a clean licence sheet end to end: Apache-2.0 for the ASR, the backbone, the TTS and the neural audio tokenizer, MIT for the VAD. No copyleft, no non-commercial corpus, no research-only derivation chain, no mutable terms, no eSpeak linkage (MOSS needs no external G2P). Caveat applied uniformly below: training-data provenance is undisclosed, as it is for essentially every model in this programme.",
+   "evidence_class": "EXACT (licence fields verified at pinned revisions; Qwen LICENSE files fetched)",
+   "archived_capture": null,
+   "closing_action": null
+  },
+  {
+   "component_id": "D2/H1",
+   "component": "parakeet-tdt-0.6b-v3",
+   "stacks": "H,D",
+   "model_licence": "CC-BY-4.0",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted with attribution",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "CC-BY-4.0. Attribution required. Clean.",
+   "evidence_class": "EXACT",
+   "archived_capture": null,
+   "closing_action": null
+  },
+  {
+   "component_id": "L1",
+   "component": "canary-180m-flash",
+   "stacks": "L",
+   "model_licence": "CC-BY-4.0",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted with attribution",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "CC-BY-4.0. Clean.",
+   "evidence_class": "EXACT",
+   "archived_capture": null,
+   "closing_action": null
+  },
+  {
+   "component_id": "L3",
+   "component": "GigaAM-Multilingual",
+   "stacks": "L",
+   "model_licence": "MIT",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "MIT. Clean.",
+   "evidence_class": "EXACT",
+   "archived_capture": null,
+   "closing_action": null
+  },
+  {
+   "component_id": "Q2",
+   "component": "Qwen2.5-1.5B-Instruct",
+   "stacks": "Q",
+   "model_licence": "Apache-2.0",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "Apache-2.0, LICENSE file present in the repo. Directly contrast with F2: Q's backbone has an unambiguous, immutable, model-specific licence, and costs 11,149,184 fewer parameters.",
+   "evidence_class": "EXACT",
+   "archived_capture": null,
+   "closing_action": null
+  },
+  {
+   "component_id": "Q1/F1",
+   "component": "omniASR-CTC-300M",
+   "stacks": "Q,F",
+   "model_licence": "Apache-2.0",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "Apache-2.0. Clean.",
+   "evidence_class": "EXACT",
+   "archived_capture": null,
+   "closing_action": null
+  },
+  {
+   "component_id": "H2/L2/D3",
+   "component": "k2fsa zipformers (zh-en and ru)",
+   "stacks": "H,L,D",
+   "model_licence": "Apache-2.0 (sherpa-onnx / icefall)",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "Apache-2.0. Clean.",
+   "evidence_class": "EXACT",
+   "archived_capture": null,
+   "closing_action": null
+  },
+  {
+   "component_id": "L8/D7/M5/Q6/F6",
+   "component": "silero-vad",
+   "stacks": "L,D,M,Q,F",
+   "model_licence": "MIT",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "MIT. Clean, and a drop-in replacement for TEN VAD in H if the Agora non-compete is a problem.",
+   "evidence_class": "EXACT",
+   "archived_capture": null,
+   "closing_action": null
+  },
+  {
+   "component_id": "L6",
+   "component": "silero v5_cis_base (RU TTS)",
+   "stacks": "L",
+   "model_licence": "MIT (silero-models)",
+   "training_data_licence": "not disclosed",
+   "redistribution": "permitted",
+   "commercial_use": "permitted",
+   "output_restrictions": "none",
+   "traffic_light": "GREEN",
+   "finding": "MIT. Clean.",
+   "evidence_class": "VENDOR (repo-level licence; the artefact is served from models.silero.ai rather than a licensed repo page)",
+   "archived_capture": null,
+   "closing_action": "Confirm the models.silero.ai TTS artefacts are covered by the silero-models MIT licence rather than separate commercial terms -- silero has historically offered commercial tiers."
+  }
+ ],
+ "per_stack": {
+  "H": {
+   "traffic_light": "RED",
+   "red": [
+    "H4/Q3/F3",
+    "H4(zh)"
+   ],
+   "amber": [
+    "H7",
+    "H4/H5/Q8/F8",
+    "H5",
+    "L7/H6"
+   ],
+   "green": [
+    "D2/H1",
+    "H2/L2/D3"
+   ]
+  },
+  "Q": {
+   "traffic_light": "RED",
+   "red": [
+    "H4/Q3/F3",
+    "D5a/Q4/F4"
+   ],
+   "amber": [
+    "H4/H5/Q8/F8"
+   ],
+   "green": [
+    "Q2",
+    "Q1/F1",
+    "L8/D7/M5/Q6/F6"
+   ]
+  },
+  "F": {
+   "traffic_light": "RED",
+   "red": [
+    "H4/Q3/F3",
+    "D5a/Q4/F4",
+    "F2"
+   ],
+   "amber": [
+    "H4/H5/Q8/F8"
+   ],
+   "green": [
+    "Q1/F1",
+    "L8/D7/M5/Q6/F6"
+   ]
+  },
+  "D": {
+   "traffic_light": "RED",
+   "red": [
+    "D5a/Q4/F4"
+   ],
+   "amber": [
+    "D6a/D6b",
+    "D1"
+   ],
+   "green": [
+    "D2/H1",
+    "H2/L2/D3",
+    "L8/D7/M5/Q6/F6"
+   ]
+  },
+  "L": {
+   "traffic_light": "AMBER",
+   "red": [],
+   "amber": [
+    "L5/L5b",
+    "L7/H6"
+   ],
+   "green": [
+    "L1",
+    "L3",
+    "H2/L2/D3",
+    "L8/D7/M5/Q6/F6",
+    "L6"
+   ]
+  },
+  "M": {
+   "traffic_light": "GREEN",
+   "red": [],
+   "amber": [],
+   "green": [
+    "M1/M2/M3/M4/M5",
+    "L8/D7/M5/Q6/F6"
+   ]
+  }
+ },
+ "red_summary": [
+  {
+   "id": "R-1",
+   "stacks": "H,Q,F",
+   "component": "Piper voice bank (all voices)",
+   "issue": "Blizzard 2013 Lessac corpus is RESEARCH-ONLY and expressly non-sublicensable; every Piper voice is finetuned from the lessac voice per Piper's own MODEL_CARDs.",
+   "params_at_risk": {
+    "H": 78253010,
+    "Q": 62602408,
+    "F": 62602408
+   }
+  },
+  {
+   "id": "R-2",
+   "stacks": "D,Q,F",
+   "component": "Matcha zh-baker",
+   "issue": "No model licence declared; the model's own README states the Baker dataset is for non-commercial use only.",
+   "params_at_risk": {
+    "D": 18665803,
+    "Q": 18665803,
+    "F": 18665803
+   }
+  },
+  {
+   "id": "R-3",
+   "stacks": "F",
+   "component": "Falcon-H1-1.5B-Instruct",
+   "issue": "No LICENSE file; the cited terms page never names Falcon-H1; the Acceptable Use Policy is unilaterally mutable and forward-binding, which an offline shipped device cannot satisfy by construction.",
+   "params_at_risk": {
+    "F": 1554863488
+   }
+  },
+  {
+   "id": "R-4",
+   "stacks": "H",
+   "component": "Piper zh_CN-huayan",
+   "issue": "Training-data licence declared 'Unknown' by the vendor's own model card.",
+   "params_at_risk": {
+    "H": 15650602
+   }
+  }
+ ],
+ "corrections_to_the_plan_blocker_list": [
+  {
+   "plan_flag": "Matcha's Baker corpus (non-commercial)",
+   "status": "CONFIRMED, verbatim from the model's own README"
+  },
+  {
+   "plan_flag": "Piper's lessac derivation chain",
+   "status": "CONFIRMED AND MUCH WORSE THAN FLAGGED. The chain is real and documented by the vendor, and the upstream corpus licence is research-only and non-sublicensable -- not merely attribution-encumbered."
+  },
+  {
+   "plan_flag": "eSpeak-NG GPL-3.0",
+   "status": "CONFIRMED per voice from phoneme_type=espeak in every voice config"
+  },
+  {
+   "plan_flag": "Supertonic OpenRAIL-M with an archived upstream",
+   "status": "CONFIRMED; licence text captured. Use-based restrictions must propagate into the product EULA."
+  },
+  {
+   "plan_flag": "SenseVoice's FunASR licence",
+   "status": "CONFIRMED but MILDER than implied -- broad grant plus attribution. Two odd clauses flagged (section 3 wording, section 4.2 reputational-conduct termination)."
+  },
+  {
+   "plan_flag": "(not in the plan's list)",
+   "status": "NEW: TEN VAD carries an Agora non-compete rider on top of Apache-2.0."
+  },
+  {
+   "plan_flag": "(not in the plan's list)",
+   "status": "NEW: charsiu byT5 declares NO licence at all -- 20,653,952 params of Stack H's front end with no grant of rights."
+  },
+  {
+   "plan_flag": "(not in the plan's list)",
+   "status": "NEW: Falcon's cited terms page does not name Falcon-H1 anywhere."
+  }
+ ],
+ "training_data_provenance": {
+  "statement": "Training-data licence is 'not disclosed' for essentially every model in this programme. That is the industry norm and is recorded uniformly rather than being held against individual components. The exceptions -- where provenance IS disclosed and IS a problem -- are exactly the RED rows above: Lessac (research-only), Baker (non-commercial), HuaYan (unknown).",
+  "evidence_class": "EXACT for the disclosed cases; UNKNOWN for the rest, not interpolated"
+ },
+ "archived_captures": [
+  "licences/falcon-terms-and-conditions_2026-08-02.txt",
+  "licences/falcon3-tii-falcon-license_2026-08-02.txt",
+  "licences/blizzard2013-lessac-research-licence_2026-08-02.txt",
+  "licences/matcha-icefall-zh-baker-readme_2026-08-02.txt",
+  "licences/supertonic-3-openrail-m_2026-08-02.txt",
+  "licences/funasr-model-license-v1.1_2026-08-02.txt",
+  "licences/ten-vad-license_2026-08-02.txt",
+  "licences/piper-lessac-medium-model-card_2026-08-02.txt",
+  "licences/piper-dmitri-ru-medium-model-card_2026-08-02.txt",
+  "licences/piper-huayan-zh-medium-model-card_2026-08-02.txt"
+ ],
+ "capture_policy": "Every capture carries captured_utc, source_url, http_status, sha256 of the raw bytes, byte count, and the reason it was captured. A URL is not a record.",
+ "disclaimer": "This is an engineering licence review, not legal advice. Where a question is legal rather than factual -- most importantly whether TTS weights finetuned from a voice trained on the Lessac Materials are themselves a derivative of those Materials -- this lane records the facts and the question, and does not answer it."
+}

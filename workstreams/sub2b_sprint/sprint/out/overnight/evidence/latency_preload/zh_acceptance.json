@@ -1,0 +1,1105 @@
+{
+  "schemaVersion": 2,
+  "startedAt": "2026-08-04T19:18:00.569Z",
+  "target": {
+    "id": "4BBD36A6EB186583A322ACA11B447FE1",
+    "title": "LFM2.5 Audio · On-device demo",
+    "url": "http://127.0.0.1:8765/",
+    "description": "{\"attached\":true,\"empty\":false,\"height\":2688,\"never_attached\":false,\"screenX\":0,\"screenY\":0,\"visible\":true,\"width\":1216}"
+  },
+  "plan": {
+    "schema_version": 3,
+    "name": "latency-preload-final-zh",
+    "resetTelemetry": true,
+    "cooldownMs": 500,
+    "expectedResponseBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+    "expectedResponseModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+    "expectedFinishReason": "stop",
+    "expectedNoReasoning": true,
+    "cases": [
+      {
+        "name": "explicit_zh_preloaded_full_turn",
+        "serverWarmth": "warm",
+        "mode": "tts",
+        "language": "zh",
+        "audio": "scripts/phone_acceptance_fixtures/question_zh.wav",
+        "expectedAudioSha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63",
+        "contextEnabled": false,
+        "clearHistoryBefore": true,
+        "expectedOutcome": "complete",
+        "expectedResolvedLanguage": "zh",
+        "expectedResponseMode": "tts",
+        "expectedVoiceBackend": "android_native_tts",
+        "ttsPolicy": "auto",
+        "expectedAsrBackend": "sensevoice_qnn",
+        "expectedAsrProvider": "qnn",
+        "expectedNpuExecuted": true,
+        "expectedNpuSelected": true,
+        "expectedAsrLanguageHint": "zh",
+        "expectedCompanionLanguages": [
+          "zh"
+        ],
+        "expectedTranscriptIncludes": "北京",
+        "expectedResponseIncludes": "北京",
+        "expectedResponseScript": "han",
+        "expectedMinResponseCharacters": 10,
+        "expectedMaxDuplicateGramRatio": 0.2,
+        "maxFirstAudioMs": 3000,
+        "minNativeTtsPlaybackMs": 500,
+        "expectedTtsPolicy": "auto",
+        "expectedTtsEngine": "matcha_zh_baker",
+        "expectedTtsRequestedLocale": "zh-CN",
+        "expectedTtsResolvedLocale": "zh",
+        "expectedTtsGenerationLanguage": "zh",
+        "maxTtsFirstChunkMs": 1000,
+        "maxTtsRtf": 0.5,
+        "maxTtsDroppedChunks": 0,
+        "expectedTtsTerminalStatus": "completed",
+        "expectedHistoryTurnsAfter": 0
+      }
+    ]
+  },
+  "staticInspection": {
+    "title": "LFM2.5 Audio · On-device demo",
+    "url": "http://127.0.0.1:8765/",
+    "modelReady": true,
+    "componentReadiness": {
+      "asr": true,
+      "text": true,
+      "lfm": true
+    },
+    "deviceStatus": "Offline ASR · Qwen · voice ready",
+    "mode": "tts",
+    "inputMode": "push",
+    "runtimeState": {
+      "inputBusy": false,
+      "nativeRecording": false,
+      "mediaRecorderState": null,
+      "currentTurn": null,
+      "vad": {
+        "requested": false,
+        "active": false,
+        "stopping": false,
+        "phase": "stopped",
+        "sessionId": null,
+        "stoppingSessionId": null,
+        "processingTurn": null,
+        "lastEvent": null,
+        "lastError": null
+      },
+      "buttons": {
+        "chatDisabled": false,
+        "asrDisabled": false,
+        "ttsDisabled": false,
+        "recordDisabled": false
+      }
+    },
+    "prompts": {
+      "asr": "Perform ASR.",
+      "response": "Answer the current user directly and accurately. Use prior messages only when they are relevant. Before answering a memory or recall question, check whether prior user and assistant messages are actually present. If none are present, explicitly say that conversation memory is unavailable and never invent a phrase, fact, or prior request. Keep simple factual answers to one or two concise sentences, omit details you are not certain about, and provide a longer answer only when the user explicitly requests detail. Use only the requested language. Never output hidden reasoning or <think> tags."
+    },
+    "languageOptions": [
+      {
+        "value": "auto",
+        "label": "Auto (EN / 中文 / 日本語 / 한국어 / RU)"
+      },
+      {
+        "value": "en",
+        "label": "English"
+      },
+      {
+        "value": "zh",
+        "label": "Chinese (Mandarin)"
+      },
+      {
+        "value": "ja",
+        "label": "Japanese"
+      },
+      {
+        "value": "ko",
+        "label": "Korean"
+      },
+      {
+        "value": "ru",
+        "label": "Russian"
+      },
+      {
+        "value": "es",
+        "label": "Spanish (CPU)"
+      },
+      {
+        "value": "fr",
+        "label": "French (CPU)"
+      },
+      {
+        "value": "it",
+        "label": "Italian"
+      }
+    ],
+    "controls": {
+      "chat": true,
+      "asr": true,
+      "tts": true,
+      "englishResponseStyle": true,
+      "selectedEnglishResponseStyle": "exact",
+      "push": true,
+      "vad": true,
+      "clearHistory": true
+    },
+    "nativeBridge": {
+      "present": true,
+      "telemetry": true,
+      "resetTelemetry": true,
+      "tts": true,
+      "vadStart": true,
+      "vadResume": true,
+      "vadStop": true,
+      "ttsEngineAvailable": true,
+      "defaultTtsLocale": "en-GB"
+    },
+    "npuFacts": {
+      "auto": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "broad_auto_requires_cpu_multilingual_asr"
+      },
+      "en": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "app_owned_qnn_runtime_unavailable"
+      },
+      "zh": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "app_owned_qnn_runtime_unavailable"
+      },
+      "ja": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "app_owned_qnn_runtime_unavailable"
+      },
+      "ko": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "app_owned_qnn_runtime_unavailable"
+      },
+      "fr": {
+        "npu_gate": "blocked",
+        "npu_fallback_reason": "language_not_supported_by_sensevoice_qnn"
+      }
+    },
+    "history": {
+      "turns": 0,
+      "characters": 0,
+      "approximateTokens": 0,
+      "limits": {
+        "maxTurns": 2,
+        "maxCharacters": 1600,
+        "maxApproxTokens": 480
+      },
+      "lastMutation": {
+        "action": "cleared",
+        "reason": null,
+        "removedTurns": 0
+      }
+    },
+    "historyEnabled": false,
+    "historySwitch": {
+      "ariaChecked": "false",
+      "text": "Memory: off (recommended)"
+    },
+    "asrCompanion": {
+      "url": "http://127.0.0.1:6010/asr"
+    },
+    "responseCompanion": {
+      "apiUrl": "http://127.0.0.1:6020/v1/chat/completions",
+      "healthUrl": "http://127.0.0.1:6020/health",
+      "backend": "qwen2_5_1_5b_q4_k_m_cpu",
+      "requestModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+      "health": {
+        "url": "http://127.0.0.1:6020/health",
+        "httpStatus": 200,
+        "httpOk": true,
+        "body": {
+          "status": "ok"
+        },
+        "bodyCharacters": 15,
+        "error": null
+      },
+      "models": {
+        "url": "http://127.0.0.1:6020/v1/models",
+        "httpStatus": 200,
+        "httpOk": true,
+        "body": {
+          "models": [
+            {
+              "name": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+              "model": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+              "modified_at": "",
+              "size": "",
+              "digest": "",
+              "type": "model",
+              "description": "",
+              "tags": [
+                ""
+              ],
+              "capabilities": [
+                "completion"
+              ],
+              "parameters": "",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "",
+                "families": [
+                  ""
+                ],
+                "parameter_size": "",
+                "quantization_level": ""
+              }
+            }
+          ],
+          "object": "list",
+          "data": [
+            {
+              "id": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+              "aliases": [
+                "Qwen2.5-1.5B-Instruct-Q4_K_M"
+              ],
+              "tags": [],
+              "object": "model",
+              "created": 1785871092,
+              "owned_by": "llamacpp",
+              "meta": {
+                "vocab_type": 2,
+                "n_vocab": 151936,
+                "n_ctx": 2048,
+                "n_ctx_train": 32768,
+                "n_embd": 1536,
+                "n_params": 1777088000,
+                "size": 1111370240,
+                "ftype": "Q4_K - Medium"
+              }
+            }
+          ]
+        },
+        "bodyCharacters": 666,
+        "error": null
+      },
+      "modelIds": [
+        "Qwen2.5-1.5B-Instruct-Q4_K_M"
+      ]
+    },
+    "directResponse": {
+      "apiUrl": "http://127.0.0.1:8080/v1/chat/completions",
+      "backend": "lfm2_5_audio_interleaved_q4_cpu",
+      "requestModel": "LFM2.5-Audio-1.5B",
+      "modelReady": true,
+      "healthUrl": "http://127.0.0.1:8080/",
+      "health": {
+        "url": "http://127.0.0.1:8080/",
+        "httpStatus": null,
+        "httpOk": false,
+        "body": null,
+        "bodyCharacters": 0,
+        "error": "Failed to fetch"
+      },
+      "systemPrompt": "Respond with interleaved text and audio."
+    },
+    "autoRoutes": {
+      "en": {
+        "selection": "auto",
+        "language": "en",
+        "confidence": 0.96,
+        "reason": "13 lexical points with 12-point margin",
+        "fallbackUsed": false,
+        "localeTag": "en-US"
+      },
+      "zh": {
+        "selection": "auto",
+        "language": "zh",
+        "confidence": 0.9700000000000001,
+        "reason": "8 Han-script characters",
+        "fallbackUsed": false,
+        "localeTag": "zh-CN"
+      },
+      "ja": {
+        "selection": "auto",
+        "language": "ja",
+        "confidence": 0.98,
+        "reason": "8 kana characters",
+        "fallbackUsed": false,
+        "localeTag": "ja-JP"
+      },
+      "ko": {
+        "selection": "auto",
+        "language": "ko",
+        "confidence": 0.99,
+        "reason": "10 Hangul-script characters",
+        "fallbackUsed": false,
+        "localeTag": "ko-KR"
+      },
+      "ru": {
+        "selection": "auto",
+        "language": "ru",
+        "confidence": 0.98,
+        "reason": "22 Cyrillic-script characters",
+        "fallbackUsed": false,
+        "localeTag": "ru-RU"
+      },
+      "fr": {
+        "selection": "auto",
+        "language": "fr",
+        "confidence": 0.96,
+        "reason": "8 lexical points with 8-point margin",
+        "fallbackUsed": false,
+        "localeTag": "fr-FR"
+      },
+      "it": {
+        "selection": "auto",
+        "language": "it",
+        "confidence": 0.96,
+        "reason": "6 lexical points with 5-point margin",
+        "fallbackUsed": false,
+        "localeTag": "it-IT"
+      },
+      "es": {
+        "selection": "auto",
+        "language": "es",
+        "confidence": 0.96,
+        "reason": "9 lexical points with 9-point margin",
+        "fallbackUsed": false,
+        "localeTag": "es-ES"
+      }
+    },
+    "protocol": {
+      "asrInputAudioParts": 1,
+      "asrInputAudioKeys": 1,
+      "responseInputAudioParts": 0,
+      "responseInputAudioKeys": 0,
+      "asrRoles": [
+        "system",
+        "user"
+      ],
+      "responseRoles": [
+        "system",
+        "user",
+        "assistant",
+        "user"
+      ],
+      "responseUserType": "string",
+      "responseUserText": "Remember turquoise.",
+      "asrModalities": [
+        "text"
+      ]
+    },
+    "serviceWorker": {
+      "controlled": true,
+      "scriptURL": "http://127.0.0.1:8765/service-worker.js",
+      "cacheKeys": null,
+      "cacheInspection": "omitted because caches.keys() can stall Android WebView CDP"
+    }
+  },
+  "responseServicePreflight": {
+    "route": "qwen_companion",
+    "healthOk": true,
+    "modelsOk": true,
+    "expectedModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+    "observedModels": [
+      "Qwen2.5-1.5B-Instruct-Q4_K_M"
+    ],
+    "modelIdentityMatched": true,
+    "expectedBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+    "observedBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+    "backendMatched": true
+  },
+  "setup": {
+    "fetchCapture": {
+      "installed": true,
+      "captureCount": 0,
+      "fileInputBlocked": true,
+      "nativeTtsCaptureSupported": true,
+      "nativeTtsOriginalHandlerPresent": true
+    },
+    "clear": {
+      "cleared": {
+        "removedTurns": 0,
+        "turns": 0,
+        "characters": 0,
+        "approximateTokens": 0,
+        "limits": {
+          "maxTurns": 2,
+          "maxCharacters": 1600,
+          "maxApproxTokens": 480
+        },
+        "lastMutation": {
+          "action": "cleared",
+          "reason": null,
+          "removedTurns": 0
+        }
+      },
+      "telemetryReset": true
+    }
+  },
+  "cases": [
+    {
+      "name": "explicit_zh_preloaded_full_turn",
+      "requestedMode": "tts",
+      "selectedLanguage": "zh",
+      "requestedEnglishResponseStyle": null,
+      "selectedEnglishResponseStyle": "exact",
+      "serverWarmth": "warm",
+      "contextEnabledRequested": false,
+      "ttsPolicySetup": {
+        "requested": "auto",
+        "accepted": true,
+        "live": "auto"
+      },
+      "historyEnabled": false,
+      "historySwitchAriaChecked": "false",
+      "preModeState": {
+        "mode": "tts",
+        "inputBusy": false,
+        "historyEnabled": false,
+        "historySwitchAriaChecked": "false",
+        "nativeRecording": false,
+        "mediaRecorderState": null,
+        "vadRequested": false,
+        "vadStopping": false,
+        "currentTurnId": null,
+        "currentTurnTerminal": null
+      },
+      "turnId": "1785871092999-2",
+      "generation": 1785870100447002,
+      "elapsedMs": 8846.5,
+      "thrown": null,
+      "drain": {
+        "status": "tts_terminal"
+      },
+      "responseMode": "tts",
+      "voiceBackend": "android_native_tts",
+      "playback": {
+        "firstTextMs": 192.89999999850988,
+        "firstPcmMs": null,
+        "firstAudioScheduledMs": 597.0384899973869,
+        "firstOutputHeadMs": null,
+        "firstVoicedPcmOffsetMs": null,
+        "firstVoicedScheduledMs": null,
+        "firstVoicedOutputHeadMs": null,
+        "underflows": 0,
+        "pcmDurationSeconds": 0,
+        "audioChunks": 0,
+        "completedMs": 523.5
+      },
+      "languageRoute": {
+        "selection": "zh",
+        "language": "zh",
+        "localeTag": "zh-CN",
+        "confidence": 1,
+        "reason": "explicit user selection via sensevoice_qnn",
+        "fallbackUsed": false,
+        "asrFacts": {
+          "backend": "sensevoice_qnn",
+          "provider": "qnn",
+          "npu_candidate": "sensevoice_qnn_sm8850",
+          "npu_executed": true,
+          "npu_selected": true,
+          "npu_gate": "executed",
+          "npu_fallback_reason": null,
+          "asr_companion": true,
+          "candidate_summaries": [
+            {
+              "backend": "sensevoice_qnn",
+              "provider": "qnn",
+              "ok": true,
+              "transcript_characters": 13,
+              "language_hint": "zh",
+              "mean_token_log_probability": null,
+              "han_characters": 12,
+              "kana_characters": 0,
+              "hangul_characters": 0,
+              "cyrillic_characters": 0,
+              "latin_characters": 0
+            }
+          ],
+          "segmented_input": false,
+          "input_duration_seconds": 2.6073125,
+          "segment_count": 1,
+          "segment_summaries": [
+            {
+              "index": 0,
+              "backend": "sensevoice_qnn",
+              "provider": "qnn",
+              "npu_executed": true,
+              "npu_selected": true,
+              "transcript_characters": 13
+            }
+          ]
+        }
+      },
+      "asrFacts": {
+        "backend": "sensevoice_qnn",
+        "provider": "qnn",
+        "npu_candidate": "sensevoice_qnn_sm8850",
+        "npu_executed": true,
+        "npu_selected": true,
+        "npu_gate": "executed",
+        "npu_fallback_reason": null,
+        "asr_companion": true,
+        "candidate_summaries": [
+          {
+            "backend": "sensevoice_qnn",
+            "provider": "qnn",
+            "ok": true,
+            "transcript_characters": 13,
+            "language_hint": "zh",
+            "mean_token_log_probability": null,
+            "han_characters": 12,
+            "kana_characters": 0,
+            "hangul_characters": 0,
+            "cyrillic_characters": 0,
+            "latin_characters": 0
+          }
+        ],
+        "segmented_input": false,
+        "input_duration_seconds": 2.6073125,
+        "segment_count": 1,
+        "segment_summaries": [
+          {
+            "index": 0,
+            "backend": "sensevoice_qnn",
+            "provider": "qnn",
+            "npu_executed": true,
+            "npu_selected": true,
+            "transcript_characters": 13
+          }
+        ]
+      },
+      "observedOutcome": "complete",
+      "expectations": {
+        "outcome": "complete",
+        "resolvedLanguage": "zh",
+        "responseMode": "tts",
+        "voiceBackend": "android_native_tts",
+        "responseBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+        "responseModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+        "finishReason": "stop",
+        "noReasoning": true,
+        "maxFirstAudioMs": 3000,
+        "maxFirstVoicedAudioMs": null,
+        "minPcmDurationMs": null,
+        "minNativeTtsPlaybackMs": 500,
+        "ttsTerminalStatus": "completed",
+        "ttsPolicy": "auto",
+        "ttsEngine": "matcha_zh_baker",
+        "ttsRequestedLocale": "zh-CN",
+        "ttsResolvedLocale": "zh",
+        "ttsGenerationLanguage": "zh",
+        "maxTtsFirstChunkMs": 1000,
+        "maxTtsRtf": 0.5,
+        "maxTtsDroppedChunks": 0,
+        "asrBackend": "sensevoice_qnn",
+        "asrProvider": "qnn",
+        "asrLanguageHint": "zh",
+        "npuExecuted": true,
+        "npuSelected": true,
+        "errorIncludes": null,
+        "historyTurnsAfter": 0,
+        "responseRequestIncludes": [],
+        "responseRequestExcludes": [],
+        "companionLanguages": [
+          "zh"
+        ],
+        "responseIncludes": [
+          "北京"
+        ],
+        "responseExcludes": [],
+        "transcriptIncludes": [
+          "北京"
+        ],
+        "requiredTranscriptScript": null,
+        "requiredResponseScript": "han",
+        "minResponseCharacters": 10,
+        "maxDuplicateGramRatio": 0.2
+      },
+      "acceptanceAssertions": {
+        "outcome": true,
+        "resolvedLanguage": true,
+        "responseMode": true,
+        "voiceBackend": true,
+        "responseBackend": true,
+        "responseModel": true,
+        "finishReason": true,
+        "noReasoning": true,
+        "maxFirstAudioMs": true,
+        "maxFirstVoicedAudioMs": null,
+        "minPcmDurationMs": null,
+        "nativeTtsEvidenceSupported": true,
+        "nativeTtsEventsParseClean": true,
+        "nativeTtsOriginalHandlerHealthy": true,
+        "ttsPolicy": true,
+        "ttsEngine": true,
+        "ttsRequestedLocale": true,
+        "ttsResolvedLocale": true,
+        "ttsMetricsComplete": true,
+        "ttsMetricsEngine": true,
+        "ttsGenerationLanguage": true,
+        "ttsMetricsGeneration": true,
+        "maxTtsFirstChunkMs": true,
+        "maxTtsRtf": true,
+        "maxTtsDroppedChunks": true,
+        "ttsTerminalStatus": true,
+        "minNativeTtsPlaybackMs": true,
+        "asrBackend": true,
+        "asrProvider": true,
+        "asrLanguageHint": true,
+        "npuExecuted": true,
+        "npuSelected": true,
+        "errorIncludes": null,
+        "contextEnabled": true,
+        "historyTurnsAfter": true,
+        "responseRequestIncludes": null,
+        "responseRequestExcludes": null,
+        "companionLanguages": true,
+        "responseIncludes": true,
+        "responseExcludes": null,
+        "transcriptIncludes": true,
+        "transcriptScript": null,
+        "responseScript": true,
+        "minResponseCharacters": true,
+        "maxDuplicateGramRatio": true,
+        "protocol": true,
+        "allPassed": true
+      },
+      "response": "北京市是中国的首都，位于中国北部，是中华人民共和国的省会城市之一。",
+      "transcript": "请用中文简单介绍一下北京。",
+      "transcriptScriptEvidence": {
+        "letters": 12,
+        "han": 12,
+        "hiragana": 0,
+        "katakana": 0,
+        "kana": 0,
+        "hangul": 0,
+        "cyrillic": 0,
+        "latin": 0,
+        "hanRatio": 1,
+        "kanaRatio": 0,
+        "japaneseRatio": 1,
+        "hangulRatio": 0,
+        "cyrillicRatio": 0,
+        "latinRatio": 0
+      },
+      "responseQuality": {
+        "characters": 33,
+        "scriptEvidence": {
+          "letters": 30,
+          "han": 30,
+          "hiragana": 0,
+          "katakana": 0,
+          "kana": 0,
+          "hangul": 0,
+          "cyrillic": 0,
+          "latin": 0,
+          "hanRatio": 1,
+          "kanaRatio": 0,
+          "japaneseRatio": 1,
+          "hangulRatio": 0,
+          "cyrillicRatio": 0,
+          "latinRatio": 0
+        },
+        "repetition": {
+          "token_count": 30,
+          "gram_size": 4,
+          "duplicate_gram_ratio": 0,
+          "max_gram_count": 1
+        }
+      },
+      "responseRequestText": "只用简体中文回答当前用户，不要使用英文或拼音。简单事实问题只用一两句简短、准确的回答，不要添加不确定的细节。\n请用中文简单介绍一下北京。",
+      "languageStatus": "Mandarin Chinese · 100% · explicit user selection via sensevoice_qnn",
+      "historyStatus": "Memory off · no prior turns are sent",
+      "historyBefore": {
+        "turns": 0,
+        "characters": 0,
+        "approximateTokens": 0,
+        "limits": {
+          "maxTurns": 2,
+          "maxCharacters": 1600,
+          "maxApproxTokens": 480
+        },
+        "lastMutation": {
+          "action": "cleared",
+          "reason": null,
+          "removedTurns": 0
+        }
+      },
+      "historyAfter": {
+        "turns": 0,
+        "characters": 0,
+        "approximateTokens": 0,
+        "limits": {
+          "maxTurns": 2,
+          "maxCharacters": 1600,
+          "maxApproxTokens": 480
+        },
+        "lastMutation": {
+          "action": "cleared",
+          "reason": null,
+          "removedTurns": 0
+        }
+      },
+      "historySnapshot": [],
+      "error": "",
+      "timer": "Ready",
+      "recordLabel": "Tap to speak",
+      "fetches": [
+        {
+          "url": "http://127.0.0.1:6010/asr?language=zh",
+          "at": "2026-08-04T19:18:13.003Z",
+          "stage": "asr_companion",
+          "method": "POST",
+          "requestedLanguage": "zh",
+          "contentType": "audio/wav",
+          "bodyBytes": 83478,
+          "roles": null,
+          "modalities": null,
+          "inputAudioParts": 0,
+          "inputAudioKeys": 0,
+          "userContentType": null,
+          "userText": null,
+          "httpStatus": 200,
+          "httpOk": true
+        },
+        {
+          "url": "http://127.0.0.1:6020/v1/chat/completions",
+          "at": "2026-08-04T19:18:13.091Z",
+          "method": "POST",
+          "stage": "response_companion",
+          "systemPrompt": "Answer the current user directly and accurately. Use prior messages only when they are relevant. Before answering a memory or recall question, check whether prior user and assistant messages are actually present. If none are present, explicitly say that conversation memory is unavailable and never invent a phrase, fact, or prior request. Keep simple factual answers to one or two concise sentences, omit details you are not certain about, and provide a longer answer only when the user explicitly requests detail. Use only the requested language. Never output hidden reasoning or <think> tags.",
+          "bodyBytes": 1014,
+          "contentType": "application/json",
+          "maxTokens": 768,
+          "enableThinking": null,
+          "stream": true,
+          "requestBackend": "qwen2_5_1_5b_q4_k_m_cpu",
+          "requestModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+          "requestModelIdentity": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+          "roles": [
+            "system",
+            "user"
+          ],
+          "modalities": null,
+          "inputAudioParts": 0,
+          "inputAudioKeys": 0,
+          "userContentType": "string",
+          "userText": "只用简体中文回答当前用户，不要使用英文或拼音。简单事实问题只用一两句简短、准确的回答，不要添加不确定的细节。\n请用中文简单介绍一下北京。",
+          "httpStatus": 200,
+          "httpOk": true,
+          "responseBodyBytes": 5565,
+          "responseModel": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+          "responseModelIdentity": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+          "finishReason": "stop",
+          "reasoningContentCharacters": 0,
+          "responseCharacters": 33,
+          "thinkTagSeen": false,
+          "sseDoneSeen": true,
+          "sseParseErrors": 0
+        }
+      ],
+      "nativeTtsEvents": [
+        {
+          "sequence": 0,
+          "captured_wall_time": "2026-08-04T19:18:13.092Z",
+          "captured_performance_ms": 992716.3999999985,
+          "event": {
+            "schema_version": 1,
+            "type": "ready",
+            "turn_id": "1785871092999-2",
+            "monotonic_ms": 129947878.966661,
+            "details": {
+              "engine": "matcha_zh_baker",
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "engine_label": "Matcha ZH (baker)",
+              "engine_family": "matcha",
+              "threads": 1,
+              "requested_locale": "zh-CN",
+              "resolved_locale": "zh",
+              "sample_rate_hz": 22050,
+              "generation": 1785870100447002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"ready\",\"turn_id\":\"1785871092999-2\",\"monotonic_ms\":1.29947878966661E8,\"details\":{\"engine\":\"matcha_zh_baker\",\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"engine_label\":\"Matcha ZH (baker)\",\"engine_family\":\"matcha\",\"threads\":1,\"requested_locale\":\"zh-CN\",\"resolved_locale\":\"zh\",\"sample_rate_hz\":22050,\"generation\":1785870100447002}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 1,
+          "captured_wall_time": "2026-08-04T19:18:13.505Z",
+          "captured_performance_ms": 993129.1999999993,
+          "event": {
+            "schema_version": 1,
+            "type": "chunk_queued",
+            "turn_id": "1785871092999-2",
+            "monotonic_ms": 129948292.449994,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785870100447002,
+              "character_count": 33,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "queue_mode": "flush",
+              "pending_utterances": 1
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"chunk_queued\",\"turn_id\":\"1785871092999-2\",\"monotonic_ms\":1.29948292449994E8,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785870100447002,\"character_count\":33,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"queue_mode\":\"flush\",\"pending_utterances\":1}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 2,
+          "captured_wall_time": "2026-08-04T19:18:13.525Z",
+          "captured_performance_ms": 993148.8000000007,
+          "event": {
+            "schema_version": 1,
+            "type": "queue_closed",
+            "turn_id": "1785871092999-2",
+            "monotonic_ms": 129948311.160307,
+            "details": {
+              "pending_utterances": 1,
+              "chunks_queued": 1,
+              "generation": 1785870100447002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"queue_closed\",\"turn_id\":\"1785871092999-2\",\"monotonic_ms\":1.29948311160307E8,\"details\":{\"pending_utterances\":1,\"chunks_queued\":1,\"generation\":1785870100447002}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 3,
+          "captured_wall_time": "2026-08-04T19:18:13.597Z",
+          "captured_performance_ms": 993221.0999999978,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_start",
+            "turn_id": "1785871092999-2",
+            "monotonic_ms": 129948384.160619,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785870100447002,
+              "character_count": 33,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_start\",\"turn_id\":\"1785871092999-2\",\"monotonic_ms\":1.29948384160619E8,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785870100447002,\"character_count\":33,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\"}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 4,
+          "captured_wall_time": "2026-08-04T19:18:13.597Z",
+          "captured_performance_ms": 993221.1999999993,
+          "event": {
+            "schema_version": 1,
+            "type": "first_audio_start_proxy",
+            "turn_id": "1785871092999-2",
+            "monotonic_ms": 129948384.359682,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785870100447002,
+              "character_count": 33,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "proxy": "UtteranceProgressListener.onStart"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"first_audio_start_proxy\",\"turn_id\":\"1785871092999-2\",\"monotonic_ms\":1.29948384359682E8,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785870100447002,\"character_count\":33,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"proxy\":\"UtteranceProgressListener.onStart\"}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 5,
+          "captured_wall_time": "2026-08-04T19:18:13.785Z",
+          "captured_performance_ms": 993409.5999999978,
+          "event": {
+            "schema_version": 1,
+            "type": "engine_metrics",
+            "turn_id": "1785871092999-2",
+            "monotonic_ms": 129948572.422963,
+            "details": {
+              "engine_id": "matcha_zh_baker",
+              "engine_family": "matcha",
+              "engine_generation": 1,
+              "generation_language": "zh",
+              "threads": 1,
+              "first_chunk_ms": 90,
+              "synthesis_ms": 279,
+              "audio_seconds": 8.196643990929704,
+              "rtf": 0.03403832108711049,
+              "dropped_chunks": 0,
+              "applied_gain_db": 3.5422476169796497,
+              "sample_rate_hz": 22050,
+              "serialized_synthesis": true,
+              "pending_synthesis_tasks": 0,
+              "audio_track_started": true,
+              "audio_track_buffer_frames": 22050,
+              "audio_track_write_quantum_ms": 20,
+              "audio_track_zero_write_retries": 0,
+              "generation": 1785870100447002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"engine_metrics\",\"turn_id\":\"1785871092999-2\",\"monotonic_ms\":1.29948572422963E8,\"details\":{\"engine_id\":\"matcha_zh_baker\",\"engine_family\":\"matcha\",\"engine_generation\":1,\"generation_language\":\"zh\",\"threads\":1,\"first_chunk_ms\":90,\"synthesis_ms\":279,\"audio_seconds\":8.196643990929704,\"rtf\":0.03403832108711049,\"dropped_chunks\":0,\"applied_gain_db\":3.5422476169796497,\"sample_rate_hz\":22050,\"serialized_synthesis\":true,\"pending_synthesis_tasks\":0,\"audio_track_started\":true,\"audio_track_buffer_frames\":22050,\"audio_track_write_quantum_ms\":20,\"audio_track_zero_write_retries\":0,\"generation\":1785870100447002}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 6,
+          "captured_wall_time": "2026-08-04T19:18:21.770Z",
+          "captured_performance_ms": 1001394.3000000007,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_done",
+            "turn_id": "1785871092999-2",
+            "monotonic_ms": 129956556.106814,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785870100447002,
+              "character_count": 33,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "pending_utterances": 0,
+              "queue_closed": true
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_done\",\"turn_id\":\"1785871092999-2\",\"monotonic_ms\":1.29956556106814E8,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785870100447002,\"character_count\":33,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"pending_utterances\":0,\"queue_closed\":true}}",
+          "parse_error": null,
+          "original_handler_error": null
+        },
+        {
+          "sequence": 7,
+          "captured_wall_time": "2026-08-04T19:18:21.771Z",
+          "captured_performance_ms": 1001394.8999999985,
+          "event": {
+            "schema_version": 1,
+            "type": "terminal",
+            "turn_id": "1785871092999-2",
+            "monotonic_ms": 129956556.531345,
+            "details": {
+              "status": "completed",
+              "pending_utterances": 0,
+              "chunks_queued": 1,
+              "generation": 1785870100447002,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"terminal\",\"turn_id\":\"1785871092999-2\",\"monotonic_ms\":1.29956556531345E8,\"details\":{\"status\":\"completed\",\"pending_utterances\":0,\"chunks_queued\":1,\"generation\":1785870100447002,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\"}}",
+          "parse_error": null,
+          "original_handler_error": null
+        }
+      ],
+      "nativeTtsEvidence": {
+        "supported": true,
+        "unsupportedReason": null,
+        "recordsCaptured": 8,
+        "eventsCaptured": 8,
+        "parseClean": true,
+        "originalHandlerHealthy": true,
+        "readyCount": 1,
+        "readyPolicy": "auto",
+        "readyEngine": "matcha_zh_baker",
+        "readyRequestedLocale": "zh-CN",
+        "readyResolvedLocale": "zh",
+        "engineMetricsCount": 1,
+        "generationLanguages": [
+          "zh"
+        ],
+        "engineMetricGenerations": [
+          1785870100447002
+        ],
+        "engineMetricEngineIds": [
+          "matcha_zh_baker"
+        ],
+        "firstChunkMsValues": [
+          90
+        ],
+        "rtfValues": [
+          0.03403832108711049
+        ],
+        "droppedChunkValues": [
+          0
+        ],
+        "startCount": 1,
+        "doneCount": 1,
+        "terminalCount": 1,
+        "firstStartMonotonicMs": 129948384.160619,
+        "terminalMonotonicMs": 129956556.531345,
+        "playbackSpanMs": 8172.370725989342,
+        "terminalStatus": "completed",
+        "terminalMessage": null
+      },
+      "protocolAssertions": {
+        "asrRequestPlanValid": true,
+        "asrEachRequestHasOneInput": true,
+        "companionUsesRawWav": true,
+        "responseRequestPresent": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "asrRolesOnlySystemAndUser": true,
+        "responseRolesSupported": true,
+        "responseThinkingDisabled": true
+      },
+      "audio": {
+        "path": "scripts/phone_acceptance_fixtures/question_zh.wav",
+        "bytes": 83478,
+        "expectedSha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63",
+        "actualSha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63",
+        "sha256Matched": true
+      },
+      "contextSetup": {
+        "requested": false,
+        "accepted": true,
+        "historyEnabled": false,
+        "switchAriaChecked": "false",
+        "switchText": "Memory: off (recommended)",
+        "summary": {
+          "turns": 0,
+          "characters": 0,
+          "approximateTokens": 0,
+          "limits": {
+            "maxTurns": 2,
+            "maxCharacters": 1600,
+            "maxApproxTokens": 480
+          },
+          "lastMutation": {
+            "action": "cleared",
+            "reason": null,
+            "removedTurns": 0
+          }
+        }
+      }
+    }
+  ],
+  "failure": null,
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "caseAssertionsPassed": true,
+    "cleanupPassed": true,
+    "operationalFailure": false,
+    "allPassed": true,
+    "failedCases": []
+  },
+  "cleanup": {
+    "removed": true,
+    "blockedFileInputEvents": 0,
+    "nativeTtsHandlerRestored": true,
+    "nativeTtsCaptureCount": 8,
+    "nativeTtsOriginalHandlerErrors": []
+  },
+  "finishedAt": "2026-08-04T19:18:10.007Z"
+}

@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "description": "Fixed multilingual TTS evaluation suite for the 2026-07-26 natural-voice research run. Texts are assistant-style responses, not read-speech corpora, so latency and prosody are measured on the shape of text the phone demo actually speaks.",
+  "suites": {
+    "zh": {
+      "language": "zh",
+      "asr_locale": "zh",
+      "cases": [
+        {
+          "id": "zh_micro_ack",
+          "kind": "streaming_floor",
+          "text": "好的。",
+          "reference": "好的",
+          "note": "2-character acknowledgement; the shortest realistic first chunk and the known Kokoro non-finite-PCM trigger class"
+        },
+        {
+          "id": "zh_short_clause",
+          "kind": "streaming_first_chunk",
+          "text": "北京是中国的首都。",
+          "reference": "北京是中国的首都",
+          "note": "typical first clause flushed at a punctuation boundary"
+        },
+        {
+          "id": "zh_answer_short",
+          "kind": "answer",
+          "text": "北京是中国的首都，也是全国的政治和文化中心。",
+          "reference": "北京是中国的首都也是全国的政治和文化中心"
+        },
+        {
+          "id": "zh_answer_medium",
+          "kind": "answer",
+          "text": "今天下午天气晴朗，气温大约二十四度，出门不需要带伞。",
+          "reference": "今天下午天气晴朗气温大约二十四度出门不需要带伞"
+        },
+        {
+          "id": "zh_answer_long",
+          "kind": "long_response",
+          "text": "光合作用是植物把光能转换成化学能的过程。叶绿体吸收阳光，并利用水和二氧化碳合成葡萄糖。这个过程同时释放氧气，供其他生物呼吸使用。因此光合作用是地球上大多数生态系统的能量基础。",
+          "reference": "光合作用是植物把光能转换成化学能的过程叶绿体吸收阳光并利用水和二氧化碳合成葡萄糖这个过程同时释放氧气供其他生物呼吸使用因此光合作用是地球上大多数生态系统的能量基础"
+        },
+        {
+          "id": "zh_numbers",
+          "kind": "normalization",
+          "text": "会议安排在二零二六年七月二十六日下午三点十五分。",
+          "reference": "会议安排在二零二六年七月二十六日下午三点十五分",
+          "note": "date and time normalization stress case"
+        },
+        {
+          "id": "zh_question",
+          "kind": "prosody",
+          "text": "你想让我把这段话翻译成英文吗？",
+          "reference": "你想让我把这段话翻译成英文吗",
+          "note": "interrogative prosody"
+        }
+      ],
+      "chunk_floor_sweep": [
+        "好",
+        "好的",
+        "好的。",
+        "你好啊",
+        "这是测试",
+        "请稍等一下",
+        "北京今天很晴朗"
+      ],
+      "flush_sweep": [
+        "好的没问题",
+        "北京是中国的首都",
+        "今天下午的天气非常晴朗",
+        "光合作用是植物把光能转换成化学能的过程",
+        "会议安排在明天下午三点十五分我们会在二号会议室讨论这个方案",
+        "这个方案的第一部分描述了系统的整体架构第二部分说明了各个模块之间的接口和数据流动方式"
+      ],
+      "flush_sweep_note": "single-segment texts of graded length used to measure first-flush latency versus flush size; no internal sentence punctuation so each is exactly one chunk"
+    },
+    "ru": {
+      "language": "ru",
+      "asr_locale": "ru",
+      "cases": [
+        {
+          "id": "ru_micro_ack",
+          "kind": "streaming_floor",
+          "text": "Конечно.",
+          "reference": "конечно"
+        },
+        {
+          "id": "ru_short_clause",
+          "kind": "streaming_first_chunk",
+          "text": "Москва — столица России.",
+          "reference": "москва столица россии"
+        },
+        {
+          "id": "ru_answer_short",
+          "kind": "answer",
+          "text": "Москва — столица России и её крупнейший город.",
+          "reference": "москва столица россии и её крупнейший город"
+        },
+        {
+          "id": "ru_answer_medium",
+          "kind": "answer",
+          "text": "Сегодня днём будет ясно, около двадцати четырёх градусов, зонт брать не нужно.",
+          "reference": "сегодня днём будет ясно около двадцати четырёх градусов зонт брать не нужно"
+        },
+        {
+          "id": "ru_answer_long",
+          "kind": "long_response",
+          "text": "Фотосинтез — это процесс, в котором растения превращают энергию света в химическую энергию. Хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы. При этом выделяется кислород, которым дышат другие организмы. Поэтому фотосинтез лежит в основе большинства экосистем на Земле.",
+          "reference": "фотосинтез это процесс в котором растения превращают энергию света в химическую энергию хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы при этом выделяется кислород которым дышат другие организмы поэтому фотосинтез лежит в основе большинства экосистем на земле"
+        },
+        {
+          "id": "ru_numbers",
+          "kind": "normalization",
+          "text": "Встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать.",
+          "reference": "встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать"
+        },
+        {
+          "id": "ru_question",
+          "kind": "prosody",
+          "text": "Хочешь, я переведу этот текст на английский?",
+          "reference": "хочешь я переведу этот текст на английский"
+        }
+      ],
+      "chunk_floor_sweep": [
+        "Да",
+        "Да.",
+        "Хорошо",
+        "Секунду",
+        "Одну минуту",
+        "Сейчас посмотрю"
+      ],
+      "flush_sweep": [
+        "Хорошо конечно",
+        "Москва столица России",
+        "Сегодня днём будет ясно и тепло",
+        "Фотосинтез это процесс в котором растения превращают энергию света",
+        "Фотосинтез это процесс в котором растения превращают энергию света в химическую энергию а хлоропласты поглощают"
+      ],
+      "flush_sweep_note": "single-segment texts of graded length used to measure first-flush latency versus flush size; no internal sentence punctuation so each is exactly one chunk"
+    },
+    "en": {
+      "language": "en",
+      "asr_locale": "en",
+      "cases": [
+        {
+          "id": "en_short_clause",
+          "kind": "streaming_first_chunk",
+          "text": "Paris is the capital of France.",
+          "reference": "paris is the capital of france"
+        },
+        {
+          "id": "en_answer_medium",
+          "kind": "answer",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "reference": "the weather should stay clear this afternoon so you can leave the umbrella at home"
+        }
+      ],
+      "chunk_floor_sweep": []
+    },
+    "fr": {
+      "language": "fr",
+      "asr_locale": "fr",
+      "cases": [
+        {
+          "id": "fr_answer_short",
+          "kind": "answer",
+          "text": "Paris est la capitale de la France et sa plus grande ville.",
+          "reference": "paris est la capitale de la france et sa plus grande ville"
+        }
+      ],
+      "chunk_floor_sweep": []
+    },
+    "it": {
+      "language": "it",
+      "asr_locale": "it",
+      "cases": [
+        {
+          "id": "it_answer_short",
+          "kind": "answer",
+          "text": "Roma è la capitale d'Italia e la sua città più grande.",
+          "reference": "roma è la capitale d'italia e la sua città più grande"
+        }
+      ],
+      "chunk_floor_sweep": []
+    },
+    "es": {
+      "language": "es",
+      "asr_locale": "es",
+      "cases": [
+        {
+          "id": "es_answer_short",
+          "kind": "answer",
+          "text": "Madrid es la capital de España y su ciudad más grande.",
+          "reference": "madrid es la capital de españa y su ciudad más grande"
+        }
+      ],
+      "chunk_floor_sweep": []
+    }
+  }
+}

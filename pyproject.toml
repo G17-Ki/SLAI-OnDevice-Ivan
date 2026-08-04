@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lfm25-audio-ai-glasses-feasibility"
+version = "0.0.0"
+description = "Reproducible feasibility experiments for LFM2.5-Audio on Qualcomm AI Hub"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "accelerate==1.10.1",
+    "datasets==4.8.4",
+    "jiwer",
+    "librosa==0.11.0",
+    "numpy==2.2.6",
+    "psutil==7.0.0",
+    "PyYAML==6.0.2",
+    "reportlab",
+    "safetensors==0.6.2",
+    "soundfile==0.13.1",
+    "torch==2.8.0",
+    "torchaudio==2.8.0",
+    "transformers==4.56.1",
+]
+
+[project.optional-dependencies]
+aihub = [
+    "qai-hub",
+    "qai-hub-models==0.57.3",
+]
+colab = [
+    "einops==0.8.1",
+    "scikit-learn==1.7.2",
+    "scipy==1.16.2",
+    "sentencepiece==0.2.1",
+]
+
+[tool.setuptools]
+packages = []

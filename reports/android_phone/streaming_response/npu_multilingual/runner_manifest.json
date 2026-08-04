@@ -1,0 +1,51 @@
+{
+  "android_ndk": "27.0.12077973",
+  "build": {
+    "jobs": 2,
+    "priority": "nice +10",
+    "sherpa_onnx_enable_binary": true,
+    "sherpa_onnx_enable_jni": false,
+    "sherpa_onnx_enable_qnn": true,
+    "sherpa_onnx_enable_tts": false
+  },
+  "files": {
+    "libonnxruntime.so": {
+      "bytes": 21688920,
+      "sha256": "994848008526a934dfb579ac773b00e5867929234852b061005d45aacaee9533"
+    },
+    "sherpa-onnx-offline": {
+      "bytes": 2546312,
+      "sha256": "e7ab43565de5fa6d4f7badf1569a38c423f6afe361e5baa0f231ebf7d3a4ef40"
+    }
+  },
+  "inspection": {
+    "abi": "ELF64 AArch64",
+    "dynamic_dependencies": [
+      "libandroid.so",
+      "liblog.so",
+      "libonnxruntime.so",
+      "libm.so",
+      "libdl.so",
+      "libc.so"
+    ],
+    "interpreter": "/system/bin/linker64",
+    "qnn_cli_strings_present": true,
+    "stripped": true
+  },
+  "onnxruntime": {
+    "archive_sha256": "a78f303a26b5e75c84c8b2a97fa2ddb400b2d1b5e069bec19aa229ccd3597fdb",
+    "version": "1.27.0"
+  },
+  "qnn_runtime_included": false,
+  "schema_version": 1,
+  "sherpa_onnx": {
+    "commit": "142807252687d81b40d6315f23470a1512a00de3",
+    "tag": "v1.13.4"
+  },
+  "target": {
+    "abi": "arm64-v8a",
+    "android_api": 27,
+    "provider": "qnn"
+  },
+  "validation_boundary": "cross-built and statically inspected; phone execution pending"
+}

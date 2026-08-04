@@ -1,0 +1,1543 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-22T08:29:07Z",
+  "runtime": {
+    "python": "3.11.11 (main, Dec 11 2024, 10:25:04) [Clang 14.0.6 ]",
+    "platform": "macOS-15.4.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "sherpa_onnx": "1.13.4",
+    "numpy": "2.4.6"
+  },
+  "model_dir": "models/supertonic3-int8/sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+  "settings": {
+    "num_threads": 2,
+    "repeats": 5,
+    "num_steps": 5,
+    "speed": 1.05,
+    "sid": 6,
+    "warmup": true
+  },
+  "load": {
+    "load_s": 0.5593832079321146,
+    "rss_before_bytes": 37519360,
+    "rss_after_bytes": 204980224,
+    "incremental_rss_bytes": 167460864,
+    "peak_rss_bytes": 210747392
+  },
+  "warmup": {
+    "case_id": "warmup",
+    "lang": "en",
+    "text": "Hello.",
+    "max_len": null,
+    "repeat_index": 1,
+    "first_callback_s": 0.31821558298543096,
+    "callback_times_s": [
+      0.31821558298543096
+    ],
+    "callback_chunk_samples": [
+      55549
+    ],
+    "callback_chunk_count": 1,
+    "total_s": 0.3183240001089871,
+    "rtf": 0.25271541170509515,
+    "peak_rss_bytes": 264339456,
+    "wav_path": null,
+    "first_chunk_wav_path": null,
+    "num_samples": 55549,
+    "sample_rate_hz": 44100,
+    "audio_duration_s": 1.2596145124716553,
+    "peak_abs": 0.7272063493728638,
+    "rms": 0.06054563447833061,
+    "dc_mean": -0.00018659424677025527,
+    "clip_count": 0,
+    "nonfinite_count": 0
+  },
+  "summary_by_case": {
+    "en_short": {
+      "lang": "en",
+      "text": "Sure, I can help with that.",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 5,
+        "median": 0.3483624588698149,
+        "p95": 0.3857583331875503,
+        "min": 0.33849516697227955,
+        "max": 0.3924542497843504
+      },
+      "total_s": {
+        "n": 5,
+        "median": 0.3485318748280406,
+        "p95": 0.38594358302652837,
+        "min": 0.33862966718152165,
+        "max": 0.3926565828733146
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.17475135785249946,
+        "p95": 0.19350931739491672,
+        "min": 0.16978646265368774,
+        "max": 0.19687516690026916
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 1.9944444444444445,
+        "p95": 1.9944444444444445,
+        "min": 1.9944444444444445,
+        "max": 1.9944444444444445
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 269680640.0,
+        "p95": 286975590.4,
+        "min": 259997696.0,
+        "max": 287113216.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "es_short": {
+      "lang": "es",
+      "text": "Claro, puedo ayudarte con eso.",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 5,
+        "median": 0.4327420420013368,
+        "p95": 0.44319132501259445,
+        "min": 0.42991912504658103,
+        "max": 0.4439522917382419
+      },
+      "total_s": {
+        "n": 5,
+        "median": 0.4328884589485824,
+        "p95": 0.4433812001720071,
+        "min": 0.43000141624361277,
+        "max": 0.44413416692987084
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.1856246454789048,
+        "p95": 0.19012398319382282,
+        "min": 0.18438666773310378,
+        "max": 0.19044685894760321
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 2.332063492063492,
+        "p95": 2.332063492063492,
+        "min": 2.332063492063492,
+        "max": 2.332063492063492
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 263225344.0,
+        "p95": 264054374.4,
+        "min": 262291456.0,
+        "max": 264060928.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "de_short": {
+      "lang": "de",
+      "text": "Natürlich, ich kann dir dabei helfen.",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 5,
+        "median": 0.45075566694140434,
+        "p95": 0.48361716689541934,
+        "min": 0.4473368749022484,
+        "max": 0.48389266710728407
+      },
+      "total_s": {
+        "n": 5,
+        "median": 0.4509034575894475,
+        "p95": 0.4838113168254495,
+        "min": 0.4474797076545656,
+        "max": 0.4840870420448482
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.17366826330094268,
+        "p95": 0.18634292938804986,
+        "min": 0.17234958477861242,
+        "max": 0.1864491266664146
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 2.596349206349206,
+        "p95": 2.596349206349206,
+        "min": 2.596349206349206,
+        "max": 2.596349206349206
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 263733248.0,
+        "p95": 266511974.4,
+        "min": 263667712.0,
+        "max": 266567680.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "ja_short": {
+      "lang": "ja",
+      "text": "もちろん、お手伝いできます。",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 5,
+        "median": 0.3848369582556188,
+        "p95": 0.46654117563739417,
+        "min": 0.3534660842269659,
+        "max": 0.47357158409431577
+      },
+      "total_s": {
+        "n": 5,
+        "median": 0.38540020817890763,
+        "p95": 0.4672975083813071,
+        "min": 0.3538057920522988,
+        "max": 0.4742367500439286
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.17607845741758515,
+        "p95": 0.2134950181258484,
+        "min": 0.16164386206313713,
+        "max": 0.21666536142528697
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 2.1887981859410433,
+        "p95": 2.1887981859410433,
+        "min": 2.1887981859410433,
+        "max": 2.1887981859410433
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 262275072.0,
+        "p95": 266600448.0,
+        "min": 235470848.0,
+        "max": 266813440.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "ko_short": {
+      "lang": "ko",
+      "text": "물론이죠, 제가 도와드릴게요.",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 5,
+        "median": 0.5432097078301013,
+        "p95": 0.627993441838771,
+        "min": 0.49797841627150774,
+        "max": 0.6482209167443216
+      },
+      "total_s": {
+        "n": 5,
+        "median": 0.5435213749296963,
+        "p95": 0.6282998501323164,
+        "min": 0.4982445831410587,
+        "max": 0.6485115000978112
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.2183055332513603,
+        "p95": 0.25235683480272825,
+        "min": 0.20012009541718523,
+        "max": 0.2604748504450347
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 2.4897278911564626,
+        "p95": 2.4897278911564626,
+        "min": 2.4897278911564626,
+        "max": 2.4897278911564626
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 237027328.0,
+        "p95": 243987251.2,
+        "min": 219054080.0,
+        "max": 244269056.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "ru_short": {
+      "lang": "ru",
+      "text": "Конечно, я могу с этим помочь.",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 5,
+        "median": 0.46556954132393,
+        "p95": 0.5352155413478613,
+        "min": 0.4614144996739924,
+        "max": 0.5522157079540193
+      },
+      "total_s": {
+        "n": 5,
+        "median": 0.46569350035861135,
+        "p95": 0.5353857084177435,
+        "min": 0.4615541249513626,
+        "max": 0.5524005000479519
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.19469936164631318,
+        "p95": 0.22383661267168956,
+        "min": 0.19296875181648915,
+        "max": 0.23095023797759484
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 2.391859410430839,
+        "p95": 2.391859410430839,
+        "min": 2.391859410430839,
+        "max": 2.391859410430839
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 247545856.0,
+        "p95": 248850022.4,
+        "min": 243236864.0,
+        "max": 248856576.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "en_sentence": {
+      "lang": "en",
+      "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 5,
+        "median": 0.850647249724716,
+        "p95": 0.979301483463496,
+        "min": 0.7876123329624534,
+        "max": 0.9924773750826716
+      },
+      "total_s": {
+        "n": 5,
+        "median": 0.8508984157815576,
+        "p95": 0.9795322912745178,
+        "min": 0.7878608331084251,
+        "max": 0.992702332790941
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.15709222646613927,
+        "p95": 0.18084051595096176,
+        "min": 0.1454542752965276,
+        "max": 0.18327195912454683
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 5.416553287981859,
+        "p95": 5.416553287981859,
+        "min": 5.416553287981859,
+        "max": 5.416553287981859
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 299106304.0,
+        "p95": 302209433.6,
+        "min": 254803968.0,
+        "max": 302219264.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "en_chunked": {
+      "lang": "en",
+      "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+      "max_len": 64,
+      "first_callback_s": {
+        "n": 5,
+        "median": 0.5677265408448875,
+        "p95": 0.6213044334203005,
+        "min": 0.5332157080993056,
+        "max": 0.6339404168538749
+      },
+      "total_s": {
+        "n": 5,
+        "median": 1.8453897079452872,
+        "p95": 1.892401141487062,
+        "min": 1.7948407498188317,
+        "max": 1.8975548748858273
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.17453506417941944,
+        "p95": 0.17898135730387607,
+        "min": 0.16975419561121496,
+        "max": 0.1794687921181293
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 10.573174603174603,
+        "p95": 10.573174603174603,
+        "min": 10.573174603174603,
+        "max": 10.573174603174603
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 302972928.0,
+        "p95": 313291571.2,
+        "min": 277512192.0,
+        "max": 314802176.0
+      },
+      "callback_chunk_count": [
+        3
+      ]
+    }
+  },
+  "runs": [
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "text": "Sure, I can help with that.",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.33849516697227955,
+      "callback_times_s": [
+        0.33849516697227955
+      ],
+      "callback_chunk_samples": [
+        87955
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.33862966718152165,
+      "rtf": 0.16978646265368774,
+      "peak_rss_bytes": 266420224,
+      "wav_path": "samples/en_short.wav",
+      "first_chunk_wav_path": null,
+      "num_samples": 87955,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 1.9944444444444445,
+      "peak_abs": 0.5696800947189331,
+      "rms": 0.05846207216382027,
+      "dc_mean": -0.0003885343321599066,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "text": "Sure, I can help with that.",
+      "max_len": null,
+      "repeat_index": 1,
+      "first_callback_s": 0.35897466680034995,
+      "callback_times_s": [
+        0.35897466680034995
+      ],
+      "callback_chunk_samples": [
+        87955
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3590915836393833,
+      "rtf": 0.18004591937350695,
+      "peak_rss_bytes": 286425088,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 87955,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 1.9944444444444445,
+      "peak_abs": 0.5696800947189331,
+      "rms": 0.05846207216382027,
+      "dc_mean": -0.0003885343321599066,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "text": "Sure, I can help with that.",
+      "max_len": null,
+      "repeat_index": 2,
+      "first_callback_s": 0.3924542497843504,
+      "callback_times_s": [
+        0.3924542497843504
+      ],
+      "callback_chunk_samples": [
+        87955
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3926565828733146,
+      "rtf": 0.19687516690026916,
+      "peak_rss_bytes": 287113216,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 87955,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 1.9944444444444445,
+      "peak_abs": 0.5696800947189331,
+      "rms": 0.05846207216382027,
+      "dc_mean": -0.0003885343321599066,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "text": "Sure, I can help with that.",
+      "max_len": null,
+      "repeat_index": 3,
+      "first_callback_s": 0.34406179189682007,
+      "callback_times_s": [
+        0.34406179189682007
+      ],
+      "callback_chunk_samples": [
+        87955
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3442551251500845,
+      "rtf": 0.1726070265376468,
+      "peak_rss_bytes": 269680640,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 87955,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 1.9944444444444445,
+      "peak_abs": 0.5696800947189331,
+      "rms": 0.05846207216382027,
+      "dc_mean": -0.0003885343321599066,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "text": "Sure, I can help with that.",
+      "max_len": null,
+      "repeat_index": 4,
+      "first_callback_s": 0.3483624588698149,
+      "callback_times_s": [
+        0.3483624588698149
+      ],
+      "callback_chunk_samples": [
+        87955
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3485318748280406,
+      "rtf": 0.17475135785249946,
+      "peak_rss_bytes": 259997696,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 87955,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 1.9944444444444445,
+      "peak_abs": 0.5696800947189331,
+      "rms": 0.05846207216382027,
+      "dc_mean": -0.0003885343321599066,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "es_short",
+      "lang": "es",
+      "text": "Claro, puedo ayudarte con eso.",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.44014745811000466,
+      "callback_times_s": [
+        0.44014745811000466
+      ],
+      "callback_chunk_samples": [
+        102844
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.44036933314055204,
+      "rtf": 0.1888324801787012,
+      "peak_rss_bytes": 263110656,
+      "wav_path": "samples/es_short.wav",
+      "first_chunk_wav_path": null,
+      "num_samples": 102844,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.332063492063492,
+      "peak_abs": 0.578848659992218,
+      "rms": 0.060672588646411896,
+      "dc_mean": -0.00039877532981336117,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "es_short",
+      "lang": "es",
+      "text": "Claro, puedo ayudarte con eso.",
+      "max_len": null,
+      "repeat_index": 1,
+      "first_callback_s": 0.4439522917382419,
+      "callback_times_s": [
+        0.4439522917382419
+      ],
+      "callback_chunk_samples": [
+        102844
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.44413416692987084,
+      "rtf": 0.19044685894760321,
+      "peak_rss_bytes": 263225344,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 102844,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.332063492063492,
+      "peak_abs": 0.578848659992218,
+      "rms": 0.060672588646411896,
+      "dc_mean": -0.00039877532981336117,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "es_short",
+      "lang": "es",
+      "text": "Claro, puedo ayudarte con eso.",
+      "max_len": null,
+      "repeat_index": 2,
+      "first_callback_s": 0.4327342500910163,
+      "callback_times_s": [
+        0.4327342500910163
+      ],
+      "callback_chunk_samples": [
+        102844
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.43286054115742445,
+      "rtf": 0.18561267419628194,
+      "peak_rss_bytes": 262291456,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 102844,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.332063492063492,
+      "peak_abs": 0.578848659992218,
+      "rms": 0.060672588646411896,
+      "dc_mean": -0.00039877532981336117,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "es_short",
+      "lang": "es",
+      "text": "Claro, puedo ayudarte con eso.",
+      "max_len": null,
+      "repeat_index": 3,
+      "first_callback_s": 0.4327420420013368,
+      "callback_times_s": [
+        0.4327420420013368
+      ],
+      "callback_chunk_samples": [
+        102844
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4328884589485824,
+      "rtf": 0.1856246454789048,
+      "peak_rss_bytes": 264028160,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 102844,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.332063492063492,
+      "peak_abs": 0.578848659992218,
+      "rms": 0.060672588646411896,
+      "dc_mean": -0.00039877532981336117,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "es_short",
+      "lang": "es",
+      "text": "Claro, puedo ayudarte con eso.",
+      "max_len": null,
+      "repeat_index": 4,
+      "first_callback_s": 0.42991912504658103,
+      "callback_times_s": [
+        0.42991912504658103
+      ],
+      "callback_chunk_samples": [
+        102844
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.43000141624361277,
+      "rtf": 0.18438666773310378,
+      "peak_rss_bytes": 264060928,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 102844,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.332063492063492,
+      "peak_abs": 0.578848659992218,
+      "rms": 0.060672588646411896,
+      "dc_mean": -0.00039877532981336117,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "de_short",
+      "lang": "de",
+      "text": "Natürlich, ich kann dir dabei helfen.",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.45075566694140434,
+      "callback_times_s": [
+        0.45075566694140434
+      ],
+      "callback_chunk_samples": [
+        114499
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4509034575894475,
+      "rtf": 0.17366826330094268,
+      "peak_rss_bytes": 266289152,
+      "wav_path": "samples/de_short.wav",
+      "first_chunk_wav_path": null,
+      "num_samples": 114499,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.596349206349206,
+      "peak_abs": 0.7814329266548157,
+      "rms": 0.05458895117044449,
+      "dc_mean": -0.00040316832019016147,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "de_short",
+      "lang": "de",
+      "text": "Natürlich, ich kann dir dabei helfen.",
+      "max_len": null,
+      "repeat_index": 1,
+      "first_callback_s": 0.4825151660479605,
+      "callback_times_s": [
+        0.4825151660479605
+      ],
+      "callback_chunk_samples": [
+        114499
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4827084159478545,
+      "rtf": 0.18591814027459092,
+      "peak_rss_bytes": 266567680,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 114499,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.596349206349206,
+      "peak_abs": 0.7814329266548157,
+      "rms": 0.05458895117044449,
+      "dc_mean": -0.00040316832019016147,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "de_short",
+      "lang": "de",
+      "text": "Natürlich, ich kann dir dabei helfen.",
+      "max_len": null,
+      "repeat_index": 2,
+      "first_callback_s": 0.4473368749022484,
+      "callback_times_s": [
+        0.4473368749022484
+      ],
+      "callback_chunk_samples": [
+        114499
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4474797076545656,
+      "rtf": 0.17234958477861242,
+      "peak_rss_bytes": 263733248,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 114499,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.596349206349206,
+      "peak_abs": 0.7814329266548157,
+      "rms": 0.05458895117044449,
+      "dc_mean": -0.00040316832019016147,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "de_short",
+      "lang": "de",
+      "text": "Natürlich, ich kann dir dabei helfen.",
+      "max_len": null,
+      "repeat_index": 3,
+      "first_callback_s": 0.44785591727122664,
+      "callback_times_s": [
+        0.44785591727122664
+      ],
+      "callback_chunk_samples": [
+        114499
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.44800233328714967,
+      "rtf": 0.17255087728245053,
+      "peak_rss_bytes": 263700480,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 114499,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.596349206349206,
+      "peak_abs": 0.7814329266548157,
+      "rms": 0.05458895117044449,
+      "dc_mean": -0.00040316832019016147,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "de_short",
+      "lang": "de",
+      "text": "Natürlich, ich kann dir dabei helfen.",
+      "max_len": null,
+      "repeat_index": 4,
+      "first_callback_s": 0.48389266710728407,
+      "callback_times_s": [
+        0.48389266710728407
+      ],
+      "callback_chunk_samples": [
+        114499
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4840870420448482,
+      "rtf": 0.1864491266664146,
+      "peak_rss_bytes": 263667712,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 114499,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.596349206349206,
+      "peak_abs": 0.7814329266548157,
+      "rms": 0.05458895117044449,
+      "dc_mean": -0.00040316832019016147,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ja_short",
+      "lang": "ja",
+      "text": "もちろん、お手伝いできます。",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.3534660842269659,
+      "callback_times_s": [
+        0.3534660842269659
+      ],
+      "callback_chunk_samples": [
+        96526
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3538057920522988,
+      "rtf": 0.16164386206313713,
+      "peak_rss_bytes": 265748480,
+      "wav_path": "samples/ja_short.wav",
+      "first_chunk_wav_path": null,
+      "num_samples": 96526,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.1887981859410433,
+      "peak_abs": 0.7950069904327393,
+      "rms": 0.06539668142795563,
+      "dc_mean": -0.00032989136525429785,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ja_short",
+      "lang": "ja",
+      "text": "もちろん、お手伝いできます。",
+      "max_len": null,
+      "repeat_index": 1,
+      "first_callback_s": 0.3848369582556188,
+      "callback_times_s": [
+        0.3848369582556188
+      ],
+      "callback_chunk_samples": [
+        96526
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.38540020817890763,
+      "rtf": 0.17607845741758515,
+      "peak_rss_bytes": 266813440,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 96526,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.1887981859410433,
+      "peak_abs": 0.7950069904327393,
+      "rms": 0.06539668142795563,
+      "dc_mean": -0.00032989136525429785,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ja_short",
+      "lang": "ja",
+      "text": "もちろん、お手伝いできます。",
+      "max_len": null,
+      "repeat_index": 2,
+      "first_callback_s": 0.3793666251003742,
+      "callback_times_s": [
+        0.3793666251003742
+      ],
+      "callback_chunk_samples": [
+        96526
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3795001250691712,
+      "rtf": 0.1733828762773807,
+      "peak_rss_bytes": 262275072,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 96526,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.1887981859410433,
+      "peak_abs": 0.7950069904327393,
+      "rms": 0.06539668142795563,
+      "dc_mean": -0.00032989136525429785,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ja_short",
+      "lang": "ja",
+      "text": "もちろん、お手伝いできます。",
+      "max_len": null,
+      "repeat_index": 3,
+      "first_callback_s": 0.4384195418097079,
+      "callback_times_s": [
+        0.4384195418097079
+      ],
+      "callback_chunk_samples": [
+        96526
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.43954054173082113,
+      "rtf": 0.2008136449280941,
+      "peak_rss_bytes": 248053760,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 96526,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.1887981859410433,
+      "peak_abs": 0.7950069904327393,
+      "rms": 0.06539668142795563,
+      "dc_mean": -0.00032989136525429785,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ja_short",
+      "lang": "ja",
+      "text": "もちろん、お手伝いできます。",
+      "max_len": null,
+      "repeat_index": 4,
+      "first_callback_s": 0.47357158409431577,
+      "callback_times_s": [
+        0.47357158409431577
+      ],
+      "callback_chunk_samples": [
+        96526
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4742367500439286,
+      "rtf": 0.21666536142528697,
+      "peak_rss_bytes": 235470848,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 96526,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.1887981859410433,
+      "peak_abs": 0.7950069904327393,
+      "rms": 0.06539668142795563,
+      "dc_mean": -0.00032989136525429785,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ko_short",
+      "lang": "ko",
+      "text": "물론이죠, 제가 도와드릴게요.",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.5470835422165692,
+      "callback_times_s": [
+        0.5470835422165692
+      ],
+      "callback_chunk_samples": [
+        109797
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.5474532502703369,
+      "rtf": 0.21988477223350233,
+      "peak_rss_bytes": 237027328,
+      "wav_path": "samples/ko_short.wav",
+      "first_chunk_wav_path": null,
+      "num_samples": 109797,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.4897278911564626,
+      "peak_abs": 0.4034735858440399,
+      "rms": 0.04754010960459709,
+      "dc_mean": -0.00040472319233231246,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ko_short",
+      "lang": "ko",
+      "text": "물론이죠, 제가 도와드릴게요.",
+      "max_len": null,
+      "repeat_index": 1,
+      "first_callback_s": 0.5432097078301013,
+      "callback_times_s": [
+        0.5432097078301013
+      ],
+      "callback_chunk_samples": [
+        109797
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.5435213749296963,
+      "rtf": 0.2183055332513603,
+      "peak_rss_bytes": 242860032,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 109797,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.4897278911564626,
+      "peak_abs": 0.4034735858440399,
+      "rms": 0.04754010960459709,
+      "dc_mean": -0.00040472319233231246,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ko_short",
+      "lang": "ko",
+      "text": "물론이죠, 제가 도와드릴게요.",
+      "max_len": null,
+      "repeat_index": 2,
+      "first_callback_s": 0.49797841627150774,
+      "callback_times_s": [
+        0.49797841627150774
+      ],
+      "callback_chunk_samples": [
+        109797
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4982445831410587,
+      "rtf": 0.20012009541718523,
+      "peak_rss_bytes": 244269056,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 109797,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.4897278911564626,
+      "peak_abs": 0.4034735858440399,
+      "rms": 0.04754010960459709,
+      "dc_mean": -0.00040472319233231246,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ko_short",
+      "lang": "ko",
+      "text": "물론이죠, 제가 도와드릴게요.",
+      "max_len": null,
+      "repeat_index": 3,
+      "first_callback_s": 0.5354774170555174,
+      "callback_times_s": [
+        0.5354774170555174
+      ],
+      "callback_chunk_samples": [
+        109797
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.5356665002182126,
+      "rtf": 0.21515062032317073,
+      "peak_rss_bytes": 219512832,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 109797,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.4897278911564626,
+      "peak_abs": 0.4034735858440399,
+      "rms": 0.04754010960459709,
+      "dc_mean": -0.00040472319233231246,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ko_short",
+      "lang": "ko",
+      "text": "물론이죠, 제가 도와드릴게요.",
+      "max_len": null,
+      "repeat_index": 4,
+      "first_callback_s": 0.6482209167443216,
+      "callback_times_s": [
+        0.6482209167443216
+      ],
+      "callback_chunk_samples": [
+        109797
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.6485115000978112,
+      "rtf": 0.2604748504450347,
+      "peak_rss_bytes": 219054080,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 109797,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.4897278911564626,
+      "peak_abs": 0.4034735858440399,
+      "rms": 0.04754010960459709,
+      "dc_mean": -0.00040472319233231246,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ru_short",
+      "lang": "ru",
+      "text": "Конечно, я могу с этим помочь.",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.5522157079540193,
+      "callback_times_s": [
+        0.5522157079540193
+      ],
+      "callback_chunk_samples": [
+        105481
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.5524005000479519,
+      "rtf": 0.23095023797759484,
+      "peak_rss_bytes": 243236864,
+      "wav_path": "samples/ru_short.wav",
+      "first_chunk_wav_path": null,
+      "num_samples": 105481,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.391859410430839,
+      "peak_abs": 0.6681166887283325,
+      "rms": 0.0574139840900898,
+      "dc_mean": -0.00037893926491960883,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ru_short",
+      "lang": "ru",
+      "text": "Конечно, я могу с этим помочь.",
+      "max_len": null,
+      "repeat_index": 1,
+      "first_callback_s": 0.46556954132393,
+      "callback_times_s": [
+        0.46556954132393
+      ],
+      "callback_chunk_samples": [
+        105481
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.46569350035861135,
+      "rtf": 0.19469936164631318,
+      "peak_rss_bytes": 246120448,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 105481,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.391859410430839,
+      "peak_abs": 0.6681166887283325,
+      "rms": 0.0574139840900898,
+      "dc_mean": -0.00037893926491960883,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ru_short",
+      "lang": "ru",
+      "text": "Конечно, я могу с этим помочь.",
+      "max_len": null,
+      "repeat_index": 2,
+      "first_callback_s": 0.4672148749232292,
+      "callback_times_s": [
+        0.4672148749232292
+      ],
+      "callback_chunk_samples": [
+        105481
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4673265418969095,
+      "rtf": 0.19538211144806847,
+      "peak_rss_bytes": 247545856,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 105481,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.391859410430839,
+      "peak_abs": 0.6681166887283325,
+      "rms": 0.0574139840900898,
+      "dc_mean": -0.00037893926491960883,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ru_short",
+      "lang": "ru",
+      "text": "Конечно, я могу с этим помочь.",
+      "max_len": null,
+      "repeat_index": 3,
+      "first_callback_s": 0.4639764577150345,
+      "callback_times_s": [
+        0.4639764577150345
+      ],
+      "callback_chunk_samples": [
+        105481
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.46415791660547256,
+      "rtf": 0.19405735746059805,
+      "peak_rss_bytes": 248823808,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 105481,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.391859410430839,
+      "peak_abs": 0.6681166887283325,
+      "rms": 0.0574139840900898,
+      "dc_mean": -0.00037893926491960883,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ru_short",
+      "lang": "ru",
+      "text": "Конечно, я могу с этим помочь.",
+      "max_len": null,
+      "repeat_index": 4,
+      "first_callback_s": 0.4614144996739924,
+      "callback_times_s": [
+        0.4614144996739924
+      ],
+      "callback_chunk_samples": [
+        105481
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.4615541249513626,
+      "rtf": 0.19296875181648915,
+      "peak_rss_bytes": 248856576,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 105481,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.391859410430839,
+      "peak_abs": 0.6681166887283325,
+      "rms": 0.0574139840900898,
+      "dc_mean": -0.00037893926491960883,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_sentence",
+      "lang": "en",
+      "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.7876123329624534,
+      "callback_times_s": [
+        0.7876123329624534
+      ],
+      "callback_chunk_samples": [
+        238870
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.7878608331084251,
+      "rtf": 0.1454542752965276,
+      "peak_rss_bytes": 254803968,
+      "wav_path": "samples/en_sentence.wav",
+      "first_chunk_wav_path": null,
+      "num_samples": 238870,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 5.416553287981859,
+      "peak_abs": 0.4895537495613098,
+      "rms": 0.05204589664936066,
+      "dc_mean": -0.0006261176313273609,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_sentence",
+      "lang": "en",
+      "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+      "max_len": null,
+      "repeat_index": 1,
+      "first_callback_s": 0.8117943750694394,
+      "callback_times_s": [
+        0.8117943750694394
+      ],
+      "callback_chunk_samples": [
+        238870
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.8120129173621535,
+      "rtf": 0.1499132149523631,
+      "peak_rss_bytes": 296058880,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 238870,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 5.416553287981859,
+      "peak_abs": 0.4895537495613098,
+      "rms": 0.05204589664936066,
+      "dc_mean": -0.0006261176313273609,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_sentence",
+      "lang": "en",
+      "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+      "max_len": null,
+      "repeat_index": 2,
+      "first_callback_s": 0.850647249724716,
+      "callback_times_s": [
+        0.850647249724716
+      ],
+      "callback_chunk_samples": [
+        238870
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.8508984157815576,
+      "rtf": 0.15709222646613927,
+      "peak_rss_bytes": 299106304,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 238870,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 5.416553287981859,
+      "peak_abs": 0.4895537495613098,
+      "rms": 0.05204589664936066,
+      "dc_mean": -0.0006261176313273609,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_sentence",
+      "lang": "en",
+      "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+      "max_len": null,
+      "repeat_index": 3,
+      "first_callback_s": 0.9265979169867933,
+      "callback_times_s": [
+        0.9265979169867933
+      ],
+      "callback_chunk_samples": [
+        238870
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.9268521252088249,
+      "rtf": 0.17111474325662152,
+      "peak_rss_bytes": 302170112,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 238870,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 5.416553287981859,
+      "peak_abs": 0.4895537495613098,
+      "rms": 0.05204589664936066,
+      "dc_mean": -0.0006261176313273609,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_sentence",
+      "lang": "en",
+      "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+      "max_len": null,
+      "repeat_index": 4,
+      "first_callback_s": 0.9924773750826716,
+      "callback_times_s": [
+        0.9924773750826716
+      ],
+      "callback_chunk_samples": [
+        238870
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.992702332790941,
+      "rtf": 0.18327195912454683,
+      "peak_rss_bytes": 302219264,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 238870,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 5.416553287981859,
+      "peak_abs": 0.4895537495613098,
+      "rms": 0.05204589664936066,
+      "dc_mean": -0.0006261176313273609,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+      "max_len": 64,
+      "repeat_index": 0,
+      "first_callback_s": 0.5343429171480238,
+      "callback_times_s": [
+        0.5343429171480238,
+        1.3123878752812743,
+        1.801430458202958
+      ],
+      "callback_chunk_samples": [
+        143867,
+        196947,
+        99003
+      ],
+      "callback_chunk_count": 3,
+      "total_s": 1.8017875421792269,
+      "rtf": 0.1704112161013816,
+      "peak_rss_bytes": 302972928,
+      "wav_path": "samples/en_chunked.wav",
+      "first_chunk_wav_path": "samples/en_chunked.first_chunk.wav",
+      "num_samples": 466277,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 10.573174603174603,
+      "peak_abs": 0.6455240845680237,
+      "rms": 0.055552877485752106,
+      "dc_mean": -0.0004956743214279413,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+      "max_len": 64,
+      "repeat_index": 1,
+      "first_callback_s": 0.5707604996860027,
+      "callback_times_s": [
+        0.5707604996860027,
+        1.373405832797289,
+        1.8450654996559024
+      ],
+      "callback_chunk_samples": [
+        143867,
+        196947,
+        99003
+      ],
+      "callback_chunk_count": 3,
+      "total_s": 1.8453897079452872,
+      "rtf": 0.17453506417941944,
+      "peak_rss_bytes": 307249152,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 466277,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 10.573174603174603,
+      "peak_abs": 0.6455240845680237,
+      "rms": 0.055552877485752106,
+      "dc_mean": -0.0004956743214279413,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+      "max_len": 64,
+      "repeat_index": 2,
+      "first_callback_s": 0.5332157080993056,
+      "callback_times_s": [
+        0.5332157080993056,
+        1.3348386250436306,
+        1.794551749713719
+      ],
+      "callback_chunk_samples": [
+        143867,
+        196947,
+        99003
+      ],
+      "callback_chunk_count": 3,
+      "total_s": 1.7948407498188317,
+      "rtf": 0.16975419561121496,
+      "peak_rss_bytes": 314802176,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 466277,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 10.573174603174603,
+      "peak_abs": 0.6455240845680237,
+      "rms": 0.055552877485752106,
+      "dc_mean": -0.0004956743214279413,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+      "max_len": 64,
+      "repeat_index": 3,
+      "first_callback_s": 0.5677265408448875,
+      "callback_times_s": [
+        0.5677265408448875,
+        1.3791253748349845,
+        1.8716336661018431
+      ],
+      "callback_chunk_samples": [
+        143867,
+        196947,
+        99003
+      ],
+      "callback_chunk_count": 3,
+      "total_s": 1.8717862078920007,
+      "rtf": 0.17703161804686318,
+      "peak_rss_bytes": 277512192,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 466277,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 10.573174603174603,
+      "peak_abs": 0.6455240845680237,
+      "rms": 0.055552877485752106,
+      "dc_mean": -0.0004956743214279413,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+      "max_len": 64,
+      "repeat_index": 4,
+      "first_callback_s": 0.6339404168538749,
+      "callback_times_s": [
+        0.6339404168538749,
+        1.4153630421496928,
+        1.8972613750956953
+      ],
+      "callback_chunk_samples": [
+        143867,
+        196947,
+        99003
+      ],
+      "callback_chunk_count": 3,
+      "total_s": 1.8975548748858273,
+      "rtf": 0.1794687921181293,
+      "peak_rss_bytes": 281100288,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 466277,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 10.573174603174603,
+      "peak_abs": 0.6455240845680237,
+      "rms": 0.055552877485752106,
+      "dc_mean": -0.0004956743214279413,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    }
+  ]
+}

@@ -1,0 +1,716 @@
+{
+  "schema_version": 1,
+  "corpus_id": "lane_d_tts_authored_40_v1",
+  "frozen_date": "2026-08-02",
+  "language_order": [
+    "en",
+    "zh",
+    "es",
+    "fr",
+    "ru"
+  ],
+  "category_targets_per_language": {
+    "numbers": 7,
+    "dates_times": 7,
+    "proper_names": 7,
+    "acronyms": 7,
+    "questions": 6,
+    "long_clauses": 6
+  },
+  "listening_parallel_ids_in_order": [
+    "n01",
+    "n02",
+    "n04",
+    "n06",
+    "d01",
+    "d02",
+    "d04",
+    "d07",
+    "p01",
+    "p03",
+    "p06",
+    "a01",
+    "a03",
+    "a05",
+    "q01",
+    "q03",
+    "q06",
+    "l01",
+    "l03",
+    "l06"
+  ],
+  "human_audio_requirement": {
+    "status": "UNMET",
+    "statement": "These authored prompts support the D5 listening bundle and do not have matched human recordings. D1 uses a separate matched-human corpus.",
+    "do_not_use_for": [
+      "D1 delta-WER/delta-CER scoring"
+    ]
+  },
+  "cases": [
+    {
+      "parallel_id": "n01",
+      "primary_category": "numbers",
+      "tags": [
+        "numbers",
+        "units",
+        "plural_inflection"
+      ],
+      "text": {
+        "en": "The warehouse received 48 boxes, and each box weighed 12 kilograms.",
+        "zh": "仓库收到了48个箱子，每个箱子重12公斤。",
+        "es": "El almacén recibió 48 cajas, y cada caja pesaba 12 kilogramos.",
+        "fr": "L'entrepôt a reçu 48 cartons, et chaque carton pesait 12 kilogrammes.",
+        "ru": "На склад поступило 48 коробок, каждая весила 12 килограммов."
+      }
+    },
+    {
+      "parallel_id": "n02",
+      "primary_category": "numbers",
+      "tags": [
+        "numbers",
+        "percentage",
+        "duration"
+      ],
+      "text": {
+        "en": "The battery is at 73 percent and should last 1 hour and 25 minutes.",
+        "zh": "电池电量为73%，预计还能使用1小时25分钟。",
+        "es": "La batería está al 73 por ciento y debería durar 1 hora y 25 minutos.",
+        "fr": "La batterie est chargée à 73 pour cent et devrait tenir 1 heure et 25 minutes.",
+        "ru": "Заряд батареи составляет 73 процента, и его должно хватить на 1 час 25 минут."
+      }
+    },
+    {
+      "parallel_id": "n03",
+      "primary_category": "numbers",
+      "tags": [
+        "numbers",
+        "decimals",
+        "units"
+      ],
+      "text": {
+        "en": "Add 3.75 liters of water, then remove 0.5 liter.",
+        "zh": "先加入3.75升水，再取出0.5升。",
+        "es": "Añade 3,75 litros de agua y después retira 0,5 litros.",
+        "fr": "Ajoutez 3,75 litres d'eau, puis retirez-en 0,5 litre.",
+        "ru": "Добавьте 3,75 литра воды, затем отлейте 0,5 литра."
+      }
+    },
+    {
+      "parallel_id": "n04",
+      "primary_category": "numbers",
+      "tags": [
+        "numbers",
+        "ordinal",
+        "capacity"
+      ],
+      "text": {
+        "en": "The office is on floor 27, but the elevator carries only 8 people.",
+        "zh": "办公室在27楼，但电梯最多只能载8人。",
+        "es": "La oficina está en la planta 27, pero el ascensor solo admite a 8 personas.",
+        "fr": "Le bureau se trouve au 27e étage, mais l'ascenseur ne peut transporter que 8 personnes.",
+        "ru": "Офис находится на 27-м этаже, но лифт вмещает только 8 человек."
+      }
+    },
+    {
+      "parallel_id": "n05",
+      "primary_category": "numbers",
+      "tags": [
+        "numbers",
+        "digit_sequence",
+        "instruction"
+      ],
+      "text": {
+        "en": "Read the access code slowly: 6 0 4 9 2.",
+        "zh": "请慢慢读出访问码：6 0 4 9 2。",
+        "es": "Lee despacio el código de acceso: 6 0 4 9 2.",
+        "fr": "Lisez lentement le code d'accès : 6 0 4 9 2.",
+        "ru": "Медленно прочитайте код доступа: 6 0 4 9 2."
+      }
+    },
+    {
+      "parallel_id": "n06",
+      "primary_category": "numbers",
+      "tags": [
+        "numbers",
+        "negative_number",
+        "temperature"
+      ],
+      "text": {
+        "en": "At dawn it was minus 6 degrees, but by noon it reached 14.",
+        "zh": "清晨气温是零下6度，到中午升到了14度。",
+        "es": "Al amanecer hacía 6 grados bajo cero, pero al mediodía se alcanzaron los 14 grados.",
+        "fr": "À l'aube, il faisait moins 6 degrés, mais à midi la température a atteint 14 degrés.",
+        "ru": "На рассвете было минус 6 градусов, а к полудню стало 14."
+      }
+    },
+    {
+      "parallel_id": "n07",
+      "primary_category": "numbers",
+      "tags": [
+        "numbers",
+        "distance",
+        "duration"
+      ],
+      "text": {
+        "en": "The train covered 312 kilometers in 2 hours and 40 minutes.",
+        "zh": "这列火车在2小时40分钟内行驶了312公里。",
+        "es": "El tren recorrió 312 kilómetros en 2 horas y 40 minutos.",
+        "fr": "Le train a parcouru 312 kilomètres en 2 heures et 40 minutes.",
+        "ru": "Поезд прошёл 312 километров за 2 часа 40 минут."
+      }
+    },
+    {
+      "parallel_id": "d01",
+      "primary_category": "dates_times",
+      "tags": [
+        "date",
+        "time",
+        "year"
+      ],
+      "text": {
+        "en": "The review begins on August 14, 2026, at 9:30 a.m.",
+        "zh": "评审将于2026年8月14日上午9点30分开始。",
+        "es": "La revisión comienza el 14 de agosto de 2026 a las 9:30.",
+        "fr": "L'examen commence le 14 août 2026 à 9 h 30.",
+        "ru": "Проверка начнётся 14 августа 2026 года в 9:30."
+      }
+    },
+    {
+      "parallel_id": "d02",
+      "primary_category": "dates_times",
+      "tags": [
+        "date",
+        "time",
+        "deadline",
+        "year"
+      ],
+      "text": {
+        "en": "Submit the final report by September 1, 2026, at 11:59 p.m.",
+        "zh": "请在2026年9月1日23点59分之前提交最终报告。",
+        "es": "Entrega el informe final antes del 1 de septiembre de 2026 a las 23:59.",
+        "fr": "Remettez le rapport final avant le 1er septembre 2026 à 23 h 59.",
+        "ru": "Отправьте итоговый отчёт до 23:59 1 сентября 2026 года."
+      }
+    },
+    {
+      "parallel_id": "d03",
+      "primary_category": "dates_times",
+      "tags": [
+        "date",
+        "year",
+        "proper_name",
+        "place_name"
+      ],
+      "text": {
+        "en": "Amira was born on November 3, 1998, in Casablanca.",
+        "zh": "阿米拉于1998年11月3日出生在卡萨布兰卡。",
+        "es": "Amira nació el 3 de noviembre de 1998 en Casablanca.",
+        "fr": "Amira est née le 3 novembre 1998 à Casablanca.",
+        "ru": "Амира родилась 3 ноября 1998 года в Касабланке."
+      }
+    },
+    {
+      "parallel_id": "d04",
+      "primary_category": "dates_times",
+      "tags": [
+        "date",
+        "time",
+        "leap_day",
+        "year"
+      ],
+      "text": {
+        "en": "Our train leaves on February 29, 2028, at 6:05 in the morning.",
+        "zh": "我们的火车将于2028年2月29日早上6点05分出发。",
+        "es": "Nuestro tren sale el 29 de febrero de 2028 a las 6:05 de la mañana.",
+        "fr": "Notre train part le 29 février 2028 à 6 h 05 du matin.",
+        "ru": "Наш поезд отправляется 29 февраля 2028 года в 6:05 утра."
+      }
+    },
+    {
+      "parallel_id": "d05",
+      "primary_category": "dates_times",
+      "tags": [
+        "date",
+        "recurrence",
+        "weekday",
+        "year"
+      ],
+      "text": {
+        "en": "Classes meet every Tuesday and Thursday through December 18, 2026.",
+        "zh": "课程每周二和周四举行，持续到2026年12月18日。",
+        "es": "Las clases se imparten todos los martes y jueves hasta el 18 de diciembre de 2026.",
+        "fr": "Les cours ont lieu tous les mardis et jeudis jusqu'au 18 décembre 2026.",
+        "ru": "Занятия проходят каждый вторник и четверг до 18 декабря 2026 года."
+      }
+    },
+    {
+      "parallel_id": "d06",
+      "primary_category": "dates_times",
+      "tags": [
+        "date",
+        "date_range",
+        "year"
+      ],
+      "text": {
+        "en": "The museum will be closed from April 5 through April 12, 2027.",
+        "zh": "博物馆将在2027年4月5日至4月12日期间闭馆。",
+        "es": "El museo permanecerá cerrado del 5 al 12 de abril de 2027.",
+        "fr": "Le musée sera fermé du 5 au 12 avril 2027.",
+        "ru": "Музей будет закрыт с 5 по 12 апреля 2027 года."
+      }
+    },
+    {
+      "parallel_id": "d07",
+      "primary_category": "dates_times",
+      "tags": [
+        "date",
+        "time",
+        "weekday",
+        "appointment",
+        "year"
+      ],
+      "text": {
+        "en": "Your appointment is confirmed for Friday, January 22, 2027, at 4:45 p.m.",
+        "zh": "您的预约时间已确认为2027年1月22日星期五下午4点45分。",
+        "es": "Tu cita está confirmada para el viernes 22 de enero de 2027 a las 16:45.",
+        "fr": "Votre rendez-vous est confirmé pour le vendredi 22 janvier 2027 à 16 h 45.",
+        "ru": "Ваша запись подтверждена на пятницу, 22 января 2027 года, в 16:45."
+      }
+    },
+    {
+      "parallel_id": "p01",
+      "primary_category": "proper_names",
+      "tags": [
+        "proper_name",
+        "title",
+        "place_name",
+        "institution"
+      ],
+      "text": {
+        "en": "Dr. Maya Patel will meet Professor Chen at Toronto General Hospital.",
+        "zh": "玛雅·帕特尔医生将在多伦多总医院会见陈教授。",
+        "es": "La doctora Maya Patel se reunirá con el profesor Chen en el Hospital General de Toronto.",
+        "fr": "La docteure Maya Patel rencontrera le professeur Chen à l'Hôpital général de Toronto.",
+        "ru": "Доктор Майя Патель встретится с профессором Ченом в больнице «Торонто Дженерал»."
+      }
+    },
+    {
+      "parallel_id": "p02",
+      "primary_category": "proper_names",
+      "tags": [
+        "proper_name",
+        "diacritics",
+        "place_name"
+      ],
+      "text": {
+        "en": "José Martínez left the package for Ana García at the Sevilla office.",
+        "zh": "何塞·马丁内斯把包裹留给了塞维利亚办公室的安娜·加西亚。",
+        "es": "José Martínez dejó el paquete para Ana García en la oficina de Sevilla.",
+        "fr": "José Martínez a laissé le colis destiné à Ana García au bureau de Séville.",
+        "ru": "Хосе Мартинес оставил посылку для Аны Гарсии в офисе в Севилье."
+      }
+    },
+    {
+      "parallel_id": "p03",
+      "primary_category": "proper_names",
+      "tags": [
+        "proper_name",
+        "chinese_name",
+        "place_name"
+      ],
+      "text": {
+        "en": "Li Ming and Wang Xiaoyu arrived in Shanghai from Hangzhou.",
+        "zh": "李明和王晓雨从杭州抵达上海。",
+        "es": "Li Ming y Wang Xiaoyu llegaron a Shanghái desde Hangzhou.",
+        "fr": "Li Ming et Wang Xiaoyu sont arrivés à Shanghai en provenance de Hangzhou.",
+        "ru": "Ли Мин и Ван Сяоюй прибыли в Шанхай из Ханчжоу."
+      }
+    },
+    {
+      "parallel_id": "p04",
+      "primary_category": "proper_names",
+      "tags": [
+        "proper_name",
+        "diacritics",
+        "place_name"
+      ],
+      "text": {
+        "en": "Élodie Moreau sent Viktor Petrov a postcard from Lyon.",
+        "zh": "埃洛迪·莫罗从里昂给维克托·彼得罗夫寄了一张明信片。",
+        "es": "Élodie Moreau envió a Víktor Petrov una postal desde Lyon.",
+        "fr": "Élodie Moreau a envoyé une carte postale de Lyon à Viktor Petrov.",
+        "ru": "Элоди Моро отправила Виктору Петрову открытку из Лиона."
+      }
+    },
+    {
+      "parallel_id": "p05",
+      "primary_category": "proper_names",
+      "tags": [
+        "proper_name",
+        "place_name",
+        "foreign_pronunciation"
+      ],
+      "text": {
+        "en": "Noura Hassan booked a room near Reykjavík's old harbor.",
+        "zh": "努拉·哈桑在雷克雅未克老港附近预订了一个房间。",
+        "es": "Noura Hassan reservó una habitación cerca del puerto viejo de Reikiavik.",
+        "fr": "Noura Hassan a réservé une chambre près du vieux port de Reykjavik.",
+        "ru": "Нура Хассан забронировала номер рядом со старой гаванью Рейкьявика."
+      }
+    },
+    {
+      "parallel_id": "p06",
+      "primary_category": "proper_names",
+      "tags": [
+        "proper_name",
+        "organization_name",
+        "code_switch"
+      ],
+      "text": {
+        "en": "Sofia Alvarez joined Argo Labs after leaving Meridian Systems.",
+        "zh": "索菲娅·阿尔瓦雷斯离开梅里迪安系统公司后加入了阿尔戈实验室。",
+        "es": "Sofía Álvarez se incorporó a Argo Labs después de dejar Meridian Systems.",
+        "fr": "Sofia Alvarez a rejoint Argo Labs après avoir quitté Meridian Systems.",
+        "ru": "София Альварес пришла в Argo Labs после ухода из Meridian Systems."
+      }
+    },
+    {
+      "parallel_id": "p07",
+      "primary_category": "proper_names",
+      "tags": [
+        "proper_name",
+        "place_name",
+        "embedded_clause"
+      ],
+      "text": {
+        "en": "Omar Benali asked Yelena Sokolova to call the clinic in Marseille.",
+        "zh": "奥马尔·本阿里请叶莲娜·索科洛娃给马赛的诊所打电话。",
+        "es": "Omar Benali pidió a Yelena Sokolova que llamara a la clínica de Marsella.",
+        "fr": "Omar Benali a demandé à Yelena Sokolova d'appeler la clinique de Marseille.",
+        "ru": "Омар Бенали попросил Елену Соколову позвонить в клинику в Марселе."
+      }
+    },
+    {
+      "parallel_id": "a01",
+      "primary_category": "acronyms",
+      "tags": [
+        "acronym",
+        "CPU",
+        "RAM",
+        "numbers",
+        "units"
+      ],
+      "text": {
+        "en": "The CPU reached 82 degrees while RAM usage stayed below 6 gigabytes.",
+        "zh": "CPU温度达到了82度，而RAM使用量保持在6GB以下。",
+        "es": "La CPU alcanzó los 82 grados mientras el uso de RAM se mantuvo por debajo de 6 gigabytes.",
+        "fr": "Le CPU a atteint 82 degrés, tandis que l'utilisation de la RAM est restée sous 6 gigaoctets.",
+        "ru": "Температура CPU достигла 82 градусов, а использование RAM осталось ниже 6 гигабайт."
+      }
+    },
+    {
+      "parallel_id": "a02",
+      "primary_category": "acronyms",
+      "tags": [
+        "acronym",
+        "GPS",
+        "USB-C",
+        "instruction"
+      ],
+      "text": {
+        "en": "Turn on GPS, then connect the sensor with a USB-C cable.",
+        "zh": "先打开GPS，再用USB-C线连接传感器。",
+        "es": "Activa el GPS y luego conecta el sensor con un cable USB-C.",
+        "fr": "Activez le GPS, puis connectez le capteur avec un câble USB-C.",
+        "ru": "Включите GPS, затем подключите датчик кабелем USB-C."
+      }
+    },
+    {
+      "parallel_id": "a03",
+      "primary_category": "acronyms",
+      "tags": [
+        "acronym",
+        "API",
+        "JSON",
+        "numbers"
+      ],
+      "text": {
+        "en": "The API returned a JSON file with 24 records.",
+        "zh": "API返回了一个包含24条记录的JSON文件。",
+        "es": "La API devolvió un archivo JSON con 24 registros.",
+        "fr": "L'API a renvoyé un fichier JSON contenant 24 enregistrements.",
+        "ru": "API вернул файл JSON с 24 записями."
+      }
+    },
+    {
+      "parallel_id": "a04",
+      "primary_category": "acronyms",
+      "tags": [
+        "acronym",
+        "PDF",
+        "QR",
+        "numbers",
+        "instruction"
+      ],
+      "text": {
+        "en": "Save the PDF, then scan the QR code on page 12.",
+        "zh": "保存PDF文件，然后扫描第12页上的二维码。",
+        "es": "Guarda el PDF y después escanea el código QR de la página 12.",
+        "fr": "Enregistrez le PDF, puis scannez le code QR à la page 12.",
+        "ru": "Сохраните PDF, затем отсканируйте QR-код на странице 12."
+      }
+    },
+    {
+      "parallel_id": "a05",
+      "primary_category": "acronyms",
+      "tags": [
+        "acronym",
+        "Wi-Fi",
+        "VPN",
+        "numbers",
+        "duration"
+      ],
+      "text": {
+        "en": "The Wi-Fi works, but the VPN disconnects every 10 minutes.",
+        "zh": "Wi-Fi可以正常使用，但VPN每10分钟就会断开。",
+        "es": "El Wi-Fi funciona, pero la VPN se desconecta cada 10 minutos.",
+        "fr": "Le Wi-Fi fonctionne, mais le VPN se déconnecte toutes les 10 minutes.",
+        "ru": "Wi-Fi работает, но VPN отключается каждые 10 минут."
+      }
+    },
+    {
+      "parallel_id": "a06",
+      "primary_category": "acronyms",
+      "tags": [
+        "acronym",
+        "international_organization",
+        "place_name"
+      ],
+      "text": {
+        "en": "The WHO and UNESCO published a joint statement in Geneva.",
+        "zh": "WHO和UNESCO在日内瓦发表了一份联合声明。",
+        "es": "La OMS y la UNESCO publicaron una declaración conjunta en Ginebra.",
+        "fr": "L'OMS et l'UNESCO ont publié une déclaration commune à Genève.",
+        "ru": "ВОЗ и ЮНЕСКО опубликовали совместное заявление в Женеве."
+      }
+    },
+    {
+      "parallel_id": "a07",
+      "primary_category": "acronyms",
+      "tags": [
+        "acronym",
+        "URL",
+        "HTML",
+        "instruction"
+      ],
+      "text": {
+        "en": "Copy the URL from the HTML page and paste it into the app.",
+        "zh": "从HTML页面复制URL，然后粘贴到应用程序中。",
+        "es": "Copia la URL de la página HTML y pégala en la aplicación.",
+        "fr": "Copiez l'URL de la page HTML et collez-la dans l'application.",
+        "ru": "Скопируйте URL с HTML-страницы и вставьте его в приложение."
+      }
+    },
+    {
+      "parallel_id": "q01",
+      "primary_category": "questions",
+      "tags": [
+        "question",
+        "time",
+        "transport"
+      ],
+      "text": {
+        "en": "Could you tell me whether the 7:20 train stops at the airport?",
+        "zh": "你能告诉我7点20分的火车是否在机场停靠吗？",
+        "es": "¿Puedes decirme si el tren de las 7:20 para en el aeropuerto?",
+        "fr": "Pouvez-vous me dire si le train de 7 h 20 s'arrête à l'aéroport ?",
+        "ru": "Подскажите, поезд на 7:20 останавливается в аэропорту?"
+      }
+    },
+    {
+      "parallel_id": "q02",
+      "primary_category": "questions",
+      "tags": [
+        "question",
+        "place_name",
+        "transport"
+      ],
+      "text": {
+        "en": "Which platform does the night train to Warsaw leave from?",
+        "zh": "开往华沙的夜间列车从哪个站台出发？",
+        "es": "¿De qué andén sale el tren nocturno a Varsovia?",
+        "fr": "De quel quai part le train de nuit pour Varsovie ?",
+        "ru": "С какой платформы отправляется ночной поезд в Варшаву?"
+      }
+    },
+    {
+      "parallel_id": "q03",
+      "primary_category": "questions",
+      "tags": [
+        "question",
+        "proper_name",
+        "title"
+      ],
+      "text": {
+        "en": "Did Elena send the revised contract to Mr. Dubois?",
+        "zh": "叶莲娜把修订后的合同发给杜布瓦先生了吗？",
+        "es": "¿Elena envió el contrato revisado al señor Dubois?",
+        "fr": "Elena a-t-elle envoyé le contrat révisé à monsieur Dubois ?",
+        "ru": "Елена отправила исправленный договор господину Дюбуа?"
+      }
+    },
+    {
+      "parallel_id": "q04",
+      "primary_category": "questions",
+      "tags": [
+        "question",
+        "percentage",
+        "technical"
+      ],
+      "text": {
+        "en": "Why did the backup stop after only 37 percent?",
+        "zh": "为什么备份只完成了37%就停止了？",
+        "es": "¿Por qué se detuvo la copia de seguridad al llegar solo al 37 por ciento?",
+        "fr": "Pourquoi la sauvegarde s'est-elle arrêtée à seulement 37 pour cent ?",
+        "ru": "Почему резервное копирование остановилось всего на 37 процентах?"
+      }
+    },
+    {
+      "parallel_id": "q05",
+      "primary_category": "questions",
+      "tags": [
+        "question",
+        "weekday",
+        "street_name",
+        "time"
+      ],
+      "text": {
+        "en": "When will the pharmacy on King Street open on Monday morning?",
+        "zh": "国王街的药店星期一早上几点开门？",
+        "es": "¿A qué hora abrirá el lunes por la mañana la farmacia de King Street?",
+        "fr": "À quelle heure la pharmacie de King Street ouvrira-t-elle lundi matin ?",
+        "ru": "Во сколько в понедельник утром откроется аптека на Кинг-стрит?"
+      }
+    },
+    {
+      "parallel_id": "q06",
+      "primary_category": "questions",
+      "tags": [
+        "question",
+        "numbers",
+        "prosody",
+        "instruction"
+      ],
+      "text": {
+        "en": "Would you read the last two lines again, a little more slowly?",
+        "zh": "你能把最后两行再慢一点读一遍吗？",
+        "es": "¿Podrías leer de nuevo las dos últimas líneas, un poco más despacio?",
+        "fr": "Pourriez-vous relire les deux dernières lignes un peu plus lentement ?",
+        "ru": "Не могли бы вы ещё раз, немного медленнее, прочитать последние две строки?"
+      }
+    },
+    {
+      "parallel_id": "l01",
+      "primary_category": "long_clauses",
+      "tags": [
+        "long_clause",
+        "embedded_clause",
+        "subordination",
+        "weather"
+      ],
+      "text": {
+        "en": "Although the road was already wet when we left, the driver, who knew the mountain pass well, kept a steady speed until the fog became too dense.",
+        "zh": "虽然我们出发时路面已经湿了，但熟悉山口路况的司机一直保持稳定车速，直到雾浓得无法继续前进。",
+        "es": "Aunque la carretera ya estaba mojada cuando salimos, el conductor, que conocía bien el puerto de montaña, mantuvo una velocidad constante hasta que la niebla se volvió demasiado densa.",
+        "fr": "Bien que la route fût déjà mouillée à notre départ, le conducteur, qui connaissait bien le col, a gardé une vitesse régulière jusqu'à ce que le brouillard devienne trop dense.",
+        "ru": "Хотя дорога уже была мокрой, когда мы выехали, водитель, хорошо знавший горный перевал, сохранял постоянную скорость, пока туман не стал слишком густым."
+      }
+    },
+    {
+      "parallel_id": "l02",
+      "primary_category": "long_clauses",
+      "tags": [
+        "long_clause",
+        "conditional",
+        "embedded_clause",
+        "technical"
+      ],
+      "text": {
+        "en": "The engineer explained that, if the pressure rose above the limit while the valve was closed, the controller would shut the pump down before any damage occurred.",
+        "zh": "工程师解释说，如果阀门关闭时压力超过上限，控制器会在设备受损之前关闭水泵。",
+        "es": "La ingeniera explicó que, si la presión superaba el límite mientras la válvula estaba cerrada, el controlador apagaría la bomba antes de que se produjera ningún daño.",
+        "fr": "L'ingénieure a expliqué que, si la pression dépassait la limite alors que la vanne était fermée, le contrôleur arrêterait la pompe avant tout dommage.",
+        "ru": "Инженер объяснила, что, если давление превысит предел при закрытом клапане, контроллер отключит насос до того, как возникнут повреждения."
+      }
+    },
+    {
+      "parallel_id": "l03",
+      "primary_category": "long_clauses",
+      "tags": [
+        "long_clause",
+        "relative_clause",
+        "proper_name",
+        "place_name"
+      ],
+      "text": {
+        "en": "Because the manuscript that Sofia found in the archive was missing several pages, the historian compared it with a copy that had been photographed in Prague.",
+        "zh": "由于索菲娅在档案馆发现的手稿缺了几页，历史学家把它和一份在布拉格拍摄的副本进行了比较。",
+        "es": "Como al manuscrito que Sofía encontró en el archivo le faltaban varias páginas, el historiador lo comparó con una copia que había sido fotografiada en Praga.",
+        "fr": "Comme le manuscrit que Sofia avait trouvé aux archives comportait plusieurs pages manquantes, l'historien l'a comparé à une copie photographiée à Prague.",
+        "ru": "Поскольку в рукописи, которую София нашла в архиве, не хватало нескольких страниц, историк сравнил её с копией, сфотографированной в Праге."
+      }
+    },
+    {
+      "parallel_id": "l04",
+      "primary_category": "long_clauses",
+      "tags": [
+        "long_clause",
+        "conditional",
+        "relative_clause",
+        "medical"
+      ],
+      "text": {
+        "en": "If the clinic receives the laboratory results before noon, the nurse who called yesterday will send you a message, even if the doctor is still in surgery.",
+        "zh": "如果诊所在中午前收到化验结果，昨天打过电话的护士会给你发消息，即使医生当时还在手术中。",
+        "es": "Si la clínica recibe los resultados del laboratorio antes del mediodía, la enfermera que llamó ayer te enviará un mensaje, aunque el médico siga en quirófano.",
+        "fr": "Si la clinique reçoit les résultats du laboratoire avant midi, l'infirmière qui a appelé hier vous enverra un message, même si le médecin est encore au bloc opératoire.",
+        "ru": "Если клиника получит результаты анализов до полудня, медсестра, которая звонила вчера, отправит вам сообщение, даже если врач всё ещё будет в операционной."
+      }
+    },
+    {
+      "parallel_id": "l05",
+      "primary_category": "long_clauses",
+      "tags": [
+        "long_clause",
+        "relative_clause",
+        "numbers",
+        "sequence"
+      ],
+      "text": {
+        "en": "When the lights came back on, the audience, which had waited quietly for nearly 20 minutes, applauded before the orchestra played the unfinished final movement.",
+        "zh": "灯光重新亮起时，安静等待了近20分钟的观众先鼓掌，然后乐团演奏了尚未完成的最后一个乐章。",
+        "es": "Cuando volvió la luz, el público, que había esperado en silencio durante casi 20 minutos, aplaudió antes de que la orquesta tocara el movimiento final inacabado.",
+        "fr": "Lorsque les lumières se sont rallumées, le public, qui avait attendu calmement pendant près de 20 minutes, a applaudi avant que l'orchestre ne joue le dernier mouvement inachevé.",
+        "ru": "Когда свет снова включили, публика, почти 20 минут ждавшая в тишине, зааплодировала, прежде чем оркестр исполнил незавершённую финальную часть."
+      }
+    },
+    {
+      "parallel_id": "l06",
+      "primary_category": "long_clauses",
+      "tags": [
+        "long_clause",
+        "causal_clause",
+        "conditional",
+        "technical"
+      ],
+      "text": {
+        "en": "The report recommends replacing the oldest batteries first because, although they still pass a basic test, their capacity falls sharply whenever the temperature drops below freezing.",
+        "zh": "报告建议先更换最旧的电池，因为这些电池虽然仍能通过基本测试，但只要气温降到零度以下，容量就会急剧下降。",
+        "es": "El informe recomienda sustituir primero las baterías más antiguas porque, aunque todavía superan una prueba básica, su capacidad cae bruscamente cuando la temperatura baja de cero.",
+        "fr": "Le rapport recommande de remplacer d'abord les batteries les plus anciennes car, même si elles réussissent encore un test élémentaire, leur capacité chute fortement dès que la température passe sous zéro.",
+        "ru": "В отчёте рекомендуется сначала заменить самые старые батареи, потому что, хотя они всё ещё проходят базовую проверку, их ёмкость резко падает, когда температура опускается ниже нуля."
+      }
+    }
+  ],
+  "canonical_sha256_without_this_field": "5b2196ee47ab34b084dd8166af91127adee681f2742bb316e31d8d44c0812ba9"
+}

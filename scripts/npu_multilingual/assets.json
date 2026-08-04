@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "target": {
+    "soc": "SM8850",
+    "abi": "arm64-v8a",
+    "htp_arch": "v81",
+    "qnn_version": "2.40.0.251030"
+  },
+  "sherpa_onnx": {
+    "tag": "v1.13.4",
+    "commit": "142807252687d81b40d6315f23470a1512a00de3",
+    "license": "Apache-2.0"
+  },
+  "onnxruntime": {
+    "version": "1.27.0",
+    "asset": {
+      "filename": "onnxruntime-android-1.27.0.zip",
+      "url": "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.27.0/onnxruntime-android-1.27.0.zip",
+      "bytes": 32794323,
+      "sha256": "a78f303a26b5e75c84c8b2a97fa2ddb400b2d1b5e069bec19aa229ccd3597fdb"
+    }
+  },
+  "android_ndk": {
+    "package": "ndk;27.0.12077973",
+    "revision": "27.0.12077973"
+  },
+  "assets": {
+    "qnn_headers": {
+      "filename": "qnn-include-2.40.0.251030.tar.bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn/qnn-include-2.40.0.251030.tar.bz2",
+      "bytes": 393044,
+      "sha256": "fafe1c9dc3f60393134f22f2c708a9ede287492fa20dedc22c9fabdcf5ebe70d",
+      "repository_policy": "external_acquisition_only"
+    },
+    "qnn_runtime": {
+      "filename": "qnn-libs-2.40.0.251030.tar.bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn/qnn-libs-2.40.0.251030.tar.bz2",
+      "bytes": 51539798,
+      "sha256": "1078c0833b1e948518ff433e081eda511475c7fd9a82c7798a862f59b95a7ce5",
+      "repository_policy": "external_acquisition_only"
+    },
+    "sensevoice_context": {
+      "filename": "sherpa-onnx-qnn-SM8850-binary-10-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8.tar.bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn-binary/sherpa-onnx-qnn-SM8850-binary-10-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8.tar.bz2",
+      "bytes": 162023574,
+      "sha256": "ecbc1ffba39f8e23582b79a199d12e8455425a22ef7b6b18c535ce25fcff2d64",
+      "model_bin_sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30",
+      "tokens_sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+      "repository_policy": "external_acquisition_only"
+    },
+    "upstream_smoke_apk": {
+      "filename": "sherpa-onnx-1.13.4-qnn-arm64-v8a-simulated_streaming_asr-zh_en_ko_ja_yue-SM8850_10-seconds-sense_voice_2024_07_17_int8.apk",
+      "url": "https://huggingface.co/csukuangfj2/sherpa-onnx-apk/resolve/main/qnn-vad-asr-simulated-streaming/1.13.4/sherpa-onnx-1.13.4-qnn-arm64-v8a-simulated_streaming_asr-zh_en_ko_ja_yue-SM8850_10-seconds-sense_voice_2024_07_17_int8.apk",
+      "bytes": 229898342,
+      "sha256": "4c667715666c8c05ebf404fde49bb787af39ff9d8ac359baa28413a41c5ac86e",
+      "repository_policy": "external_smoke_test_only"
+    }
+  },
+  "backends": {
+    "sensevoice_qnn_sm8850": {
+      "provider": "qnn",
+      "languages": [
+        "auto_zh_en",
+        "zh",
+        "en",
+        "ja",
+        "ko",
+        "yue"
+      ],
+      "fixed_audio_limit_seconds": 10,
+      "activation_policy": "all hardware, ABI, artifact, runtime and phone-smoke gates must pass"
+    },
+    "cpu_multilingual": {
+      "provider": "cpu",
+      "languages": [
+        "auto_all",
+        "zh",
+        "en",
+        "ru",
+        "fr",
+        "it",
+        "es"
+      ],
+      "activation_policy": "required fallback for unsupported languages or any failed QNN gate"
+    }
+  }
+}

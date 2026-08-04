@@ -1,0 +1,30 @@
+{
+  "asr.txt": {
+    "bytes": 227,
+    "sha256": "47aec08bb7fbf91d9febb358f18ab57f2130de5f55f7ffacd5e1becffb8f9b6e"
+  },
+  "golden_tokens.npz": {
+    "bytes": 6309,
+    "sha256": "6199330432763a51ece627c48df99796d6752c1a97d555402cc4663407195253"
+  },
+  "interleaved_turn1.txt": {
+    "bytes": 150,
+    "sha256": "a34888d1b81260571b4f8184f4b2942c84beba901c18a65c1cd4f1df05f1520a"
+  },
+  "interleaved_turn1.wav": {
+    "bytes": 568364,
+    "sha256": "b47d7068f5b27922600c44d45f3d09dba50f597e0932fbe5a0a4a37401f32807"
+  },
+  "interleaved_turn2.txt": {
+    "bytes": 126,
+    "sha256": "3853796bbb50783969767e4cbee05e5e7830cfea2dda04350f2bf1003d15fc12"
+  },
+  "interleaved_turn2.wav": {
+    "bytes": 430124,
+    "sha256": "080dbbca1f284c20f9fd19fdbbb68f7326878d09dee295708f9984c551b95089"
+  },
+  "summary.json": {
+    "bytes": 5210,
+    "sha256": "82508aefdb484c9258e98b105cbed5cbc5a7c42ca8d3eedf4a13ef04684ae7a6"
+  }
+}

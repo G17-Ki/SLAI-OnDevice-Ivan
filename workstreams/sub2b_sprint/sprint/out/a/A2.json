@@ -1,0 +1,89 @@
+{
+  "sprint_id": "A2",
+  "lane": "A",
+  "title": "Settle the Parakeet count: 627,057,310 vs 627,057,286",
+  "date_utc": "2026-08-02",
+
+  "verdict": "BOTH FIGURES ARE CORRECT ON DIFFERENT BASES. The 24-parameter delta is 24 scalar I64 BatchNorm step counters (`num_batches_tracked`), one per encoder layer.",
+  "verdict_confidence": "EXACT",
+
+  "counted_params_learned_f32": 627057286,
+  "counted_params_all_tensor_elements": 627057310,
+  "delta": 24,
+  "ledger_recommendation": {
+    "value": 627057286,
+    "rationale": "Rule 1.2 excludes 'I64 index/shape buffers and constant tensors that carry no learned value'. `num_batches_tracked` is a BatchNorm forward-pass counter -- an int64 scalar incremented once per training batch. It carries no learned value, is never read at inference, and is not a parameter under any reading of 1.2.",
+    "note": "01_STACK_DECISION.md counts 627,057,310 as the 'conservative' figure. Retaining the conservative figure costs 24 parameters and changes no stack's compliance. Either is defensible; what matters is that the delta is now named and closed rather than open."
+  },
+
+  "target": {
+    "repo": "nvidia/parakeet-tdt-0.6b-v3",
+    "revision": "7c35754d166c",
+    "file": "model.safetensors",
+    "file_bytes": 2508311120,
+    "safetensors_header_len": 81776,
+    "n_tensors": 723
+  },
+
+  "method": "safetensors header parse via HTTP Range; sum of prod(shape) partitioned by dtype. Cross-checked against the .nemo container (TAR -> model_weights.ckpt -> ZIP central directory -> data.pkl meta-unpickle).",
+  "evidence_class": "EXACT",
+
+  "dtype_partition": {
+    "F32": 627057286,
+    "I64": 24,
+    "total": 627057310
+  },
+
+  "the_24": {
+    "count": 24,
+    "identity": "encoder.layers.{0..23}.conv.norm.num_batches_tracked",
+    "dtype": "I64",
+    "shape": [],
+    "params_each": 1,
+    "explanation": "One scalar per encoder layer, 24 encoder layers, 24 scalars. These are torch BatchNorm `num_batches_tracked` buffers.",
+    "verified_exhaustive": true,
+    "note": "There are exactly 24 non-F32 tensors in the file and all 24 are this buffer. The residual is fully accounted -- nothing is unexplained."
+  },
+
+  "per_module_decomposition": {
+    "basis": "safetensors, top-level module prefix, all tensor elements",
+    "encoder": 608928792,
+    "decoder": 12217600,
+    "joint": 5254918,
+    "encoder_projector": 656000,
+    "total": 627057310,
+    "note": "encoder = 24 x 25,191,425 + stem/pre-encode remainder. Per-layer encoder cost is 25,191,425."
+  },
+
+  "byte_reconciliation": {
+    "file_bytes": 2508311120,
+    "header_bytes": 81784,
+    "tensor_data_bytes": 2508229336,
+    "computed": "627,057,286 x 4 (F32) + 24 x 8 (I64) = 2,508,229,144 + 192 = 2,508,229,336",
+    "residual": 0,
+    "comment": "Exact to the byte. This is what a tensor-level parse buys over a bytes/4 bound."
+  },
+
+  "cross_check_nemo": {
+    "file": "parakeet-tdt-0.6b-v3.nemo",
+    "file_bytes": 2509332480,
+    "method": "TAR member walk -> model_weights.ckpt -> ZIP central directory -> data.pkl meta-unpickle (no weights read)",
+    "total": 622165166,
+    "delta_vs_safetensors": -4892144,
+    "per_module": {
+      "encoder": {"nemo": 608928792, "safetensors": 608928792, "delta": 0},
+      "decoder": {"nemo": 11807360, "safetensors": 12217600, "delta": 410240},
+      "joint": {"nemo": 6321158, "safetensors": 5254918, "delta": -1066240},
+      "encoder_projector": {"nemo": 0, "safetensors": 656000, "delta": 656000},
+      "preprocessor": {"nemo": 33296, "safetensors": 0, "delta": -33296}
+    },
+    "interpretation": "The encoder -- 97.1% of the model -- is bit-for-bit identical in count between the two packagings. The differences are entirely in the decoder/joint/projector head, which the HF-transformers repackaging restructures, plus a 33,296-element `preprocessor` block (mel filterbank + STFT window) that the .nemo carries as a module buffer and the safetensors export drops. The .nemo `preprocessor` is non-learned DSP constant data and would not count under 1.2 anyway.",
+    "which_basis_ships": "The safetensors export is the basis for the shipped artefact (sherpa-onnx / QNN exports derive from it). 627,057,286 / 627,057,310 stands.",
+    "flag": "The two packagings of the SAME checkpoint differ by 4,892,144 parameters in their head modules. Any future audit that mixes a .nemo-derived figure with a safetensors-derived figure for parakeet will be wrong by that amount. Recorded so it cannot be rediscovered as a surprise."
+  },
+
+  "stacks_affected": ["H (row H1)", "D (row D2)"],
+  "compliance_effect": "NONE. 24 parameters against a 2,000,000,000 cap. H's headroom is 602,998,280; D's is 168,458,623.",
+  "storage_used_bytes": 0,
+  "tools": ["tools/net.py", "tools/hdr.py", "tools/container.py", "tools/cont_batch.py"]
+}

@@ -1,0 +1,189 @@
+[
+  {
+    "id": "zh_australia_capital",
+    "language": "zh",
+    "category": "knowledge",
+    "transcript": "澳大利亚的首都是哪里？请用简短的中文句子回答。",
+    "patterns": ["堪培拉"],
+    "forbidden_patterns": ["悉尼"],
+    "script": "han"
+  },
+  {
+    "id": "zh_china_capital",
+    "language": "zh",
+    "category": "knowledge",
+    "transcript": "中国的首都是哪里？请只用一句简短中文回答。",
+    "patterns": ["北京"],
+    "script": "han"
+  },
+  {
+    "id": "zh_canada_capital",
+    "language": "zh",
+    "category": "knowledge",
+    "transcript": "加拿大的首都是哪里？请简短回答。",
+    "patterns": ["渥太华"],
+    "script": "han"
+  },
+  {
+    "id": "zh_math",
+    "language": "zh",
+    "category": "arithmetic",
+    "transcript": "18加24等于多少？只回答结果。",
+    "patterns": ["42", "四十二"]
+  },
+  {
+    "id": "zh_freezing",
+    "language": "zh",
+    "category": "knowledge",
+    "transcript": "在标准大气压下，纯水在多少摄氏度结冰？请简短回答。",
+    "patterns": ["(?<![\\d-])0\\s*°?\\s*(?:[Cc]|摄氏(?:度)?)", "零摄氏度", "零度"]
+  },
+  {
+    "id": "zh_largest_planet",
+    "language": "zh",
+    "category": "knowledge",
+    "transcript": "太阳系中最大的行星是什么？请只回答名称。",
+    "patterns": ["木星"],
+    "script": "han"
+  },
+  {
+    "id": "zh_prc_year",
+    "language": "zh",
+    "category": "knowledge",
+    "transcript": "中华人民共和国成立于哪一年？只回答年份。",
+    "patterns": ["1949", "一九四九", "一千九百四十九"]
+  },
+  {
+    "id": "zh_exact_instruction",
+    "language": "zh",
+    "category": "instruction",
+    "transcript": "只回复“蓝色”两个字，不要标点或解释。",
+    "exact_normalized": "蓝色",
+    "script": "han"
+  },
+  {
+    "id": "zh_context_distractor",
+    "language": "zh",
+    "category": "context",
+    "history": [
+      {"role": "user", "content": "澳大利亚人口最多的城市是哪里？"},
+      {"role": "assistant", "content": "悉尼是澳大利亚人口最多的城市。"}
+    ],
+    "transcript": "现在回答另一个问题：澳大利亚的首都是哪里？请简短回答。",
+    "patterns": ["堪培拉"],
+    "forbidden_patterns": ["悉尼"],
+    "script": "han"
+  },
+  {
+    "id": "zh_context_recall",
+    "language": "zh",
+    "category": "context",
+    "history": [
+      {"role": "user", "content": "请记住暗号是“钴蓝郁金香”。"},
+      {"role": "assistant", "content": "好的，我记住了这个暗号。"}
+    ],
+    "transcript": "刚才的暗号是什么？只回答暗号。",
+    "patterns": ["钴蓝郁金香"],
+    "script": "han"
+  },
+  {
+    "id": "zh_long_photosynthesis",
+    "language": "zh",
+    "category": "long_form",
+    "transcript": "请用三句简短中文解释光合作用，每句说明一个不同的关键事实。",
+    "all_patterns": ["光合", "二氧化碳", "氧"],
+    "script": "han",
+    "minimum_characters": 45,
+    "max_tokens": 160
+  },
+  {
+    "id": "ru_russia_capital_current_prompt",
+    "language": "ru",
+    "category": "knowledge",
+    "transcript": "Как называется столица России? Ответь одним словом.",
+    "patterns": ["москв"],
+    "forbidden_patterns": ["киев"],
+    "script": "cyrillic"
+  },
+  {
+    "id": "ru_japan_capital",
+    "language": "ru",
+    "category": "knowledge",
+    "transcript": "Какова столица Японии? Ответь одним коротким предложением по-русски.",
+    "patterns": ["токио"],
+    "script": "cyrillic"
+  },
+  {
+    "id": "ru_canada_capital",
+    "language": "ru",
+    "category": "knowledge",
+    "transcript": "Какова столица Канады? Ответь кратко по-русски.",
+    "patterns": ["оттава"],
+    "script": "cyrillic"
+  },
+  {
+    "id": "ru_math",
+    "language": "ru",
+    "category": "arithmetic",
+    "transcript": "Сколько будет 11 умножить на 12? Ответь только результатом.",
+    "patterns": ["\\b132\\b", "сто тридцать два"]
+  },
+  {
+    "id": "ru_freezing",
+    "language": "ru",
+    "category": "knowledge",
+    "transcript": "При нормальном давлении при какой температуре Цельсия замерзает чистая вода? Ответь кратко.",
+    "patterns": ["(?<![\\d-])0\\s*°?\\s*(?:[CcСс]|градус(?:а|ов)?)", "ноль градусов", "нуле градусов"]
+  },
+  {
+    "id": "ru_largest_planet",
+    "language": "ru",
+    "category": "knowledge",
+    "transcript": "Какая планета Солнечной системы самая большая? Ответь только названием.",
+    "patterns": ["юпитер"],
+    "script": "cyrillic"
+  },
+  {
+    "id": "ru_exact_instruction",
+    "language": "ru",
+    "category": "instruction",
+    "transcript": "Ответь ровно одним словом СИНИЙ без знаков препинания и объяснений.",
+    "exact_normalized": "синий",
+    "script": "cyrillic"
+  },
+  {
+    "id": "ru_context_distractor",
+    "language": "ru",
+    "category": "context",
+    "history": [
+      {"role": "user", "content": "Какова столица Украины?"},
+      {"role": "assistant", "content": "Столица Украины — Киев."}
+    ],
+    "transcript": "Теперь другой вопрос: какова столица России? Ответь одним словом.",
+    "patterns": ["москв"],
+    "forbidden_patterns": ["киев"],
+    "script": "cyrillic"
+  },
+  {
+    "id": "ru_context_recall",
+    "language": "ru",
+    "category": "context",
+    "history": [
+      {"role": "user", "content": "Запомни кодовую фразу «кобальтовый тюльпан»."},
+      {"role": "assistant", "content": "Хорошо, я запомнил кодовую фразу."}
+    ],
+    "transcript": "Какой была кодовая фраза? Ответь только ею.",
+    "patterns": ["кобальтовый тюльпан"],
+    "script": "cyrillic"
+  },
+  {
+    "id": "ru_long_photosynthesis",
+    "language": "ru",
+    "category": "long_form",
+    "transcript": "Объясни фотосинтез в трёх коротких русских предложениях, по одному отдельному факту в каждом.",
+    "all_patterns": ["фотосинт", "углекисл", "кислород"],
+    "script": "cyrillic",
+    "minimum_characters": 90,
+    "max_tokens": 160
+  }
+]

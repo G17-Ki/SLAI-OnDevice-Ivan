@@ -1,0 +1,144 @@
+{
+  "status": "passed",
+  "model": {
+    "id": "LiquidAI/LFM2.5-Audio-1.5B",
+    "revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+    "dtype": "bfloat16"
+  },
+  "source": {
+    "repository": "https://github.com/Liquid4All/liquid-audio.git",
+    "commit": "19e65845923a7f136442c95137884ec61eb386aa",
+    "resolved_commit": "19e65845923a7f136442c95137884ec61eb386aa"
+  },
+  "generation": {
+    "asr_max_new_tokens": 512,
+    "interleaved_max_new_tokens": 512,
+    "audio_temperature": 1.0,
+    "audio_top_k": 4,
+    "seed": 20260715
+  },
+  "inputs": {
+    "asr_audio_sha256": "fab65d483b4b88b763f3e69583a18ec7763193fcb63de4e94752a42412a9efdd",
+    "asr_audio_seconds": 18.356190476190477,
+    "interleaved_audio_sha256": "c904eda981f41dd49fe3bb75e961ec48cdba9b45ff3381812adaec04f3b17930",
+    "interleaved_audio_seconds": 4.9039375,
+    "followup_text": "My business specializes in chairs. Can you give me something related to that?"
+  },
+  "load": {
+    "seconds": 16.103860913000062,
+    "memory": {
+      "allocated_bytes": 3033554944,
+      "reserved_bytes": 6387924992,
+      "peak_allocated_bytes": 6215779328,
+      "peak_reserved_bytes": 6387924992,
+      "device_free_bytes": 17036345344,
+      "device_total_bytes": 23659151360
+    }
+  },
+  "asr": {
+    "decoded_text": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.<|im_end|>",
+    "text_token_count": 58,
+    "non_text_token_shapes": [],
+    "preprocess_seconds": 0.5593491029999313,
+    "generation_seconds": 1.593334241999969,
+    "first_token_seconds": 0.502106542999968,
+    "tokens_per_second": 36.401652880564356,
+    "memory": {
+      "allocated_bytes": 3042548224,
+      "reserved_bytes": 6387924992,
+      "peak_allocated_bytes": 3103376896,
+      "peak_reserved_bytes": 6387924992,
+      "device_free_bytes": 17006985216,
+      "device_total_bytes": 23659151360
+    }
+  },
+  "interleaved": {
+    "preprocess_turn1_seconds": 0.004414227000097526,
+    "turn1": {
+      "decoded_text": "Sure! How about something like \"Crafting Your Dream Home,\" \"Handcrafted Woodworking, Perfectly Made,\" or \"Your Home, Handcrafted by Our Woodworkers.\"",
+      "text_token_count": 41,
+      "audio_frame_count_including_eos": 149,
+      "generated_step_count": 190,
+      "generation_seconds": 12.069566608999935,
+      "generated_steps_per_second": 15.742073112908823,
+      "first_text_seconds": 0.09797270199999275,
+      "first_audio_seconds": 0.33966909899993425,
+      "memory": {
+        "allocated_bytes": 3042676736,
+        "reserved_bytes": 6387924992,
+        "peak_allocated_bytes": 3059055616,
+        "peak_reserved_bytes": 6387924992,
+        "device_free_bytes": 17006985216,
+        "device_total_bytes": 23659151360
+      }
+    },
+    "turn2": {
+      "decoded_text": "How about \u201cElegant, Comfortable Chairs, Handcrafted by Our Woodworkers\u201d or \u201cTimeless Seats, Handcrafted Woodworkers\u201d?",
+      "text_token_count": 38,
+      "audio_frame_count_including_eos": 113,
+      "generated_step_count": 151,
+      "generation_seconds": 9.23782359400002,
+      "generated_steps_per_second": 16.34584147050337,
+      "first_text_seconds": 0.05649045200004821,
+      "first_audio_seconds": 0.22586932699994122,
+      "memory": {
+        "allocated_bytes": 3042688512,
+        "reserved_bytes": 6387924992,
+        "peak_allocated_bytes": 3069814272,
+        "peak_reserved_bytes": 6387924992,
+        "device_free_bytes": 17006985216,
+        "device_total_bytes": 23659151360
+      }
+    },
+    "decode": {
+      "turn1": {
+        "status": "decoded",
+        "valid_audio_frames": 148,
+        "waveform_samples": 284160,
+        "waveform_seconds": 11.84,
+        "decode_seconds": 1.3202705130000822,
+        "detokenizer_dtype": "torch.float32",
+        "memory": {
+          "allocated_bytes": 3363647488,
+          "reserved_bytes": 6387924992,
+          "peak_allocated_bytes": 3403124736,
+          "peak_reserved_bytes": 6387924992,
+          "device_free_bytes": 17004888064,
+          "device_total_bytes": 23659151360
+        }
+      },
+      "turn2": {
+        "status": "decoded",
+        "valid_audio_frames": 112,
+        "waveform_samples": 215040,
+        "waveform_seconds": 8.96,
+        "decode_seconds": 0.011092041999972935,
+        "detokenizer_dtype": "torch.float32",
+        "memory": {
+          "allocated_bytes": 3363311104,
+          "reserved_bytes": 6387924992,
+          "peak_allocated_bytes": 3392088576,
+          "peak_reserved_bytes": 6387924992,
+          "device_free_bytes": 17004888064,
+          "device_total_bytes": 23659151360
+        }
+      }
+    }
+  },
+  "environment": {
+    "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+    "torch": "2.8.0+cu128",
+    "torchaudio": "2.8.0+cu128",
+    "transformers": "4.56.1",
+    "liquid_audio": "1.3.0",
+    "cuda_runtime": "12.8",
+    "cuda_device": "NVIDIA L4",
+    "cuda_capability": [
+      8,
+      9
+    ],
+    "bf16_supported": true,
+    "process_rss_bytes": 3462574080
+  }
+}

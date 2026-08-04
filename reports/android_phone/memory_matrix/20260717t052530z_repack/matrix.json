@@ -1,0 +1,35 @@
+{
+  "matrix": "repack",
+  "rows": [
+    {
+      "name": "repack_default",
+      "runtime_args": "-c 512",
+      "idle_rss_mib": 1646.4140625,
+      "active_peak_rss_mib": 1702.37109375,
+      "vmhwm_mib": 1701.6015625,
+      "gguf_rss_mib": 697.63671875,
+      "anonymous_rss_mib": 994.16015625,
+      "first_text_ms": 276.2391660362482,
+      "first_audio_ms": null,
+      "total_ms": 493.1337907910347,
+      "exact_normalized": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "error": null
+    },
+    {
+      "name": "no_repack",
+      "runtime_args": "-c 512 --no-repack",
+      "idle_rss_mib": 1109.30859375,
+      "active_peak_rss_mib": 1164.17578125,
+      "vmhwm_mib": 1163.375,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 446.4765625,
+      "first_text_ms": 559.2841668985784,
+      "first_audio_ms": null,
+      "total_ms": 815.9638326615095,
+      "exact_normalized": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "error": null
+    }
+  ]
+}

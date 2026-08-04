@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "source": {
+    "package": "qai-hub-models 0.58.0",
+    "model_id": "melotts_zh",
+    "runtime": "voice_ai",
+    "precision": "mixed_with_float",
+    "chipset": "qualcomm-snapdragon-8-elite-gen5-for-galaxy",
+    "chipset_alias": "sm8850-ad",
+    "htp_version": 81,
+    "soc_model": 87,
+    "qairt": "2.45.0.260326154327"
+  },
+  "runtime_config": {
+    "qnn_major": 2,
+    "qnn_minor": 45,
+    "qnn_patch": 0,
+    "arch_bits": 64,
+    "scratch_memory_bytes": 3200000,
+    "sample_rate_hz": 44100
+  },
+  "artifacts": {
+    "encoder.bin": {
+      "bytes": 18739200,
+      "sha256": "dbd5fbe6a09c4d4de973e9cc5e9a41ed7b7706bedace62390b8d91cd41d19090"
+    },
+    "flow.bin": {
+      "bytes": 30769152,
+      "sha256": "836982f3e2afe440450fa33ea769abf570874acf1ffa12ecb4159222fe24a6f4"
+    },
+    "decoder.bin": {
+      "bytes": 21479424,
+      "sha256": "d5ab0849b39e0289db84baf0ffa1964d2fa3004c3bc70de833910cf808393895"
+    },
+    "bert_wrapper.bin": {
+      "bytes": 307294208,
+      "sha256": "45fd58047d0234d3287f806eec34a994b868a9a7452a5dceb34014ac1603566a"
+    },
+    "bert_zh_tokenizer.bin": {
+      "bytes": 2563596,
+      "sha256": "b65662fb769a81fe214b2e596b6781ef7b965148a62b1e1025d247f140136133"
+    },
+    "bert_normalizer.bin": {
+      "bytes": 264948,
+      "sha256": "5d2e6435b23d107aa4cb4a87009ff1b1d6ee4069a866648b07377569b879d093"
+    },
+    "config.json": {
+      "bytes": 1624,
+      "sha256": "848eace069369919a914b509814e807e5221b820fced8132a5c540b0583fa696"
+    },
+    "metadata.json": {
+      "bytes": 9256,
+      "sha256": "d368b4fe93bb5aa06dd953e4571e29408c7ea193e450e780ee5ce34d93c298a1"
+    }
+  },
+  "fresh_profile": {
+    "target_device": "Snapdragon 8 Elite Gen 5 QRD",
+    "target_chipset": "sm8850",
+    "target_htp": 81,
+    "status": "all_components_profile_passed_strict_npu",
+    "components": {
+      "bert_wrapper": {
+        "model_id": "mngxvev5q",
+        "profile_job_id": "jprnqv6k5",
+        "latency_ms": 2.679,
+        "estimated_inference_peak_mib": 118.078125,
+        "operation_count": 332
+      },
+      "encoder": {
+        "model_id": "mqk5d8d7q",
+        "profile_job_id": "jprnq3k05",
+        "latency_ms": 23.697,
+        "estimated_inference_peak_mib": 125.6171875,
+        "operation_count": 830
+      },
+      "flow": {
+        "model_id": "mmxkydy2n",
+        "profile_job_id": "jpv9okok5",
+        "latency_ms": 74.563,
+        "estimated_inference_peak_mib": 122.140625,
+        "operation_count": 763
+      },
+      "decoder": {
+        "model_id": "mmr8ygo6n",
+        "profile_job_id": "jpv9ok475",
+        "latency_ms": 43.9,
+        "estimated_inference_peak_mib": 82.2109375,
+        "operation_count": 447
+      }
+    },
+    "audio_component_latency_sum_ms": 142.16,
+    "all_component_latency_sum_ms": 144.839,
+    "hexagon_npu_operations": 2372,
+    "cpu_fallback_operations": 0,
+    "unsupported_or_unknown_operations": 0
+  }
+}

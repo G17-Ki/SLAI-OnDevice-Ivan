@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-07-17T05:50:35.141942+00:00",
+  "dataset": "hf-internal-testing/librispeech_asr_dummy clean/validation",
+  "seed": 20260715,
+  "normalization": "lowercase; strip control tokens and punctuation except apostrophes; collapse whitespace",
+  "configurations": [
+    {
+      "name": "memory_gate_ub32",
+      "runtime_args": [
+        "-c",
+        "512",
+        "--no-repack",
+        "-b",
+        "128",
+        "-ub",
+        "32"
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "configuration": "memory_gate_ub32",
+      "runtime_args": "-c 512 --no-repack -b 128 -ub 32",
+      "condition": "clean",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 3.5714285714285716,
+      "mean_first_text_ms": 1837.9959330583613,
+      "median_total_ms": 2096.964937634766,
+      "vmhwm_mib": 1309.84375
+    },
+    {
+      "configuration": "memory_gate_ub32",
+      "runtime_args": "-c 512 --no-repack -b 128 -ub 32",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 7.142857142857143,
+      "mean_first_text_ms": 2148.1448703755937,
+      "median_total_ms": 2541.935479734093,
+      "vmhwm_mib": 1309.84375
+    },
+    {
+      "configuration": "memory_gate_ub32",
+      "runtime_args": "-c 512 --no-repack -b 128 -ub 32",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 55.714285714285715,
+      "mean_first_text_ms": 2162.3476088409207,
+      "median_total_ms": 2613.467938033864,
+      "vmhwm_mib": 1309.84375
+    }
+  ],
+  "comparisons": []
+}

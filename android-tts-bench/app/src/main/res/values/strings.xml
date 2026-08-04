@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LFM TTS Bench</string>
+    <string name="loading">Loading candidates…</string>
+    <string name="candidate_a">Candidate A</string>
+    <string name="candidate_b">Candidate B (for A/B)</string>
+    <string name="phrase">Phrase</string>
+    <string name="custom_hint">Custom text (overrides the phrase above when non-empty)</string>
+    <string name="equalize">Equalize loudness</string>
+    <string name="save_wav">Save WAV</string>
+    <string name="speak_a">Speak A</string>
+    <string name="speak_b">Speak B</string>
+    <string name="ab">A / B</string>
+    <string name="run_all">Run all (silent)</string>
+    <string name="export">Export JSON</string>
+</resources>

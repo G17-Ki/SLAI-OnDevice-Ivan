@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "demo": "DEMO 2 - IT'S GOOD",
+  "run_scope": "warm explicit Mandarin distribution",
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "soc": "Snapdragon SM8850",
+    "airplane_mode_on": true
+  },
+  "software": {
+    "main_package": "ai.liquid.lfmdemo",
+    "main_version": "0.6.0-unplugged",
+    "main_apk_sha256": "143b96888005ed42ac97a07d281f76fa831d293ccaf7c0f2f11e19b5af5cb3f0",
+    "runtime_package": "ai.liquid.lfmdemo.runtime",
+    "runtime_version": "0.1.0-unplugged-runtime",
+    "runtime_apk_sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+  },
+  "configuration": {
+    "mode": "tts",
+    "ui_label": "Offline voice",
+    "selected_language": "zh",
+    "asr_backend": "sensevoice_qnn",
+    "asr_provider": "qnn",
+    "response_backend": "qwen2_5_1_5b_q4_k_m_cpu",
+    "tts_policy": "matcha_zh_baker",
+    "memory_enabled": false,
+    "adb_forward_list_before": [],
+    "adb_forward_list_after": [],
+    "chrome_devtools_protocol_used": false
+  },
+  "fixture": {
+    "filename": "question_zh.wav",
+    "bytes": 83478,
+    "sha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63",
+    "prompt": "请用中文简单介绍一下北京。"
+  },
+  "outcome": {
+    "attempts": 22,
+    "completed": 20,
+    "cancelled": 2,
+    "cancelled_turns": [
+      {
+        "turn_id": "1785693629021-32",
+        "message": "replaced_by_new_input",
+        "excluded_from_success_distribution": true
+      },
+      {
+        "turn_id": "1785693632427-33",
+        "message": "replaced_by_new_input",
+        "excluded_from_success_distribution": true
+      }
+    ],
+    "all_completed_turns_npu_executed": true,
+    "all_completed_turns_playback_completed": true,
+    "all_completed_turns_under_3000_ms": true,
+    "dropped_chunks_total": 0,
+    "playback_underflows_total": 0
+  },
+  "completed_only_metrics": {
+    "first_audio_start_proxy_ms": {
+      "n": 20,
+      "median": 1031.277317494154,
+      "p95_nearest_rank": 1221.0340619683266,
+      "max": 1603.031822025776,
+      "first_five_mean": 1134.7938639998436,
+      "last_five_mean": 996.3801246166229
+    },
+    "first_text_ms": {
+      "median": 555.7789580225945,
+      "p95_nearest_rank": 655.0159890055656,
+      "max": 834.4650520086288
+    },
+    "tts_first_chunk_ms": {
+      "median": 92,
+      "p95_nearest_rank": 99,
+      "max": 103
+    },
+    "tts_rtf": {
+      "median": 0.03899160761623165,
+      "p95_nearest_rank": 0.04075100806451613,
+      "max": 0.04331477076124568
+    }
+  },
+  "evidence_sha256": {
+    "telemetry.jsonl": "ef4604c7bcca88087281521369ee2b8e3b8f079749d4ea55c4c2f221bba04407",
+    "summary.json": "9d8f4d0b8a9918a040675e8e63de087b84b0d69d863b6520caf0a9f495c61865",
+    "REPORT.md": "ba1bce3512486a99afcf875171a212a901440626c73eff8a77e09831b86a88ab"
+  },
+  "claim_boundary": "First audio is an in-app UtteranceProgressListener software start proxy, not externally measured acoustic onset. The completed-only distribution excludes two operator-overlap cancellations."
+}

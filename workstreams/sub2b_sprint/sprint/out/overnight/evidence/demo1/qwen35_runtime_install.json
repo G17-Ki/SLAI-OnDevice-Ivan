@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "milestone": "demo1_qwen35_runtime_install",
+  "created_at": "2026-08-03T05:09:18+08:00",
+  "branch": "sprint/overnight",
+  "source_parent_commit": "de57389",
+  "device": {
+    "model": "NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL"
+  },
+  "source_change": {
+    "runtime_model_file": "Qwen3.5-0.8B-Q4_0.gguf",
+    "runtime_model_alias": "Qwen3.5-0.8B-Q4_0",
+    "reasoning": "off",
+    "reasoning_format": "none",
+    "response_backend": "qwen3_5_0_8b_q4_0_cpu",
+    "production_prefix_cache_preserved": true
+  },
+  "verification": {
+    "tests": [
+      "node scripts/test_streaming_audio_ui.mjs: PASS",
+      "PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_android_native_tts_bridge.py: PASS",
+      "PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_runtime_companion_source.py: PASS",
+      "git diff --check: PASS"
+    ],
+    "build": "BUILD SUCCESSFUL",
+    "main_apk": {
+      "bytes": 20197812,
+      "sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d",
+      "installed_matches_host": true
+    },
+    "runtime_apk": {
+      "bytes": 121173908,
+      "sha256": "d43c0423d66e1cbe9e3fac313b54437c5c58ef8a5a8498382a255f619ad46ae1",
+      "installed_matches_host": true
+    },
+    "qwen35": {
+      "path": "files/text/models/Qwen3.5-0.8B-Q4_0.gguf",
+      "bytes": 507154688,
+      "sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701",
+      "tensor_elements": 752393024,
+      "learned_parameters": 752393024,
+      "exact_only_gguf": true,
+      "superseded_qwen25_removed": true
+    },
+    "runtime_processes_after_install": [],
+    "installation_mode": "runtime installer --skip-assets --no-start; main adb install -r; atomic new-first/private-hash/model replacement"
+  },
+  "acceptance_status": "SOURCE_BUILD_AND_EXACT_ON_PHONE_MODEL_IDENTITY_PASS",
+  "pending": [
+    "Replace and verify the five-candidate TTS tree.",
+    "Install and verify the CPU-only Parakeet ES/FR overlay.",
+    "Cold reboot and execute EN, ZH, ES, FR, and RU turns.",
+    "Capture the complete final under-2B inventory."
+  ],
+  "claim_limits": [
+    "This receipt proves exact installation identity, not language quality or end-to-end execution.",
+    "Qwen3.5 is a CPU path.",
+    "No NPU claim follows from the GGUF installation."
+  ]
+}

@@ -1,0 +1,1996 @@
+{
+  "schema_version": 1,
+  "harness": "physical_android_tts_cdp",
+  "startedAt": "2026-08-03T06:07:31.948Z",
+  "endpoint": {
+    "host": "127.0.0.1",
+    "port": 9224
+  },
+  "options": {
+    "timeoutMs": 150000,
+    "eventTimeoutMs": 120000,
+    "lateEventGraceMs": 2500,
+    "cooldownMs": 500,
+    "targetUrlIncludes": null,
+    "selectedCases": [
+      "auto_zh_matcha",
+      "auto_ru_supertonic"
+    ]
+  },
+  "output": "<REPO_ROOT>/workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_en_ru_repair/native_auto_ru_zh.json",
+  "target": {
+    "id": "816A9AB9F232178E82CF19904E0D0458",
+    "title": "LFM2.5 Audio · On-device demo",
+    "url": "http://127.0.0.1:8765/",
+    "type": "page"
+  },
+  "preflight": {
+    "title": "LFM2.5 Audio · On-device demo",
+    "url": "http://127.0.0.1:8765/",
+    "userAgent": "Mozilla/5.0 (Linux; Android 16; NX809J Build/BQ2A.250705.001-BP2A.250605.031.A3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36",
+    "methods": {
+      "listTtsEngines": true,
+      "setTtsEngine": true,
+      "initializeTts": true,
+      "queueTtsChunk": true,
+      "finishTtsResponse": true,
+      "cancelTts": true
+    },
+    "engineCatalog": {
+      "engines": [
+        {
+          "id": "auto",
+          "label": "Automatic by language",
+          "language": "any",
+          "family": "language-aware routing",
+          "available": true,
+          "notes": "Mandarin uses Matcha Baker; Japanese, Korean, Russian, Spanish, and French use the same Supertonic 3 graphs at five steps; other languages use offline eSpeak."
+        },
+        {
+          "id": "system",
+          "label": "Offline eSpeak NG (control)",
+          "language": "any",
+          "family": "formant synthesis",
+          "available": true,
+          "notes": "Offline and instant, but measured at 55% CER in Mandarin and 62% WER in Russian. Retained as the control."
+        },
+        {
+          "id": "matcha_zh_baker",
+          "label": "Matcha ZH (baker)",
+          "language": "zh",
+          "family": "matcha",
+          "threads": 1,
+          "steps": 0,
+          "available": true,
+          "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+        },
+        {
+          "id": "supertonic3_en_s5",
+          "label": "Supertonic 3 EN — 5 steps",
+          "language": "en",
+          "family": "supertonic",
+          "threads": 4,
+          "steps": 5,
+          "available": true,
+          "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+        },
+        {
+          "id": "supertonic3_s5",
+          "label": "Supertonic 3 RU — 5 steps",
+          "language": "ru",
+          "family": "supertonic",
+          "threads": 4,
+          "steps": 5,
+          "available": true,
+          "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+        },
+        {
+          "id": "supertonic3_es_s5",
+          "label": "Supertonic 3 ES — 5 steps",
+          "language": "es",
+          "family": "supertonic",
+          "threads": 4,
+          "steps": 5,
+          "available": true,
+          "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+        },
+        {
+          "id": "supertonic3_fr_s5",
+          "label": "Supertonic 3 FR — 5 steps",
+          "language": "fr",
+          "family": "supertonic",
+          "threads": 4,
+          "steps": 5,
+          "available": true,
+          "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+        }
+      ],
+      "selected": "auto",
+      "resolved": null,
+      "bundle_root": "/storage/emulated/0/Android/data/ai.liquid.lfmdemo/files/tts-eval"
+    },
+    "appState": {
+      "inputBusy": false,
+      "currentTurn": null,
+      "clientTtsTurns": 0,
+      "nativeCapture": false,
+      "mediaRecorderState": null,
+      "vadRequested": false,
+      "vadStopping": false,
+      "browserPlaybackSources": 0,
+      "htmlAudioPlaying": false,
+      "inspection": {
+        "inputBusy": true,
+        "currentTurn": true,
+        "clientTtsTurns": true,
+        "nativeCapture": true,
+        "mediaRecorderState": true,
+        "vadState": true,
+        "browserPlaybackSources": true,
+        "htmlAudioPlaying": true
+      }
+    },
+    "failures": []
+  },
+  "hook": {
+    "installed": true,
+    "replacedExistingHarness": false,
+    "originalHandlerPresent": true,
+    "installedWallTime": "2026-08-03T06:07:43.578Z"
+  },
+  "eventCapture": {
+    "grace_ms": 2500,
+    "next_sequence": 16,
+    "events": [
+      {
+        "sequence": 0,
+        "captured_wall_time": "2026-08-03T06:07:44.335Z",
+        "captured_performance_ms": 368027.30000000075,
+        "event": {
+          "schema_version": 1,
+          "type": "ready",
+          "turn_id": "1785737263697-1",
+          "monotonic_ms": 5762054.879416,
+          "details": {
+            "engine": "matcha_zh_baker",
+            "tts_policy": "auto",
+            "tts_engine_id": "matcha_zh_baker",
+            "engine_label": "Matcha ZH (baker)",
+            "engine_family": "matcha",
+            "threads": 1,
+            "requested_locale": "zh-CN",
+            "resolved_locale": "zh",
+            "sample_rate_hz": 22050,
+            "generation": 1785736896400001
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"ready\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762054.879416,\"details\":{\"engine\":\"matcha_zh_baker\",\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"engine_label\":\"Matcha ZH (baker)\",\"engine_family\":\"matcha\",\"threads\":1,\"requested_locale\":\"zh-CN\",\"resolved_locale\":\"zh\",\"sample_rate_hz\":22050,\"generation\":1785736896400001}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 1,
+        "captured_wall_time": "2026-08-03T06:07:44.338Z",
+        "captured_performance_ms": 368030.5,
+        "event": {
+          "schema_version": 1,
+          "type": "chunk_queued",
+          "turn_id": "1785737263697-1",
+          "monotonic_ms": 5762058.294989,
+          "details": {
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "locale": "zh-CN",
+            "generation": 1785736896400001,
+            "character_count": 16,
+            "tts_policy": "auto",
+            "tts_engine_id": "matcha_zh_baker",
+            "queue_mode": "flush",
+            "pending_utterances": 1
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"chunk_queued\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762058.294989,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"queue_mode\":\"flush\",\"pending_utterances\":1}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 2,
+        "captured_wall_time": "2026-08-03T06:07:44.338Z",
+        "captured_performance_ms": 368030.60000000056,
+        "event": {
+          "schema_version": 1,
+          "type": "queue_closed",
+          "turn_id": "1785737263697-1",
+          "monotonic_ms": 5762058.452645,
+          "details": {
+            "pending_utterances": 1,
+            "chunks_queued": 1,
+            "generation": 1785736896400001
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"queue_closed\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762058.452645,\"details\":{\"pending_utterances\":1,\"chunks_queued\":1,\"generation\":1785736896400001}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 3,
+        "captured_wall_time": "2026-08-03T06:07:44.410Z",
+        "captured_performance_ms": 368102.2000000002,
+        "event": {
+          "schema_version": 1,
+          "type": "utterance_start",
+          "turn_id": "1785737263697-1",
+          "monotonic_ms": 5762129.314781,
+          "details": {
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "locale": "zh-CN",
+            "generation": 1785736896400001,
+            "character_count": 16,
+            "tts_policy": "auto",
+            "tts_engine_id": "matcha_zh_baker"
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"utterance_start\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762129.314781,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\"}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 4,
+        "captured_wall_time": "2026-08-03T06:07:44.410Z",
+        "captured_performance_ms": 368102.30000000075,
+        "event": {
+          "schema_version": 1,
+          "type": "first_audio_start_proxy",
+          "turn_id": "1785737263697-1",
+          "monotonic_ms": 5762129.649937,
+          "details": {
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "locale": "zh-CN",
+            "generation": 1785736896400001,
+            "character_count": 16,
+            "tts_policy": "auto",
+            "tts_engine_id": "matcha_zh_baker",
+            "proxy": "UtteranceProgressListener.onStart"
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"first_audio_start_proxy\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762129.649937,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"proxy\":\"UtteranceProgressListener.onStart\"}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 5,
+        "captured_wall_time": "2026-08-03T06:07:44.526Z",
+        "captured_performance_ms": 368218.7000000002,
+        "event": {
+          "schema_version": 1,
+          "type": "engine_metrics",
+          "turn_id": "1785737263697-1",
+          "monotonic_ms": 5762245.877437,
+          "details": {
+            "engine_id": "matcha_zh_baker",
+            "engine_family": "matcha",
+            "engine_generation": 1,
+            "generation_language": "zh",
+            "threads": 1,
+            "first_chunk_ms": 62,
+            "synthesis_ms": 186,
+            "audio_seconds": 4.35374149659864,
+            "rtf": 0.04272187499999999,
+            "dropped_chunks": 0,
+            "applied_gain_db": 4.201332234998498,
+            "sample_rate_hz": 22050,
+            "serialized_synthesis": true,
+            "pending_synthesis_tasks": 0,
+            "audio_track_started": true,
+            "audio_track_buffer_frames": 22050,
+            "audio_track_write_quantum_ms": 20,
+            "audio_track_zero_write_retries": 0,
+            "generation": 1785736896400001
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"engine_metrics\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762245.877437,\"details\":{\"engine_id\":\"matcha_zh_baker\",\"engine_family\":\"matcha\",\"engine_generation\":1,\"generation_language\":\"zh\",\"threads\":1,\"first_chunk_ms\":62,\"synthesis_ms\":186,\"audio_seconds\":4.35374149659864,\"rtf\":0.04272187499999999,\"dropped_chunks\":0,\"applied_gain_db\":4.201332234998498,\"sample_rate_hz\":22050,\"serialized_synthesis\":true,\"pending_synthesis_tasks\":0,\"audio_track_started\":true,\"audio_track_buffer_frames\":22050,\"audio_track_write_quantum_ms\":20,\"audio_track_zero_write_retries\":0,\"generation\":1785736896400001}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 6,
+        "captured_wall_time": "2026-08-03T06:07:48.737Z",
+        "captured_performance_ms": 372429.80000000075,
+        "event": {
+          "schema_version": 1,
+          "type": "utterance_done",
+          "turn_id": "1785737263697-1",
+          "monotonic_ms": 5766456.548216,
+          "details": {
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "locale": "zh-CN",
+            "generation": 1785736896400001,
+            "character_count": 16,
+            "tts_policy": "auto",
+            "tts_engine_id": "matcha_zh_baker",
+            "pending_utterances": 0,
+            "queue_closed": true
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"utterance_done\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5766456.548216,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"pending_utterances\":0,\"queue_closed\":true}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 7,
+        "captured_wall_time": "2026-08-03T06:07:48.737Z",
+        "captured_performance_ms": 372430,
+        "event": {
+          "schema_version": 1,
+          "type": "terminal",
+          "turn_id": "1785737263697-1",
+          "monotonic_ms": 5766456.900612,
+          "details": {
+            "status": "completed",
+            "pending_utterances": 0,
+            "chunks_queued": 1,
+            "generation": 1785736896400001,
+            "tts_policy": "auto",
+            "tts_engine_id": "matcha_zh_baker"
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"terminal\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5766456.900612,\"details\":{\"status\":\"completed\",\"pending_utterances\":0,\"chunks_queued\":1,\"generation\":1785736896400001,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\"}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 8,
+        "captured_wall_time": "2026-08-03T06:07:49.760Z",
+        "captured_performance_ms": 373452.30000000075,
+        "event": {
+          "schema_version": 1,
+          "type": "ready",
+          "turn_id": "1785737269370-2",
+          "monotonic_ms": 5767479.717956,
+          "details": {
+            "engine": "supertonic3_s5",
+            "tts_policy": "auto",
+            "tts_engine_id": "supertonic3_s5",
+            "engine_label": "Supertonic 3 RU — 5 steps",
+            "engine_family": "supertonic",
+            "threads": 4,
+            "requested_locale": "ru-RU",
+            "resolved_locale": "ru",
+            "sample_rate_hz": 44100,
+            "generation": 1785736896400002
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"ready\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767479.717956,\"details\":{\"engine\":\"supertonic3_s5\",\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"engine_label\":\"Supertonic 3 RU — 5 steps\",\"engine_family\":\"supertonic\",\"threads\":4,\"requested_locale\":\"ru-RU\",\"resolved_locale\":\"ru\",\"sample_rate_hz\":44100,\"generation\":1785736896400002}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 9,
+        "captured_wall_time": "2026-08-03T06:07:49.765Z",
+        "captured_performance_ms": 373457.7000000002,
+        "event": {
+          "schema_version": 1,
+          "type": "chunk_queued",
+          "turn_id": "1785737269370-2",
+          "monotonic_ms": 5767484.967851,
+          "details": {
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "locale": "ru-RU",
+            "generation": 1785736896400002,
+            "character_count": 41,
+            "tts_policy": "auto",
+            "tts_engine_id": "supertonic3_s5",
+            "queue_mode": "flush",
+            "pending_utterances": 1
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"chunk_queued\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767484.967851,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"queue_mode\":\"flush\",\"pending_utterances\":1}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 10,
+        "captured_wall_time": "2026-08-03T06:07:49.765Z",
+        "captured_performance_ms": 373457.9000000004,
+        "event": {
+          "schema_version": 1,
+          "type": "queue_closed",
+          "turn_id": "1785737269370-2",
+          "monotonic_ms": 5767485.306028,
+          "details": {
+            "pending_utterances": 1,
+            "chunks_queued": 1,
+            "generation": 1785736896400002
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"queue_closed\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767485.306028,\"details\":{\"pending_utterances\":1,\"chunks_queued\":1,\"generation\":1785736896400002}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 11,
+        "captured_wall_time": "2026-08-03T06:07:50.512Z",
+        "captured_performance_ms": 374204.7000000002,
+        "event": {
+          "schema_version": 1,
+          "type": "utterance_start",
+          "turn_id": "1785737269370-2",
+          "monotonic_ms": 5768232.128112,
+          "details": {
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "locale": "ru-RU",
+            "generation": 1785736896400002,
+            "character_count": 41,
+            "tts_policy": "auto",
+            "tts_engine_id": "supertonic3_s5"
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"utterance_start\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.128112,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\"}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 12,
+        "captured_wall_time": "2026-08-03T06:07:50.512Z",
+        "captured_performance_ms": 374204.80000000075,
+        "event": {
+          "schema_version": 1,
+          "type": "first_audio_start_proxy",
+          "turn_id": "1785737269370-2",
+          "monotonic_ms": 5768232.229674,
+          "details": {
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "locale": "ru-RU",
+            "generation": 1785736896400002,
+            "character_count": 41,
+            "tts_policy": "auto",
+            "tts_engine_id": "supertonic3_s5",
+            "proxy": "UtteranceProgressListener.onStart"
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"first_audio_start_proxy\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.229674,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"proxy\":\"UtteranceProgressListener.onStart\"}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 13,
+        "captured_wall_time": "2026-08-03T06:07:50.512Z",
+        "captured_performance_ms": 374204.9000000004,
+        "event": {
+          "schema_version": 1,
+          "type": "engine_metrics",
+          "turn_id": "1785737269370-2",
+          "monotonic_ms": 5768232.376497,
+          "details": {
+            "engine_id": "supertonic3_s5",
+            "engine_family": "supertonic",
+            "engine_generation": 1,
+            "generation_language": "ru",
+            "threads": 4,
+            "first_chunk_ms": 743,
+            "synthesis_ms": 748,
+            "audio_seconds": 3.234172335600907,
+            "rtf": 0.2312801923899402,
+            "dropped_chunks": 0,
+            "applied_gain_db": 5.2834862629982755,
+            "sample_rate_hz": 44100,
+            "serialized_synthesis": true,
+            "pending_synthesis_tasks": 0,
+            "audio_track_started": false,
+            "audio_track_buffer_frames": 44100,
+            "audio_track_write_quantum_ms": 20,
+            "audio_track_zero_write_retries": 0,
+            "generation": 1785736896400002
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"engine_metrics\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.376497,\"details\":{\"engine_id\":\"supertonic3_s5\",\"engine_family\":\"supertonic\",\"engine_generation\":1,\"generation_language\":\"ru\",\"threads\":4,\"first_chunk_ms\":743,\"synthesis_ms\":748,\"audio_seconds\":3.234172335600907,\"rtf\":0.2312801923899402,\"dropped_chunks\":0,\"applied_gain_db\":5.2834862629982755,\"sample_rate_hz\":44100,\"serialized_synthesis\":true,\"pending_synthesis_tasks\":0,\"audio_track_started\":false,\"audio_track_buffer_frames\":44100,\"audio_track_write_quantum_ms\":20,\"audio_track_zero_write_retries\":0,\"generation\":1785736896400002}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 14,
+        "captured_wall_time": "2026-08-03T06:07:53.777Z",
+        "captured_performance_ms": 377469.5,
+        "event": {
+          "schema_version": 1,
+          "type": "utterance_done",
+          "turn_id": "1785737269370-2",
+          "monotonic_ms": 5771495.310246,
+          "details": {
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "locale": "ru-RU",
+            "generation": 1785736896400002,
+            "character_count": 41,
+            "tts_policy": "auto",
+            "tts_engine_id": "supertonic3_s5",
+            "pending_utterances": 0,
+            "queue_closed": true
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"utterance_done\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5771495.310246,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"pending_utterances\":0,\"queue_closed\":true}}",
+        "parse_error": null
+      },
+      {
+        "sequence": 15,
+        "captured_wall_time": "2026-08-03T06:07:53.777Z",
+        "captured_performance_ms": 377470,
+        "event": {
+          "schema_version": 1,
+          "type": "terminal",
+          "turn_id": "1785737269370-2",
+          "monotonic_ms": 5771495.782069,
+          "details": {
+            "status": "completed",
+            "pending_utterances": 0,
+            "chunks_queued": 1,
+            "generation": 1785736896400002,
+            "tts_policy": "auto",
+            "tts_engine_id": "supertonic3_s5"
+          }
+        },
+        "raw": "{\"schema_version\":1,\"type\":\"terminal\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5771495.782069,\"details\":{\"status\":\"completed\",\"pending_utterances\":0,\"chunks_queued\":1,\"generation\":1785736896400002,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\"}}",
+        "parse_error": null
+      }
+    ],
+    "original_handler_errors": [],
+    "active_turn": null,
+    "audit": {
+      "assertions": {
+        "captureAvailable": true,
+        "eventSequencesValid": true,
+        "eventSequencesStrictlyIncreasing": true,
+        "allEventsParsed": true,
+        "allEventSchemasValid": true,
+        "originalHandlerStayedHealthy": true,
+        "noActiveTurnAtFinalAudit": true
+      },
+      "allPassed": true,
+      "eventCount": 16
+    }
+  },
+  "cases": [
+    {
+      "name": "auto_zh_matcha",
+      "policy": "auto",
+      "locale": "zh-CN",
+      "behavior": "complete",
+      "startedAt": "2026-08-03T06:07:43.589Z",
+      "turnId": "1785737263697-1",
+      "generation": 1785736896400001,
+      "driver": {
+        "setPolicyAccepted": true,
+        "queueDispatchSpanMs": 0.2999999998137355,
+        "cancelIssuedSequence": null,
+        "cancelIssuedPerformanceMs": null,
+        "cancellationTrigger": null,
+        "startCapturedPerformanceMs": null,
+        "postStartHoldMs": null,
+        "terminalVerified": true,
+        "cleanupIncomplete": false
+      },
+      "catalogBefore": {
+        "engines": [
+          {
+            "id": "auto",
+            "label": "Automatic by language",
+            "language": "any",
+            "family": "language-aware routing",
+            "available": true,
+            "notes": "Mandarin uses Matcha Baker; Japanese, Korean, Russian, Spanish, and French use the same Supertonic 3 graphs at five steps; other languages use offline eSpeak."
+          },
+          {
+            "id": "system",
+            "label": "Offline eSpeak NG (control)",
+            "language": "any",
+            "family": "formant synthesis",
+            "available": true,
+            "notes": "Offline and instant, but measured at 55% CER in Mandarin and 62% WER in Russian. Retained as the control."
+          },
+          {
+            "id": "matcha_zh_baker",
+            "label": "Matcha ZH (baker)",
+            "language": "zh",
+            "family": "matcha",
+            "threads": 1,
+            "steps": 0,
+            "available": true,
+            "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+          },
+          {
+            "id": "supertonic3_en_s5",
+            "label": "Supertonic 3 EN — 5 steps",
+            "language": "en",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+          },
+          {
+            "id": "supertonic3_s5",
+            "label": "Supertonic 3 RU — 5 steps",
+            "language": "ru",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+          },
+          {
+            "id": "supertonic3_es_s5",
+            "label": "Supertonic 3 ES — 5 steps",
+            "language": "es",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          },
+          {
+            "id": "supertonic3_fr_s5",
+            "label": "Supertonic 3 FR — 5 steps",
+            "language": "fr",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          }
+        ],
+        "selected": "auto",
+        "resolved": null,
+        "bundle_root": "/storage/emulated/0/Android/data/ai.liquid.lfmdemo/files/tts-eval"
+      },
+      "catalogAfterReady": {
+        "engines": [
+          {
+            "id": "auto",
+            "label": "Automatic by language",
+            "language": "any",
+            "family": "language-aware routing",
+            "available": true,
+            "notes": "Mandarin uses Matcha Baker; Japanese, Korean, Russian, Spanish, and French use the same Supertonic 3 graphs at five steps; other languages use offline eSpeak."
+          },
+          {
+            "id": "system",
+            "label": "Offline eSpeak NG (control)",
+            "language": "any",
+            "family": "formant synthesis",
+            "available": true,
+            "notes": "Offline and instant, but measured at 55% CER in Mandarin and 62% WER in Russian. Retained as the control."
+          },
+          {
+            "id": "matcha_zh_baker",
+            "label": "Matcha ZH (baker)",
+            "language": "zh",
+            "family": "matcha",
+            "threads": 1,
+            "steps": 0,
+            "available": true,
+            "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+          },
+          {
+            "id": "supertonic3_en_s5",
+            "label": "Supertonic 3 EN — 5 steps",
+            "language": "en",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+          },
+          {
+            "id": "supertonic3_s5",
+            "label": "Supertonic 3 RU — 5 steps",
+            "language": "ru",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+          },
+          {
+            "id": "supertonic3_es_s5",
+            "label": "Supertonic 3 ES — 5 steps",
+            "language": "es",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          },
+          {
+            "id": "supertonic3_fr_s5",
+            "label": "Supertonic 3 FR — 5 steps",
+            "language": "fr",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          }
+        ],
+        "selected": "auto",
+        "resolved": "matcha_zh_baker",
+        "bundle_root": "/storage/emulated/0/Android/data/ai.liquid.lfmdemo/files/tts-eval"
+      },
+      "catalogAfter": {
+        "engines": [
+          {
+            "id": "auto",
+            "label": "Automatic by language",
+            "language": "any",
+            "family": "language-aware routing",
+            "available": true,
+            "notes": "Mandarin uses Matcha Baker; Japanese, Korean, Russian, Spanish, and French use the same Supertonic 3 graphs at five steps; other languages use offline eSpeak."
+          },
+          {
+            "id": "system",
+            "label": "Offline eSpeak NG (control)",
+            "language": "any",
+            "family": "formant synthesis",
+            "available": true,
+            "notes": "Offline and instant, but measured at 55% CER in Mandarin and 62% WER in Russian. Retained as the control."
+          },
+          {
+            "id": "matcha_zh_baker",
+            "label": "Matcha ZH (baker)",
+            "language": "zh",
+            "family": "matcha",
+            "threads": 1,
+            "steps": 0,
+            "available": true,
+            "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+          },
+          {
+            "id": "supertonic3_en_s5",
+            "label": "Supertonic 3 EN — 5 steps",
+            "language": "en",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+          },
+          {
+            "id": "supertonic3_s5",
+            "label": "Supertonic 3 RU — 5 steps",
+            "language": "ru",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+          },
+          {
+            "id": "supertonic3_es_s5",
+            "label": "Supertonic 3 ES — 5 steps",
+            "language": "es",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          },
+          {
+            "id": "supertonic3_fr_s5",
+            "label": "Supertonic 3 FR — 5 steps",
+            "language": "fr",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          }
+        ],
+        "selected": "auto",
+        "resolved": "matcha_zh_baker",
+        "bundle_root": "/storage/emulated/0/Android/data/ai.liquid.lfmdemo/files/tts-eval"
+      },
+      "captureStartSequence": 0,
+      "captureEndSequence": 8,
+      "capturedEvents": [
+        {
+          "sequence": 0,
+          "captured_wall_time": "2026-08-03T06:07:44.335Z",
+          "captured_performance_ms": 368027.30000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "ready",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762054.879416,
+            "details": {
+              "engine": "matcha_zh_baker",
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "engine_label": "Matcha ZH (baker)",
+              "engine_family": "matcha",
+              "threads": 1,
+              "requested_locale": "zh-CN",
+              "resolved_locale": "zh",
+              "sample_rate_hz": 22050,
+              "generation": 1785736896400001
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"ready\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762054.879416,\"details\":{\"engine\":\"matcha_zh_baker\",\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"engine_label\":\"Matcha ZH (baker)\",\"engine_family\":\"matcha\",\"threads\":1,\"requested_locale\":\"zh-CN\",\"resolved_locale\":\"zh\",\"sample_rate_hz\":22050,\"generation\":1785736896400001}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 1,
+          "captured_wall_time": "2026-08-03T06:07:44.338Z",
+          "captured_performance_ms": 368030.5,
+          "event": {
+            "schema_version": 1,
+            "type": "chunk_queued",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762058.294989,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785736896400001,
+              "character_count": 16,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "queue_mode": "flush",
+              "pending_utterances": 1
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"chunk_queued\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762058.294989,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"queue_mode\":\"flush\",\"pending_utterances\":1}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 2,
+          "captured_wall_time": "2026-08-03T06:07:44.338Z",
+          "captured_performance_ms": 368030.60000000056,
+          "event": {
+            "schema_version": 1,
+            "type": "queue_closed",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762058.452645,
+            "details": {
+              "pending_utterances": 1,
+              "chunks_queued": 1,
+              "generation": 1785736896400001
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"queue_closed\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762058.452645,\"details\":{\"pending_utterances\":1,\"chunks_queued\":1,\"generation\":1785736896400001}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 3,
+          "captured_wall_time": "2026-08-03T06:07:44.410Z",
+          "captured_performance_ms": 368102.2000000002,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_start",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762129.314781,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785736896400001,
+              "character_count": 16,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_start\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762129.314781,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\"}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 4,
+          "captured_wall_time": "2026-08-03T06:07:44.410Z",
+          "captured_performance_ms": 368102.30000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "first_audio_start_proxy",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762129.649937,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785736896400001,
+              "character_count": 16,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "proxy": "UtteranceProgressListener.onStart"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"first_audio_start_proxy\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762129.649937,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"proxy\":\"UtteranceProgressListener.onStart\"}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 5,
+          "captured_wall_time": "2026-08-03T06:07:44.526Z",
+          "captured_performance_ms": 368218.7000000002,
+          "event": {
+            "schema_version": 1,
+            "type": "engine_metrics",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762245.877437,
+            "details": {
+              "engine_id": "matcha_zh_baker",
+              "engine_family": "matcha",
+              "engine_generation": 1,
+              "generation_language": "zh",
+              "threads": 1,
+              "first_chunk_ms": 62,
+              "synthesis_ms": 186,
+              "audio_seconds": 4.35374149659864,
+              "rtf": 0.04272187499999999,
+              "dropped_chunks": 0,
+              "applied_gain_db": 4.201332234998498,
+              "sample_rate_hz": 22050,
+              "serialized_synthesis": true,
+              "pending_synthesis_tasks": 0,
+              "audio_track_started": true,
+              "audio_track_buffer_frames": 22050,
+              "audio_track_write_quantum_ms": 20,
+              "audio_track_zero_write_retries": 0,
+              "generation": 1785736896400001
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"engine_metrics\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762245.877437,\"details\":{\"engine_id\":\"matcha_zh_baker\",\"engine_family\":\"matcha\",\"engine_generation\":1,\"generation_language\":\"zh\",\"threads\":1,\"first_chunk_ms\":62,\"synthesis_ms\":186,\"audio_seconds\":4.35374149659864,\"rtf\":0.04272187499999999,\"dropped_chunks\":0,\"applied_gain_db\":4.201332234998498,\"sample_rate_hz\":22050,\"serialized_synthesis\":true,\"pending_synthesis_tasks\":0,\"audio_track_started\":true,\"audio_track_buffer_frames\":22050,\"audio_track_write_quantum_ms\":20,\"audio_track_zero_write_retries\":0,\"generation\":1785736896400001}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 6,
+          "captured_wall_time": "2026-08-03T06:07:48.737Z",
+          "captured_performance_ms": 372429.80000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_done",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5766456.548216,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785736896400001,
+              "character_count": 16,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "pending_utterances": 0,
+              "queue_closed": true
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_done\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5766456.548216,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"pending_utterances\":0,\"queue_closed\":true}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 7,
+          "captured_wall_time": "2026-08-03T06:07:48.737Z",
+          "captured_performance_ms": 372430,
+          "event": {
+            "schema_version": 1,
+            "type": "terminal",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5766456.900612,
+            "details": {
+              "status": "completed",
+              "pending_utterances": 0,
+              "chunks_queued": 1,
+              "generation": 1785736896400001,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"terminal\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5766456.900612,\"details\":{\"status\":\"completed\",\"pending_utterances\":0,\"chunks_queued\":1,\"generation\":1785736896400001,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\"}}",
+          "parse_error": null
+        }
+      ],
+      "events": [
+        {
+          "sequence": 0,
+          "captured_wall_time": "2026-08-03T06:07:44.335Z",
+          "captured_performance_ms": 368027.30000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "ready",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762054.879416,
+            "details": {
+              "engine": "matcha_zh_baker",
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "engine_label": "Matcha ZH (baker)",
+              "engine_family": "matcha",
+              "threads": 1,
+              "requested_locale": "zh-CN",
+              "resolved_locale": "zh",
+              "sample_rate_hz": 22050,
+              "generation": 1785736896400001
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"ready\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762054.879416,\"details\":{\"engine\":\"matcha_zh_baker\",\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"engine_label\":\"Matcha ZH (baker)\",\"engine_family\":\"matcha\",\"threads\":1,\"requested_locale\":\"zh-CN\",\"resolved_locale\":\"zh\",\"sample_rate_hz\":22050,\"generation\":1785736896400001}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 1,
+          "captured_wall_time": "2026-08-03T06:07:44.338Z",
+          "captured_performance_ms": 368030.5,
+          "event": {
+            "schema_version": 1,
+            "type": "chunk_queued",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762058.294989,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785736896400001,
+              "character_count": 16,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "queue_mode": "flush",
+              "pending_utterances": 1
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"chunk_queued\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762058.294989,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"queue_mode\":\"flush\",\"pending_utterances\":1}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 2,
+          "captured_wall_time": "2026-08-03T06:07:44.338Z",
+          "captured_performance_ms": 368030.60000000056,
+          "event": {
+            "schema_version": 1,
+            "type": "queue_closed",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762058.452645,
+            "details": {
+              "pending_utterances": 1,
+              "chunks_queued": 1,
+              "generation": 1785736896400001
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"queue_closed\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762058.452645,\"details\":{\"pending_utterances\":1,\"chunks_queued\":1,\"generation\":1785736896400001}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 3,
+          "captured_wall_time": "2026-08-03T06:07:44.410Z",
+          "captured_performance_ms": 368102.2000000002,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_start",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762129.314781,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785736896400001,
+              "character_count": 16,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_start\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762129.314781,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\"}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 4,
+          "captured_wall_time": "2026-08-03T06:07:44.410Z",
+          "captured_performance_ms": 368102.30000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "first_audio_start_proxy",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762129.649937,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785736896400001,
+              "character_count": 16,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "proxy": "UtteranceProgressListener.onStart"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"first_audio_start_proxy\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762129.649937,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"proxy\":\"UtteranceProgressListener.onStart\"}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 5,
+          "captured_wall_time": "2026-08-03T06:07:44.526Z",
+          "captured_performance_ms": 368218.7000000002,
+          "event": {
+            "schema_version": 1,
+            "type": "engine_metrics",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5762245.877437,
+            "details": {
+              "engine_id": "matcha_zh_baker",
+              "engine_family": "matcha",
+              "engine_generation": 1,
+              "generation_language": "zh",
+              "threads": 1,
+              "first_chunk_ms": 62,
+              "synthesis_ms": 186,
+              "audio_seconds": 4.35374149659864,
+              "rtf": 0.04272187499999999,
+              "dropped_chunks": 0,
+              "applied_gain_db": 4.201332234998498,
+              "sample_rate_hz": 22050,
+              "serialized_synthesis": true,
+              "pending_synthesis_tasks": 0,
+              "audio_track_started": true,
+              "audio_track_buffer_frames": 22050,
+              "audio_track_write_quantum_ms": 20,
+              "audio_track_zero_write_retries": 0,
+              "generation": 1785736896400001
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"engine_metrics\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5762245.877437,\"details\":{\"engine_id\":\"matcha_zh_baker\",\"engine_family\":\"matcha\",\"engine_generation\":1,\"generation_language\":\"zh\",\"threads\":1,\"first_chunk_ms\":62,\"synthesis_ms\":186,\"audio_seconds\":4.35374149659864,\"rtf\":0.04272187499999999,\"dropped_chunks\":0,\"applied_gain_db\":4.201332234998498,\"sample_rate_hz\":22050,\"serialized_synthesis\":true,\"pending_synthesis_tasks\":0,\"audio_track_started\":true,\"audio_track_buffer_frames\":22050,\"audio_track_write_quantum_ms\":20,\"audio_track_zero_write_retries\":0,\"generation\":1785736896400001}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 6,
+          "captured_wall_time": "2026-08-03T06:07:48.737Z",
+          "captured_performance_ms": 372429.80000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_done",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5766456.548216,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "zh-CN",
+              "generation": 1785736896400001,
+              "character_count": 16,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker",
+              "pending_utterances": 0,
+              "queue_closed": true
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_done\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5766456.548216,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"zh-CN\",\"generation\":1785736896400001,\"character_count\":16,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\",\"pending_utterances\":0,\"queue_closed\":true}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 7,
+          "captured_wall_time": "2026-08-03T06:07:48.737Z",
+          "captured_performance_ms": 372430,
+          "event": {
+            "schema_version": 1,
+            "type": "terminal",
+            "turn_id": "1785737263697-1",
+            "monotonic_ms": 5766456.900612,
+            "details": {
+              "status": "completed",
+              "pending_utterances": 0,
+              "chunks_queued": 1,
+              "generation": 1785736896400001,
+              "tts_policy": "auto",
+              "tts_engine_id": "matcha_zh_baker"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"terminal\",\"turn_id\":\"1785737263697-1\",\"monotonic_ms\":5766456.900612,\"details\":{\"status\":\"completed\",\"pending_utterances\":0,\"chunks_queued\":1,\"generation\":1785736896400001,\"tts_policy\":\"auto\",\"tts_engine_id\":\"matcha_zh_baker\"}}",
+          "parse_error": null
+        }
+      ],
+      "thrown": null,
+      "originalHandlerErrors": [],
+      "elapsedMs": 5153.5999999996275,
+      "finishedAt": "2026-08-03T06:07:48.743Z",
+      "expectations": {
+        "policy": "auto",
+        "engine": "matcha_zh_baker",
+        "enginePackage": null,
+        "requestedLocale": null,
+        "resolvedLocale": null,
+        "terminalStatus": "completed"
+      },
+      "acceptance": {
+        "assertions": {
+          "driverCompletedWithoutError": true,
+          "driverVerifiedTerminal": true,
+          "driverCleanupComplete": true,
+          "policyAccepted": true,
+          "capturedEventsParseClean": true,
+          "capturedEventsBelongToCaseTurn": true,
+          "eventSchemaValid": true,
+          "originalHandlerStayedHealthy": true,
+          "readySeenExactlyOnce": true,
+          "expectedPolicyResolved": true,
+          "expectedEngineResolved": true,
+          "catalogReportsResolvedEngine": true,
+          "generationFieldsPresent": true,
+          "generationConsistent": true,
+          "noNativeErrorEvent": true,
+          "terminalSeenExactlyOnce": true,
+          "expectedTerminalStatus": true,
+          "terminalAfterReady": true,
+          "engineMetricsSeen": true,
+          "engineMetricsEngineMatched": true,
+          "engineMetricsGenerationMatched": true,
+          "allChunksAcknowledged": true,
+          "allChunksStarted": true,
+          "allChunksDone": true,
+          "queuedInOrder": true,
+          "startedInOrder": true,
+          "doneInOrder": true,
+          "queueClosedExactlyOnce": true,
+          "perChunkLifecycleOrdered": true,
+          "queueClosedAfterAllAcks": true,
+          "terminalAfterQueueClosedAndAllDone": true
+        },
+        "allPassed": true,
+        "observed": {
+          "readyEngine": "matcha_zh_baker",
+          "readyPolicy": "auto",
+          "readyRequestedLocale": "zh-CN",
+          "readyResolvedLocale": "zh",
+          "generationLanguages": [
+            "zh"
+          ],
+          "engineMetricEngineIds": [
+            "matcha_zh_baker"
+          ],
+          "terminalStatus": "completed",
+          "eventTypes": [
+            "ready",
+            "chunk_queued",
+            "queue_closed",
+            "utterance_start",
+            "first_audio_start_proxy",
+            "engine_metrics",
+            "utterance_done",
+            "terminal"
+          ],
+          "queuedChunkIds": [
+            "chunk-0"
+          ],
+          "startedChunkIds": [
+            "chunk-0"
+          ],
+          "doneChunkIds": [
+            "chunk-0"
+          ],
+          "lateDoneCount": 0,
+          "lateStartCount": 0,
+          "captureStartSequence": 0,
+          "captureEndSequence": 8
+        }
+      }
+    },
+    {
+      "name": "auto_ru_supertonic",
+      "policy": "auto",
+      "locale": "ru-RU",
+      "behavior": "complete",
+      "startedAt": "2026-08-03T06:07:49.262Z",
+      "turnId": "1785737269370-2",
+      "generation": 1785736896400002,
+      "driver": {
+        "setPolicyAccepted": true,
+        "queueDispatchSpanMs": 0.39999999944120646,
+        "cancelIssuedSequence": null,
+        "cancelIssuedPerformanceMs": null,
+        "cancellationTrigger": null,
+        "startCapturedPerformanceMs": null,
+        "postStartHoldMs": null,
+        "terminalVerified": true,
+        "cleanupIncomplete": false
+      },
+      "catalogBefore": {
+        "engines": [
+          {
+            "id": "auto",
+            "label": "Automatic by language",
+            "language": "any",
+            "family": "language-aware routing",
+            "available": true,
+            "notes": "Mandarin uses Matcha Baker; Japanese, Korean, Russian, Spanish, and French use the same Supertonic 3 graphs at five steps; other languages use offline eSpeak."
+          },
+          {
+            "id": "system",
+            "label": "Offline eSpeak NG (control)",
+            "language": "any",
+            "family": "formant synthesis",
+            "available": true,
+            "notes": "Offline and instant, but measured at 55% CER in Mandarin and 62% WER in Russian. Retained as the control."
+          },
+          {
+            "id": "matcha_zh_baker",
+            "label": "Matcha ZH (baker)",
+            "language": "zh",
+            "family": "matcha",
+            "threads": 1,
+            "steps": 0,
+            "available": true,
+            "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+          },
+          {
+            "id": "supertonic3_en_s5",
+            "label": "Supertonic 3 EN — 5 steps",
+            "language": "en",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+          },
+          {
+            "id": "supertonic3_s5",
+            "label": "Supertonic 3 RU — 5 steps",
+            "language": "ru",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+          },
+          {
+            "id": "supertonic3_es_s5",
+            "label": "Supertonic 3 ES — 5 steps",
+            "language": "es",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          },
+          {
+            "id": "supertonic3_fr_s5",
+            "label": "Supertonic 3 FR — 5 steps",
+            "language": "fr",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          }
+        ],
+        "selected": "auto",
+        "resolved": "matcha_zh_baker",
+        "bundle_root": "/storage/emulated/0/Android/data/ai.liquid.lfmdemo/files/tts-eval"
+      },
+      "catalogAfterReady": {
+        "engines": [
+          {
+            "id": "auto",
+            "label": "Automatic by language",
+            "language": "any",
+            "family": "language-aware routing",
+            "available": true,
+            "notes": "Mandarin uses Matcha Baker; Japanese, Korean, Russian, Spanish, and French use the same Supertonic 3 graphs at five steps; other languages use offline eSpeak."
+          },
+          {
+            "id": "system",
+            "label": "Offline eSpeak NG (control)",
+            "language": "any",
+            "family": "formant synthesis",
+            "available": true,
+            "notes": "Offline and instant, but measured at 55% CER in Mandarin and 62% WER in Russian. Retained as the control."
+          },
+          {
+            "id": "matcha_zh_baker",
+            "label": "Matcha ZH (baker)",
+            "language": "zh",
+            "family": "matcha",
+            "threads": 1,
+            "steps": 0,
+            "available": true,
+            "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+          },
+          {
+            "id": "supertonic3_en_s5",
+            "label": "Supertonic 3 EN — 5 steps",
+            "language": "en",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+          },
+          {
+            "id": "supertonic3_s5",
+            "label": "Supertonic 3 RU — 5 steps",
+            "language": "ru",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+          },
+          {
+            "id": "supertonic3_es_s5",
+            "label": "Supertonic 3 ES — 5 steps",
+            "language": "es",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          },
+          {
+            "id": "supertonic3_fr_s5",
+            "label": "Supertonic 3 FR — 5 steps",
+            "language": "fr",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          }
+        ],
+        "selected": "auto",
+        "resolved": "supertonic3_s5",
+        "bundle_root": "/storage/emulated/0/Android/data/ai.liquid.lfmdemo/files/tts-eval"
+      },
+      "catalogAfter": {
+        "engines": [
+          {
+            "id": "auto",
+            "label": "Automatic by language",
+            "language": "any",
+            "family": "language-aware routing",
+            "available": true,
+            "notes": "Mandarin uses Matcha Baker; Japanese, Korean, Russian, Spanish, and French use the same Supertonic 3 graphs at five steps; other languages use offline eSpeak."
+          },
+          {
+            "id": "system",
+            "label": "Offline eSpeak NG (control)",
+            "language": "any",
+            "family": "formant synthesis",
+            "available": true,
+            "notes": "Offline and instant, but measured at 55% CER in Mandarin and 62% WER in Russian. Retained as the control."
+          },
+          {
+            "id": "matcha_zh_baker",
+            "label": "Matcha ZH (baker)",
+            "language": "zh",
+            "family": "matcha",
+            "threads": 1,
+            "steps": 0,
+            "available": true,
+            "notes": "Host winner on every measured gate. Corpus is non-commercial only."
+          },
+          {
+            "id": "supertonic3_en_s5",
+            "label": "Supertonic 3 EN — 5 steps",
+            "language": "en",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D1 point estimate -8.9 pp WER; D3 6/6 short-input safe. Phone timing required."
+          },
+          {
+            "id": "supertonic3_s5",
+            "label": "Supertonic 3 RU — 5 steps",
+            "language": "ru",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: first chunk 0.529 s P95, WER 1.7% — recommended"
+          },
+          {
+            "id": "supertonic3_es_s5",
+            "label": "Supertonic 3 ES — 5 steps",
+            "language": "es",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          },
+          {
+            "id": "supertonic3_fr_s5",
+            "label": "Supertonic 3 FR — 5 steps",
+            "language": "fr",
+            "family": "supertonic",
+            "threads": 4,
+            "steps": 5,
+            "available": true,
+            "notes": "host: Lane D D3 6/6 short-input safe; Lane F F3 re-verified against PcmGate. Not phone-timed."
+          }
+        ],
+        "selected": "auto",
+        "resolved": "supertonic3_s5",
+        "bundle_root": "/storage/emulated/0/Android/data/ai.liquid.lfmdemo/files/tts-eval"
+      },
+      "captureStartSequence": 8,
+      "captureEndSequence": 16,
+      "capturedEvents": [
+        {
+          "sequence": 8,
+          "captured_wall_time": "2026-08-03T06:07:49.760Z",
+          "captured_performance_ms": 373452.30000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "ready",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5767479.717956,
+            "details": {
+              "engine": "supertonic3_s5",
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5",
+              "engine_label": "Supertonic 3 RU — 5 steps",
+              "engine_family": "supertonic",
+              "threads": 4,
+              "requested_locale": "ru-RU",
+              "resolved_locale": "ru",
+              "sample_rate_hz": 44100,
+              "generation": 1785736896400002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"ready\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767479.717956,\"details\":{\"engine\":\"supertonic3_s5\",\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"engine_label\":\"Supertonic 3 RU — 5 steps\",\"engine_family\":\"supertonic\",\"threads\":4,\"requested_locale\":\"ru-RU\",\"resolved_locale\":\"ru\",\"sample_rate_hz\":44100,\"generation\":1785736896400002}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 9,
+          "captured_wall_time": "2026-08-03T06:07:49.765Z",
+          "captured_performance_ms": 373457.7000000002,
+          "event": {
+            "schema_version": 1,
+            "type": "chunk_queued",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5767484.967851,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785736896400002,
+              "character_count": 41,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5",
+              "queue_mode": "flush",
+              "pending_utterances": 1
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"chunk_queued\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767484.967851,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"queue_mode\":\"flush\",\"pending_utterances\":1}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 10,
+          "captured_wall_time": "2026-08-03T06:07:49.765Z",
+          "captured_performance_ms": 373457.9000000004,
+          "event": {
+            "schema_version": 1,
+            "type": "queue_closed",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5767485.306028,
+            "details": {
+              "pending_utterances": 1,
+              "chunks_queued": 1,
+              "generation": 1785736896400002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"queue_closed\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767485.306028,\"details\":{\"pending_utterances\":1,\"chunks_queued\":1,\"generation\":1785736896400002}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 11,
+          "captured_wall_time": "2026-08-03T06:07:50.512Z",
+          "captured_performance_ms": 374204.7000000002,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_start",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5768232.128112,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785736896400002,
+              "character_count": 41,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_start\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.128112,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\"}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 12,
+          "captured_wall_time": "2026-08-03T06:07:50.512Z",
+          "captured_performance_ms": 374204.80000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "first_audio_start_proxy",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5768232.229674,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785736896400002,
+              "character_count": 41,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5",
+              "proxy": "UtteranceProgressListener.onStart"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"first_audio_start_proxy\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.229674,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"proxy\":\"UtteranceProgressListener.onStart\"}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 13,
+          "captured_wall_time": "2026-08-03T06:07:50.512Z",
+          "captured_performance_ms": 374204.9000000004,
+          "event": {
+            "schema_version": 1,
+            "type": "engine_metrics",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5768232.376497,
+            "details": {
+              "engine_id": "supertonic3_s5",
+              "engine_family": "supertonic",
+              "engine_generation": 1,
+              "generation_language": "ru",
+              "threads": 4,
+              "first_chunk_ms": 743,
+              "synthesis_ms": 748,
+              "audio_seconds": 3.234172335600907,
+              "rtf": 0.2312801923899402,
+              "dropped_chunks": 0,
+              "applied_gain_db": 5.2834862629982755,
+              "sample_rate_hz": 44100,
+              "serialized_synthesis": true,
+              "pending_synthesis_tasks": 0,
+              "audio_track_started": false,
+              "audio_track_buffer_frames": 44100,
+              "audio_track_write_quantum_ms": 20,
+              "audio_track_zero_write_retries": 0,
+              "generation": 1785736896400002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"engine_metrics\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.376497,\"details\":{\"engine_id\":\"supertonic3_s5\",\"engine_family\":\"supertonic\",\"engine_generation\":1,\"generation_language\":\"ru\",\"threads\":4,\"first_chunk_ms\":743,\"synthesis_ms\":748,\"audio_seconds\":3.234172335600907,\"rtf\":0.2312801923899402,\"dropped_chunks\":0,\"applied_gain_db\":5.2834862629982755,\"sample_rate_hz\":44100,\"serialized_synthesis\":true,\"pending_synthesis_tasks\":0,\"audio_track_started\":false,\"audio_track_buffer_frames\":44100,\"audio_track_write_quantum_ms\":20,\"audio_track_zero_write_retries\":0,\"generation\":1785736896400002}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 14,
+          "captured_wall_time": "2026-08-03T06:07:53.777Z",
+          "captured_performance_ms": 377469.5,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_done",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5771495.310246,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785736896400002,
+              "character_count": 41,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5",
+              "pending_utterances": 0,
+              "queue_closed": true
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_done\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5771495.310246,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"pending_utterances\":0,\"queue_closed\":true}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 15,
+          "captured_wall_time": "2026-08-03T06:07:53.777Z",
+          "captured_performance_ms": 377470,
+          "event": {
+            "schema_version": 1,
+            "type": "terminal",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5771495.782069,
+            "details": {
+              "status": "completed",
+              "pending_utterances": 0,
+              "chunks_queued": 1,
+              "generation": 1785736896400002,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"terminal\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5771495.782069,\"details\":{\"status\":\"completed\",\"pending_utterances\":0,\"chunks_queued\":1,\"generation\":1785736896400002,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\"}}",
+          "parse_error": null
+        }
+      ],
+      "events": [
+        {
+          "sequence": 8,
+          "captured_wall_time": "2026-08-03T06:07:49.760Z",
+          "captured_performance_ms": 373452.30000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "ready",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5767479.717956,
+            "details": {
+              "engine": "supertonic3_s5",
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5",
+              "engine_label": "Supertonic 3 RU — 5 steps",
+              "engine_family": "supertonic",
+              "threads": 4,
+              "requested_locale": "ru-RU",
+              "resolved_locale": "ru",
+              "sample_rate_hz": 44100,
+              "generation": 1785736896400002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"ready\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767479.717956,\"details\":{\"engine\":\"supertonic3_s5\",\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"engine_label\":\"Supertonic 3 RU — 5 steps\",\"engine_family\":\"supertonic\",\"threads\":4,\"requested_locale\":\"ru-RU\",\"resolved_locale\":\"ru\",\"sample_rate_hz\":44100,\"generation\":1785736896400002}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 9,
+          "captured_wall_time": "2026-08-03T06:07:49.765Z",
+          "captured_performance_ms": 373457.7000000002,
+          "event": {
+            "schema_version": 1,
+            "type": "chunk_queued",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5767484.967851,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785736896400002,
+              "character_count": 41,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5",
+              "queue_mode": "flush",
+              "pending_utterances": 1
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"chunk_queued\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767484.967851,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"queue_mode\":\"flush\",\"pending_utterances\":1}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 10,
+          "captured_wall_time": "2026-08-03T06:07:49.765Z",
+          "captured_performance_ms": 373457.9000000004,
+          "event": {
+            "schema_version": 1,
+            "type": "queue_closed",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5767485.306028,
+            "details": {
+              "pending_utterances": 1,
+              "chunks_queued": 1,
+              "generation": 1785736896400002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"queue_closed\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5767485.306028,\"details\":{\"pending_utterances\":1,\"chunks_queued\":1,\"generation\":1785736896400002}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 11,
+          "captured_wall_time": "2026-08-03T06:07:50.512Z",
+          "captured_performance_ms": 374204.7000000002,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_start",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5768232.128112,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785736896400002,
+              "character_count": 41,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_start\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.128112,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\"}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 12,
+          "captured_wall_time": "2026-08-03T06:07:50.512Z",
+          "captured_performance_ms": 374204.80000000075,
+          "event": {
+            "schema_version": 1,
+            "type": "first_audio_start_proxy",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5768232.229674,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785736896400002,
+              "character_count": 41,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5",
+              "proxy": "UtteranceProgressListener.onStart"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"first_audio_start_proxy\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.229674,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"proxy\":\"UtteranceProgressListener.onStart\"}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 13,
+          "captured_wall_time": "2026-08-03T06:07:50.512Z",
+          "captured_performance_ms": 374204.9000000004,
+          "event": {
+            "schema_version": 1,
+            "type": "engine_metrics",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5768232.376497,
+            "details": {
+              "engine_id": "supertonic3_s5",
+              "engine_family": "supertonic",
+              "engine_generation": 1,
+              "generation_language": "ru",
+              "threads": 4,
+              "first_chunk_ms": 743,
+              "synthesis_ms": 748,
+              "audio_seconds": 3.234172335600907,
+              "rtf": 0.2312801923899402,
+              "dropped_chunks": 0,
+              "applied_gain_db": 5.2834862629982755,
+              "sample_rate_hz": 44100,
+              "serialized_synthesis": true,
+              "pending_synthesis_tasks": 0,
+              "audio_track_started": false,
+              "audio_track_buffer_frames": 44100,
+              "audio_track_write_quantum_ms": 20,
+              "audio_track_zero_write_retries": 0,
+              "generation": 1785736896400002
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"engine_metrics\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5768232.376497,\"details\":{\"engine_id\":\"supertonic3_s5\",\"engine_family\":\"supertonic\",\"engine_generation\":1,\"generation_language\":\"ru\",\"threads\":4,\"first_chunk_ms\":743,\"synthesis_ms\":748,\"audio_seconds\":3.234172335600907,\"rtf\":0.2312801923899402,\"dropped_chunks\":0,\"applied_gain_db\":5.2834862629982755,\"sample_rate_hz\":44100,\"serialized_synthesis\":true,\"pending_synthesis_tasks\":0,\"audio_track_started\":false,\"audio_track_buffer_frames\":44100,\"audio_track_write_quantum_ms\":20,\"audio_track_zero_write_retries\":0,\"generation\":1785736896400002}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 14,
+          "captured_wall_time": "2026-08-03T06:07:53.777Z",
+          "captured_performance_ms": 377469.5,
+          "event": {
+            "schema_version": 1,
+            "type": "utterance_done",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5771495.310246,
+            "details": {
+              "chunk_id": "chunk-0",
+              "chunk_index": 0,
+              "locale": "ru-RU",
+              "generation": 1785736896400002,
+              "character_count": 41,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5",
+              "pending_utterances": 0,
+              "queue_closed": true
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"utterance_done\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5771495.310246,\"details\":{\"chunk_id\":\"chunk-0\",\"chunk_index\":0,\"locale\":\"ru-RU\",\"generation\":1785736896400002,\"character_count\":41,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\",\"pending_utterances\":0,\"queue_closed\":true}}",
+          "parse_error": null
+        },
+        {
+          "sequence": 15,
+          "captured_wall_time": "2026-08-03T06:07:53.777Z",
+          "captured_performance_ms": 377470,
+          "event": {
+            "schema_version": 1,
+            "type": "terminal",
+            "turn_id": "1785737269370-2",
+            "monotonic_ms": 5771495.782069,
+            "details": {
+              "status": "completed",
+              "pending_utterances": 0,
+              "chunks_queued": 1,
+              "generation": 1785736896400002,
+              "tts_policy": "auto",
+              "tts_engine_id": "supertonic3_s5"
+            }
+          },
+          "raw": "{\"schema_version\":1,\"type\":\"terminal\",\"turn_id\":\"1785737269370-2\",\"monotonic_ms\":5771495.782069,\"details\":{\"status\":\"completed\",\"pending_utterances\":0,\"chunks_queued\":1,\"generation\":1785736896400002,\"tts_policy\":\"auto\",\"tts_engine_id\":\"supertonic3_s5\"}}",
+          "parse_error": null
+        }
+      ],
+      "thrown": null,
+      "originalHandlerErrors": [],
+      "elapsedMs": 4523,
+      "finishedAt": "2026-08-03T06:07:53.785Z",
+      "expectations": {
+        "policy": "auto",
+        "engine": "supertonic3_s5",
+        "enginePackage": null,
+        "requestedLocale": "ru-RU",
+        "resolvedLocale": "ru",
+        "terminalStatus": "completed"
+      },
+      "acceptance": {
+        "assertions": {
+          "driverCompletedWithoutError": true,
+          "driverVerifiedTerminal": true,
+          "driverCleanupComplete": true,
+          "policyAccepted": true,
+          "capturedEventsParseClean": true,
+          "capturedEventsBelongToCaseTurn": true,
+          "eventSchemaValid": true,
+          "originalHandlerStayedHealthy": true,
+          "readySeenExactlyOnce": true,
+          "expectedPolicyResolved": true,
+          "expectedEngineResolved": true,
+          "catalogReportsResolvedEngine": true,
+          "generationFieldsPresent": true,
+          "generationConsistent": true,
+          "noNativeErrorEvent": true,
+          "terminalSeenExactlyOnce": true,
+          "expectedTerminalStatus": true,
+          "terminalAfterReady": true,
+          "expectedRequestedLocale": true,
+          "expectedResolvedLocale": true,
+          "engineMetricsSeen": true,
+          "engineMetricsEngineMatched": true,
+          "expectedGenerationLanguage": true,
+          "engineMetricsGenerationMatched": true,
+          "engineMetricsFirstChunkWithinLimit": true,
+          "engineMetricsRtfWithinLimit": true,
+          "engineMetricsDroppedChunksWithinLimit": true,
+          "allChunksAcknowledged": true,
+          "allChunksStarted": true,
+          "allChunksDone": true,
+          "queuedInOrder": true,
+          "startedInOrder": true,
+          "doneInOrder": true,
+          "queueClosedExactlyOnce": true,
+          "perChunkLifecycleOrdered": true,
+          "queueClosedAfterAllAcks": true,
+          "terminalAfterQueueClosedAndAllDone": true
+        },
+        "allPassed": true,
+        "observed": {
+          "readyEngine": "supertonic3_s5",
+          "readyPolicy": "auto",
+          "readyRequestedLocale": "ru-RU",
+          "readyResolvedLocale": "ru",
+          "generationLanguages": [
+            "ru"
+          ],
+          "engineMetricEngineIds": [
+            "supertonic3_s5"
+          ],
+          "terminalStatus": "completed",
+          "eventTypes": [
+            "ready",
+            "chunk_queued",
+            "queue_closed",
+            "utterance_start",
+            "first_audio_start_proxy",
+            "engine_metrics",
+            "utterance_done",
+            "terminal"
+          ],
+          "queuedChunkIds": [
+            "chunk-0"
+          ],
+          "startedChunkIds": [
+            "chunk-0"
+          ],
+          "doneChunkIds": [
+            "chunk-0"
+          ],
+          "lateDoneCount": 0,
+          "lateStartCount": 0,
+          "captureStartSequence": 8,
+          "captureEndSequence": 16
+        }
+      }
+    }
+  ],
+  "cleanup": {
+    "activeTurnPresent": false,
+    "activeTurnCancelled": false,
+    "activeTurnTerminalVerified": null,
+    "coordinatorRepaired": null,
+    "policyRestoreAccepted": true,
+    "handlerRestored": true,
+    "originalHandlerErrors": []
+  },
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "caseAssertionsPassed": true,
+    "eventCapturePassed": true,
+    "cleanupPassed": true,
+    "operationalFailure": false,
+    "allPassed": true,
+    "failedCases": []
+  },
+  "failure": null,
+  "finishedAt": "2026-08-03T06:07:45.331Z"
+}

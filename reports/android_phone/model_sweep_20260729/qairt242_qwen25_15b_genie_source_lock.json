@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "profile_id": "qwen2_5_1_5b_instruct_q4_k_m",
+  "source": {
+    "repository": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+    "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/91cad51170dc346986eccefdc2dd33a9da36ead9/qwen2.5-1.5b-instruct-q4_k_m.gguf?download=true",
+    "bytes": 1117320736,
+    "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+  },
+  "approval": {
+    "status": "approved_from_existing_workspace_lock",
+    "approved_for_conversion": true,
+    "approved_utc": "2026-07-30T00:00:00Z",
+    "approved_by": "reports/android_phone/streaming_response/model_candidate_followup/candidate_manifest.json",
+    "evidence_sha256": "3771fe213abdd3937bb73ab71bb4d7987c275f7751901c11bd68b9deecab785c",
+    "evidence_note": "The existing candidate manifest pins the official repository, immutable revision, byte size, and SHA-256. The local cached file was independently rehashed to the same SHA-256 before this lock was committed."
+  }
+}

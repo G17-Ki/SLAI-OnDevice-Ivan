@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "milestone": "demo1_five_language_model_provisioning",
+  "created_at": "2026-08-03T05:27:42+08:00",
+  "branch": "sprint/overnight",
+  "device": {
+    "model": "NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "airplane_mode_on": true,
+    "adb_forwards": []
+  },
+  "tts": {
+    "candidate_count": 5,
+    "candidate_ids": [
+      "matcha_zh_baker",
+      "supertonic3_en_s5",
+      "supertonic3_es_s5",
+      "supertonic3_fr_s5",
+      "supertonic3_s5"
+    ],
+    "authenticated_referenced_files": 22,
+    "metadata_files": 3,
+    "installed_physical_files": 25,
+    "installed_known_mib": 277.3,
+    "verification": "PASS_READ_ONLY_AFTER_REPLACEMENT",
+    "source_manifest_sha256": "67ffedc475464216d64143c8c15332ea82398170fe11f66b91da3eb9051a3384",
+    "source_candidates_sha256": "7b781a3612f3b381be3e81273370464a4ef0df421b533dfd4dc66bd75c5cdf05"
+  },
+  "parakeet_esfr": {
+    "provider": "cpu",
+    "qnn_context_files": [],
+    "qualcomm_runtime_files": [],
+    "files": [
+      {
+        "path": "files/asr/models/parakeet/encoder.int8.onnx",
+        "bytes": 652184281,
+        "sha256": "acfc2b4456377e15d04f0243af540b7fe7c992f8d898d751cf134c3a55fd2247"
+      },
+      {
+        "path": "files/asr/models/parakeet/decoder.int8.onnx",
+        "bytes": 11845275,
+        "sha256": "179e50c43d1a9de79c8a24149a2f9bac6eb5981823f2a2ed88d655b24248db4e"
+      },
+      {
+        "path": "files/asr/models/parakeet/joiner.int8.onnx",
+        "bytes": 6355277,
+        "sha256": "3164c13fc2821009440d20fcb5fdc78bff28b4db2f8d0f0b329101719c0948b3"
+      },
+      {
+        "path": "files/asr/models/parakeet/tokens.txt",
+        "bytes": 93939,
+        "sha256": "d58544679ea4bc6ac563d1f545eb7d474bd6cfa467f0a6e2c1dc1c7d37e3c35d"
+      },
+      {
+        "path": "files/asr/models/parakeet/installed_esfr_payload.psv",
+        "bytes": 3566,
+        "sha256": "f0ec37c6207ccc47e1c14422288d6eaa550655340a679ae530106f01fdc43183"
+      }
+    ],
+    "learned_parameters": 627057286,
+    "conservative_export_elements": 637225053,
+    "payload_rows": 16,
+    "all_rows_host_stage_private_and_final_hash_verified": true,
+    "partial_incoming_files": [],
+    "source_payload_sha256": "f0ec37c6207ccc47e1c14422288d6eaa550655340a679ae530106f01fdc43183",
+    "expected_transcripts_source_sha256": "6d282ff8b612d1fa25af3dfd6a4457babad131e016224e59b979359b2d6c1ecc"
+  },
+  "installer_observation": {
+    "lane_f_installer_result": "STOPPED_DURING_READ_ONLY_PREFLIGHT",
+    "reason": "Its adb exec-out toybox sha256sum stdin path consumed the entire 652 MB encoder but did not deliver remote EOF, so the remote hash never returned.",
+    "phone_writes_before_stop": false,
+    "recovery": "Ran the same pinned 16-row payload directly: host size/hash, adb-pushed staging size/hash, private .incoming size/hash, atomic rename, and final private hash for every row.",
+    "framework_added": false
+  },
+  "parameter_target": {
+    "strict_cap": 2000000000,
+    "intentionally_overcounting_target_learned": 1824062690,
+    "intentionally_overcounting_target_conservative": 1834513983,
+    "note": "The target bound includes an absent unreferenced Vocos 24 kHz row. The final complete physical inventory is expected to be lower."
+  },
+  "acceptance_status": "FIVE_LANGUAGE_MODELS_PROVISIONED_AND_HASH_VERIFIED",
+  "pending": [
+    "Cold reboot and execute one complete EN, ZH, ES, FR, and RU turn.",
+    "Run ES/FR exact-transcript verification after EN and RU establish current-process health.",
+    "Capture the complete final installed inventory and physical under-2B arithmetic."
+  ],
+  "evidence": {
+    "phone_listing_and_hashes": "652184281\tacfc2b4456377e15d04f0243af540b7fe7c992f8d898d751cf134c3a55fd2247\tfiles/asr/models/parakeet/encoder.int8.onnx\n11845275\t179e50c43d1a9de79c8a24149a2f9bac6eb5981823f2a2ed88d655b24248db4e\tfiles/asr/models/parakeet/decoder.int8.onnx\n6355277\t3164c13fc2821009440d20fcb5fdc78bff28b4db2f8d0f0b329101719c0948b3\tfiles/asr/models/parakeet/joiner.int8.onnx\n93939\td58544679ea4bc6ac563d1f545eb7d474bd6cfa467f0a6e2c1dc1c7d37e3c35d\tfiles/asr/models/parakeet/tokens.txt\n3566\tf0ec37c6207ccc47e1c14422288d6eaa550655340a679ae530106f01fdc43183\tfiles/asr/models/parakeet/installed_esfr_payload.psv\n[forwards]\n<none>\n[incoming]\n<none>\n",
+    "tts_verify_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/tts_verify.txt"
+  },
+  "limits": [
+    "Provisioning identity is not end-to-end execution proof.",
+    "Parakeet is CPU-only; no ES/FR NPU claim is made.",
+    "Licences are recorded but do not gate this research demo."
+  ]
+}

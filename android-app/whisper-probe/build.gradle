@@ -1,0 +1,275 @@
+plugins {
+    id "com.android.application"
+}
+
+import groovy.json.JsonSlurper
+import java.security.MessageDigest
+
+def payloadRootValue = System.getenv("WHISPER_PROBE_PAYLOAD_DIR")
+def payloadRoot = payloadRootValue ? file(payloadRootValue) : null
+def frontendRootValue = System.getenv("WHISPER_FRONTEND_ASSET_DIR")
+def frontendRoot = frontendRootValue ? file(frontendRootValue) : null
+def frontendProfile = System.getenv("WHISPER_FRONTEND_PROFILE") ?: "v1"
+def frontendProfiles = [
+        v1: [
+                languages: ["en", "ja"],
+                assetRoot: "whisper_frontend/v1",
+                manifestSha256: "aea54e5c751f9a2b489c709e5ca149db7c39cbdabea3ed4675483c00e236693f",
+                gateId: "whisper_qai_hf_bundled_wav_frontend_v1",
+        ],
+        v2: [
+                languages: ["en", "zh", "ru", "ko", "ja"],
+                assetRoot: "whisper_frontend/v2",
+                manifestSha256: "acb5c46f3bbbe3c11620bd662242157b30695500c1a0e8b6e7510acdc3157736",
+                gateId: "whisper_qai_hf_bundled_wav_frontend_multilang_v2",
+        ],
+]
+if (!frontendProfiles.containsKey(frontendProfile)) {
+    throw new GradleException("WHISPER_FRONTEND_PROFILE must be exactly v1 or v2")
+}
+def frontendContract = frontendProfiles[frontendProfile]
+def semanticDecodeFlag = System.getenv("WHISPER_SEMANTIC_DECODE_ENABLED") ?: "false"
+if (!(semanticDecodeFlag in ["true", "false"])) {
+    throw new GradleException(
+            "WHISPER_SEMANTIC_DECODE_ENABLED must be exactly true or false"
+    )
+}
+def semanticDecodeEnabled = semanticDecodeFlag == "true"
+def semanticLanguage = System.getenv("WHISPER_SEMANTIC_LANGUAGE") ?: "en"
+if (!(semanticLanguage in frontendContract.languages)) {
+    throw new GradleException(
+            "WHISPER_SEMANTIC_LANGUAGE ${semanticLanguage} is unavailable for "
+                    + "WHISPER_FRONTEND_PROFILE=${frontendProfile}; expected one of "
+                    + frontendContract.languages.join(",")
+    )
+}
+def stagedOrtAar = payloadRoot ? new File(payloadRoot, "aar/onnxruntime-android-qnn-1.25.0.aar") : null
+def defaultOrtAar = new File(
+        System.getProperty("user.home"),
+        ".cache/lmf-demo/whisper-small-v0.58.0/onnxruntime-android-qnn-1.25.0.aar"
+)
+def ortAar = file(System.getenv("WHISPER_PROBE_ORT_AAR") ?: (stagedOrtAar ?: defaultOrtAar))
+def expectedOrtSha256 = "397277c3e50326f5972409ca42ab5b4e69172b218557923630d68e55b11d6198"
+def expectedFrontendManifestSha256 = frontendContract.manifestSha256
+def sdkRootValue = System.getenv("ANDROID_SDK_ROOT") ?: System.getenv("ANDROID_HOME")
+def ndkRevision = "27.0.12077973"
+def ndkRoot = sdkRootValue ? file("${sdkRootValue}/ndk/${ndkRevision}") : null
+def ndkHostTag = "darwin-x86_64"
+def frontendCompiler = ndkRoot
+        ? new File(ndkRoot, "toolchains/llvm/prebuilt/${ndkHostTag}/bin/aarch64-linux-android28-clang")
+        : null
+def frontendNativeRoot = layout.buildDirectory.dir("generated/whisperFrontendJni")
+def frontendNativeOutput = frontendNativeRoot.map {
+    new File(it.asFile, "arm64-v8a")
+}
+
+android {
+    namespace "ai.liquid.lfmdemo.whisperprobe"
+    compileSdk 35
+    ndkVersion ndkRevision
+
+    defaultConfig {
+        applicationId "ai.liquid.lfmdemo.whisperprobe"
+        minSdk 28
+        targetSdk 35
+        versionCode 1
+        versionName "0.1.0-ort-qnn-probe"
+        ndk {
+            abiFilters "arm64-v8a"
+        }
+        buildConfigField "boolean", "WHISPER_PAYLOAD_EMBEDDED", payloadRoot ? "true" : "false"
+        buildConfigField "boolean", "WHISPER_FRONTEND_FIXTURES_EMBEDDED", frontendRoot ? "true" : "false"
+        buildConfigField "boolean", "WHISPER_SEMANTIC_DECODE_ENABLED", semanticDecodeEnabled ? "true" : "false"
+        buildConfigField "String", "WHISPER_SEMANTIC_LANGUAGE", "\"${semanticLanguage}\""
+        buildConfigField "String", "WHISPER_FRONTEND_PROFILE", "\"${frontendProfile}\""
+        buildConfigField "String", "WHISPER_FRONTEND_ASSET_ROOT", "\"${frontendContract.assetRoot}\""
+        buildConfigField "String", "WHISPER_FRONTEND_GATE_ID", "\"${frontendContract.gateId}\""
+        buildConfigField "String", "WHISPER_FRONTEND_MANIFEST_SHA256", "\"${frontendContract.manifestSha256}\""
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    sourceSets {
+        main {
+            if (payloadRoot) {
+                assets.srcDir new File(payloadRoot, "assets")
+                jniLibs.srcDir new File(payloadRoot, "jniLibs")
+            }
+            if (frontendRoot) {
+                assets.srcDir new File(frontendRoot, "assets")
+            }
+            jniLibs.srcDir frontendNativeRoot
+        }
+    }
+
+    androidResources {
+        noCompress "onnx", "bin", "json", "u16le"
+    }
+
+    packaging {
+        jniLibs {
+            // The QNN DSP skeleton is a Hexagon ELF carried beside the arm64
+            // host libraries so FastRPC can find it through ADSP_LIBRARY_PATH.
+            useLegacyPackaging = true
+            keepDebugSymbols += ["**/*.so"]
+        }
+    }
+
+    lint {
+        abortOnError true
+    }
+}
+
+dependencies {
+    implementation files(ortAar)
+}
+
+def sha256 = { File input ->
+    MessageDigest digest = MessageDigest.getInstance("SHA-256")
+    input.withInputStream { stream ->
+        byte[] block = new byte[1024 * 1024]
+        int count
+        while ((count = stream.read(block)) != -1) {
+            digest.update(block, 0, count)
+        }
+    }
+    digest.digest().collect { String.format("%02x", it & 0xff) }.join()
+}
+
+def frontendSources = [
+        file("src/main/cpp/whisper_frontend_core.c"),
+        file("src/main/cpp/whisper_frontend_core.h"),
+        file("src/main/cpp/whisper_frontend_jni.c"),
+        file("src/main/cpp/third_party/kissfft/kiss_fft.c"),
+        file("src/main/cpp/third_party/kissfft/kiss_fft.h"),
+        file("src/main/cpp/third_party/kissfft/kiss_fftr.c"),
+        file("src/main/cpp/third_party/kissfft/kiss_fftr.h"),
+        file("src/main/cpp/third_party/kissfft/kiss_fft_log.h"),
+        file("src/main/cpp/third_party/kissfft/_kiss_fft_guts.h"),
+        file("src/main/cpp/third_party/kissfft/COPYING"),
+]
+
+tasks.register("buildWhisperFrontendNative", Exec) {
+    inputs.files frontendSources
+    outputs.file frontendNativeOutput.map { new File(it, "libwhisper_frontend.so") }
+    doFirst {
+        if (frontendCompiler == null || !frontendCompiler.isFile()) {
+            throw new GradleException(
+                    "Missing pinned Android NDK ${ndkRevision}; set ANDROID_SDK_ROOT or ANDROID_HOME"
+            )
+        }
+        frontendNativeOutput.get().mkdirs()
+    }
+    executable frontendCompiler
+    args "--target=aarch64-linux-android28",
+            "-std=c11",
+            "-O2",
+            "-fno-fast-math",
+            "-ffp-contract=off",
+            "-fPIC",
+            "-fvisibility=hidden",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-Wl,--no-undefined",
+            "-shared",
+            "-I${file('src/main/cpp')}",
+            "-I${file('src/main/cpp/third_party/kissfft')}",
+            file("src/main/cpp/whisper_frontend_core.c"),
+            file("src/main/cpp/whisper_frontend_jni.c"),
+            file("src/main/cpp/third_party/kissfft/kiss_fft.c"),
+            file("src/main/cpp/third_party/kissfft/kiss_fftr.c"),
+            "-lm",
+            "-llog",
+            "-o",
+            frontendNativeOutput.map { new File(it, "libwhisper_frontend.so") }.get()
+}
+
+tasks.register("verifyWhisperProbeInputs") {
+    inputs.file ortAar
+    if (payloadRoot) {
+        inputs.file new File(payloadRoot, "assets/whisper_probe/payload_manifest.json")
+    }
+    doLast {
+        if (!ortAar.isFile()) {
+            throw new GradleException(
+                    "Missing pinned ORT-QNN AAR: ${ortAar}. Run scripts/stage_whisper_ort_qnn_probe.py."
+            )
+        }
+        if (sha256(ortAar) != expectedOrtSha256) {
+            throw new GradleException("ORT-QNN AAR SHA-256 mismatch: ${ortAar}")
+        }
+        if (payloadRoot) {
+            File manifestFile = new File(payloadRoot, "assets/whisper_probe/payload_manifest.json")
+            if (!manifestFile.isFile()) {
+                throw new GradleException("Missing staged probe payload manifest: ${manifestFile}")
+            }
+            def manifest = new JsonSlurper().parse(manifestFile)
+            if (manifest.gate_id != "nubia_whisper_small_ort_qnn_epcontext_sm8850_probe_v1") {
+                throw new GradleException("Unexpected Whisper probe gate_id")
+            }
+            if (manifest.target?.package != "ai.liquid.lfmdemo.whisperprobe") {
+                throw new GradleException("Probe payload targets the wrong package")
+            }
+            if (manifest.capabilities?.real_audio_transcription != false) {
+                throw new GradleException("Scaffold must fail closed for real-audio transcription")
+            }
+        }
+        if (frontendRoot) {
+            File manifestFile = new File(
+                    frontendRoot,
+                    "assets/${frontendContract.assetRoot}/manifest.json"
+            )
+            if (!manifestFile.isFile()) {
+                throw new GradleException("Missing staged frontend manifest: ${manifestFile}")
+            }
+            if (sha256(manifestFile) != expectedFrontendManifestSha256) {
+                throw new GradleException("Frontend manifest SHA-256 mismatch: ${manifestFile}")
+            }
+            def manifest = new JsonSlurper().parse(manifestFile)
+            if (manifest.gate_id != frontendContract.gateId) {
+                throw new GradleException("Unexpected Whisper frontend gate_id")
+            }
+            if (frontendProfile == "v2"
+                    && (manifest.frontend_profile != "v2"
+                    || manifest.fixture_languages != frontendContract.languages)) {
+                throw new GradleException("Whisper frontend-v2 profile contract mismatch")
+            }
+            if (manifest.target?.package != "ai.liquid.lfmdemo.whisperprobe") {
+                throw new GradleException("Frontend bundle targets the wrong package")
+            }
+            if (manifest.capabilities?.microphone_input != false
+                    || manifest.capabilities?.real_audio_transcription != false
+                    || manifest.capabilities?.bundled_wav_frontend_verification != true) {
+                throw new GradleException("Frontend bundle crosses its verification-only boundary")
+            }
+            manifest.assets.each { record ->
+                File asset = new File(frontendRoot, "assets/${record.path}")
+                if (!asset.isFile()
+                        || asset.length() != record.bytes
+                        || sha256(asset) != record.sha256) {
+                    throw new GradleException("Frontend asset identity mismatch: ${asset}")
+                }
+            }
+        }
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn tasks.named("verifyWhisperProbeInputs")
+    dependsOn tasks.named("buildWhisperFrontendNative")
+}
+
+tasks.configureEach { task ->
+    if (task.name == "mergeDebugJniLibFolders"
+            || task.name == "mergeReleaseJniLibFolders") {
+        task.dependsOn tasks.named("buildWhisperFrontendNative")
+    }
+}

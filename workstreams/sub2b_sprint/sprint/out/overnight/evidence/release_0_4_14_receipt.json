@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-03T04:35:59Z",
+  "purpose": "Durable verification of the ignored historical 0.4.14 comparison APK referenced by the overnight brief.",
+  "artifact": {
+    "workspace_path": "android-app/releases/lfm-audio-demo-0.4.14-expressive-default-guard.apk",
+    "git_tracked": false,
+    "gitignore_rule": ".gitignore:24:android-app/releases/*",
+    "bytes": 4816382,
+    "sha256": "47bc3b3938c7f347d0a9cddedea777f18ba766c24da2a29b9f55140acf1bc939",
+    "package": "ai.liquid.lfmdemo",
+    "version_code": 22,
+    "version_name": "0.4.14-expressive-default-guard"
+  },
+  "verification": {
+    "size_command": "stat",
+    "hash_command": "shasum -a 256",
+    "manifest_command": "apkanalyzer manifest application-id/version-code/version-name",
+    "all_expected_values_matched": true
+  },
+  "scope_note": "This receipt corrects the historical existence claim only. The ignored APK is not an overnight demo artifact and is not evidence for either accepted phone configuration."
+}

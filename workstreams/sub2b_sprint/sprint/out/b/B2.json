@@ -1,0 +1,114 @@
+{
+  "sprint_id": "B2",
+  "status": "COMPLETE_WITH_LIVE_CELL_DEPENDENCY_UNMET",
+  "completed_at_utc": "2026-08-02T05:17:35Z",
+  "normalizer_package": {
+    "path": "normalisers.py",
+    "sha256": "82f38a8cbf3208e360acf0b6789e8940d345ace76e0bd11e3834a34edda828dc",
+    "semver": "1.0.0",
+    "ids": {
+      "en": "norm_en/1.0.0+82f38a8c",
+      "zh": "norm_zh/1.0.0+82f38a8c",
+      "es": "norm_es/1.0.0+82f38a8c",
+      "fr": "norm_fr/1.0.0+82f38a8c",
+      "ru": "norm_ru/1.0.0+82f38a8c"
+    },
+    "api": [
+      "norm_en/norm_zh/norm_es/norm_fr/norm_ru -> (normalised_text, applied_rules)",
+      "score_pair and score_corpus retain substitutions/insertions/deletions",
+      "compare_corpus emits BasicTextNormalizer delta and ranking_inadmissible"
+    ],
+    "dependencies": {
+      "opencc-python-reimplemented": "0.1.7",
+      "whisper-normalizer": "0.1.15"
+    }
+  },
+  "rules": {
+    "zh": "NFKC full-width to half-width; OpenCC t2s on both sides; strip CJK/ASCII punctuation and all whitespace; Han CER with embedded Latin/digit runs as single tokens.",
+    "ru": "NFKC; lowercase; fold ё to е on both sides; remove U+0301 only; retain internal hyphenated tokens; strip punctuation while preserving semantic symbols as tokens.",
+    "fr": "NFKC; lowercase; preserve diacritics; U+2019 to ASCII apostrophe; retain elisions and internal hyphenated forms as one token.",
+    "es": "NFKC; lowercase; preserve diacritics; remove inverted ¿/¡; strip remaining punctuation while preserving semantic symbols as tokens.",
+    "en": "whisper-normalizer EnglishTextNormalizer; raw text remains available to callers."
+  },
+  "tests": {
+    "test_file": "test_normalisers.py",
+    "golden_normalizations": 60,
+    "paired_end_to_end_golden_pairs": 15,
+    "test_methods": 8,
+    "result": "PASS",
+    "edit_breakdown_tested": true,
+    "both_sides_symmetry_tested": true,
+    "diacritic_preservation_tested": true,
+    "zh_latin_run_tokenization_tested": true
+  },
+  "basic_text_normalizer_control": {
+    "evidence_class": "HOST",
+    "scope": "Frozen 50-pair rule-sensitivity fixture, n=10 per language. This is not a model/dataset ranking cell.",
+    "basic_normalizer_id": "whisper_basic/0.1.15/default",
+    "artifact": "b2_delta_control.json",
+    "cells": [
+      {
+        "language": "en",
+        "n": 10,
+        "metric": "WER",
+        "project_error_rate": 0.07407407407407407,
+        "basic_error_rate": 0.5,
+        "delta_pp_basic_minus_project": 42.592592592592595,
+        "ranking_inadmissible": true
+      },
+      {
+        "language": "zh",
+        "n": 10,
+        "metric": "CER",
+        "project_error_rate": 0.0,
+        "basic_error_rate": 0.4642857142857143,
+        "delta_pp_basic_minus_project": 46.42857142857143,
+        "ranking_inadmissible": true
+      },
+      {
+        "language": "es",
+        "n": 10,
+        "metric": "WER",
+        "project_error_rate": 0.05,
+        "basic_error_rate": 0.05,
+        "delta_pp_basic_minus_project": 0.0,
+        "ranking_inadmissible": false
+      },
+      {
+        "language": "fr",
+        "n": 10,
+        "metric": "WER",
+        "project_error_rate": 0.047619047619047616,
+        "basic_error_rate": 0.03571428571428571,
+        "delta_pp_basic_minus_project": -1.1904761904761905,
+        "ranking_inadmissible": false
+      },
+      {
+        "language": "ru",
+        "n": 10,
+        "metric": "WER",
+        "project_error_rate": 0.15384615384615385,
+        "basic_error_rate": 0.23529411764705882,
+        "delta_pp_basic_minus_project": 8.144796380090497,
+        "ranking_inadmissible": true
+      }
+    ],
+    "interpretation": "The deliberately rule-sensitive fixture confirms that English number/title normalization, ZH t2s, and RU ё/stress handling can move scores far beyond 2 pp. These cells therefore demonstrate why BasicTextNormalizer is a control only; they do not rank an ASR model.",
+    "live_asr_cell_dependency": {
+      "status": "UNMET",
+      "dependency": "Lane C raw references and hypotheses do not exist in this branch at B2 freeze time.",
+      "required_follow_up": "Lane C must call compare_corpus on every real model/language/dataset/condition cell and strike any |delta| > 2 pp."
+    }
+  },
+  "host": {
+    "kind": "local-lightweight",
+    "os": "macOS Darwin 24.4.0 arm64",
+    "cpu": "Apple M2",
+    "python": "3.11.11"
+  },
+  "harness_versions": {
+    "opencc-python-reimplemented": "0.1.7",
+    "whisper-normalizer": "0.1.15",
+    "regex": "2026.7.19"
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Deliberately no INTERNET or RECORD_AUDIO permission. This milestone is
+         an offline compatibility probe, not a production transcription app. -->
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:label="Whisper ORT-QNN Probe"
+        android:supportsRtl="true"
+        android:theme="@style/WhisperProbeTheme"
+        android:usesCleartextTraffic="false">
+        <uses-native-library
+            android:name="libcdsprpc.so"
+            android:required="false" />
+        <meta-data
+            android:name="ai.liquid.lfmdemo.whisperprobe.REAL_AUDIO_ENABLED"
+            android:value="false" />
+        <activity
+            android:name=".ProbeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

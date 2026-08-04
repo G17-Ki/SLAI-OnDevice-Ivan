@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-22T19:14:50Z",
+  "artifact": {
+    "source": "qai-hub-models release 0.55.0",
+    "archive_sha256": "58df377fcb1cf9967b3925460146c03d4d6879932791a7d2f5ab4e8f61f0494c",
+    "runtime": "qnn_context_binary",
+    "precision": "float",
+    "precision_details": {
+      "ai_hub_quantize_job": false,
+      "floating_tensor_io": "float32",
+      "integer_tensor_io": "int32",
+      "internal_htp_lowering": "fp16"
+    },
+    "qairt": "2.45.0.260326154327",
+    "embedded_target": {
+      "chipset": "sm8850",
+      "htp": "v81",
+      "soc_model": 87,
+      "reference_device": "Snapdragon 8 Elite Gen 5 QRD"
+    }
+  },
+  "profile_target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "chipset": "sm8850",
+    "htp": "v81",
+    "profile_iterations": 20
+  },
+  "components": {
+    "encoder": {
+      "bytes": 151953408,
+      "sha256": "3764077ffd094bbfa6134695949b2dc83ed2964f832da79c1c2dc4105f0b883f",
+      "model_id": "mn46k6ezq",
+      "profile_job_id": "jpxdvmzjg",
+      "latency_ms": 4.741,
+      "estimated_inference_peak_memory_mib": 126.47265625,
+      "first_load_ms": 140.434,
+      "warm_load_ms": 137.25,
+      "placement": {
+        "hexagon_npu": 2541,
+        "cpu_fallback": 0,
+        "unsupported_or_export_failure": 0,
+        "strict_npu_pass": true
+      }
+    },
+    "decoder": {
+      "bytes": 7045120,
+      "sha256": "7cdee7614dfe625f558e746005012b56f1e3c3adca78b7d8f3c6ce9a6bc43a02",
+      "model_id": "mn1xvygrq",
+      "profile_job_id": "jpy7evl4p",
+      "latency_ms": 0.053,
+      "estimated_inference_peak_memory_mib": 117.48828125,
+      "first_load_ms": 86.158,
+      "warm_load_ms": 81.134,
+      "placement": {
+        "hexagon_npu": 8,
+        "cpu_fallback": 0,
+        "unsupported_or_export_failure": 0,
+        "strict_npu_pass": true
+      }
+    },
+    "joiner": {
+      "bytes": 6533120,
+      "sha256": "d8d99b58d5ecd4a5922ebbd92a7d3a7b8b2c8cc297340c79e58e7821821170e2",
+      "model_id": "mq87yxxpm",
+      "profile_job_id": "j5qm8wrng",
+      "latency_ms": 0.137,
+      "estimated_inference_peak_memory_mib": 117.74609375,
+      "first_load_ms": 82.447,
+      "warm_load_ms": 86.694,
+      "placement": {
+        "hexagon_npu": 5,
+        "cpu_fallback": 0,
+        "unsupported_or_export_failure": 0,
+        "strict_npu_pass": true
+      }
+    }
+  },
+  "derived": {
+    "one_encoder_plus_one_decoder_plus_one_joiner_ms": 4.931,
+    "audio_chunk_seconds": 0.71,
+    "neural_component_rtf_lower_bound": 0.006945070422535212
+  },
+  "gates": {
+    "exact_target_runtime": "pass",
+    "operator_placement": "pass",
+    "latency_and_memory_recorded": "pass",
+    "local_golden_comparison": "not_run",
+    "transcript_equivalence": "not_run",
+    "end_to_end_quality": "not_run"
+  },
+  "limitations": [
+    "The prebuilt release archive does not include matching source graphs or local golden outputs.",
+    "The component sum assumes only one decoder and one joiner call; a transducer may invoke them repeatedly per encoder chunk.",
+    "Feature extraction, state orchestration, VAD, token stabilization, and app overhead are excluded."
+  ]
+}

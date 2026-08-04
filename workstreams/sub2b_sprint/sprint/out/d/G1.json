@@ -1,0 +1,603 @@
+{
+  "schema_version": 1,
+  "sprint_id": "G1",
+  "lane": "G",
+  "title": "Pin, package audit, parameter count, and licence review for MOSS-TTS-Nano",
+  "run_date": "2026-08-02",
+  "audit_completed_utc": "2026-08-02T08:30:09Z",
+  "status": "COMPLETE_WITH_WEIGHT_LICENSE_AMBIGUITY",
+  "headline": {
+    "primary_runtime_route": "PINNED_LOCAL_PYTORCH_CUSTOM_CODE",
+    "pinned_artifacts_materialized": true,
+    "tts_unique_learned_parameters": {
+      "value": 117311232,
+      "unit": "parameters",
+      "evidence_class": "EXACT"
+    },
+    "audio_tokenizer_unique_learned_parameters": {
+      "value": 21969664,
+      "unit": "parameters",
+      "evidence_class": "EXACT"
+    },
+    "pair_unique_learned_parameters": {
+      "value": 139280896,
+      "unit": "parameters",
+      "evidence_class": "PROJECTED",
+      "derivation": "117,311,232 EXACT + 21,969,664 EXACT"
+    },
+    "lane_a_count_reconciliation": "PASS_EXACT",
+    "onnx_tied_weight_trap": "CONFIRMED_TWO_REDUNDANT_MATERIALIZATIONS_THREE_PHYSICAL_COPIES_TOTAL",
+    "commercial_disposition": "BLOCKED_PENDING_EXPLICIT_WEIGHT_AND_EXPORT_LICENCE_CLARIFICATION"
+  },
+  "constraints": {
+    "training_performed": false,
+    "fine_tuning_performed": false,
+    "quantization_performed": false,
+    "onnx_export_performed": false,
+    "large_weight_downloads_outside_the_two_required_pytorch_checkpoints": false,
+    "execution_label": "HOST",
+    "storage_cap_bytes": 3000000000
+  },
+  "primary_pytorch_pins": {
+    "tts": {
+      "repo": "OpenMOSS-Team/MOSS-TTS-Nano-100M",
+      "revision": "44502f80dbf9743528fa921cc544d662c685ebec",
+      "revision_evidence_class": "EXACT",
+      "format": "PyTorch ZIP checkpoint with Hugging Face custom Python code and SentencePiece tokenizer",
+      "local_path": "artifacts/moss/tts",
+      "weight_artifact": {
+        "filename": "pytorch_model.bin",
+        "bytes": {
+          "value": 234693095,
+          "unit": "bytes",
+          "evidence_class": "EXACT"
+        },
+        "sha256": "24003f2f11ac8a2cbf70514db2d8f1c02fb451aa6b3c0bffc9da09f31cd7caa5",
+        "sha256_evidence_class": "EXACT",
+        "tensor_dtype": "bfloat16"
+      },
+      "key_file_hashes": {
+        "README.md": "f7e1f8ef414fabfc4079f59dd73ae5eaa7e128e897f3b190a848145d5e300306",
+        "config.json": "ba36b08c80d4ae0805a2bab32b6ac90ec0d1815d01d3854ba42811db1d5bde99",
+        "modeling_moss_tts_nano.py": "b68ffef1173eb39625dc9321f4ca4bfb7644dff54463e08df348e045b8cb5e04"
+      },
+      "full_revision_snapshot": {
+        "files": 19,
+        "bytes": {
+          "value": 237808621,
+          "unit": "bytes",
+          "evidence_class": "EXACT"
+        },
+        "method": "Immutable Hugging Face revision API manifest with blobs=true"
+      },
+      "locally_materialized_evaluation_subset": {
+        "files": 12,
+        "bytes": {
+          "value": 235331715,
+          "unit": "bytes",
+          "evidence_class": "EXACT"
+        }
+      }
+    },
+    "audio_tokenizer": {
+      "repo": "OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano",
+      "revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+      "revision_evidence_class": "EXACT",
+      "format": "One-shard safetensors checkpoint with Hugging Face custom Python code",
+      "local_path": "artifacts/moss/audio_tokenizer",
+      "weight_artifact": {
+        "filename": "model-00001-of-00001.safetensors",
+        "bytes": {
+          "value": 87922568,
+          "unit": "bytes",
+          "evidence_class": "EXACT"
+        },
+        "sha256": "34d9880d805eecb21bde975202b1c256dbd0eb98c8680b9d3aeffd2bc6ac2f67",
+        "sha256_evidence_class": "EXACT",
+        "tensor_dtype": "float32"
+      },
+      "key_file_hashes": {
+        "README.md": "83cae343211c7c482433c9758f16fc9d17046a0cd450d185b473542e87e35ef8",
+        "config.json": "b38892f8ba00efc18af2ad9eca999c7603f871548c2e7f99258cb1cefc70ee06",
+        "modeling_moss_audio_tokenizer.py": "b14af7c188944da5101adbd4aaa9c3617d66b83507f0efbd6eb416381a105930"
+      },
+      "full_revision_snapshot": {
+        "files": 8,
+        "bytes": {
+          "value": 88136424,
+          "unit": "bytes",
+          "evidence_class": "EXACT"
+        },
+        "method": "Immutable Hugging Face revision API manifest with blobs=true"
+      },
+      "locally_materialized_evaluation_subset": {
+        "files": 7,
+        "bytes": {
+          "value": 88134905,
+          "unit": "bytes",
+          "evidence_class": "EXACT"
+        }
+      }
+    },
+    "combined": {
+      "full_revision_snapshot_bytes": {
+        "value": 325945045,
+        "unit": "bytes",
+        "evidence_class": "PROJECTED",
+        "derivation": "237,808,621 EXACT + 88,136,424 EXACT"
+      },
+      "local_evaluation_subset_bytes": {
+        "value": 323466620,
+        "unit": "bytes",
+        "evidence_class": "PROJECTED",
+        "derivation": "235,331,715 EXACT + 88,134,905 EXACT"
+      }
+    }
+  },
+  "parameter_count": {
+    "tts": {
+      "method": "Load the pinned PyTorch state_dict with weights_only=true and mmap=true; enumerate every tensor; group tensors by underlying storage identity and storage byte length; sum each unique BF16 storage once.",
+      "state_dict_tensor_count": 194,
+      "state_dict_reference_elements": {
+        "value": 142477056,
+        "unit": "tensor_elements",
+        "evidence_class": "EXACT",
+        "note": "This intentionally double-counts tied state_dict names and is not the adopted model count."
+      },
+      "unique_storage_elements": {
+        "value": 117311232,
+        "unit": "learned_parameters",
+        "evidence_class": "EXACT"
+      },
+      "adopted_count": {
+        "value": 117311232,
+        "unit": "learned_parameters",
+        "evidence_class": "EXACT"
+      },
+      "tied_storage_elements_removed": {
+        "value": 25165824,
+        "unit": "duplicate_tensor_references",
+        "evidence_class": "EXACT"
+      },
+      "tied_groups": {
+        "text_embedding_and_head": {
+          "members": [
+            "transformer.wte.weight",
+            "text_lm_head.weight"
+          ],
+          "shape": [
+            16384,
+            768
+          ],
+          "shared_elements": 12582912,
+          "evidence_class": "EXACT"
+        },
+        "audio_codebook_embedding_and_heads": {
+          "group_count": 16,
+          "members_pattern": "audio_embeddings.{i}.weight == audio_lm_heads.{i}.weight",
+          "shape_each": [
+            1024,
+            768
+          ],
+          "shared_elements_each": 786432,
+          "shared_elements_total": 12582912,
+          "evidence_class": "EXACT"
+        }
+      },
+      "lane_a_ledger_count": 117311232,
+      "lane_a_match": true,
+      "older_byte_derived_prior": {
+        "value": 117346547,
+        "unit": "parameters",
+        "evidence_class": "PRIOR",
+        "difference_from_adopted": -35315,
+        "note": "The prior was floor(234,693,095 artifact bytes / 2), not a tensor parse."
+      },
+      "vendor_size_class": {
+        "value": "0.1B / 100M",
+        "evidence_class": "VENDOR",
+        "difference_from_literal_100m": 17311232
+      }
+    },
+    "audio_tokenizer": {
+      "method": "Exhaustive safetensors header enumeration; sum prod(shape) for every tensor.",
+      "tensor_count": 374,
+      "adopted_count": {
+        "value": 21969664,
+        "unit": "learned_parameters",
+        "evidence_class": "EXACT"
+      },
+      "breakdown": {
+        "encoder": {
+          "value": 10450944,
+          "evidence_class": "EXACT"
+        },
+        "decoder": {
+          "value": 10450944,
+          "evidence_class": "EXACT"
+        },
+        "quantizer": {
+          "value": 1067776,
+          "evidence_class": "EXACT"
+        }
+      },
+      "lane_a_ledger_count": 21969664,
+      "lane_a_match": true
+    },
+    "pair": {
+      "adopted_unique_learned_parameters": {
+        "value": 139280896,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED",
+        "derivation": "117,311,232 EXACT + 21,969,664 EXACT"
+      },
+      "older_pair_prior": {
+        "value": 139316211,
+        "unit": "parameters",
+        "evidence_class": "PRIOR"
+      },
+      "difference_from_older_pair_prior": {
+        "value": -35315,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      }
+    }
+  },
+  "lane_a_reconciliation": {
+    "ledger_path": "../a/ledger.json",
+    "stack": "M",
+    "current_ledger": {
+      "measured_total_parameters": {
+        "value": 1674645423,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      },
+      "learned_only_total_parameters": {
+        "value": 1674645318,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      },
+      "headroom_under_2b": {
+        "value": 325354577,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      },
+      "verdict": "UNVERIFIED",
+      "verdict_reason": "M7 ASR-side ITN/punctuation remains UNKNOWN; this does not change the MOSS pair count."
+    },
+    "stale_common_table": {
+      "path": "../../lanes/_COMMON.md",
+      "total_parameters": {
+        "value": 1674717228,
+        "unit": "parameters",
+        "evidence_class": "PRIOR"
+      },
+      "headroom": {
+        "value": 325282772,
+        "unit": "parameters",
+        "evidence_class": "PRIOR"
+      },
+      "total_delta_current_minus_common": {
+        "value": -71805,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      },
+      "headroom_delta_current_minus_common": {
+        "value": 71805,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      },
+      "delta_components": [
+        {
+          "component": "MOSS-TTS-Nano",
+          "delta": -35315,
+          "evidence_class": "PROJECTED"
+        },
+        {
+          "component": "Silero VAD",
+          "delta": -36490,
+          "evidence_class": "PROJECTED"
+        }
+      ],
+      "resolution": "Use Lane A ledger.json values. LANE_G_MOSS.md already uses the corrected total and headroom."
+    }
+  },
+  "official_onnx_export": {
+    "tts": {
+      "repo": "OpenMOSS-Team/MOSS-TTS-Nano-100M-ONNX",
+      "revision": "f52645cb467506d8e18e746ddd59482685b74e58",
+      "revision_evidence_class": "EXACT",
+      "format": "Five split ONNX graphs plus two FP32 external-data files and SentencePiece tokenizer",
+      "full_snapshot_bytes": {
+        "value": 672627229,
+        "unit": "bytes",
+        "evidence_class": "EXACT"
+      },
+      "external_weight_files": [
+        {
+          "filename": "moss_tts_global_shared.data",
+          "bytes": 440813568,
+          "sha256": "bce8312c3df6a44545302cae229b61054fe0672e0b252ba59cba47adeed831dc",
+          "evidence_class": "EXACT"
+        },
+        {
+          "filename": "moss_tts_local_shared.data",
+          "bytes": 229678080,
+          "sha256": "bae7782032c0fb12490ab42afe009f87ae6c75a0f0596fc7b5c08e4d5ee93916",
+          "evidence_class": "EXACT"
+        }
+      ]
+    },
+    "audio_tokenizer": {
+      "repo": "OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano-ONNX",
+      "revision": "ceff0d0749bfb3fa2d61149794ec6feef0d1e1ae",
+      "revision_evidence_class": "EXACT",
+      "format": "Encoder, full decoder, streaming decoder-step graphs, and shared FP32 external-data files",
+      "full_snapshot_bytes": {
+        "value": 90578835,
+        "unit": "bytes",
+        "evidence_class": "EXACT"
+      }
+    },
+    "combined_snapshot_bytes": {
+      "value": 763206064,
+      "unit": "bytes",
+      "evidence_class": "PROJECTED",
+      "derivation": "672,627,229 EXACT + 90,578,835 EXACT"
+    },
+    "counting_trap": {
+      "graphs_enumerated": 5,
+      "initializer_references": 414,
+      "naive_per_graph_parameter_sum": {
+        "value": 391092480,
+        "unit": "initializer_elements",
+        "evidence_class": "EXACT"
+      },
+      "unique_external_data_bytes": {
+        "value": 670491648,
+        "unit": "bytes",
+        "evidence_class": "EXACT"
+      },
+      "unique_by_external_offset_parameters": {
+        "value": 167622912,
+        "unit": "fp32_elements",
+        "evidence_class": "EXACT"
+      },
+      "true_pytorch_unique_parameters": {
+        "value": 117311232,
+        "unit": "parameters",
+        "evidence_class": "EXACT"
+      },
+      "naive_overstatement_ratio": {
+        "value": 3.333803,
+        "unit": "ratio",
+        "evidence_class": "PROJECTED"
+      },
+      "onnx_unique_offset_excess_over_true_model": {
+        "value": 50311680,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      },
+      "text_table_materialization_observation": {
+        "shape": [
+          16384,
+          768
+        ],
+        "physical_segments": [
+          "core.model.transformer.wte.weight in moss_tts_global_shared.data",
+          "model.transformer.wte.weight in moss_tts_local_shared.data",
+          "transposed output head onnx::MatMul_5889 in moss_tts_local_shared.data"
+        ],
+        "physical_copy_count": 3,
+        "redundant_materialization_count": 2,
+        "evidence_class": "EXACT"
+      },
+      "audio_codebook_table_materialization_observation": {
+        "group_count": 16,
+        "shape_each": [
+          1024,
+          768
+        ],
+        "dtype": "FP32",
+        "bytes_per_group": 3145728,
+        "logical_unique_group_bytes": 50331648,
+        "physical_copies": [
+          {
+            "role": "global audio embeddings",
+            "members": "core.model.audio_embeddings.{0..15}.weight",
+            "external_data_file": "moss_tts_global_shared.data",
+            "bytes": 50331648
+          },
+          {
+            "role": "local audio embeddings",
+            "members": "model.audio_embeddings.{0..15}.weight",
+            "external_data_file": "moss_tts_local_shared.data",
+            "bytes": 50331648,
+            "note": "The cached-step graph contains and uses member 15; it is therefore physical and live even though some other split graphs enumerate only members 0..14."
+          },
+          {
+            "role": "transposed local audio output heads",
+            "members": "16 unnamed MatMul initializers with shape [768, 1024]",
+            "external_data_file": "moss_tts_local_shared.data",
+            "bytes": 50331648
+          }
+        ],
+        "physical_bytes": 150994944,
+        "redundant_materialization_bytes": 100663296,
+        "physical_copy_count": 3,
+        "redundant_materialization_count": 2,
+        "evidence_class": "EXACT",
+        "method": "Enumerate all five pinned ONNX protobufs without loading external data; key each initializer by external-data file, offset, and length; verify model.audio_embeddings.15.weight is consumed by the cached-step Gather node."
+      },
+      "lane_a_onnx_prose_reconciliation": {
+        "parameter_count_disagreement": false,
+        "materialization_conclusion_disagreement": false,
+        "tensor_role_label_disagreement": true,
+        "detail": "Lane A A3 calls the 16,384 x 768 wte/head table an audio embedding. The ONNX initializer names and the PyTorch state dict identify it as the text-token embedding/head table. The actual audio-codebook tables are sixteen 1,024 x 768 groups and are independently shown here to have the same three-copy export trap.",
+        "evidence_class": "EXACT"
+      },
+      "gross_duplicate_vs_net_export_excess_reconciliation": {
+        "gross_tied_table_duplicate_elements": 50331648,
+        "derivation": "25,165,824 duplicate text-table FP32 elements + 25,165,824 duplicate audio-codebook FP32 elements",
+        "net_unique_offset_excess_over_pytorch_elements": 50311680,
+        "difference_elements": 19968,
+        "difference_bytes_fp32": 79872,
+        "arithmetic_evidence_class": "EXACT",
+        "structural_identity_evidence_class": "UNKNOWN",
+        "note": "The export omits, folds, or restructures 19,968 other PyTorch elements relative to a gross duplication-only accounting. The exact tensor identity of that offset was not established, so gross tied-table duplication must not be equated with net ONNX excess."
+      },
+      "answer_to_lane_question": "YES. Direct 1,024 x 768 evidence shows all 16 tied audio-codebook embedding/head groups materialized three times in FP32: 50,331,648 bytes of global embeddings, 50,331,648 bytes of local embeddings, and 50,331,648 bytes of transposed output heads. That is 150,994,944 physical bytes versus 50,331,648 for one logical copy, or 100,663,296 redundant bytes [EXACT]. The tied text table is independently materialized three times too.",
+      "adopted_counting_rule": "Use 117,311,232 for unique learned-parameter inventory. If the official ONNX package is the shipped artifact, separately carry 167,622,912 as the conservative physical export basis. Never sum all graph initializers."
+    }
+  },
+  "runtime_reproducibility": {
+    "embedded_remote_code_pin": "The primary local TTS directory contains the custom model code at HF revision 44502f80dbf9743528fa921cc544d662c685ebec.",
+    "upstream_wrapper_source": {
+      "repo": "https://github.com/OpenMOSS/MOSS-TTS-Nano",
+      "revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+      "revision_evidence_class": "EXACT",
+      "declared_dependency_pins": {
+        "torch": "2.7.0",
+        "torchaudio": "2.7.0",
+        "transformers": "4.57.1",
+        "onnxruntime": ">=1.20.0"
+      }
+    },
+    "required_pin_override": {
+      "config_default": "OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano",
+      "risk": "The TTS config and upstream CLI otherwise follow the codec repository's mutable default branch.",
+      "required_action": "Pass artifacts/moss/audio_tokenizer as audio_tokenizer_pretrained_name_or_path."
+    },
+    "normalization_control": {
+      "upstream_cli_default_wetext_processing_enabled": true,
+      "evidence_class": "HOST",
+      "required_action_for_g2_g4": "Disable upstream WeTextProcessing and feed the exact frozen D1 source text unchanged; apply the frozen evaluation normalizer only after reference-ASR transcription."
+    },
+    "synthesis_smoke_result": {
+      "status": "PASS_PINNED_LOCAL_CPU_RUNTIME",
+      "evidence_class": "HOST",
+      "suite": "g2_d1_zh",
+      "attempted": 40,
+      "raw_waveform_gate_passed": 40,
+      "retained_waveform_gate_passed": 40,
+      "max_new_frames_hit_count": 0,
+      "artifact_path": "artifacts/moss/results/g2_d1_zh_synthesis.json",
+      "artifact_sha256": "717d6f54af29db771c2ed60eab3a87f6aa7feedf1e4c71998f936373206b09ad",
+      "runner_execution": {
+        "path": "run_moss_g.py",
+        "sha256": null,
+        "evidence_class": "UNKNOWN",
+        "note": "The exact execution-time untracked runner source was not retained for this G2 synthesis receipt."
+      },
+      "runner_current_reproduction_version": {
+        "path": "run_moss_g.py",
+        "bytes": 30673,
+        "sha256": "9b3a853ad70c57ef2cc7ef00d2ce1d277e7707f694c5834c5463babdacbf05f2",
+        "evidence_class": "EXACT",
+        "note": "Current committed-candidate runner; not claimed as the execution-time file."
+      },
+      "note": "The pinned PyTorch TTS and codec loaded once and completed all 40 Mandarin D1 synthesis attempts on the Apple M2 CPU. G2 and G3 own intelligibility, mixed-script, and short-input safety conclusions."
+    }
+  },
+  "language_claim": {
+    "claimed_supported_languages": 20,
+    "required_languages_present_in_vendor_metadata": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "ru"
+    ],
+    "evidence_class": "VENDOR",
+    "quality_evidence": "UNKNOWN",
+    "note": "A model-card language list is not intelligibility, safety, or quality evidence."
+  },
+  "licence": {
+    "hf_card_metadata": {
+      "tts": "apache-2.0",
+      "audio_tokenizer": "apache-2.0",
+      "tts_onnx": "apache-2.0",
+      "audio_tokenizer_onnx": "apache-2.0",
+      "evidence_class": "VENDOR"
+    },
+    "immutable_snapshot_manifest_check": {
+      "snapshots_checked": 4,
+      "license_or_notice_filenames_checked": [
+        "LICENSE",
+        "LICENSE.txt",
+        "LICENSE.md",
+        "COPYING",
+        "NOTICE"
+      ],
+      "license_file_present_in_any_snapshot": false,
+      "evidence_class": "EXACT"
+    },
+    "tts_card_explicit_text": {
+      "quote": "This repository will follow the license specified in the root LICENSE file. If you are reading this before that file is published, please treat the repository as not yet licensed for redistribution.",
+      "source": "artifacts/moss/tts/README.md",
+      "source_sha256": "f7e1f8ef414fabfc4079f59dd73ae5eaa7e128e897f3b190a848145d5e300306",
+      "evidence_class": "VENDOR"
+    },
+    "upstream_runtime_source_license": {
+      "repo_revision": "cc7bdf19c7639c0870dab22045a33b442760f6be",
+      "license": "Apache-2.0 text",
+      "license_sha256": "1dc6904a1959e039b44569c6a726a611f75287051284de1b6cc0dc7712b14d11",
+      "evidence_class": "EXACT",
+      "scope_note": "The source-code repository license does not unambiguously grant redistribution rights for separately hosted model-weight and ONNX snapshots."
+    },
+    "weight_and_export_licence_scope": {
+      "evidence_class": "UNKNOWN",
+      "commercially_unblocked": false,
+      "disposition": "BLOCKED_PENDING_UPSTREAM_ROOT_LICENSE_OR_EXPLICIT_WRITTEN_CONFIRMATION",
+      "reason": "The Apache metadata conflicts with the TTS card's explicit no-redistribution-until-root-LICENSE instruction, and the required root license is absent at every pinned HF snapshot."
+    },
+    "separate_unresolved_diligence": [
+      "training-data lineage",
+      "reference-voice consent and provenance",
+      "voice-cloning output rights"
+    ]
+  },
+  "storage": {
+    "selected_pytorch_route_bytes": {
+      "value": 323466620,
+      "unit": "bytes",
+      "evidence_class": "PROJECTED"
+    },
+    "alternative_onnx_route_bytes": {
+      "value": 763206064,
+      "unit": "bytes",
+      "evidence_class": "PROJECTED"
+    },
+    "retention_rule": "Do not retain both full PyTorch and ONNX formats under Lane D/G's 3 GB cap unless completed Lane D model caches are pruned. Weights remain git-ignored."
+  },
+  "sources": [
+    {
+      "path": "../a/ledger.json",
+      "purpose": "Lane A exact component and Stack M counts"
+    },
+    {
+      "path": "../a/A3.md",
+      "purpose": "Lane A ONNX external-offset de-duplication evidence"
+    },
+    {
+      "url": "https://huggingface.co/OpenMOSS-Team/MOSS-TTS-Nano-100M/tree/44502f80dbf9743528fa921cc544d662c685ebec",
+      "purpose": "Pinned PyTorch TTS snapshot"
+    },
+    {
+      "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano/tree/6aa02b01e445cc585582cf0ba480bc3ea6c8dd68",
+      "purpose": "Pinned PyTorch audio-tokenizer snapshot"
+    },
+    {
+      "url": "https://huggingface.co/OpenMOSS-Team/MOSS-TTS-Nano-100M-ONNX/tree/f52645cb467506d8e18e746ddd59482685b74e58",
+      "purpose": "Pinned split TTS ONNX snapshot"
+    },
+    {
+      "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano-ONNX/tree/ceff0d0749bfb3fa2d61149794ec6feef0d1e1ae",
+      "purpose": "Pinned audio-tokenizer ONNX snapshot"
+    },
+    {
+      "url": "https://github.com/OpenMOSS/MOSS-TTS-Nano/tree/cc7bdf19c7639c0870dab22045a33b442760f6be",
+      "purpose": "Pinned upstream runtime wrapper and source-code license"
+    }
+  ]
+}

@@ -1,0 +1,793 @@
+{
+  "description": "Three warmed runs per case",
+  "results": [
+    {
+      "settings": {
+        "num_threads": 2,
+        "repeats": 3,
+        "num_steps": 2,
+        "speed": 1.05,
+        "sid": 6,
+        "warmup": true
+      },
+      "load": {
+        "load_s": 0.5556063749827445,
+        "rss_before_bytes": 37568512,
+        "rss_after_bytes": 208879616,
+        "incremental_rss_bytes": 171311104,
+        "peak_rss_bytes": 208863232
+      },
+      "summary_by_case": {
+        "en_short": {
+          "lang": "en",
+          "text": "Sure, I can help with that.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.15428012516349554,
+            "p95": 0.15451873741112648,
+            "min": 0.15248450031504035,
+            "max": 0.1545452498830855
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.1543522090651095,
+            "p95": 0.15460503324866295,
+            "min": 0.15255483333021402,
+            "max": 0.15463312482461333
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.0773910797540939,
+            "p95": 0.07751784396868894,
+            "min": 0.07648988857782318,
+            "max": 0.07753192888142173
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 1.9944444444444445,
+            "p95": 1.9944444444444445,
+            "min": 1.9944444444444445,
+            "max": 1.9944444444444445
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 289849344.0,
+            "p95": 290807808.0,
+            "min": 260669440.0,
+            "max": 290914304.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_sentence": {
+          "lang": "en",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.35137304197996855,
+            "p95": 0.35667017931118605,
+            "min": 0.35110820876434445,
+            "max": 0.3572587501257658
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.35157574992626905,
+            "p95": 0.35678990012966094,
+            "min": 0.3512778338044882,
+            "max": 0.35736925015226007
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.06490765090529772,
+            "p95": 0.06587028339983275,
+            "min": 0.0648526498546403,
+            "max": 0.0659772425658922
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 5.416553287981859,
+            "p95": 5.416553287981859,
+            "min": 5.416553287981859,
+            "max": 5.416553287981859
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 334725120.0,
+            "p95": 339296256.0,
+            "min": 294469632.0,
+            "max": 339804160.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_chunked": {
+          "lang": "en",
+          "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+          "max_len": 64,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.22052887501195073,
+            "p95": 0.22602494969032705,
+            "min": 0.2198345842771232,
+            "max": 0.22663562465459108
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.7464899998158216,
+            "p95": 0.7499107119161635,
+            "min": 0.7413330841809511,
+            "max": 0.7502907910384238
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.07060225786791485,
+            "p95": 0.07092578530680864,
+            "min": 0.07011452208103755,
+            "max": 0.07096173280001906
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 10.573174603174603,
+            "p95": 10.573174603174603,
+            "min": 10.573174603174603,
+            "max": 10.573174603174603
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 355516416.0,
+            "p95": 363921408.0,
+            "min": 348078080.0,
+            "max": 364855296.0
+          },
+          "callback_chunk_count": [
+            3
+          ]
+        }
+      },
+      "asr_sanity": {
+        "created_utc": "2026-07-22T09:03:59Z",
+        "judge_model": "tiny",
+        "device": "cpu",
+        "compute_type": "int8",
+        "load_s": 3.5101467920467257,
+        "warning": "Whisper-tiny retranscription is a low-cost intelligibility smoke test, not a perceptual quality or naturalness evaluation.",
+        "results": [
+          {
+            "case_id": "en_short",
+            "lang": "en",
+            "reference": "Sure, I can help with that.",
+            "transcript": "Here I can help with them.",
+            "normalized_reference": "sure i can help with that",
+            "normalized_transcript": "here i can help with them",
+            "wer": 0.3333333333333333,
+            "cer": 0.16,
+            "asr_elapsed_s": 0.31215879088267684,
+            "asr_language_probability": 1,
+            "wav_filename": "en_short.wav"
+          },
+          {
+            "case_id": "en_sentence",
+            "lang": "en",
+            "reference": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+            "transcript": "The weather should stay clear this afternoon so you can leave the umbrella again.",
+            "normalized_reference": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+            "normalized_transcript": "the weather should stay clear this afternoon so you can leave the umbrella again",
+            "wer": 0.13333333333333333,
+            "cer": 0.07317073170731707,
+            "asr_elapsed_s": 0.297260457649827,
+            "asr_language_probability": 1,
+            "wav_filename": "en_sentence.wav"
+          },
+          {
+            "case_id": "en_chunked",
+            "lang": "en",
+            "reference": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+            "transcript": "I was on three nearby cafes that were still open. The ex office wanted two minutes away, and it has outdoors. It was like walking directions.",
+            "normalized_reference": "i found three nearby cafés that are still open the closest one is two minutes away and it has outdoor seating would you like walking directions",
+            "normalized_transcript": "i was on three nearby cafes that were still open the ex office wanted two minutes away and it has outdoors it was like walking directions",
+            "wer": 0.4230769230769231,
+            "cer": 0.25874125874125875,
+            "asr_elapsed_s": 0.415136958938092,
+            "asr_language_probability": 1,
+            "wav_filename": "en_chunked.wav"
+          }
+        ]
+      }
+    },
+    {
+      "settings": {
+        "num_threads": 2,
+        "repeats": 3,
+        "num_steps": 4,
+        "speed": 1.05,
+        "sid": 6,
+        "warmup": true
+      },
+      "load": {
+        "load_s": 0.41532324999570847,
+        "rss_before_bytes": 37896192,
+        "rss_after_bytes": 314228736,
+        "incremental_rss_bytes": 276332544,
+        "peak_rss_bytes": 314228736
+      },
+      "summary_by_case": {
+        "en_short": {
+          "lang": "en",
+          "text": "Sure, I can help with that.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.27168970834463835,
+            "p95": 0.3850422329735011,
+            "min": 0.2687972499988973,
+            "max": 0.3976369579322636
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.2718237084336579,
+            "p95": 0.38551744525320825,
+            "min": 0.2688912502489984,
+            "max": 0.39815008267760277
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.13629043876896496,
+            "p95": 0.19329565500160859,
+            "min": 0.1348201254730354,
+            "max": 0.19962956791634678
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 1.9944444444444445,
+            "p95": 1.9944444444444445,
+            "min": 1.9944444444444445,
+            "max": 1.9944444444444445
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 361676800.0,
+            "p95": 363755929.6,
+            "min": 349995008.0,
+            "max": 363986944.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_sentence": {
+          "lang": "en",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.6355154998600483,
+            "p95": 0.6374808005057275,
+            "min": 0.6135623748414218,
+            "max": 0.6376991672441363
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.6357187079265714,
+            "p95": 0.637790696369484,
+            "min": 0.6136755831539631,
+            "max": 0.6380209173075855
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.11736591040968643,
+            "p95": 0.11774843935987879,
+            "min": 0.11329632526935059,
+            "max": 0.11779094257656683
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 5.416553287981859,
+            "p95": 5.416553287981859,
+            "min": 5.416553287981859,
+            "max": 5.416553287981859
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 272695296.0,
+            "p95": 273830707.2,
+            "min": 268189696.0,
+            "max": 273956864.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_chunked": {
+          "lang": "en",
+          "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+          "max_len": 64,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.3839837503619492,
+            "p95": 0.3928444370627403,
+            "min": 0.3837386672385037,
+            "max": 0.3938289578072727
+          },
+          "total_s": {
+            "n": 3,
+            "median": 1.3207674999721348,
+            "p95": 1.4376532746478916,
+            "min": 1.304263667203486,
+            "max": 1.4506405829451978
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.12491683430401058,
+            "p95": 0.13597177088291298,
+            "min": 0.12335591874287972,
+            "max": 0.1372000971694577
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 10.573174603174603,
+            "p95": 10.573174603174603,
+            "min": 10.573174603174603,
+            "max": 10.573174603174603
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 315736064.0,
+            "p95": 316753510.4,
+            "min": 305446912.0,
+            "max": 316866560.0
+          },
+          "callback_chunk_count": [
+            3
+          ]
+        }
+      },
+      "asr_sanity": {
+        "created_utc": "2026-07-22T09:04:02Z",
+        "judge_model": "tiny",
+        "device": "cpu",
+        "compute_type": "int8",
+        "load_s": 1.4460915829986334,
+        "warning": "Whisper-tiny retranscription is a low-cost intelligibility smoke test, not a perceptual quality or naturalness evaluation.",
+        "results": [
+          {
+            "case_id": "en_short",
+            "lang": "en",
+            "reference": "Sure, I can help with that.",
+            "transcript": "Sure, I can help with that.",
+            "normalized_reference": "sure i can help with that",
+            "normalized_transcript": "sure i can help with that",
+            "wer": 0.0,
+            "cer": 0.0,
+            "asr_elapsed_s": 0.2615586253814399,
+            "asr_language_probability": 1,
+            "wav_filename": "en_short.wav"
+          },
+          {
+            "case_id": "en_sentence",
+            "lang": "en",
+            "reference": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+            "transcript": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+            "normalized_reference": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+            "normalized_transcript": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+            "wer": 0.0,
+            "cer": 0.0,
+            "asr_elapsed_s": 0.4239773331210017,
+            "asr_language_probability": 1,
+            "wav_filename": "en_sentence.wav"
+          },
+          {
+            "case_id": "en_chunked",
+            "lang": "en",
+            "reference": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+            "transcript": "I found three nearby cafes that are still open. The closest one is two minutes away and it has outdoor seating. Would you like walking directions?",
+            "normalized_reference": "i found three nearby cafés that are still open the closest one is two minutes away and it has outdoor seating would you like walking directions",
+            "normalized_transcript": "i found three nearby cafes that are still open the closest one is two minutes away and it has outdoor seating would you like walking directions",
+            "wer": 0.038461538461538464,
+            "cer": 0.006993006993006993,
+            "asr_elapsed_s": 0.4742384576238692,
+            "asr_language_probability": 1,
+            "wav_filename": "en_chunked.wav"
+          }
+        ]
+      }
+    },
+    {
+      "settings": {
+        "num_threads": 2,
+        "repeats": 3,
+        "num_steps": 5,
+        "speed": 1.05,
+        "sid": 6,
+        "warmup": true
+      },
+      "load": {
+        "load_s": 0.5088883750140667,
+        "rss_before_bytes": 37519360,
+        "rss_after_bytes": 181993472,
+        "incremental_rss_bytes": 144474112,
+        "peak_rss_bytes": 247349248
+      },
+      "summary_by_case": {
+        "en_short": {
+          "lang": "en",
+          "text": "Sure, I can help with that.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.32526516588404775,
+            "p95": 0.34388564215041695,
+            "min": 0.319174500182271,
+            "max": 0.34595458395779133
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.32536649983376265,
+            "p95": 0.3439719750080258,
+            "min": 0.31927183317020535,
+            "max": 0.34603925002738833
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.16313640660188655,
+            "p95": 0.17246505710708812,
+            "min": 0.16008058487642607,
+            "max": 0.1735015738298883
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 1.9944444444444445,
+            "p95": 1.9944444444444445,
+            "min": 1.9944444444444445,
+            "max": 1.9944444444444445
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 282804224.0,
+            "p95": 284750643.2,
+            "min": 253280256.0,
+            "max": 284966912.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_sentence": {
+          "lang": "en",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.737915042322129,
+            "p95": 0.7641432172153145,
+            "min": 0.7277796249836683,
+            "max": 0.7670574588701129
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.7380787502042949,
+            "p95": 0.7643120623659343,
+            "min": 0.7278889170847833,
+            "max": 0.7672268748283386
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.1362635445389099,
+            "p95": 0.14110671892802656,
+            "min": 0.13438230520131847,
+            "max": 0.14164484941570618
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 5.416553287981859,
+            "p95": 5.416553287981859,
+            "min": 5.416553287981859,
+            "max": 5.416553287981859
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 331333632.0,
+            "p95": 335108505.6,
+            "min": 288980992.0,
+            "max": 335527936.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_chunked": {
+          "lang": "en",
+          "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+          "max_len": 64,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.4611003343015909,
+            "p95": 0.4654646584298462,
+            "min": 0.4583440409041941,
+            "max": 0.46594958333298564
+          },
+          "total_s": {
+            "n": 3,
+            "median": 1.6232587909325957,
+            "p95": 1.8566994043067098,
+            "min": 1.58665266726166,
+            "max": 1.8826372502371669
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.1535261500784458,
+            "p95": 0.17560472365123284,
+            "min": 0.1500639804799276,
+            "max": 0.17805789849265363
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 10.573174603174603,
+            "p95": 10.573174603174603,
+            "min": 10.573174603174603,
+            "max": 10.573174603174603
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 311508992.0,
+            "p95": 340410368.0,
+            "min": 309166080.0,
+            "max": 343621632.0
+          },
+          "callback_chunk_count": [
+            3
+          ]
+        }
+      },
+      "asr_sanity": {
+        "created_utc": "2026-07-22T09:04:04Z",
+        "judge_model": "tiny",
+        "device": "cpu",
+        "compute_type": "int8",
+        "load_s": 1.3062585419975221,
+        "warning": "Whisper-tiny retranscription is a low-cost intelligibility smoke test, not a perceptual quality or naturalness evaluation.",
+        "results": [
+          {
+            "case_id": "en_short",
+            "lang": "en",
+            "reference": "Sure, I can help with that.",
+            "transcript": "Sure, I can help with that.",
+            "normalized_reference": "sure i can help with that",
+            "normalized_transcript": "sure i can help with that",
+            "wer": 0.0,
+            "cer": 0.0,
+            "asr_elapsed_s": 0.2515421253629029,
+            "asr_language_probability": 1,
+            "wav_filename": "en_short.wav"
+          },
+          {
+            "case_id": "en_sentence",
+            "lang": "en",
+            "reference": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+            "transcript": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+            "normalized_reference": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+            "normalized_transcript": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+            "wer": 0.0,
+            "cer": 0.0,
+            "asr_elapsed_s": 0.3838006667792797,
+            "asr_language_probability": 1,
+            "wav_filename": "en_sentence.wav"
+          },
+          {
+            "case_id": "en_chunked",
+            "lang": "en",
+            "reference": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+            "transcript": "I found three nearby cafes that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+            "normalized_reference": "i found three nearby cafés that are still open the closest one is two minutes away and it has outdoor seating would you like walking directions",
+            "normalized_transcript": "i found three nearby cafes that are still open the closest one is two minutes away and it has outdoor seating would you like walking directions",
+            "wer": 0.038461538461538464,
+            "cer": 0.006993006993006993,
+            "asr_elapsed_s": 0.4488582918420434,
+            "asr_language_probability": 1,
+            "wav_filename": "en_chunked.wav"
+          }
+        ]
+      }
+    },
+    {
+      "settings": {
+        "num_threads": 2,
+        "repeats": 3,
+        "num_steps": 8,
+        "speed": 1.05,
+        "sid": 6,
+        "warmup": true
+      },
+      "load": {
+        "load_s": 0.43796537490561604,
+        "rss_before_bytes": 37715968,
+        "rss_after_bytes": 305315840,
+        "incremental_rss_bytes": 267599872,
+        "peak_rss_bytes": 305348608
+      },
+      "summary_by_case": {
+        "en_short": {
+          "lang": "en",
+          "text": "Sure, I can help with that.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.48888254119083285,
+            "p95": 0.5164405419025571,
+            "min": 0.4875410841777921,
+            "max": 0.5195025419816375
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.4890195410698652,
+            "p95": 0.5165292792022228,
+            "min": 0.48763629188761115,
+            "max": 0.5195859167724848
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.2451908562467291,
+            "p95": 0.2589840397114209,
+            "min": 0.24449730512470755,
+            "max": 0.26051661565194223
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 1.9944444444444445,
+            "p95": 1.9944444444444445,
+            "min": 1.9944444444444445,
+            "max": 1.9944444444444445
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 366198784.0,
+            "p95": 366788608.0,
+            "min": 337248256.0,
+            "max": 366854144.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_sentence": {
+          "lang": "en",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 1.1663763332180679,
+            "p95": 1.3218259837478399,
+            "min": 1.1555887497961521,
+            "max": 1.3390981671400368
+          },
+          "total_s": {
+            "n": 3,
+            "median": 1.1665338329039514,
+            "p95": 1.3219975461717695,
+            "min": 1.1557572917081416,
+            "max": 1.339271292090416
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.21536460012167397,
+            "p95": 0.24406619410631322,
+            "min": 0.21337504317967532,
+            "max": 0.24725526010460647
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 5.416553287981859,
+            "p95": 5.416553287981859,
+            "min": 5.416553287981859,
+            "max": 5.416553287981859
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 397787136.0,
+            "p95": 400913203.2,
+            "min": 352354304.0,
+            "max": 401260544.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_chunked": {
+          "lang": "en",
+          "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+          "max_len": 64,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.7308478751219809,
+            "p95": 0.7312664497643709,
+            "min": 0.6934282081201673,
+            "max": 0.7313129580579698
+          },
+          "total_s": {
+            "n": 3,
+            "median": 2.4553666249848902,
+            "p95": 2.495176850864664,
+            "min": 2.423618041910231,
+            "max": 2.4996002092957497
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.2322260548168442,
+            "p95": 0.23599126511308013,
+            "min": 0.2292233064213787,
+            "max": 0.2364096218126619
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 10.573174603174603,
+            "p95": 10.573174603174603,
+            "min": 10.573174603174603,
+            "max": 10.573174603174603
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 333365248.0,
+            "p95": 338998067.2,
+            "min": 324272128.0,
+            "max": 339623936.0
+          },
+          "callback_chunk_count": [
+            3
+          ]
+        }
+      },
+      "asr_sanity": {
+        "created_utc": "2026-07-22T09:04:09Z",
+        "judge_model": "tiny",
+        "device": "cpu",
+        "compute_type": "int8",
+        "load_s": 3.4055284578353167,
+        "warning": "Whisper-tiny retranscription is a low-cost intelligibility smoke test, not a perceptual quality or naturalness evaluation.",
+        "results": [
+          {
+            "case_id": "en_short",
+            "lang": "en",
+            "reference": "Sure, I can help with that.",
+            "transcript": "Sure, I can help with that.",
+            "normalized_reference": "sure i can help with that",
+            "normalized_transcript": "sure i can help with that",
+            "wer": 0.0,
+            "cer": 0.0,
+            "asr_elapsed_s": 0.33555175038054585,
+            "asr_language_probability": 1,
+            "wav_filename": "en_short.wav"
+          },
+          {
+            "case_id": "en_sentence",
+            "lang": "en",
+            "reference": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+            "transcript": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+            "normalized_reference": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+            "normalized_transcript": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+            "wer": 0.0,
+            "cer": 0.0,
+            "asr_elapsed_s": 0.42501991614699364,
+            "asr_language_probability": 1,
+            "wav_filename": "en_sentence.wav"
+          },
+          {
+            "case_id": "en_chunked",
+            "lang": "en",
+            "reference": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+            "transcript": "I found three nearby cafes that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+            "normalized_reference": "i found three nearby cafés that are still open the closest one is two minutes away and it has outdoor seating would you like walking directions",
+            "normalized_transcript": "i found three nearby cafes that are still open the closest one is two minutes away and it has outdoor seating would you like walking directions",
+            "wer": 0.038461538461538464,
+            "cer": 0.006993006993006993,
+            "asr_elapsed_s": 0.4195247092284262,
+            "asr_language_probability": 1,
+            "wav_filename": "en_chunked.wav"
+          }
+        ]
+      }
+    }
+  ]
+}

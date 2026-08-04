@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "sprint_id": "D5",
+  "lane": "D",
+  "status": "COMPLETE_WITH_TWO_SAFETY_WITHHELD_KOKORO_ZH_CLIPS",
+  "evidence_class": "HOST",
+  "prompt_manifest": {
+    "path": "D5_prompts.json",
+    "file_sha256": "5bfb957efc25482f6b8d9c8f90e5af8e55b99d11fc982c83815c5ea2fd782b20",
+    "embedded_canonical_sha256_without_this_field": "c60d84db6712c767516e26405dc902afe9f784c982dc19f835bf3692a4715a53",
+    "declared_filename_pattern": "<lang>_<engine>_<idx>.wav",
+    "languages": {
+      "en": 20,
+      "zh": 20,
+      "es": 20,
+      "fr": 20,
+      "ru": 20
+    }
+  },
+  "filename_contract": "<lang>_<engine>_<idx>.wav with two-digit 01..20 indexes",
+  "inventory": {
+    "expected_wav_count": 280,
+    "existing_wav_count": 278,
+    "missing_expected_count": 2,
+    "extra_unexpected_count": 0,
+    "invalid_filename_count": 0,
+    "total_wav_bytes": 96321818,
+    "clip_hash_manifest_sha256": "dac26b1fb522c6c730435054c33be122f56bcf78b2b0813464cab4b193dcaed6",
+    "clip_hash_manifest_definition": "SHA-256 of lexicographically sorted UTF-8 lines: filename<TAB>file_sha256<TAB>bytes<LF>",
+    "all_existing_wavs_readable": true,
+    "all_existing_wavs_pass_waveform_gate": true,
+    "existing_waveform_gate_pass_count": 278,
+    "existing_waveform_gate_fail_count": 0
+  },
+  "formats": [
+    {
+      "format": "WAV",
+      "subtype": "PCM_16",
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "count": 100
+    },
+    {
+      "format": "WAV",
+      "subtype": "PCM_16",
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "count": 98
+    },
+    {
+      "format": "WAV",
+      "subtype": "PCM_16",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "count": 80
+    }
+  ],
+  "waveform_gate": {
+    "finite_pcm_required": true,
+    "nonempty_required": true,
+    "rms_dbfs_must_be_greater_than": -50.0,
+    "duration_seconds_inclusive": [
+      0.15,
+      30.0
+    ],
+    "sustained_clipping_rule": "fail only when a contiguous run at or above -0.1 dBFS exceeds 5 ms",
+    "clipping_linear_threshold": 0.9885530946569389,
+    "multi_channel_rule": "a frame is marked clipped when any channel crosses the threshold"
+  },
+  "missing_expected": [
+    {
+      "filename": "zh_kokoro_09.wav",
+      "language": "zh",
+      "engine": "kokoro",
+      "listen_index": 9,
+      "text": "玛雅·帕特尔医生将在多伦多总医院会见陈教授。",
+      "primary_category": "proper_names",
+      "parallel_id": "p01",
+      "reason": "known_nonfinite_pcm_not_serialized"
+    },
+    {
+      "filename": "zh_kokoro_14.wav",
+      "language": "zh",
+      "engine": "kokoro",
+      "listen_index": 14,
+      "text": "Wi-Fi可以正常使用，但VPN每10分钟就会断开。",
+      "primary_category": "acronyms",
+      "parallel_id": "a05",
+      "reason": "known_nonfinite_pcm_not_serialized"
+    }
+  ],
+  "route_summary": [
+    {
+      "language": "en",
+      "engine": "kokoro",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Kokoro v1.0 EN passed the Lane D D3 short-input gate."
+      ]
+    },
+    {
+      "language": "en",
+      "engine": "piper",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Piper Lessac EN passed D3.",
+        "Commercial provenance remains blocked by the Lessac-derived training chain."
+      ]
+    },
+    {
+      "language": "en",
+      "engine": "supertonic",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Supertonic EN passed D3."
+      ]
+    },
+    {
+      "language": "zh",
+      "engine": "kokoro",
+      "expected_count": 20,
+      "existing_count": 18,
+      "missing_count": 2,
+      "missing_files": [
+        "zh_kokoro_09.wav",
+        "zh_kokoro_14.wav"
+      ],
+      "waveform_gate_pass_count": 18,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_hard_fail",
+      "listening_disposition": "diagnostic_unsafe_route",
+      "notes": [
+        "Kokoro v1.1-zh hard-failed D3 with four non-finite outputs out of nine.",
+        "D5 indices 09 and 14 also produced non-finite PCM and were correctly not serialized."
+      ]
+    },
+    {
+      "language": "zh",
+      "engine": "matcha",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass_text_coverage_limited",
+      "listening_disposition": "comparison_candidate_except_flagged_diagnostics",
+      "notes": [
+        "Matcha ZH passed D3.",
+        "Its frontend can silently omit Latin/OOV material; flagged D5 indices require omission-focused listening.",
+        "Commercial use is blocked by Baker-corpus/checkpoint licensing."
+      ]
+    },
+    {
+      "language": "es",
+      "engine": "kokoro",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Kokoro v1.0 ES passed D3."
+      ]
+    },
+    {
+      "language": "es",
+      "engine": "piper",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_fail",
+      "listening_disposition": "diagnostic_unsafe_route",
+      "notes": [
+        "Piper DaveFX ES failed D3: one-character input \"A\" produced 0.081270 s, below the 0.15 s floor.",
+        "Commercial provenance is also blocked by the Lessac-derived training chain."
+      ]
+    },
+    {
+      "language": "es",
+      "engine": "supertonic",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Supertonic ES passed D3."
+      ]
+    },
+    {
+      "language": "fr",
+      "engine": "kokoro",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Kokoro v1.0 FR passed D3."
+      ]
+    },
+    {
+      "language": "fr",
+      "engine": "piper",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Piper Siwis FR passed D3.",
+        "Commercial provenance remains blocked by the Lessac-derived training chain."
+      ]
+    },
+    {
+      "language": "fr",
+      "engine": "supertonic",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Supertonic FR passed D3."
+      ]
+    },
+    {
+      "language": "ru",
+      "engine": "piper",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_fail",
+      "listening_disposition": "diagnostic_unsafe_route",
+      "notes": [
+        "Piper Dmitri RU failed D3: input \"Да\" produced 0.116100 s, below the 0.15 s floor.",
+        "Commercial provenance is also blocked by the Lessac-derived training chain."
+      ]
+    },
+    {
+      "language": "ru",
+      "engine": "silero",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass_conditional",
+      "listening_disposition": "comparison_candidate_with_frontend_caveat",
+      "notes": [
+        "Silero v5_cis_base RU passed D3.",
+        "A production route still needs an external Russian stress frontend."
+      ]
+    },
+    {
+      "language": "ru",
+      "engine": "supertonic",
+      "expected_count": 20,
+      "existing_count": 20,
+      "missing_count": 0,
+      "missing_files": [],
+      "waveform_gate_pass_count": 20,
+      "waveform_gate_fail_count": 0,
+      "technical_status": "d3_pass",
+      "listening_disposition": "comparison_candidate",
+      "notes": [
+        "Supertonic RU passed D3."
+      ]
+    }
+  ],
+  "diagnostic_classification": {
+    "d3_unsafe_routes": [
+      {
+        "language": "es",
+        "engine": "piper",
+        "clip_count": 20
+      },
+      {
+        "language": "ru",
+        "engine": "piper",
+        "clip_count": 20
+      },
+      {
+        "language": "zh",
+        "engine": "kokoro",
+        "clip_count": 18,
+        "missing_nonfinite_indices": [
+          9,
+          14
+        ]
+      }
+    ],
+    "matcha_zh_text_coverage_risk": [
+      {
+        "listen_index": 2,
+        "filename": "zh_matcha_02.wav",
+        "reason": "percent sign / symbol normalization risk",
+        "text": "电池电量为73%，预计还能使用1小时25分钟。"
+      },
+      {
+        "listen_index": 9,
+        "filename": "zh_matcha_09.wav",
+        "reason": "middle-dot name separator risk",
+        "text": "玛雅·帕特尔医生将在多伦多总医院会见陈教授。"
+      },
+      {
+        "listen_index": 11,
+        "filename": "zh_matcha_11.wav",
+        "reason": "middle-dot name separator risk",
+        "text": "索菲娅·阿尔瓦雷斯离开梅里迪安系统公司后加入了阿尔戈实验室。"
+      },
+      {
+        "listen_index": 12,
+        "filename": "zh_matcha_12.wav",
+        "reason": "Latin acronyms CPU/RAM/GB may be silently omitted",
+        "text": "CPU温度达到了82度，而RAM使用量保持在6GB以下。"
+      },
+      {
+        "listen_index": 13,
+        "filename": "zh_matcha_13.wav",
+        "reason": "Latin acronyms API/JSON may be silently omitted",
+        "text": "API返回了一个包含24条记录的JSON文件。"
+      },
+      {
+        "listen_index": 14,
+        "filename": "zh_matcha_14.wav",
+        "reason": "Latin Wi-Fi/VPN tokens may be silently omitted",
+        "text": "Wi-Fi可以正常使用，但VPN每10分钟就会断开。"
+      }
+    ],
+    "commercial_or_frontend_caveats": [
+      "All Piper listening routes are commercially blocked on the pinned Lessac-derived provenance evidence, even where D3 passed.",
+      "Matcha ZH is commercially blocked by Baker-corpus/checkpoint licensing.",
+      "Silero RU passed D3 but needs an external Russian stress frontend for a production route."
+    ]
+  },
+  "listening_workflow": {
+    "organization": "One section per language; one table row per aligned index 01-20; source text in the second column; one engine-link column per route so all engines for the same sentence are compared before advancing.",
+    "language_order": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "ru"
+    ],
+    "engine_columns": {
+      "en": [
+        "kokoro",
+        "piper",
+        "supertonic"
+      ],
+      "es": [
+        "kokoro",
+        "piper",
+        "supertonic"
+      ],
+      "fr": [
+        "kokoro",
+        "piper",
+        "supertonic"
+      ],
+      "ru": [
+        "piper",
+        "silero",
+        "supertonic"
+      ],
+      "zh": [
+        "kokoro",
+        "matcha"
+      ]
+    },
+    "labels": {
+      "diagnostic_unsafe_route": "⚠ diagnostic: D3-unsafe route",
+      "diagnostic_text_coverage_risk": "⚠ omission check",
+      "missing_known_nonfinite": "— non-finite output; no WAV"
+    },
+    "intro_notes": [
+      "Use headphones and keep volume fixed within a language.",
+      "Compare across one row before moving to the next row.",
+      "Treat safety/commercial labels as routing evidence; listening cannot override a D3 hard failure or licence blocker.",
+      "For Matcha ZH indices 02, 09, 11, 12, 13, and 14, listen specifically for omitted symbols, separators, or Latin tokens."
+    ]
+  },
+  "naturalness_disposition": "USER_JUDGMENT_REQUIRED_NO_PANEL",
+  "artifacts": {
+    "listening_directory": "artifacts/listening/",
+    "audit": {
+      "path": "artifacts/d5_audit/audit_summary.json",
+      "sha256": "6f23a727b0c2f45e1c215fa534bdef0f259b8efeff6802a8d08ffce93a19aaae"
+    },
+    "guide": "LISTEN.md"
+  }
+}

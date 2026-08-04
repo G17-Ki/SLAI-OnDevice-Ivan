@@ -1,0 +1,58 @@
+{
+  "schema_version": "lane-b-execution-resource-correction/1.0",
+  "sprint_id": "B1",
+  "recorded_at_utc": "2026-08-02T07:21:29Z",
+  "recorded_before_candidate_inference": false,
+  "recorded_after_failed_unscored_candidate_attempt": true,
+  "candidate_result_rows_observed": 0,
+  "parent_preregistration": {
+    "path": "b1_prereg.json",
+    "sha256": "ff0ccbd0b2ca426bbfe287419c8e47a6ff71a28827da9aaa178ffce1adbc2eb6"
+  },
+  "parent_records": [
+    {
+      "path": "b1_execution_clarifications.json",
+      "sha256": "cb3921b1dbfa9a38040d6ffae13f04606dbcebe72b2806a14193d89f06140b91"
+    },
+    {
+      "path": "b1_execution_clarification_correction.json",
+      "sha256": "d5df5eb593a6e93995c9dbb21039407328709b90ed940520950a0d3e2ef57482"
+    },
+    {
+      "path": "b1_execution_clarification_addendum.json",
+      "sha256": "691ac3e99c2751d3e3b33bc3edfc931b9cd90c56ad43ce5c0f1ad212b5eb57d0"
+    }
+  ],
+  "failed_attempt": {
+    "model_id": "qwen35_08b",
+    "run_kind": "global_mmlu_log_likelihood",
+    "previous_harness_source_sha256": "d7d2077148a11f2b0242fb0889642a5c4c9c31579c638fe13ae7753ccae21b37",
+    "returncode": -9,
+    "raw_jsonl_created": false,
+    "cumulative_accuracy_rows_observed": 0,
+    "log_artifact": "failures/qwen35_08b.mcq.batch4096.parallel4.sigkill.log",
+    "log_sha256": "d63d8bf77af8c0353236e3c3abca580736daf034fad5eeb7367ba6864b1e150e",
+    "log_bytes": 854,
+    "last_progress": "multiple_choice_score began calculating 400 tasks and printed the task/acc_norm header; the process was killed before emitting any task row",
+    "diagnosis": "Pinned llama.cpp allocates float32 batch_logits with size context_tokens multiplied by vocabulary size at this point. For Qwen3.5-0.8B this is 4096 * 248320 * 4 = 4068474880 bytes (3.789 GiB), in addition to the model, CUDA graph, KV cache, and runtime allocations."
+  },
+  "corrected_mcq_execution": {
+    "applies_identically_to_models": [
+      "qwen35_08b",
+      "qwen25_15b",
+      "qwen3_06b",
+      "falcon_h1_15b"
+    ],
+    "context_tokens": 4096,
+    "batch_size": 1024,
+    "ubatch_size": 128,
+    "parallel": 4,
+    "gpu_layers": 999,
+    "seed": 1729,
+    "largest_observed_qwen35_task_sequence_tokens": 577,
+    "largest_observed_qwen35_required_batch_tokens": 580,
+    "invariance_basis": "The largest frozen Qwen3.5 task requires 580 batch tokens, below batch_size=1024, so every task remains in one outer llama_decode call. Context, four A/B/C/D sequences, prompt bytes, candidate bytes, task order, length-normalized log-likelihood scoring, GPU offload, and seed are unchanged. Reducing only logical and physical batching lowers peak scheduler memory without changing the registered item set or decision rule."
+  },
+  "fallback_not_authorized_by_this_record": "If this correction still receives SIGKILL, stop and append-record any further change before running it. In particular, context reduction is not authorized here.",
+  "scope": "This is a disclosed resource-execution correction after an unscored allocation failure, not response-conditioned tuning. It changes no model, revision, quantization, item, prompt, candidate answer, decoding score, scoring rubric, weight, threshold, or verdict rule."
+}

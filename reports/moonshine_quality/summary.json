@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "model": "UsefulSensors/moonshine-base",
+  "dataset": "hf-internal-testing/librispeech_asr_dummy clean/validation",
+  "sample_count": 18,
+  "conditions": [
+    "clean",
+    "gaussian_10db",
+    "competing_speech_5db"
+  ],
+  "summary": [
+    {
+      "model": "UsefulSensors/moonshine-base",
+      "condition": "clean",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 28.797925460152328,
+      "real_time_factor": 0.16116588107648838,
+      "wer_percent": 8.571428571428571,
+      "device": "mps"
+    },
+    {
+      "model": "UsefulSensors/moonshine-base",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 11.901685373624787,
+      "real_time_factor": 0.06660707599196791,
+      "wer_percent": 14.523809523809526,
+      "device": "mps"
+    },
+    {
+      "model": "UsefulSensors/moonshine-base",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 15.981723834527656,
+      "real_time_factor": 0.08944076914417917,
+      "wer_percent": 64.04761904761904,
+      "device": "mps"
+    }
+  ],
+  "environment": {
+    "device": "mps",
+    "torch": "2.8.0",
+    "transformers": "4.56.1",
+    "datasets": "5.0.0"
+  },
+  "limitations": [
+    "This is the same 18-utterance controlled smoke diagnostic, not a publication-scale WER benchmark.",
+    "Local runtime is reported only for reproducibility and must not be compared with L4 or Qualcomm latency."
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "experiment_id": "qairt242_colab_supertonic_remaining_sm8850_htp_v81_v1",
+  "claim_boundary": "Offline QAIRT 2.42 context generation for the exact Supertonic vector-estimator or vocoder graph only. Success does not prove phone loading, HTP execution, numerical equivalence, PCM quality, latency, language identity, or accepted-runtime integration.",
+  "execution_policy": {
+    "allowed_host": "Google Colab on Ubuntu 22.04 x86_64",
+    "required_python": "3.10",
+    "required_clang_major": 14,
+    "mac_execution_allowed": false,
+    "credentials_required": false,
+    "network_hosts": [
+      "softwarecenter.qualcomm.com",
+      "github.com"
+    ],
+    "allowed_components": [
+      "vector_estimator",
+      "vocoder"
+    ],
+    "resume_policy": "Each component has a separate content-addressed state under one durable workspace. A completed stage is reused only while its fingerprint and every output hash match. Interrupted partial outputs are quarantined before retry.",
+    "fallback_policy": {
+      "allow_other_qairt_version": false,
+      "allow_qairt_245_context_in_qairt_242_phone_runtime": false,
+      "allow_unverified_download": false,
+      "allow_cpu_backend": false,
+      "allow_graph_rewrite": false,
+      "allow_unpinned_component": false
+    }
+  },
+  "host_dependencies": {
+    "ubuntu_version": "22.04",
+    "python_version_prefix": "3.10.",
+    "clang_major": 14,
+    "cmake_minimum": "3.22",
+    "minimum_free_bytes": 17179869184,
+    "python_packages": {
+      "matplotlib": "3.8.4",
+      "numpy": "1.26.4",
+      "onnx": "1.16.1",
+      "onnxruntime": "1.18.0",
+      "onnxsim": "0.4.36",
+      "protobuf": "3.20.3",
+      "pyyaml": "6.0.2"
+    },
+    "compatibility_note": "Use the exact Python-3.10-compatible dependency overrides already validated by the duration canary before invoking the QAIRT dependency checker."
+  },
+  "archives": {
+    "qairt": {
+      "url": "https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.42.0.251225/v2.42.0.251225.zip",
+      "filename": "v2.42.0.251225.zip",
+      "bytes": 1543955191,
+      "sha256": "1a744ed72a813fc9dd4a29e31b1685f784786102fd45414d74915bb3351ae321",
+      "sdk_root_member": "qairt/2.42.0.251225",
+      "build_id": "2.42.0.251225135753_193295"
+    },
+    "supertonic": {
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2",
+      "filename": "sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2",
+      "bytes": 128774318,
+      "sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427"
+    }
+  },
+  "components": {
+    "vector_estimator": {
+      "source": {
+        "archive_basename": "vector_estimator.int8.onnx",
+        "bytes": 78400833,
+        "sha256": "20cd86fa5c6effedfda0e7cffe5b0569ca401c440a0c3a1d72bf39286c0db3fd"
+      },
+      "onnx_contract": {
+        "ir_version": 9,
+        "opsets": {
+          "": 19
+        },
+        "graph_name": "main_graph",
+        "inputs": {
+          "noisy_latent": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size",
+              144,
+              "latent_length"
+            ],
+            "fixed_shape": [
+              1,
+              144,
+              32
+            ]
+          },
+          "text_emb": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size",
+              256,
+              "text_length"
+            ],
+            "fixed_shape": [
+              1,
+              256,
+              32
+            ]
+          },
+          "style_ttl": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size",
+              50,
+              256
+            ],
+            "fixed_shape": [
+              1,
+              50,
+              256
+            ]
+          },
+          "latent_mask": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size",
+              1,
+              "latent_length"
+            ],
+            "fixed_shape": [
+              1,
+              1,
+              32
+            ]
+          },
+          "text_mask": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size",
+              1,
+              "text_length"
+            ],
+            "fixed_shape": [
+              1,
+              1,
+              32
+            ]
+          },
+          "current_step": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size"
+            ],
+            "fixed_shape": [
+              1
+            ]
+          },
+          "total_step": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size"
+            ],
+            "fixed_shape": [
+              1
+            ]
+          }
+        },
+        "outputs": {
+          "denoised_latent": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size",
+              144,
+              "latent_length"
+            ],
+            "fixed_shape": [
+              1,
+              144,
+              32
+            ]
+          }
+        },
+        "remove_duplicate_io_value_info": []
+      },
+      "static_operator_audit": {
+        "DynamicQuantizeLinear": 22,
+        "MatMulInteger": 38,
+        "Softplus": 1
+      },
+      "model_library_basename": "supertonic_vector_estimator_qairt242",
+      "context_basename": "supertonic_vector_estimator_sm8850_htp_v81_qairt242",
+      "minimum_context_bytes": 1024
+    },
+    "vocoder": {
+      "source": {
+        "archive_basename": "vocoder.int8.onnx",
+        "bytes": 25991073,
+        "sha256": "e923d60f53f95eb1ce235f1dc33ec56d9c057823c96fa6f8acf98f32b0da6152"
+      },
+      "onnx_contract": {
+        "ir_version": 9,
+        "opsets": {
+          "": 19,
+          "ai.onnx.ml": 5,
+          "ai.onnx.preview.training": 1,
+          "ai.onnx.training": 1,
+          "com.microsoft": 1,
+          "com.microsoft.experimental": 1,
+          "com.microsoft.nchwc": 1,
+          "org.pytorch.aten": 1
+        },
+        "graph_name": "main_graph",
+        "inputs": {
+          "latent": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size",
+              144,
+              "latent_length"
+            ],
+            "fixed_shape": [
+              1,
+              144,
+              32
+            ]
+          }
+        },
+        "outputs": {
+          "wav_tts": {
+            "dtype": "float32",
+            "source_shape": [
+              "batch_size",
+              "3072*latent_length"
+            ],
+            "fixed_shape": [
+              1,
+              98304
+            ]
+          }
+        },
+        "remove_duplicate_io_value_info": [
+          "wav_tts"
+        ],
+        "metadata_only_sanitized_identity": {
+          "bytes_before_fixed_shapes": 25991018,
+          "sha256_before_fixed_shapes": "db8cd48bf21464fc23114941dfe4d1ed421754920823b5ff02eb0ff1889e20df"
+        }
+      },
+      "model_library_basename": "supertonic_vocoder_qairt242",
+      "context_basename": "supertonic_vocoder_sm8850_htp_v81_qairt242",
+      "minimum_context_bytes": 1024
+    }
+  },
+  "target": {
+    "chipset": "SM8850",
+    "device_generation": "Snapdragon 8 Elite Gen 5",
+    "soc_model": 87,
+    "dsp_arch": "v81",
+    "target_abi": "aarch64-android",
+    "backend": "HTP",
+    "pd_session": "unsigned",
+    "graph_optimization_level": 3,
+    "vtcm_mb": 8,
+    "qnn_precision": "FLOAT16"
+  },
+  "tool_contract": {
+    "converter": "bin/x86_64-linux-clang/qnn-onnx-converter",
+    "model_lib_generator": "bin/x86_64-linux-clang/qnn-model-lib-generator",
+    "context_binary_generator": "bin/x86_64-linux-clang/qnn-context-binary-generator",
+    "context_binary_utility": "bin/x86_64-linux-clang/qnn-context-binary-utility",
+    "htp_backend": "lib/x86_64-linux-clang/libQnnHtp.so",
+    "htp_extension": "lib/x86_64-linux-clang/libQnnHtpNetRunExtensions.so",
+    "android_runtime_inventory": [
+      "lib/aarch64-android/libQnnHtp.so",
+      "lib/aarch64-android/libQnnHtpV81Stub.so",
+      "lib/aarch64-android/libQnnSystem.so",
+      "lib/hexagon-v81/unsigned/libQnnHtpV81.so",
+      "lib/hexagon-v81/unsigned/libQnnHtpV81Skel.so"
+    ]
+  },
+  "output_contract": {
+    "required_manifest_status": "context_generated_unexecuted",
+    "include_runtime_binaries_in_bundle": false,
+    "phone_execution_proven": false,
+    "npu_execution_proven": false
+  }
+}

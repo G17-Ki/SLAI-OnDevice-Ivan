@@ -1,0 +1,4 @@
+Wrapper attempt: no forward was opened before interruption; `adb forward --list` was empty.
+Direct acceptance core: `adb forward tcp:0 tcp:6010` allocated localhost port 60193.
+After both POSTs and final health: `adb forward --remove tcp:60193` returned success.
+Final `adb forward --list`: empty.

@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "stage": "local_fixed_shape_cached_decode_export",
+  "component": "attention",
+  "model": "LiquidAI/LFM2.5-Audio-1.5B",
+  "model_revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+  "layer_idx": 2,
+  "layer_type": "full_attention",
+  "dtype": "float32",
+  "decode_semantics": {
+    "tokens_per_call": 1,
+    "cache_capacity_tokens": 16,
+    "valid_past_tokens": 8,
+    "write_slot": 8,
+    "valid_tokens_after_call": 9,
+    "position": 8,
+    "unused_tail_is_preserved_and_attention_masked": true
+  },
+  "fixed_input_shapes": {
+    "hidden_states": [
+      1,
+      1,
+      2048
+    ],
+    "key_cache": [
+      1,
+      8,
+      16,
+      64
+    ],
+    "value_cache": [
+      1,
+      8,
+      16,
+      64
+    ]
+  },
+  "fixed_output_shapes": {
+    "output": [
+      1,
+      1,
+      2048
+    ],
+    "updated_key_cache": [
+      1,
+      8,
+      16,
+      64
+    ],
+    "updated_value_cache": [
+      1,
+      8,
+      16,
+      64
+    ]
+  },
+  "official_eager_vs_explicit_eager": {
+    "output": {
+      "max_abs": 5.960464477539063e-08,
+      "mean_abs": 5.447304829431232e-09
+    },
+    "key_cache": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0
+    },
+    "value_cache": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0
+    }
+  },
+  "official_eager_vs_serialized_reload": {
+    "output": {
+      "max_abs": 5.960464477539063e-08,
+      "mean_abs": 5.447304829431232e-09
+    },
+    "key_cache": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0
+    },
+    "value_cache": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0
+    }
+  },
+  "benchmark": {
+    "runs": 5,
+    "median_ms": 5.584375001490116,
+    "min_ms": 5.493042059242725,
+    "max_ms": 5.901166936382651
+  },
+  "memory": {
+    "process_max_rss_bytes": 1225998336
+  },
+  "export": {
+    "format": "torch.export pt2",
+    "artifact": "<workspace>/work/lfm-feasibility/exports/lfm2_layer2_attention_decode_kv16_past8.pt2",
+    "artifact_bytes": 243507905,
+    "numpy_io": "<workspace>/work/lfm-feasibility/exports/lfm2_layer2_attention_decode_kv16_past8.npz",
+    "export_seconds": 0.314580834005028,
+    "operator_counts": {
+      "aten._assert_tensor_metadata.default": 9,
+      "aten.add.Tensor": 9,
+      "aten.cat.default": 4,
+      "aten.dropout.default": 1,
+      "aten.expand.default": 2,
+      "aten.linear.default": 7,
+      "aten.matmul.default": 2,
+      "aten.mean.dim": 4,
+      "aten.mul.Tensor": 14,
+      "aten.neg.default": 2,
+      "aten.pow.Tensor_Scalar": 4,
+      "aten.reshape.default": 3,
+      "aten.rsqrt.default": 4,
+      "aten.silu.default": 1,
+      "aten.slice.Tensor": 32,
+      "aten.softmax.int": 1,
+      "aten.to.dtype": 9,
+      "aten.transpose.int": 5,
+      "aten.unsqueeze.default": 4,
+      "aten.view.default": 3
+    }
+  },
+  "selected_checkpoint_keys": [
+    "lfm.layers.2.feed_forward.w1.weight",
+    "lfm.layers.2.feed_forward.w2.weight",
+    "lfm.layers.2.feed_forward.w3.weight",
+    "lfm.layers.2.ffn_norm.weight",
+    "lfm.layers.2.operator_norm.weight",
+    "lfm.layers.2.self_attn.k_layernorm.weight",
+    "lfm.layers.2.self_attn.k_proj.weight",
+    "lfm.layers.2.self_attn.out_proj.weight",
+    "lfm.layers.2.self_attn.q_layernorm.weight",
+    "lfm.layers.2.self_attn.q_proj.weight",
+    "lfm.layers.2.self_attn.v_proj.weight"
+  ],
+  "limitations": [
+    "One decoder layer only; no multi-layer cache routing.",
+    "One token per invocation and batch size 1 are fixed.",
+    "Past length, write slot, rotary position, and valid-attention mask are baked into this graph.",
+    "A production persistent session needs a small family of position/length graphs or a backend-supported dynamic index/mask interface.",
+    "The cache does not yet implement eviction once fixed capacity is full."
+  ]
+}

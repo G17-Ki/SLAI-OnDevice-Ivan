@@ -1,0 +1,162 @@
+{
+  "created_utc": "2026-07-22T15:39:16.413661+00:00",
+  "sources": [
+    {
+      "path": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/official_tts_jp.json",
+      "mode": "tts",
+      "model": "LFM2.5-Audio-1.5B-JP",
+      "system_prompt": "Perform TTS in japanese.",
+      "input_audio": null,
+      "input_audio_sha256": null,
+      "input_text": "こんにちは、お元気ですか？",
+      "max_tokens": 128
+    }
+  ],
+  "measured_runs": 3,
+  "summary": {
+    "first_text_ms": null,
+    "first_pcm_ms": {
+      "min": 60.06941700002244,
+      "median": 61.84087500014357,
+      "p95": 62.275957999872844,
+      "max": 62.275957999872844,
+      "mean": 61.395416666679616
+    },
+    "total_ms": {
+      "min": 717.282834000116,
+      "median": 720.3835840000465,
+      "p95": 721.2501249998695,
+      "max": 721.2501249998695,
+      "mean": 719.6388476666774
+    },
+    "audio_seconds": {
+      "min": 2.14,
+      "median": 2.14,
+      "p95": 2.14,
+      "max": 2.14,
+      "mean": 2.14
+    },
+    "largest_pcm_arrival_gap_ms": {
+      "min": 24.682499999926222,
+      "median": 25.10695899991333,
+      "p95": 25.796417000037764,
+      "max": 25.796417000037764,
+      "mean": 25.195291999959107
+    },
+    "stream_generation_rtf": {
+      "min": 0.30628128925232356,
+      "median": 0.30793185373831616,
+      "p95": 0.30855802196262805,
+      "max": 0.30855802196262805,
+      "mean": 0.3075903883177559
+    },
+    "character_error_rate_percent": null
+  },
+  "unique_transcripts": [
+    ""
+  ],
+  "unique_pcm_sha256": [
+    "2fc05cae419ca564ccba4f922d70021442ecba019ab71bcdba6b30763781f23f"
+  ],
+  "runs": [
+    {
+      "run_index": 2,
+      "measured": true,
+      "first_text_ms": null,
+      "first_pcm_ms": 61.84087500014357,
+      "total_ms": 717.282834000116,
+      "transcript": "",
+      "sse_events": 29,
+      "audio_chunks": 28,
+      "audio_formats": [
+        "pcm"
+      ],
+      "audio_sample_rate": 24000,
+      "audio_seconds": 2.14,
+      "first_chunk_ms": 60.0,
+      "audio_chunk_ms": {
+        "min": 0.0,
+        "median": 80.0,
+        "p95": 80.0,
+        "max": 80.0,
+        "mean": 76.42857142857143
+      },
+      "largest_pcm_arrival_gap_ms": 24.682499999926222,
+      "audio_wav": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/audio/tts-02.wav",
+      "pcm": {
+        "samples": 51360,
+        "peak_normalized": 0.43426513671875,
+        "rms_normalized": 0.06210176367812131
+      },
+      "pcm_sha256": "2fc05cae419ca564ccba4f922d70021442ecba019ab71bcdba6b30763781f23f",
+      "stream_generation_rtf": 0.30628128925232356,
+      "source": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/official_tts_jp.json"
+    },
+    {
+      "run_index": 3,
+      "measured": true,
+      "first_text_ms": null,
+      "first_pcm_ms": 60.06941700002244,
+      "total_ms": 720.3835840000465,
+      "transcript": "",
+      "sse_events": 29,
+      "audio_chunks": 28,
+      "audio_formats": [
+        "pcm"
+      ],
+      "audio_sample_rate": 24000,
+      "audio_seconds": 2.14,
+      "first_chunk_ms": 60.0,
+      "audio_chunk_ms": {
+        "min": 0.0,
+        "median": 80.0,
+        "p95": 80.0,
+        "max": 80.0,
+        "mean": 76.42857142857143
+      },
+      "largest_pcm_arrival_gap_ms": 25.796417000037764,
+      "audio_wav": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/audio/tts-03.wav",
+      "pcm": {
+        "samples": 51360,
+        "peak_normalized": 0.43426513671875,
+        "rms_normalized": 0.06210176367812131
+      },
+      "pcm_sha256": "2fc05cae419ca564ccba4f922d70021442ecba019ab71bcdba6b30763781f23f",
+      "stream_generation_rtf": 0.30855802196262805,
+      "source": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/official_tts_jp.json"
+    },
+    {
+      "run_index": 4,
+      "measured": true,
+      "first_text_ms": null,
+      "first_pcm_ms": 62.275957999872844,
+      "total_ms": 721.2501249998695,
+      "transcript": "",
+      "sse_events": 29,
+      "audio_chunks": 28,
+      "audio_formats": [
+        "pcm"
+      ],
+      "audio_sample_rate": 24000,
+      "audio_seconds": 2.14,
+      "first_chunk_ms": 60.0,
+      "audio_chunk_ms": {
+        "min": 0.0,
+        "median": 80.0,
+        "p95": 80.0,
+        "max": 80.0,
+        "mean": 76.42857142857143
+      },
+      "largest_pcm_arrival_gap_ms": 25.10695899991333,
+      "audio_wav": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/audio/tts-04.wav",
+      "pcm": {
+        "samples": 51360,
+        "peak_normalized": 0.43426513671875,
+        "rms_normalized": 0.06210176367812131
+      },
+      "pcm_sha256": "2fc05cae419ca564ccba4f922d70021442ecba019ab71bcdba6b30763781f23f",
+      "stream_generation_rtf": 0.30793185373831616,
+      "source": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/official_tts_jp.json"
+    }
+  ]
+}

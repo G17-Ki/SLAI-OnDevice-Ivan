@@ -1,0 +1,5202 @@
+{
+  "schema_version": 1,
+  "device": {
+    "model": "NX809J",
+    "device": "NX809J",
+    "android_release": "16",
+    "sdk_int": 36,
+    "abi": "arm64-v8a",
+    "hardware": "qcom",
+    "soc_model": "SM8850"
+  },
+  "sweep": {
+    "tag": "main",
+    "repeats": 3,
+    "play": false,
+    "thread_sweep": [
+      0
+    ]
+  },
+  "run_count": 246,
+  "failure_records": [
+    {
+      "record": "load_failure",
+      "candidate_id": "kokoro_zh_fp32",
+      "threads": 2,
+      "error": "IllegalStateException: missing files for kokoro_zh_fp32: kokoro-multi-lang-v1_1/lexicon-us-en.txt,kokoro-multi-lang-v1_1/lexicon-zh.txt"
+    },
+    {
+      "record": "load_failure",
+      "candidate_id": "kokoro_zh_int8",
+      "threads": 2,
+      "error": "IllegalStateException: missing files for kokoro_zh_int8: kokoro-int8-v1_1-zh/kokoro-int8-multi-lang-v1_1/lexicon-us-en.txt,kokoro-int8-v1_1-zh/kokoro-int8-multi-lang-v1_1/lexicon-zh.txt"
+    }
+  ],
+  "device_vs_host_rtf_speedup": {
+    "note": "host RTF median / device RTF median; >1 means the phone is faster",
+    "n": 72,
+    "median": 0.7482092982173463,
+    "p95": 3.3837955847727765,
+    "min": 0.554387696259285,
+    "max": 4.490956378080145
+  },
+  "rows": [
+    {
+      "candidate_id": "matcha_zh_baker",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "zh_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 51,
+          "p95": 51,
+          "min": 50,
+          "max": 51
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.025265625000000003,
+          "p95": 0.026605468750000003,
+          "min": 0.0241171875,
+          "max": 0.026605468750000003
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 5.224489795918367,
+          "p95": 5.224489795918367,
+          "min": 5.224489795918367,
+          "max": 5.224489795918367
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 625,
+          "min": 625,
+          "max": 625
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 2,
+          "p95": 2,
+          "min": 2,
+          "max": 2
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.15140886639710516,
+        "rtf_median": 0.0854937103215247
+      },
+      "device_speedup_vs_host_rtf": 3.3837955847727765
+    },
+    {
+      "candidate_id": "matcha_zh_baker",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "zh_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 54,
+          "p95": 54,
+          "min": 53,
+          "max": 54
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.02429387019230769,
+          "p95": 0.02429387019230769,
+          "min": 0.02429387019230769,
+          "max": 0.02429387019230769
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.2639455782312927,
+          "p95": 2.2639455782312927,
+          "min": 2.2639455782312927,
+          "max": 2.2639455782312927
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 625,
+          "min": 625,
+          "max": 625
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.1563374835939612,
+        "rtf_median": 0.08982574887366226
+      },
+      "device_speedup_vs_host_rtf": 3.697465581342586
+    },
+    {
+      "candidate_id": "matcha_zh_baker",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor1",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 22,
+          "p95": 22,
+          "min": 22,
+          "max": 22
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.03668619791666667,
+          "p95": 0.03668619791666667,
+          "min": 0.03668619791666667,
+          "max": 0.03668619791666667
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.626938775510204,
+          "p95": 0.626938775510204,
+          "min": 0.626938775510204,
+          "max": 0.626938775510204
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 625,
+          "min": 625,
+          "max": 625
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "matcha_zh_baker",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor2",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 28,
+          "p95": 28,
+          "min": 28,
+          "max": 28
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.03768310546875,
+          "p95": 0.0390289306640625,
+          "min": 0.03768310546875,
+          "max": 0.0390289306640625
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.7430385487528345,
+          "p95": 0.7430385487528345,
+          "min": 0.7430385487528345,
+          "max": 0.7430385487528345
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 625,
+          "min": 625,
+          "max": 625
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "matcha_zh_baker",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "zh_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 107,
+          "p95": 109,
+          "min": 105,
+          "max": 109
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.02408271522373541,
+          "p95": 0.024274227869649806,
+          "min": 0.02398695890077821,
+          "max": 0.024274227869649806
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 20.886349206349205,
+          "p95": 20.886349206349205,
+          "min": 20.886349206349205,
+          "max": 20.886349206349205
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 625,
+          "min": 625,
+          "max": 625
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 6,
+          "p95": 6,
+          "min": 6,
+          "max": 6
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.35099696659017354,
+        "rtf_median": 0.08886713077128786
+      },
+      "device_speedup_vs_host_rtf": 3.690079376253318
+    },
+    {
+      "candidate_id": "matcha_zh_baker",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "zh_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 37,
+          "p95": 38,
+          "min": 31,
+          "max": 38
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.03240640470297029,
+          "p95": 0.03752320544554455,
+          "min": 0.02728960396039604,
+          "max": 0.03752320544554455
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.172607709750567,
+          "p95": 1.172607709750567,
+          "min": 1.172607709750567,
+          "max": 1.172607709750567
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 625,
+          "min": 625,
+          "max": 625
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.08681659179273993,
+        "rtf_median": 0.14553574989145082
+      },
+      "device_speedup_vs_host_rtf": 4.490956378080145
+    },
+    {
+      "candidate_id": "matcha_zh_baker",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "zh_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 82,
+          "p95": 99,
+          "min": 82,
+          "max": 99
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.025245824353448278,
+          "p95": 0.02999797952586207,
+          "min": 0.024948814655172413,
+          "max": 0.02999797952586207
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.3668934240362813,
+          "p95": 3.3668934240362813,
+          "min": 3.3668934240362813,
+          "max": 3.3668934240362813
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 625,
+          "min": 625,
+          "max": 625
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.2658585083903745,
+        "rtf_median": 0.08586522877841167
+      },
+      "device_speedup_vs_host_rtf": 3.4011655779694716
+    },
+    {
+      "candidate_id": "matcha_zh_baker",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "zh_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 70,
+          "p95": 70,
+          "min": 58,
+          "max": 70
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.028286637931034486,
+          "p95": 0.028428071120689655,
+          "min": 0.024185075431034483,
+          "max": 0.028428071120689655
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 7.070476190476191,
+          "p95": 7.070476190476191,
+          "min": 7.070476190476191,
+          "max": 7.070476190476191
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 625,
+          "min": 625,
+          "max": 625
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 3,
+          "p95": 3,
+          "min": 3,
+          "max": 3
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.16147651679930278,
+        "rtf_median": 0.08840136341699262
+      },
+      "device_speedup_vs_host_rtf": 3.125198676227396
+    },
+    {
+      "candidate_id": "melotts_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "zh_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 486,
+          "p95": 631,
+          "min": 479,
+          "max": 631
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3173314144736842,
+          "p95": 0.3523386101973684,
+          "min": 0.3143092105263158,
+          "max": 0.3523386101973684
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.9706122448979593,
+          "p95": 3.9706122448979593,
+          "min": 3.9706122448979593,
+          "max": 3.9706122448979593
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1026,
+          "p95": 1026,
+          "min": 1026,
+          "max": 1026
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 2,
+          "p95": 2,
+          "min": 2,
+          "max": 2
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.0647503002081067,
+        "rtf_median": 0.6646682877112353
+      },
+      "device_speedup_vs_host_rtf": 2.0945555888742784
+    },
+    {
+      "candidate_id": "melotts_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "zh_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 466,
+          "p95": 467,
+          "min": 462,
+          "max": 467
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3060324928977272,
+          "p95": 0.3066850142045454,
+          "min": 0.30342240767045453,
+          "max": 0.3066850142045454
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.5325170068027212,
+          "p95": 1.5325170068027212,
+          "min": 1.5325170068027212,
+          "max": 1.5325170068027212
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1026,
+          "p95": 1026,
+          "min": 1026,
+          "max": 1026
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.9926160159928259,
+        "rtf_median": 0.6465665337521707
+      },
+      "device_speedup_vs_host_rtf": 2.1127381855110605
+    },
+    {
+      "candidate_id": "melotts_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor1",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 356,
+          "p95": 356,
+          "min": 355,
+          "max": 356
+        },
+        "rtf": {
+          "n": 3,
+          "median": 1.0603246228448275,
+          "p95": 1.0603246228448275,
+          "min": 1.057354525862069,
+          "max": 1.0603246228448275
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.33668934240362813,
+          "p95": 0.33668934240362813,
+          "min": 0.33668934240362813,
+          "max": 0.33668934240362813
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1026,
+          "p95": 1026,
+          "min": 1026,
+          "max": 1026
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 0,
+        "gate_runs": 3,
+        "gate_failures": [
+          "near_silent_rms:0.001623",
+          "near_silent_rms:0.001778",
+          "near_silent_rms:0.003643"
+        ],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "melotts_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor2",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 616,
+          "p95": 618,
+          "min": 613,
+          "max": 618
+        },
+        "rtf": {
+          "n": 3,
+          "median": 1.1325548537234043,
+          "p95": 1.1362200797872342,
+          "min": 1.1270570146276597,
+          "max": 1.1362200797872342
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.5456689342403628,
+          "p95": 0.5456689342403628,
+          "min": 0.5456689342403628,
+          "max": 0.5456689342403628
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1026,
+          "p95": 1026,
+          "min": 1026,
+          "max": 1026
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "melotts_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "zh_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1197,
+          "p95": 1210,
+          "min": 1195,
+          "max": 1210
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.33147891311310396,
+          "p95": 0.538046331670937,
+          "min": 0.33034392729685214,
+          "max": 0.538046331670937
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 15.85922902494331,
+          "p95": 15.85922902494331,
+          "min": 15.85922902494331,
+          "max": 15.85922902494331
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1026,
+          "p95": 1026,
+          "min": 1026,
+          "max": 1026
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 6,
+          "p95": 6,
+          "min": 6,
+          "max": 6
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 2.688918583584018,
+        "rtf_median": 0.7001531925377068
+      },
+      "device_speedup_vs_host_rtf": 2.1122103543847675
+    },
+    {
+      "candidate_id": "melotts_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "zh_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 165,
+          "p95": 180,
+          "min": 164,
+          "max": 180
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.30895465353260876,
+          "p95": 0.3389138926630435,
+          "min": 0.30895465353260876,
+          "max": 0.3389138926630435
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.5340589569160997,
+          "p95": 0.5340589569160997,
+          "min": 0.5340589569160997,
+          "max": 0.5340589569160997
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1026,
+          "p95": 1026,
+          "min": 1026,
+          "max": 1026
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.34485371638438667,
+        "rtf_median": 0.6438651641917906
+      },
+      "device_speedup_vs_host_rtf": 2.084011866562915
+    },
+    {
+      "candidate_id": "melotts_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "zh_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 810,
+          "p95": 957,
+          "min": 801,
+          "max": 957
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3276266793224299,
+          "p95": 0.38679267669392525,
+          "min": 0.3240042713200935,
+          "max": 0.38679267669392525
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.48453514739229,
+          "p95": 2.48453514739229,
+          "min": 2.48453514739229,
+          "max": 2.48453514739229
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1026,
+          "p95": 1026,
+          "min": 1026,
+          "max": 1026
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.90479517520871,
+        "rtf_median": 0.6651780522174683
+      },
+      "device_speedup_vs_host_rtf": 2.0302926904278182
+    },
+    {
+      "candidate_id": "melotts_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "zh_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 519,
+          "p95": 523,
+          "min": 513,
+          "max": 523
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.31789666458852867,
+          "p95": 0.32090379519950124,
+          "min": 0.31746707450124684,
+          "max": 0.32090379519950124
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 4.655600907029479,
+          "p95": 4.655600907029479,
+          "min": 4.655600907029479,
+          "max": 4.655600907029479
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1026,
+          "p95": 1026,
+          "min": 1026,
+          "max": 1026
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 3,
+          "p95": 3,
+          "min": 3,
+          "max": 3
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.084825458197156,
+        "rtf_median": 0.7149905021655659
+      },
+      "device_speedup_vs_host_rtf": 2.2491286691888317
+    },
+    {
+      "candidate_id": "melotts_zh_int8",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "zh_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 3844,
+          "p95": 3865,
+          "min": 3797,
+          "max": 3865
+        },
+        "rtf": {
+          "n": 3,
+          "median": 2.459514992774567,
+          "p95": 2.463498013005781,
+          "min": 2.422174178106937,
+          "max": 2.463498013005781
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 4.017052154195011,
+          "p95": 4.017052154195011,
+          "min": 4.017052154195011,
+          "max": 4.017052154195011
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 2453,
+          "p95": 2453,
+          "min": 2453,
+          "max": 2453
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 2,
+          "p95": 2,
+          "min": 2,
+          "max": 2
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 4.792754292004974,
+        "rtf_median": 2.026354925093817
+      },
+      "device_speedup_vs_host_rtf": 0.8238839490902619
+    },
+    {
+      "candidate_id": "melotts_zh_int8",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "zh_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 3819,
+          "p95": 3836,
+          "min": 3802,
+          "max": 3836
+        },
+        "rtf": {
+          "n": 3,
+          "median": 2.439791666666667,
+          "p95": 2.45,
+          "min": 2.4289453125000002,
+          "max": 2.45
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.5673469387755101,
+          "p95": 1.5673469387755101,
+          "min": 1.5673469387755101,
+          "max": 1.5673469387755101
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 2453,
+          "p95": 2453,
+          "min": 2453,
+          "max": 2453
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 3.2384938165894708,
+        "rtf_median": 2.036289666349755
+      },
+      "device_speedup_vs_host_rtf": 0.834616206854993
+    },
+    {
+      "candidate_id": "melotts_zh_int8",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor1",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 811,
+          "p95": 811,
+          "min": 811,
+          "max": 811
+        },
+        "rtf": {
+          "n": 3,
+          "median": 2.4978515625,
+          "p95": 2.500927734375,
+          "min": 2.4978515625,
+          "max": 2.500927734375
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.3250793650793651,
+          "p95": 0.3250793650793651,
+          "min": 0.3250793650793651,
+          "max": 0.3250793650793651
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 2453,
+          "p95": 2453,
+          "min": 2453,
+          "max": 2453
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 0,
+        "gate_runs": 3,
+        "gate_failures": [
+          "near_silent_rms:0.002454",
+          "near_silent_rms:0.002935",
+          "near_silent_rms:0.004270"
+        ],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "melotts_zh_int8",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor2",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1343,
+          "p95": 1357,
+          "min": 1340,
+          "max": 1357
+        },
+        "rtf": {
+          "n": 3,
+          "median": 2.464864527925532,
+          "p95": 2.4905211103723404,
+          "min": 2.4593666888297876,
+          "max": 2.4905211103723404
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.5456689342403628,
+          "p95": 0.5456689342403628,
+          "min": 0.5456689342403628,
+          "max": 0.5456689342403628
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 2453,
+          "p95": 2453,
+          "min": 2453,
+          "max": 2453
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "melotts_zh_int8",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "zh_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 8131,
+          "p95": 8910,
+          "min": 3574,
+          "max": 8910
+        },
+        "rtf": {
+          "n": 3,
+          "median": 1.6827915736607144,
+          "p95": 2.373297991071429,
+          "min": 1.5533412388392858,
+          "max": 2.373297991071429
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 15.928888888888888,
+          "p95": 15.928888888888888,
+          "min": 15.928888888888888,
+          "max": 15.928888888888888
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 2453,
+          "p95": 2453,
+          "min": 2453,
+          "max": 2453
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 6,
+          "p95": 6,
+          "min": 6,
+          "max": 6
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 7.593007900606608,
+        "rtf_median": 2.015590236078424
+      },
+      "device_speedup_vs_host_rtf": 1.1977658241381286
+    },
+    {
+      "candidate_id": "melotts_zh_int8",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "zh_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1433,
+          "p95": 1435,
+          "min": 1431,
+          "max": 1435
+        },
+        "rtf": {
+          "n": 3,
+          "median": 2.47201171875,
+          "p95": 2.47545703125,
+          "min": 2.46856640625,
+          "max": 2.47545703125
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.5804988662131519,
+          "p95": 0.5804988662131519,
+          "min": 0.5804988662131519,
+          "max": 0.5804988662131519
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 2453,
+          "p95": 2453,
+          "min": 2453,
+          "max": 2453
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.2217003001831472,
+        "rtf_median": 2.0331597281253835
+      },
+      "device_speedup_vs_host_rtf": 0.8224717191686587
+    },
+    {
+      "candidate_id": "melotts_zh_int8",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "zh_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2370,
+          "p95": 2927,
+          "min": 2343,
+          "max": 2927
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.959996698943662,
+          "p95": 1.1868535431338028,
+          "min": 0.9486740757042254,
+          "max": 1.1868535431338028
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.4729251700680273,
+          "p95": 2.4729251700680273,
+          "min": 2.4729251700680273,
+          "max": 2.4729251700680273
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 2453,
+          "p95": 2453,
+          "min": 2453,
+          "max": 2453
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 7.010212699783733,
+        "rtf_median": 2.2878757386145407
+      },
+      "device_speedup_vs_host_rtf": 2.383212089304076
+    },
+    {
+      "candidate_id": "melotts_zh_int8",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "zh_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 4011,
+          "p95": 4031,
+          "min": 1479,
+          "max": 4031
+        },
+        "rtf": {
+          "n": 3,
+          "median": 1.5036451790201006,
+          "p95": 2.4368227858040203,
+          "min": 0.9054766017587941,
+          "max": 2.4368227858040203
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 4.620770975056689,
+          "p95": 4.620770975056689,
+          "min": 4.620770975056689,
+          "max": 4.620770975056689
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 2453,
+          "p95": 2453,
+          "min": 2453,
+          "max": 2453
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 3,
+          "p95": 3,
+          "min": 3,
+          "max": 3
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 3.3698906751931643,
+        "rtf_median": 2.1614417910121486
+      },
+      "device_speedup_vs_host_rtf": 1.4374679752710826
+    },
+    {
+      "candidate_id": "piper_ru_dmitri",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "ru_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 287,
+          "p95": 293,
+          "min": 278,
+          "max": 293
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11141950974770641,
+          "p95": 0.11319223589601769,
+          "min": 0.1113984375,
+          "max": 0.11319223589601769
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.6122448979591835,
+          "p95": 2.6238548752834467,
+          "min": 2.5309750566893423,
+          "max": 2.6238548752834467
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 878,
+          "p95": 878,
+          "min": 878,
+          "max": 878
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.2615579752018675,
+        "rtf_median": 0.09275865911354232
+      },
+      "device_speedup_vs_host_rtf": 0.8325172074763305
+    },
+    {
+      "candidate_id": "piper_ru_dmitri",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "ru_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 177,
+          "p95": 178,
+          "min": 174,
+          "max": 178
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11751453488372092,
+          "p95": 0.11835042938931296,
+          "min": 0.11548177083333333,
+          "max": 0.11835042938931296
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.5209070294784581,
+          "p95": 1.5673469387755101,
+          "min": 1.497687074829932,
+          "max": 1.5673469387755101
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 878,
+          "p95": 878,
+          "min": 878,
+          "max": 878
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.1314156248117797,
+        "rtf_median": 0.09289433086685947
+      },
+      "device_speedup_vs_host_rtf": 0.7904922651379013
+    },
+    {
+      "candidate_id": "piper_ru_dmitri",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "ru_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 636,
+          "p95": 637,
+          "min": 615,
+          "max": 637
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.118675326871055,
+          "p95": 0.12181000866551127,
+          "min": 0.11742648062227073,
+          "max": 0.12181000866551127
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 13.293424036281179,
+          "p95": 13.397913832199546,
+          "min": 12.87546485260771,
+          "max": 13.397913832199546
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 878,
+          "p95": 878,
+          "min": 878,
+          "max": 878
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 3,
+          "p95": 3,
+          "min": 3,
+          "max": 3
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.5471319578005932,
+        "rtf_median": 0.09016298296873712
+      },
+      "device_speedup_vs_host_rtf": 0.7597449726572266
+    },
+    {
+      "candidate_id": "piper_ru_dmitri",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "ru_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 99,
+          "p95": 104,
+          "min": 91,
+          "max": 104
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.14120133196721313,
+          "p95": 0.150732421875,
+          "min": 0.12780997983870968,
+          "max": 0.150732421875
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.7082086167800453,
+          "p95": 0.7198185941043084,
+          "min": 0.6965986394557823,
+          "max": 0.7198185941043084
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 878,
+          "p95": 878,
+          "min": 878,
+          "max": 878
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.07566890858579427,
+        "rtf_median": 0.12954529455930663
+      },
+      "device_speedup_vs_host_rtf": 0.9174509387021008
+    },
+    {
+      "candidate_id": "piper_ru_dmitri",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "ru_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 253,
+          "p95": 258,
+          "min": 246,
+          "max": 258
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.1139737215909091,
+          "p95": 0.11424870466321242,
+          "min": 0.11287931743421054,
+          "max": 0.11424870466321242
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.2407256235827666,
+          "p95": 2.2987755102040817,
+          "min": 2.2058956916099772,
+          "max": 2.2987755102040817
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 878,
+          "p95": 878,
+          "min": 878,
+          "max": 878
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.19039903359953314,
+        "rtf_median": 0.08708137964532563
+      },
+      "device_speedup_vs_host_rtf": 0.7640478737536592
+    },
+    {
+      "candidate_id": "piper_ru_dmitri",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "ru_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 483,
+          "p95": 486,
+          "min": 472,
+          "max": 486
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11404843317174515,
+          "p95": 0.11445681014150942,
+          "min": 0.11383498733108108,
+          "max": 0.11445681014150942
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 4.295691609977324,
+          "p95": 4.307301587301588,
+          "min": 4.191201814058957,
+          "max": 4.307301587301588
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 878,
+          "p95": 878,
+          "min": 878,
+          "max": 878
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.5440890750091057,
+        "rtf_median": 0.09172501444955078
+      },
+      "device_speedup_vs_host_rtf": 0.8042636965597098
+    },
+    {
+      "candidate_id": "piper_ru_irina",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "ru_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 541,
+          "p95": 545,
+          "min": 540,
+          "max": 545
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11979893718274114,
+          "p95": 0.12006392045454546,
+          "min": 0.11958032598350256,
+          "max": 0.12006392045454546
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 4.574331065759637,
+          "p95": 4.597551020408163,
+          "min": 4.574331065759637,
+          "max": 4.597551020408163
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 692,
+          "p95": 692,
+          "min": 692,
+          "max": 692
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.3522932089865208,
+        "rtf_median": 0.09590303376170432
+      },
+      "device_speedup_vs_host_rtf": 0.8005332602860572
+    },
+    {
+      "candidate_id": "piper_ru_irina",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "ru_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 309,
+          "p95": 312,
+          "min": 307,
+          "max": 312
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.10740864666334661,
+          "p95": 0.11019420546558704,
+          "min": 0.106640625,
+          "max": 0.11019420546558704
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.914104308390023,
+          "p95": 2.9257142857142857,
+          "min": 2.8676643990929707,
+          "max": 2.9257142857142857
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 692,
+          "p95": 692,
+          "min": 692,
+          "max": 692
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.22941318359808066,
+        "rtf_median": 0.10939278114528964
+      },
+      "device_speedup_vs_host_rtf": 1.0184727630742982
+    },
+    {
+      "candidate_id": "piper_ru_irina",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "ru_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 763,
+          "p95": 780,
+          "min": 761,
+          "max": 780
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11567490363436123,
+          "p95": 0.11575846777470741,
+          "min": 0.11566888471587199,
+          "max": 0.11575846777470741
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 17.856145124716555,
+          "p95": 18.44825396825397,
+          "min": 17.77487528344671,
+          "max": 18.44825396825397
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 692,
+          "p95": 692,
+          "min": 692,
+          "max": 692
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 3,
+          "p95": 3,
+          "min": 3,
+          "max": 3
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.5172270670009311,
+        "rtf_median": 0.08268746958504648
+      },
+      "device_speedup_vs_host_rtf": 0.7148263537475226
+    },
+    {
+      "candidate_id": "piper_ru_irina",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "ru_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 101,
+          "p95": 101,
+          "min": 100,
+          "max": 101
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.12793255974264708,
+          "p95": 0.13046587775735294,
+          "min": 0.12495323503521126,
+          "max": 0.13046587775735294
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.7894784580498866,
+          "p95": 0.8243083900226758,
+          "min": 0.7894784580498866,
+          "max": 0.8243083900226758
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 692,
+          "p95": 692,
+          "min": 692,
+          "max": 692
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.07746182520641014,
+        "rtf_median": 0.08625038621917284
+      },
+      "device_speedup_vs_host_rtf": 0.6741863556289085
+    },
+    {
+      "candidate_id": "piper_ru_irina",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "ru_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 314,
+          "p95": 325,
+          "min": 291,
+          "max": 325
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.1037508877840909,
+          "p95": 0.10456714137453875,
+          "min": 0.10245636970766128,
+          "max": 0.10456714137453875
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.0650340136054424,
+          "p95": 3.1463038548752835,
+          "min": 2.8792743764172335,
+          "max": 3.1463038548752835
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 692,
+          "p95": 692,
+          "min": 692,
+          "max": 692
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.25022108320845293,
+        "rtf_median": 0.09417078338423561
+      },
+      "device_speedup_vs_host_rtf": 0.9076624344671458
+    },
+    {
+      "candidate_id": "piper_ru_irina",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "ru_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 725,
+          "p95": 746,
+          "min": 674,
+          "max": 746
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.12158039455307262,
+          "p95": 0.12204919763513514,
+          "min": 0.11695568774850897,
+          "max": 0.12204919763513514
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 6.013968253968254,
+          "p95": 6.2345578231292516,
+          "min": 5.839818594104308,
+          "max": 6.2345578231292516
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 692,
+          "p95": 692,
+          "min": 692,
+          "max": 692
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.49631738319876606,
+        "rtf_median": 0.08531372912991293
+      },
+      "device_speedup_vs_host_rtf": 0.7017063025952884
+    },
+    {
+      "candidate_id": "piper_ru_ruslan",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "ru_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 329,
+          "p95": 339,
+          "min": 320,
+          "max": 339
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11065001755617979,
+          "p95": 0.11193914153696499,
+          "min": 0.10943933823529413,
+          "max": 0.11193914153696499
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.9837641723356008,
+          "p95": 3.0998639455782313,
+          "min": 2.9605442176870747,
+          "max": 3.0998639455782313
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 862,
+          "p95": 862,
+          "min": 862,
+          "max": 862
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.2427573577791918,
+        "rtf_median": 0.07890232314164716
+      },
+      "device_speedup_vs_host_rtf": 0.7130800779275654
+    },
+    {
+      "candidate_id": "piper_ru_ruslan",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "ru_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 199,
+          "p95": 203,
+          "min": 187,
+          "max": 203
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11446597450657896,
+          "p95": 0.11627929687500001,
+          "min": 0.11391759072580644,
+          "max": 0.11627929687500001
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.7647165532879818,
+          "p95": 1.799546485260771,
+          "min": 1.6253968253968254,
+          "max": 1.799546485260771
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 862,
+          "p95": 862,
+          "min": 862,
+          "max": 862
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.14051718360278756,
+        "rtf_median": 0.07994206457139882
+      },
+      "device_speedup_vs_host_rtf": 0.6983915081839812
+    },
+    {
+      "candidate_id": "piper_ru_ruslan",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "ru_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 668,
+          "p95": 668,
+          "min": 666,
+          "max": 668
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11920405592873831,
+          "p95": 0.11926081730769231,
+          "min": 0.11869205336972892,
+          "max": 0.11926081730769231
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 14.907210884353741,
+          "p95": 15.418049886621315,
+          "min": 14.79111111111111,
+          "max": 15.418049886621315
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 862,
+          "p95": 862,
+          "min": 862,
+          "max": 862
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 3,
+          "p95": 3,
+          "min": 3,
+          "max": 3
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.48526465860195456,
+        "rtf_median": 0.08022178908801744
+      },
+      "device_speedup_vs_host_rtf": 0.6729786873692875
+    },
+    {
+      "candidate_id": "piper_ru_ruslan",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "ru_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 76,
+          "p95": 78,
+          "min": 75,
+          "max": 78
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.1441788383152174,
+          "p95": 0.14792374320652174,
+          "min": 0.13927859042553192,
+          "max": 0.14792374320652174
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.5340589569160997,
+          "p95": 0.5456689342403628,
+          "min": 0.5340589569160997,
+          "max": 0.5456689342403628
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 862,
+          "p95": 862,
+          "min": 862,
+          "max": 862
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.08435123380040749,
+        "rtf_median": 0.09251884217974293
+      },
+      "device_speedup_vs_host_rtf": 0.6416950175272566
+    },
+    {
+      "candidate_id": "piper_ru_ruslan",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "ru_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 253,
+          "p95": 271,
+          "min": 246,
+          "max": 271
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.1135186298076923,
+          "p95": 0.11530682963709678,
+          "min": 0.1123828125,
+          "max": 0.11530682963709678
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.2639455782312927,
+          "p95": 2.4380952380952383,
+          "min": 2.159455782312925,
+          "max": 2.4380952380952383
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 862,
+          "p95": 862,
+          "min": 862,
+          "max": 862
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.1909859500010498,
+        "rtf_median": 0.08047454768305479
+      },
+      "device_speedup_vs_host_rtf": 0.7089104917790475
+    },
+    {
+      "candidate_id": "piper_ru_ruslan",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "ru_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 499,
+          "p95": 563,
+          "min": 493,
+          "max": 563
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11446597450657896,
+          "p95": 0.12460838356598984,
+          "min": 0.11273928337696335,
+          "max": 0.12460838356598984
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 4.435011337868481,
+          "p95": 4.574331065759637,
+          "min": 4.4117913832199545,
+          "max": 4.574331065759637
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 862,
+          "p95": 862,
+          "min": 862,
+          "max": 862
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.4213729499781039,
+        "rtf_median": 0.0792560523442218
+      },
+      "device_speedup_vs_host_rtf": 0.6923983540599354
+    },
+    {
+      "candidate_id": "piper_zh_huayan",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "zh_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 460,
+          "p95": 470,
+          "min": 449,
+          "max": 470
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.1191837754360465,
+          "p95": 0.11948301733993903,
+          "min": 0.11875115569526627,
+          "max": 0.11948301733993903
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.924172335600907,
+          "p95": 3.9938321995464854,
+          "min": 3.8080725623582765,
+          "max": 3.9938321995464854
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1301,
+          "p95": 1301,
+          "min": 1301,
+          "max": 1301
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.34004302459652536,
+        "rtf_median": 0.0828914551739564
+      },
+      "device_speedup_vs_host_rtf": 0.6954927788676706
+    },
+    {
+      "candidate_id": "piper_zh_huayan",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "zh_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 206,
+          "p95": 216,
+          "min": 206,
+          "max": 216
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11484375,
+          "p95": 0.11716202445652173,
+          "min": 0.11393517602848101,
+          "max": 0.11716202445652173
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.8343764172335602,
+          "p95": 1.8692063492063493,
+          "min": 1.811156462585034,
+          "max": 1.8692063492063493
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1301,
+          "p95": 1301,
+          "min": 1301,
+          "max": 1301
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.15410624140640722,
+        "rtf_median": 0.08126018508896493
+      },
+      "device_speedup_vs_host_rtf": 0.7075716796862253
+    },
+    {
+      "candidate_id": "piper_zh_huayan",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor1",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 69,
+          "p95": 70,
+          "min": 65,
+          "max": 70
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.133984375,
+          "p95": 0.14576322115384616,
+          "min": 0.1310716711956522,
+          "max": 0.14576322115384616
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.5224489795918368,
+          "p95": 0.5340589569160997,
+          "min": 0.4527891156462585,
+          "max": 0.5340589569160997
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1301,
+          "p95": 1301,
+          "min": 1301,
+          "max": 1301
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "piper_zh_huayan",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor2",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 86,
+          "p95": 87,
+          "min": 75,
+          "max": 87
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.1306842672413793,
+          "p95": 0.13359374999999998,
+          "min": 0.12846927966101693,
+          "max": 0.13359374999999998
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.6733786848072563,
+          "p95": 0.6849886621315193,
+          "min": 0.5688888888888889,
+          "max": 0.6849886621315193
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1301,
+          "p95": 1301,
+          "min": 1301,
+          "max": 1301
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "piper_zh_huayan",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "zh_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 467,
+          "p95": 480,
+          "min": 460,
+          "max": 480
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.11994576119087837,
+          "p95": 0.12235038325471698,
+          "min": 0.1192211166361518,
+          "max": 0.12235038325471698
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 17.22920634920635,
+          "p95": 17.438185941043084,
+          "min": 17.182766439909297,
+          "max": 17.438185941043084
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1301,
+          "p95": 1301,
+          "min": 1301,
+          "max": 1301
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 4,
+          "p95": 4,
+          "min": 4,
+          "max": 4
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.5051856753998436,
+        "rtf_median": 0.08430271521447016
+      },
+      "device_speedup_vs_host_rtf": 0.7028403036295143
+    },
+    {
+      "candidate_id": "piper_zh_huayan",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "zh_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 82,
+          "p95": 96,
+          "min": 76,
+          "max": 96
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.13488723466981134,
+          "p95": 0.14160818326271185,
+          "min": 0.13264453125,
+          "max": 0.14160818326271185
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.615328798185941,
+          "p95": 0.6849886621315193,
+          "min": 0.5804988662131519,
+          "max": 0.6849886621315193
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1301,
+          "p95": 1301,
+          "min": 1301,
+          "max": 1301
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.05583615019568242,
+        "rtf_median": 0.0907691549001648
+      },
+      "device_speedup_vs_host_rtf": 0.672926204783999
+    },
+    {
+      "candidate_id": "piper_zh_huayan",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "zh_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 366,
+          "p95": 417,
+          "min": 363,
+          "max": 417
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.1112171052631579,
+          "p95": 0.11212376644736842,
+          "min": 0.11048038563829786,
+          "max": 0.11212376644736842
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.308843537414966,
+          "p95": 3.81968253968254,
+          "min": 3.308843537414966,
+          "max": 3.81968253968254
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1301,
+          "p95": 1301,
+          "min": 1301,
+          "max": 1301
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.2900590744044166,
+        "rtf_median": 0.08704786723769015
+      },
+      "device_speedup_vs_host_rtf": 0.782684165639095
+    },
+    {
+      "candidate_id": "piper_zh_huayan",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "zh_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 625,
+          "p95": 633,
+          "min": 595,
+          "max": 633
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.1271867698598131,
+          "p95": 0.12729923023897058,
+          "min": 0.1267241379310345,
+          "max": 0.12729923023897058
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 4.96907029478458,
+          "p95": 5.050340136054421,
+          "min": 4.73687074829932,
+          "max": 5.050340136054421
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1301,
+          "p95": 1301,
+          "min": 1301,
+          "max": 1301
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.7528372835949995,
+        "rtf_median": 0.08460198085017469
+      },
+      "device_speedup_vs_host_rtf": 0.6651790979786977
+    },
+    {
+      "candidate_id": "supertonic3_s4",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "ru_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1180,
+          "p95": 1182,
+          "min": 1174,
+          "max": 1182
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3224511471142571,
+          "p95": 0.3229926267903516,
+          "min": 0.3210974479240209,
+          "max": 0.3229926267903516
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.6935827664399095,
+          "p95": 3.6935827664399095,
+          "min": 3.6935827664399095,
+          "max": 3.6935827664399095
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 845,
+          "p95": 845,
+          "min": 845,
+          "max": 845
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.7660465666151139,
+        "rtf_median": 0.2072746748625776
+      },
+      "device_speedup_vs_host_rtf": 0.6428095440737635
+    },
+    {
+      "candidate_id": "supertonic3_s4",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "ru_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 726,
+          "p95": 727,
+          "min": 725,
+          "max": 727
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3413875042244001,
+          "p95": 0.3413875042244001,
+          "min": 0.34045602399459274,
+          "max": 0.3413875042244001
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.147120181405896,
+          "p95": 2.147120181405896,
+          "min": 2.147120181405896,
+          "max": 2.147120181405896
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 845,
+          "p95": 845,
+          "min": 845,
+          "max": 845
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.4717591169930529,
+        "rtf_median": 0.21514142710590317
+      },
+      "device_speedup_vs_host_rtf": 0.6301971350553208
+    },
+    {
+      "candidate_id": "supertonic3_s4",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "ru_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 5115,
+          "p95": 5158,
+          "min": 4376,
+          "max": 5158
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.29271377335934057,
+          "p95": 0.29509217894670614,
+          "min": 0.2508085320581388,
+          "max": 0.29509217894670614
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 17.65888888888889,
+          "p95": 17.65888888888889,
+          "min": 17.65888888888889,
+          "max": 17.65888888888889
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 845,
+          "p95": 845,
+          "min": 845,
+          "max": 845
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 3.6178450663923285,
+        "rtf_median": 0.1912636849821907
+      },
+      "device_speedup_vs_host_rtf": 0.6534153920642198
+    },
+    {
+      "candidate_id": "supertonic3_s4",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "ru_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 558,
+          "p95": 564,
+          "min": 557,
+          "max": 564
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.4196881749460043,
+          "p95": 0.4286177105831533,
+          "min": 0.4181999190064795,
+          "max": 0.4286177105831533
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.3438548752834467,
+          "p95": 1.3438548752834467,
+          "min": 1.3438548752834467,
+          "max": 1.3438548752834467
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 845,
+          "p95": 845,
+          "min": 845,
+          "max": 845
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.3879563748079818,
+        "rtf_median": 0.2864630683643849
+      },
+      "device_speedup_vs_host_rtf": 0.6825616861881808
+    },
+    {
+      "candidate_id": "supertonic3_s4",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "ru_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1162,
+          "p95": 1164,
+          "min": 1160,
+          "max": 1164
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3382989994114185,
+          "p95": 0.3385874043555032,
+          "min": 0.33772218952324895,
+          "max": 0.3385874043555032
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.4673469387755103,
+          "p95": 3.4673469387755103,
+          "min": 3.4673469387755103,
+          "max": 3.4673469387755103
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 845,
+          "p95": 845,
+          "min": 845,
+          "max": 845
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.9546308004006278,
+        "rtf_median": 0.23902713360788114
+      },
+      "device_speedup_vs_host_rtf": 0.7065558397268299
+    },
+    {
+      "candidate_id": "supertonic3_s4",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "ru_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1961,
+          "p95": 1973,
+          "min": 1950,
+          "max": 1973
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3185841580182739,
+          "p95": 0.3205159467480461,
+          "min": 0.316974334076797,
+          "max": 0.3205159467480461
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 6.211859410430839,
+          "p95": 6.211859410430839,
+          "min": 6.211859410430839,
+          "max": 6.211859410430839
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 845,
+          "p95": 845,
+          "min": 845,
+          "max": 845
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.3977323499973864,
+        "rtf_median": 0.18340710079337483
+      },
+      "device_speedup_vs_host_rtf": 0.5756943532102894
+    },
+    {
+      "candidate_id": "supertonic3_s5",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "ru_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1443,
+          "p95": 1445,
+          "min": 1443,
+          "max": 1445
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3939264643587272,
+          "p95": 0.3941972041967744,
+          "min": 0.39365572452067993,
+          "max": 0.3941972041967744
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.6935827664399095,
+          "p95": 3.6935827664399095,
+          "min": 3.6935827664399095,
+          "max": 3.6935827664399095
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 795,
+          "p95": 795,
+          "min": 795,
+          "max": 795
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.1095857999986039,
+        "rtf_median": 0.2858483845544081
+      },
+      "device_speedup_vs_host_rtf": 0.7256389463950857
+    },
+    {
+      "candidate_id": "supertonic3_s5",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "ru_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 893,
+          "p95": 898,
+          "min": 892,
+          "max": 898
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.4191661034133153,
+          "p95": 0.42149480398783373,
+          "min": 0.41823462318350796,
+          "max": 0.42149480398783373
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.147120181405896,
+          "p95": 2.147120181405896,
+          "min": 2.147120181405896,
+          "max": 2.147120181405896
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 795,
+          "p95": 795,
+          "min": 795,
+          "max": 795
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.934665116405813,
+        "rtf_median": 0.31045122149868426
+      },
+      "device_speedup_vs_host_rtf": 0.7406400922465965
+    },
+    {
+      "candidate_id": "supertonic3_s5",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "ru_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 6292,
+          "p95": 6348,
+          "min": 6157,
+          "max": 6348
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.3593091298055748,
+          "p95": 0.36253696595985657,
+          "min": 0.3518907695211729,
+          "max": 0.36253696595985657
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 17.65888888888889,
+          "p95": 17.65888888888889,
+          "min": 17.65888888888889,
+          "max": 17.65888888888889
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 795,
+          "p95": 795,
+          "min": 795,
+          "max": 795
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 4.519318933191244,
+        "rtf_median": 0.23053227492177572
+      },
+      "device_speedup_vs_host_rtf": 0.6415987120798147
+    },
+    {
+      "candidate_id": "supertonic3_s5",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "ru_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 684,
+          "p95": 690,
+          "min": 675,
+          "max": 690
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.5119600431965442,
+          "p95": 0.518657194924406,
+          "min": 0.5067511474082074,
+          "max": 0.518657194924406
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.3438548752834467,
+          "p95": 1.3438548752834467,
+          "min": 1.3438548752834467,
+          "max": 1.3438548752834467
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 795,
+          "p95": 795,
+          "min": 795,
+          "max": 795
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.6108893084048759,
+        "rtf_median": 0.4268430896438477
+      },
+      "device_speedup_vs_host_rtf": 0.8337429752891484
+    },
+    {
+      "candidate_id": "supertonic3_s5",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "ru_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1423,
+          "p95": 1446,
+          "min": 1360,
+          "max": 1446
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.4135726898175397,
+          "p95": 0.41991759858740435,
+          "min": 0.3954031783402001,
+          "max": 0.41991759858740435
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.4673469387755103,
+          "p95": 3.4673469387755103,
+          "min": 3.4673469387755103,
+          "max": 3.4673469387755103
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 795,
+          "p95": 795,
+          "min": 795,
+          "max": 795
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.6963026743964291,
+        "rtf_median": 0.31256934888334753
+      },
+      "device_speedup_vs_host_rtf": 0.755778504188096
+    },
+    {
+      "candidate_id": "supertonic3_s5",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "ru_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2357,
+          "p95": 2362,
+          "min": 2353,
+          "max": 2362
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.38233318610075817,
+          "p95": 0.38329908046564426,
+          "min": 0.3816892565241674,
+          "max": 0.38329908046564426
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 6.211859410430839,
+          "p95": 6.211859410430839,
+          "min": 6.211859410430839,
+          "max": 6.211859410430839
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 795,
+          "p95": 795,
+          "min": 795,
+          "max": 795
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.7304840502038132,
+        "rtf_median": 0.24567419868024779
+      },
+      "device_speedup_vs_host_rtf": 0.6425657191460854
+    },
+    {
+      "candidate_id": "supertonic3_s6",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "ru_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1732,
+          "p95": 1736,
+          "min": 1721,
+          "max": 1736
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.471899537716331,
+          "p95": 0.4732532369065671,
+          "min": 0.46892139949781136,
+          "max": 0.4732532369065671
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.6935827664399095,
+          "p95": 3.6935827664399095,
+          "min": 3.6935827664399095,
+          "max": 3.6935827664399095
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 799,
+          "p95": 799,
+          "min": 799,
+          "max": 799
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.3188396665966138,
+        "rtf_median": 0.33781459490347027
+      },
+      "device_speedup_vs_host_rtf": 0.71586125415223
+    },
+    {
+      "candidate_id": "supertonic3_s6",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "ru_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1052,
+          "p95": 1060,
+          "min": 1052,
+          "max": 1060
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.49275304156809735,
+          "p95": 0.4964789624873268,
+          "min": 0.49275304156809735,
+          "max": 0.4964789624873268
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.147120181405896,
+          "p95": 2.147120181405896,
+          "min": 2.147120181405896,
+          "max": 2.147120181405896
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 799,
+          "p95": 799,
+          "min": 799,
+          "max": 799
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.621464666799875,
+        "rtf_median": 0.28933285726408337
+      },
+      "device_speedup_vs_host_rtf": 0.5871761975194185
+    },
+    {
+      "candidate_id": "supertonic3_s6",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "ru_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 7421,
+          "p95": 7510,
+          "min": 7299,
+          "max": 7510
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.4232995658465991,
+          "p95": 0.42833952054363555,
+          "min": 0.4165607500157302,
+          "max": 0.42833952054363555
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 17.65888888888889,
+          "p95": 17.65888888888889,
+          "min": 17.65888888888889,
+          "max": 17.65888888888889
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 799,
+          "p95": 799,
+          "min": 799,
+          "max": 799
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 4.301891875383444,
+        "rtf_median": 0.23996944144921806
+      },
+      "device_speedup_vs_host_rtf": 0.5669021676629391
+    },
+    {
+      "candidate_id": "supertonic3_s6",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "ru_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 812,
+          "p95": 818,
+          "min": 808,
+          "max": 818
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.6086966792656587,
+          "p95": 0.6139055750539957,
+          "min": 0.6042319114470843,
+          "max": 0.6139055750539957
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.3438548752834467,
+          "p95": 1.3438548752834467,
+          "min": 1.3438548752834467,
+          "max": 1.3438548752834467
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 799,
+          "p95": 799,
+          "min": 799,
+          "max": 799
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.5598454666032922,
+        "rtf_median": 0.41289329466553387
+      },
+      "device_speedup_vs_host_rtf": 0.6783235537996607
+    },
+    {
+      "candidate_id": "supertonic3_s6",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "ru_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1692,
+          "p95": 1694,
+          "min": 1692,
+          "max": 1694
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.49115361977633903,
+          "p95": 0.49144202472042375,
+          "min": 0.49115361977633903,
+          "max": 0.49144202472042375
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.4673469387755103,
+          "p95": 3.4673469387755103,
+          "min": 3.4673469387755103,
+          "max": 3.4673469387755103
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 799,
+          "p95": 799,
+          "min": 799,
+          "max": 799
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.0642084000166505,
+        "rtf_median": 0.30631031268555836
+      },
+      "device_speedup_vs_host_rtf": 0.6236548003556313
+    },
+    {
+      "candidate_id": "supertonic3_s6",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "ru_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2855,
+          "p95": 2860,
+          "min": 2847,
+          "max": 2860
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.4626634007804543,
+          "p95": 0.4636292951453404,
+          "min": 0.46121455923312515,
+          "max": 0.4636292951453404
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 6.211859410430839,
+          "p95": 6.211859410430839,
+          "min": 6.211859410430839,
+          "max": 6.211859410430839
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 799,
+          "p95": 799,
+          "min": 799,
+          "max": 799
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.7256203164055477,
+        "rtf_median": 0.2597601113245608
+      },
+      "device_speedup_vs_host_rtf": 0.5614451259519956
+    },
+    {
+      "candidate_id": "supertonic3_s8",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "ru_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2241,
+          "p95": 2280,
+          "min": 2237,
+          "max": 2280
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.6097061152823736,
+          "p95": 0.620535708804263,
+          "min": 0.6086231559301848,
+          "max": 0.620535708804263
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.6935827664399095,
+          "p95": 3.6935827664399095,
+          "min": 3.6935827664399095,
+          "max": 3.6935827664399095
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 775,
+          "p95": 775,
+          "min": 775,
+          "max": 775
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.4077006083971355,
+        "rtf_median": 0.38076980561791823
+      },
+      "device_speedup_vs_host_rtf": 0.6245136731842882
+    },
+    {
+      "candidate_id": "supertonic3_s8",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "ru_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1376,
+          "p95": 1383,
+          "min": 1370,
+          "max": 1383
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.6441185789117945,
+          "p95": 0.6469130196012166,
+          "min": 0.6413241382223724,
+          "max": 0.6469130196012166
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.147120181405896,
+          "p95": 2.147120181405896,
+          "min": 2.147120181405896,
+          "max": 2.147120181405896
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 775,
+          "p95": 775,
+          "min": 775,
+          "max": 775
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.8073595832160209,
+        "rtf_median": 0.37522670597067814
+      },
+      "device_speedup_vs_host_rtf": 0.5825429016573386
+    },
+    {
+      "candidate_id": "supertonic3_s8",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "ru_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 9849,
+          "p95": 9850,
+          "min": 9794,
+          "max": 9850
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.5607374315736487,
+          "p95": 0.5607940602781099,
+          "min": 0.5576228528282892,
+          "max": 0.5607940602781099
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 17.65888888888889,
+          "p95": 17.65888888888889,
+          "min": 17.65888888888889,
+          "max": 17.65888888888889
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 775,
+          "p95": 775,
+          "min": 775,
+          "max": 775
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 5.605405899416655,
+        "rtf_median": 0.3108659328964636
+      },
+      "device_speedup_vs_host_rtf": 0.554387696259285
+    },
+    {
+      "candidate_id": "supertonic3_s8",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "ru_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 1063,
+          "p95": 1078,
+          "min": 1061,
+          "max": 1078
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.7939845437365011,
+          "p95": 0.8088671031317495,
+          "min": 0.7924962877969762,
+          "max": 0.8088671031317495
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 1.3438548752834467,
+          "p95": 1.3438548752834467,
+          "min": 1.3438548752834467,
+          "max": 1.3438548752834467
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 775,
+          "p95": 775,
+          "min": 775,
+          "max": 775
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 0.7709155168093276,
+        "rtf_median": 0.5403486182613483
+      },
+      "device_speedup_vs_host_rtf": 0.6805530693563139
+    },
+    {
+      "candidate_id": "supertonic3_s8",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "ru_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2213,
+          "p95": 2235,
+          "min": 2212,
+          "max": 2235
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.6411241907004119,
+          "p95": 0.6477575044143614,
+          "min": 0.6411241907004119,
+          "max": 0.6477575044143614
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 3.4673469387755103,
+          "p95": 3.4673469387755103,
+          "min": 3.4673469387755103,
+          "max": 3.4673469387755103
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 775,
+          "p95": 775,
+          "min": 775,
+          "max": 775
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 1.3833226833958179,
+        "rtf_median": 0.3988432846271697
+      },
+      "device_speedup_vs_host_rtf": 0.6220998839420543
+    },
+    {
+      "candidate_id": "supertonic3_s8",
+      "language": "ru",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "ru_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 3742,
+          "p95": 3752,
+          "min": 3713,
+          "max": 3752
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.6052938019953056,
+          "p95": 0.6070646083309301,
+          "min": 0.600947277353318,
+          "max": 0.6070646083309301
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 6.211859410430839,
+          "p95": 6.211859410430839,
+          "min": 6.211859410430839,
+          "max": 6.211859410430839
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 775,
+          "p95": 775,
+          "min": 775,
+          "max": 775
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 2.1383714505878744,
+        "rtf_median": 0.33684602092988275
+      },
+      "device_speedup_vs_host_rtf": 0.5565000332392223
+    },
+    {
+      "candidate_id": "zipvoice_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "answer",
+      "host_case_id": "zh_answer_short",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 3976,
+          "p95": 3997,
+          "min": 3807,
+          "max": 3997
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.6532998251748252,
+          "p95": 0.6565777972027972,
+          "min": 0.6256009615384616,
+          "max": 0.6565777972027972
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 6.101333333333334,
+          "p95": 6.101333333333334,
+          "min": 6.101333333333334,
+          "max": 6.101333333333334
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1702,
+          "p95": 1702,
+          "min": 1702,
+          "max": 1702
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [
+          "peak_near_full_scale:0.9914",
+          "peak_near_full_scale:1.0320",
+          "peak_near_full_scale:1.0812"
+        ],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 5.399371525004971,
+        "rtf_median": 0.963220802859184
+      },
+      "device_speedup_vs_host_rtf": 1.4743931740704552
+    },
+    {
+      "candidate_id": "zipvoice_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "clause",
+      "host_case_id": "zh_short_clause",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2660,
+          "p95": 2662,
+          "min": 2579,
+          "max": 2662
+        },
+        "rtf": {
+          "n": 3,
+          "median": 1.0811688311688312,
+          "p95": 1.0823863636363635,
+          "min": 1.0482954545454546,
+          "max": 1.0823863636363635
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 2.464,
+          "p95": 2.464,
+          "min": 2.464,
+          "max": 2.464
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1702,
+          "p95": 1702,
+          "min": 1702,
+          "max": 1702
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [
+          "peak_near_full_scale:1.0857"
+        ],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 3.5948827334155795,
+        "rtf_median": 1.4956983510975088
+      },
+      "device_speedup_vs_host_rtf": 1.3834086850991973
+    },
+    {
+      "candidate_id": "zipvoice_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor1",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2307,
+          "p95": 2315,
+          "min": 1780,
+          "max": 2315
+        },
+        "rtf": {
+          "n": 3,
+          "median": 8.010416666666668,
+          "p95": 8.038194444444445,
+          "min": 6.184027777777778,
+          "max": 8.038194444444445
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.288,
+          "p95": 0.288,
+          "min": 0.288,
+          "max": 0.288
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1702,
+          "p95": 1702,
+          "min": 1702,
+          "max": 1702
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "zipvoice_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "floor2",
+      "host_case_id": null,
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2373,
+          "p95": 2428,
+          "min": 2025,
+          "max": 2428
+        },
+        "rtf": {
+          "n": 3,
+          "median": 4.121527777777779,
+          "p95": 4.217013888888889,
+          "min": 3.517361111111111,
+          "max": 4.217013888888889
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.576,
+          "p95": 0.576,
+          "min": 0.576,
+          "max": 0.576
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 1125.9248046875,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1702,
+          "p95": 1702,
+          "min": 1702,
+          "max": 1702
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": null,
+      "device_speedup_vs_host_rtf": null
+    },
+    {
+      "candidate_id": "zipvoice_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "long",
+      "host_case_id": "zh_answer_long",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 6483,
+          "p95": 6525,
+          "min": 6456,
+          "max": 6525
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.5455780632411067,
+          "p95": 0.5653409090909091,
+          "min": 0.5416666666666666,
+          "max": 0.5653409090909091
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 24.288,
+          "p95": 24.288,
+          "min": 24.288,
+          "max": 24.288
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 1125.9248046875,
+          "p95": 1125.9248046875,
+          "min": 67.8056640625,
+          "max": 1125.9248046875
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1702,
+          "p95": 1702,
+          "min": 1702,
+          "max": 1702
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 2,
+          "p95": 2,
+          "min": 2,
+          "max": 2
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [
+          "peak_near_full_scale:1.0590",
+          "peak_near_full_scale:1.1534"
+        ],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 9.009545733203414,
+        "rtf_median": 0.8215521092338931
+      },
+      "device_speedup_vs_host_rtf": 1.5058378710340954
+    },
+    {
+      "candidate_id": "zipvoice_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "micro",
+      "host_case_id": "zh_micro_ack",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 2098,
+          "p95": 2339,
+          "min": 2082,
+          "max": 2339
+        },
+        "rtf": {
+          "n": 3,
+          "median": 2.893841911764706,
+          "p95": 3.22610294117647,
+          "min": 2.8717830882352944,
+          "max": 3.22610294117647
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 0.7253333333333334,
+          "p95": 0.7253333333333334,
+          "min": 0.7253333333333334,
+          "max": 0.7253333333333334
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1702,
+          "p95": 1702,
+          "min": 1702,
+          "max": 1702
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 2.7748331168084404,
+        "rtf_median": 3.354869658083129
+      },
+      "device_speedup_vs_host_rtf": 1.1593133835141956
+    },
+    {
+      "candidate_id": "zipvoice_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "question",
+      "host_case_id": "zh_question",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 3938,
+          "p95": 3954,
+          "min": 3375,
+          "max": 3954
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.9363132911392406,
+          "p95": 0.940110759493671,
+          "min": 0.8026898734177216,
+          "max": 0.940110759493671
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 4.213333333333333,
+          "p95": 4.213333333333333,
+          "min": 4.213333333333333,
+          "max": 4.213333333333333
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1702,
+          "p95": 1702,
+          "min": 1702,
+          "max": 1702
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [
+          "peak_near_full_scale:1.0002"
+        ],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 5.400516766408691,
+        "rtf_median": 1.4221625095510066
+      },
+      "device_speedup_vs_host_rtf": 1.51889599668143
+    },
+    {
+      "candidate_id": "zipvoice_zh",
+      "language": "zh",
+      "threads": 2,
+      "phrase_id": "weather",
+      "host_case_id": "zh_answer_medium",
+      "device": {
+        "first_chunk_ms": {
+          "n": 3,
+          "median": 4427,
+          "p95": 5190,
+          "min": 4320,
+          "max": 5190
+        },
+        "rtf": {
+          "n": 3,
+          "median": 0.6361811926605504,
+          "p95": 0.7455561926605504,
+          "min": 0.6211295871559633,
+          "max": 0.7455561926605504
+        },
+        "audio_s": {
+          "n": 3,
+          "median": 6.976,
+          "p95": 6.976,
+          "min": 6.976,
+          "max": 6.976
+        },
+        "peak_pss_mib": {
+          "n": 3,
+          "median": 67.8056640625,
+          "p95": 67.8056640625,
+          "min": 67.8056640625,
+          "max": 67.8056640625
+        },
+        "load_ms": {
+          "n": 3,
+          "median": 1702,
+          "p95": 1702,
+          "min": 1702,
+          "max": 1702
+        },
+        "chunk_count": {
+          "n": 3,
+          "median": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "first_audible_ms": null,
+        "underruns": null,
+        "gate_pass": 3,
+        "gate_runs": 3,
+        "gate_failures": [],
+        "gate_warnings": [
+          "peak_near_full_scale:1.2052"
+        ],
+        "dropped_chunks": 0
+      },
+      "host": {
+        "first_chunk_s_p95": 6.273117124993587,
+        "rtf_median": 0.9967001240857195
+      },
+      "device_speedup_vs_host_rtf": 1.566692218481744
+    }
+  ]
+}

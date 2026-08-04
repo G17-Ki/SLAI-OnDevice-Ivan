@@ -1,0 +1,12 @@
+Command:
+<USER_HOME>/Desktop/LMF_sprint-f/workstreams/sub2b_sprint/sprint/out/f/artifacts/nubia_esfr_bundle/verify_esfr.sh
+
+Observed stdout before interruption:
+INFO: Confirmed the ES/FR payload contains no QNN context and no Qualcomm runtime object
+INFO: Selected one authorized target: serial=REDACTED_DEVICE_SERIAL model=NX809J soc=SM8850 abi=arm64-v8a
+INFO: Installed: ai.liquid.lfmdemo -> /data/app/~~fnGRB-8M5bpsKU7PVY3PYA==/ai.liquid.lfmdemo-r1HswbpAFDhHzpJB1jpy2g==/base.apk
+INFO: Installed: ai.liquid.lfmdemo.runtime -> /data/app/~~H08guZXweladYNdY3SWXLw==/ai.liquid.lfmdemo.runtime-ZH_MksH4W1itpTJgtX40XQ==/base.apk
+INFO: Verified application ownership: package=ai.liquid.lfmdemo.runtime uid=10514
+
+Disposition:
+Interrupted with SIGINT after the wrapper repeated the known read-only stdin-hash deadlock in verify_bundle_payload. The blocked child was `adb ... exec-out /system/bin/toybox sha256sum` without a remote filename, waiting indefinitely for stdin EOF after consuming the payload. This occurred before open_temporary_asr_forward. All exact wrapper PIDs terminated and `adb forward --list` was empty afterward. The already-audited direct POST/health acceptance core was then run unchanged in semantics; see the sibling evidence files and provenance.json.

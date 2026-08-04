@@ -1,0 +1,35 @@
+{
+  "matrix": "repack",
+  "rows": [
+    {
+      "name": "repack_default",
+      "runtime_args": "-c 512",
+      "idle_rss_mib": 1646.13671875,
+      "active_peak_rss_mib": 1705.77734375,
+      "vmhwm_mib": 1705.06640625,
+      "gguf_rss_mib": 697.63671875,
+      "anonymous_rss_mib": 997.91796875,
+      "first_text_ms": 263.9838750474155,
+      "first_audio_ms": 338.5643339715898,
+      "total_ms": 3187.9947087727487,
+      "exact_normalized": null,
+      "transcript": "Sure, how about something like \u201cCrafting Your Dream Home,\u201d \u201cHandcrafted Woodworking: Your Source for Quality,\u201d or \u201cTurning Wood into Home Magic.\u201d Each of these highlights the quality and creativity of your work.",
+      "error": null
+    },
+    {
+      "name": "no_repack",
+      "runtime_args": "-c 512 --no-repack",
+      "idle_rss_mib": 1106.94140625,
+      "active_peak_rss_mib": 1163.015625,
+      "vmhwm_mib": 1162.46484375,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 445.41015625,
+      "first_text_ms": 1036.4142912440002,
+      "first_audio_ms": 1217.6721249707043,
+      "total_ms": 5589.460582938045,
+      "exact_normalized": null,
+      "transcript": "Sure, how about something like \u201cHandcrafted Woodworking: Your Source for Quality and Style\u201d or \u201cTurning Wood into Beautiful, Durable Products.\u201d Both highlight quality and style. Do any of those resonate with you?",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "evidence_class": "Apple M2 Metal-offloaded Q4 text-model diagnostic; not phone, NPU, or glasses evidence",
+  "model": {
+    "repository": "unsloth/Qwen3-1.7B-GGUF",
+    "revision": "d7f544eead698dbd1f15126ef60b45a1e1933222",
+    "file": "Qwen3-1.7B-Q4_0.gguf",
+    "sha256": "c876f159707a4e4f70e045106c69db15bfc935a4981706fd4f65c6e7ea1e81c5"
+  },
+  "runtime": {
+    "name": "llama.cpp llama-server",
+    "build": 10083,
+    "commit": "846e991ec",
+    "platform": "Darwin arm64",
+    "common_arguments": [
+      "-c",
+      "512",
+      "-ngl",
+      "99",
+      "--reasoning",
+      "on",
+      "--reasoning-format",
+      "deepseek",
+      "--host",
+      "127.0.0.1",
+      "--metrics"
+    ]
+  },
+  "client": {
+    "script": "scripts/profile_text_llm_streaming.py",
+    "suite": "scripts/multilingual_voice_quality_suite.json",
+    "suite_sha256": "18f1a1ec26da54b2f4a92b05484957e2fcfc54e55e83599b860b30c34cbd59e9",
+    "thinking": "on",
+    "max_tokens": 192,
+    "flush_chars": 64,
+    "warmups_per_case": 0,
+    "temperature": 0
+  },
+  "runs": [
+    {
+      "reasoning_budget": 16,
+      "measured_repetitions_per_case": 1,
+      "output": "qwen3_1_7b_q4_reasoning_budget16_screen.json"
+    },
+    {
+      "reasoning_budget": 32,
+      "measured_repetitions_per_case": 1,
+      "output": "qwen3_1_7b_q4_reasoning_budget32_screen.json"
+    },
+    {
+      "reasoning_budget": 64,
+      "measured_repetitions_per_case": 1,
+      "output": "qwen3_1_7b_q4_reasoning_budget64_screen.json"
+    },
+    {
+      "reasoning_budget": 16,
+      "measured_repetitions_per_case": 3,
+      "output": "qwen3_1_7b_q4_reasoning_budget16_stability.json"
+    }
+  ],
+  "method_caveats": [
+    "Identical temperature-zero prompts are repeated for timing stability, not independent quality sampling.",
+    "llama.cpp may reuse longest-common-prefix/KV state on consecutive identical prompts.",
+    "Except for exact-string cases, scoring checks expected substrings and does not validate the complete response.",
+    "The server-side reasoning budget is recorded here because the client result JSON does not carry the complete llama-server command."
+  ]
+}

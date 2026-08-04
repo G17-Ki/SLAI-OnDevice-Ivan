@@ -1,0 +1,41 @@
+{
+  "sprint_id": "B1",
+  "status": "COMPLETE",
+  "evidence_class": "EXACT",
+  "completed_at_utc": "2026-08-02T05:06:11Z",
+  "preregistration": {
+    "path": "b1_prereg.json",
+    "sha256": "ff0ccbd0b2ca426bbfe287419c8e47a6ff71a28827da9aaa178ffce1adbc2eb6",
+    "frozen_before_candidate_inference": true,
+    "deviations_at_freeze": []
+  },
+  "screen": {
+    "models": 4,
+    "languages": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "ru"
+    ],
+    "items_per_language": 120,
+    "global_mmlu_per_language": 80,
+    "native_generation_per_language": 40,
+    "global_mmlu_manifest_sha256": "2ecb1833861c1cb5f7ce617c4aa692b3060e3f39beb9e7597baffaef118e1849",
+    "native_generation_manifest_sha256": "aa8160ab5aacb180c2e1869878c947ed3e9987daa0169b934f22f89519d20e80",
+    "selection_seed": 1729,
+    "bootstrap_seed": 20260801,
+    "bootstrap_resamples": 10000
+  },
+  "decision_threshold": {
+    "metric": "Qwen3.5-0.8B per-language score divided by its English score",
+    "minimum": 0.75,
+    "special_case": "RU-only failure retains sub-1B with reduced Russian scope",
+    "conservative_gap_resolution": "An ES-only or FR-only failure moves to Q/F because the lane grants reduced scope only to RU."
+  },
+  "notes": [
+    "The native-language prompts are Codex-authored and machine-scored; no native-human validation is claimed.",
+    "The automated fluency quantity is explicitly a surface-language/script proxy, not proof of native fluency.",
+    "All eventual scores require an actual Colab run and will be labelled HOST with n printed."
+  ]
+}

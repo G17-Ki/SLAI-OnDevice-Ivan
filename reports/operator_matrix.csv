@@ -1,0 +1,11 @@
+component,graph_variant,export_status,compile_status,npu_runtime_layers,cpu_fallback_runtime_layers,unsupported_or_failure,local_latency_ms,local_peak_rss_mb,target_latency_ms,target_peak_memory_mb,golden_error,status,notes
+fastconformer,offline_mel80,passed,passed_qcs8550_proxy,1215,0,,222.51,1242,4.786,87.004,"max=0.08194;cos=0.998424;nrmse=0.06976",strict_npu_numeric_review,"QCS8550 v73 proxy; fully NPU placed; proxy latency is not AR1 latency"
+lfm2_backbone,conv_layer0_seq16,passed,passed_qcs8550_proxy,36,0,,49.48,1047,2.693,92.242,"max=0.000857;cos=0.999999949",strict_npu_pass,"Official prefill layer; fully NPU placed on v73 proxy"
+lfm2_backbone,attention_layer2_seq16,passed,passed_qcs8550_proxy,62,0,,17.92,1145,2.444,91.547,"max=0.001128;cos=0.999999941",strict_npu_pass,"Official prefill layer; fully NPU placed on v73 proxy"
+lfm2_backbone,conv_layer0_cached_decode,passed,passed_qcs8550_proxy,32,0,,6.30,1258,2.695,91.883,"output_max=0.000362;cache_max=0.000278",strict_npu_pass,"One token; explicit conv cache; fully NPU placed"
+lfm2_backbone,attention_layer2_cached_decode_kv16_past8,passed,passed_qcs8550_proxy,61,0,,5.58,1169,2.452,87.008,"output_max=0.000600;key_max=0.002435;value_max=0.000058",strict_npu_pass,"One token; explicit K/V; position and write slot baked in"
+lfm2_backbone,prefill_four_layer_shard,pending,pending_design,,,,,,,,,pending,"Next backbone scale-up step"
+rq_depth_decoder,one_audio_frame_greedy8,passed,passed_qcs8550_proxy,2953,0,,116.89,1058,25.540,91.980,"tokens_exact;embedding_max=0.0000763",strict_npu_pass,"Uses --truncate_64bit_io; token IDs remain exact"
+audio_detokenizer,neural_t4,passed,passed_qcs8550_proxy,371,0,,46.28,1004,1.880,87.984,"wave_cos=0.07375;wave_nrmse=1.118;si_sdr=-22.62dB",npu_placement_numeric_failure,"Fully NPU placed but FP16 neural output is unusable; keep FP32 host or redesign"
+audio_detokenizer,neural_t8,passed,passed_qcs8550_proxy,371,0,,53.3,1004,2.577,87.395,"wave_cos=0.03682;wave_nrmse=1.132;si_sdr=-28.67dB",npu_placement_numeric_failure,"Fully NPU placed but FP16 neural output is unusable; keep FP32 host or redesign"
+audio_detokenizer,full_waveform,pending,host_boundary,,,"polar;complex;irfft;fold",,,,,,host_for_baseline,"Keep waveform reconstruction and current FP32 detokenizer on host for first deployment"

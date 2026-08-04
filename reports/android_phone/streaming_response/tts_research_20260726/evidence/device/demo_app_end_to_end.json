@@ -1,0 +1,363 @@
+[
+  {
+    "tel": [
+      "wav_ready",
+      "request_start",
+      "asr_request_start",
+      "asr_auto_qnn_stage_complete",
+      "asr_segment_complete",
+      "asr_request_complete",
+      "language_resolved",
+      "voice_backend_routed",
+      "conversation_request_ready",
+      "response_backend_request_start",
+      "first_text_sse",
+      "tts_text_sse_complete"
+    ],
+    "tel_last": [
+      {
+        "event": "conversation_request_ready",
+        "detail": {
+          "response_input": "asr_text",
+          "duplicate_audio_encode": false,
+          "english_response_style": "expressive",
+          "response_mode": "tts",
+          "voice_backend": "android_native_tts",
+          "voice_delivery_reason": "LFM natural TTS is not validated for Mandarin Chinese; using the explicit multilingual system fallback",
+          "direct_lfm_interleaved": false,
+          "response_backend": "qwen3_1_7b_q4_cpu",
+          "response_model": "Qwen3-1.7B-Q4_0",
+          "context_enabled": false,
+          "context_policy": "followup_only",
+          "context_injected": false,
+          "context_decision_reason": "context_disabled",
+          "memory_unavailable_action": null,
+          "history_turns": 0,
+          "response_token_limit": 768
+        },
+        "t": 447437
+      },
+      {
+        "event": "response_backend_request_start",
+        "detail": {
+          "response_backend": "qwen3_1_7b_q4_cpu",
+          "response_model": "Qwen3-1.7B-Q4_0",
+          "direct_lfm_interleaved": false,
+          "context_enabled": false,
+          "context_policy": "followup_only",
+          "context_injected": false,
+          "context_decision_reason": "context_disabled",
+          "history_messages": 0
+        },
+        "t": 447438
+      },
+      {
+        "event": "first_text_sse",
+        "detail": {
+          "request_elapsed_ms": 2478.100000023842,
+          "response_backend_elapsed_ms": 952.8000000119209,
+          "response_backend": "qwen3_1_7b_q4_cpu"
+        },
+        "t": 448391
+      },
+      {
+        "event": "tts_text_sse_complete",
+        "detail": {
+          "request_elapsed_ms": 2790.7000000178814,
+          "first_text_ms": 2478.100000023842,
+          "first_pcm_ms": null,
+          "first_audio_scheduled_ms": null,
+          "first_output_head_ms": null,
+          "first_voiced_pcm_offset_ms": null,
+          "first_voiced_scheduled_ms": null,
+          "first_voiced_output_head_ms": null,
+          "output_head_status": "not-started",
+          "playback_underflows": 0,
+          "audio_chunks": 0,
+          "pcm_samples": 0,
+          "pcm_duration_seconds": 0,
+          "sample_rate": 24000,
+          "finish_reason": "stop",
+          "sse_events": 14,
+          "response_token_limit": 768,
+          "repetition": {
+            "token_count": 20,
+            "gram_size": 4,
+            "duplicate_gram_ratio": 0,
+            "max_gram_count": 1
+          },
+          "native_tts_locale": "zh",
+          "native_tts_chunks_submitted": 1,
+          "native_tts_chunks_confirmed": 1,
+          "first_native_tts_start_proxy_ms": 2766.5801030397415,
+          "lfm_tts_chunks_submitted": 0,
+          "lfm_tts_chunks_completed": 0,
+          "lfm_tts_audio_chunks": 0,
+          "lfm_tts_voice": null,
+          "direct_lfm_interleaved": false,
+          "english_response_style": "expressive",
+          "voice_delivery_reason": "LFM natural TTS is not validated for Mandarin Chinese; using the explicit multilingual system fallback",
+          "voice_backend": "android_native_tts",
+          "response_backend": "qwen3_1_7b_q4_cpu",
+          "response_model": "Qwen3-1.7B-Q4_0",
+          "reasoning_filter": {
+            "raw_characters": 22,
+            "visible_characters": 22,
+            "filtered_characters": 0,
+            "reasoning_blocks_removed": 0,
+            "stray_closing_tags_removed": 0,
+            "buffered_characters": 0
+          },
+          "context_policy": "followup_only",
+          "context_injected": false,
+          "context_decision_reason": "context_disabled",
+          "history_mutated": false,
+          "history_reject_reason": "history_disabled",
+          "selected_language": "auto",
+          "resolved_language": "zh",
+          "tts_locale": "zh-CN",
+          "confidence": 0.98,
+          "evidence": "SenseVoice returned 20 Han-script characters",
+          "resolution_reason": "SenseVoice returned 20 Han-script characters",
+          "fallback_used": false,
+          "history_turns": 0,
+          "history_characters": 0,
+          "history_approx_tokens": 0,
+          "context_enabled": false,
+          "backend": "sensevoice_qnn",
+          "provider": "qnn",
+          "npu_candidate": "sensevoice_qnn_sm8850",
+          "npu_executed": true,
+          "npu_selected": true,
+          "npu_gate": "executed",
+          "npu_fallback_reason": null,
+          "asr_companion": true,
+          "candidate_summaries": [
+            {
+              "backend": "sensevoice_qnn",
+              "provider": "qnn",
+              "ok": true,
+              "transcript_characters": 22,
+              "language_hint": "zh",
+              "mean_token_log_probability": null,
+              "han_characters": 20,
+              "cyrillic_characters": 0,
+              "latin_characters": 0
+            }
+          ],
+          "segmented_input": false,
+          "input_duration_seconds": 4.8400625,
+          "segment_count": 1,
+          "segment_summaries": [
+            {
+              "index": 0,
+              "backend": "sensevoice_qnn",
+              "provider": "qnn",
+              "npu_executed": true,
+              "npu_selected": true,
+              "transcript_characters": 22
+            }
+          ]
+        },
+        "t": 448704
+      }
+    ],
+    "metrics": "matcha_zh_baker · first chunk 98 ms · RTF 0.039 · 5.2 s audio · 22050 Hz",
+    "status": "matcha · 1 threads · 81 ms first chunk on this phone @ 1t. Host winner on every measured gate. Corpus is non-commercial only.",
+    "label": "Mandarin / Matcha",
+    "elapsed": 9026,
+    "engine": "matcha_zh_baker",
+    "reference": "北京是中国的首都，也是全国的政治和文化中心。",
+    "inject": {
+      "injected": 1,
+      "bytes": 232366
+    }
+  },
+  {
+    "tel": [
+      "turn_cancelled",
+      "wav_ready",
+      "request_start",
+      "asr_request_start",
+      "asr_auto_qnn_stage_complete",
+      "asr_auto_russian_stage_complete",
+      "asr_segment_complete",
+      "asr_request_complete",
+      "language_resolved",
+      "voice_backend_routed",
+      "conversation_request_ready",
+      "response_backend_request_start",
+      "first_text_sse",
+      "tts_text_sse_complete"
+    ],
+    "tel_last": [
+      {
+        "event": "conversation_request_ready",
+        "detail": {
+          "response_input": "asr_text",
+          "duplicate_audio_encode": false,
+          "english_response_style": "expressive",
+          "response_mode": "tts",
+          "voice_backend": "android_native_tts",
+          "voice_delivery_reason": "LFM natural TTS is not validated for Russian; using the explicit multilingual system fallback",
+          "direct_lfm_interleaved": false,
+          "response_backend": "qwen3_1_7b_q4_cpu",
+          "response_model": "Qwen3-1.7B-Q4_0",
+          "context_enabled": false,
+          "context_policy": "followup_only",
+          "context_injected": false,
+          "context_decision_reason": "context_disabled",
+          "memory_unavailable_action": null,
+          "history_turns": 0,
+          "response_token_limit": 768
+        },
+        "t": 457385
+      },
+      {
+        "event": "response_backend_request_start",
+        "detail": {
+          "response_backend": "qwen3_1_7b_q4_cpu",
+          "response_model": "Qwen3-1.7B-Q4_0",
+          "direct_lfm_interleaved": false,
+          "context_enabled": false,
+          "context_policy": "followup_only",
+          "context_injected": false,
+          "context_decision_reason": "context_disabled",
+          "history_messages": 0
+        },
+        "t": 457386
+      },
+      {
+        "event": "first_text_sse",
+        "detail": {
+          "request_elapsed_ms": 2880.9000000059605,
+          "response_backend_elapsed_ms": 534.1000000238419,
+          "response_backend": "qwen3_1_7b_q4_cpu"
+        },
+        "t": 457920
+      },
+      {
+        "event": "tts_text_sse_complete",
+        "detail": {
+          "request_elapsed_ms": 3104,
+          "first_text_ms": 2880.9000000059605,
+          "first_pcm_ms": null,
+          "first_audio_scheduled_ms": null,
+          "first_output_head_ms": null,
+          "first_voiced_pcm_offset_ms": null,
+          "first_voiced_scheduled_ms": null,
+          "first_voiced_output_head_ms": null,
+          "output_head_status": "not-started",
+          "playback_underflows": 0,
+          "audio_chunks": 0,
+          "pcm_samples": 0,
+          "pcm_duration_seconds": 0,
+          "sample_rate": 24000,
+          "finish_reason": "stop",
+          "sse_events": 11,
+          "response_token_limit": 768,
+          "repetition": {
+            "token_count": 3,
+            "gram_size": 4,
+            "duplicate_gram_ratio": 0,
+            "max_gram_count": 0
+          },
+          "native_tts_locale": "ru",
+          "native_tts_chunks_submitted": 1,
+          "native_tts_chunks_confirmed": 1,
+          "first_native_tts_start_proxy_ms": null,
+          "lfm_tts_chunks_submitted": 0,
+          "lfm_tts_chunks_completed": 0,
+          "lfm_tts_audio_chunks": 0,
+          "lfm_tts_voice": null,
+          "direct_lfm_interleaved": false,
+          "english_response_style": "expressive",
+          "voice_delivery_reason": "LFM natural TTS is not validated for Russian; using the explicit multilingual system fallback",
+          "voice_backend": "android_native_tts",
+          "response_backend": "qwen3_1_7b_q4_cpu",
+          "response_model": "Qwen3-1.7B-Q4_0",
+          "reasoning_filter": {
+            "raw_characters": 24,
+            "visible_characters": 24,
+            "filtered_characters": 0,
+            "reasoning_blocks_removed": 0,
+            "stray_closing_tags_removed": 0,
+            "buffered_characters": 0
+          },
+          "context_policy": "followup_only",
+          "context_injected": false,
+          "context_decision_reason": "context_disabled",
+          "history_mutated": false,
+          "history_reject_reason": "history_disabled",
+          "selected_language": "auto",
+          "resolved_language": "ru",
+          "tts_locale": "ru-RU",
+          "confidence": 0.8547646499863384,
+          "evidence": "3 confident Cyrillic words from the Russian recognizer",
+          "resolution_reason": "3 confident Cyrillic words from the Russian recognizer",
+          "fallback_used": false,
+          "history_turns": 0,
+          "history_characters": 0,
+          "history_approx_tokens": 0,
+          "context_enabled": false,
+          "backend": "zipformer_ru_cpu",
+          "provider": "cpu",
+          "npu_candidate": "sensevoice_qnn_sm8850",
+          "npu_executed": true,
+          "npu_selected": false,
+          "npu_gate": "executed",
+          "npu_fallback_reason": null,
+          "asr_companion": true,
+          "candidate_summaries": [
+            {
+              "backend": "sensevoice_qnn",
+              "provider": "qnn",
+              "ok": true,
+              "transcript_characters": 16,
+              "language_hint": "en",
+              "mean_token_log_probability": null,
+              "han_characters": 0,
+              "cyrillic_characters": 0,
+              "latin_characters": 10
+            },
+            {
+              "backend": "zipformer_ru_cpu",
+              "provider": "cpu",
+              "ok": true,
+              "transcript_characters": 21,
+              "language_hint": null,
+              "mean_token_log_probability": -0.1569291111111111,
+              "han_characters": 0,
+              "cyrillic_characters": 19,
+              "latin_characters": 0
+            }
+          ],
+          "segmented_input": false,
+          "input_duration_seconds": 2.147125,
+          "segment_count": 1,
+          "segment_summaries": [
+            {
+              "index": 0,
+              "backend": "zipformer_ru_cpu",
+              "provider": "cpu",
+              "npu_executed": true,
+              "npu_selected": false,
+              "transcript_characters": 21
+            }
+          ]
+        },
+        "t": 458143
+      }
+    ],
+    "metrics": "piper_ru_dmitri · first chunk 90 ms · RTF 0.065 · 1.4 s audio · 22050 Hz",
+    "status": "vits · 8 threads · 127 ms first chunk on this phone @ 8t. Only 'clear' verdict on host and the only CC0 Russian corpus found.",
+    "label": "Russian / Piper dmitri",
+    "elapsed": 12036,
+    "engine": "piper_ru_dmitri",
+    "reference": "Москва — столица России.",
+    "inject": {
+      "injected": 1,
+      "bytes": 189420
+    }
+  }
+]

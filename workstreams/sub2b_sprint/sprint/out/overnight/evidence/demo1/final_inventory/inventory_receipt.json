@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "milestone": "demo1_final_physical_inventory_acceptance",
+  "captured_at_host": "2026-08-03T07:13:09+08:00",
+  "receipt_created_at_host": "2026-08-03T07:18:13+08:00",
+  "branch": "sprint/overnight",
+  "device": {
+    "model": "NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "boot_id": "67f1bad3-d306-4787-ac17-d9ab1c87e169",
+    "airplane_mode_on": true,
+    "adb_forwards": [],
+    "run_scope": "final inventory captured after the fifth completed turn in one uninterrupted cold-boot, airplane-mode sequence"
+  },
+  "installed_packages": {
+    "main": {
+      "package": "ai.liquid.lfmdemo",
+      "uid": 10538,
+      "version_code": 26,
+      "version_name": "0.6.0-unplugged",
+      "apk_bytes": 20197812,
+      "apk_sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d"
+    },
+    "runtime": {
+      "package": "ai.liquid.lfmdemo.runtime",
+      "uid": 10514,
+      "version_code": 1,
+      "version_name": "0.1.0-unplugged-runtime",
+      "apk_bytes": 121173908,
+      "apk_sha256": "d43c0423d66e1cbe9e3fac313b54437c5c58ef8a5a8498382a255f619ad46ae1"
+    }
+  },
+  "process_and_listener_state": {
+    "main_process": {
+      "pid": 10316,
+      "linux_user": "u0_a538",
+      "package_uid": 10538,
+      "process": "ai.liquid.lfmdemo"
+    },
+    "runtime_process": {
+      "pid": 10410,
+      "linux_user": "u0_a514",
+      "package_uid": 10514,
+      "process": "ai.liquid.lfmdemo.runtime"
+    },
+    "qwen_process": {
+      "pid": 10482,
+      "parent_pid": 10410,
+      "linux_user": "u0_a514",
+      "process": "libqwenserver.so"
+    },
+    "lfm_server_process_match": false,
+    "enumerated_loopback_listeners": [
+      "127.0.0.1:6789",
+      "127.0.0.1:6020",
+      "[::ffff:127.0.0.1]:6010",
+      "[::ffff:127.0.0.1]:8765"
+    ],
+    "port_8080_match": false,
+    "listener_probe_limit": "The unprivileged ss probe enumerated listening addresses but could not expose owning PIDs because netlink access was denied."
+  },
+  "physical_model_inventory": {
+    "qwen3_5_0_8b_q4_0": {
+      "path": "files/text/models/Qwen3.5-0.8B-Q4_0.gguf",
+      "bytes": 507154688,
+      "sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701",
+      "tensor_count": 320,
+      "learned_unique_parameters": 752393024,
+      "conservative_resident_elements": 752393024,
+      "mtp_or_draft_tensor_count": 0,
+      "vision_visual_or_mmproj_tensor_count": 0,
+      "execution": "CPU"
+    },
+    "sensevoice_small": {
+      "path": "files/asr/models/sensevoice/model.bin",
+      "bytes": 254193664,
+      "sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30",
+      "learned_unique_parameters": 233999167,
+      "conservative_resident_elements": 233999167,
+      "execution_claim": "QNN/HTP execution is phone-measured for the accepted EN and ZH turns with the matched runtime companion route."
+    },
+    "parakeet_tdt_0_6b_v3_int8": {
+      "provider": "cpu",
+      "learned_unique_parameters": 627057286,
+      "conservative_resident_elements": 637225053,
+      "files": [
+        {
+          "path": "files/asr/models/parakeet/encoder.int8.onnx",
+          "bytes": 652184281,
+          "sha256": "acfc2b4456377e15d04f0243af540b7fe7c992f8d898d751cf134c3a55fd2247"
+        },
+        {
+          "path": "files/asr/models/parakeet/decoder.int8.onnx",
+          "bytes": 11845275,
+          "sha256": "179e50c43d1a9de79c8a24149a2f9bac6eb5981823f2a2ed88d655b24248db4e"
+        },
+        {
+          "path": "files/asr/models/parakeet/joiner.int8.onnx",
+          "bytes": 6355277,
+          "sha256": "3164c13fc2821009440d20fcb5fdc78bff28b4db2f8d0f0b329101719c0948b3"
+        },
+        {
+          "path": "files/asr/models/parakeet/tokens.txt",
+          "bytes": 93939,
+          "sha256": "d58544679ea4bc6ac563d1f545eb7d474bd6cfa467f0a6e2c1dc1c7d37e3c35d"
+        },
+        {
+          "path": "files/asr/models/parakeet/installed_esfr_payload.psv",
+          "bytes": 3566,
+          "sha256": "f0ec37c6207ccc47e1c14422288d6eaa550655340a679ae530106f01fdc43183"
+        }
+      ],
+      "qnn_context_or_runtime_payload_installed": false,
+      "execution_claim": "CPU only; the accepted ES and FR turns explicitly report npu_selected=false and npu_executed=false."
+    },
+    "russian_zipformer_int8": {
+      "learned_unique_parameters": 65610041,
+      "conservative_resident_elements": 65610041,
+      "provider": "cpu",
+      "files": [
+        {
+          "path": "files/asr/models/russian/encoder.int8.onnx",
+          "bytes": 70876638,
+          "sha256": "eb6c12fbad810d5bc3e427802e604604c69b5943a91feebc43424dd09d9ec407"
+        },
+        {
+          "path": "files/asr/models/russian/decoder.onnx",
+          "bytes": 2093080,
+          "sha256": "dcbe1ffa0211e77ca6d3a80164df13fbda3ec00e47d12b9f449f89572df12136"
+        },
+        {
+          "path": "files/asr/models/russian/joiner.int8.onnx",
+          "bytes": 259417,
+          "sha256": "93f2e1d12b78d53e7802f1606488c14bb3d764b15fadf5ef6c022f6ba1fa40f7"
+        },
+        {
+          "path": "files/asr/models/russian/tokens.txt",
+          "bytes": 6388,
+          "sha256": "93bbbc0bae6b78c0bbb743d4aa9fded3bb5ff3aac5f0200e3a769a5a05e0fdf6"
+        }
+      ]
+    },
+    "five_language_tts": {
+      "candidate_count": 5,
+      "candidate_ids": [
+        "matcha_zh_baker",
+        "supertonic3_en_s5",
+        "supertonic3_s5",
+        "supertonic3_es_s5",
+        "supertonic3_fr_s5"
+      ],
+      "authenticated_referenced_files": 22,
+      "metadata_files": 3,
+      "installed_physical_files": 25,
+      "installed_known_mib": 277.3,
+      "learned_unique_parameters": 131471497,
+      "conservative_resident_elements": 131755017,
+      "shared_weight_interpretation": "The four Supertonic language policies share one physical graph/style set and are counted once. Matcha uses the installed 22 kHz Vocos. The unreferenced Vocos 24 kHz export is absent.",
+      "phone_bundle_manifest_sha256": "67ffedc475464216d64143c8c15332ea82398170fe11f66b91da3eb9051a3384",
+      "phone_candidates_sha256": "7b781a3612f3b381be3e81273370464a4ef0df421b533dfd4dc66bd75c5cdf05",
+      "phone_phrases_sha256": "98d609075bb71f358430c0371e10c591a4b4614574e2c9750a74d0cb37230a97",
+      "manifest_cross_check": "All 22 non-metadata external rows match the staged bundle manifest byte counts and SHA-256 values."
+    },
+    "vad": {
+      "implementation": "AdaptiveEnergyVad.java",
+      "learned_unique_parameters": 0,
+      "conservative_resident_elements": 0,
+      "source_sha256": "f43f07819d1bf8983809421bc6e0b436046fd7e7a96d2271a9209caf3db4da00",
+      "silero_artifact_installed": false
+    }
+  },
+  "zero_parameter_resident_artifacts": {
+    "fixture_wavs": 12,
+    "fixture_role": "Acceptance/reference audio only; no learned parameters.",
+    "tokens_metadata_logs_and_runtime_libraries": "Present and included in the 61-row physical listing, but not learned model parameters.",
+    "main_private_model_weights": []
+  },
+  "parameter_acceptance": {
+    "strict_cap_exclusive": 2000000000,
+    "installed_learned_unique_total": 1810531015,
+    "installed_learned_headroom": 189468985,
+    "installed_conservative_resident_total": 1820982302,
+    "installed_conservative_headroom": 179017698,
+    "strictly_below_cap": true,
+    "arithmetic": {
+      "learned": "752393024 + 233999167 + 627057286 + 65610041 + 131471497 + 0 = 1810531015",
+      "conservative": "752393024 + 233999167 + 637225053 + 65610041 + 131755017 + 0 = 1820982302"
+    },
+    "intentionally_overcounting_host_target_bound": {
+      "learned_unique_total": 1824062690,
+      "conservative_resident_total": 1834513983,
+      "explanation": "The earlier host target retained the absent Vocos 24 kHz row. The complete phone listing proves the physical inventory is smaller; both scopes remain strictly below 2B."
+    },
+    "verdict": "PASS_STRICTLY_UNDER_2B"
+  },
+  "complete_inventory": {
+    "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/device_inventory.tsv",
+    "sha256": "2c8fc77faa6c4a0f4b3cbceb32e302d8b6923a1112e90fa77d36026426e892bf",
+    "data_rows": 61,
+    "apk_rows": 2,
+    "private_rows": 34,
+    "external_rows": 25,
+    "exact_gguf_count": 1,
+    "exact_gguf_path": "files/text/models/Qwen3.5-0.8B-Q4_0.gguf",
+    "coverage": "Both installed APKs, every file under both packages' private files/ trees, and every physical file in the main app external tts-eval tree.",
+    "transient_cache_scope": "Transient cache directories are not shipped model inventory and are outside this listing."
+  },
+  "required_absences_proven_by_complete_listing_and_state": {
+    "qwen2_5_models": [],
+    "extra_ggufs": [],
+    "silero_weights": [],
+    "vocos_24khz": [],
+    "stale_tts_candidate_trees": [],
+    "incoming_partial_files": [],
+    "main_private_lfm_model_weights": [],
+    "lfm_server_processes": [],
+    "port_8080_listeners": [],
+    "parakeet_qnn_context_or_runtime_files": []
+  },
+  "five_language_execution_binding": {
+    "same_boot_id": "67f1bad3-d306-4787-ac17-d9ab1c87e169",
+    "same_main_pid": 10316,
+    "same_runtime_pid": 10410,
+    "all_turns_airplane_mode": true,
+    "all_turns_completed": true,
+    "checkpoints": [
+      {
+        "language": "en",
+        "commit": "cb8b306",
+        "provenance": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/en_checkpoint/provenance.json",
+        "provenance_sha256": "6ea8540fc8ff3af5ef85532cb6cda23d541281e34049ac86db4fdcbcbbed6351",
+        "asr": "SenseVoice QNN/HTP",
+        "tts": "supertonic3_en_s5"
+      },
+      {
+        "language": "ru",
+        "commit": "471db9c",
+        "provenance": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/ru_checkpoint/provenance.json",
+        "provenance_sha256": "388e3b4bc2be73ccdd6cfc968e21a6fda06bb16d89857052838d268fb500f8d1",
+        "asr": "Zipformer CPU",
+        "tts": "supertonic3_s5",
+        "quality_limit": "Execution/coverage accepted; the retained visible answer contains a factual error and is not the preferred film take."
+      },
+      {
+        "language": "zh",
+        "commit": "a001915",
+        "provenance": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/zh_checkpoint/provenance.json",
+        "provenance_sha256": "ce23223d571331d2cd3b66537c4f084c1b2d468c7b6c73b4749cf31d97e72d64",
+        "asr": "SenseVoice QNN/HTP",
+        "tts": "matcha_zh_baker"
+      },
+      {
+        "language": "es",
+        "commit": "1948535",
+        "provenance": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/es_checkpoint/provenance.json",
+        "provenance_sha256": "dd559e4859d9526d4dfc0e6cf91c23d69ef7b8cea02136f9eaa985413549d629",
+        "asr": "Parakeet CPU",
+        "tts": "supertonic3_es_s5"
+      },
+      {
+        "language": "fr",
+        "commit": "5f4526d",
+        "provenance": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/fr_checkpoint/provenance.json",
+        "provenance_sha256": "f83fda5a6e43f056828204b79b73b49aef961e50bfa1fc5a9265149b08fa4439",
+        "asr": "Parakeet CPU",
+        "tts": "supertonic3_fr_s5"
+      }
+    ]
+  },
+  "supporting_receipts": {
+    "device_state": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/device_state.txt",
+      "sha256": "7c7d335ad522d4ec1666de451c59773dc00d890c8a99132723a7af204e426ea3"
+    },
+    "lane_a_ledger": {
+      "file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "sha256": "ea0f24964f998a15e553c943a12ef9978957bd2dfc2819d8c4f61e30b40e0f91"
+    },
+    "qwen35_header_inventory": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/qwen35_08b_gguf_inventory.json",
+      "sha256": "b3eae9a09258cefccc85fd57ee8e7a27406d3249b39908af73f5654af67d311e"
+    },
+    "qwen35_phone_install": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/qwen35_runtime_install.json",
+      "sha256": "a28efb2f66a432dcf26c64cdeb97151275a56c3d781885de8ede5a3cfac2d407"
+    },
+    "five_language_provisioning": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/provisioning_receipt.json",
+      "sha256": "6ad57edca522b96e7ec1cc684a060d2a06d728bc691694b590b915df79749d30"
+    },
+    "tts_verify": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/tts_verify.txt",
+      "sha256": "65716647ca046d1af6570c40553aad60b0fb5419262d9c1f6dbeed14e2c38ef8"
+    },
+    "tts_manifest_evidence_copy": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/tts_bundle_manifest.json",
+      "sha256": "e118963dd29690be236e4ffea9c0d76063a363e1aef0f15839732c3301c25048",
+      "phone_content_sha256_after_removing_evidence_copy_trailing_lf": "67ffedc475464216d64143c8c15332ea82398170fe11f66b91da3eb9051a3384"
+    },
+    "tts_candidates_evidence_copy": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/tts_candidates.json",
+      "sha256": "723fe6d7063704ac2b9f0233c1378dd32446e885525893ebd9c18f38079514f6",
+      "phone_content_sha256_after_removing_evidence_copy_trailing_lf": "7b781a3612f3b381be3e81273370464a4ef0df421b533dfd4dc66bd75c5cdf05"
+    },
+    "demo2_identical_physical_tts_count_basis": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json",
+      "sha256": "14fd19ce1e9bb06063a577923935571a7d82aff17a39734eee2792653c87ae5d"
+    },
+    "adaptive_energy_vad_source": {
+      "file": "android-app/app/src/main/java/ai/liquid/lfmdemo/AdaptiveEnergyVad.java",
+      "sha256": "f43f07819d1bf8983809421bc6e0b436046fd7e7a96d2271a9209caf3db4da00"
+    }
+  },
+  "validation": {
+    "json_parse_checked": true,
+    "integer_arithmetic_checked": true,
+    "inventory_row_counts_checked": true,
+    "inventory_hash_checked": true,
+    "supporting_hashes_checked": true,
+    "tts_22_of_22_manifest_rows_checked": true,
+    "required_absences_checked": true,
+    "process_listener_state_checked": true,
+    "same_boot_and_process_execution_binding_checked": true,
+    "checks": [
+      {
+        "id": "installed_learned_sum",
+        "expected": 1810531015,
+        "actual": 1810531015,
+        "passed": true
+      },
+      {
+        "id": "installed_conservative_sum",
+        "expected": 1820982302,
+        "actual": 1820982302,
+        "passed": true
+      },
+      {
+        "id": "learned_headroom",
+        "expected": 189468985,
+        "actual": 189468985,
+        "passed": true
+      },
+      {
+        "id": "conservative_headroom",
+        "expected": 179017698,
+        "actual": 179017698,
+        "passed": true
+      },
+      {
+        "id": "strict_exclusive_cap",
+        "expected": "both installed totals < 2000000000",
+        "actual": true,
+        "passed": true
+      },
+      {
+        "id": "inventory_rows",
+        "expected": {
+          "data": 61,
+          "apk": 2,
+          "private": 34,
+          "external": 25
+        },
+        "actual": {
+          "data": 61,
+          "apk": 2,
+          "private": 34,
+          "external": 25
+        },
+        "passed": true
+      },
+      {
+        "id": "inventory_row_shape",
+        "expected": "61 integer byte counts, 61 lowercase 64-hex SHA-256 values, zero duplicate paths",
+        "actual": {
+          "bad_byte_counts": 0,
+          "bad_sha256_values": 0,
+          "duplicate_paths": 0
+        },
+        "passed": true
+      },
+      {
+        "id": "inventory_sha256",
+        "expected": "2c8fc77faa6c4a0f4b3cbceb32e302d8b6923a1112e90fa77d36026426e892bf",
+        "actual": "2c8fc77faa6c4a0f4b3cbceb32e302d8b6923a1112e90fa77d36026426e892bf",
+        "passed": true
+      },
+      {
+        "id": "device_state_sha256",
+        "expected": "88d849e3e4f7e38ae551bb34630debc5814fad359efb42dc91ed8a5d4f761e85",
+        "actual": "88d849e3e4f7e38ae551bb34630debc5814fad359efb42dc91ed8a5d4f761e85",
+        "passed": true
+      },
+      {
+        "id": "exact_single_gguf",
+        "expected": "one Qwen3.5-0.8B-Q4_0 GGUF with SHA-256 1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701",
+        "actual": "one exact matching row",
+        "passed": true
+      },
+      {
+        "id": "apk_and_primary_model_row_bindings",
+        "expected": 13,
+        "actual": 13,
+        "passed": true
+      },
+      {
+        "id": "tts_manifest_row_bindings",
+        "expected": 22,
+        "actual": 22,
+        "failed": 0,
+        "passed": true
+      },
+      {
+        "id": "tts_metadata_rows",
+        "expected": 3,
+        "actual": 3,
+        "passed": true
+      },
+      {
+        "id": "supporting_receipt_hashes",
+        "expected": 10,
+        "actual": 10,
+        "passed": true
+      },
+      {
+        "id": "language_checkpoint_hashes",
+        "expected": 5,
+        "actual": 5,
+        "passed": true
+      },
+      {
+        "id": "five_language_same_boot_processes",
+        "expected": {
+          "boot_ids": 1,
+          "main_pids": 1,
+          "runtime_pids": 1,
+          "complete_turns": 5,
+          "airplane_mode_all": true
+        },
+        "actual": {
+          "boot_ids": 1,
+          "main_pids": 1,
+          "runtime_pids": 1,
+          "complete_turns": 5,
+          "airplane_mode_all": true
+        },
+        "passed": true
+      },
+      {
+        "id": "zero_parameter_fixture_wavs",
+        "expected": 12,
+        "actual": 12,
+        "passed": true
+      },
+      {
+        "id": "required_absence_categories",
+        "expected": 10,
+        "actual": 10,
+        "forbidden_inventory_paths": 0,
+        "passed": true
+      }
+    ],
+    "status": "PASS"
+  },
+  "claim_boundary": "This receipt proves the complete installed Demo 1 model inventory covered by the two APK identities, both packages' private files/ trees, and the external TTS tree is strictly below 2,000,000,000 on both learned-unique and conservative-resident bases. It binds that inventory to five completed offline phone turns in one cold-boot process. It does not upgrade Parakeet, Zipformer, Qwen, or TTS to NPU execution; only the accepted SenseVoice EN/ZH checkpoints carry the narrow QNN/HTP claim. Licences are recorded elsewhere and do not gate this research demo.",
+  "limits": [
+    "The port-8080 absence is based on the listener addresses available to an unprivileged ss probe; owning PIDs were not available from that probe.",
+    "Fixture WAVs, tokenizer files, logs, metadata, runtime libraries, and APK code are physically listed but contribute zero learned parameters.",
+    "The retained Russian turn proves route execution but contains a factual error in the visible answer and should not be used as the preferred filming take.",
+    "First-audio timings in the linked language checkpoints are Android software proxies, not microphone-observed acoustic onset."
+  ]
+}

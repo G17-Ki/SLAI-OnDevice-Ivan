@@ -1,0 +1,27 @@
+{
+  "scope": "Credential-free public report data. No model weights, OAuth files, API tokens, private paths, or raw datasets are included.",
+  "model_revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+  "liquid_audio_commit": "19e65845923a7f136442c95137884ec61eb386aa",
+  "qai_hub_models_version": "0.57.3",
+  "report_sha256": {
+    "markdown": "6a1046db0f0c5d0ca4218f7134db939d7b714f4ab3879d6dde4961d2dcb8f86f",
+    "pdf": "d5b03ba41bfdc98369b9db2ae0ab18c2c4ed70205caa7560674e72491d5cc3cb"
+  },
+  "evidence_sha256": {
+    "asr_quality_diagnostic.csv": "828cc2b7569b19d15ea9e2d96c72e398e2886323473236e9bc19d10f2dfb557d",
+    "lfm_component_results.csv": "0173e73b7d08a92706abe105787f3bf98253d00ef1a74bff6a93b4481748dd33",
+    "memory_ledger.csv": "6798a28e9e9ee8e512fcfcc6c809c101af4eb57cacd508ebebc7aac030b0cb5c",
+    "q4_inference_runs.csv": "ca1cef31aaa10f0a79bc2ff6c672b9c2be613470ed07a87a12251d53be5e04e8",
+    "q4_inference_summary.csv": "97c556685e362feb4bfc2584df64169dda3651700336188bbcd7dfdda17abcf4",
+    "qualcomm_comparator_components.csv": "bae533b5307b78b3435a5851dd512bc056a74d8815d1970f5a56de1feb6cfac3"
+  },
+  "files": [
+    "asr_quality_diagnostic.csv",
+    "lfm_component_results.csv",
+    "manifest.json",
+    "memory_ledger.csv",
+    "q4_inference_runs.csv",
+    "q4_inference_summary.csv",
+    "qualcomm_comparator_components.csv"
+  ]
+}

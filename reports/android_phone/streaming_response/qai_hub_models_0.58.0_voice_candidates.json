@@ -1,0 +1,2474 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T08:16:31.771125+00:00",
+  "source": {
+    "wheel": "qai_hub_models-0.58.0-py3-none-any.whl",
+    "wheel_sha256": "2100a95f173c6c7b8f3bf65dcb710586098099522a5a901c6f918f3b981c4ada",
+    "target": "Snapdragon 8 Elite Gen 5 QRD",
+    "same_generation_fallback": "Samsung Galaxy S26"
+  },
+  "interpretation": {
+    "exact_target": "Published metric is for the requested QRD.",
+    "same_generation_retail_proxy": "The requested QRD is listed as supported, but the wheel publishes the metric under a same-generation retail device. It is not an exact QRD measurement.",
+    "component_latency": "Fixed-shape neural invocation latency, not application end-to-end latency. Front-end, tokenization, orchestration, host transfers, audio I/O, and repeated decoding are excluded."
+  },
+  "models": {
+    "whisper_tiny": {
+      "name": "Whisper-Tiny",
+      "status": "published",
+      "headline": "Transformer-based automatic speech recognition (ASR) model for multilingual transcription and translation available on HuggingFace.",
+      "description": "HuggingFace Whisper-Tiny ASR (Automatic Speech Recognition) model is a state-of-the-art system designed for transcribing spoken language into written text. This model is based on the transformer architecture and has been optimized for edge inference by replacing Multi-Head Attention (MHA) with Single-Head Attention (SHA) and linear layers with convolutional (conv) layers. It exhibits robust performance in realistic, noisy environments, making it highly reliable for real-world applications. Specifically, it excels in long-form transcription, capable of accurately transcribing audio clips up to 30 seconds long. Time to the first token is the encoder's latency, while time to each additional token is decoder's latency, where we assume a max decoded length specified below.",
+      "license_type": "apache-2.0",
+      "license": "https://github.com/huggingface/transformers/blob/v4.42.3/LICENSE",
+      "source_repo": "https://github.com/huggingface/transformers/tree/v4.42.3/src/transformers/models/whisper",
+      "technical_details": {
+        "Model checkpoint": "openai/whisper-tiny",
+        "Input resolution": "80x3000 (30 seconds audio)",
+        "Max decoded sequence length": "200 tokens",
+        "Number of parameters (encoder)": "9.39M",
+        "Model size (encoder) (float)": "35.9 MB",
+        "Number of parameters (decoder)": "28.4M",
+        "Model size (decoder) (float)": "109 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "Dragonwing IQ-9075 EVK",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "SA8295P ADP"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs8450",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-qcs9075",
+        "qualcomm-sa7255p",
+        "qualcomm-sa8295p"
+      ],
+      "metrics": [
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "jpxd6ov8g",
+          "job_status": "Passed",
+          "latency_ms": 12.52,
+          "estimated_peak_memory_range_mb": {
+            "min": 20,
+            "max": 27
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 294,
+            "npu": 294
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "j5qmrqdog",
+          "job_status": "Passed",
+          "latency_ms": 12.51,
+          "estimated_peak_memory_range_mb": {
+            "min": 1,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 294,
+            "npu": 294
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgo4n6q15",
+          "job_status": "Passed",
+          "latency_ms": 12.5,
+          "estimated_peak_memory_range_mb": {
+            "min": 1,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 294,
+            "npu": 294
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "j5md6xr75",
+          "job_status": "Passed",
+          "latency_ms": 1.504,
+          "estimated_peak_memory_range_mb": {
+            "min": 1,
+            "max": 8
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 509,
+            "npu": 509
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "jgl12m9m5",
+          "job_status": "Passed",
+          "latency_ms": 1.498,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 509,
+            "npu": 509
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpv9rkxz5",
+          "job_status": "Passed",
+          "latency_ms": 1.493,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 509,
+            "npu": 509
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "whisper_base": {
+      "name": "Whisper-Base",
+      "status": "published",
+      "headline": "Transformer-based automatic speech recognition (ASR) model for multilingual transcription and translation available on HuggingFace.",
+      "description": "HuggingFace Whisper-Base ASR (Automatic Speech Recognition) model is a state-of-the-art system designed for transcribing spoken language into written text. This model is based on the transformer architecture and has been optimized for edge inference by replacing Multi-Head Attention (MHA) with Single-Head Attention (SHA) and linear layers with convolutional (conv) layers. It exhibits robust performance in realistic, noisy environments, making it highly reliable for real-world applications. Specifically, it excels in long-form transcription, capable of accurately transcribing audio clips up to 30 seconds long. Time to the first token is the encoder's latency, while time to each additional token is decoder's latency, where we assume a max decoded length specified below.",
+      "license_type": "apache-2.0",
+      "license": "https://github.com/huggingface/transformers/blob/v4.42.3/LICENSE",
+      "source_repo": "https://github.com/huggingface/transformers/tree/v4.42.3/src/transformers/models/whisper",
+      "technical_details": {
+        "Model checkpoint": "openai/whisper-base",
+        "Input resolution": "80x3000 (30 seconds audio)",
+        "Max decoded sequence length": "200 tokens",
+        "Number of parameters (encoder)": "23.7M",
+        "Model size (encoder) (float)": "90.7 MB",
+        "Number of parameters (decoder)": "48.9M",
+        "Model size (decoder) (float)": "187 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "Dragonwing IQ-9075 EVK",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "SA8295P ADP"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs8450",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-qcs9075",
+        "qualcomm-sa7255p",
+        "qualcomm-sa8295p"
+      ],
+      "metrics": [
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "jgz4oerkp",
+          "job_status": "Passed",
+          "latency_ms": 22.02,
+          "estimated_peak_memory_range_mb": {
+            "min": 39,
+            "max": 46
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 556,
+            "npu": 556
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "jp840o085",
+          "job_status": "Passed",
+          "latency_ms": 22.028,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 14
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 556,
+            "npu": 556
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp0v3y16g",
+          "job_status": "Passed",
+          "latency_ms": 22.075,
+          "estimated_peak_memory_range_mb": {
+            "min": 1,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 556,
+            "npu": 556
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "j5w12o96g",
+          "job_status": "Passed",
+          "latency_ms": 2.684,
+          "estimated_peak_memory_range_mb": {
+            "min": 23,
+            "max": 33
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 975,
+            "npu": 975
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "jgk97z7o5",
+          "job_status": "Passed",
+          "latency_ms": 2.657,
+          "estimated_peak_memory_range_mb": {
+            "min": 20,
+            "max": 29
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 975,
+            "npu": 975
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp840o3x5",
+          "job_status": "Passed",
+          "latency_ms": 2.693,
+          "estimated_peak_memory_range_mb": {
+            "min": 20,
+            "max": 29
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 975,
+            "npu": 975
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "whisper_small_quantized": {
+      "name": "Whisper-Small-Quantized",
+      "status": "published",
+      "headline": "Transformer-based automatic speech recognition (ASR) model for multilingual transcription and translation available on HuggingFace.",
+      "description": "We have applied w8a16 quantization to significantly enhance performance and efficiency. HuggingFace Whisper-Small ASR (Automatic Speech Recognition) model is a state-of-the-art system designed for transcribing spoken language into written text. This model is based on the transformer architecture and has been optimized for edge inference by replacing Multi-Head Attention (MHA) with Single-Head Attention (SHA) and linear layers with convolutional (conv) layers. It exhibits robust performance in realistic, noisy environments, making it highly reliable for real-world applications. Specifically, it excels in long-form transcription, capable of accurately transcribing audio clips up to 30 seconds long. Time to the first token is the encoder's latency, while time to each additional token is decoder's latency, where we assume a max decoded length specified below.",
+      "license_type": "apache-2.0",
+      "license": "https://github.com/huggingface/transformers/blob/v4.42.3/LICENSE",
+      "source_repo": "https://github.com/huggingface/transformers/tree/v4.42.3/src/transformers/models/whisper",
+      "technical_details": {
+        "Model checkpoint": "openai/whisper-small",
+        "Input resolution": "80x3000 (30 seconds audio)",
+        "Max decoded sequence length": "200 tokens"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "Dragonwing Q-6690 MTP",
+        "Dragonwing IQ-9075 EVK",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "Snapdragon 7 Gen 4 QRD",
+        "Dragonwing Q-7790"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs8450",
+        "qualcomm-qcm6690",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs7790",
+        "qualcomm-qcs8750",
+        "qualcomm-qcs9075",
+        "qualcomm-sa7255p",
+        "qualcomm-snapdragon-7gen4"
+      ],
+      "metrics": [
+        {
+          "precision": "w8a16",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "jgl16jlm5",
+          "job_status": "Passed",
+          "latency_ms": 174.434,
+          "estimated_peak_memory_range_mb": {
+            "min": 63,
+            "max": 75
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 2014,
+            "npu": 2014
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "w8a16",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp49kqkl5",
+          "job_status": "Passed",
+          "latency_ms": 174.933,
+          "estimated_peak_memory_range_mb": {
+            "min": 1,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 2014,
+            "npu": 2014
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "w8a16",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "j5770qyr5",
+          "job_status": "Passed",
+          "latency_ms": 175.083,
+          "estimated_peak_memory_range_mb": {
+            "min": 1,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 2014,
+            "npu": 2014
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "w8a16",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "jp3wvy6n5",
+          "job_status": "Passed",
+          "latency_ms": 3.942,
+          "estimated_peak_memory_range_mb": {
+            "min": 23,
+            "max": 36
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 2853,
+            "npu": 2853
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "w8a16",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpxdnvn9g",
+          "job_status": "Passed",
+          "latency_ms": 3.926,
+          "estimated_peak_memory_range_mb": {
+            "min": 24,
+            "max": 33
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 2853,
+            "npu": 2853
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "w8a16",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "jp49kzll5",
+          "job_status": "Passed",
+          "latency_ms": 3.961,
+          "estimated_peak_memory_range_mb": {
+            "min": 24,
+            "max": 34
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 2853,
+            "npu": 2853
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "zipformer": {
+      "name": "Zipformer",
+      "status": "published",
+      "headline": "Transformer-based automatic speech recognition (ASR) model for English and Chinese language.",
+      "description": "Zipformer streaming ASR (Automatic Speech Recognition) model is a state-of-the-art system designed for transcribing spoken language into written text streamingly. This model is based on the transformer architecture and has been optimized for edge inference by replacing linear layers with convolutional (conv) layers. It exhibits robust performance in realistic, noisy environments, making it highly reliable for real-world applications. Specifically, it excels in long-form transcription, capable of accurately transcribing audios. Time to the first token is the encoder's latency, while time to each additional token is joiner's latency, where we assume a max decoded length specified below.",
+      "license_type": "apache-2.0",
+      "license": "https://github.com/huggingface/transformers/blob/v4.42.3/LICENSE",
+      "source_repo": "https://github.com/k2-fsa/icefall",
+      "technical_details": {
+        "Model checkpoint": "pfluo/k2fsa-zipformer-chinese-english-mixed",
+        "Input resolution": "80x71 (0.71 seconds audio)",
+        "Max decoded sequence length": "200 tokens",
+        "Number of parameters (encoder)": "63.2M",
+        "Model size (encoder) (float)": "242 MB",
+        "Number of parameters (decoder)": "3.47M",
+        "Model size (decoder) (float)": "13.2 MB",
+        "Number of parameters (joiner)": "3.21M",
+        "Model size (joiner) (float)": "12.2 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "Dragonwing IQ-9075 EVK",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "SA8295P ADP"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs8450",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-qcs9075",
+        "qualcomm-sa7255p",
+        "qualcomm-sa8295p"
+      ],
+      "metrics": [
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "jgn7mx3jp",
+          "job_status": "Passed",
+          "latency_ms": 4.882,
+          "estimated_peak_memory_range_mb": {
+            "min": 10,
+            "max": 17
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 2546,
+            "npu": 2546
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "jgo4ne0q5",
+          "job_status": "Passed",
+          "latency_ms": 4.832,
+          "estimated_peak_memory_range_mb": {
+            "min": 3,
+            "max": 11
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 2546,
+            "npu": 2546
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "jprn29ek5",
+          "job_status": "Passed",
+          "latency_ms": 0.053,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 7
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 8,
+            "npu": 8
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "jpv9rzxk5",
+          "job_status": "Passed",
+          "latency_ms": 0.046,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 8,
+            "npu": 8
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "joiner",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "precompiled_qnn_onnx",
+          "kind": "component",
+          "job_id": "jpy7jn60p",
+          "job_status": "Passed",
+          "latency_ms": 0.135,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 7
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 5,
+            "npu": 5
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327",
+            "onnx_runtime": "1.26.0"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "joiner",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "qnn_context_binary",
+          "kind": "component",
+          "job_id": "jgjw2k4v5",
+          "job_status": "Passed",
+          "latency_ms": 0.13,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 5,
+            "npu": 5
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "qwen3_0_6b": {
+      "name": "Qwen3-0.6B",
+      "status": "published",
+      "headline": "State-of-the-art large language model useful on a variety of language understanding and generation tasks.",
+      "description": "The Qwen3-0.6B is a state-of-the-art multilingual language model with 0.6 billion parameters, excelling in language understanding, generation, coding, and mathematics.",
+      "license_type": "apache-2.0",
+      "license": "https://huggingface.co/Qwen/Qwen3-0.6B/blob/main/LICENSE",
+      "source_repo": "https://github.com/QwenLM/Qwen3",
+      "technical_details": {
+        "Supported languages": "100+ languages and dialects.",
+        "TTFT": "Time To First Token is the time it takes to generate the first response token. This is expressed as a range because it varies based on the length of the prompt. The lower bound is for a short prompt (up to 128 tokens, i.e., one iteration of the prompt processor) and the upper bound is for a prompt using the full context length (4096 tokens).",
+        "Response Rate": "Rate of response generation after the first response token."
+      },
+      "runtime_technical_details": {
+        "geniex_llamacpp": {
+          "model_infer_id": "unsloth/Qwen3-0.6B-GGUF",
+          "Quantization Type": "Q4_0 (GGUF)",
+          "Model Size": "429 MB"
+        }
+      },
+      "supported_devices": [
+        "Snapdragon X Elite CRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Dragonwing IQ-9075 EVK"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-qcs9075"
+      ],
+      "metrics": [
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-0.6B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 4096,
+          "tokens_per_second": 18.024064,
+          "time_to_first_token_range_milliseconds": {
+            "min": 710.38396875,
+            "max": 22732.287
+          },
+          "prefill_tokens_per_second": 180.186125,
+          "desired_compute_unit": "cpu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-0.6B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 512,
+          "tokens_per_second": 109.93192,
+          "time_to_first_token_range_milliseconds": {
+            "min": 177.354,
+            "max": 709.416
+          },
+          "prefill_tokens_per_second": 721.869982,
+          "desired_compute_unit": "cpu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-0.6B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 4096,
+          "tokens_per_second": 19.39173,
+          "time_to_first_token_range_milliseconds": {
+            "min": 869.9334375,
+            "max": 27837.87
+          },
+          "prefill_tokens_per_second": 147.138741,
+          "desired_compute_unit": "gpu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-0.6B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 512,
+          "tokens_per_second": 107.662002,
+          "time_to_first_token_range_milliseconds": {
+            "min": 190.1215,
+            "max": 760.486
+          },
+          "prefill_tokens_per_second": 673.397131,
+          "desired_compute_unit": "gpu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-0.6B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 4096,
+          "tokens_per_second": 30.405844,
+          "time_to_first_token_range_milliseconds": {
+            "min": 78.79,
+            "max": 2521.28
+          },
+          "prefill_tokens_per_second": 1625.047311,
+          "desired_compute_unit": "npu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-0.6B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 512,
+          "tokens_per_second": 61.618566,
+          "time_to_first_token_range_milliseconds": {
+            "min": 41.5335,
+            "max": 166.134
+          },
+          "prefill_tokens_per_second": 3085.006387,
+          "desired_compute_unit": "npu"
+        }
+      ]
+    },
+    "qwen3_1_7b": {
+      "name": "Qwen3-1.7B",
+      "status": "published",
+      "headline": "Multilingual 1.7B parameter language model excelling in reasoning and code generation.",
+      "description": "Qwen3 is a multilingual large language model series from Alibaba Cloud, excelling in language understanding, generation, coding, and mathematics.",
+      "license_type": "apache-2.0",
+      "license": "https://huggingface.co/Qwen/Qwen3-1.7B/blob/main/LICENSE",
+      "source_repo": "https://huggingface.co/Qwen/Qwen3-1.7B",
+      "technical_details": {
+        "Model architecture": "Dense Transformer with Grouped Query Attention (GQA) and SwiGLU activation.",
+        "Supported languages": "100+ languages and dialects",
+        "TTFT": "Time To First Token is the time it takes to generate the first response token. This is expressed as a range because it varies based on the length of the prompt.",
+        "Response Rate": "Rate of response generation after the first response token."
+      },
+      "runtime_technical_details": {
+        "geniex_qairt": {
+          "Input sequence length for Prompt Processor": "128",
+          "Context lengths": "512, 1024, 2048, 3072, 4096",
+          "Minimum QNN SDK version required": "2.45.0"
+        },
+        "geniex_llamacpp": {
+          "model_infer_id": "unsloth/Qwen3-1.7B-GGUF",
+          "Quantization Type": "Q4_0 (GGUF)",
+          "Model Size": "1.06 GB"
+        }
+      },
+      "supported_devices": [
+        "Snapdragon X Elite CRD",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Dragonwing IQ-9075 EVK"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-qcs9075"
+      ],
+      "metrics": [
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-1.7B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 512,
+          "tokens_per_second": 47.814629,
+          "time_to_first_token_range_milliseconds": {
+            "min": 401.07475,
+            "max": 1604.299
+          },
+          "prefill_tokens_per_second": 319.174535,
+          "desired_compute_unit": "cpu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-1.7B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 512,
+          "tokens_per_second": 47.324852,
+          "time_to_first_token_range_milliseconds": {
+            "min": 432.04575,
+            "max": 1728.183
+          },
+          "prefill_tokens_per_second": 296.292524,
+          "desired_compute_unit": "gpu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-1.7B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 512,
+          "tokens_per_second": 34.784811,
+          "time_to_first_token_range_milliseconds": {
+            "min": 65.57025,
+            "max": 262.281
+          },
+          "prefill_tokens_per_second": 1953.557229,
+          "desired_compute_unit": "npu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-1.7B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 4096,
+          "tokens_per_second": 27.781974,
+          "time_to_first_token_range_milliseconds": {
+            "min": 975.70596875,
+            "max": 31222.591
+          },
+          "prefill_tokens_per_second": 131.188075,
+          "desired_compute_unit": "cpu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-1.7B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 4096,
+          "tokens_per_second": 22.642492,
+          "time_to_first_token_range_milliseconds": {
+            "min": 1219.309625,
+            "max": 39017.908
+          },
+          "prefill_tokens_per_second": 104.977954,
+          "desired_compute_unit": "gpu"
+        },
+        {
+          "precision": "q4_0",
+          "component": "Qwen3-1.7B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_llamacpp",
+          "kind": "llm",
+          "context_length": 4096,
+          "tokens_per_second": 22.279084,
+          "time_to_first_token_range_milliseconds": {
+            "min": 114.84521875,
+            "max": 3675.047
+          },
+          "prefill_tokens_per_second": 1114.785027,
+          "desired_compute_unit": "npu"
+        },
+        {
+          "precision": "w4a16",
+          "component": "Qwen3-1.7B",
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "evidence_class": "exact_target",
+          "runtime": "geniex_qairt",
+          "kind": "llm",
+          "context_length": 4096,
+          "tokens_per_second": 62.028636,
+          "time_to_first_token_range_milliseconds": {
+            "min": 25.602,
+            "max": 819.264
+          },
+          "prefill_tokens_per_second": 1249.902351,
+          "desired_compute_unit": "npu"
+        }
+      ]
+    },
+    "pipertts_en": {
+      "name": "PiperTTS-EN",
+      "status": "published",
+      "headline": "High-quality text-to-speech for English.",
+      "description": "PiperTTS is a high-quality multi-lingual text-to-speech library.",
+      "license_type": "mit",
+      "license": "https://github.com/rhasspy/piper/blob/master/LICENSE.md",
+      "source_repo": "https://github.com/rhasspy/piper",
+      "technical_details": {
+        "Model checkpoint": "rhasspy/piper-checkpoints",
+        "Max decoded sequence length": "64 tokens",
+        "Number of parameters (encoder)": "7.51M",
+        "Model size (encoder) (float)": "28.7 MB",
+        "Number of parameters (sdp)": "1.04K",
+        "Model size (sdp) (float)": "6.61 KB",
+        "Number of parameters (flow)": "7.39M",
+        "Model size (flow) (float)": "28.2 MB",
+        "Number of parameters (decoder)": "1.66M",
+        "Model size (decoder) (float)": "6.37 MB",
+        "Number of parameters (t5_encoder)": "15.1M",
+        "Model size (t5_encoder) (float)": "57.5 MB",
+        "Number of parameters (t5_decoder)": "5.72M",
+        "Model size (t5_decoder) (float)": "21.8 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "Dragonwing IQ-9075 EVK",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "SA8295P ADP"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs8450",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-qcs9075",
+        "qualcomm-sa7255p",
+        "qualcomm-sa8295p"
+      ],
+      "metrics": [
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgl12m785",
+          "job_status": "Passed",
+          "latency_ms": 17.056,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 13
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 401,
+            "npu": 401
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "sdp",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "j56dz4v0p",
+          "job_status": "Passed",
+          "latency_ms": 6.599,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 620,
+            "npu": 620
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "flow",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp3w108l5",
+          "job_status": "Passed",
+          "latency_ms": 8.973,
+          "estimated_peak_memory_range_mb": {
+            "min": 1,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 310,
+            "npu": 310
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgo4n6mx5",
+          "job_status": "Passed",
+          "latency_ms": 1.827,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 8
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 117,
+            "npu": 117
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "charsiu_encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpv9rk4j5",
+          "job_status": "Passed",
+          "latency_ms": 0.489,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 8
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 461,
+            "npu": 461
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "charsiu_decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgjw2n1x5",
+          "job_status": "Passed",
+          "latency_ms": 0.281,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 180,
+            "npu": 180
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "pipertts_de": {
+      "name": "PiperTTS-DE",
+      "status": "published",
+      "headline": "High-quality text-to-speech for German.",
+      "description": "PiperTTS is a high-quality multi-lingual text-to-speech library.",
+      "license_type": "mit",
+      "license": "https://github.com/rhasspy/piper/blob/master/LICENSE.md",
+      "source_repo": "https://github.com/rhasspy/piper",
+      "technical_details": {
+        "Model checkpoint": "rhasspy/piper-checkpoints",
+        "Max decoded sequence length": "64 tokens",
+        "Number of parameters (encoder)": "7.51M",
+        "Model size (encoder) (float)": "28.7 MB",
+        "Number of parameters (sdp)": "1.04K",
+        "Model size (sdp) (float)": "6.61 KB",
+        "Number of parameters (flow)": "7.39M",
+        "Model size (flow) (float)": "28.2 MB",
+        "Number of parameters (decoder)": "1.66M",
+        "Model size (decoder) (float)": "6.37 MB",
+        "Number of parameters (t5_encoder)": "15.1M",
+        "Model size (t5_encoder) (float)": "57.5 MB",
+        "Number of parameters (t5_decoder)": "5.72M",
+        "Model size (t5_decoder) (float)": "21.8 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "Dragonwing IQ-9075 EVK",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "SA8295P ADP"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs8450",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-qcs9075",
+        "qualcomm-sa7255p",
+        "qualcomm-sa8295p"
+      ],
+      "metrics": [
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpxdnwdlg",
+          "job_status": "Passed",
+          "latency_ms": 17.098,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 8
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 401,
+            "npu": 401
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "sdp",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "j5mdqjd95",
+          "job_status": "Passed",
+          "latency_ms": 6.603,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 621,
+            "npu": 621
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "flow",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jprn8zn75",
+          "job_status": "Passed",
+          "latency_ms": 8.91,
+          "estimated_peak_memory_range_mb": {
+            "min": 1,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 310,
+            "npu": 310
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpy7r97lp",
+          "job_status": "Passed",
+          "latency_ms": 1.822,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 117,
+            "npu": 117
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "charsiu_encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp0v3nvng",
+          "job_status": "Passed",
+          "latency_ms": 0.488,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 8
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 461,
+            "npu": 461
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "charsiu_decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp840l4o5",
+          "job_status": "Passed",
+          "latency_ms": 0.26,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 180,
+            "npu": 180
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "pipertts_it": {
+      "name": "PiperTTS-IT",
+      "status": "published",
+      "headline": "High-quality text-to-speech for Italian.",
+      "description": "PiperTTS is a high-quality multi-lingual text-to-speech library.",
+      "license_type": "mit",
+      "license": "https://github.com/rhasspy/piper/blob/master/LICENSE.md",
+      "source_repo": "https://github.com/rhasspy/piper",
+      "technical_details": {
+        "Model checkpoint": "rhasspy/piper-voices",
+        "Max decoded sequence length": "64 tokens",
+        "Number of parameters (encoder)": "7.51M",
+        "Model size (encoder) (float)": "28.7 MB",
+        "Number of parameters (sdp)": "1.04K",
+        "Model size (sdp) (float)": "6.61 KB",
+        "Number of parameters (flow)": "7.39M",
+        "Model size (flow) (float)": "28.2 MB",
+        "Number of parameters (decoder)": "1.66M",
+        "Model size (decoder) (float)": "6.37 MB",
+        "Number of parameters (t5_encoder)": "15.1M",
+        "Model size (t5_encoder) (float)": "57.5 MB",
+        "Number of parameters (t5_decoder)": "5.72M",
+        "Model size (t5_decoder) (float)": "21.8 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "Dragonwing IQ-9075 EVK",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "SA8295P ADP"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs8450",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-qcs9075",
+        "qualcomm-sa7255p",
+        "qualcomm-sa8295p"
+      ],
+      "metrics": [
+        {
+          "precision": "float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "j5770z995",
+          "job_status": "Passed",
+          "latency_ms": 17.08,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 401,
+            "npu": 401
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "sdp",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp49kq315",
+          "job_status": "Passed",
+          "latency_ms": 6.618,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 8
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 621,
+            "npu": 621
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "flow",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpxdnvxlg",
+          "job_status": "Passed",
+          "latency_ms": 8.98,
+          "estimated_peak_memory_range_mb": {
+            "min": 2,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 310,
+            "npu": 310
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "j5mdqr895",
+          "job_status": "Passed",
+          "latency_ms": 1.821,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 117,
+            "npu": 117
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "charsiu_encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgn7l2kqp",
+          "job_status": "Passed",
+          "latency_ms": 0.488,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 8
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 461,
+            "npu": 461
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "float",
+          "component": "charsiu_decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jprn8kw75",
+          "job_status": "Passed",
+          "latency_ms": 0.266,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 180,
+            "npu": 180
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "melotts_en": {
+      "name": "MeloTTS-EN",
+      "status": "published",
+      "headline": "High-quality text-to-speech for English.",
+      "description": "MeloTTS is a high-quality multi-lingual text-to-speech library for English, Chinese and Spanish language.",
+      "license_type": "mit",
+      "license": "https://github.com/myshell-ai/MeloTTS/blob/main/LICENSE",
+      "source_repo": "https://github.com/myshell-ai/MeloTTS",
+      "technical_details": {
+        "Model checkpoint": "myshell-ai/MeloTTS-English",
+        "Max decoded sequence length": "512 tokens",
+        "Number of parameters (encoder)": "8.30M",
+        "Model size (encoder) (float)": "31.8 MB",
+        "Number of parameters (flow)": "20.1M",
+        "Model size (flow) (float)": "76.9 MB",
+        "Number of parameters (decoder)": "14.5M",
+        "Model size (decoder) (float)": "55.5 MB",
+        "Number of parameters (bert_wrapper)": "94.5M",
+        "Model size (bert_wrapper) (float)": "360 MB",
+        "Number of parameters (t5_encoder)": "15.1M",
+        "Model size (t5_encoder) (float)": "57.5 MB",
+        "Number of parameters (t5_decoder)": "5.72M",
+        "Model size (t5_decoder) (float)": "21.8 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "Dragonwing IQ-9075 EVK",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-qcs9075",
+        "qualcomm-sa7255p"
+      ],
+      "metrics": [
+        {
+          "precision": "mixed_with_float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpxdnvwjg",
+          "job_status": "Passed",
+          "latency_ms": 23.871,
+          "estimated_peak_memory_range_mb": {
+            "min": 2,
+            "max": 11
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 830,
+            "npu": 830
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "flow",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "j5mdqrjy5",
+          "job_status": "Passed",
+          "latency_ms": 71.075,
+          "estimated_peak_memory_range_mb": {
+            "min": 2,
+            "max": 11
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 763,
+            "npu": 763
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jprn8kkv5",
+          "job_status": "Passed",
+          "latency_ms": 42.432,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 447,
+            "npu": 447
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "bert_wrapper",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp2v088x5",
+          "job_status": "Passed",
+          "latency_ms": 2.686,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 332,
+            "npu": 332
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "t5_encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpy7reerp",
+          "job_status": "Passed",
+          "latency_ms": 0.486,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 461,
+            "npu": 461
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "t5_decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp0v3yy2g",
+          "job_status": "Passed",
+          "latency_ms": 0.259,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 180,
+            "npu": 180
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "melotts_es": {
+      "name": "MeloTTS-ES",
+      "status": "published",
+      "headline": "High-quality text-to-speech for Spanish.",
+      "description": "MeloTTS is a high-quality multi-lingual text-to-speech library for English, Chinese and Spanish language.",
+      "license_type": "mit",
+      "license": "https://github.com/myshell-ai/MeloTTS/blob/main/LICENSE",
+      "source_repo": "https://github.com/myshell-ai/MeloTTS",
+      "technical_details": {
+        "Model checkpoint": "myshell-ai/MeloTTS-Spanish",
+        "Max decoded sequence length": "512 tokens",
+        "Number of parameters (encoder)": "8.36M",
+        "Model size (encoder) (float)": "32.0 MB",
+        "Number of parameters (flow)": "20.1M",
+        "Model size (flow) (float)": "76.9 MB",
+        "Number of parameters (decoder)": "14.5M",
+        "Model size (decoder) (float)": "55.5 MB",
+        "Number of parameters (t5_encoder)": "15.1M",
+        "Model size (t5_encoder) (float)": "57.5 MB",
+        "Number of parameters (t5_decoder)": "5.72M",
+        "Model size (t5_decoder) (float)": "21.8 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "Dragonwing IQ-9075 EVK"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-sa7255p",
+        "qualcomm-qcs9075"
+      ],
+      "metrics": [
+        {
+          "precision": "mixed_with_float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgk97md25",
+          "job_status": "Passed",
+          "latency_ms": 23.899,
+          "estimated_peak_memory_range_mb": {
+            "min": 2,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 830,
+            "npu": 830
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "flow",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgl16r785",
+          "job_status": "Passed",
+          "latency_ms": 71.126,
+          "estimated_peak_memory_range_mb": {
+            "min": 2,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 763,
+            "npu": 763
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp3wv28l5",
+          "job_status": "Passed",
+          "latency_ms": 42.433,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 447,
+            "npu": 447
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "t5_encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jpv90x4j5",
+          "job_status": "Passed",
+          "latency_ms": 0.488,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 461,
+            "npu": 461
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "t5_decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgjwz41x5",
+          "job_status": "Passed",
+          "latency_ms": 0.267,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 180,
+            "npu": 180
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    },
+    "melotts_zh": {
+      "name": "MeloTTS-ZH",
+      "status": "published",
+      "headline": "High-quality text-to-speech for Chinese.",
+      "description": "MeloTTS is a high-quality multi-lingual text-to-speech library for English, Chinese and Spanish language.",
+      "license_type": "mit",
+      "license": "https://github.com/myshell-ai/MeloTTS/blob/main/LICENSE",
+      "source_repo": "https://github.com/myshell-ai/MeloTTS",
+      "technical_details": {
+        "Model checkpoint": "myshell-ai/MeloTTS-Chinese",
+        "Max decoded sequence length": "512 tokens",
+        "Number of parameters (encoder)": "8.34M",
+        "Model size (encoder) (float)": "31.9 MB",
+        "Number of parameters (flow)": "20.1M",
+        "Model size (flow) (float)": "76.9 MB",
+        "Number of parameters (decoder)": "14.5M",
+        "Model size (decoder) (float)": "55.5 MB",
+        "Number of parameters (bert_wrapper)": "152M",
+        "Model size (bert_wrapper) (float)": "581 MB"
+      },
+      "runtime_technical_details": null,
+      "supported_devices": [
+        "Samsung Galaxy S26",
+        "Samsung Galaxy S26 Ultra",
+        "Samsung Galaxy S26+",
+        "Snapdragon 8 Elite Gen 5 QRD",
+        "Samsung Galaxy S25",
+        "Dragonwing Q-8750",
+        "Samsung Galaxy S25 Ultra",
+        "Samsung Galaxy S25+",
+        "Snapdragon 8 Elite QRD",
+        "Snapdragon X2 Elite CRD",
+        "Snapdragon X Elite CRD",
+        "Dragonwing IQ-X7181",
+        "Samsung Galaxy S24",
+        "Samsung Galaxy S24 Ultra",
+        "Samsung Galaxy S24+",
+        "Samsung Galaxy S23",
+        "Samsung Galaxy S23 Ultra",
+        "Samsung Galaxy S23+",
+        "Samsung Galaxy S22 5G",
+        "XR2 Gen 2",
+        "Samsung Galaxy S22 Ultra 5G",
+        "Samsung Galaxy S22+ 5G",
+        "Samsung Galaxy Tab S8",
+        "Xiaomi 12",
+        "Xiaomi 12 Pro",
+        "Samsung Galaxy S21",
+        "Samsung Galaxy S21 Ultra",
+        "Snapdragon X Plus 8-Core CRD",
+        "Dragonwing IQ-X5121",
+        "QCS8550 (Proxy)",
+        "SA8775P ADP",
+        "SA8255P ADP",
+        "SA8650P ADP",
+        "SA7255P ADP",
+        "Dragonwing IQ-8275 EVK",
+        "Dragonwing IQ-9075 EVK"
+      ],
+      "supported_chipsets": [
+        "qualcomm-snapdragon-8-elite-gen5",
+        "qualcomm-snapdragon-8-elite",
+        "qualcomm-snapdragon-x2-elite",
+        "qualcomm-snapdragon-x-elite",
+        "qualcomm-snapdragon-8gen3",
+        "qualcomm-snapdragon-8gen2",
+        "qualcomm-snapdragon-8gen1",
+        "qualcomm-snapdragon-888",
+        "qualcomm-snapdragon-x-plus-8-core",
+        "qualcomm-qcs8275",
+        "qualcomm-qcs8550-proxy",
+        "qualcomm-sa8775p",
+        "qualcomm-sa8650p",
+        "qualcomm-sa8255p",
+        "qualcomm-qcs7181",
+        "qualcomm-qcs8750",
+        "qualcomm-sa7255p",
+        "qualcomm-qcs9075"
+      ],
+      "metrics": [
+        {
+          "precision": "mixed_with_float",
+          "component": "encoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp1vwzelp",
+          "job_status": "Passed",
+          "latency_ms": 23.806,
+          "estimated_peak_memory_range_mb": {
+            "min": 2,
+            "max": 10
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 830,
+            "npu": 830
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "flow",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jgdzq1ol5",
+          "job_status": "Passed",
+          "latency_ms": 71.053,
+          "estimated_peak_memory_range_mb": {
+            "min": 2,
+            "max": 11
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 763,
+            "npu": 763
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "decoder",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "j577lrdr5",
+          "job_status": "Passed",
+          "latency_ms": 42.44,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 447,
+            "npu": 447
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        },
+        {
+          "precision": "mixed_with_float",
+          "component": "bert_wrapper",
+          "device": "Samsung Galaxy S26",
+          "evidence_class": "same_generation_retail_proxy",
+          "runtime": "voice_ai",
+          "kind": "component",
+          "job_id": "jp49drwl5",
+          "job_status": "Passed",
+          "latency_ms": 2.689,
+          "estimated_peak_memory_range_mb": {
+            "min": 0,
+            "max": 9
+          },
+          "primary_compute_unit": "NPU",
+          "layer_counts": {
+            "total": 332,
+            "npu": 332
+          },
+          "tool_versions": {
+            "qairt": "2.45.0.260326154327"
+          }
+        }
+      ]
+    }
+  }
+}

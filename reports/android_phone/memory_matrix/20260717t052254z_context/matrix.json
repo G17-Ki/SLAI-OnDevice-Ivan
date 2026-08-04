@@ -1,0 +1,80 @@
+{
+  "matrix": "context",
+  "rows": [
+    {
+      "name": "ctx_512",
+      "runtime_args": "-c 512",
+      "idle_rss_mib": 1646.27734375,
+      "active_peak_rss_mib": 1702.1484375,
+      "vmhwm_mib": 1700.96875,
+      "gguf_rss_mib": 697.63671875,
+      "anonymous_rss_mib": 994.1484375,
+      "first_text_ms": 271.7257090844214,
+      "first_audio_ms": null,
+      "total_ms": 482.93500021100044,
+      "exact_normalized": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "error": null
+    },
+    {
+      "name": "ctx_1024",
+      "runtime_args": "-c 1024",
+      "idle_rss_mib": 1654.3046875,
+      "active_peak_rss_mib": 1708.87890625,
+      "vmhwm_mib": 1708.13671875,
+      "gguf_rss_mib": 697.63671875,
+      "anonymous_rss_mib": 1000.953125,
+      "first_text_ms": 295.7012918777764,
+      "first_audio_ms": null,
+      "total_ms": 528.3254589885473,
+      "exact_normalized": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "error": null
+    },
+    {
+      "name": "ctx_2048",
+      "runtime_args": "-c 2048",
+      "idle_rss_mib": 1666.89453125,
+      "active_peak_rss_mib": 1723.48828125,
+      "vmhwm_mib": 1722.82421875,
+      "gguf_rss_mib": 697.63671875,
+      "anonymous_rss_mib": 1015.64453125,
+      "first_text_ms": 290.88458279147744,
+      "first_audio_ms": null,
+      "total_ms": 496.48816604167223,
+      "exact_normalized": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "error": null
+    },
+    {
+      "name": "ctx_4096",
+      "runtime_args": "-c 4096",
+      "idle_rss_mib": 1690.81640625,
+      "active_peak_rss_mib": 1745.046875,
+      "vmhwm_mib": 1744.2890625,
+      "gguf_rss_mib": 697.63671875,
+      "anonymous_rss_mib": 1037.09765625,
+      "first_text_ms": 295.4956251196563,
+      "first_audio_ms": null,
+      "total_ms": 511.28012500703335,
+      "exact_normalized": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "error": null
+    },
+    {
+      "name": "ctx_8192",
+      "runtime_args": "-c 8192",
+      "idle_rss_mib": 1739.79296875,
+      "active_peak_rss_mib": 1795.23828125,
+      "vmhwm_mib": 1794.98828125,
+      "gguf_rss_mib": 697.63671875,
+      "anonymous_rss_mib": 1087.0859375,
+      "first_text_ms": 278.0487919226289,
+      "first_audio_ms": null,
+      "total_ms": 492.54895793274045,
+      "exact_normalized": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "error": null
+    }
+  ]
+}

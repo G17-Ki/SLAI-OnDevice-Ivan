@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-22T16:05:21Z",
+  "archive": {
+    "release_tag": "asr-models-qnn-binary",
+    "asset_id": 326303090,
+    "name": "sherpa-onnx-qnn-SM8850-binary-10-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8.tar.bz2",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn-binary/sherpa-onnx-qnn-SM8850-binary-10-seconds-sense-voice-zh-en-ja-ko-yue-2024-07-17-int8.tar.bz2",
+    "bytes": 162023574,
+    "sha256": "ecbc1ffba39f8e23582b79a199d12e8455425a22ef7b6b18c535ce25fcff2d64"
+  },
+  "target": {
+    "soc": "Qualcomm SM8850",
+    "htp_arch": "v81",
+    "provider": "QNN HTP",
+    "context_format": "pre-generated QNN context binary (model.bin)",
+    "fixed_audio_limit_s": 10,
+    "input_policy": "shorter audio is padded to 10 seconds; longer audio is truncated",
+    "num_frames_from_info_txt": 167
+  },
+  "runtime": {
+    "context_generated_with": "QNN SDK 2.40.0.251030",
+    "required_application_libraries": [
+      "libonnxruntime.so",
+      "libQnnHtp.so",
+      "libQnnHtpPrepare.so",
+      "libQnnSystem.so",
+      "libQnnHtpV81Stub.so"
+    ],
+    "required_dsp_library": "libQnnHtpV81Skel.so",
+    "sdk_paths": {
+      "android": "$QNN_SDK_ROOT/lib/aarch64-android",
+      "dsp": "$QNN_SDK_ROOT/lib/hexagon-v81/unsigned"
+    },
+    "adsp_library_path_separator": ";"
+  },
+  "official_reference": {
+    "device": "Xiaomi 17 Pro, SM8850",
+    "ten_second_context": {
+      "recognizer_init_s": 1.214,
+      "decode_s": 0.29,
+      "source_audio_s": 5.592,
+      "effective_padded_context_s": 10
+    },
+    "five_second_context": {
+      "decode_s": 0.052,
+      "source_audio_s": 5.592,
+      "effective_truncated_context_s": 5
+    },
+    "notes": "Published Sherpa-ONNX log; not measured on the project's Nubia. The 10-second context is the recommended first package here because the diagnostic fixture contains clips slightly longer than 8 seconds."
+  },
+  "license": {
+    "model_weights": "FunASR Model Open Source License Agreement v1.1 (custom)",
+    "archive_license_file_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "runtime": "Sherpa-ONNX Apache-2.0; Qualcomm SDK has its own terms"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 71,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 104,
+      "sha256": "e131e4884e087984d62d90287b95714904385d9f0093a08497b17d7e19243f79"
+    },
+    {
+      "path": "info.txt",
+      "bytes": 23,
+      "sha256": "13666234dec6a5e0446da01ec79995d46c7889f755712ac4ef6e064017176fd5"
+    },
+    {
+      "path": "model.bin",
+      "bytes": 254193664,
+      "sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30"
+    },
+    {
+      "path": "test_wavs/en.wav",
+      "bytes": 228908,
+      "sha256": "eb1eb008904465b74c304aad8342e8c7d3c6e61ffe9f66adcaca9cf0f76a93f4"
+    },
+    {
+      "path": "test_wavs/ja.wav",
+      "bytes": 230444,
+      "sha256": "460bd8dccb0d2a5f4e29c628f837be4082d13defc64c3fc21dd1b6bb0e119095"
+    },
+    {
+      "path": "test_wavs/ko.wav",
+      "bytes": 147500,
+      "sha256": "0dc797a5c81ed30fc339d91f3da718ab02854e17ffa37cb93c4c039ac5c6bb9c"
+    },
+    {
+      "path": "test_wavs/yue.wav",
+      "bytes": 164780,
+      "sha256": "0960b2db54ae202071d250e6462fbf74a3c863f0e3e7f01273e4939c996875a0"
+    },
+    {
+      "path": "test_wavs/zh.wav",
+      "bytes": 178988,
+      "sha256": "b77f1794fe374a0ba1ee1dc458bfaf9349496cbbfc32780c50ba3c5a7ad8e373"
+    },
+    {
+      "path": "tokens.txt",
+      "bytes": 315894,
+      "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc"
+    }
+  ],
+  "total_file_bytes": 255460376,
+  "references": {
+    "model_docs": "https://k2-fsa.github.io/sherpa/onnx/qnn/models.html",
+    "phone_binary_guide": "https://k2-fsa.github.io/sherpa/onnx/qnn/run-executables-on-your-phone-binary.html"
+  }
+}

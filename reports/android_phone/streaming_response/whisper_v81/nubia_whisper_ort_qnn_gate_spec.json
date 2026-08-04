@@ -1,0 +1,563 @@
+{
+  "app_uid": {
+    "required_checks": {
+      "assets_loaded_from_app_private": true,
+      "decoder_execute_passed": true,
+      "decoder_session_created": true,
+      "encoder_execute_passed": true,
+      "encoder_session_created": true,
+      "feature_extractor_golden_passed": true,
+      "host_transport_required": false,
+      "htp_v81_loaded": true,
+      "native_multilingual_prompt_passed": true,
+      "offline_after_reboot": true,
+      "qnn_backend_loaded": true,
+      "run_as_package_uid": true,
+      "vocab_decode_passed": true
+    },
+    "target": {
+      "abi": "arm64-v8a",
+      "device_serial": "<redacted-adb-serial>",
+      "htp_arch": "v81",
+      "package": "ai.liquid.lfmdemo.runtime",
+      "soc": "SM8850"
+    }
+  },
+  "ep_context": {
+    "wrappers": [
+      {
+        "context_filename": "encoder_qairt_context.bin",
+        "context_sha256": "72b46ef12f7e33a2b1f4afc8712b5f85375a7cb52b8d8119095402825d5d62b7",
+        "external_reference": "./encoder_qairt_context.bin",
+        "onnx_filename": "encoder.onnx",
+        "onnx_sha256": "ef98bc252765daf43ce30bfc411799a7eca694b5d7afd41cc3aca04fd0ebc117"
+      },
+      {
+        "context_filename": "decoder_qairt_context.bin",
+        "context_sha256": "0eafa59c9f921cf195a344d5004cf596f36f59cef96fe42b8b0b01827fd0716a",
+        "external_reference": "./decoder_qairt_context.bin",
+        "onnx_filename": "decoder.onnx",
+        "onnx_sha256": "68d2df9598ef91ca259e4fd492371f128011df805bc837143e413a831bb7944b"
+      }
+    ]
+  },
+  "gate_id": "nubia_whisper_small_ort_qnn_epcontext_sm8850_v1",
+  "metadata": {
+    "layer_count": 12,
+    "required_values": [
+      {
+        "equals": "whisper_small_quantized",
+        "path": "model_id"
+      },
+      {
+        "equals": "Whisper-Small-Quantized",
+        "path": "model_name"
+      },
+      {
+        "equals": "precompiled_qnn_onnx",
+        "path": "runtime"
+      },
+      {
+        "equals": "w8a16",
+        "path": "precision"
+      },
+      {
+        "equals": "2.42.0.251225135753_193295",
+        "path": "tool_versions.qairt"
+      },
+      {
+        "equals": "1.25.0",
+        "path": "tool_versions.onnx_runtime"
+      },
+      {
+        "equals": 81,
+        "path": "chipset_attributes.htp_version"
+      },
+      {
+        "equals": 87,
+        "path": "chipset_attributes.soc_model"
+      },
+      {
+        "equals": "qualcomm-snapdragon-8-elite-gen5",
+        "path": "chipset_attributes.name"
+      },
+      {
+        "equals": [
+          "qualcomm-snapdragon-8-elite-gen5",
+          "sm8850"
+        ],
+        "path": "chipset_attributes.aliases"
+      }
+    ],
+    "sha256": "451c583967ff6262c4afeee71ec32add18c54c49cefa5a4fc464b4388b31a9c0",
+    "tensor_contract_sha256": "b2ecfbc6d7ffabfb933a32f04a4b20f03ee7d15a40001f631372f72220f1b2a3",
+    "tensor_names": {
+      "decoder": {
+        "inputs": [
+          "attention_mask",
+          "input_ids",
+          "position_ids",
+          "k_cache_cross_{layer}",
+          "v_cache_cross_{layer}",
+          "k_cache_self_{layer}_in",
+          "v_cache_self_{layer}_in"
+        ],
+        "outputs": [
+          "logits",
+          "k_cache_self_{layer}_out",
+          "v_cache_self_{layer}_out"
+        ]
+      },
+      "encoder": {
+        "inputs": [
+          "input_features"
+        ],
+        "outputs": [
+          "k_cache_cross_{layer}",
+          "v_cache_cross_{layer}"
+        ]
+      }
+    }
+  },
+  "model_release": {
+    "archive_bytes": 294053273,
+    "archive_filename": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5-v0.55.0.zip",
+    "archive_root": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5",
+    "archive_sha256": "3cc2d238a167b7fc9094ae02a08d5cfdab0238fd8211ccde97bb7ff2897dd1be",
+    "members": [
+      {
+        "bytes": 0,
+        "name": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5/",
+        "type": "directory"
+      },
+      {
+        "bytes": 12690,
+        "name": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5/encoder.onnx",
+        "sha256": "ef98bc252765daf43ce30bfc411799a7eca694b5d7afd41cc3aca04fd0ebc117",
+        "type": "file"
+      },
+      {
+        "bytes": 133652480,
+        "name": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5/encoder_qairt_context.bin",
+        "sha256": "72b46ef12f7e33a2b1f4afc8712b5f85375a7cb52b8d8119095402825d5d62b7",
+        "type": "file"
+      },
+      {
+        "bytes": 43677,
+        "name": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5/metadata.json",
+        "sha256": "451c583967ff6262c4afeee71ec32add18c54c49cefa5a4fc464b4388b31a9c0",
+        "type": "file"
+      },
+      {
+        "bytes": 39448,
+        "name": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5/decoder.onnx",
+        "sha256": "68d2df9598ef91ca259e4fd492371f128011df805bc837143e413a831bb7944b",
+        "type": "file"
+      },
+      {
+        "bytes": 225492992,
+        "name": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5/decoder_qairt_context.bin",
+        "sha256": "0eafa59c9f921cf195a344d5004cf596f36f59cef96fe42b8b0b01827fd0716a",
+        "type": "file"
+      }
+    ],
+    "source": {
+      "ai_hub_models_version": "0.55.0",
+      "target": "qualcomm-snapdragon-8-elite-gen5",
+      "variant": "precompiled_qnn_onnx-w8a16"
+    }
+  },
+  "ort": {
+    "native_library_sha256": "491f2fa4260cf8d379d0720795e211325b294db830ce7db2055bce9733c849a2",
+    "release": {
+      "archive_bytes": 7720525,
+      "archive_filename": "onnxruntime-android-qnn-1.25.0.aar",
+      "archive_sha256": "397277c3e50326f5972409ca42ab5b4e69172b218557923630d68e55b11d6198",
+      "members": [
+        {
+          "bytes": 0,
+          "name": "META-INF/",
+          "type": "directory"
+        },
+        {
+          "bytes": 0,
+          "name": "META-INF/com/",
+          "type": "directory"
+        },
+        {
+          "bytes": 0,
+          "name": "META-INF/com/android/",
+          "type": "directory"
+        },
+        {
+          "bytes": 0,
+          "name": "META-INF/com/android/build/",
+          "type": "directory"
+        },
+        {
+          "bytes": 0,
+          "name": "META-INF/com/android/build/gradle/",
+          "type": "directory"
+        },
+        {
+          "bytes": 0,
+          "name": "headers/",
+          "type": "directory"
+        },
+        {
+          "bytes": 0,
+          "name": "jni/",
+          "type": "directory"
+        },
+        {
+          "bytes": 0,
+          "name": "jni/arm64-v8a/",
+          "type": "directory"
+        },
+        {
+          "bytes": 196,
+          "name": "AndroidManifest.xml",
+          "sha256": "2dfe40ce07fea84e4f3f79b70467cb53f4146951dde91a11c104a13aa8fb9574",
+          "type": "file"
+        },
+        {
+          "bytes": 121,
+          "name": "META-INF/com/android/build/gradle/aar-metadata.properties",
+          "sha256": "1a8a8d22989d9e2cc01fc939068f7f96dad91b3d2630715d070cefc57be53809",
+          "type": "file"
+        },
+        {
+          "bytes": 0,
+          "name": "R.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "type": "file"
+        },
+        {
+          "bytes": 121358,
+          "name": "classes.jar",
+          "sha256": "3755d307aaa566daa1ebd4e9e792303fac78ea8517f29bfa49da5eb9a7a6051b",
+          "type": "file"
+        },
+        {
+          "bytes": 397,
+          "name": "headers/cpu_provider_factory.h",
+          "sha256": "0de52d129c718c07ee71a16b4953d8d483df019746a11caad77a0650a2f4ed47",
+          "type": "file"
+        },
+        {
+          "bytes": 387086,
+          "name": "headers/onnxruntime_c_api.h",
+          "sha256": "4763b298a1ab8b5df88c3949b560c1e00a3605e61995d2d3243fd8007679d585",
+          "type": "file"
+        },
+        {
+          "bytes": 164641,
+          "name": "headers/onnxruntime_cxx_api.h",
+          "sha256": "e713be1d2b5a11a0750e6a581c11c1d0d589324084fe7bf8b09064eba3835b9d",
+          "type": "file"
+        },
+        {
+          "bytes": 154541,
+          "name": "headers/onnxruntime_cxx_inline.h",
+          "sha256": "9e6acacecdaa153b3e0fd1676e9cf0c01e974fb24e309381a91de9161039ff03",
+          "type": "file"
+        },
+        {
+          "bytes": 1315,
+          "name": "headers/onnxruntime_env_config_keys.h",
+          "sha256": "2d531fef7dd4ffd22f35d219e1a795dbaa1c94a4a7fd29397c0982232e4ca332",
+          "type": "file"
+        },
+        {
+          "bytes": 135383,
+          "name": "headers/onnxruntime_ep_c_api.h",
+          "sha256": "cf9d5508894b09cb0b0f84405de873a0ba78a35c01ffc28b14096c65fe7abbff",
+          "type": "file"
+        },
+        {
+          "bytes": 1460,
+          "name": "headers/onnxruntime_ep_device_ep_metadata_keys.h",
+          "sha256": "825b5e3010771fccdf9f6297530a1b1697f3da6837ee47872c82b9c644468c22",
+          "type": "file"
+        },
+        {
+          "bytes": 17991,
+          "name": "headers/onnxruntime_float16.h",
+          "sha256": "88b242845d25981633a0bbd1c148e273cf8bfb016ea3f57c4af41a06530f72b0",
+          "type": "file"
+        },
+        {
+          "bytes": 61254,
+          "name": "headers/onnxruntime_lite_custom_op.h",
+          "sha256": "f8c42f24286a94c003fdc76563f9e692f39d560c138bdf23063b1482a201d613",
+          "type": "file"
+        },
+        {
+          "bytes": 2952,
+          "name": "headers/onnxruntime_run_options_config_keys.h",
+          "sha256": "973037c14b0f1af0854ae25cd676776f79dbcfd2a6791f6ee17a5374c2a62550",
+          "type": "file"
+        },
+        {
+          "bytes": 30682,
+          "name": "headers/onnxruntime_session_options_config_keys.h",
+          "sha256": "d7eb2353dc9f4280e57a05626cb4cbe8df299441e1e9fde446c3b6f7ea6a77b1",
+          "type": "file"
+        },
+        {
+          "bytes": 20352056,
+          "name": "jni/arm64-v8a/libonnxruntime.so",
+          "sha256": "491f2fa4260cf8d379d0720795e211325b294db830ce7db2055bce9733c849a2",
+          "type": "file"
+        },
+        {
+          "bytes": 111488,
+          "name": "jni/arm64-v8a/libonnxruntime4j_jni.so",
+          "sha256": "72496f82823056fd3d2195e668a7afbb7771892419befa36c5e6d1c9bd6d204c",
+          "type": "file"
+        }
+      ],
+      "source": {
+        "artifact": "onnxruntime-android-qnn",
+        "group": "com.microsoft.onnxruntime",
+        "repository": "Maven Central",
+        "version": "1.25.0"
+      }
+    },
+    "required_java_classes": [
+      "ai/onnxruntime/OrtEnvironment.class",
+      "ai/onnxruntime/OnnxTensor.class",
+      "ai/onnxruntime/OrtSession$SessionOptions.class"
+    ],
+    "required_java_markers": [
+      "addQnn",
+      "addConfigEntry"
+    ],
+    "required_native_markers": [
+      "QNNExecutionProvider",
+      "libQnnHtp.so",
+      "1.25.0"
+    ],
+    "version": "1.25.0"
+  },
+  "runner": {
+    "decode_loop": {
+      "attention_mask_filled_uint16": 65535,
+      "attention_mask_unfilled_real": -100,
+      "attention_mask_unfilled_uint16": 0,
+      "eos_token_id": 50257,
+      "initial_self_kv": "release_quantized_zero_point",
+      "input_ids_dtype": "int32",
+      "kv_update": "reuse_full_release_output_buffers",
+      "logits_argmax_dtype": "uint16",
+      "max_decode_tokens": 200,
+      "native_language_mode": true,
+      "position_ids_dtype": "int32",
+      "task": "transcribe",
+      "token_selection": "argmax"
+    },
+    "deployment": {
+      "model_storage": "app_private",
+      "requires_host_transport": false,
+      "runtime_storage": "app_private"
+    },
+    "frontend": {
+      "audio_samples": 480000,
+      "drop_last_stft_frame": true,
+      "feature_frames": 3000,
+      "feature_quantization": "release_metadata",
+      "hann_window_periodic": true,
+      "hop_length": 160,
+      "log_dynamic_range": 8.0,
+      "log_floor": 1e-10,
+      "mel_filterbank": "openai_whisper_80_mel",
+      "n_fft": 400,
+      "n_mels": 80,
+      "normalize_add": 4.0,
+      "normalize_divide": 4.0,
+      "output_dtype": "uint16",
+      "power": 2.0,
+      "sample_rate_hz": 16000
+    },
+    "provider": {
+      "backend": "libQnnHtp.so",
+      "backend_storage": "app_private",
+      "context_mode": "external",
+      "name": "QNNExecutionProvider"
+    },
+    "required_artifact_roles": [
+      "android_runner",
+      "feature_extractor",
+      "vocab_decoder"
+    ],
+    "target": {
+      "abi": "arm64-v8a",
+      "htp_arch": "v81",
+      "package": "ai.liquid.lfmdemo.runtime",
+      "platform": "android"
+    }
+  },
+  "runtime": {
+    "exact_qairt_build": "2.42.0.251225135753_193295",
+    "qairt_version": "2.42.0.251225",
+    "required_libraries": [
+      {
+        "bytes": 2689096,
+        "elf_machine": "aarch64",
+        "name": "libQnnSystem.so",
+        "required_ascii_markers": [
+          "251225135753_193295"
+        ],
+        "sha256": "a69cfc4350c16b226bcaa19c657234820bb93e3ff6116cf3845ae77557f1f7c3"
+      },
+      {
+        "bytes": 2641976,
+        "elf_machine": "aarch64",
+        "name": "libQnnHtp.so",
+        "required_ascii_markers": [
+          "AISW_VERSION: 2.42.0",
+          "v2.42.0.251225135753_193295"
+        ],
+        "sha256": "10eb1923b34ac9a726e4a446b395d5eee2ea5388487917778aaf954e8bfb2d92"
+      },
+      {
+        "bytes": 83685856,
+        "elf_machine": "aarch64",
+        "name": "libQnnHtpPrepare.so",
+        "required_ascii_markers": [
+          "AISW_VERSION: 2.42.0",
+          "v2.42.0.251225135753_193295"
+        ],
+        "sha256": "2daafb376fe6904aa325e29810480e3d76dc392991d1367ae6ea3508db2b60ac"
+      },
+      {
+        "bytes": 714000,
+        "elf_machine": "aarch64",
+        "name": "libQnnHtpV81Stub.so",
+        "required_ascii_markers": [
+          "AISW_VERSION: 2.42.0",
+          "v2.42.0.251225135753_193295"
+        ],
+        "sha256": "6e9e480223b248e70c43954e89dfbd9962600b59bdc9f3069bf4780fdcf98bba"
+      },
+      {
+        "bytes": 11271968,
+        "elf_machine": "hexagon",
+        "name": "libQnnHtpV81Skel.so",
+        "required_ascii_markers": [
+          "AISW_VERSION: 2.42.0",
+          "v2.42.0.251225135753_193295"
+        ],
+        "sha256": "a3e62af7044227804bc229437107cb54425e05f43d57cc26a876dd94d54a0cfc"
+      }
+    ],
+    "required_supporting_files": [
+      {
+        "bytes": 147577,
+        "path": "LICENSE.pdf",
+        "sha256": "ec1dccfdcba5c6e64126e84199b8362bf4999107bfa567ebe831dbb4c461692b"
+      },
+      {
+        "bytes": 129238,
+        "path": "NOTICE.txt",
+        "sha256": "c8a22fa8b9ed3e9266c4a3366965474cef5cb147ee2a1f33e488bbb24a071c09"
+      }
+    ],
+    "source_archive": {
+      "bytes": 1543955191,
+      "filename": "qairt-v2.42.0.251225.zip",
+      "sha256": "1a744ed72a813fc9dd4a29e31b1685f784786102fd45414d74915bb3351ae321",
+      "url": "https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.42.0.251225/v2.42.0.251225.zip"
+    },
+    "target": {
+      "host_abi": "arm64-v8a",
+      "htp_arch": "v81",
+      "platform": "android",
+      "soc": "SM8850"
+    }
+  },
+  "schema_version": 1,
+  "voice_assets": {
+    "config_required_values": [
+      {
+        "equals": "whisper-small-quantized",
+        "path": "name"
+      },
+      {
+        "equals": "1.0.0",
+        "path": "version"
+      },
+      {
+        "equals": "whisper",
+        "path": "model_type"
+      },
+      {
+        "equals": true,
+        "path": "capabilities.language_detection"
+      },
+      {
+        "equals": [
+          16000
+        ],
+        "path": "parameters.sample_rates"
+      },
+      {
+        "equals": "vocab.bin",
+        "path": "assets.vocab_path"
+      },
+      {
+        "equals": 64,
+        "path": "runtime.arch"
+      }
+    ],
+    "config_sha256": "b55a56acd03d62469e00566b9f48230485b4bd6919e85134f662a4a20f48f281",
+    "release": {
+      "archive_bytes": 294167485,
+      "archive_filename": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip",
+      "archive_root": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy",
+      "archive_sha256": "7472bd2bdc06d71dd95039ff2202e8bd8bf8e89dcd1a8cef02c8724dd91af69c",
+      "members": [
+        {
+          "bytes": 0,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/",
+          "type": "directory"
+        },
+        {
+          "bytes": 874,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/config.json",
+          "sha256": "b55a56acd03d62469e00566b9f48230485b4bd6919e85134f662a4a20f48f281",
+          "type": "file"
+        },
+        {
+          "bytes": 43878,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/metadata.json",
+          "sha256": "87ee76d7204ef9f454d7e108d6f74a5d1d10042aec013073e68b56c73f16f113",
+          "type": "file"
+        },
+        {
+          "bytes": 225411072,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/decoder.bin",
+          "sha256": "41e048ff84c10205082c264e8ca6894c9bcfaf54e7eef19316ec35567b693388",
+          "type": "file"
+        },
+        {
+          "bytes": 133701632,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/encoder.bin",
+          "sha256": "af6e8d5514306c4e7fe54dc709880a9c1743b094257b15694e45bc688753a5a9",
+          "type": "file"
+        },
+        {
+          "bytes": 357313,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/vocab.bin",
+          "sha256": "0ba87984671b92e03b56b84ce9b217020663f6a269b5a9800901391430b79c4b",
+          "type": "file"
+        }
+      ],
+      "source": {
+        "asset_scope": "config_and_vocabulary_only",
+        "variant": "voice_ai-w8a16"
+      }
+    },
+    "vocab_sha256": "0ba87984671b92e03b56b84ce9b217020663f6a269b5a9800901391430b79c4b"
+  }
+}

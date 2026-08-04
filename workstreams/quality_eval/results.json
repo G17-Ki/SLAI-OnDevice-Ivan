@@ -1,0 +1,1473 @@
+{
+  "status": "passed",
+  "scope": "Local audit of existing pinned artifacts; no cloud submission.",
+  "sources": {
+    "fastconformer_outputs": "<workspace>/work/lfm-feasibility/aihub/fastconformer-first-pass-20260715t091744z/fastconformer/outputs-strict-npu.npz",
+    "component_results": "<workspace>/outputs/lfm-feasibility/reports/aihub_component_results.json",
+    "colab_summary": "<workspace>/outputs/lfm-feasibility/reports/colab_bf16/summary.json",
+    "colab_tokens": "<workspace>/outputs/lfm-feasibility/reports/colab_bf16/golden_tokens.npz"
+  },
+  "fastconformer_features": {
+    "shape": [
+      1,
+      10,
+      2048
+    ],
+    "global": {
+      "cosine_similarity": 0.9984244737705225,
+      "max_abs_error": 0.08194214105606079,
+      "mean_abs_error": 0.010690846511429996,
+      "rmse": 0.01423535713027598,
+      "golden_rms": 0.2040649069927146,
+      "normalized_rmse": 0.06975896708582138,
+      "sign_agreement_rate": 0.98447265625
+    },
+    "per_frame": {
+      "count": 10,
+      "cosine_mean": 0.9986001234152762,
+      "cosine_min": 0.9978589620395353,
+      "cosine_p05": 0.998006381807737,
+      "relative_l2_mean": 0.06413647803255433,
+      "relative_l2_max": 0.08262631730605985
+    },
+    "temporal_identity": {
+      "nearest_golden_frame_accuracy": 1.0,
+      "nearest_golden_frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "matching_frame_similarity_min": 0.997858962039533,
+      "matching_vs_best_wrong_margin_min": 0.10322039441655506
+    },
+    "pairwise_geometry": {
+      "cosine_matrix_correlation": 0.9997883448070458,
+      "mean_abs_error": 0.006154644972081132,
+      "max_abs_error": 0.02205513975483328
+    }
+  },
+  "full_bf16_asr": {
+    "reference_source": "<workspace>/work/vendor/liquid-audio/README.md",
+    "reference_text": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.",
+    "decoded_text_raw": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.<|im_end|>",
+    "decoded_control_suffix_present": true,
+    "reference_word_count": 43,
+    "hypothesis_word_count": 43,
+    "word_edits": 0,
+    "wer": 0.0,
+    "character_edits": 0,
+    "cer": 0.0,
+    "normalized_exact_match": true
+  },
+  "depth_decoder_tokens": {
+    "component": "depth-decoder",
+    "runtime": "strict-npu",
+    "exact_token_match": true,
+    "comparison": "exact",
+    "target_note": "Runs use AI Hub QCS8550 (Proxy), Android 12, Hexagon v73. Placement is transfer evidence; latency and memory are not AR1 measurements."
+  },
+  "full_bf16_token_archive": {
+    "asr_text_tokens": {
+      "shape": [
+        58
+      ],
+      "dtype": "int64",
+      "min": 7,
+      "max": 46243
+    },
+    "turn1_text_tokens": {
+      "shape": [
+        41
+      ],
+      "dtype": "int64",
+      "min": 130,
+      "max": 42036
+    },
+    "turn1_audio_tokens": {
+      "shape": [
+        8,
+        149
+      ],
+      "dtype": "int64",
+      "min": 3,
+      "max": 2048
+    },
+    "turn1_modality": {
+      "shape": [
+        190
+      ],
+      "dtype": "int8",
+      "min": 1,
+      "max": 3
+    },
+    "turn2_text_tokens": {
+      "shape": [
+        38
+      ],
+      "dtype": "int64",
+      "min": 130,
+      "max": 23897
+    },
+    "turn2_audio_tokens": {
+      "shape": [
+        8,
+        113
+      ],
+      "dtype": "int64",
+      "min": 1,
+      "max": 2048
+    },
+    "turn2_modality": {
+      "shape": [
+        151
+      ],
+      "dtype": "int8",
+      "min": 1,
+      "max": 3
+    }
+  },
+  "generated_audio_integrity": {
+    "turn1": {
+      "path": "<workspace>/outputs/lfm-feasibility/reports/colab_bf16/interleaved_turn1.wav",
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "samples": 284160,
+      "duration_seconds": 11.84,
+      "finite": true,
+      "rms": 0.03488480227974874,
+      "peak_abs": 0.350128173828125,
+      "dc_offset": -6.379565677127323e-05,
+      "crest_factor": 10.036696525334207,
+      "hard_clip_rate": 0.0,
+      "near_silence_20ms_frame_rate": 0.005067567567567568,
+      "zero_crossing_rate": 0.08198930880246623,
+      "summary_duration_seconds": 11.84,
+      "duration_matches_summary": true,
+      "decoded_text": "Sure! How about something like \"Crafting Your Dream Home,\" \"Handcrafted Woodworking, Perfectly Made,\" or \"Your Home, Handcrafted by Our Woodworkers.\"",
+      "text_character_count": 149,
+      "text_characters_per_audio_second": 12.58445945945946
+    },
+    "turn2": {
+      "path": "<workspace>/outputs/lfm-feasibility/reports/colab_bf16/interleaved_turn2.wav",
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "samples": 215040,
+      "duration_seconds": 8.96,
+      "finite": true,
+      "rms": 0.04521864175227858,
+      "peak_abs": 0.335174560546875,
+      "dc_offset": -0.00011572667530604772,
+      "crest_factor": 7.412309338769236,
+      "hard_clip_rate": 0.0,
+      "near_silence_20ms_frame_rate": 0.0,
+      "zero_crossing_rate": 0.12639102674398597,
+      "summary_duration_seconds": 8.96,
+      "duration_matches_summary": true,
+      "decoded_text": "How about \u201cElegant, Comfortable Chairs, Handcrafted by Our Woodworkers\u201d or \u201cTimeless Seats, Handcrafted Woodworkers\u201d?",
+      "text_character_count": 117,
+      "text_characters_per_audio_second": 13.058035714285714
+    },
+    "turn2_followup_adherence": {
+      "followup_text": "My business specializes in chairs. Can you give me something related to that?",
+      "requested_domain_keywords": [
+        "chairs"
+      ],
+      "matched_domain_keywords": [
+        "chairs"
+      ],
+      "all_requested_domain_keywords_present": true,
+      "note": "Deterministic keyword check only; this is not a semantic or perceptual judge score."
+    }
+  },
+  "detokenizer_waveform_fidelity": {
+    "t4": {
+      "remote_outputs": "work/lfm-feasibility/aihub/int64-corrections-20260715t104753z/detokenizer-t4/outputs-strict-npu.npz",
+      "waveform_shape": [
+        1,
+        7680
+      ],
+      "waveform_seconds": 0.32,
+      "waveform": {
+        "cosine_similarity": 0.07374912689873629,
+        "rmse": 0.1393472914010095,
+        "golden_rms": 0.12460112501884474,
+        "normalized_rmse": 1.1183469762406602,
+        "si_sdr_db": -22.6211768775265,
+        "actual_peak_abs": 0.5510318279266357,
+        "golden_peak_abs": 0.8357918858528137
+      },
+      "wrapped_phase_mean_abs_radians": 1.4947980642318726,
+      "wrapped_phase_p95_abs_radians": 2.975292682647705,
+      "complex_spectrogram_normalized_rmse": 1.219816754072359
+    },
+    "t8": {
+      "remote_outputs": "work/lfm-feasibility/aihub/detok-t8-correction-20260715t110231z/detokenizer-t8/outputs-strict-npu.npz",
+      "waveform_shape": [
+        1,
+        15360
+      ],
+      "waveform_seconds": 0.64,
+      "waveform": {
+        "cosine_similarity": 0.03682099890082876,
+        "rmse": 0.14021192126784757,
+        "golden_rms": 0.12387626303116135,
+        "normalized_rmse": 1.131870770371697,
+        "si_sdr_db": -28.672196579003554,
+        "actual_peak_abs": 0.3653550446033478,
+        "golden_peak_abs": 0.7894880175590515
+      },
+      "wrapped_phase_mean_abs_radians": 1.539303183555603,
+      "wrapped_phase_p95_abs_radians": 2.980039358139038,
+      "complex_spectrogram_normalized_rmse": 1.1836397008190171
+    }
+  },
+  "fastconformer_downstream_backbone": {
+    "method": "Frozen pinned LFM backbone; local and AI Hub FastConformer embeddings replace the same ten audio-input positions. At every subsequent step both branches receive the golden branch's token, preventing autoregressive divergence from contaminating later comparisons.",
+    "prompt": {
+      "prefix": "<|startoftext|><|im_start|>user\\n",
+      "audio_embedding_positions": 10,
+      "suffix": "<|im_end|>\\n<|im_start|>assistant\\n",
+      "note": "The captured 80-mel-frame probe is a truncated question.wav segment, not the full utterance."
+    },
+    "model": {
+      "id": "LiquidAI/LFM2.5-Audio-1.5B",
+      "revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+      "backbone_dtype": "torch.bfloat16",
+      "device": "cpu",
+      "load_seconds": 0.2427230840548873,
+      "inference_seconds": 104.1527481249068
+    },
+    "summary": {
+      "steps_compared": 17,
+      "argmax_agreement_count": 16,
+      "argmax_agreement_rate": 0.9411764705882353,
+      "first_argmax_divergence_step": 1,
+      "golden_choice_remote_top5_rate": 1.0,
+      "mean_remote_rank_of_golden_choice": 1.0588235294117647,
+      "mean_total_variation": 0.00777482910798961,
+      "max_total_variation": 0.02502959594130516,
+      "mean_jensen_shannon_nats": 0.00012137947155978131,
+      "mean_logit_cosine_similarity": 0.9999067362617043,
+      "minimum_logit_cosine_similarity": 0.9991543292999268,
+      "golden_teacher_forced_text": "It seems like your message was cut off. How can I assist you today?<|im_end|>",
+      "remote_argmax_text_under_golden_context": "It looks like your message was cut off. How can I assist you today?<|im_end|>"
+    },
+    "steps": [
+      {
+        "step": 0,
+        "golden_argmax_id": 2299,
+        "golden_argmax_text": "It",
+        "remote_argmax_id": 2299,
+        "remote_argmax_text": "It",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.14447550475597382,
+        "remote_probability_of_golden_argmax": 0.15911203622817993,
+        "golden_top1_probability_margin": 0.025092944502830505,
+        "hidden_cosine_similarity": 0.9996124505996704,
+        "logit_cosine_similarity": 0.9991543292999268,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 2299,
+            "text": "It",
+            "probability": 0.14447550475597382
+          },
+          {
+            "id": 16809,
+            "text": "Please",
+            "probability": 0.11938256025314331
+          },
+          {
+            "id": 550,
+            "text": "I",
+            "probability": 0.10612071305513382
+          },
+          {
+            "id": 2682,
+            "text": "Al",
+            "probability": 0.1027747318148613
+          },
+          {
+            "id": 52699,
+            "text": "Okay",
+            "probability": 0.09731592237949371
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 2299,
+            "text": "It",
+            "probability": 0.15911203622817993
+          },
+          {
+            "id": 16809,
+            "text": "Please",
+            "probability": 0.11101900786161423
+          },
+          {
+            "id": 2682,
+            "text": "Al",
+            "probability": 0.10738679766654968
+          },
+          {
+            "id": 550,
+            "text": "I",
+            "probability": 0.10583571344614029
+          },
+          {
+            "id": 52699,
+            "text": "Okay",
+            "probability": 0.09849443286657333
+          }
+        ],
+        "total_variation": 0.02502959594130516,
+        "jensen_shannon_nats": 0.0004688978660851717
+      },
+      {
+        "step": 1,
+        "golden_argmax_id": 6418,
+        "golden_argmax_text": " seems",
+        "remote_argmax_id": 9258,
+        "remote_argmax_text": " looks",
+        "argmax_equal": false,
+        "remote_rank_of_golden_argmax": 2,
+        "golden_argmax_probability": 0.4771413505077362,
+        "remote_probability_of_golden_argmax": 0.46241748332977295,
+        "golden_top1_probability_margin": 0.004652231931686401,
+        "hidden_cosine_similarity": 0.9997102618217468,
+        "logit_cosine_similarity": 0.9999257922172546,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 6418,
+            "text": " seems",
+            "probability": 0.4771413505077362
+          },
+          {
+            "id": 9258,
+            "text": " looks",
+            "probability": 0.4724891185760498
+          },
+          {
+            "id": 11139,
+            "text": " sounds",
+            "probability": 0.013198400847613811
+          },
+          {
+            "id": 1090,
+            "text": "'s",
+            "probability": 0.013120491988956928
+          },
+          {
+            "id": 953,
+            "text": " was",
+            "probability": 0.01038057915866375
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 9258,
+            "text": " looks",
+            "probability": 0.4861109256744385
+          },
+          {
+            "id": 6418,
+            "text": " seems",
+            "probability": 0.46241748332977295
+          },
+          {
+            "id": 1090,
+            "text": "'s",
+            "probability": 0.01396997831761837
+          },
+          {
+            "id": 11139,
+            "text": " sounds",
+            "probability": 0.01362210139632225
+          },
+          {
+            "id": 953,
+            "text": " was",
+            "probability": 0.010306230746209621
+          }
+        ],
+        "total_variation": 0.01503912266343832,
+        "jensen_shannon_nats": 0.00011616582924034446
+      },
+      {
+        "step": 2,
+        "golden_argmax_id": 1672,
+        "golden_argmax_text": " like",
+        "remote_argmax_id": 1672,
+        "remote_argmax_text": " like",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.7520451545715332,
+        "remote_probability_of_golden_argmax": 0.7667007446289062,
+        "golden_top1_probability_margin": 0.6093860268592834,
+        "hidden_cosine_similarity": 0.9997214078903198,
+        "logit_cosine_similarity": 0.9999418258666992,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 1672,
+            "text": " like",
+            "probability": 0.7520451545715332
+          },
+          {
+            "id": 1010,
+            "text": " you",
+            "probability": 0.14265914261341095
+          },
+          {
+            "id": 859,
+            "text": " I",
+            "probability": 0.044014640152454376
+          },
+          {
+            "id": 1180,
+            "text": " your",
+            "probability": 0.024826614186167717
+          },
+          {
+            "id": 1413,
+            "text": " there",
+            "probability": 0.013900448568165302
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 1672,
+            "text": " like",
+            "probability": 0.7667007446289062
+          },
+          {
+            "id": 1010,
+            "text": " you",
+            "probability": 0.13953366875648499
+          },
+          {
+            "id": 859,
+            "text": " I",
+            "probability": 0.03475905582308769
+          },
+          {
+            "id": 1180,
+            "text": " your",
+            "probability": 0.02449558861553669
+          },
+          {
+            "id": 1413,
+            "text": " there",
+            "probability": 0.013045774772763252
+          }
+        ],
+        "total_variation": 0.014715294353663921,
+        "jensen_shannon_nats": 0.00033666513627395034
+      },
+      {
+        "step": 3,
+        "golden_argmax_id": 1180,
+        "golden_argmax_text": " your",
+        "remote_argmax_id": 1180,
+        "remote_argmax_text": " your",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.5314695239067078,
+        "remote_probability_of_golden_argmax": 0.5312672853469849,
+        "golden_top1_probability_margin": 0.18744689226150513,
+        "hidden_cosine_similarity": 0.9996649622917175,
+        "logit_cosine_similarity": 0.9999207258224487,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 1180,
+            "text": " your",
+            "probability": 0.5314695239067078
+          },
+          {
+            "id": 1010,
+            "text": " you",
+            "probability": 0.34402263164520264
+          },
+          {
+            "id": 768,
+            "text": " a",
+            "probability": 0.045730218291282654
+          },
+          {
+            "id": 1413,
+            "text": " there",
+            "probability": 0.03265907242894173
+          },
+          {
+            "id": 779,
+            "text": " the",
+            "probability": 0.017341746017336845
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 1180,
+            "text": " your",
+            "probability": 0.5312672853469849
+          },
+          {
+            "id": 1010,
+            "text": " you",
+            "probability": 0.3429517447948456
+          },
+          {
+            "id": 768,
+            "text": " a",
+            "probability": 0.04731838032603264
+          },
+          {
+            "id": 1413,
+            "text": " there",
+            "probability": 0.031814415007829666
+          },
+          {
+            "id": 779,
+            "text": " the",
+            "probability": 0.017852619290351868
+          }
+        ],
+        "total_variation": 0.002761308802291751,
+        "jensen_shannon_nats": 2.29350716836052e-05
+      },
+      {
+        "step": 4,
+        "golden_argmax_id": 6282,
+        "golden_argmax_text": " message",
+        "remote_argmax_id": 6282,
+        "remote_argmax_text": " message",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.9176424145698547,
+        "remote_probability_of_golden_argmax": 0.9086143970489502,
+        "golden_top1_probability_margin": 0.8915390372276306,
+        "hidden_cosine_similarity": 0.999738335609436,
+        "logit_cosine_similarity": 0.9999337792396545,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 6282,
+            "text": " message",
+            "probability": 0.9176424145698547
+          },
+          {
+            "id": 6136,
+            "text": " input",
+            "probability": 0.02610338106751442
+          },
+          {
+            "id": 2659,
+            "text": " last",
+            "probability": 0.017271917313337326
+          },
+          {
+            "id": 13094,
+            "text": " prompt",
+            "probability": 0.009432575665414333
+          },
+          {
+            "id": 3952,
+            "text": " question",
+            "probability": 0.008402060717344284
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 6282,
+            "text": " message",
+            "probability": 0.9086143970489502
+          },
+          {
+            "id": 6136,
+            "text": " input",
+            "probability": 0.02821906842291355
+          },
+          {
+            "id": 2659,
+            "text": " last",
+            "probability": 0.022198162972927094
+          },
+          {
+            "id": 13094,
+            "text": " prompt",
+            "probability": 0.009952080436050892
+          },
+          {
+            "id": 3952,
+            "text": " question",
+            "probability": 0.008419191464781761
+          }
+        ],
+        "total_variation": 0.00911666825413704,
+        "jensen_shannon_nats": 0.00021168834064155817
+      },
+      {
+        "step": 5,
+        "golden_argmax_id": 953,
+        "golden_argmax_text": " was",
+        "remote_argmax_id": 953,
+        "remote_argmax_text": " was",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.6837149858474731,
+        "remote_probability_of_golden_argmax": 0.6691052317619324,
+        "golden_top1_probability_margin": 0.5358196496963501,
+        "hidden_cosine_similarity": 0.9997423887252808,
+        "logit_cosine_similarity": 0.9999310970306396,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 953,
+            "text": " was",
+            "probability": 0.6837149858474731
+          },
+          {
+            "id": 4549,
+            "text": " got",
+            "probability": 0.14789532124996185
+          },
+          {
+            "id": 5493,
+            "text": " didn",
+            "probability": 0.04067210853099823
+          },
+          {
+            "id": 856,
+            "text": " is",
+            "probability": 0.03715650737285614
+          },
+          {
+            "id": 9603,
+            "text": " wasn",
+            "probability": 0.03672194108366966
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 953,
+            "text": " was",
+            "probability": 0.6691052317619324
+          },
+          {
+            "id": 4549,
+            "text": " got",
+            "probability": 0.16476067900657654
+          },
+          {
+            "id": 5493,
+            "text": " didn",
+            "probability": 0.040141794830560684
+          },
+          {
+            "id": 856,
+            "text": " is",
+            "probability": 0.037156686186790466
+          },
+          {
+            "id": 9603,
+            "text": " wasn",
+            "probability": 0.03433860093355179
+          }
+        ],
+        "total_variation": 0.01784380152821541,
+        "jensen_shannon_nats": 0.00030119309667497873
+      },
+      {
+        "step": 6,
+        "golden_argmax_id": 4169,
+        "golden_argmax_text": " cut",
+        "remote_argmax_id": 4169,
+        "remote_argmax_text": " cut",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.9166216850280762,
+        "remote_probability_of_golden_argmax": 0.9176054000854492,
+        "golden_top1_probability_margin": 0.8908907771110535,
+        "hidden_cosine_similarity": 0.9997087717056274,
+        "logit_cosine_similarity": 0.9999211430549622,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 4169,
+            "text": " cut",
+            "probability": 0.9166216850280762
+          },
+          {
+            "id": 32689,
+            "text": " incomplete",
+            "probability": 0.025730909779667854
+          },
+          {
+            "id": 1804,
+            "text": " just",
+            "probability": 0.011388072744011879
+          },
+          {
+            "id": 43035,
+            "text": " interrupted",
+            "probability": 0.00885025691241026
+          },
+          {
+            "id": 768,
+            "text": " a",
+            "probability": 0.005607049912214279
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 4169,
+            "text": " cut",
+            "probability": 0.9176054000854492
+          },
+          {
+            "id": 32689,
+            "text": " incomplete",
+            "probability": 0.02562643215060234
+          },
+          {
+            "id": 1804,
+            "text": " just",
+            "probability": 0.011296947486698627
+          },
+          {
+            "id": 43035,
+            "text": " interrupted",
+            "probability": 0.008679249323904514
+          },
+          {
+            "id": 768,
+            "text": " a",
+            "probability": 0.005900603253394365
+          }
+        ],
+        "total_variation": 0.0016428238013759255,
+        "jensen_shannon_nats": 2.074859366985038e-05
+      },
+      {
+        "step": 7,
+        "golden_argmax_id": 1612,
+        "golden_argmax_text": " off",
+        "remote_argmax_id": 1612,
+        "remote_argmax_text": " off",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.9983028173446655,
+        "remote_probability_of_golden_argmax": 0.9982730150222778,
+        "golden_top1_probability_margin": 0.9973580241203308,
+        "hidden_cosine_similarity": 0.9998700022697449,
+        "logit_cosine_similarity": 0.9999755620956421,
+        "top5_overlap": 0.8,
+        "golden_top5": [
+          {
+            "id": 1612,
+            "text": " off",
+            "probability": 0.9983028173446655
+          },
+          {
+            "id": 523,
+            "text": ".",
+            "probability": 0.0009447986376471817
+          },
+          {
+            "id": 3290,
+            "text": " short",
+            "probability": 0.0002729982079472393
+          },
+          {
+            "id": 797,
+            "text": " in",
+            "probability": 9.760711691342294e-05
+          },
+          {
+            "id": 1391,
+            "text": " over",
+            "probability": 7.734358950983733e-05
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 1612,
+            "text": " off",
+            "probability": 0.9982730150222778
+          },
+          {
+            "id": 523,
+            "text": ".",
+            "probability": 0.0009314999333582819
+          },
+          {
+            "id": 3290,
+            "text": " short",
+            "probability": 0.0002880389802157879
+          },
+          {
+            "id": 797,
+            "text": " in",
+            "probability": 0.00010138058132724836
+          },
+          {
+            "id": 933,
+            "text": " or",
+            "probability": 8.121119753923267e-05
+          }
+        ],
+        "total_variation": 4.430601984495297e-05,
+        "jensen_shannon_nats": 4.996317102268222e-07
+      },
+      {
+        "step": 8,
+        "golden_argmax_id": 523,
+        "golden_argmax_text": ".",
+        "remote_argmax_id": 523,
+        "remote_argmax_text": ".",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.9798189401626587,
+        "remote_probability_of_golden_argmax": 0.9774291515350342,
+        "golden_top1_probability_margin": 0.9707348346710205,
+        "hidden_cosine_similarity": 0.9997345805168152,
+        "logit_cosine_similarity": 0.9999538660049438,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 523,
+            "text": ".",
+            "probability": 0.9798189401626587
+          },
+          {
+            "id": 963,
+            "text": " at",
+            "probability": 0.00908408872783184
+          },
+          {
+            "id": 510,
+            "text": "!",
+            "probability": 0.004022200591862202
+          },
+          {
+            "id": 933,
+            "text": " or",
+            "probability": 0.0035876412875950336
+          },
+          {
+            "id": 521,
+            "text": ",",
+            "probability": 0.0009421464055776596
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 523,
+            "text": ".",
+            "probability": 0.9774291515350342
+          },
+          {
+            "id": 963,
+            "text": " at",
+            "probability": 0.009339341893792152
+          },
+          {
+            "id": 510,
+            "text": "!",
+            "probability": 0.005058957729488611
+          },
+          {
+            "id": 933,
+            "text": " or",
+            "probability": 0.0042362757958471775
+          },
+          {
+            "id": 521,
+            "text": ",",
+            "probability": 0.0011383832897990942
+          }
+        ],
+        "total_variation": 0.002398999175056815,
+        "jensen_shannon_nats": 5.458849045680836e-05
+      },
+      {
+        "step": 9,
+        "golden_argmax_id": 2213,
+        "golden_argmax_text": " How",
+        "remote_argmax_id": 2213,
+        "remote_argmax_text": " How",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.3609696924686432,
+        "remote_probability_of_golden_argmax": 0.3598865866661072,
+        "golden_top1_probability_margin": 0.13785533607006073,
+        "hidden_cosine_similarity": 0.9997715353965759,
+        "logit_cosine_similarity": 0.9999537467956543,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 2213,
+            "text": " How",
+            "probability": 0.3609696924686432
+          },
+          {
+            "id": 31364,
+            "text": " Would",
+            "probability": 0.22311435639858246
+          },
+          {
+            "id": 32353,
+            "text": " Could",
+            "probability": 0.21710821986198425
+          },
+          {
+            "id": 2182,
+            "text": " If",
+            "probability": 0.05785167217254639
+          },
+          {
+            "id": 2252,
+            "text": " Is",
+            "probability": 0.030444083735346794
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 2213,
+            "text": " How",
+            "probability": 0.3598865866661072
+          },
+          {
+            "id": 31364,
+            "text": " Would",
+            "probability": 0.2178696244955063
+          },
+          {
+            "id": 32353,
+            "text": " Could",
+            "probability": 0.21501493453979492
+          },
+          {
+            "id": 2182,
+            "text": " If",
+            "probability": 0.061642423272132874
+          },
+          {
+            "id": 2252,
+            "text": " Is",
+            "probability": 0.030001690611243248
+          }
+        ],
+        "total_variation": 0.010213015601038933,
+        "jensen_shannon_nats": 0.00015560636529698968
+      },
+      {
+        "step": 10,
+        "golden_argmax_id": 1011,
+        "golden_argmax_text": " can",
+        "remote_argmax_id": 1011,
+        "remote_argmax_text": " can",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.9929611086845398,
+        "remote_probability_of_golden_argmax": 0.9925532937049866,
+        "golden_top1_probability_margin": 0.9911715984344482,
+        "hidden_cosine_similarity": 0.9997811913490295,
+        "logit_cosine_similarity": 0.9999521970748901,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 1011,
+            "text": " can",
+            "probability": 0.9929611086845398
+          },
+          {
+            "id": 3581,
+            "text": " else",
+            "probability": 0.0017894882475957274
+          },
+          {
+            "id": 1499,
+            "text": " would",
+            "probability": 0.0015172697603702545
+          },
+          {
+            "id": 1738,
+            "text": " could",
+            "probability": 0.001431815791875124
+          },
+          {
+            "id": 1400,
+            "text": " may",
+            "probability": 0.0011371219297870994
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 1011,
+            "text": " can",
+            "probability": 0.9925532937049866
+          },
+          {
+            "id": 3581,
+            "text": " else",
+            "probability": 0.0017621821025386453
+          },
+          {
+            "id": 1499,
+            "text": " would",
+            "probability": 0.0016458429163321853
+          },
+          {
+            "id": 1738,
+            "text": " could",
+            "probability": 0.0015064608305692673
+          },
+          {
+            "id": 1400,
+            "text": " may",
+            "probability": 0.0012673386372625828
+          }
+        ],
+        "total_variation": 0.0004379105812404305,
+        "jensen_shannon_nats": 5.177579623705242e-06
+      },
+      {
+        "step": 11,
+        "golden_argmax_id": 859,
+        "golden_argmax_text": " I",
+        "remote_argmax_id": 859,
+        "remote_argmax_text": " I",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.999832272529602,
+        "remote_probability_of_golden_argmax": 0.9998366832733154,
+        "golden_top1_probability_margin": 0.9996840953826904,
+        "hidden_cosine_similarity": 0.9998254776000977,
+        "logit_cosine_similarity": 0.9999810457229614,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 859,
+            "text": " I",
+            "probability": 0.999832272529602
+          },
+          {
+            "id": 1010,
+            "text": " you",
+            "probability": 0.0001481594517827034
+          },
+          {
+            "id": 1023,
+            "text": " we",
+            "probability": 6.546802524098894e-06
+          },
+          {
+            "id": 3581,
+            "text": " else",
+            "probability": 3.089339543294045e-06
+          },
+          {
+            "id": 8076,
+            "text": " **",
+            "probability": 2.20422634811257e-06
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 859,
+            "text": " I",
+            "probability": 0.9998366832733154
+          },
+          {
+            "id": 1010,
+            "text": " you",
+            "probability": 0.000143058889079839
+          },
+          {
+            "id": 1023,
+            "text": " we",
+            "probability": 6.637504156969953e-06
+          },
+          {
+            "id": 3581,
+            "text": " else",
+            "probability": 3.1417882837558864e-06
+          },
+          {
+            "id": 8076,
+            "text": " **",
+            "probability": 2.543705704738386e-06
+          }
+        ],
+        "total_variation": 5.1858241931768134e-06,
+        "jensen_shannon_nats": 6.228565041510592e-08
+      },
+      {
+        "step": 12,
+        "golden_argmax_id": 6727,
+        "golden_argmax_text": " assist",
+        "remote_argmax_id": 6727,
+        "remote_argmax_text": " assist",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.6799408197402954,
+        "remote_probability_of_golden_argmax": 0.6572938561439514,
+        "golden_top1_probability_margin": 0.3603873550891876,
+        "hidden_cosine_similarity": 0.9998696446418762,
+        "logit_cosine_similarity": 0.99998539686203,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 6727,
+            "text": " assist",
+            "probability": 0.6799408197402954
+          },
+          {
+            "id": 1801,
+            "text": " help",
+            "probability": 0.3195534646511078
+          },
+          {
+            "id": 2238,
+            "text": " best",
+            "probability": 0.00023870999575592577
+          },
+          {
+            "id": 2510,
+            "text": " still",
+            "probability": 5.466927541419864e-05
+          },
+          {
+            "id": 3020,
+            "text": " better",
+            "probability": 4.05014943680726e-05
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 6727,
+            "text": " assist",
+            "probability": 0.6572938561439514
+          },
+          {
+            "id": 1801,
+            "text": " help",
+            "probability": 0.34214097261428833
+          },
+          {
+            "id": 2238,
+            "text": " best",
+            "probability": 0.0002813042374327779
+          },
+          {
+            "id": 2510,
+            "text": " still",
+            "probability": 5.8195691963192075e-05
+          },
+          {
+            "id": 3020,
+            "text": " better",
+            "probability": 4.573730257106945e-05
+          }
+        ],
+        "total_variation": 0.022647570818662643,
+        "jensen_shannon_nats": 0.0002897342783398926
+      },
+      {
+        "step": 13,
+        "golden_argmax_id": 1010,
+        "golden_argmax_text": " you",
+        "remote_argmax_id": 1010,
+        "remote_argmax_text": " you",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.9999896287918091,
+        "remote_probability_of_golden_argmax": 0.9999886751174927,
+        "golden_top1_probability_margin": 0.9999856948852539,
+        "hidden_cosine_similarity": 0.9998735189437866,
+        "logit_cosine_similarity": 0.9999843835830688,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 1010,
+            "text": " you",
+            "probability": 0.9999896287918091
+          },
+          {
+            "id": 916,
+            "text": " with",
+            "probability": 3.939303951483453e-06
+          },
+          {
+            "id": 2297,
+            "text": " You",
+            "probability": 2.0014949768665247e-06
+          },
+          {
+            "id": 37483,
+            "text": " YOU",
+            "probability": 1.7111743773057242e-06
+          },
+          {
+            "id": 933,
+            "text": " or",
+            "probability": 5.221515380071651e-07
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 1010,
+            "text": " you",
+            "probability": 0.9999886751174927
+          },
+          {
+            "id": 916,
+            "text": " with",
+            "probability": 4.468301085580606e-06
+          },
+          {
+            "id": 2297,
+            "text": " You",
+            "probability": 2.1167941213207087e-06
+          },
+          {
+            "id": 37483,
+            "text": " YOU",
+            "probability": 1.7740532030074974e-06
+          },
+          {
+            "id": 933,
+            "text": " or",
+            "probability": 5.285050406200753e-07
+          }
+        ],
+        "total_variation": 9.444970601180103e-07,
+        "jensen_shannon_nats": 1.2987092290472901e-08
+      },
+      {
+        "step": 14,
+        "golden_argmax_id": 4008,
+        "golden_argmax_text": " today",
+        "remote_argmax_id": 4008,
+        "remote_argmax_text": " today",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.7139726281166077,
+        "remote_probability_of_golden_argmax": 0.7053582668304443,
+        "golden_top1_probability_margin": 0.5676944851875305,
+        "hidden_cosine_similarity": 0.9998747706413269,
+        "logit_cosine_similarity": 0.9999813437461853,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 4008,
+            "text": " today",
+            "probability": 0.7139726281166077
+          },
+          {
+            "id": 3759,
+            "text": " further",
+            "probability": 0.14627814292907715
+          },
+          {
+            "id": 540,
+            "text": "?",
+            "probability": 0.11955302953720093
+          },
+          {
+            "id": 916,
+            "text": " with",
+            "probability": 0.014439240097999573
+          },
+          {
+            "id": 2166,
+            "text": " now",
+            "probability": 0.0013346391497179866
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 4008,
+            "text": " today",
+            "probability": 0.7053582668304443
+          },
+          {
+            "id": 3759,
+            "text": " further",
+            "probability": 0.15321683883666992
+          },
+          {
+            "id": 540,
+            "text": "?",
+            "probability": 0.12013358622789383
+          },
+          {
+            "id": 916,
+            "text": " with",
+            "probability": 0.015324657782912254
+          },
+          {
+            "id": 2166,
+            "text": " now",
+            "probability": 0.0013736154651269317
+          }
+        ],
+        "total_variation": 0.008625960908830166,
+        "jensen_shannon_nats": 6.178253534017131e-05
+      },
+      {
+        "step": 15,
+        "golden_argmax_id": 540,
+        "golden_argmax_text": "?",
+        "remote_argmax_id": 540,
+        "remote_argmax_text": "?",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.9993977546691895,
+        "remote_probability_of_golden_argmax": 0.9993440508842468,
+        "golden_top1_probability_margin": 0.999077320098877,
+        "hidden_cosine_similarity": 0.999808669090271,
+        "logit_cosine_similarity": 0.9999738335609436,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 540,
+            "text": "?",
+            "probability": 0.9993977546691895
+          },
+          {
+            "id": 521,
+            "text": ",",
+            "probability": 0.0003204254317097366
+          },
+          {
+            "id": 916,
+            "text": " with",
+            "probability": 7.819184247637168e-05
+          },
+          {
+            "id": 510,
+            "text": "!",
+            "probability": 3.881352677126415e-05
+          },
+          {
+            "id": 797,
+            "text": " in",
+            "probability": 2.7753594622481614e-05
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 540,
+            "text": "?",
+            "probability": 0.9993440508842468
+          },
+          {
+            "id": 521,
+            "text": ",",
+            "probability": 0.00034991110442206264
+          },
+          {
+            "id": 916,
+            "text": " with",
+            "probability": 8.825531403999776e-05
+          },
+          {
+            "id": 510,
+            "text": "!",
+            "probability": 4.32778469985351e-05
+          },
+          {
+            "id": 797,
+            "text": " in",
+            "probability": 3.0013789000804536e-05
+          }
+        ],
+        "total_variation": 5.458754094433971e-05,
+        "jensen_shannon_nats": 6.46295006845321e-07
+      },
+      {
+        "step": 16,
+        "golden_argmax_id": 7,
+        "golden_argmax_text": "<|im_end|>",
+        "remote_argmax_id": 7,
+        "remote_argmax_text": "<|im_end|>",
+        "argmax_equal": true,
+        "remote_rank_of_golden_argmax": 1,
+        "golden_argmax_probability": 0.9743155241012573,
+        "remote_probability_of_golden_argmax": 0.9727880358695984,
+        "golden_top1_probability_margin": 0.9539180994033813,
+        "hidden_cosine_similarity": 0.9996927976608276,
+        "logit_cosine_similarity": 0.9999444484710693,
+        "top5_overlap": 1.0,
+        "golden_top5": [
+          {
+            "id": 7,
+            "text": "<|im_end|>",
+            "probability": 0.9743155241012573
+          },
+          {
+            "id": 2182,
+            "text": " If",
+            "probability": 0.020397448912262917
+          },
+          {
+            "id": 730,
+            "text": " ",
+            "probability": 0.0012422746513038874
+          },
+          {
+            "id": 13831,
+            "text": " Please",
+            "probability": 0.0006978924502618611
+          },
+          {
+            "id": 859,
+            "text": " I",
+            "probability": 0.0006840651039965451
+          }
+        ],
+        "remote_top5": [
+          {
+            "id": 7,
+            "text": "<|im_end|>",
+            "probability": 0.9727880358695984
+          },
+          {
+            "id": 2182,
+            "text": " If",
+            "probability": 0.021495459601283073
+          },
+          {
+            "id": 730,
+            "text": " ",
+            "probability": 0.0011794270249083638
+          },
+          {
+            "id": 859,
+            "text": " I",
+            "probability": 0.000774778367485851
+          },
+          {
+            "id": 13831,
+            "text": " Please",
+            "probability": 0.0007542740786448121
+          }
+        ],
+        "total_variation": 0.0015949985245242715,
+        "jensen_shannon_nats": 1.7046633729478344e-05
+      }
+    ],
+    "interpretation_limit": "This is a real downstream sensitivity test for one truncated audio probe. It is not an ASR benchmark and cannot establish corpus-level semantic equivalence."
+  }
+}

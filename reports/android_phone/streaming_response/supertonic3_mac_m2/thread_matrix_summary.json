@@ -1,0 +1,597 @@
+{
+  "description": "Three warmed runs per case",
+  "results": [
+    {
+      "settings": {
+        "num_threads": 1,
+        "repeats": 3,
+        "num_steps": 5,
+        "speed": 1.05,
+        "sid": 6,
+        "warmup": true
+      },
+      "load": {
+        "load_s": 0.5479891658760607,
+        "rss_before_bytes": 37584896,
+        "rss_after_bytes": 227311616,
+        "incremental_rss_bytes": 189726720,
+        "peak_rss_bytes": 227311616
+      },
+      "summary_by_case": {
+        "en_short": {
+          "lang": "en",
+          "text": "Sure, I can help with that.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.5698116249404848,
+            "p95": 0.6432072621770203,
+            "min": 0.5411094999872148,
+            "max": 0.6513623329810798
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.5698926248587668,
+            "p95": 0.6433133130893112,
+            "min": 0.5412085833959281,
+            "max": 0.6514711673371494
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.2857400347481282,
+            "p95": 0.3225526360893482,
+            "min": 0.27135806409823693,
+            "max": 0.3266429251272615
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 1.9944444444444445,
+            "p95": 1.9944444444444445,
+            "min": 1.9944444444444445,
+            "max": 1.9944444444444445
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 298975232.0,
+            "p95": 299594547.2,
+            "min": 270450688.0,
+            "max": 299663360.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_sentence": {
+          "lang": "en",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 1.3733084159903228,
+            "p95": 1.3747672045137733,
+            "min": 1.3271144591271877,
+            "max": 1.37492929212749
+          },
+          "total_s": {
+            "n": 3,
+            "median": 1.3734731245785952,
+            "p95": 1.374971437966451,
+            "min": 1.3273085001856089,
+            "max": 1.3751379172317684
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.2535695767317622,
+            "p95": 0.25384619422414073,
+            "min": 0.24504669844762988,
+            "max": 0.25387692950107166
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 5.416553287981859,
+            "p95": 5.416553287981859,
+            "min": 5.416553287981859,
+            "max": 5.416553287981859
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 333889536.0,
+            "p95": 336617472.0,
+            "min": 297598976.0,
+            "max": 336920576.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_chunked": {
+          "lang": "en",
+          "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+          "max_len": 64,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.8831048747524619,
+            "p95": 1.1102795746177434,
+            "min": 0.8526863330043852,
+            "max": 1.1355212079361081
+          },
+          "total_s": {
+            "n": 3,
+            "median": 3.5419760826043785,
+            "p95": 3.575859357463196,
+            "min": 2.87891558278352,
+            "max": 3.5796241657808423
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.33499646185175996,
+            "p95": 0.33820110720478797,
+            "min": 0.2722848804482169,
+            "max": 0.33855717891068
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 10.573174603174603,
+            "p95": 10.573174603174603,
+            "min": 10.573174603174603,
+            "max": 10.573174603174603
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 247513088.0,
+            "p95": 305551769.6,
+            "min": 227131392.0,
+            "max": 312000512.0
+          },
+          "callback_chunk_count": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "settings": {
+        "num_threads": 2,
+        "repeats": 3,
+        "num_steps": 5,
+        "speed": 1.05,
+        "sid": 6,
+        "warmup": true
+      },
+      "load": {
+        "load_s": 0.46716975001618266,
+        "rss_before_bytes": 37568512,
+        "rss_after_bytes": 283082752,
+        "incremental_rss_bytes": 245514240,
+        "peak_rss_bytes": 283082752
+      },
+      "summary_by_case": {
+        "en_short": {
+          "lang": "en",
+          "text": "Sure, I can help with that.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.3178193746134639,
+            "p95": 0.31890499996952715,
+            "min": 0.31593916611745954,
+            "max": 0.3190256250090897
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.3178876657038927,
+            "p95": 0.31899144207127395,
+            "min": 0.31602416606619954,
+            "max": 0.31911408388987184
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.1593865733334281,
+            "p95": 0.15993999881010948,
+            "min": 0.1584522281111864,
+            "max": 0.16000149052974075
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 1.9944444444444445,
+            "p95": 1.9944444444444445,
+            "min": 1.9944444444444445,
+            "max": 1.9944444444444445
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 358301696.0,
+            "p95": 358906265.6,
+            "min": 329793536.0,
+            "max": 358973440.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_sentence": {
+          "lang": "en",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.7285212078131735,
+            "p95": 0.7287718958687037,
+            "min": 0.7252713749185205,
+            "max": 0.728799750097096
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.7286273329518735,
+            "p95": 0.7289120335131883,
+            "min": 0.7254252089187503,
+            "max": 0.72894366690889
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.13451863098412367,
+            "p95": 0.1345711921879332,
+            "min": 0.1339274572500393,
+            "max": 0.13457703232168983
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 5.416553287981859,
+            "p95": 5.416553287981859,
+            "min": 5.416553287981859,
+            "max": 5.416553287981859
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 403636224.0,
+            "p95": 404624179.2,
+            "min": 363642880.0,
+            "max": 404733952.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_chunked": {
+          "lang": "en",
+          "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+          "max_len": 64,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.4563296250998974,
+            "p95": 0.49098457526415584,
+            "min": 0.4554549171589315,
+            "max": 0.4948351252824068
+          },
+          "total_s": {
+            "n": 3,
+            "median": 1.624838124960661,
+            "p95": 1.7290184494573624,
+            "min": 1.558251166716218,
+            "max": 1.740594041068107
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.15367552186954353,
+            "p95": 0.16352879001338191,
+            "min": 0.14737779571410387,
+            "max": 0.1646235975849195
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 10.573174603174603,
+            "p95": 10.573174603174603,
+            "min": 10.573174603174603,
+            "max": 10.573174603174603
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 417775616.0,
+            "p95": 426962124.8,
+            "min": 410042368.0,
+            "max": 427982848.0
+          },
+          "callback_chunk_count": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "settings": {
+        "num_threads": 4,
+        "repeats": 3,
+        "num_steps": 5,
+        "speed": 1.05,
+        "sid": 6,
+        "warmup": true
+      },
+      "load": {
+        "load_s": 0.39727012533694506,
+        "rss_before_bytes": 37797888,
+        "rss_after_bytes": 313688064,
+        "incremental_rss_bytes": 275890176,
+        "peak_rss_bytes": 313688064
+      },
+      "summary_by_case": {
+        "en_short": {
+          "lang": "en",
+          "text": "Sure, I can help with that.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.3431416656821966,
+            "p95": 0.38194794156588613,
+            "min": 0.33448895905166864,
+            "max": 0.3862597499974072
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.3432605406269431,
+            "p95": 0.3821067173033953,
+            "min": 0.3346345000900328,
+            "max": 0.3864229591563344
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.17210834906086284,
+            "p95": 0.19158554070922323,
+            "min": 0.167783314808373,
+            "max": 0.19374967311459662
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 1.9944444444444445,
+            "p95": 1.9944444444444445,
+            "min": 1.9944444444444445,
+            "max": 1.9944444444444445
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 381173760.0,
+            "p95": 382427136.0,
+            "min": 352649216.0,
+            "max": 382566400.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_sentence": {
+          "lang": "en",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.7103734579868615,
+            "p95": 0.7197106206789613,
+            "min": 0.6958029172383249,
+            "max": 0.7207480832003057
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.7106771250255406,
+            "p95": 0.7199504255782813,
+            "min": 0.6960157919675112,
+            "max": 0.7209807923063636
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.13120467707801875,
+            "p95": 0.132916706861482,
+            "min": 0.1284979127800362,
+            "max": 0.1331069323929779
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 5.416553287981859,
+            "p95": 5.416553287981859,
+            "min": 5.416553287981859,
+            "max": 5.416553287981859
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 326123520.0,
+            "p95": 354287616.0,
+            "min": 324468736.0,
+            "max": 357416960.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_chunked": {
+          "lang": "en",
+          "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+          "max_len": 64,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.4557091249153018,
+            "p95": 0.5417764621786774,
+            "min": 0.4459843751974404,
+            "max": 0.5513394996523857
+          },
+          "total_s": {
+            "n": 3,
+            "median": 1.8072050418704748,
+            "p95": 1.9126355787739158,
+            "min": 1.5505139171145856,
+            "max": 1.924350082874298
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.17092359766080664,
+            "p95": 0.18089510961065994,
+            "min": 0.14664601458951057,
+            "max": 0.18200305538286585
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 10.573174603174603,
+            "p95": 10.573174603174603,
+            "min": 10.573174603174603,
+            "max": 10.573174603174603
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 348356608.0,
+            "p95": 352706560.0,
+            "min": 336216064.0,
+            "max": 353189888.0
+          },
+          "callback_chunk_count": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "settings": {
+        "num_threads": 8,
+        "repeats": 3,
+        "num_steps": 5,
+        "speed": 1.05,
+        "sid": 6,
+        "warmup": true
+      },
+      "load": {
+        "load_s": 0.4391688331961632,
+        "rss_before_bytes": 37715968,
+        "rss_after_bytes": 325353472,
+        "incremental_rss_bytes": 287637504,
+        "peak_rss_bytes": 325386240
+      },
+      "summary_by_case": {
+        "en_short": {
+          "lang": "en",
+          "text": "Sure, I can help with that.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 0.9329821658320725,
+            "p95": 0.9486426547169685,
+            "min": 0.8757774168625474,
+            "max": 0.9503827090375125
+          },
+          "total_s": {
+            "n": 3,
+            "median": 0.933184124995023,
+            "p95": 0.9488335128873586,
+            "min": 0.8760937922634184,
+            "max": 0.9505723337642848
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.46789176183594466,
+            "p95": 0.47573825158697647,
+            "min": 0.439267082471909,
+            "max": 0.4766100837815356
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 1.9944444444444445,
+            "p95": 1.9944444444444445,
+            "min": 1.9944444444444445,
+            "max": 1.9944444444444445
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 396820480.0,
+            "p95": 397425049.6,
+            "min": 367476736.0,
+            "max": 397492224.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_sentence": {
+          "lang": "en",
+          "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+          "max_len": null,
+          "first_callback_s": {
+            "n": 3,
+            "median": 1.5986304581165314,
+            "p95": 1.756658496055752,
+            "min": 1.5756311253644526,
+            "max": 1.7742171669378877
+          },
+          "total_s": {
+            "n": 3,
+            "median": 1.5994498329237103,
+            "p95": 1.756982008786872,
+            "min": 1.5777560421265662,
+            "max": 1.7744855838827789
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.2952892269097653,
+            "p95": 0.3243726989052667,
+            "min": 0.29128413554561716,
+            "max": 0.32760419579365574
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 5.416553287981859,
+            "p95": 5.416553287981859,
+            "min": 5.416553287981859,
+            "max": 5.416553287981859
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 374980608.0,
+            "p95": 395344281.6,
+            "min": 373358592.0,
+            "max": 397606912.0
+          },
+          "callback_chunk_count": [
+            1
+          ]
+        },
+        "en_chunked": {
+          "lang": "en",
+          "text": "I found three nearby cafés that are still open. The closest one is two minutes away, and it has outdoor seating. Would you like walking directions?",
+          "max_len": 64,
+          "first_callback_s": {
+            "n": 3,
+            "median": 1.1268020840361714,
+            "p95": 1.2187193082645535,
+            "min": 1.0720828752964735,
+            "max": 1.2289323331788182
+          },
+          "total_s": {
+            "n": 3,
+            "median": 3.835663167294115,
+            "p95": 4.117843616800383,
+            "min": 3.6855595419183373,
+            "max": 4.149197000078857
+          },
+          "rtf": {
+            "n": 3,
+            "median": 0.36277308483513115,
+            "p95": 0.38946142207506884,
+            "min": 0.3485764380370438,
+            "max": 0.3924267928795064
+          },
+          "audio_duration_s": {
+            "n": 3,
+            "median": 10.573174603174603,
+            "p95": 10.573174603174603,
+            "min": 10.573174603174603,
+            "max": 10.573174603174603
+          },
+          "peak_rss_bytes": {
+            "n": 3,
+            "median": 386088960.0,
+            "p95": 396602572.8,
+            "min": 378617856.0,
+            "max": 397770752.0
+          },
+          "callback_chunk_count": [
+            3
+          ]
+        }
+      }
+    }
+  ]
+}

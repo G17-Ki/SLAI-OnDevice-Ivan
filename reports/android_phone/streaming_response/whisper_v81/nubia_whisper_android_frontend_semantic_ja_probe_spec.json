@@ -1,0 +1,210 @@
+{
+  "accepted_packages": {
+    "ai.liquid.lfmdemo": {
+      "sha256": "a24e203a30dcaaf9215dc3f0d5b99fa4b893a9e0ceca71c99c13e49bdb1b020a"
+    },
+    "ai.liquid.lfmdemo.runtime": {
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "apk": {
+    "bytes": 413135969,
+    "sha256": "52972173c76a935c942fdb2dd0fcda7c712f387e914f589a410b881eba82ddd2"
+  },
+  "apk_policy": {
+    "compile_sdk": 35,
+    "launcher": "ai.liquid.lfmdemo.whisperprobe.ProbeActivity",
+    "min_sdk": 28,
+    "native_abis": [
+      "arm64-v8a"
+    ],
+    "optional_native_libraries": [
+      "libcdsprpc.so"
+    ],
+    "package": "ai.liquid.lfmdemo.whisperprobe",
+    "permissions": [],
+    "required_native_libraries": [],
+    "required_optional_features": [
+      "android.hardware.microphone"
+    ],
+    "signing": {
+      "certificate_sha256": "9ad7b2846b7c18853b99e444d4d05323321b3a9118c13c5a8fc242e58b5859e4",
+      "signer_count": 1,
+      "source_stamp": false,
+      "v1": false,
+      "v2": true,
+      "v3": false,
+      "v3_1": false,
+      "v4": false
+    },
+    "target_sdk": 35,
+    "version_code": 1,
+    "version_name": "0.1.0-ort-qnn-probe"
+  },
+  "base_probe": {
+    "gate_id": "nubia_whisper_small_ort_qnn_epcontext_sm8850_probe_v1",
+    "spec": {
+      "bytes": 9332,
+      "path": "reports/android_phone/streaming_response/whisper_v81/nubia_whisper_ort_qnn_probe_spec.json",
+      "sha256": "af7859d8d3cb69facd202b39fceab11e71a7d2e068b11bf0ea32575c562444bd"
+    }
+  },
+  "build_policy": {
+    "android_ndk": "27.0.12077973",
+    "frontend_compile_flags": [
+      "-O2",
+      "-fno-fast-math",
+      "-ffp-contract=off"
+    ],
+    "java": 17,
+    "max_gradle_workers": 2
+  },
+  "claim_boundary": {
+    "final_runtime_integration": false,
+    "microphone_input": false,
+    "probe_package_feasibility_only": true,
+    "real_audio_acceptance": false,
+    "real_audio_transcription": false,
+    "semantic_candidate_decode": true
+  },
+  "device_output_contract": {
+    "completion_marker": "WHISPER_PROBE_REPORT_COMPLETE_V1",
+    "decoder": {
+      "attention_unmask_order": [
+        199,
+        198,
+        197,
+        196
+      ],
+      "steps": 4
+    },
+    "evidence_schema_version": 1,
+    "feature_source": "bundled_question_en_native_frontend",
+    "frontend": {
+      "feature_dtype": "uint16",
+      "feature_layout": "mel_major_frame_minor",
+      "feature_shape": [
+        1,
+        80,
+        3000
+      ],
+      "fixtures": {
+        "en": {
+          "golden_tensor_sha256": "29c478d40bb98b7782280dcfbc98662cee514df7e62c180c5ba849db24a2f6a1",
+          "wav_pcm_frames": 52819,
+          "wav_sha256": "b5fa81a74e608624b52fb3e4cf895d6982a455022597a0da0ad3dc52866f8b69"
+        },
+        "ja": {
+          "golden_tensor_sha256": "8cf37ba9a60f5cd91453dae2d721e9fd7fec69919582223bf02a3f76f8421a80",
+          "wav_pcm_frames": 39710,
+          "wav_sha256": "0da6ee3b9514a96597bf9225a1bcdf7cae86608e095e157490899a443948b761"
+        }
+      },
+      "implementation": "jni_persistent_kissfft_400_real",
+      "max_differing_fraction": 0.001,
+      "max_differing_values": 240,
+      "max_uint16_delta": 1
+    },
+    "native_frontend_sha256": "475cad57685c04f3027c3c07a5dbfc9b67a33e8f0669fd4f2da36eefd48e9a6d",
+    "report_path": "/data/user/0/ai.liquid.lfmdemo.whisperprobe/files/whisper_probe/reports/latest.json",
+    "run_id_pattern": "[A-Za-z0-9][A-Za-z0-9._-]{0,127}",
+    "run_trigger": "automation_intent"
+  },
+  "frontend_assets": [
+    {
+      "bytes": 105682,
+      "path": "whisper_frontend/v1/fixtures/question_en.wav",
+      "sha256": "b5fa81a74e608624b52fb3e4cf895d6982a455022597a0da0ad3dc52866f8b69"
+    },
+    {
+      "bytes": 79464,
+      "path": "whisper_frontend/v1/fixtures/question_ja.wav",
+      "sha256": "0da6ee3b9514a96597bf9225a1bcdf7cae86608e095e157490899a443948b761"
+    },
+    {
+      "bytes": 480000,
+      "path": "whisper_frontend/v1/goldens/en.features.u16le.bin",
+      "sha256": "29c478d40bb98b7782280dcfbc98662cee514df7e62c180c5ba849db24a2f6a1"
+    },
+    {
+      "bytes": 480000,
+      "path": "whisper_frontend/v1/goldens/ja.features.u16le.bin",
+      "sha256": "8cf37ba9a60f5cd91453dae2d721e9fd7fec69919582223bf02a3f76f8421a80"
+    },
+    {
+      "bytes": 1600,
+      "path": "whisper_frontend/v1/tables/hann.f32le.bin",
+      "sha256": "c692d19f0b2bd745f0dfc967261c3e3d21a2473e485a677d219e9b4a73e0218e"
+    },
+    {
+      "bytes": 64320,
+      "path": "whisper_frontend/v1/tables/mel_filters.f32le.bin",
+      "sha256": "d18b48f33345d958ea71098bb990b5e32cebc78d9a2cf65ca0d7302f34ebe8a9"
+    }
+  ],
+  "frontend_manifest": {
+    "bytes": 3102,
+    "path": "whisper_frontend/v1/manifest.json",
+    "sha256": "aea54e5c751f9a2b489c709e5ca149db7c39cbdabea3ed4675483c00e236693f"
+  },
+  "frontend_native_library": {
+    "bytes": 23048,
+    "elf": "aarch64",
+    "path": "arm64-v8a/libwhisper_frontend.so",
+    "sha256": "475cad57685c04f3027c3c07a5dbfc9b67a33e8f0669fd4f2da36eefd48e9a6d"
+  },
+  "gate_id": "whisper_qai_hf_bundled_wav_frontend_v1",
+  "schema_version": 1,
+  "stager": {
+    "bytes": 8630,
+    "path": "scripts/stage_whisper_android_frontend_assets.py",
+    "sha256": "b9cb11cfed23923e51c63a7cec18384a0a7c68d170f17750fe25f9e1d2e57918"
+  },
+  "target": {
+    "abi": "arm64-v8a",
+    "htp_arch": "v81",
+    "model": "NX809J",
+    "package": "ai.liquid.lfmdemo.whisperprobe",
+    "soc": "SM8850"
+  },
+  "zip_policy": {
+    "duplicate_entries_forbidden": true,
+    "other_members": [
+      "AndroidManifest.xml",
+      "META-INF/com/android/build/gradle/app-metadata.properties",
+      "classes.dex",
+      "classes2.dex",
+      "classes3.dex",
+      "classes4.dex",
+      "resources.arsc"
+    ]
+  },
+  "semantic_decode_overlay": {
+    "gate_id": "whisper_small_bundled_ja_semantic_candidate_v1",
+    "build_flag": "WHISPER_SEMANTIC_DECODE_ENABLED=true;WHISPER_SEMANTIC_LANGUAGE=ja",
+    "language_code": "ja",
+    "language_token_id": 50266,
+    "prompt_token_ids": [
+      50258,
+      50266,
+      50359,
+      50363
+    ],
+    "feature_source": "bundled_question_ja_native_frontend",
+    "max_decoder_calls": 199,
+    "maximum_generated_tokens": 196,
+    "eot_token_id": 50257,
+    "allowed_generated_token_min": 0,
+    "allowed_generated_token_max": 50257,
+    "suppressed_generated_token_min": 50258,
+    "suppressed_generated_token_max": 51864,
+    "attention_mask_mode": "cumulative_suffix_uint16",
+    "reference_fixture": "ja",
+    "reference_wav_sha256": "0da6ee3b9514a96597bf9225a1bcdf7cae86608e095e157490899a443948b761",
+    "reference_text": "フランスの首都は、どこですか？",
+    "require_eot": true,
+    "max_wer": 1,
+    "max_cer": 0.2,
+    "max_semantic_compute_ms": 2500
+  }
+}

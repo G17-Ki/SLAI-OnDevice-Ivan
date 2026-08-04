@@ -1,0 +1,65 @@
+{
+  "matrix": "batch",
+  "rows": [
+    {
+      "name": "batch_default",
+      "runtime_args": "-c 512 --no-repack",
+      "idle_rss_mib": 1107.1015625,
+      "active_peak_rss_mib": 1279.97265625,
+      "vmhwm_mib": 1278.8515625,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 562.2734375,
+      "first_text_ms": 1664.7767079994082,
+      "first_audio_ms": null,
+      "total_ms": 2491.684874985367,
+      "exact_normalized": true,
+      "transcript": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.",
+      "error": null
+    },
+    {
+      "name": "batch_1024_ubatch_256",
+      "runtime_args": "-c 512 --no-repack -b 1024 -ub 256",
+      "idle_rss_mib": 1105.28125,
+      "active_peak_rss_mib": 1268.03125,
+      "vmhwm_mib": 1266.9765625,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 550.55078125,
+      "first_text_ms": 2771.574500016868,
+      "first_audio_ms": null,
+      "total_ms": 3971.6095002368093,
+      "exact_normalized": true,
+      "transcript": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.",
+      "error": null
+    },
+    {
+      "name": "batch_512_ubatch_128",
+      "runtime_args": "-c 512 --no-repack -b 512 -ub 128",
+      "idle_rss_mib": 1091.33984375,
+      "active_peak_rss_mib": 1249.7890625,
+      "vmhwm_mib": 1248.9921875,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 532.28515625,
+      "first_text_ms": 3107.2794999927282,
+      "first_audio_ms": null,
+      "total_ms": 4297.744416631758,
+      "exact_normalized": true,
+      "transcript": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.",
+      "error": null
+    },
+    {
+      "name": "batch_256_ubatch_64",
+      "runtime_args": "-c 512 --no-repack -b 256 -ub 64",
+      "idle_rss_mib": 1085.22265625,
+      "active_peak_rss_mib": 1240.20703125,
+      "vmhwm_mib": 1239.1328125,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 522.7265625,
+      "first_text_ms": 3058.0751253291965,
+      "first_audio_ms": null,
+      "total_ms": 4286.869417410344,
+      "exact_normalized": true,
+      "transcript": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.",
+      "error": null
+    }
+  ]
+}

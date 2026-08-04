@@ -1,0 +1,1804 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-22T16:18:47Z",
+  "evidence_class": "Apple Silicon host CPU benchmark; not phone or NPU evidence",
+  "runtime": {
+    "python": "3.11.11 (main, Dec 11 2024, 10:25:04) [Clang 14.0.6 ]",
+    "platform": "macOS-15.4.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "sherpa_onnx": "1.13.4",
+    "numpy": "2.4.6",
+    "psutil": "7.0.0",
+    "soundfile": "0.13.1"
+  },
+  "settings": {
+    "num_threads": 2,
+    "repeats": 5,
+    "speed": 1.0,
+    "warmup": true,
+    "max_num_sentences": 1,
+    "resident_model_instances": 1
+  },
+  "model_artifact": "kokoro-int8-multi-lang-v1_1",
+  "declared_supported_languages": [
+    "en",
+    "zh"
+  ],
+  "unsupported_language_facts": {
+    "es": "Not declared by the v1.1-zh model card or embedded ONNX metadata.",
+    "ja": "Not declared by the v1.1-zh model card or embedded ONNX metadata."
+  },
+  "load": {
+    "load_s": 1.0606850419999319,
+    "rss_before_bytes": 41009152,
+    "rss_after_bytes": 436404224,
+    "incremental_rss_bytes": 395395072,
+    "peak_rss_bytes": 436436992,
+    "rss_after_warmup_bytes": 453705728
+  },
+  "warmups": [
+    {
+      "case_id": "warmup_en",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Hello.",
+      "repeat_index": -1,
+      "first_callback_s": 0.9284938750001857,
+      "callback_times_s": [
+        0.9284938750001857
+      ],
+      "callback_chunk_samples": [
+        16184
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "a6621e51b94df1247fce161902d0bd3ac4e1c0a93af2cf2e680311137848a07f"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "a6621e51b94df1247fce161902d0bd3ac4e1c0a93af2cf2e680311137848a07f",
+      "total_s": 0.9286039590001565,
+      "rtf": 1.3770696376670635,
+      "peak_rss_bytes": 452673536,
+      "peak_incremental_vs_preload_bytes": 16269312,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 16184,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 0.6743333333333333,
+      "peak_abs": 0.2013739049434662,
+      "rms": 0.044796787202358246,
+      "dc_mean": 0.020696226507425308,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "a6621e51b94df1247fce161902d0bd3ac4e1c0a93af2cf2e680311137848a07f",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "warmup_zh",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "你好。",
+      "repeat_index": -1,
+      "first_callback_s": 0.6286443750000217,
+      "callback_times_s": [
+        0.6286443750000217
+      ],
+      "callback_chunk_samples": [
+        26400
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "d2e2237c131b9da23336193cd9b445b05c1ba1c80648f8899be0dd810f668cb1"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "d2e2237c131b9da23336193cd9b445b05c1ba1c80648f8899be0dd810f668cb1",
+      "total_s": 0.6287685830002374,
+      "rtf": 0.5716078027274885,
+      "peak_rss_bytes": 453410816,
+      "peak_incremental_vs_preload_bytes": 17006592,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 26400,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.1,
+      "peak_abs": null,
+      "rms": null,
+      "dc_mean": null,
+      "clip_count": 0,
+      "nonfinite_count": 26400,
+      "pcm_f32_sha256": "d2e2237c131b9da23336193cd9b445b05c1ba1c80648f8899be0dd810f668cb1",
+      "audio_status": "all_nonfinite"
+    }
+  ],
+  "summary_by_case": {
+    "en_short": {
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Sure, I can help with that.",
+      "first_callback_s": {
+        "n": 5,
+        "median": 1.3180825829999776,
+        "p95": 1.3551495334001629,
+        "min": 1.3088851249999607,
+        "max": 1.360661125000206
+      },
+      "total_s": {
+        "n": 5,
+        "median": 1.3183692080001492,
+        "p95": 1.3552914416000932,
+        "min": 1.3090166669999235,
+        "max": 1.3608030000000326
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.8680144022825519,
+        "p95": 0.8923240041260352,
+        "min": 0.8618566884669748,
+        "max": 0.8959528146603968
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 1.5188333333333333,
+        "p95": 1.5188333333333333,
+        "min": 1.5188333333333333,
+        "max": 1.5188333333333333
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 498499584.0,
+        "p95": 498581504.0,
+        "min": 469336064.0,
+        "max": 498581504.0
+      },
+      "peak_incremental_vs_preload_bytes": {
+        "n": 5,
+        "median": 44793856.0,
+        "p95": 44875776.0,
+        "min": 15630336.0,
+        "max": 44875776.0
+      },
+      "callback_chunk_count": [
+        1
+      ],
+      "unique_full_pcm_hashes": [
+        "4530e73aa0cf6104c2c54a7898ad13e5173e804aa3853159f88fe0d19732378f",
+        "96cc31751cfa8cfa42c181b3d98a8d73d354c83c5dcd90bca3178dbf2eeabe67",
+        "d664c3d1613f34e61e1edbb64ecd4ce0adcf6eecd82f25e874b04786f7734732",
+        "e56cb6c703b37de59cc142534736916ae71054529c4bbe3c32e82637044633d6",
+        "efc836b049581da3008987a77b25e6e0f8ad8cfda4ad18abe0bc940c50891e4b"
+      ],
+      "unique_first_chunk_pcm_hashes": [
+        "4530e73aa0cf6104c2c54a7898ad13e5173e804aa3853159f88fe0d19732378f",
+        "96cc31751cfa8cfa42c181b3d98a8d73d354c83c5dcd90bca3178dbf2eeabe67",
+        "d664c3d1613f34e61e1edbb64ecd4ce0adcf6eecd82f25e874b04786f7734732",
+        "e56cb6c703b37de59cc142534736916ae71054529c4bbe3c32e82637044633d6",
+        "efc836b049581da3008987a77b25e6e0f8ad8cfda4ad18abe0bc940c50891e4b"
+      ],
+      "bit_identical_across_repeats": false
+    },
+    "zh_short": {
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "当然可以，我可以帮你。",
+      "first_callback_s": {
+        "n": 5,
+        "median": 1.0733344999998735,
+        "p95": 1.0986397419999776,
+        "min": 1.0696591250002712,
+        "max": 1.0999960419999297
+      },
+      "total_s": {
+        "n": 5,
+        "median": 2.28210054200008,
+        "p95": 2.3094456756,
+        "min": 2.278495041000042,
+        "max": 2.3106703339999513
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.9246760705024636,
+        "p95": 0.9364800682288554,
+        "min": 0.9226855361252828,
+        "max": 0.9369798265805905
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 2.466125,
+        "p95": 2.469133333333333,
+        "min": 2.4659583333333335,
+        "max": 2.4694166666666666
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 499613696.0,
+        "p95": 499643187.2,
+        "min": 498827264.0,
+        "max": 499646464.0
+      },
+      "peak_incremental_vs_preload_bytes": {
+        "n": 5,
+        "median": 45907968.0,
+        "p95": 45937459.2,
+        "min": 45121536.0,
+        "max": 45940736.0
+      },
+      "callback_chunk_count": [
+        2
+      ],
+      "unique_full_pcm_hashes": [
+        "1064139919972df22e04168c0d0689a60b89ff7ac3ee70a428d8c98730a15b43",
+        "59ef37a5493893d5bb9aed30fea0a85b4a19d084e25601e3593efcdc3036a433",
+        "659038f13b488d807a68e0713e62647e7f3baff86eed9821ed3ca00a73eedc7a",
+        "9f053255ae6d73ccb4d95ff5e18668688e8beff1e4f30a7118923c540213c4d4",
+        "e95e750b774f8b30ae405bace3c05a9aa5ac661e3ea1f83a8f3d3fe43d5f754c"
+      ],
+      "unique_first_chunk_pcm_hashes": [
+        "535510753d38097f156eb6f63667bc596782077ab9b3f906f8d0d5be13e6716c",
+        "5377e34525f31de5f2e50b837936180958fa7ac0b7f068d190e97e63163c6709",
+        "6dd12130024647e572f9a7fd44d273de051212d257c4ac97500c715d817f8029",
+        "d666d4c850bb8d1f483ada75577e4cd9b8b1a5c1d5532e854401ad919e8f8335",
+        "dd1e300e575ef23085ef55284a197f7e909bd8c8cfc723a9ebb5c6d45dcc910f"
+      ],
+      "bit_identical_across_repeats": false
+    },
+    "en_fact": {
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Paris is the capital of France.",
+      "first_callback_s": {
+        "n": 5,
+        "median": 1.6116481670001122,
+        "p95": 1.6401924578000036,
+        "min": 1.6059355829997912,
+        "max": 1.6442464159999872
+      },
+      "total_s": {
+        "n": 5,
+        "median": 1.611810708000121,
+        "p95": 1.6403484666002441,
+        "min": 1.6060860829998092,
+        "max": 1.6444033750003655
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.8367971141300273,
+        "p95": 0.8516457826430908,
+        "min": 0.8338250841913001,
+        "max": 0.8537181145627926
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 1.9261666666666666,
+        "p95": 1.9261666666666666,
+        "min": 1.9257916666666666,
+        "max": 1.9261666666666666
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 509952000.0,
+        "p95": 510305894.4,
+        "min": 499908608.0,
+        "max": 510394368.0
+      },
+      "peak_incremental_vs_preload_bytes": {
+        "n": 5,
+        "median": 56246272.0,
+        "p95": 56600166.4,
+        "min": 46202880.0,
+        "max": 56688640.0
+      },
+      "callback_chunk_count": [
+        1
+      ],
+      "unique_full_pcm_hashes": [
+        "337d855c9c9b22df63c8e7909f37d4971b21ebefd4bc61db4a913bbf0afad07e",
+        "58e0e0a8da34b01a03fc12812c4530bac99886e8c0994cf25c0965a9016a36ff",
+        "6f64fd594c84ff06f978524d04d4b982b44fbe79165e03c6c926326d8f0b455c",
+        "7b072ccb5edecbfe6a05c7653a2f4f2fd91edc29bb582226bcfd09dc4568b874",
+        "833087f32aeb08721e5f3e223bc9cd6df11d98f429a6b8f090b2ed317f83246f"
+      ],
+      "unique_first_chunk_pcm_hashes": [
+        "337d855c9c9b22df63c8e7909f37d4971b21ebefd4bc61db4a913bbf0afad07e",
+        "58e0e0a8da34b01a03fc12812c4530bac99886e8c0994cf25c0965a9016a36ff",
+        "6f64fd594c84ff06f978524d04d4b982b44fbe79165e03c6c926326d8f0b455c",
+        "7b072ccb5edecbfe6a05c7653a2f4f2fd91edc29bb582226bcfd09dc4568b874",
+        "833087f32aeb08721e5f3e223bc9cd6df11d98f429a6b8f090b2ed317f83246f"
+      ],
+      "bit_identical_across_repeats": false
+    },
+    "zh_fact": {
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "巴黎是法国的首都。",
+      "first_callback_s": {
+        "n": 5,
+        "median": 1.5459820420001051,
+        "p95": 1.5811338915998931,
+        "min": 1.5262079169997378,
+        "max": 1.5880417499997748
+      },
+      "total_s": {
+        "n": 5,
+        "median": 1.5461197919998995,
+        "p95": 1.5812822578001033,
+        "min": 1.5263470419999976,
+        "max": 1.5881902910000463
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.8308563401625039,
+        "p95": 0.8494538601403414,
+        "min": 0.8198820279319594,
+        "max": 0.8530822269868873
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 1.8615833333333334,
+        "p95": 1.8617,
+        "min": 1.8607916666666666,
+        "max": 1.8617083333333333
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 510410752.0,
+        "p95": 510813798.4,
+        "min": 510410752.0,
+        "max": 510820352.0
+      },
+      "peak_incremental_vs_preload_bytes": {
+        "n": 5,
+        "median": 56705024.0,
+        "p95": 57108070.4,
+        "min": 56705024.0,
+        "max": 57114624.0
+      },
+      "callback_chunk_count": [
+        1
+      ],
+      "unique_full_pcm_hashes": [
+        "56adbfa4efd27c6c6ceda310a3ce257bda5cea1229b7371330be710b306249f0",
+        "62af0de80ae2091ab6aec3a2f0ea39349fb67c7838aecd3d601c123b131f9207",
+        "aa9d457f876e720158f17e0d659d4274ed7a995d40939dd3a5b587ed65d602d9",
+        "ee47753ab96869dd6d40be4befd9b68e366eddfadf2ac6a3285c7a02ddfc0f04",
+        "f7a64a97142c0b0e4de7aa2498b2115d2fc90222e70a818edbb9f15f6fdb1347"
+      ],
+      "unique_first_chunk_pcm_hashes": [
+        "56adbfa4efd27c6c6ceda310a3ce257bda5cea1229b7371330be710b306249f0",
+        "62af0de80ae2091ab6aec3a2f0ea39349fb67c7838aecd3d601c123b131f9207",
+        "aa9d457f876e720158f17e0d659d4274ed7a995d40939dd3a5b587ed65d602d9",
+        "ee47753ab96869dd6d40be4befd9b68e366eddfadf2ac6a3285c7a02ddfc0f04",
+        "f7a64a97142c0b0e4de7aa2498b2115d2fc90222e70a818edbb9f15f6fdb1347"
+      ],
+      "bit_identical_across_repeats": false
+    },
+    "en_chunked": {
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "I found three nearby cafes that are still open. The closest one is two minutes away. Would you like walking directions?",
+      "first_callback_s": {
+        "n": 5,
+        "median": 2.0802657920003185,
+        "p95": 2.120327508599712,
+        "min": 2.043481167000209,
+        "max": 2.1206884169996556
+      },
+      "total_s": {
+        "n": 5,
+        "median": 5.2307248750003055,
+        "p95": 5.309465275199727,
+        "min": 5.16120600000022,
+        "max": 5.324122416999671
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.8065001702461652,
+        "p95": 0.8187638918390042,
+        "min": 0.7960473249574582,
+        "max": 0.8210272757576613
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 6.4848333333333334,
+        "p95": 6.485775,
+        "min": 6.4835416666666665,
+        "max": 6.485791666666667
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 588546048.0,
+        "p95": 591151104.0,
+        "min": 532283392.0,
+        "max": 591413248.0
+      },
+      "peak_incremental_vs_preload_bytes": {
+        "n": 5,
+        "median": 134840320.0,
+        "p95": 137445376.0,
+        "min": 78577664.0,
+        "max": 137707520.0
+      },
+      "callback_chunk_count": [
+        3
+      ],
+      "unique_full_pcm_hashes": [
+        "5bdba12f016b1c8570be56d8b72dce49168fea2f5743fe383788e3729f192aaf",
+        "8e3f47c89bfd6716a26563ea51960315f5b97629035bdcdaa3d7a91726cc0121",
+        "a16a8ff70768c8a3ad4a0412b4aaf92bc96272f22065bdd828a0ceb9f34d245b",
+        "ca682b0fef23b3b182931ad01a14088b5c0a7b69165019b76c1c60ff50e4c702",
+        "f6186d57e3cb2d39dbba0ecde1c33498c2c34a260f27b16738814316b11b43db"
+      ],
+      "unique_first_chunk_pcm_hashes": [
+        "1e364f0f2e2f0ef9f8122cbc9cef11d8d208dbbdc80ebcaabb22efeda819985b",
+        "6371ce0813549543eb1e8ee3b0e138cf0436836b02fc0ff3c4dbfb6f6d58f4f2",
+        "66280f6d0c949681dd5f43c2fa43add5e0619204e1304d61057334e6dc76df14",
+        "6d908cb9db088de59184d94aa5eb3475b8c2055641bade667c786f8e63310ad3",
+        "d03742e2d0f65f370b778fd213e574d97d5f8964ffd46bc355ac52c9829eeef2"
+      ],
+      "bit_identical_across_repeats": false
+    },
+    "zh_chunked": {
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "我找到三家还在营业的咖啡馆。最近的一家步行只需两分钟。需要我为你导航吗？",
+      "first_callback_s": {
+        "n": 5,
+        "median": 2.262716416999865,
+        "p95": 2.2703441254000607,
+        "min": 2.249890499999765,
+        "max": 2.2710388340001373
+      },
+      "total_s": {
+        "n": 5,
+        "median": 5.79940466700009,
+        "p95": 5.920935124999869,
+        "min": 5.772181624999575,
+        "max": 5.949934374999884
+      },
+      "rtf": {
+        "n": 5,
+        "median": 0.7634478915705064,
+        "p95": 0.7797434161095014,
+        "min": 0.7601268539195815,
+        "max": 0.7835691474475953
+      },
+      "audio_duration_s": {
+        "n": 5,
+        "median": 7.593708333333334,
+        "p95": 7.595808333333333,
+        "min": 7.59325,
+        "max": 7.596333333333333
+      },
+      "peak_rss_bytes": {
+        "n": 5,
+        "median": 599408640.0,
+        "p95": 600096768.0,
+        "min": 591904768.0,
+        "max": 600096768.0
+      },
+      "peak_incremental_vs_preload_bytes": {
+        "n": 5,
+        "median": 145702912.0,
+        "p95": 146391040.0,
+        "min": 138199040.0,
+        "max": 146391040.0
+      },
+      "callback_chunk_count": [
+        3
+      ],
+      "unique_full_pcm_hashes": [
+        "08d861b681a9adbcb9bc48e23932bbbcc39a035c8f26416b1ad6f1b9c7e54f38",
+        "28f96deff01c02489fd289f99d4e4684012d8321ed35942a9244be6596d23a13",
+        "a0d0bad58566cacbf6d4d591fdce026834d0171bc2b3f61cc4d8301d7e290b56",
+        "bd40448e3fa662205025cf4cc170ef3763add23d17c57234c7a5d2d412a5a400",
+        "e54818c3a2f45dcfa820786fe9d0e0a3447bf7506c880b6bcca8ef0df9e07478"
+      ],
+      "unique_first_chunk_pcm_hashes": [
+        "0302825f3ee587364b4dc3f1f47eff9b6249d97ea0fca72d3eff564cf99a6057",
+        "a305cc38ae94ba6880fa7b16daf0d8d3eee3e05c53124911c31fd242e0a57c63",
+        "bb4b2f630cc51d40941bfd1fb48543649aed535a740b906d9d3e5fa9ba770ef7",
+        "bd21325f1764df88744f8ff1b00be949ad0b8dfe6acaf6c6b9f132bde36866a1",
+        "e3d133f27504df71365cda713f0c50d3408f5964dcfc1881d3c2ebf037def107"
+      ],
+      "bit_identical_across_repeats": false
+    }
+  },
+  "runs": [
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Sure, I can help with that.",
+      "repeat_index": 0,
+      "first_callback_s": 1.3088851249999607,
+      "callback_times_s": [
+        1.3088851249999607
+      ],
+      "callback_chunk_samples": [
+        36452
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "e56cb6c703b37de59cc142534736916ae71054529c4bbe3c32e82637044633d6"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "e56cb6c703b37de59cc142534736916ae71054529c4bbe3c32e82637044633d6",
+      "total_s": 1.3090166669999235,
+      "rtf": 0.8618566884669748,
+      "peak_rss_bytes": 469336064,
+      "peak_incremental_vs_preload_bytes": 15630336,
+      "wav_path": "samples/en_short.wav",
+      "first_chunk_wav_path": "samples/en_short.first_chunk.wav",
+      "num_samples": 36452,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.5188333333333333,
+      "peak_abs": 0.1900911033153534,
+      "rms": 0.04153691604733467,
+      "dc_mean": 0.018080556765198708,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "e56cb6c703b37de59cc142534736916ae71054529c4bbe3c32e82637044633d6",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Sure, I can help with that.",
+      "repeat_index": 1,
+      "first_callback_s": 1.3331031669999902,
+      "callback_times_s": [
+        1.3331031669999902
+      ],
+      "callback_chunk_samples": [
+        36452
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "96cc31751cfa8cfa42c181b3d98a8d73d354c83c5dcd90bca3178dbf2eeabe67"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "96cc31751cfa8cfa42c181b3d98a8d73d354c83c5dcd90bca3178dbf2eeabe67",
+      "total_s": 1.333245208000335,
+      "rtf": 0.8778087619885888,
+      "peak_rss_bytes": 498253824,
+      "peak_incremental_vs_preload_bytes": 44548096,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 36452,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.5188333333333333,
+      "peak_abs": 0.1904962658882141,
+      "rms": 0.04154552146792412,
+      "dc_mean": 0.018066108226776123,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "96cc31751cfa8cfa42c181b3d98a8d73d354c83c5dcd90bca3178dbf2eeabe67",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Sure, I can help with that.",
+      "repeat_index": 2,
+      "first_callback_s": 1.3120725829999174,
+      "callback_times_s": [
+        1.3120725829999174
+      ],
+      "callback_chunk_samples": [
+        36452
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "d664c3d1613f34e61e1edbb64ecd4ce0adcf6eecd82f25e874b04786f7734732"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "d664c3d1613f34e61e1edbb64ecd4ce0adcf6eecd82f25e874b04786f7734732",
+      "total_s": 1.3122037080001974,
+      "rtf": 0.8639550365413349,
+      "peak_rss_bytes": 498499584,
+      "peak_incremental_vs_preload_bytes": 44793856,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 36452,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.5188333333333333,
+      "peak_abs": 0.20156152546405792,
+      "rms": 0.041701529175043106,
+      "dc_mean": 0.018115030601620674,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "d664c3d1613f34e61e1edbb64ecd4ce0adcf6eecd82f25e874b04786f7734732",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Sure, I can help with that.",
+      "repeat_index": 3,
+      "first_callback_s": 1.3180825829999776,
+      "callback_times_s": [
+        1.3180825829999776
+      ],
+      "callback_chunk_samples": [
+        36452
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "4530e73aa0cf6104c2c54a7898ad13e5173e804aa3853159f88fe0d19732378f"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "4530e73aa0cf6104c2c54a7898ad13e5173e804aa3853159f88fe0d19732378f",
+      "total_s": 1.3183692080001492,
+      "rtf": 0.8680144022825519,
+      "peak_rss_bytes": 498581504,
+      "peak_incremental_vs_preload_bytes": 44875776,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 36452,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.5188333333333333,
+      "peak_abs": 0.189974844455719,
+      "rms": 0.04146489500999451,
+      "dc_mean": 0.018034758046269417,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "4530e73aa0cf6104c2c54a7898ad13e5173e804aa3853159f88fe0d19732378f",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_short",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Sure, I can help with that.",
+      "repeat_index": 4,
+      "first_callback_s": 1.360661125000206,
+      "callback_times_s": [
+        1.360661125000206
+      ],
+      "callback_chunk_samples": [
+        36452
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "efc836b049581da3008987a77b25e6e0f8ad8cfda4ad18abe0bc940c50891e4b"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "efc836b049581da3008987a77b25e6e0f8ad8cfda4ad18abe0bc940c50891e4b",
+      "total_s": 1.3608030000000326,
+      "rtf": 0.8959528146603968,
+      "peak_rss_bytes": 498581504,
+      "peak_incremental_vs_preload_bytes": 44875776,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 36452,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.5188333333333333,
+      "peak_abs": 0.18808522820472717,
+      "rms": 0.041402850300073624,
+      "dc_mean": 0.01806117221713066,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "efc836b049581da3008987a77b25e6e0f8ad8cfda4ad18abe0bc940c50891e4b",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_short",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "当然可以，我可以帮你。",
+      "repeat_index": 0,
+      "first_callback_s": 1.0932145420001689,
+      "callback_times_s": [
+        1.0932145420001689,
+        2.304433458999938
+      ],
+      "callback_chunk_samples": [
+        27011,
+        32176
+      ],
+      "callback_progress": [
+        0.5,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "535510753d38097f156eb6f63667bc596782077ab9b3f906f8d0d5be13e6716c",
+        "d6a8b595ae32bf8a7b5cbf47547ae06ba754798df60789c3492a88fd8ca0373c"
+      ],
+      "callback_chunk_count": 2,
+      "first_chunk_pcm_f32_sha256": "535510753d38097f156eb6f63667bc596782077ab9b3f906f8d0d5be13e6716c",
+      "total_s": 2.304547042000195,
+      "rtf": 0.9344810348219149,
+      "peak_rss_bytes": 498827264,
+      "peak_incremental_vs_preload_bytes": 45121536,
+      "wav_path": "samples/zh_short.wav",
+      "first_chunk_wav_path": "samples/zh_short.first_chunk.wav",
+      "num_samples": 59187,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 2.466125,
+      "peak_abs": 0.40123116970062256,
+      "rms": 0.07529056817293167,
+      "dc_mean": 0.0307930801063776,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "59ef37a5493893d5bb9aed30fea0a85b4a19d084e25601e3593efcdc3036a433",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_short",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "当然可以，我可以帮你。",
+      "repeat_index": 1,
+      "first_callback_s": 1.0731415830000515,
+      "callback_times_s": [
+        1.0731415830000515,
+        2.2819840420002038
+      ],
+      "callback_chunk_samples": [
+        26955,
+        32277
+      ],
+      "callback_progress": [
+        0.5,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "6dd12130024647e572f9a7fd44d273de051212d257c4ac97500c715d817f8029",
+        "4351af1b68d38a6a6c46bedc1e44a51fac7557a34085c2035afc600e3634a9f4"
+      ],
+      "callback_chunk_count": 2,
+      "first_chunk_pcm_f32_sha256": "6dd12130024647e572f9a7fd44d273de051212d257c4ac97500c715d817f8029",
+      "total_s": 2.28210054200008,
+      "rtf": 0.9246760705024636,
+      "peak_rss_bytes": 499580928,
+      "peak_incremental_vs_preload_bytes": 45875200,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 59232,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 2.468,
+      "peak_abs": 0.4208160638809204,
+      "rms": 0.0751282125711441,
+      "dc_mean": 0.030712248757481575,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "9f053255ae6d73ccb4d95ff5e18668688e8beff1e4f30a7118923c540213c4d4",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_short",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "当然可以，我可以帮你。",
+      "repeat_index": 2,
+      "first_callback_s": 1.0999960419999297,
+      "callback_times_s": [
+        1.0999960419999297,
+        2.3105603340000016
+      ],
+      "callback_chunk_samples": [
+        26904,
+        32282
+      ],
+      "callback_progress": [
+        0.5,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "dd1e300e575ef23085ef55284a197f7e909bd8c8cfc723a9ebb5c6d45dcc910f",
+        "699110e28ecdecd52d1c0ddc031a62ffa6fb0fc65f3a301890af458a6364a024"
+      ],
+      "callback_chunk_count": 2,
+      "first_chunk_pcm_f32_sha256": "dd1e300e575ef23085ef55284a197f7e909bd8c8cfc723a9ebb5c6d45dcc910f",
+      "total_s": 2.3106703339999513,
+      "rtf": 0.9369798265805905,
+      "peak_rss_bytes": 499613696,
+      "peak_incremental_vs_preload_bytes": 45907968,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 59186,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 2.466083333333333,
+      "peak_abs": 0.4157789647579193,
+      "rms": 0.07541504502296448,
+      "dc_mean": 0.030907640233635902,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "e95e750b774f8b30ae405bace3c05a9aa5ac661e3ea1f83a8f3d3fe43d5f754c",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_short",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "当然可以，我可以帮你。",
+      "repeat_index": 3,
+      "first_callback_s": 1.0696591250002712,
+      "callback_times_s": [
+        1.0696591250002712,
+        2.279356667000229
+      ],
+      "callback_chunk_samples": [
+        26903,
+        32280
+      ],
+      "callback_progress": [
+        0.5,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "5377e34525f31de5f2e50b837936180958fa7ac0b7f068d190e97e63163c6709",
+        "a865e1a62eae0f9a3aed95d59fdd17d314d2e0273b83da7b05d90c3aff378511"
+      ],
+      "callback_chunk_count": 2,
+      "first_chunk_pcm_f32_sha256": "5377e34525f31de5f2e50b837936180958fa7ac0b7f068d190e97e63163c6709",
+      "total_s": 2.279474792000201,
+      "rtf": 0.9243768482166301,
+      "peak_rss_bytes": 499630080,
+      "peak_incremental_vs_preload_bytes": 45924352,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 59183,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 2.4659583333333335,
+      "peak_abs": 0.3800802528858185,
+      "rms": 0.07521241158246994,
+      "dc_mean": 0.030782917514443398,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "659038f13b488d807a68e0713e62647e7f3baff86eed9821ed3ca00a73eedc7a",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_short",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "当然可以，我可以帮你。",
+      "repeat_index": 4,
+      "first_callback_s": 1.0733344999998735,
+      "callback_times_s": [
+        1.0733344999998735,
+        2.278384707999976
+      ],
+      "callback_chunk_samples": [
+        26904,
+        32362
+      ],
+      "callback_progress": [
+        0.5,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "d666d4c850bb8d1f483ada75577e4cd9b8b1a5c1d5532e854401ad919e8f8335",
+        "ee6f9e4d6732897f041c25cbfa619620c6ec5fbfaa63264d224f6c639001999f"
+      ],
+      "callback_chunk_count": 2,
+      "first_chunk_pcm_f32_sha256": "d666d4c850bb8d1f483ada75577e4cd9b8b1a5c1d5532e854401ad919e8f8335",
+      "total_s": 2.278495041000042,
+      "rtf": 0.9226855361252828,
+      "peak_rss_bytes": 499646464,
+      "peak_incremental_vs_preload_bytes": 45940736,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 59266,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 2.4694166666666666,
+      "peak_abs": 0.415667325258255,
+      "rms": 0.07517232745885849,
+      "dc_mean": 0.030724838376045227,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "1064139919972df22e04168c0d0689a60b89ff7ac3ee70a428d8c98730a15b43",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_fact",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Paris is the capital of France.",
+      "repeat_index": 0,
+      "first_callback_s": 1.6442464159999872,
+      "callback_times_s": [
+        1.6442464159999872
+      ],
+      "callback_chunk_samples": [
+        46228
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "7b072ccb5edecbfe6a05c7653a2f4f2fd91edc29bb582226bcfd09dc4568b874"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "7b072ccb5edecbfe6a05c7653a2f4f2fd91edc29bb582226bcfd09dc4568b874",
+      "total_s": 1.6444033750003655,
+      "rtf": 0.8537181145627926,
+      "peak_rss_bytes": 499908608,
+      "peak_incremental_vs_preload_bytes": 46202880,
+      "wav_path": "samples/en_fact.wav",
+      "first_chunk_wav_path": "samples/en_fact.first_chunk.wav",
+      "num_samples": 46228,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.9261666666666666,
+      "peak_abs": 0.22462458908557892,
+      "rms": 0.04107249528169632,
+      "dc_mean": 0.017830075696110725,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "7b072ccb5edecbfe6a05c7653a2f4f2fd91edc29bb582226bcfd09dc4568b874",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_fact",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Paris is the capital of France.",
+      "repeat_index": 1,
+      "first_callback_s": 1.6239766250000685,
+      "callback_times_s": [
+        1.6239766250000685
+      ],
+      "callback_chunk_samples": [
+        46219
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "6f64fd594c84ff06f978524d04d4b982b44fbe79165e03c6c926326d8f0b455c"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "6f64fd594c84ff06f978524d04d4b982b44fbe79165e03c6c926326d8f0b455c",
+      "total_s": 1.6241288329997587,
+      "rtf": 0.8433564549642834,
+      "peak_rss_bytes": 509952000,
+      "peak_incremental_vs_preload_bytes": 56246272,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 46219,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.9257916666666666,
+      "peak_abs": 0.23476256430149078,
+      "rms": 0.04103313386440277,
+      "dc_mean": 0.017841186374425888,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "6f64fd594c84ff06f978524d04d4b982b44fbe79165e03c6c926326d8f0b455c",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_fact",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Paris is the capital of France.",
+      "repeat_index": 2,
+      "first_callback_s": 1.609552624999651,
+      "callback_times_s": [
+        1.609552624999651
+      ],
+      "callback_chunk_samples": [
+        46220
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "58e0e0a8da34b01a03fc12812c4530bac99886e8c0994cf25c0965a9016a36ff"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "58e0e0a8da34b01a03fc12812c4530bac99886e8c0994cf25c0965a9016a36ff",
+      "total_s": 1.6097129579998182,
+      "rtf": 0.8358526826481099,
+      "peak_rss_bytes": 509952000,
+      "peak_incremental_vs_preload_bytes": 56246272,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 46220,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.9258333333333333,
+      "peak_abs": 0.24552887678146362,
+      "rms": 0.041115324944257736,
+      "dc_mean": 0.01782321184873581,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "58e0e0a8da34b01a03fc12812c4530bac99886e8c0994cf25c0965a9016a36ff",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_fact",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Paris is the capital of France.",
+      "repeat_index": 3,
+      "first_callback_s": 1.6116481670001122,
+      "callback_times_s": [
+        1.6116481670001122
+      ],
+      "callback_chunk_samples": [
+        46228
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "833087f32aeb08721e5f3e223bc9cd6df11d98f429a6b8f090b2ed317f83246f"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "833087f32aeb08721e5f3e223bc9cd6df11d98f429a6b8f090b2ed317f83246f",
+      "total_s": 1.611810708000121,
+      "rtf": 0.8367971141300273,
+      "peak_rss_bytes": 509952000,
+      "peak_incremental_vs_preload_bytes": 56246272,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 46228,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.9261666666666666,
+      "peak_abs": 0.23192356526851654,
+      "rms": 0.04106643795967102,
+      "dc_mean": 0.017823459580540657,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "833087f32aeb08721e5f3e223bc9cd6df11d98f429a6b8f090b2ed317f83246f",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_fact",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "Paris is the capital of France.",
+      "repeat_index": 4,
+      "first_callback_s": 1.6059355829997912,
+      "callback_times_s": [
+        1.6059355829997912
+      ],
+      "callback_chunk_samples": [
+        46228
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "337d855c9c9b22df63c8e7909f37d4971b21ebefd4bc61db4a913bbf0afad07e"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "337d855c9c9b22df63c8e7909f37d4971b21ebefd4bc61db4a913bbf0afad07e",
+      "total_s": 1.6060860829998092,
+      "rtf": 0.8338250841913001,
+      "peak_rss_bytes": 510394368,
+      "peak_incremental_vs_preload_bytes": 56688640,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 46228,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.9261666666666666,
+      "peak_abs": 0.22657957673072815,
+      "rms": 0.04121515154838562,
+      "dc_mean": 0.01786779798567295,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "337d855c9c9b22df63c8e7909f37d4971b21ebefd4bc61db4a913bbf0afad07e",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_fact",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "巴黎是法国的首都。",
+      "repeat_index": 0,
+      "first_callback_s": 1.5880417499997748,
+      "callback_times_s": [
+        1.5880417499997748
+      ],
+      "callback_chunk_samples": [
+        44681
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "56adbfa4efd27c6c6ceda310a3ce257bda5cea1229b7371330be710b306249f0"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "56adbfa4efd27c6c6ceda310a3ce257bda5cea1229b7371330be710b306249f0",
+      "total_s": 1.5881902910000463,
+      "rtf": 0.8530822269868873,
+      "peak_rss_bytes": 510410752,
+      "peak_incremental_vs_preload_bytes": 56705024,
+      "wav_path": "samples/zh_fact.wav",
+      "first_chunk_wav_path": "samples/zh_fact.first_chunk.wav",
+      "num_samples": 44681,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.8617083333333333,
+      "peak_abs": 0.3421100080013275,
+      "rms": 0.07317158579826355,
+      "dc_mean": 0.028845790773630142,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "56adbfa4efd27c6c6ceda310a3ce257bda5cea1229b7371330be710b306249f0",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_fact",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "巴黎是法国的首都。",
+      "repeat_index": 1,
+      "first_callback_s": 1.5459820420001051,
+      "callback_times_s": [
+        1.5459820420001051
+      ],
+      "callback_chunk_samples": [
+        44661
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "aa9d457f876e720158f17e0d659d4274ed7a995d40939dd3a5b587ed65d602d9"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "aa9d457f876e720158f17e0d659d4274ed7a995d40939dd3a5b587ed65d602d9",
+      "total_s": 1.5461197919998995,
+      "rtf": 0.8308563401625039,
+      "peak_rss_bytes": 510410752,
+      "peak_incremental_vs_preload_bytes": 56705024,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 44661,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.860875,
+      "peak_abs": 0.325692355632782,
+      "rms": 0.07278048247098923,
+      "dc_mean": 0.02869519591331482,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "aa9d457f876e720158f17e0d659d4274ed7a995d40939dd3a5b587ed65d602d9",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_fact",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "巴黎是法国的首都。",
+      "repeat_index": 2,
+      "first_callback_s": 1.5262079169997378,
+      "callback_times_s": [
+        1.5262079169997378
+      ],
+      "callback_chunk_samples": [
+        44680
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "f7a64a97142c0b0e4de7aa2498b2115d2fc90222e70a818edbb9f15f6fdb1347"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "f7a64a97142c0b0e4de7aa2498b2115d2fc90222e70a818edbb9f15f6fdb1347",
+      "total_s": 1.5263470419999976,
+      "rtf": 0.8198820279319594,
+      "peak_rss_bytes": 510410752,
+      "peak_incremental_vs_preload_bytes": 56705024,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 44680,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.8616666666666666,
+      "peak_abs": 0.3531239628791809,
+      "rms": 0.0728578194975853,
+      "dc_mean": 0.028872234746813774,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "f7a64a97142c0b0e4de7aa2498b2115d2fc90222e70a818edbb9f15f6fdb1347",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_fact",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "巴黎是法国的首都。",
+      "repeat_index": 3,
+      "first_callback_s": 1.541282040999704,
+      "callback_times_s": [
+        1.541282040999704
+      ],
+      "callback_chunk_samples": [
+        44678
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "62af0de80ae2091ab6aec3a2f0ea39349fb67c7838aecd3d601c123b131f9207"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "62af0de80ae2091ab6aec3a2f0ea39349fb67c7838aecd3d601c123b131f9207",
+      "total_s": 1.541421540999636,
+      "rtf": 0.8280164059266588,
+      "peak_rss_bytes": 510787584,
+      "peak_incremental_vs_preload_bytes": 57081856,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 44678,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.8615833333333334,
+      "peak_abs": 0.33939120173454285,
+      "rms": 0.07269158959388733,
+      "dc_mean": 0.02869393862783909,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "62af0de80ae2091ab6aec3a2f0ea39349fb67c7838aecd3d601c123b131f9207",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_fact",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "巴黎是法国的首都。",
+      "repeat_index": 4,
+      "first_callback_s": 1.5535024580003665,
+      "callback_times_s": [
+        1.5535024580003665
+      ],
+      "callback_chunk_samples": [
+        44659
+      ],
+      "callback_progress": [
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "ee47753ab96869dd6d40be4befd9b68e366eddfadf2ac6a3285c7a02ddfc0f04"
+      ],
+      "callback_chunk_count": 1,
+      "first_chunk_pcm_f32_sha256": "ee47753ab96869dd6d40be4befd9b68e366eddfadf2ac6a3285c7a02ddfc0f04",
+      "total_s": 1.5536501250003312,
+      "rtf": 0.8349403927541581,
+      "peak_rss_bytes": 510820352,
+      "peak_incremental_vs_preload_bytes": 57114624,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 44659,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 1.8607916666666666,
+      "peak_abs": 0.339043527841568,
+      "rms": 0.07322785258293152,
+      "dc_mean": 0.028882483020424843,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "ee47753ab96869dd6d40be4befd9b68e366eddfadf2ac6a3285c7a02ddfc0f04",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "I found three nearby cafes that are still open. The closest one is two minutes away. Would you like walking directions?",
+      "repeat_index": 0,
+      "first_callback_s": 2.0802657920003185,
+      "callback_times_s": [
+        2.0802657920003185,
+        3.7429435420003756,
+        5.209619333000319
+      ],
+      "callback_chunk_samples": [
+        65577,
+        48774,
+        41308
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "d03742e2d0f65f370b778fd213e574d97d5f8964ffd46bc355ac52c9829eeef2",
+        "6135942cf2c931b530f784506931388d0646002a42f29d51ab8cc271866262b1",
+        "f75e3406a9d54ea96ab8ecfedc9f03ce8f0e2a60ca47a121ac47bed6241859de"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "d03742e2d0f65f370b778fd213e574d97d5f8964ffd46bc355ac52c9829eeef2",
+      "total_s": 5.209833875000186,
+      "rtf": 0.8032687669842699,
+      "peak_rss_bytes": 532283392,
+      "peak_incremental_vs_preload_bytes": 78577664,
+      "wav_path": "samples/en_chunked.wav",
+      "first_chunk_wav_path": "samples/en_chunked.first_chunk.wav",
+      "num_samples": 155659,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 6.485791666666667,
+      "peak_abs": 0.2389099895954132,
+      "rms": 0.04316112399101257,
+      "dc_mean": 0.019734684377908707,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "ca682b0fef23b3b182931ad01a14088b5c0a7b69165019b76c1c60ff50e4c702",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "I found three nearby cafes that are still open. The closest one is two minutes away. Would you like walking directions?",
+      "repeat_index": 1,
+      "first_callback_s": 2.1188838749999377,
+      "callback_times_s": [
+        2.1188838749999377,
+        3.7707692909998514,
+        5.250710249999884
+      ],
+      "callback_chunk_samples": [
+        65580,
+        48774,
+        41282
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "1e364f0f2e2f0ef9f8122cbc9cef11d8d208dbbdc80ebcaabb22efeda819985b",
+        "ba33fd99d62eac326f94122858288c53ef56601c8574508c34499e2b0376bead",
+        "41d754b6382f2d5418113232e81d0a3b83aa21c9cc9c622fd391105cd53b55b2"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "1e364f0f2e2f0ef9f8122cbc9cef11d8d208dbbdc80ebcaabb22efeda819985b",
+      "total_s": 5.250836707999952,
+      "rtf": 0.809710356164376,
+      "peak_rss_bytes": 586203136,
+      "peak_incremental_vs_preload_bytes": 132497408,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 155636,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 6.4848333333333334,
+      "peak_abs": 0.23614642024040222,
+      "rms": 0.0432024709880352,
+      "dc_mean": 0.01975405402481556,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "f6186d57e3cb2d39dbba0ecde1c33498c2c34a260f27b16738814316b11b43db",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "I found three nearby cafes that are still open. The closest one is two minutes away. Would you like walking directions?",
+      "repeat_index": 2,
+      "first_callback_s": 2.043481167000209,
+      "callback_times_s": [
+        2.043481167000209,
+        3.6995552500002304,
+        5.161076084000342
+      ],
+      "callback_chunk_samples": [
+        65548,
+        48774,
+        41283
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "6d908cb9db088de59184d94aa5eb3475b8c2055641bade667c786f8e63310ad3",
+        "e3ab6654736195a28a9e61b53b1522254f63f12fbffc7c79d240d741cff9bee6",
+        "bf3bcab00ea1209249e1abdf12c0c549a6f399ba151e07d52deed4749958a787"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "6d908cb9db088de59184d94aa5eb3475b8c2055641bade667c786f8e63310ad3",
+      "total_s": 5.16120600000022,
+      "rtf": 0.7960473249574582,
+      "peak_rss_bytes": 588546048,
+      "peak_incremental_vs_preload_bytes": 134840320,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 155605,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 6.4835416666666665,
+      "peak_abs": 0.24962416291236877,
+      "rms": 0.0431564562022686,
+      "dc_mean": 0.019726725295186043,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "5bdba12f016b1c8570be56d8b72dce49168fea2f5743fe383788e3729f192aaf",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "I found three nearby cafes that are still open. The closest one is two minutes away. Would you like walking directions?",
+      "repeat_index": 3,
+      "first_callback_s": 2.07987279200006,
+      "callback_times_s": [
+        2.07987279200006,
+        3.734337042000334,
+        5.230592166999941
+      ],
+      "callback_chunk_samples": [
+        65581,
+        48774,
+        41302
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "66280f6d0c949681dd5f43c2fa43add5e0619204e1304d61057334e6dc76df14",
+        "e44d040a3d402aa9d87ef5055fd353c338dffccc61961bfd5810a3f986f4eed6",
+        "96711a4b92140383215164d58e814b02c23375c2cebb81863b2f607b2aaa602b"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "66280f6d0c949681dd5f43c2fa43add5e0619204e1304d61057334e6dc76df14",
+      "total_s": 5.2307248750003055,
+      "rtf": 0.8065001702461652,
+      "peak_rss_bytes": 590102528,
+      "peak_incremental_vs_preload_bytes": 136396800,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 155657,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 6.485708333333333,
+      "peak_abs": 0.2498643845319748,
+      "rms": 0.043150343000888824,
+      "dc_mean": 0.01972876489162445,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "a16a8ff70768c8a3ad4a0412b4aaf92bc96272f22065bdd828a0ceb9f34d245b",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "en_chunked",
+      "lang": "en",
+      "speaker": "af_maple",
+      "sid": 0,
+      "text": "I found three nearby cafes that are still open. The closest one is two minutes away. Would you like walking directions?",
+      "repeat_index": 4,
+      "first_callback_s": 2.1206884169996556,
+      "callback_times_s": [
+        2.1206884169996556,
+        3.7883522499996616,
+        5.323979667000003
+      ],
+      "callback_chunk_samples": [
+        65579,
+        48774,
+        41280
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "6371ce0813549543eb1e8ee3b0e138cf0436836b02fc0ff3c4dbfb6f6d58f4f2",
+        "182d770585005a54504bed84c4bef600a49ebbff7cdd9cc8f34078c848939259",
+        "824188cc26383aa0ff70377ef3cfeb03cb4581d0c1b19a357067a149094bdfdd"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "6371ce0813549543eb1e8ee3b0e138cf0436836b02fc0ff3c4dbfb6f6d58f4f2",
+      "total_s": 5.324122416999671,
+      "rtf": 0.8210272757576613,
+      "peak_rss_bytes": 591413248,
+      "peak_incremental_vs_preload_bytes": 137707520,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 155633,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 6.484708333333334,
+      "peak_abs": 0.23972606658935547,
+      "rms": 0.04316827282309532,
+      "dc_mean": 0.019734308123588562,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "8e3f47c89bfd6716a26563ea51960315f5b97629035bdcdaa3d7a91726cc0121",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_chunked",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "我找到三家还在营业的咖啡馆。最近的一家步行只需两分钟。需要我为你导航吗？",
+      "repeat_index": 0,
+      "first_callback_s": 2.262153040999692,
+      "callback_times_s": [
+        2.262153040999692,
+        4.288684165999712,
+        5.772042040999622
+      ],
+      "callback_chunk_samples": [
+        73426,
+        65355,
+        43468
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "bd21325f1764df88744f8ff1b00be949ad0b8dfe6acaf6c6b9f132bde36866a1",
+        "6dcb9a8793fa5a7e91497428f889dbd0a876352fa8f0071bd415770d0ee23056",
+        "b8e8b2b549668183792a04f13c68188f6a880f3799e0db6aad1d90089d768ee3"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "bd21325f1764df88744f8ff1b00be949ad0b8dfe6acaf6c6b9f132bde36866a1",
+      "total_s": 5.772181624999575,
+      "rtf": 0.7601268539195815,
+      "peak_rss_bytes": 591904768,
+      "peak_incremental_vs_preload_bytes": 138199040,
+      "wav_path": "samples/zh_chunked.wav",
+      "first_chunk_wav_path": "samples/zh_chunked.first_chunk.wav",
+      "num_samples": 182249,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 7.593708333333334,
+      "peak_abs": 0.34865427017211914,
+      "rms": 0.0682811364531517,
+      "dc_mean": 0.027177631855010986,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "28f96deff01c02489fd289f99d4e4684012d8321ed35942a9244be6596d23a13",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_chunked",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "我找到三家还在营业的咖啡馆。最近的一家步行只需两分钟。需要我为你导航吗？",
+      "repeat_index": 1,
+      "first_callback_s": 2.262716416999865,
+      "callback_times_s": [
+        2.262716416999865,
+        4.2919601669996155,
+        5.7746343329999945
+      ],
+      "callback_chunk_samples": [
+        73425,
+        65329,
+        43484
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "bb4b2f630cc51d40941bfd1fb48543649aed535a740b906d9d3e5fa9ba770ef7",
+        "dc00cbe3f00e2ddfa0249d54887bd83367996649509a0e551369698708e61b5d",
+        "f2de752ddc574bba9cb72a0c780f8264d28f57da5ee6aeff19c1f7fff5e5b91b"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "bb4b2f630cc51d40941bfd1fb48543649aed535a740b906d9d3e5fa9ba770ef7",
+      "total_s": 5.774763874999735,
+      "rtf": 0.7605128074276146,
+      "peak_rss_bytes": 599375872,
+      "peak_incremental_vs_preload_bytes": 145670144,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 182238,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 7.59325,
+      "peak_abs": 0.3659755289554596,
+      "rms": 0.06862843036651611,
+      "dc_mean": 0.027317576110363007,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "bd40448e3fa662205025cf4cc170ef3763add23d17c57234c7a5d2d412a5a400",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_chunked",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "我找到三家还在营业的咖啡馆。最近的一家步行只需两分钟。需要我为你导航吗？",
+      "repeat_index": 2,
+      "first_callback_s": 2.2675652909997552,
+      "callback_times_s": [
+        2.2675652909997552,
+        4.427695916000175,
+        5.949798957999974
+      ],
+      "callback_chunk_samples": [
+        73427,
+        65354,
+        43460
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "0302825f3ee587364b4dc3f1f47eff9b6249d97ea0fca72d3eff564cf99a6057",
+        "97fab7a15b201257922a50aca1538b1ebace1f3583e62ee2d1c9c7a62271e8e1",
+        "4e2f9e51cf27e7b711df6452afc056f64a5b2ae65147824f64c354a4d41d0709"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "0302825f3ee587364b4dc3f1f47eff9b6249d97ea0fca72d3eff564cf99a6057",
+      "total_s": 5.949934374999884,
+      "rtf": 0.7835691474475953,
+      "peak_rss_bytes": 599408640,
+      "peak_incremental_vs_preload_bytes": 145702912,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 182241,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 7.593375,
+      "peak_abs": 0.3534926176071167,
+      "rms": 0.06824042648077011,
+      "dc_mean": 0.02713131718337536,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "a0d0bad58566cacbf6d4d591fdce026834d0171bc2b3f61cc4d8301d7e290b56",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_chunked",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "我找到三家还在营业的咖啡馆。最近的一家步行只需两分钟。需要我为你导航吗？",
+      "repeat_index": 3,
+      "first_callback_s": 2.2710388340001373,
+      "callback_times_s": [
+        2.2710388340001373,
+        4.314448709000317,
+        5.799259750000147
+      ],
+      "callback_chunk_samples": [
+        73422,
+        65424,
+        43466
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "e3d133f27504df71365cda713f0c50d3408f5964dcfc1881d3c2ebf037def107",
+        "9342bcd910c170a1454625ce3c63de6149fd4e79b6375bf062aedbb417cf8b47",
+        "1dcd20ad2d5022c2b01055b3c3a88fbf863e1881238b7345ba9a0eea869368be"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "e3d133f27504df71365cda713f0c50d3408f5964dcfc1881d3c2ebf037def107",
+      "total_s": 5.79940466700009,
+      "rtf": 0.7634478915705064,
+      "peak_rss_bytes": 600096768,
+      "peak_incremental_vs_preload_bytes": 146391040,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 182312,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 7.596333333333333,
+      "peak_abs": 0.36433786153793335,
+      "rms": 0.06821966171264648,
+      "dc_mean": 0.02717435732483864,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "e54818c3a2f45dcfa820786fe9d0e0a3447bf7506c880b6bcca8ef0df9e07478",
+      "audio_status": "ok"
+    },
+    {
+      "case_id": "zh_chunked",
+      "lang": "zh",
+      "speaker": "zf_001",
+      "sid": 3,
+      "text": "我找到三家还在营业的咖啡馆。最近的一家步行只需两分钟。需要我为你导航吗？",
+      "repeat_index": 4,
+      "first_callback_s": 2.249890499999765,
+      "callback_times_s": [
+        2.249890499999765,
+        4.2855179999996835,
+        5.804798040999685
+      ],
+      "callback_chunk_samples": [
+        73425,
+        65352,
+        43472
+      ],
+      "callback_progress": [
+        0.3333333432674408,
+        0.6666666865348816,
+        1.0
+      ],
+      "callback_pcm_f32_sha256": [
+        "a305cc38ae94ba6880fa7b16daf0d8d3eee3e05c53124911c31fd242e0a57c63",
+        "607d0a47a510d071eecf6b3787784acf3640572d72fa977d92322c3465a5c087",
+        "4e193bf0831bb99eb86376d1888c4ac37b710f5e2b4b6601249a5b859ae5ec83"
+      ],
+      "callback_chunk_count": 3,
+      "first_chunk_pcm_f32_sha256": "a305cc38ae94ba6880fa7b16daf0d8d3eee3e05c53124911c31fd242e0a57c63",
+      "total_s": 5.804938124999808,
+      "rtf": 0.7644404907571256,
+      "peak_rss_bytes": 600096768,
+      "peak_incremental_vs_preload_bytes": 146391040,
+      "wav_path": null,
+      "first_chunk_wav_path": null,
+      "num_samples": 182249,
+      "sample_rate_hz": 24000,
+      "audio_duration_s": 7.593708333333334,
+      "peak_abs": 0.36557966470718384,
+      "rms": 0.06852350383996964,
+      "dc_mean": 0.02723541483283043,
+      "clip_count": 0,
+      "nonfinite_count": 0,
+      "pcm_f32_sha256": "08d861b681a9adbcb9bc48e23932bbbcc39a035c8f26416b1ad6f1b9c7e54f38",
+      "audio_status": "ok"
+    }
+  ],
+  "warmup_failures": [
+    {
+      "case_id": "warmup_zh",
+      "lang": "zh",
+      "text": "你好。",
+      "audio_status": "all_nonfinite",
+      "num_samples": 26400,
+      "nonfinite_count": 26400,
+      "pcm_f32_sha256": "d2e2237c131b9da23336193cd9b445b05c1ba1c80648f8899be0dd810f668cb1"
+    }
+  ],
+  "measured_output_gate": {
+    "all_measured_case_outputs_finite": true,
+    "all_measured_case_outputs_unclipped": true
+  }
+}

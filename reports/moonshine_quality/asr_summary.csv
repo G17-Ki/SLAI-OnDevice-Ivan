@@ -1,0 +1,4 @@
+model,condition,samples,audio_seconds,inference_seconds,real_time_factor,wer_percent,device
+UsefulSensors/moonshine-base,clean,18,178.685,28.797925460152328,0.16116588107648838,8.571428571428571,mps
+UsefulSensors/moonshine-base,gaussian_10db,18,178.685,11.901685373624787,0.06660707599196791,14.523809523809526,mps
+UsefulSensors/moonshine-base,competing_speech_5db,18,178.685,15.981723834527656,0.08944076914417917,64.04761904761904,mps

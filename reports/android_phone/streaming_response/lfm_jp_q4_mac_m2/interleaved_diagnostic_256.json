@@ -1,0 +1,90 @@
+{
+  "created_utc": "2026-07-22T15:31:42.511557+00:00",
+  "base_url": "http://127.0.0.1:18081/v1/chat/completions",
+  "mode": "interleaved",
+  "model": "LFM2.5-Audio-1.5B-JP",
+  "system_prompt": "Respond with interleaved text and audio.",
+  "input_audio": "<workspace>/work/tts-research/lfm-jp/assets/question_jp.wav",
+  "input_text": null,
+  "warmups": 0,
+  "measured_runs": 1,
+  "max_tokens": 256,
+  "summary": {
+    "first_text_ms": {
+      "min": 200.0814170000922,
+      "median": 200.0814170000922,
+      "p95": 200.0814170000922,
+      "max": 200.0814170000922,
+      "mean": 200.0814170000922
+    },
+    "first_pcm_ms": {
+      "min": 278.3356670001922,
+      "median": 278.3356670001922,
+      "p95": 278.3356670001922,
+      "max": 278.3356670001922,
+      "mean": 278.3356670001922
+    },
+    "total_ms": {
+      "min": 5325.581542000009,
+      "median": 5325.581542000009,
+      "p95": 5325.581542000009,
+      "max": 5325.581542000009,
+      "mean": 5325.581542000009
+    },
+    "audio_seconds": {
+      "min": 14.06,
+      "median": 14.06,
+      "p95": 14.06,
+      "max": 14.06,
+      "mean": 14.06
+    },
+    "largest_pcm_arrival_gap_ms": {
+      "min": 86.1190410000745,
+      "median": 86.1190410000745,
+      "p95": 86.1190410000745,
+      "max": 86.1190410000745,
+      "mean": 86.1190410000745
+    },
+    "stream_generation_rtf": {
+      "min": 0.35897908072544926,
+      "median": 0.35897908072544926,
+      "p95": 0.35897908072544926,
+      "max": 0.35897908072544926,
+      "mean": 0.35897908072544926
+    },
+    "character_error_rate_percent": null
+  },
+  "runs": [
+    {
+      "run_index": 1,
+      "measured": true,
+      "first_text_ms": 200.0814170000922,
+      "first_pcm_ms": 278.3356670001922,
+      "total_ms": 5325.581542000009,
+      "transcript": "こんにちは！私はリキッド・リリと申します。質問に答えたり、アドバイスを提供したりするためのAIボイスアシスタントです。さまざまな言語タスクに対応できるように設計されており、リアルタイムでサポートします。何かご質問やお手伝いが必要なことがあれば、いつでもお気軽にお尋ねくださいね！",
+      "sse_events": 255,
+      "audio_chunks": 176,
+      "audio_formats": [
+        "pcm"
+      ],
+      "audio_sample_rate": 24000,
+      "audio_seconds": 14.06,
+      "first_chunk_ms": 60.0,
+      "audio_chunk_ms": {
+        "min": 60.0,
+        "median": 80.0,
+        "p95": 80.0,
+        "max": 80.0,
+        "mean": 79.88636363636364
+      },
+      "largest_pcm_arrival_gap_ms": 86.1190410000745,
+      "audio_wav": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/audio/interleaved-01.wav",
+      "pcm": {
+        "samples": 337440,
+        "peak_normalized": 0.5712890625,
+        "rms_normalized": 0.07372037150101889
+      },
+      "stream_generation_rtf": 0.35897908072544926
+    }
+  ]
+}

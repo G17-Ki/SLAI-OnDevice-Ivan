@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "locale": "zh",
+  "reference": "北京是中国的首都，也是全国的政治和文化中心。",
+  "judge": {
+    "model": "faster-whisper-small",
+    "compute_type": "int8",
+    "language_forced": "zh"
+  },
+  "items": [
+    {
+      "label": "local_golden",
+      "wav": "local_golden.wav",
+      "hypothesis": "北京是中國的首都,也是全國的政治和文化中心",
+      "dominant_script": "han",
+      "script_ok": true,
+      "reference_normalized": "北京是中国的首都也是全国的政治和文化中心",
+      "hypothesis_normalized": "北京是中国的首都也是全国的政治和文化中心",
+      "ref_char_count": 20,
+      "cer_edits": 0,
+      "cer": 0.0
+    },
+    {
+      "label": "remote_fixed_local",
+      "wav": "remote_fixed_local.wav",
+      "hypothesis": "北京是中國的首都 也是全國的政治和文化中心",
+      "dominant_script": "han",
+      "script_ok": true,
+      "reference_normalized": "北京是中国的首都也是全国的政治和文化中心",
+      "hypothesis_normalized": "北京是中国的首都也是全国的政治和文化中心",
+      "ref_char_count": 20,
+      "cer_edits": 0,
+      "cer": 0.0
+    },
+    {
+      "label": "remote_accumulated",
+      "wav": "remote_accumulated.wav",
+      "hypothesis": "北京是中國的首都,也是全國的政治和文化中心",
+      "dominant_script": "han",
+      "script_ok": true,
+      "reference_normalized": "北京是中国的首都也是全国的政治和文化中心",
+      "hypothesis_normalized": "北京是中国的首都也是全国的政治和文化中心",
+      "ref_char_count": 20,
+      "cer_edits": 0,
+      "cer": 0.0
+    }
+  ]
+}

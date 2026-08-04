@@ -1,0 +1,123 @@
+{
+  "created_utc": "2026-07-22T15:37:36.209934+00:00",
+  "base_url": "http://127.0.0.1:18081/v1/chat/completions",
+  "mode": "interleaved",
+  "model": "LFM2.5-Audio-1.5B-JP",
+  "system_prompt": "Respond with interleaved text and audio.",
+  "input_audio": "<workspace>/work/tts-research/lfm-jp/assets/question_jp.wav",
+  "input_text": null,
+  "warmups": 0,
+  "measured_runs": 2,
+  "max_tokens": 256,
+  "summary": {
+    "first_text_ms": {
+      "min": 200.1548329999423,
+      "median": 272.93108349999784,
+      "p95": 345.7073340000534,
+      "max": 345.7073340000534,
+      "mean": 272.93108349999784
+    },
+    "first_pcm_ms": {
+      "min": 213.19437500005733,
+      "median": 244.31749999996555,
+      "p95": 275.44062499987376,
+      "max": 275.44062499987376,
+      "mean": 244.31749999996555
+    },
+    "total_ms": {
+      "min": 5517.084082999872,
+      "median": 5970.719271000007,
+      "p95": 6424.354459000142,
+      "max": 6424.354459000142,
+      "mean": 5970.719271000007
+    },
+    "audio_seconds": {
+      "min": 14.06,
+      "median": 15.580000000000002,
+      "p95": 17.1,
+      "max": 17.1,
+      "mean": 15.580000000000002
+    },
+    "largest_pcm_arrival_gap_ms": {
+      "min": 86.3814580000053,
+      "median": 88.60274999994999,
+      "p95": 90.82404199989469,
+      "max": 90.82404199989469,
+      "mean": 88.60274999994999
+    },
+    "stream_generation_rtf": {
+      "min": 0.3632257359064377,
+      "median": 0.3680155513813838,
+      "p95": 0.3728053668563299,
+      "max": 0.3728053668563299,
+      "mean": 0.3680155513813838
+    },
+    "character_error_rate_percent": null
+  },
+  "runs": [
+    {
+      "run_index": 1,
+      "measured": true,
+      "first_text_ms": 200.1548329999423,
+      "first_pcm_ms": 275.44062499987376,
+      "total_ms": 5517.084082999872,
+      "transcript": "こんにちは！私はリキッド・リリと申します。質問に答えたり、アドバイスを提供したりするためのAIボイスアシスタントです。さまざまな言語タスクに対応できるように設計されており、リアルタイムでサポートします。何かご質問やお手伝いが必要なことがあれば、いつでもお気軽にお尋ねくださいね！",
+      "sse_events": 255,
+      "audio_chunks": 176,
+      "audio_formats": [
+        "pcm"
+      ],
+      "audio_sample_rate": 24000,
+      "audio_seconds": 14.06,
+      "first_chunk_ms": 60.0,
+      "audio_chunk_ms": {
+        "min": 60.0,
+        "median": 80.0,
+        "p95": 80.0,
+        "max": 80.0,
+        "mean": 79.88636363636364
+      },
+      "largest_pcm_arrival_gap_ms": 90.82404199989469,
+      "audio_wav": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/audio/interleaved-01.wav",
+      "pcm": {
+        "samples": 337440,
+        "peak_normalized": 0.5712890625,
+        "rms_normalized": 0.07372037150101889
+      },
+      "pcm_sha256": "c5317f13156ba309aff4dafc9e5bb3317d1d221e801b6478c85c8c8ef5795538",
+      "stream_generation_rtf": 0.3728053668563299
+    },
+    {
+      "run_index": 2,
+      "measured": true,
+      "first_text_ms": 345.7073340000534,
+      "first_pcm_ms": 213.19437500005733,
+      "total_ms": 6424.354459000142,
+      "transcript": "紧密地下室に庵を構えた、専属の猫です。专门的食物和护专门的洗手场紧密地下室，場合があれば教えてください。",
+      "sse_events": 255,
+      "audio_chunks": 214,
+      "audio_formats": [
+        "pcm"
+      ],
+      "audio_sample_rate": 24000,
+      "audio_seconds": 17.1,
+      "first_chunk_ms": 60.0,
+      "audio_chunk_ms": {
+        "min": 60.0,
+        "median": 80.0,
+        "p95": 80.0,
+        "max": 80.0,
+        "mean": 79.90654205607477
+      },
+      "largest_pcm_arrival_gap_ms": 86.3814580000053,
+      "audio_wav": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/audio/interleaved-02.wav",
+      "pcm": {
+        "samples": 410400,
+        "peak_normalized": 0.999969482421875,
+        "rms_normalized": 0.4795966173336048
+      },
+      "pcm_sha256": "9a2e9ff96cc534519734a3881c3ce4dbc4f7d066304f3641a6165e7c6c2fe059",
+      "stream_generation_rtf": 0.3632257359064377
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "demo": "DEMO 1 - IT FITS",
+  "milestone": "ES/FR CPU ASR execution and exact-transcript parity",
+  "captured_at": "2026-08-03T06:22:45+08:00",
+  "branch": "sprint/overnight",
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "soc": "Snapdragon SM8850",
+    "boot_id": "67f1bad3-d306-4787-ac17-d9ab1c87e169",
+    "airplane_mode_on": true,
+    "main_pid_after": 10316,
+    "runtime_pid_after": 10410,
+    "runtime_uid": 10514
+  },
+  "wrapper_attempt": {
+    "command": "<USER_HOME>/Desktop/LMF_sprint-f/workstreams/sub2b_sprint/sprint/out/f/artifacts/nubia_esfr_bundle/verify_esfr.sh",
+    "result": "INTERRUPTED_READ_ONLY_PREFLIGHT_DEADLOCK",
+    "exit_code": 130,
+    "deadlock": "verify_bundle_payload invoked adb exec-out toybox sha256sum without a remote filename and waited indefinitely for stdin EOF after consuming the payload",
+    "phone_writes_before_interrupt": false,
+    "temporary_forward_opened_before_interrupt": false,
+    "all_exact_wrapper_processes_terminated": true,
+    "forward_list_after_interrupt": []
+  },
+  "direct_acceptance_core": {
+    "source_semantics": "The POST, exact-transcript, provider, service-ownership, backend-health, esfr_complete, and accepted-stack-complete checks are the same acceptance core embedded in verify_esfr.sh; only the deadlocking payload hash preflight was skipped because provisioning_receipt.json already binds every payload hash.",
+    "temporary_forward": {
+      "local_port": 60193,
+      "device_port": 6010,
+      "removed": true,
+      "final_forward_list": []
+    },
+    "before_health": {
+      "accepted_stack_complete": true,
+      "sensevoice_qnn_execution_verified": true,
+      "zipformer_ru_cpu_execution_verified": true,
+      "parakeet_artifacts_ready": true,
+      "parakeet_execution_verified": false
+    },
+    "spanish": {
+      "fixture": "<USER_HOME>/Desktop/LMF_sprint-f/workstreams/sub2b_sprint/sprint/out/f/artifacts/nubia_esfr_bundle/fixtures/asr/asr_es_parakeet_vendor.wav",
+      "fixture_bytes": 170572,
+      "fixture_sha256": "b0bad1bdf474dcad2f30fbbf850695d90f86ea5b543872d7c6370762a237ccea",
+      "backend": "parakeet_v3_cpu",
+      "provider": "cpu",
+      "http_status": 200,
+      "round_trip_ms_including_adb_forward": 5828.660,
+      "transcript": "No preguntes qué puede hacer tu país por ti, pregunta qué puedes hacer tú por tu país.",
+      "exact_expected_transcript_match": true
+    },
+    "french": {
+      "fixture": "<USER_HOME>/Desktop/LMF_sprint-f/workstreams/sub2b_sprint/sprint/out/f/artifacts/nubia_esfr_bundle/fixtures/asr/asr_fr_parakeet_vendor.wav",
+      "fixture_bytes": 159054,
+      "fixture_sha256": "c28d2afd8d0b85ff3fdc2bf8d6ff8e75f5574bd1332531b56b1a20a8a3ccc199",
+      "backend": "parakeet_v3_cpu",
+      "provider": "cpu",
+      "http_status": 200,
+      "round_trip_ms_including_adb_forward": 5526.684,
+      "transcript": "Ne vous demandez pas ce que votre pays peut faire pour vous. Demandez-vous plutôt ce que vous pouvez faire pour lui.",
+      "exact_expected_transcript_match": true
+    },
+    "after_health": {
+      "accepted_stack_complete": true,
+      "esfr_complete": true,
+      "parakeet_ready": true,
+      "parakeet_execution_verified": true,
+      "parakeet_provider": "cpu",
+      "parakeet_runner_owned_by_service": true,
+      "service_uid": 10514,
+      "sensevoice_qnn_still_execution_verified": true,
+      "zipformer_ru_cpu_still_execution_verified": true
+    }
+  },
+  "evidence_sha256": {
+    "wrapper_attempt.txt": "d73e07ec09564cd7f69e9dac27f67799da022b66747e380dac6146b73d138b1b",
+    "health_before.json": "e242a45253671b8e42fe252ce4e80630ae4de1b7f4d4b7946e68f645db0db15f",
+    "es_response.json": "e15439e6ab2893ecb426b6745061b80e18c1acf11a6c1352a15065cf75aed352",
+    "es_curl_metrics.txt": "ac9f4c3563e4d43e270d2f8e2edeefa818db48565055d367f8d54f9694c2e2ed",
+    "fr_response.json": "d1ebc0cdabff1e51ab943c344eda995ea1214bc0960380ec69887c9c91d2808d",
+    "fr_curl_metrics.txt": "1a481ec369d561f884e4085bfea0b43fc3eb75ac127c6dfd9b425ec886c658c3",
+    "health_after.json": "d1b2bd26717e0852b7f4709e66e4a5198a0e959a461ffd1baddf8da04112191d",
+    "last-parakeet.stdout.txt": "00bfaa7212817c0f5a140ec499a0458b96735ff212e226bf21d807a38095d779",
+    "last-parakeet.stderr.txt": "d43a732f11eda0de9741bd79be07cc51823951aa7e998088fa04589eaf02f8f8",
+    "forward_protocol.txt": "5a5dd3cac3d05e250aa290f35374e5f4c0176dc4c4ed388fc5179e341122880e",
+    "device_state_after.txt": "0198f60c1a6b3edad58b6f8c15a3b38aebab4967dfa46ec40376253a54d9ed9a",
+    "adb_forwards_after.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "claim_boundary": "This milestone proves direct ES and FR CPU Parakeet execution, exact phone/host transcript parity, app-service ownership, and no regression of the already-executed EN/ZH-capable SenseVoice and Russian backends. The 5.829 s and 5.527 s numbers are host round trips through a temporary diagnostic ADB forward; they are not app end-to-end latency and are not evidence that the filmed app turn used a forward. The last-parakeet runner files bind only the final French request because the Spanish log was overwritten. Full no-forward in-app ES and FR voice turns remain required. No ES/FR NPU claim is made."
+}

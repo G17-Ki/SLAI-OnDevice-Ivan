@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "model": {
+    "id": "LiquidAI/LFM2.5-Audio-1.5B",
+    "revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+    "dtype": "bfloat16"
+  },
+  "source": {
+    "repository": "https://github.com/Liquid4All/liquid-audio.git",
+    "commit": "19e65845923a7f136442c95137884ec61eb386aa"
+  },
+  "inputs": {
+    "asr_audio": "/content/asr.wav",
+    "interleaved_audio": "/content/question.wav",
+    "interleaved_followup_text": "My business specializes in chairs. Can you give me something related to that?"
+  },
+  "generation": {
+    "asr_max_new_tokens": 512,
+    "interleaved_max_new_tokens": 512,
+    "audio_temperature": 1.0,
+    "audio_top_k": 4,
+    "seed": 20260715
+  },
+  "output": {
+    "directory": "/content/lfm_bf16_result",
+    "zip": "/content/lfm_bf16_result.zip",
+    "save_decoded_wav": true
+  },
+  "dependencies": {
+    "torch": "2.8.0",
+    "torchaudio": "2.8.0",
+    "pytorch_cuda_index": "https://download.pytorch.org/whl/cu128",
+    "accelerate": "1.10.1",
+    "transformers": "4.56.1",
+    "datasets": "5.0.0",
+    "einops": "0.8.2",
+    "librosa": "0.11.0",
+    "numpy": "2.4.6",
+    "safetensors": "0.8.0",
+    "sentencepiece": "0.2.2",
+    "soundfile": "0.14.0",
+    "psutil": "7.2.2",
+    "scipy": "1.18.0",
+    "scikit-learn": "1.9.0"
+  }
+}

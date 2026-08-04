@@ -1,0 +1,726 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "model": "Whisper-Tiny",
+      "decoder_profile": "fast_greedy",
+      "mode": "auto",
+      "model_mib": 74.58078289031982,
+      "incremental_peak_rss_mb": 276.265625,
+      "first_segment_ms_median": 418.645166,
+      "first_segment_ms_p95": 838.9454834,
+      "final_ms_median": 418.739416,
+      "final_ms_p95": 839.0321374999999,
+      "rtf_median": 0.10607657759661836,
+      "rtf_p95": 0.17292716159844054,
+      "latin_micro_wer": 0.9175257731958762,
+      "char_primary_micro_cer": 0.6283783783783784,
+      "macro_primary_error_rate": 0.7131419178397632,
+      "language_detection_accuracy": 0.8571428571428571
+    },
+    {
+      "model": "Whisper-Tiny",
+      "decoder_profile": "fast_greedy",
+      "mode": "fixed",
+      "model_mib": 74.58078289031982,
+      "incremental_peak_rss_mb": 276.265625,
+      "first_segment_ms_median": 217.199916,
+      "first_segment_ms_p95": 394.7203914,
+      "final_ms_median": 217.295125,
+      "final_ms_p95": 394.80347029999996,
+      "rtf_median": 0.05393105765199162,
+      "rtf_p95": 0.09856918683005589,
+      "latin_micro_wer": 0.9175257731958762,
+      "char_primary_micro_cer": 0.4797297297297297,
+      "macro_primary_error_rate": 0.6496888907673332,
+      "language_detection_accuracy": null
+    },
+    {
+      "model": "Whisper-Base",
+      "decoder_profile": "fast_greedy",
+      "mode": "auto",
+      "model_mib": 141.0321626663208,
+      "incremental_peak_rss_mb": 315.15625,
+      "first_segment_ms_median": 764.285167,
+      "first_segment_ms_p95": 836.2753423,
+      "final_ms_median": 764.52925,
+      "final_ms_p95": 836.3685375,
+      "rtf_median": 0.17841417933723197,
+      "rtf_p95": 0.3057053473329789,
+      "latin_micro_wer": 0.36082474226804123,
+      "char_primary_micro_cer": 0.42567567567567566,
+      "macro_primary_error_rate": 0.40202311077493436,
+      "language_detection_accuracy": 0.9523809523809523
+    },
+    {
+      "model": "Whisper-Base",
+      "decoder_profile": "fast_greedy",
+      "mode": "fixed",
+      "model_mib": 141.0321626663208,
+      "incremental_peak_rss_mb": 315.15625,
+      "first_segment_ms_median": 418.712542,
+      "first_segment_ms_p95": 506.93266659999995,
+      "final_ms_median": 418.744208,
+      "final_ms_p95": 506.97080470000003,
+      "rtf_median": 0.09694847514619882,
+      "rtf_p95": 0.15188112373737375,
+      "latin_micro_wer": 0.36082474226804123,
+      "char_primary_micro_cer": 0.3918918918918919,
+      "macro_primary_error_rate": 0.3803780891299127,
+      "language_detection_accuracy": null
+    },
+    {
+      "model": "Whisper-Small",
+      "decoder_profile": "fast_greedy",
+      "mode": "fixed",
+      "model_mib": 463.6882514953613,
+      "incremental_peak_rss_mb": 614.0,
+      "first_segment_ms_median": 1686.754708,
+      "first_segment_ms_p95": 2381.8422836,
+      "final_ms_median": 1686.87875,
+      "final_ms_p95": 2382.2703454999996,
+      "rtf_median": 0.3837028985507247,
+      "rtf_p95": 0.6663238055280528,
+      "latin_micro_wer": 0.18556701030927836,
+      "char_primary_micro_cer": 0.2972972972972973,
+      "macro_primary_error_rate": 0.2439605385823543,
+      "language_detection_accuracy": null
+    },
+    {
+      "model": "Whisper-Tiny",
+      "decoder_profile": "quality_beam5",
+      "mode": "fixed",
+      "model_mib": 74.58078289031982,
+      "incremental_peak_rss_mb": 257.46875,
+      "first_segment_ms_median": 290.635417,
+      "first_segment_ms_p95": 1167.343395499999,
+      "final_ms_median": 290.685042,
+      "final_ms_p95": 1167.402646099999,
+      "rtf_median": 0.06673008333333333,
+      "rtf_p95": 0.27556775917508414,
+      "latin_micro_wer": 0.6907216494845361,
+      "char_primary_micro_cer": 0.4527027027027027,
+      "macro_primary_error_rate": 0.5315366095020455,
+      "language_detection_accuracy": null
+    },
+    {
+      "model": "Whisper-Base",
+      "decoder_profile": "quality_beam5",
+      "mode": "fixed",
+      "model_mib": 141.0321626663208,
+      "incremental_peak_rss_mb": 423.484375,
+      "first_segment_ms_median": 555.274667,
+      "first_segment_ms_p95": 827.7079547999998,
+      "final_ms_median": 555.325875,
+      "final_ms_p95": 827.8385374999998,
+      "rtf_median": 0.12850215126811596,
+      "rtf_p95": 0.20094545338827838,
+      "latin_micro_wer": 0.3402061855670103,
+      "char_primary_micro_cer": 0.4797297297297297,
+      "macro_primary_error_rate": 0.41455283998909853,
+      "language_detection_accuracy": null
+    }
+  ],
+  "per_language": {
+    "Whisper-Tiny:fast_greedy": {
+      "auto": {
+        "languages": {
+          "de": {
+            "samples": 3,
+            "wer": 0.6190476190476191,
+            "word_edits": 13,
+            "reference_words": 21,
+            "cer": 0.25210084033613445,
+            "char_edits": 30,
+            "reference_chars": 119,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.6190476190476191
+          },
+          "en": {
+            "samples": 3,
+            "wer": 0.2631578947368421,
+            "word_edits": 5,
+            "reference_words": 19,
+            "cer": 0.08045977011494253,
+            "char_edits": 7,
+            "reference_chars": 87,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.2631578947368421
+          },
+          "es": {
+            "samples": 3,
+            "wer": 0.23809523809523808,
+            "word_edits": 5,
+            "reference_words": 21,
+            "cer": 0.06504065040650407,
+            "char_edits": 8,
+            "reference_chars": 123,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.23809523809523808
+          },
+          "fr": {
+            "samples": 3,
+            "wer": 1.8333333333333333,
+            "word_edits": 66,
+            "reference_words": 36,
+            "cer": 0.6739130434782609,
+            "char_edits": 124,
+            "reference_chars": 184,
+            "primary_metric": "wer",
+            "primary_error_rate": 1.8333333333333333
+          },
+          "ja": {
+            "samples": 3,
+            "wer": 2.0,
+            "word_edits": 10,
+            "reference_words": 5,
+            "cer": 0.9375,
+            "char_edits": 45,
+            "reference_chars": 48,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.9375
+          },
+          "ko": {
+            "samples": 3,
+            "wer": 0.56,
+            "word_edits": 14,
+            "reference_words": 25,
+            "cer": 0.34328358208955223,
+            "char_edits": 23,
+            "reference_chars": 67,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.34328358208955223
+          },
+          "zh": {
+            "samples": 3,
+            "wer": 1.0,
+            "word_edits": 3,
+            "reference_words": 3,
+            "cer": 0.7575757575757576,
+            "char_edits": 25,
+            "reference_chars": 33,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.7575757575757576
+          }
+        },
+        "latin_micro_wer": 0.9175257731958762,
+        "char_primary_micro_cer": 0.6283783783783784,
+        "macro_primary_error_rate": 0.7131419178397632,
+        "language_detection_accuracy": 0.8571428571428571
+      },
+      "fixed": {
+        "languages": {
+          "de": {
+            "samples": 3,
+            "wer": 0.6190476190476191,
+            "word_edits": 13,
+            "reference_words": 21,
+            "cer": 0.25210084033613445,
+            "char_edits": 30,
+            "reference_chars": 119,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.6190476190476191
+          },
+          "en": {
+            "samples": 3,
+            "wer": 0.2631578947368421,
+            "word_edits": 5,
+            "reference_words": 19,
+            "cer": 0.08045977011494253,
+            "char_edits": 7,
+            "reference_chars": 87,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.2631578947368421
+          },
+          "es": {
+            "samples": 3,
+            "wer": 0.23809523809523808,
+            "word_edits": 5,
+            "reference_words": 21,
+            "cer": 0.06504065040650407,
+            "char_edits": 8,
+            "reference_chars": 123,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.23809523809523808
+          },
+          "fr": {
+            "samples": 3,
+            "wer": 1.8333333333333333,
+            "word_edits": 66,
+            "reference_words": 36,
+            "cer": 0.6739130434782609,
+            "char_edits": 124,
+            "reference_chars": 184,
+            "primary_metric": "wer",
+            "primary_error_rate": 1.8333333333333333
+          },
+          "ja": {
+            "samples": 3,
+            "wer": 1.4,
+            "word_edits": 7,
+            "reference_words": 5,
+            "cer": 0.5833333333333334,
+            "char_edits": 28,
+            "reference_chars": 48,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.5833333333333334
+          },
+          "ko": {
+            "samples": 3,
+            "wer": 0.56,
+            "word_edits": 14,
+            "reference_words": 25,
+            "cer": 0.2835820895522388,
+            "char_edits": 19,
+            "reference_chars": 67,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.2835820895522388
+          },
+          "zh": {
+            "samples": 3,
+            "wer": 1.0,
+            "word_edits": 3,
+            "reference_words": 3,
+            "cer": 0.7272727272727273,
+            "char_edits": 24,
+            "reference_chars": 33,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.7272727272727273
+          }
+        },
+        "latin_micro_wer": 0.9175257731958762,
+        "char_primary_micro_cer": 0.4797297297297297,
+        "macro_primary_error_rate": 0.6496888907673332
+      }
+    },
+    "Whisper-Base:fast_greedy": {
+      "auto": {
+        "languages": {
+          "de": {
+            "samples": 3,
+            "wer": 0.38095238095238093,
+            "word_edits": 8,
+            "reference_words": 21,
+            "cer": 0.14285714285714285,
+            "char_edits": 17,
+            "reference_chars": 119,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.38095238095238093
+          },
+          "en": {
+            "samples": 3,
+            "wer": 0.3684210526315789,
+            "word_edits": 7,
+            "reference_words": 19,
+            "cer": 0.11494252873563218,
+            "char_edits": 10,
+            "reference_chars": 87,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.3684210526315789
+          },
+          "es": {
+            "samples": 3,
+            "wer": 0.19047619047619047,
+            "word_edits": 4,
+            "reference_words": 21,
+            "cer": 0.07317073170731707,
+            "char_edits": 9,
+            "reference_chars": 123,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.19047619047619047
+          },
+          "fr": {
+            "samples": 3,
+            "wer": 0.4444444444444444,
+            "word_edits": 16,
+            "reference_words": 36,
+            "cer": 0.30978260869565216,
+            "char_edits": 57,
+            "reference_chars": 184,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.4444444444444444
+          },
+          "ja": {
+            "samples": 3,
+            "wer": 1.0,
+            "word_edits": 5,
+            "reference_words": 5,
+            "cer": 0.4791666666666667,
+            "char_edits": 23,
+            "reference_chars": 48,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.4791666666666667
+          },
+          "ko": {
+            "samples": 3,
+            "wer": 0.52,
+            "word_edits": 13,
+            "reference_words": 25,
+            "cer": 0.2537313432835821,
+            "char_edits": 17,
+            "reference_chars": 67,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.2537313432835821
+          },
+          "zh": {
+            "samples": 3,
+            "wer": 1.3333333333333333,
+            "word_edits": 4,
+            "reference_words": 3,
+            "cer": 0.696969696969697,
+            "char_edits": 23,
+            "reference_chars": 33,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.696969696969697
+          }
+        },
+        "latin_micro_wer": 0.36082474226804123,
+        "char_primary_micro_cer": 0.42567567567567566,
+        "macro_primary_error_rate": 0.40202311077493436,
+        "language_detection_accuracy": 0.9523809523809523
+      },
+      "fixed": {
+        "languages": {
+          "de": {
+            "samples": 3,
+            "wer": 0.38095238095238093,
+            "word_edits": 8,
+            "reference_words": 21,
+            "cer": 0.14285714285714285,
+            "char_edits": 17,
+            "reference_chars": 119,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.38095238095238093
+          },
+          "en": {
+            "samples": 3,
+            "wer": 0.3684210526315789,
+            "word_edits": 7,
+            "reference_words": 19,
+            "cer": 0.11494252873563218,
+            "char_edits": 10,
+            "reference_chars": 87,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.3684210526315789
+          },
+          "es": {
+            "samples": 3,
+            "wer": 0.19047619047619047,
+            "word_edits": 4,
+            "reference_words": 21,
+            "cer": 0.07317073170731707,
+            "char_edits": 9,
+            "reference_chars": 123,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.19047619047619047
+          },
+          "fr": {
+            "samples": 3,
+            "wer": 0.4444444444444444,
+            "word_edits": 16,
+            "reference_words": 36,
+            "cer": 0.30978260869565216,
+            "char_edits": 57,
+            "reference_chars": 184,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.4444444444444444
+          },
+          "ja": {
+            "samples": 3,
+            "wer": 1.0,
+            "word_edits": 5,
+            "reference_words": 5,
+            "cer": 0.4791666666666667,
+            "char_edits": 23,
+            "reference_chars": 48,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.4791666666666667
+          },
+          "ko": {
+            "samples": 3,
+            "wer": 0.52,
+            "word_edits": 13,
+            "reference_words": 25,
+            "cer": 0.2537313432835821,
+            "char_edits": 17,
+            "reference_chars": 67,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.2537313432835821
+          },
+          "zh": {
+            "samples": 3,
+            "wer": 1.3333333333333333,
+            "word_edits": 4,
+            "reference_words": 3,
+            "cer": 0.5454545454545454,
+            "char_edits": 18,
+            "reference_chars": 33,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.5454545454545454
+          }
+        },
+        "latin_micro_wer": 0.36082474226804123,
+        "char_primary_micro_cer": 0.3918918918918919,
+        "macro_primary_error_rate": 0.3803780891299127
+      }
+    },
+    "Whisper-Small:fast_greedy": {
+      "fixed": {
+        "languages": {
+          "de": {
+            "samples": 3,
+            "wer": 0.047619047619047616,
+            "word_edits": 1,
+            "reference_words": 21,
+            "cer": 0.03361344537815126,
+            "char_edits": 4,
+            "reference_chars": 119,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.047619047619047616
+          },
+          "en": {
+            "samples": 3,
+            "wer": 0.21052631578947367,
+            "word_edits": 4,
+            "reference_words": 19,
+            "cer": 0.04597701149425287,
+            "char_edits": 4,
+            "reference_chars": 87,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.21052631578947367
+          },
+          "es": {
+            "samples": 3,
+            "wer": 0.19047619047619047,
+            "word_edits": 4,
+            "reference_words": 21,
+            "cer": 0.032520325203252036,
+            "char_edits": 4,
+            "reference_chars": 123,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.19047619047619047
+          },
+          "fr": {
+            "samples": 3,
+            "wer": 0.25,
+            "word_edits": 9,
+            "reference_words": 36,
+            "cer": 0.16847826086956522,
+            "char_edits": 31,
+            "reference_chars": 184,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.25
+          },
+          "ja": {
+            "samples": 3,
+            "wer": 0.8,
+            "word_edits": 4,
+            "reference_words": 5,
+            "cer": 0.375,
+            "char_edits": 18,
+            "reference_chars": 48,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.375
+          },
+          "ko": {
+            "samples": 3,
+            "wer": 0.36,
+            "word_edits": 9,
+            "reference_words": 25,
+            "cer": 0.14925373134328357,
+            "char_edits": 10,
+            "reference_chars": 67,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.14925373134328357
+          },
+          "zh": {
+            "samples": 3,
+            "wer": 1.3333333333333333,
+            "word_edits": 4,
+            "reference_words": 3,
+            "cer": 0.48484848484848486,
+            "char_edits": 16,
+            "reference_chars": 33,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.48484848484848486
+          }
+        },
+        "latin_micro_wer": 0.18556701030927836,
+        "char_primary_micro_cer": 0.2972972972972973,
+        "macro_primary_error_rate": 0.2439605385823543
+      }
+    },
+    "Whisper-Tiny:quality_beam5": {
+      "fixed": {
+        "languages": {
+          "de": {
+            "samples": 3,
+            "wer": 0.42857142857142855,
+            "word_edits": 9,
+            "reference_words": 21,
+            "cer": 0.15126050420168066,
+            "char_edits": 18,
+            "reference_chars": 119,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.42857142857142855
+          },
+          "en": {
+            "samples": 3,
+            "wer": 0.2631578947368421,
+            "word_edits": 5,
+            "reference_words": 19,
+            "cer": 0.08045977011494253,
+            "char_edits": 7,
+            "reference_chars": 87,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.2631578947368421
+          },
+          "es": {
+            "samples": 3,
+            "wer": 0.23809523809523808,
+            "word_edits": 5,
+            "reference_words": 21,
+            "cer": 0.07317073170731707,
+            "char_edits": 9,
+            "reference_chars": 123,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.23809523809523808
+          },
+          "fr": {
+            "samples": 3,
+            "wer": 1.3333333333333333,
+            "word_edits": 48,
+            "reference_words": 36,
+            "cer": 0.47282608695652173,
+            "char_edits": 87,
+            "reference_chars": 184,
+            "primary_metric": "wer",
+            "primary_error_rate": 1.3333333333333333
+          },
+          "ja": {
+            "samples": 3,
+            "wer": 1.4,
+            "word_edits": 7,
+            "reference_words": 5,
+            "cer": 0.5833333333333334,
+            "char_edits": 28,
+            "reference_chars": 48,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.5833333333333334
+          },
+          "ko": {
+            "samples": 3,
+            "wer": 0.48,
+            "word_edits": 12,
+            "reference_words": 25,
+            "cer": 0.29850746268656714,
+            "char_edits": 20,
+            "reference_chars": 67,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.29850746268656714
+          },
+          "zh": {
+            "samples": 3,
+            "wer": 1.6666666666666667,
+            "word_edits": 5,
+            "reference_words": 3,
+            "cer": 0.5757575757575758,
+            "char_edits": 19,
+            "reference_chars": 33,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.5757575757575758
+          }
+        },
+        "latin_micro_wer": 0.6907216494845361,
+        "char_primary_micro_cer": 0.4527027027027027,
+        "macro_primary_error_rate": 0.5315366095020455
+      }
+    },
+    "Whisper-Base:quality_beam5": {
+      "fixed": {
+        "languages": {
+          "de": {
+            "samples": 3,
+            "wer": 0.3333333333333333,
+            "word_edits": 7,
+            "reference_words": 21,
+            "cer": 0.09243697478991597,
+            "char_edits": 11,
+            "reference_chars": 119,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.3333333333333333
+          },
+          "en": {
+            "samples": 3,
+            "wer": 0.3684210526315789,
+            "word_edits": 7,
+            "reference_words": 19,
+            "cer": 0.11494252873563218,
+            "char_edits": 10,
+            "reference_chars": 87,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.3684210526315789
+          },
+          "es": {
+            "samples": 3,
+            "wer": 0.19047619047619047,
+            "word_edits": 4,
+            "reference_words": 21,
+            "cer": 0.06504065040650407,
+            "char_edits": 8,
+            "reference_chars": 123,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.19047619047619047
+          },
+          "fr": {
+            "samples": 3,
+            "wer": 0.4166666666666667,
+            "word_edits": 15,
+            "reference_words": 36,
+            "cer": 0.30434782608695654,
+            "char_edits": 56,
+            "reference_chars": 184,
+            "primary_metric": "wer",
+            "primary_error_rate": 0.4166666666666667
+          },
+          "ja": {
+            "samples": 3,
+            "wer": 1.2,
+            "word_edits": 6,
+            "reference_words": 5,
+            "cer": 0.6875,
+            "char_edits": 33,
+            "reference_chars": 48,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.6875
+          },
+          "ko": {
+            "samples": 3,
+            "wer": 0.52,
+            "word_edits": 13,
+            "reference_words": 25,
+            "cer": 0.23880597014925373,
+            "char_edits": 16,
+            "reference_chars": 67,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.23880597014925373
+          },
+          "zh": {
+            "samples": 3,
+            "wer": 1.3333333333333333,
+            "word_edits": 4,
+            "reference_words": 3,
+            "cer": 0.6666666666666666,
+            "char_edits": 22,
+            "reference_chars": 33,
+            "primary_metric": "cer",
+            "primary_error_rate": 0.6666666666666666
+          }
+        },
+        "latin_micro_wer": 0.3402061855670103,
+        "char_primary_micro_cer": 0.4797297297297297,
+        "macro_primary_error_rate": 0.41455283998909853
+      }
+    }
+  }
+}

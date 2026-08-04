@@ -1,0 +1,901 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-29",
+  "target": {
+    "device": "Nubia NX809J",
+    "soc": "SM8850",
+    "os": "Android 16",
+    "abi": "arm64-v8a",
+    "accelerator": "HTP v81",
+    "required_languages": [
+      "en",
+      "zh",
+      "ja",
+      "ko",
+      "ru",
+      "fallback"
+    ]
+  },
+  "scope": {
+    "objective": "Prioritize phone-resident ASR, response-backbone, and TTS sweeps for a robust low-latency multilingual offline speech agent.",
+    "constraints": [
+      "Do not train, finetune, or perform heavy conversion on the MacBook.",
+      "Use Colab for heavyweight source export or conversion and Qualcomm AI Hub for QNN compile, link, profile, and inference jobs.",
+      "Do not replace the accepted application or runtime APKs until a candidate passes its isolated gate.",
+      "Do not keep multiple large backbones resident merely to switch per turn.",
+      "Treat remote component latency as placement evidence, not physical-phone end-to-end latency."
+    ]
+  },
+  "evidence_classes": {
+    "phone_measured": "Executed on NX809J with real model input and stage-specific or end-to-end measurements.",
+    "phone_compatibility": "Executed on NX809J, but only as an isolated or synthetic compatibility probe.",
+    "exact_target_hub": "Account-owned Qualcomm AI Hub result on Snapdragon 8 Elite Gen 5 QRD / SM8850 / HTP v81.",
+    "exact_target_published": "Qualcomm-published exact-target result; not reproduced under the application UID.",
+    "same_generation_proxy": "Published or measured on another HTP-v81 retail target such as Galaxy S26.",
+    "host_measured": "Measured on the Apple M2 or Colab; useful for screening, not phone latency.",
+    "projected": "No execution result for the claimed device/runtime path."
+  },
+  "baseline_constraints": {
+    "accepted_apk_sha256": {
+      "ai.liquid.lfmdemo": "a24e203a30dcaaf9215dc3f0d5b99fa4b893a9e0ceca71c99c13e49bdb1b020a",
+      "ai.liquid.lfmdemo.runtime": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    },
+    "persistent_stack_after_multilingual_run": {
+      "pss_kib": 4305719,
+      "rss_kib": 4855284,
+      "interpretation": "The current stack is already about 4.2 GiB PSS and 4.7 GiB RSS; every sweep must swap one stage at a time and measure co-residency."
+    },
+    "npu_claim_boundary": "Only SenseVoice EN/ZH/JA/KO is production-path phone-NPU proven. Whisper Small is phone-NPU compatibility proven. All backbone and TTS NPU claims remain Qualcomm-profile or projection evidence."
+  },
+  "current_stack": {
+    "asr": [
+      {
+        "id": "sensevoice_small_int8_qnn_10s",
+        "languages": [
+          "en",
+          "zh",
+          "ja",
+          "ko",
+          "yue"
+        ],
+        "runtime": "Sherpa-ONNX 1.13.4 plus app-owned QNN 2.40 context",
+        "artifact": {
+          "archive_bytes": 162023574,
+          "context_bytes": 254193664
+        },
+        "evidence_class": "phone_measured",
+        "phone_measurements": {
+          "qnn_decode_ms": {
+            "en": 41,
+            "zh": 36
+          },
+          "whole_command_wall_ms": {
+            "en": 585.3359579923563,
+            "zh": 639.8276659892872
+          },
+          "later_full_turns": "EN/ZH/JA/KO all executed through sensevoice_qnn under the runtime application UID."
+        },
+        "quality_screen": {
+          "platform": "Apple M2",
+          "en_wer": 0.15789473684210525,
+          "ja_ko_zh_micro_cer": 0.24324324324324326,
+          "macro_primary_error": 0.23824545037968053,
+          "sample_count": 12
+        },
+        "limitations": [
+          "Fixed ten-second padded input and no useful partial transcript.",
+          "Only a tiny quality fixture and one accepted full-turn fixture per core language.",
+          "No Russian or broad Latin-language support."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/phone_acceptance/npu/sensevoice_qnn_reviewed_smoke.json",
+          "reports/android_phone/streaming_response/sensevoice_asr_mac_m2/REPORT.md",
+          "reports/android_phone/full_turns/final_apk_a24e_33bf_cold_reboot_provenance_20260729.md"
+        ]
+      },
+      {
+        "id": "zipformer_ru_int8_cpu",
+        "languages": [
+          "ru"
+        ],
+        "runtime": "Sherpa-ONNX CPU",
+        "artifact": {
+          "archive_bytes": 60239942
+        },
+        "evidence_class": "phone_measured",
+        "phone_measurements": {
+          "accepted_fixture_transcript": "расскажи коротко о москве",
+          "post_reboot_first_text_ms_including_asr_and_backbone": 2118,
+          "npu_executed": false
+        },
+        "limitations": [
+          "One Russian fixture is not a broad WER result.",
+          "No Russian QNN context or NPU job exists."
+        ],
+        "evidence": [
+          "scripts/android_asr_companion/assets.json",
+          "reports/android_phone/full_turns/final_apk_a24e_33bf_cold_reboot_provenance_20260729.md"
+        ]
+      }
+    ],
+    "backbone": [
+      {
+        "id": "qwen2_5_1_5b_q4_k_m_cpu",
+        "languages": [
+          "en",
+          "zh",
+          "ja",
+          "ko",
+          "ru",
+          "de",
+          "es",
+          "fr",
+          "it"
+        ],
+        "runtime": "llama.cpp b10083 CPU, context 2048",
+        "artifact": {
+          "model_bytes": 1117320736
+        },
+        "evidence_class": "phone_measured",
+        "phone_measurements": {
+          "first_token_ms_median": 304.08789598732255,
+          "first_token_ms_p95": 474.72137497970834,
+          "first_speakable_ms_median": 672.2699160163756,
+          "first_speakable_ms_p95": 1253.3273329609074,
+          "machine_scored_passes": 23,
+          "machine_scored_runs": 28,
+          "runtime_readme_manual_corrected_passes": 24,
+          "score_authority": "Use the machine 23/28 until the corrected score is regenerated into a machine-readable artifact.",
+          "per_language_machine_score": {
+            "en": "3/4",
+            "zh": "3/3",
+            "ja": "2/3",
+            "ko": "1/3",
+            "ru": "3/3"
+          },
+          "process_pss_kib_after_multilingual_run": 1985404
+        },
+        "npu_status": "Not deployed on NPU.",
+        "limitations": [
+          "Korean factual quality is the weakest core-language cell in the phone screen.",
+          "Machine and manually corrected aggregate scores are inconsistent across artifacts.",
+          "The model dominates resident memory together with the integrated LFM server."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/qwen2_5_1_5b_q4_k_m_app_owned_phone.json",
+          "android-app/runtime-companion/README.md",
+          "reports/android_phone/full_turns/qwen2_5_en_zh_ru_connected_wakelock_rebind_20260729_resources.md"
+        ]
+      },
+      {
+        "id": "lfm2_5_audio_1_5b_q4_cpu_integrated_english",
+        "languages": [
+          "en"
+        ],
+        "runtime": "Liquid Audio llama.cpp fork on CPU",
+        "artifact": {
+          "q4_bundle_gib": 1.001
+        },
+        "evidence_class": "phone_measured",
+        "phone_measurements": {
+          "post_reboot_first_pcm_ms": 982,
+          "post_reboot_first_output_head_ms": 1195,
+          "process_pss_kib_after_multilingual_run": 1732281
+        },
+        "npu_status": "Representative LFM backbone/depth shards placed on an older QCS8550 proxy, but the complete model and detokenizer are not an accepted phone NPU path.",
+        "limitations": [
+          "The FP16 HTP detokenizer is numerically unusable in retained evidence.",
+          "The complete 16-layer backbone, cache orchestration, and audio reconstruction are not compiled as one production runtime."
+        ],
+        "evidence": [
+          "reports/public/LFM2.5_Audio_Glasses_Feasibility_Report.md",
+          "reports/android_phone/full_turns/final_apk_a24e_33bf_cold_reboot_provenance_20260729.md"
+        ]
+      }
+    ],
+    "tts": [
+      {
+        "id": "lfm_audio_cpu_en",
+        "languages": [
+          "en"
+        ],
+        "runtime": "Integrated LFM audio CPU stream",
+        "artifact": {
+          "shared_with_backbone": true
+        },
+        "evidence_class": "phone_measured",
+        "phone_measurements": {
+          "first_pcm_ms": 982,
+          "first_output_head_ms": 1195,
+          "underflows": 0
+        },
+        "limitations": [
+          "English only in the accepted route.",
+          "No complete NPU audio path."
+        ],
+        "evidence": [
+          "reports/android_phone/full_turns/final_apk_a24e_33bf_cold_reboot_provenance_20260729.md"
+        ]
+      },
+      {
+        "id": "matcha_zh_baker_cpu",
+        "languages": [
+          "zh"
+        ],
+        "runtime": "Sherpa-ONNX CPU, one thread",
+        "artifact": {
+          "model_mib_including_shared": 138.7
+        },
+        "evidence_class": "phone_measured",
+        "phone_measurements": {
+          "standalone_end_to_speaker_ms": 118,
+          "full_turn_first_chunk_ms": [
+            86,
+            117
+          ],
+          "device_rss_mib": 493,
+          "device_cer": 0.048
+        },
+        "npu_status": "No QNN export attempted.",
+        "limitations": [
+          "Baker corpus is non-commercial, so this is a research-demo route rather than the ship path."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/tts_research_20260726/DEVICE_RESULTS.md",
+          "reports/android_phone/full_turns/final_apk_a24e_33bf_cold_reboot_provenance_20260729.md"
+        ]
+      },
+      {
+        "id": "supertonic3_int8_cpu_shared_s5",
+        "languages": [
+          "ja",
+          "ko",
+          "ru",
+          "fallback"
+        ],
+        "runtime": "Sherpa-ONNX CPU, shared graphs, five denoising steps",
+        "artifact": {
+          "model_mib_including_shared": 138.6
+        },
+        "evidence_class": "phone_measured",
+        "phone_measurements": {
+          "post_reboot_first_chunk_ms": {
+            "ja": 584,
+            "ko": 390,
+            "ru": 290
+          },
+          "post_reboot_rtf": {
+            "ja": 0.271024,
+            "ko": 0.276976,
+            "ru": 0.136462
+          },
+          "dropped_pcm": 0,
+          "standalone_ru_end_to_speaker_ms": 900,
+          "standalone_device_rss_mib": 660
+        },
+        "npu_status": "All four fixed graphs place on exact-target HTP, but vector-estimator and vocoder numerical warnings block audio-quality promotion.",
+        "limitations": [
+          "No accepted-phone QNN execution.",
+          "Japanese and Korean have only narrow intelligibility screens and no native-speaker listening acceptance.",
+          "The same weights support many languages, but the accepted catalog currently exposes only the explicitly staged language entries."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/tts_research_20260726/DEVICE_RESULTS.md",
+          "reports/android_phone/streaming_response/aihub_voice_v81/REPORT.md",
+          "reports/android_phone/full_turns/final_apk_a24e_33bf_cold_reboot_provenance_20260729.md"
+        ]
+      }
+    ]
+  },
+  "sweep": {
+    "asr": [
+      {
+        "priority": 1,
+        "id": "whisper_small_w8a16_ort_qnn",
+        "role": "Universal fixed-locale NPU challenger for EN/ZH/JA/KO/RU and broad fallback.",
+        "languages": [
+          "en",
+          "zh",
+          "ja",
+          "ko",
+          "ru",
+          "fallback"
+        ],
+        "evidence_class": "phone_compatibility",
+        "artifact": {
+          "host_model_mib": 463.6882514953613,
+          "isolated_probe_apk_bytes_including_runtime": 412376700
+        },
+        "measured": {
+          "phone": {
+            "encoder_session_load_ms": 314.391,
+            "decoder_session_load_ms": 106.648,
+            "encoder_plus_four_decoder_execute_ms": 295.119,
+            "cpu_fallback_disabled": true,
+            "real_audio_transcription": false
+          },
+          "exact_target_hub": {
+            "encoder_ms": 186.277,
+            "decoder_per_token_ms": 3.932,
+            "placement": "all reported operations on HTP"
+          },
+          "host_quality": {
+            "latin_micro_wer": 0.18556701030927836,
+            "ja_ko_zh_micro_cer": 0.2972972972972973,
+            "macro_primary_error": 0.2439605385823543
+          }
+        },
+        "projected": {
+          "npu_feasibility": "high",
+          "latency": "Likely compatible with the 700 ms ASR P95 gate for short fixed-locale utterances, but real frontend, host decode, and token count are unmeasured on phone."
+        },
+        "missing_assets_or_jobs": [
+          "Production exact QAI/HF-compatible native log-mel frontend in the runtime package.",
+          "Full tokenizer/suppression/EOS decode loop and real EN/ZH/JA/KO/RU fixture transcripts.",
+          "Candidate runtime APK integration and app-UID memory/thermal measurements."
+        ],
+        "next_action": "Finish the exact native frontend, compare EN and JA tensors against the pinned goldens, then run the five accepted language fixtures without changing the accepted runtime APK.",
+        "acceptance_gates": [
+          "Exact EN and JA frontend tensor parity.",
+          "No empty transcript and no regression beyond the retained per-language quality baseline.",
+          "VAD-close-to-final-ASR P95 at most 700 ms for bounded utterances.",
+          "QNN provider selected, CPU EP fallback disabled, and FastRPC/HTP evidence under the candidate runtime UID."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/whisper_v81/ORT_QNN_PROBE_DEVICE_EVIDENCE.md",
+          "reports/android_phone/streaming_response/whisper_v81/RESULT.md",
+          "reports/android_phone/streaming_response/multilingual_asr_mac_m2/README.md"
+        ]
+      },
+      {
+        "priority": 2,
+        "id": "whisper_base_qnn",
+        "role": "Smaller universal ASR fallback if Whisper Small co-residency is too expensive.",
+        "languages": [
+          "en",
+          "zh",
+          "ja",
+          "ko",
+          "ru",
+          "fallback"
+        ],
+        "evidence_class": "same_generation_proxy",
+        "artifact": {
+          "host_model_mib": 141.0321626663208,
+          "published_float_encoder_mb": 90.7,
+          "published_float_decoder_mb": 187
+        },
+        "measured": {
+          "phone": null,
+          "same_generation_proxy": {
+            "encoder_ms": 22.028,
+            "decoder_per_token_ms": 2.657,
+            "device": "Samsung Galaxy S26"
+          },
+          "host_quality": {
+            "latin_micro_wer": 0.36082474226804123,
+            "char_primary_micro_cer": 0.3918918918918919,
+            "macro_primary_error": 0.3803780891299127
+          }
+        },
+        "projected": {
+          "npu_feasibility": "medium-high",
+          "latency": "Component scorecards are fast, but no exact-Nubia package or phone execution exists."
+        },
+        "missing_assets_or_jobs": [
+          "Checksum-pinned QNN package for the exact target.",
+          "Exact-target Hub profile or direct phone compatibility probe.",
+          "Real-language quality gate using the production frontend."
+        ],
+        "next_action": "Fetch and pin the official context package, profile it on exact SM8850 if needed, and reuse the Whisper Small frontend/decode harness for a memory-focused phone A/B.",
+        "acceptance_gates": [
+          "At least 250 MiB lower peak resident memory than Whisper Small.",
+          "No empty core-language fixture.",
+          "Quality loss must be explicitly accepted; current host error is materially worse than Whisper Small and SenseVoice."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/multilingual_asr_mac_m2/README.md",
+          "reports/android_phone/streaming_response/qai_hub_models_0.58.0_voice_candidates.json"
+        ]
+      },
+      {
+        "priority": 3,
+        "id": "x_asr_480ms_streaming_en",
+        "role": "English streaming challenger only; not a shared multilingual route.",
+        "languages": [
+          "en"
+        ],
+        "evidence_class": "host_measured",
+        "artifact": {
+          "archive_bytes": 133895136
+        },
+        "measured": {
+          "phone": null,
+          "host": {
+            "en_wer": 0.15789473684210525,
+            "zh_cer": 0.5151515151515151,
+            "final_ms_median": 288,
+            "final_ms_p95": 374,
+            "incremental_peak_rss_mib": 428,
+            "first_english_partial_audio_seconds_range": "1.6-3.1"
+          }
+        },
+        "projected": {
+          "npu_feasibility": "medium-low until source export",
+          "latency": "Streaming may improve perceived responsiveness, but the first partial misses the strict 1.5 s target on some fixtures."
+        },
+        "missing_assets_or_jobs": [
+          "Colab source export for the fixed streaming graphs.",
+          "Qualcomm Hub compile/profile/inference with transcript equivalence.",
+          "Android QNN runtime integration."
+        ],
+        "next_action": "Run the Colab source-export and Hub path only after the universal Whisper route is gated; do not spend phone integration time on Mandarin.",
+        "acceptance_gates": [
+          "English WER no worse than SenseVoice on an expanded noisy/accented fixture.",
+          "First stable partial by 1.5 seconds of supplied audio.",
+          "Zero CPU/unknown placement and exact phone transcript equivalence."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/zipformer_v81/XASR_480MS_QUALITY_GATE.md"
+        ]
+      }
+    ],
+    "backbone": [
+      {
+        "priority": 1,
+        "id": "qwen3_1_7b_w4a16_genie_npu",
+        "role": "First same-size NPU backbone challenger because an exact-target W4A16 Qualcomm runtime is published.",
+        "languages": [
+          "en",
+          "zh",
+          "ja",
+          "ko",
+          "ru",
+          "fallback"
+        ],
+        "evidence_class": "exact_target_published",
+        "artifact": {
+          "published_q4_model_size": "1.06 GB",
+          "published_qairt_minimum": "2.45.0"
+        },
+        "measured": {
+          "phone": null,
+          "exact_target_published": {
+            "precision": "W4A16",
+            "response_tokens_per_second": 62.028636,
+            "ttft_ms_range": [
+              25.602,
+              819.264
+            ],
+            "prefill_tokens_per_second": 1249.902351,
+            "context_length": 4096,
+            "desired_compute_unit": "npu"
+          },
+          "host_q4_quality": {
+            "broad_suite_passes": 63,
+            "broad_suite_runs": 84,
+            "priority_zh_ru_context_passes": 37,
+            "priority_zh_ru_context_runs": 63
+          }
+        },
+        "projected": {
+          "npu_feasibility": "high if the Genie/QAIRT package can be legally staged app-owned",
+          "quality": "High risk: the retained Q4 quality screens are worse than current Qwen2.5, and W4A16 output quality is not established by the performance card."
+        },
+        "missing_assets_or_jobs": [
+          "Checksum-pinned Genie/QAIRT W4A16 runtime and model payload.",
+          "Separate candidate runtime service using QAIRT 2.45 without disturbing SenseVoice QNN 2.40.",
+          "The exact 28-case phone suite plus the 63-case Mandarin/Russian/context suite on the quantized NPU payload."
+        ],
+        "next_action": "Acquire the official Qualcomm package, create an isolated candidate runtime, and run quality before any main-app routing change.",
+        "acceptance_gates": [
+          "At least the current machine-readable 23/28 phone score and no core language below 2/3.",
+          "No hidden reasoning or wrong-script output.",
+          "First speakable P95 at most 1.25 s and steady response rate at least 30 tokens/s.",
+          "Candidate process PSS below the current Qwen2.5 process PSS and no dual-backbone residency."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/qai_hub_models_0.58.0_voice_candidates.json",
+          "reports/android_phone/streaming_response/qwen3_1_7b_q4_multilingual_voice_quality.json",
+          "reports/android_phone/streaming_response/model_candidate_followup/FINAL_DECISION.md"
+        ]
+      },
+      {
+        "priority": 2,
+        "id": "lfm2_5_1_2b_q4_cpu_then_npu",
+        "role": "Smaller quality/latency challenger, especially for Korean, with NPU export conditional on a phone CPU gate.",
+        "languages": [
+          "en",
+          "zh",
+          "ja",
+          "ko",
+          "ru",
+          "fallback"
+        ],
+        "evidence_class": "host_measured",
+        "artifact": {
+          "model_bytes": 695751488
+        },
+        "measured": {
+          "phone": null,
+          "host_broad_suite": {
+            "passes": 72,
+            "runs": 84,
+            "first_speakable_ms_median": 111.23372963629663,
+            "first_speakable_ms_p95": 214.92679184302688,
+            "core_language_scores": {
+              "en": "12/12",
+              "zh": "6/9",
+              "ja": "6/9",
+              "ko": "9/9",
+              "ru": "6/9"
+            }
+          },
+          "host_priority_suite": {
+            "passes": 31,
+            "runs": 63,
+            "interpretation": "The broad-suite result does not make this a robust Mandarin/Russian replacement."
+          }
+        },
+        "projected": {
+          "npu_feasibility": "medium-low",
+          "latency": "CPU phone screening is cheap and should precede any conversion; complete NPU packaging is absent."
+        },
+        "missing_assets_or_jobs": [
+          "Candidate phone CPU installation and same-suite measurements.",
+          "If and only if quality passes: Colab fixed-shape source export/quantization artifacts.",
+          "Qualcomm Hub compile/profile/inference and a production cache interface."
+        ],
+        "next_action": "Run it as a swap-in CPU backbone on the phone first; stop the NPU branch if Mandarin/Russian or context quality remains below the current Qwen2.5 baseline.",
+        "acceptance_gates": [
+          "Improve Korean from the current 1/3 while preserving EN/ZH/RU.",
+          "Phone process PSS materially below current Qwen2.5.",
+          "Only start Colab/Hub export after the phone CPU quality screen passes."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/lfm2_5_1_2b_q4_multilingual_voice_quality.json",
+          "reports/android_phone/streaming_response/model_candidate_followup/FINAL_DECISION.md",
+          "reports/android_phone/streaming_response/model_candidate_followup/candidate_manifest.json"
+        ]
+      },
+      {
+        "priority": 3,
+        "id": "qwen3_0_6b_q4_genie_npu",
+        "role": "NPU footprint and latency control, not the expected quality winner.",
+        "languages": [
+          "en",
+          "zh",
+          "ja",
+          "ko",
+          "ru",
+          "fallback"
+        ],
+        "evidence_class": "exact_target_published",
+        "artifact": {
+          "published_model_size": "429 MB"
+        },
+        "measured": {
+          "phone": null,
+          "exact_target_published_ctx512": {
+            "response_tokens_per_second": 61.618566,
+            "ttft_ms_range": [
+              41.5335,
+              166.134
+            ],
+            "prefill_tokens_per_second": 3085.006387,
+            "desired_compute_unit": "npu"
+          },
+          "host_quality": {
+            "passes": 18,
+            "runs": 27,
+            "accuracy": 0.6666666666666666
+          }
+        },
+        "projected": {
+          "npu_feasibility": "high",
+          "quality": "Low confidence for robust factual multilingual use; retain as a latency/footprint control."
+        },
+        "missing_assets_or_jobs": [
+          "Checksum-pinned Qualcomm Genie runtime payload.",
+          "Phone NPU execution and the full current multilingual quality suite."
+        ],
+        "next_action": "Stage only after Qwen3-1.7B so the same Genie integration work can be reused; reject quickly if it does not reach the current quality floor.",
+        "acceptance_gates": [
+          "At least 23/28 on the phone suite despite its prior 18/27 host screen.",
+          "At least 35 percent lower process PSS than current Qwen2.5.",
+          "First speakable P95 at most 700 ms."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/qai_hub_models_0.58.0_voice_candidates.json",
+          "reports/android_phone/streaming_response/qwen3_0_6b_mac_quality_latency.json"
+        ]
+      }
+    ],
+    "tts": [
+      {
+        "priority": 1,
+        "id": "supertonic3_s5_qnn_shared",
+        "role": "One shared NPU model for JA/KO/RU and broad multilingual fallback.",
+        "languages": [
+          "en",
+          "ja",
+          "ko",
+          "ru",
+          "fallback"
+        ],
+        "evidence_class": "exact_target_hub",
+        "artifact": {
+          "model_mib_including_shared": 138.6
+        },
+        "measured": {
+          "phone_cpu": {
+            "post_reboot_first_chunk_ms": {
+              "ja": 584,
+              "ko": 390,
+              "ru": 290
+            },
+            "dropped_pcm": 0
+          },
+          "exact_target_hub": {
+            "duration_predictor_ms": 0.408,
+            "text_encoder_ms": 1.046,
+            "vector_estimator_per_step_ms": 28.571,
+            "vocoder_ms": 3.153,
+            "five_step_neural_arithmetic_ms": 147.462,
+            "placement": "all reported operations on HTP",
+            "numerical_warnings": [
+              "vector estimator 2.253% NRMSE",
+              "vocoder 16.110% NRMSE"
+            ]
+          }
+        },
+        "projected": {
+          "npu_feasibility": "medium-high",
+          "latency": "The five-step neural arithmetic is far below CPU first-chunk timing, but runtime orchestration and audio equivalence are unproven on the phone."
+        },
+        "missing_assets_or_jobs": [
+          "App-owned QAIRT/QNN 2.45 runtime and fixed-context packaging.",
+          "Accumulated JA/KO/RU remote-output chains with language-specific ASR backchecks.",
+          "Candidate app integration that reuses the same resident graphs across language entries."
+        ],
+        "next_action": "Integrate the already-profiled graphs in an isolated TTS candidate runtime, prove accumulated JA/KO/RU audio, then measure phone first-audio and co-residency.",
+        "acceptance_gates": [
+          "No non-finite or dropped PCM.",
+          "Correct generation language and exact engine identity for every callback.",
+          "First chunk at most 700 ms and RTF at most 0.8 on phone.",
+          "Native-speaker listening pass for JA/KO/RU before promotion."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/aihub_voice_v81/REPORT.md",
+          "reports/android_phone/streaming_response/tts_research_20260726/DEVICE_RESULTS.md",
+          "reports/android_phone/full_turns/final_apk_a24e_33bf_cold_reboot_provenance_20260729.md"
+        ]
+      },
+      {
+        "priority": 2,
+        "id": "melotts_zh_qnn",
+        "role": "License-clean Mandarin ship candidate.",
+        "languages": [
+          "zh"
+        ],
+        "evidence_class": "exact_target_hub",
+        "artifact": {
+          "cpu_model_mib": 182.2
+        },
+        "measured": {
+          "phone_cpu": {
+            "eight_thread_first_chunk_ms": 663,
+            "eight_thread_rtf": 0.44,
+            "device_rss_mib": 637,
+            "device_cer": 0.16
+          },
+          "exact_target_hub": {
+            "real_text_chain_audio_seconds": 4.075,
+            "real_text_chain_neural_compute_ms": 496,
+            "waveform_nrmse": 0.0294,
+            "waveform_cosine": 0.99958,
+            "asr_backcheck_cer": 0,
+            "placement": "all BERT, encoder, flow, and decoder operations on HTP"
+          }
+        },
+        "projected": {
+          "npu_feasibility": "high at the model level, medium at the phone-runtime level",
+          "latency": "The exact-target chain fits the TTS budget in neural arithmetic; phone runtime and text preprocessing are still open."
+        },
+        "missing_assets_or_jobs": [
+          "Phone-staged QAIRT 2.45 contexts and runtime libraries.",
+          "Native Mandarin preprocessing, attention construction, overlap stitching, and gain policy in the app-owned process.",
+          "Physical-phone QNN execution and native-speaker listening."
+        ],
+        "next_action": "Package the passing exact-target chain into a separate candidate runtime and A/B it against current Matcha without changing the accepted default.",
+        "acceptance_gates": [
+          "First chunk at most 700 ms and RTF at most 0.7 on phone.",
+          "Mandarin micro-CER at most 20 percent with no single-character near-silence escape.",
+          "No playback gaps and no more than 700 MiB candidate-process RSS.",
+          "Native listening must beat or match Matcha enough to justify replacing the non-commercial demo voice."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/tts_research_20260726/NPU_STATUS.md",
+          "reports/android_phone/streaming_response/tts_research_20260726/DEVICE_RESULTS.md",
+          "reports/android_phone/streaming_response/tts_research_20260726/evidence/device_bundle_manifest.json"
+        ]
+      },
+      {
+        "priority": 3,
+        "id": "piper_ru_dmitri_cpu_then_qnn",
+        "role": "Compact licence-clean Russian fallback and NPU-export candidate only after listening acceptance.",
+        "languages": [
+          "ru"
+        ],
+        "evidence_class": "phone_measured",
+        "artifact": {
+          "model_mib_including_shared": 77.4
+        },
+        "measured": {
+          "phone_cpu": {
+            "two_thread_end_to_speaker_ms": 185,
+            "eight_thread_first_chunk_ms": 127,
+            "eight_thread_rtf": 0.085,
+            "device_cer": 0.0556,
+            "device_rss_mib": 618
+          },
+          "license": {
+            "voice_corpus": "CC0",
+            "runtime_data": "eSpeak NG data is GPL-3.0"
+          }
+        },
+        "projected": {
+          "npu_feasibility": "medium-low for Russian because no Russian Piper QNN export exists",
+          "latency": "CPU is already well inside the latency budget; NPU work is not urgent unless co-residency or power demands it."
+        },
+        "missing_assets_or_jobs": [
+          "Native-speaker A/B against Supertonic.",
+          "Only if selected: Colab component export and Qualcomm Hub compile/profile/inference for the Russian voice.",
+          "Explicit GPL runtime-data packaging decision."
+        ],
+        "next_action": "Expose it as the secondary Russian auto candidate and run listening/co-residency tests before spending a Hub job on Russian NPU export.",
+        "acceptance_gates": [
+          "No worse than 10 percent CER and 20 percent WER on the Russian fixture suite.",
+          "First chunk at most 250 ms on CPU and no playback gaps.",
+          "Native listening must be acceptable enough to justify a per-language model."
+        ],
+        "evidence": [
+          "reports/android_phone/streaming_response/tts_research_20260726/DEVICE_RESULTS.md",
+          "reports/android_phone/streaming_response/tts_research_20260726/REPORT.md",
+          "reports/android_phone/streaming_response/tts_research_20260726/evidence/device_bundle_manifest.json"
+        ]
+      }
+    ]
+  },
+  "routing": {
+    "en": {
+      "current": "SenseVoice NPU -> Qwen2.5 CPU -> integrated LFM audio CPU",
+      "next_sweep": "Whisper Small NPU A/B; Qwen3-1.7B NPU; Supertonic NPU or Piper-EN NPU as modular fallback",
+      "phone_first_audio_proxy_ms": 1195
+    },
+    "zh": {
+      "current": "SenseVoice NPU -> Qwen2.5 CPU -> Matcha CPU",
+      "next_sweep": "Whisper Small NPU A/B; Qwen3-1.7B NPU; MeloTTS-ZH NPU",
+      "phone_first_audio_proxy_ms": 1727,
+      "note": "Matcha remains the research-demo quality route; MeloTTS is the licence-clean ship candidate."
+    },
+    "ja": {
+      "current": "SenseVoice NPU -> Qwen2.5 CPU -> Supertonic s5 CPU",
+      "next_sweep": "Whisper Small NPU A/B; LFM2.5-1.2B or Qwen3-1.7B backbone A/B; Supertonic s5 NPU",
+      "phone_first_audio_proxy_ms": 2796
+    },
+    "ko": {
+      "current": "SenseVoice NPU -> Qwen2.5 CPU -> Supertonic s5 CPU",
+      "next_sweep": "Whisper Small NPU A/B; LFM2.5-1.2B quality challenger; Supertonic s5 NPU",
+      "phone_first_audio_proxy_ms": 1912,
+      "note": "Backbone quality, not TTS latency, is the weakest measured cell."
+    },
+    "ru": {
+      "current": "Russian Zipformer CPU -> Qwen2.5 CPU -> Supertonic s5 CPU",
+      "next_sweep": "Whisper Small NPU -> Qwen3-1.7B NPU -> Supertonic NPU, with Piper Dmitri CPU fallback",
+      "phone_first_audio_proxy_ms": 2582
+    },
+    "fallback": {
+      "current": "No accepted universal ASR NPU route; eSpeak is availability-only and fails core quality screens.",
+      "next_sweep": "Whisper Small NPU fixed-locale ASR + one resident backbone + Supertonic shared model where supported; add Piper EN/DE/IT and MeloTTS ES only as language-specific packages.",
+      "policy": "If the requested locale has no validated neural voice, fail clearly or use offline eSpeak as an explicitly labelled emergency control, never as a natural-voice claim."
+    }
+  },
+  "job_queue": [
+    {
+      "priority": 1,
+      "stage": "asr",
+      "candidate": "whisper_small_w8a16_ort_qnn",
+      "venue": "local lightweight frontend tests, then phone candidate runtime",
+      "heavy_mac_work": false,
+      "work": "Finish exact frontend and real five-language transcription; no new conversion is required."
+    },
+    {
+      "priority": 2,
+      "stage": "backbone",
+      "candidate": "qwen3_1_7b_w4a16_genie_npu",
+      "venue": "Qualcomm package/Hub plus isolated phone runtime",
+      "heavy_mac_work": false,
+      "work": "Acquire and pin the official payload, then run NPU quality and memory gates."
+    },
+    {
+      "priority": 3,
+      "stage": "tts",
+      "candidate": "supertonic3_s5_qnn_shared",
+      "venue": "Qualcomm Hub artifacts plus isolated phone runtime",
+      "heavy_mac_work": false,
+      "work": "Package existing exact-target graphs and close accumulated JA/KO/RU audio-quality gates."
+    },
+    {
+      "priority": 4,
+      "stage": "tts",
+      "candidate": "melotts_zh_qnn",
+      "venue": "Qualcomm Hub artifacts plus isolated phone runtime",
+      "heavy_mac_work": false,
+      "work": "Move the passing exact-target Mandarin chain into app-owned phone execution."
+    },
+    {
+      "priority": 5,
+      "stage": "backbone",
+      "candidate": "lfm2_5_1_2b_q4_cpu_then_npu",
+      "venue": "phone CPU screen",
+      "heavy_mac_work": false,
+      "work": "Run the current quality and memory screens before authorizing any export."
+    },
+    {
+      "priority": 6,
+      "stage": "backbone",
+      "candidate": "lfm2_5_1_2b_q4_cpu_then_npu",
+      "venue": "Colab source export/quantization and Qualcomm Hub",
+      "heavy_mac_work": false,
+      "work": "Conditional on job 5 passing; do not convert locally."
+    },
+    {
+      "priority": 7,
+      "stage": "asr",
+      "candidate": "x_asr_480ms_streaming_en",
+      "venue": "Colab source export and Qualcomm Hub",
+      "heavy_mac_work": false,
+      "work": "Conditional English streaming experiment after the universal Whisper gate."
+    }
+  ],
+  "deprioritized": [
+    {
+      "id": "whisper_tiny",
+      "reason": "Fast and small, but retained host quality is decisively below the robust multilingual floor."
+    },
+    {
+      "id": "public_zipformer_en_zh_int8",
+      "reason": "52.6% EN WER, 75.8% ZH CER, and multiple empty outputs on the shared fixture."
+    },
+    {
+      "id": "qwen3_5_0_8b_q4",
+      "reason": "54/84 quality screen and a 1.346 GiB steady Mac RSS snapshot already above its memory gate."
+    },
+    {
+      "id": "qwen2_5_3b_q4_k_m",
+      "reason": "2.10 GB model, non-commercial research license, slower first speakable output, and failed Russian core facts."
+    },
+    {
+      "id": "kokoro_zh_int8",
+      "reason": "Confirmed non-finite short-input PCM quantization defect and worse latency than float32."
+    },
+    {
+      "id": "zipvoice_zh",
+      "reason": "3.142 s phone end-to-speaker and 1.226 GiB RSS; retain only as a quality ceiling reference."
+    },
+    {
+      "id": "espeak_core_voice",
+      "reason": "Availability control only: 55.2% Mandarin CER and 61.7% Russian WER."
+    }
+  ],
+  "global_acceptance": {
+    "stage_isolation": "Change one stage per sweep and retain the accepted stack as control.",
+    "npu_proof": "Record provider selection, disabled CPU fallback where supported, process UID, loaded QNN/HTP libraries, FastRPC/DMA evidence, and per-stage timing.",
+    "quality": "Use fixed-language EN/ZH/JA/KO/RU fixtures first, then at least 100 representative utterances per language before a robustness claim.",
+    "latency": "Warm end-of-VAD to first-audio proxy at most 2.0 s median and 3.0 s P95; stage gates are ASR P95 <=700 ms, first-speakable P95 <=1.25 s, and TTS first chunk <=700 ms where the selected voice can meet it.",
+    "memory": "Measure PSS/RSS with the selected ASR, exactly one response backbone, and one TTS engine resident. Reject accidental dual-backbone residency.",
+    "offline": "Repeat airplane-mode, force-stop, reboot, host-ADB shutdown, literal unplug, and microphone turns before promotion.",
+    "audio": "Reject non-finite, near-silent, clipped, wrong-language, dropped, or queue-starving output; require native-speaker listening for JA/KO/RU/ZH naturalness."
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "sprint_id": "D3",
+  "lane": "D",
+  "status": "COMPLETE_WITH_THREE_UNSAFE_PRIMARY_ROUTES",
+  "evidence_class": "HOST",
+  "headline": {
+    "attempted": 96,
+    "passed": 90,
+    "failed": 6,
+    "unsafe_primary_routes": [
+      "piper_davefx/es",
+      "piper_dmitri/ru",
+      "kokoro_v1_1/zh"
+    ],
+    "note": "Piper RU is voice-specific: Dmitri failed while Irina passed 6/6."
+  },
+  "gate": {
+    "finite": "all PCM samples finite",
+    "nonempty": "sample_count > 0",
+    "minimum_rms_dbfs_exclusive": -50,
+    "minimum_rms_linear_exclusive": 0.0031622776601683794,
+    "duration_seconds_inclusive": [
+      0.15,
+      30.0
+    ],
+    "sustained_clipping_dbfs": -0.1,
+    "sustained_clipping_linear": 0.9885530946569389,
+    "failure_rule": "fail if a contiguous run above the clipping threshold exceeds 5 ms"
+  },
+  "routes": [
+    {
+      "engine": "Supertonic",
+      "variant": "Supertone/supertonic-3",
+      "voice": null,
+      "language": "en",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/supertonic/logs/d3.jsonl",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/supertonic/logs/d3_summary.json"
+      ]
+    },
+    {
+      "engine": "Supertonic",
+      "variant": "Supertone/supertonic-3",
+      "voice": null,
+      "language": "es",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/supertonic/logs/d3.jsonl",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/supertonic/logs/d3_summary.json"
+      ]
+    },
+    {
+      "engine": "Supertonic",
+      "variant": "Supertone/supertonic-3",
+      "voice": null,
+      "language": "fr",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/supertonic/logs/d3.jsonl",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/supertonic/logs/d3_summary.json"
+      ]
+    },
+    {
+      "engine": "Supertonic",
+      "variant": "Supertone/supertonic-3",
+      "voice": null,
+      "language": "ru",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/supertonic/logs/d3.jsonl",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/supertonic/logs/d3_summary.json"
+      ]
+    },
+    {
+      "engine": "piper",
+      "variant": null,
+      "voice": "lessac",
+      "language": "en",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_lane_gate_recheck.json",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_short_input_results.json"
+      ]
+    },
+    {
+      "engine": "piper",
+      "variant": null,
+      "voice": "davefx",
+      "language": "es",
+      "attempted": 6,
+      "passed": 5,
+      "failed": 1,
+      "verdict": "UNSAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_lane_gate_recheck.json",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_short_input_results.json"
+      ]
+    },
+    {
+      "engine": "piper",
+      "variant": null,
+      "voice": "siwis",
+      "language": "fr",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_lane_gate_recheck.json",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_short_input_results.json"
+      ]
+    },
+    {
+      "engine": "piper",
+      "variant": null,
+      "voice": "dmitri",
+      "language": "ru",
+      "attempted": 6,
+      "passed": 5,
+      "failed": 1,
+      "verdict": "UNSAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_lane_gate_recheck.json",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_short_input_results.json"
+      ]
+    },
+    {
+      "engine": "piper",
+      "variant": null,
+      "voice": "irina",
+      "language": "ru",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_lane_gate_recheck.json",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_short_input_results.json"
+      ]
+    },
+    {
+      "engine": "silero_v5_cis_base",
+      "variant": null,
+      "voice": "ru_zhadyra",
+      "language": "ru",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_lane_gate_recheck.json",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/d3/piper_silero/piper_silero_short_input_results.json"
+      ]
+    },
+    {
+      "engine": "Matcha Baker plus Vocos",
+      "variant": null,
+      "voice": null,
+      "language": "zh",
+      "attempted": 9,
+      "passed": 9,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_HAN_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/matcha/matcha_d3_results.json",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/matcha/raw/matcha_host_benchmark.json"
+      ]
+    },
+    {
+      "engine": "Kokoro",
+      "variant": "onnx-community/Kokoro-82M-v1.0-ONNX q8f16",
+      "voice": null,
+      "language": "en",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/kokoro/kokoro_v1_results.json"
+      ]
+    },
+    {
+      "engine": "Kokoro",
+      "variant": "onnx-community/Kokoro-82M-v1.0-ONNX q8f16",
+      "voice": null,
+      "language": "es",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/kokoro/kokoro_v1_results.json"
+      ]
+    },
+    {
+      "engine": "Kokoro",
+      "variant": "onnx-community/Kokoro-82M-v1.0-ONNX q8f16",
+      "voice": null,
+      "language": "fr",
+      "attempted": 6,
+      "passed": 6,
+      "failed": 0,
+      "verdict": "SAFE_ON_D3_PROBE",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/kokoro/kokoro_v1_results.json"
+      ]
+    },
+    {
+      "engine": "Kokoro",
+      "variant": "Kokoro v1.1-zh INT8",
+      "voice": null,
+      "language": "zh",
+      "attempted": 9,
+      "passed": 5,
+      "failed": 4,
+      "verdict": "UNSAFE_HARD_FAIL_NONFINITE_PCM",
+      "evidence": [
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/kokoro_v1_1_zh/logs/d3.jsonl",
+        "workstreams/sub2b_sprint/sprint/out/d/artifacts/kokoro_v1_1_zh/logs/d3_summary.json"
+      ]
+    }
+  ],
+  "named_failures": [
+    {
+      "engine": "piper",
+      "voice": "davefx",
+      "language": "es",
+      "case_id": "char_1",
+      "text": "A",
+      "reason": "duration below 0.15 s",
+      "duration_s": 0.08126984126984127
+    },
+    {
+      "engine": "piper",
+      "voice": "dmitri",
+      "language": "ru",
+      "case_id": "char_2",
+      "text": "Да",
+      "reason": "duration below 0.15 s",
+      "duration_s": 0.11609977324263039
+    },
+    {
+      "engine": "kokoro",
+      "variant": "Kokoro v1.1-zh INT8",
+      "language": "zh",
+      "text": "你",
+      "failed_runs": 1,
+      "reason": "all samples non-finite in one 15,000-sample output"
+    },
+    {
+      "engine": "kokoro",
+      "variant": "Kokoro v1.1-zh INT8",
+      "language": "zh",
+      "text": "你好",
+      "failed_runs": 3,
+      "reason": "all samples non-finite in three 23,400-sample outputs"
+    }
+  ],
+  "threshold_reconciliation": [
+    "Some source harnesses used a stricter 0.005 linear RMS floor and shorter upper-duration bounds. Every finite case has RMS above 0.0205 and every duration is below 2.03 s, so applying the requested >-50 dBFS and <=30 s thresholds does not change any count.",
+    "Some source harnesses used zero-clip or clip-fraction checks. All Supertonic, Matcha, Piper/Silero, and Kokoro v1 D3 peaks are below the -0.1 dBFS threshold; Kokoro v1.1-zh passing outputs are also below it. Therefore the exact >=5 ms sustained-clipping rule does not change any count.",
+    "Safety labels are D3 waveform-probe labels only. They do not imply intelligibility, naturalness, licensing, or frontend text coverage."
+  ],
+  "scope_warning": "A D3 pass is a short-input waveform result only. It does not establish intelligibility, language correctness, naturalness, frontend coverage, or licensing.",
+  "artifact": {
+    "path": "artifacts/d3_audit/audit.json",
+    "sha256": "724803fe2c2f85da9c6c19ad7947de1aac1e19c5eed8602c569d35597eca8221"
+  }
+}

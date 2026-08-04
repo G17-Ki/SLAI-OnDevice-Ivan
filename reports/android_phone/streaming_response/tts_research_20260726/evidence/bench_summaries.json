@@ -1,0 +1,6392 @@
+{
+  "espeak_ng__en": {
+    "family": "eSpeak NG (formant synthesis)",
+    "language": "en",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "GPL-3.0-or-later (engine + data)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 0,
+      "shared_bytes": 0,
+      "total_bytes": 0,
+      "exclusive_mib": 0.0,
+      "total_mib": 0.0
+    },
+    "load": {
+      "load_s": 0.008153790986398235,
+      "rss_before_bytes": 40402944,
+      "rss_after_bytes": 40828928,
+      "incremental_rss_bytes": 425984,
+      "peak_rss_during_load_bytes": 40828928
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "en_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "Paris is the capital of France.",
+        "reference": "paris is the capital of france",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.018886875011958182,
+          "p95": 0.01892485858988948,
+          "min": 0.018814749986631796,
+          "max": 0.01893354198546149
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.018886875011958182,
+          "p95": 0.01892485858988948,
+          "min": 0.018814749986631796,
+          "max": 0.01893354198546149
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.009529004073166711,
+          "p95": 0.009548167945887403,
+          "min": 0.009492614799680374,
+          "max": 0.009552548983603922
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.9820408163265306,
+          "p95": 1.9820408163265306,
+          "min": 1.9820408163265306,
+          "max": 1.9820408163265306
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 47464448.0,
+          "p95": 48198451.2,
+          "min": 45236224.0,
+          "max": 48201728.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__en_short_clause.wav",
+        "wav_sha256": "80d702f7401093024b2b4f83929fd7fac0143374eb6318c853e033199ac86363"
+      },
+      "en_answer_medium": {
+        "kind": "answer",
+        "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+        "reference": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.02145633299369365,
+          "p95": 0.021736641618190333,
+          "min": 0.021353374992031604,
+          "max": 0.021797125024022534
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.02145633299369365,
+          "p95": 0.021736641618190333,
+          "min": 0.021353374992031604,
+          "max": 0.021797125024022534
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.00489693152660013,
+          "p95": 0.004960905745348468,
+          "min": 0.004873433649101548,
+          "max": 0.004974709739579118
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.3815873015873015,
+          "p95": 4.3815873015873015,
+          "min": 4.3815873015873015,
+          "max": 4.3815873015873015
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 51183616.0,
+          "p95": 51196723.2,
+          "min": 48218112.0,
+          "max": 51200000.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__en_answer_medium.wav",
+        "wav_sha256": "3cbb18cd97729d32deb7fb7de1115ed2abc5c24a23177a4155dc32bb4fc2f4c7"
+      }
+    },
+    "chunk_floor_summary": {},
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.1588868750119582,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.16833031251793729,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.17777375002391638,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "espeak_ng__es": {
+    "family": "eSpeak NG (formant synthesis)",
+    "language": "es",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "GPL-3.0-or-later (engine + data)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 0,
+      "shared_bytes": 0,
+      "total_bytes": 0,
+      "exclusive_mib": 0.0,
+      "total_mib": 0.0
+    },
+    "load": {
+      "load_s": 0.008152541995514184,
+      "rss_before_bytes": 40402944,
+      "rss_after_bytes": 40828928,
+      "incremental_rss_bytes": 425984,
+      "peak_rss_during_load_bytes": 40828928
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "es_answer_short": {
+        "kind": "answer",
+        "text": "Madrid es la capital de España y su ciudad más grande.",
+        "reference": "madrid es la capital de españa y su ciudad más grande",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.020244832994649187,
+          "p95": 0.020536025002365933,
+          "min": 0.020063708012457937,
+          "max": 0.02060524999978952
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.020244832994649187,
+          "p95": 0.020536025002365933,
+          "min": 0.020063708012457937,
+          "max": 0.02060524999978952
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0061307536776676495,
+          "p95": 0.006218935510172205,
+          "min": 0.006075903501774374,
+          "max": 0.006239898953419841
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.3021768707482995,
+          "p95": 3.3021768707482995,
+          "min": 3.3021768707482995,
+          "max": 3.3021768707482995
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 47464448.0,
+          "p95": 49233920.0,
+          "min": 45236224.0,
+          "max": 49233920.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__es_answer_short.wav",
+        "wav_sha256": "4888bc07c0b2e16f42e3d0712dabe09aac4d459e0c9f35137eb0007c593342ca"
+      }
+    },
+    "chunk_floor_summary": {},
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.16060524999978953,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.1709078749996843,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.18121049999957906,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "espeak_ng__fr": {
+    "family": "eSpeak NG (formant synthesis)",
+    "language": "fr",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "GPL-3.0-or-later (engine + data)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 0,
+      "shared_bytes": 0,
+      "total_bytes": 0,
+      "exclusive_mib": 0.0,
+      "total_mib": 0.0
+    },
+    "load": {
+      "load_s": 0.008249000005889684,
+      "rss_before_bytes": 40386560,
+      "rss_after_bytes": 40812544,
+      "incremental_rss_bytes": 425984,
+      "peak_rss_during_load_bytes": 40812544
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "fr_answer_short": {
+        "kind": "answer",
+        "text": "Paris est la capitale de la France et sa plus grande ville.",
+        "reference": "paris est la capitale de la france et sa plus grande ville",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.019737916998565197,
+          "p95": 0.020040691591566427,
+          "min": 0.019557542022084817,
+          "max": 0.02009874998475425
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.019737916998565197,
+          "p95": 0.020040691591566427,
+          "min": 0.019557542022084817,
+          "max": 0.02009874998475425
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.006972238470705242,
+          "p95": 0.007079190823652554,
+          "min": 0.006908522661673291,
+          "max": 0.007099699419496831
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.8309297052154196,
+          "p95": 2.8309297052154196,
+          "min": 2.8309297052154196,
+          "max": 2.8309297052154196
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 48054272.0,
+          "p95": 49623859.2,
+          "min": 45072384.0,
+          "max": 49627136.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__fr_answer_short.wav",
+        "wav_sha256": "4b164220deba04dbc6550cbfc05658b3463270fc1a35afe8e7631a8e5f2500d2"
+      }
+    },
+    "chunk_floor_summary": {},
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.16009874998475426,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.1701481249771314,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.1801974999695085,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "espeak_ng__it": {
+    "family": "eSpeak NG (formant synthesis)",
+    "language": "it",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "GPL-3.0-or-later (engine + data)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 0,
+      "shared_bytes": 0,
+      "total_bytes": 0,
+      "exclusive_mib": 0.0,
+      "total_mib": 0.0
+    },
+    "load": {
+      "load_s": 0.008183625002857298,
+      "rss_before_bytes": 40402944,
+      "rss_after_bytes": 40828928,
+      "incremental_rss_bytes": 425984,
+      "peak_rss_during_load_bytes": 40828928
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "it_answer_short": {
+        "kind": "answer",
+        "text": "Roma è la capitale d'Italia e la sua città più grande.",
+        "reference": "roma è la capitale d'italia e la sua città più grande",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.019974458002252504,
+          "p95": 0.02026307479827665,
+          "min": 0.019785207987297326,
+          "max": 0.020322208001744002
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.019974458002252504,
+          "p95": 0.02026307479827665,
+          "min": 0.019785207987297326,
+          "max": 0.020322208001744002
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.006548369719289132,
+          "p95": 0.006642989031980852,
+          "min": 0.0064863265305744365,
+          "max": 0.006662375093867814
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.050294784580499,
+          "p95": 3.050294784580499,
+          "min": 3.050294784580499,
+          "max": 3.050294784580499
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 49020928.0,
+          "p95": 49063526.4,
+          "min": 45236224.0,
+          "max": 49070080.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__it_answer_short.wav",
+        "wav_sha256": "f7c8b2132582ef75ef0a5955edc97cfeaa7351b71679605c5ce882b528571861"
+      }
+    },
+    "chunk_floor_summary": {},
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.16032220800174402,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.17048331200261602,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.18064441600348802,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "espeak_ng__ru": {
+    "family": "eSpeak NG (formant synthesis)",
+    "language": "ru",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "GPL-3.0-or-later (engine + data)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 0,
+      "shared_bytes": 0,
+      "total_bytes": 0,
+      "exclusive_mib": 0.0,
+      "total_mib": 0.0
+    },
+    "load": {
+      "load_s": 0.0083740419941023,
+      "rss_before_bytes": 41385984,
+      "rss_after_bytes": 41435136,
+      "incremental_rss_bytes": 49152,
+      "peak_rss_during_load_bytes": 41467904
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "ru_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "Конечно.",
+        "reference": "конечно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.021168417006265372,
+          "p95": 0.02459312499850057,
+          "min": 0.020860707998508587,
+          "max": 0.025443249993259087
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.021168417006265372,
+          "p95": 0.02459312499850057,
+          "min": 0.020860707998508587,
+          "max": 0.025443249993259087
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.02771919917977026,
+          "p95": 0.03220371792962394,
+          "min": 0.02731626648655587,
+          "max": 0.033316922759745994
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 0.7636734693877552,
+          "p95": 0.7636734693877552,
+          "min": 0.7636734693877552,
+          "max": 0.7636734693877552
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 46088192.0,
+          "p95": 46268416.0,
+          "min": 45449216.0,
+          "max": 46268416.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__ru_micro_ack.wav",
+        "wav_sha256": "eb81fc45be0d03814c9a9309a28e4071f157c180d0e2801166e8b372d52765fe"
+      },
+      "ru_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "Москва — столица России.",
+        "reference": "москва столица россии",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.02182100000209175,
+          "p95": 0.022614575596526264,
+          "min": 0.021697041986044496,
+          "max": 0.02271108399145305
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.02182100000209175,
+          "p95": 0.022614575596526264,
+          "min": 0.021697041986044496,
+          "max": 0.02271108399145305
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.012742738156363334,
+          "p95": 0.013206159906337672,
+          "min": 0.012670350798280706,
+          "max": 0.013262517598758966
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.7124263038548753,
+          "p95": 1.7124263038548753,
+          "min": 1.7124263038548753,
+          "max": 1.7124263038548753
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 47087616.0,
+          "p95": 47628288.0,
+          "min": 46301184.0,
+          "max": 47628288.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__ru_short_clause.wav",
+        "wav_sha256": "e424c9abbffaae92f08ce6bdbdb7e339226ed27d0c9e3c4f93d91d00b482ac53"
+      },
+      "ru_answer_short": {
+        "kind": "answer",
+        "text": "Москва — столица России и её крупнейший город.",
+        "reference": "москва столица россии и её крупнейший город",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.022986542026046664,
+          "p95": 0.0233062079991214,
+          "min": 0.022864667000249028,
+          "max": 0.023375958000542596
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.022986542026046664,
+          "p95": 0.0233062079991214,
+          "min": 0.022864667000249028,
+          "max": 0.023375958000542596
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.007886434387874853,
+          "p95": 0.007996108331864924,
+          "min": 0.007844620382384836,
+          "max": 0.008020038804275221
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.9146938775510205,
+          "p95": 2.9146938775510205,
+          "min": 2.9146938775510205,
+          "max": 2.9146938775510205
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 48087040.0,
+          "p95": 48087040.0,
+          "min": 47628288.0,
+          "max": 48087040.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__ru_answer_short.wav",
+        "wav_sha256": "9c22e279fccace0afb9fa2cdf375579d836b4dfd2e1497aa152cb2d9b32cb4d4"
+      },
+      "ru_answer_medium": {
+        "kind": "answer",
+        "text": "Сегодня днём будет ясно, около двадцати четырёх градусов, зонт брать не нужно.",
+        "reference": "сегодня днём будет ясно около двадцати четырёх градусов зонт брать не нужно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.025267375021940097,
+          "p95": 0.025688833597814664,
+          "min": 0.024903792014811188,
+          "max": 0.025776791997486725
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.025267375021940097,
+          "p95": 0.025688833597814664,
+          "min": 0.024903792014811188,
+          "max": 0.025776791997486725
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.005321505097889903,
+          "p95": 0.005410267541876208,
+          "min": 0.0052449316974372395,
+          "max": 0.00542879226285932
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.748163265306123,
+          "p95": 4.748163265306123,
+          "min": 4.748163265306123,
+          "max": 4.748163265306123
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 51675136.0,
+          "p95": 52084736.0,
+          "min": 48087040.0,
+          "max": 52084736.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__ru_answer_medium.wav",
+        "wav_sha256": "847d5bd7f38e0fd2f0a44fa5a9274f094f0abeb448aa2c8f9d034c120e0b2381"
+      },
+      "ru_answer_long": {
+        "kind": "long_response",
+        "text": "Фотосинтез — это процесс, в котором растения превращают энергию света в химическую энергию. Хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы. При этом выделяется кислород, которым дышат другие организмы. Поэтому фотосинтез лежит в основе большинства экосистем на Земле.",
+        "reference": "фотосинтез это процесс в котором растения превращают энергию света в химическую энергию хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы при этом выделяется кислород которым дышат другие организмы поэтому фотосинтез лежит в основе большинства экосистем на земле",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.03650183300487697,
+          "p95": 0.03669279979658313,
+          "min": 0.035518707998562604,
+          "max": 0.03671445799409412
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.03650183300487697,
+          "p95": 0.03669279979658313,
+          "min": 0.035518707998562604,
+          "max": 0.03671445799409412
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0021051534344783377,
+          "p95": 0.0021161669744662556,
+          "min": 0.002048454117945721,
+          "max": 0.0021174160577347254
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 17.339274376417233,
+          "p95": 17.339274376417233,
+          "min": 17.339274376417233,
+          "max": 17.339274376417233
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 77692928.0,
+          "p95": 77692928.0,
+          "min": 60751872.0,
+          "max": 77692928.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__ru_answer_long.wav",
+        "wav_sha256": "86275576d1f3658ffd7d33f93955499a2576843c144c64982d25f2af4f9af77b"
+      },
+      "ru_numbers": {
+        "kind": "normalization",
+        "text": "Встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать.",
+        "reference": "встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.025600957975257188,
+          "p95": 0.025931558606680484,
+          "min": 0.025334584002848715,
+          "max": 0.025984417006839067
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.025600957975257188,
+          "p95": 0.025931558606680484,
+          "min": 0.025334584002848715,
+          "max": 0.025984417006839067
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.004508470823618278,
+          "p95": 0.0045666914301472315,
+          "min": 0.00446156088829728,
+          "max": 0.004576000087859511
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 5.678412698412698,
+          "p95": 5.678412698412698,
+          "min": 5.678412698412698,
+          "max": 5.678412698412698
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 69091328.0,
+          "p95": 69104435.2,
+          "min": 69025792.0,
+          "max": 69107712.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__ru_numbers.wav",
+        "wav_sha256": "eb7d927ef438ddcd0b5454999c92e49462423d5d1c711603e3bfc02372a4cf53"
+      },
+      "ru_question": {
+        "kind": "prosody",
+        "text": "Хочешь, я переведу этот текст на английский?",
+        "reference": "хочешь я переведу этот текст на английский",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.023097916011465713,
+          "p95": 0.023148275003768502,
+          "min": 0.02301862498279661,
+          "max": 0.023155000002589077
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.023097916011465713,
+          "p95": 0.023148275003768502,
+          "min": 0.02301862498279661,
+          "max": 0.023155000002589077
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.008717164414007786,
+          "p95": 0.008736169921492067,
+          "min": 0.008687239942331585,
+          "max": 0.008738707939223789
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.6497052154195013,
+          "p95": 2.6497052154195013,
+          "min": 2.6497052154195013,
+          "max": 2.6497052154195013
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 69140480.0,
+          "p95": 69140480.0,
+          "min": 69124096.0,
+          "max": 69140480.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__ru_question.wav",
+        "wav_sha256": "9fb753455003a1d810193a88805eaaa683c48c0bc182729455949dba5fd079a8"
+      }
+    },
+    "chunk_floor_summary": {
+      "Да": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Да.": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Хорошо": {
+        "chars": 6,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Секунду": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Одну минуту": {
+        "chars": 11,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Сейчас посмотрю": {
+        "chars": 15,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [
+      "peak_near_full_scale:0.9941"
+    ],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.1654432499932591,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.17816487498988864,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.1908864999865182,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "espeak_ng__zh": {
+    "family": "eSpeak NG (formant synthesis)",
+    "language": "zh",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "GPL-3.0-or-later (engine + data)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 0,
+      "shared_bytes": 0,
+      "total_bytes": 0,
+      "exclusive_mib": 0.0,
+      "total_mib": 0.0
+    },
+    "load": {
+      "load_s": 0.009934166999300942,
+      "rss_before_bytes": 40943616,
+      "rss_after_bytes": 41189376,
+      "incremental_rss_bytes": 245760,
+      "peak_rss_during_load_bytes": 41222144
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "zh_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "好的。",
+        "reference": "好的",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.017660749988863245,
+          "p95": 0.01991482439334504,
+          "min": 0.017565749993082136,
+          "max": 0.020434915990335867
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.017660749988863245,
+          "p95": 0.01991482439334504,
+          "min": 0.017565749993082136,
+          "max": 0.020434915990335867
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.024609424750659414,
+          "p95": 0.027750371453062323,
+          "min": 0.024477046723171202,
+          "max": 0.02847509464022408
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 0.7176417233560091,
+          "p95": 0.7176417233560091,
+          "min": 0.7176417233560091,
+          "max": 0.7176417233560091
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 45776896.0,
+          "p95": 45793280.0,
+          "min": 45187072.0,
+          "max": 45793280.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__zh_micro_ack.wav",
+        "wav_sha256": "553a32f40e12d02b7e745c66383dab742a4811dff4aa58d64d1ebb437add7df5"
+      },
+      "zh_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "北京是中国的首都。",
+        "reference": "北京是中国的首都",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.0192702499916777,
+          "p95": 0.019343791814753784,
+          "min": 0.019129166001221165,
+          "max": 0.01935850002337247
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.0192702499916777,
+          "p95": 0.019343791814753784,
+          "min": 0.019129166001221165,
+          "max": 0.01935850002337247
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.008319477861857175,
+          "p95": 0.008351227816801523,
+          "min": 0.008258568162409968,
+          "max": 0.008357577740442554
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.316281179138322,
+          "p95": 2.316281179138322,
+          "min": 2.316281179138322,
+          "max": 2.316281179138322
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 48168960.0,
+          "p95": 48201728.0,
+          "min": 45793280.0,
+          "max": 48201728.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__zh_short_clause.wav",
+        "wav_sha256": "30b2e3cef5af4f7a4147ab2ced58940523ca72cb23b32971b5384675d10322d9"
+      },
+      "zh_answer_short": {
+        "kind": "answer",
+        "text": "北京是中国的首都，也是全国的政治和文化中心。",
+        "reference": "北京是中国的首都也是全国的政治和文化中心",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.02272733300924301,
+          "p95": 0.022979382798075675,
+          "min": 0.0224993750161957,
+          "max": 0.023023540998110548
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.02272733300924301,
+          "p95": 0.022979382798075675,
+          "min": 0.0224993750161957,
+          "max": 0.023023540998110548
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0038957810632622935,
+          "p95": 0.003938985903616162,
+          "min": 0.003856705891874088,
+          "max": 0.003946555233436499
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 5.833832199546485,
+          "p95": 5.833832199546485,
+          "min": 5.833832199546485,
+          "max": 5.833832199546485
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 53362688.0,
+          "p95": 53362688.0,
+          "min": 48201728.0,
+          "max": 53362688.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__zh_answer_short.wav",
+        "wav_sha256": "986b7abfe8ec3fb5d8e4377804d21779168ccc6a71ac05265244003143415a87"
+      },
+      "zh_answer_medium": {
+        "kind": "answer",
+        "text": "今天下午天气晴朗，气温大约二十四度，出门不需要带伞。",
+        "reference": "今天下午天气晴朗气温大约二十四度出门不需要带伞",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.024675332999322563,
+          "p95": 0.024746199400397018,
+          "min": 0.024390207981923595,
+          "max": 0.0247594160027802
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.024675332999322563,
+          "p95": 0.024746199400397018,
+          "min": 0.024390207981923595,
+          "max": 0.0247594160027802
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0037445275915505014,
+          "p95": 0.003755281699474575,
+          "min": 0.003701259340835463,
+          "max": 0.003757287343422389
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 6.589705215419501,
+          "p95": 6.589705215419501,
+          "min": 6.589705215419501,
+          "max": 6.589705215419501
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 54673408.0,
+          "p95": 54673408.0,
+          "min": 53362688.0,
+          "max": 54673408.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__zh_answer_medium.wav",
+        "wav_sha256": "8c0f8c2a0bdbed25ba53a5980ae5ca0d75a87898c5b019420f84a57aa8e4c764"
+      },
+      "zh_answer_long": {
+        "kind": "long_response",
+        "text": "光合作用是植物把光能转换成化学能的过程。叶绿体吸收阳光，并利用水和二氧化碳合成葡萄糖。这个过程同时释放氧气，供其他生物呼吸使用。因此光合作用是地球上大多数生态系统的能量基础。",
+        "reference": "光合作用是植物把光能转换成化学能的过程叶绿体吸收阳光并利用水和二氧化碳合成葡萄糖这个过程同时释放氧气供其他生物呼吸使用因此光合作用是地球上大多数生态系统的能量基础",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.04205154100782238,
+          "p95": 0.04316050840425305,
+          "min": 0.04180937499040738,
+          "max": 0.04342737499973737
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.04205154100782238,
+          "p95": 0.04316050840425305,
+          "min": 0.04180937499040738,
+          "max": 0.04342737499973737
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0017778886279091522,
+          "p95": 0.0018247744369802004,
+          "min": 0.001767650139660931,
+          "max": 0.001836057235990875
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 23.65251700680272,
+          "p95": 23.65251700680272,
+          "min": 23.65251700680272,
+          "max": 23.65251700680272
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 68976640.0,
+          "p95": 79446016.0,
+          "min": 56360960.0,
+          "max": 79446016.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__zh_answer_long.wav",
+        "wav_sha256": "32828ab57275aadc9beff9d9f6a90fac9a7c2e8ed0e4d18d2ba7daf903a376ff"
+      },
+      "zh_numbers": {
+        "kind": "normalization",
+        "text": "会议安排在二零二六年七月二十六日下午三点十五分。",
+        "reference": "会议安排在二零二六年七月二十六日下午三点十五分",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.024428625009022653,
+          "p95": 0.02487208360689692,
+          "min": 0.024000083009013906,
+          "max": 0.024937667010817677
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.024428625009022653,
+          "p95": 0.02487208360689692,
+          "min": 0.024000083009013906,
+          "max": 0.024937667010817677
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.004354531414554277,
+          "p95": 0.004433580251514379,
+          "min": 0.004278141539937725,
+          "max": 0.004445270839606867
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 5.6099319727891155,
+          "p95": 5.6099319727891155,
+          "min": 5.6099319727891155,
+          "max": 5.6099319727891155
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 77774848.0,
+          "p95": 77774848.0,
+          "min": 77758464.0,
+          "max": 77774848.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__zh_numbers.wav",
+        "wav_sha256": "2f0ab771def619c0a278f7880e4bb57bc829e8b38af8754a2ae0d8d789072f94"
+      },
+      "zh_question": {
+        "kind": "prosody",
+        "text": "你想让我把这段话翻译成英文吗？",
+        "reference": "你想让我把这段话翻译成英文吗",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.021840291999978945,
+          "p95": 0.022215141780907287,
+          "min": 0.021819124987814575,
+          "max": 0.022226749977562577
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.021840291999978945,
+          "p95": 0.022215141780907287,
+          "min": 0.021819124987814575,
+          "max": 0.022226749977562577
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.00550904226456868,
+          "p95": 0.005603595180161592,
+          "min": 0.005503703051859057,
+          "max": 0.005606523256672174
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.9644444444444447,
+          "p95": 3.9644444444444447,
+          "min": 3.9644444444444447,
+          "max": 3.9644444444444447
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 77824000.0,
+          "p95": 77824000.0,
+          "min": 77791232.0,
+          "max": 77824000.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "espeak_ng__zh_question.wav",
+        "wav_sha256": "11b49f72c54c5ed86a6559f24cb141ec0438b82f5b2901b3b7527792f873497e"
+      }
+    },
+    "chunk_floor_summary": {
+      "好": {
+        "chars": 1,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "好的": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "好的。": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "你好啊": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "这是测试": {
+        "chars": 4,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "请稍等一下": {
+        "chars": 5,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "北京今天很晴朗": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [
+      "peak_near_full_scale:0.9994",
+      "peak_near_full_scale:0.9996"
+    ],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.16043491599033588,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.1706523739855038,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.18086983198067175,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "kokoro_zh__zh": {
+    "family": "Kokoro v1.1 multi-lang (INT8)",
+    "language": "zh",
+    "config": {
+      "threads": 2,
+      "sid": 3,
+      "speed": 1.0
+    },
+    "license_weights": "Apache-2.0",
+    "license_risk": "clear",
+    "footprint": {
+      "exclusive_bytes": 208943495,
+      "shared_bytes": 0,
+      "total_bytes": 208943495,
+      "exclusive_mib": 199.26,
+      "total_mib": 199.26
+    },
+    "load": {
+      "load_s": 1.4282361659861635,
+      "rss_before_bytes": 41189376,
+      "rss_after_bytes": 420069376,
+      "incremental_rss_bytes": 378880000,
+      "peak_rss_during_load_bytes": 420102144
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "zh_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "好的。",
+        "reference": "好的",
+        "gate_pass_count": 0,
+        "gate_run_count": 5,
+        "hard_failures": [
+          "all_samples_non_finite"
+        ],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.0331487079965882,
+          "p95": 1.068871833605226,
+          "min": 1.0302309590042569,
+          "max": 1.0776605420105625
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.033170374983456,
+          "p95": 1.0688997499994002,
+          "min": 1.030255624995334,
+          "max": 1.0776897500036284
+        },
+        "rtf": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "min": null,
+          "max": null
+        },
+        "audio_duration_s": {
+          "n": 0,
+          "median": null,
+          "p95": null,
+          "min": null,
+          "max": null
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 438321152.0,
+          "p95": 438321152.0,
+          "min": 438206464.0,
+          "max": 438321152.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": null,
+        "wav_sha256": null
+      },
+      "zh_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "北京是中国的首都。",
+        "reference": "北京是中国的首都",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 2.6130509169888683,
+          "p95": 2.6535028500133193,
+          "min": 2.6045555000018794,
+          "max": 2.6544906250201166
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 2.6130932919913903,
+          "p95": 2.6535400582069997,
+          "min": 2.604591832990991,
+          "max": 2.654527375008911
+        },
+        "rtf": {
+          "n": 5,
+          "median": 1.3518621932657922,
+          "p95": 1.3729231462932694,
+          "min": 1.3474640337949986,
+          "max": 1.3734458026174678
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.9329583333333333,
+          "p95": 1.9329583333333333,
+          "min": 1.93275,
+          "max": 1.9329583333333333
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 493780992.0,
+          "p95": 494121779.2,
+          "min": 458407936.0,
+          "max": 494125056.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "kokoro_zh__zh_short_clause.wav",
+        "wav_sha256": "46e19075577598b828016ca3331046c399ddd29b1a3c217c2dea147a6ab09d52"
+      },
+      "zh_answer_short": {
+        "kind": "answer",
+        "text": "北京是中国的首都，也是全国的政治和文化中心。",
+        "reference": "北京是中国的首都也是全国的政治和文化中心",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 2.609299874980934,
+          "p95": 2.678856191795785,
+          "min": 2.5839982499892358,
+          "max": 2.689430041995365
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 6.223476249986561,
+          "p95": 6.29437562499661,
+          "min": 6.178184166987194,
+          "max": 6.311929499992402
+        },
+        "rtf": {
+          "n": 5,
+          "median": 1.285972426204342,
+          "p95": 1.3005510400634235,
+          "min": 1.276957034781235,
+          "max": 1.3041064384760603
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.8385,
+          "p95": 4.840041666666667,
+          "min": 4.838166666666667,
+          "max": 4.840041666666667
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 438435840.0,
+          "p95": 539030323.2,
+          "min": 412876800.0,
+          "max": 544292864.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 2.0,
+          "p95": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "gap_free_1_5x": false,
+        "max_gap_s_1_5x": 3.381769166666471,
+        "wav_path": "kokoro_zh__zh_answer_short.wav",
+        "wav_sha256": "d3e37314986ce93db462edde7c99959ce58d0de85274ca10b22e625196972922"
+      },
+      "zh_answer_medium": {
+        "kind": "answer",
+        "text": "今天下午天气晴朗，气温大约二十四度，出门不需要带伞。",
+        "reference": "今天下午天气晴朗气温大约二十四度出门不需要带伞",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 2.7810285419982392,
+          "p95": 3.0278698419919237,
+          "min": 2.6899567499931436,
+          "max": 3.07513891698909
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 7.821998957981123,
+          "p95": 7.975123000395252,
+          "min": 7.6905746669799555,
+          "max": 8.004811791994143
+        },
+        "rtf": {
+          "n": 5,
+          "median": 1.3852316245566882,
+          "p95": 1.4120119960043274,
+          "min": 1.3611034320569808,
+          "max": 1.4175648995230359
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 5.65025,
+          "p95": 5.652641666666667,
+          "min": 5.646708333333334,
+          "max": 5.652875
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 274153472.0,
+          "p95": 394179379.2,
+          "min": 267272192.0,
+          "max": 395001856.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 3.0,
+          "p95": 3.0,
+          "min": 3.0,
+          "max": 3.0
+        },
+        "gap_free_1_5x": false,
+        "max_gap_s_1_5x": 2.0238245203372394,
+        "wav_path": "kokoro_zh__zh_answer_medium.wav",
+        "wav_sha256": "e7483b86f3dae012ca07203d421f32d83c29a2f027f3c69a8582b1f7e95394f8"
+      },
+      "zh_answer_long": {
+        "kind": "long_response",
+        "text": "光合作用是植物把光能转换成化学能的过程。叶绿体吸收阳光，并利用水和二氧化碳合成葡萄糖。这个过程同时释放氧气，供其他生物呼吸使用。因此光合作用是地球上大多数生态系统的能量基础。",
+        "reference": "光合作用是植物把光能转换成化学能的过程叶绿体吸收阳光并利用水和二氧化碳合成葡萄糖这个过程同时释放氧气供其他生物呼吸使用因此光合作用是地球上大多数生态系统的能量基础",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 4.762371666991385,
+          "p95": 4.797074283799157,
+          "min": 4.716707792016678,
+          "max": 4.798855208995519
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 22.644743083015783,
+          "p95": 22.924304616387236,
+          "min": 22.552750666014617,
+          "max": 22.95058908298961
+        },
+        "rtf": {
+          "n": 5,
+          "median": 1.2331191452209596,
+          "p95": 1.2481346794282262,
+          "min": 1.228882053481977,
+          "max": 1.2493969523294046
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 18.363791666666668,
+          "p95": 18.369666666666667,
+          "min": 18.35225,
+          "max": 18.36975
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 444547072.0,
+          "p95": 449730969.6,
+          "min": 349749248.0,
+          "max": 450838528.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 6.0,
+          "p95": 6.0,
+          "min": 6.0,
+          "max": 6.0
+        },
+        "gap_free_1_5x": false,
+        "max_gap_s_1_5x": 6.530273333841198,
+        "wav_path": "kokoro_zh__zh_answer_long.wav",
+        "wav_sha256": "e6c05b44b67f1e3f1c97d49d98f71873f4ab01da438c6277df77e9c7aff809f3"
+      },
+      "zh_numbers": {
+        "kind": "normalization",
+        "text": "会议安排在二零二六年七月二十六日下午三点十五分。",
+        "reference": "会议安排在二零二六年七月二十六日下午三点十五分",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 5.067931833997136,
+          "p95": 5.080644949997077,
+          "min": 5.059061082982225,
+          "max": 5.082195625000168
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 5.068069208995439,
+          "p95": 5.080678774992703,
+          "min": 5.059122582984855,
+          "max": 5.082225624995772
+        },
+        "rtf": {
+          "n": 5,
+          "median": 1.1497543365304284,
+          "p95": 1.1527087135456462,
+          "min": 1.1476595932931608,
+          "max": 1.15308579126393
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.408,
+          "p95": 4.408183333333334,
+          "min": 4.4075,
+          "max": 4.4082083333333335
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 442679296.0,
+          "p95": 446650777.6,
+          "min": 436895744.0,
+          "max": 447250432.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "kokoro_zh__zh_numbers.wav",
+        "wav_sha256": "f6bd2222982363f277622688ac73e211171eb79663a041f18cd929993e558fda"
+      },
+      "zh_question": {
+        "kind": "prosody",
+        "text": "你想让我把这段话翻译成英文吗？",
+        "reference": "你想让我把这段话翻译成英文吗",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 3.681277040974237,
+          "p95": 3.7116398667916655,
+          "min": 3.671343166992301,
+          "max": 3.717751291987952
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 3.6813188749947585,
+          "p95": 3.711735133797629,
+          "min": 3.671367792005185,
+          "max": 3.7178639589983504
+        },
+        "rtf": {
+          "n": 5,
+          "median": 1.2318283001488233,
+          "p95": 1.2419645556356522,
+          "min": 1.2287040803230205,
+          "max": 1.2440221818581882
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.9885,
+          "p95": 2.98865,
+          "min": 2.988,
+          "max": 2.9886666666666666
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 413351936.0,
+          "p95": 437331558.4,
+          "min": 376520704.0,
+          "max": 438026240.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "kokoro_zh__zh_question.wav",
+        "wav_sha256": "a6a566e4f9814a774d89633cc354e1cf5d81b1ab8bf4d6a24065b1f1a8d866ba"
+      }
+    },
+    "chunk_floor_summary": {
+      "好": {
+        "chars": 1,
+        "runs": 5,
+        "gate_pass": 0,
+        "failures": [
+          "all_samples_non_finite"
+        ]
+      },
+      "好的": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 0,
+        "failures": [
+          "all_samples_non_finite"
+        ]
+      },
+      "好的。": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 0,
+        "failures": [
+          "all_samples_non_finite"
+        ]
+      },
+      "你好啊": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "这是测试": {
+        "chars": 4,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "请稍等一下": {
+        "chars": 5,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "北京今天很晴朗": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [
+      "dc_offset_needs_blocker:0.025007",
+      "dc_offset_needs_blocker:0.025035",
+      "dc_offset_needs_blocker:0.025036",
+      "dc_offset_needs_blocker:0.025056",
+      "dc_offset_needs_blocker:0.025087",
+      "dc_offset_needs_blocker:0.026380",
+      "dc_offset_needs_blocker:0.026382",
+      "dc_offset_needs_blocker:0.026394",
+      "dc_offset_needs_blocker:0.026405",
+      "dc_offset_needs_blocker:0.026587",
+      "dc_offset_needs_blocker:0.026619",
+      "dc_offset_needs_blocker:0.026663",
+      "dc_offset_needs_blocker:0.026681",
+      "dc_offset_needs_blocker:0.026715",
+      "dc_offset_needs_blocker:0.027299",
+      "dc_offset_needs_blocker:0.027363",
+      "dc_offset_needs_blocker:0.027423",
+      "dc_offset_needs_blocker:0.027443",
+      "dc_offset_needs_blocker:0.027455",
+      "dc_offset_needs_blocker:0.028463",
+      "dc_offset_needs_blocker:0.028469",
+      "dc_offset_needs_blocker:0.028518",
+      "dc_offset_needs_blocker:0.028553",
+      "dc_offset_needs_blocker:0.028567",
+      "dc_offset_needs_blocker:0.028589",
+      "dc_offset_needs_blocker:0.028590",
+      "dc_offset_needs_blocker:0.028606",
+      "dc_offset_needs_blocker:0.028626",
+      "dc_offset_needs_blocker:0.028671"
+    ],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.1737169999838808,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.6905754999758211,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 2.2074339999677615,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "matcha_zh_baker__zh": {
+    "family": "Matcha-TTS (flow matching) + Vocos",
+    "language": "zh",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "Baker (data-baker) corpus: non-commercial use only",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 91792560,
+      "shared_bytes": 53884024,
+      "total_bytes": 145676584,
+      "exclusive_mib": 87.54,
+      "total_mib": 138.93
+    },
+    "load": {
+      "load_s": 1.442701958003454,
+      "rss_before_bytes": 41205760,
+      "rss_after_bytes": 232259584,
+      "incremental_rss_bytes": 191053824,
+      "peak_rss_during_load_bytes": 232046592
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "zh_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "好的。",
+        "reference": "好的",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.08571250000386499,
+          "p95": 0.08681659179273993,
+          "min": 0.08547325001563877,
+          "max": 0.08706854199408554
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.08573116699699312,
+          "p95": 0.08684085818822496,
+          "min": 0.08548970901756547,
+          "max": 0.08709362498484552
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.14553574989145082,
+          "p95": 0.14589719026058387,
+          "min": 0.14289108325351976,
+          "max": 0.14590597408568937
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 0.5916553287981859,
+          "p95": 0.5992743764172336,
+          "min": 0.5877551020408164,
+          "max": 0.5998639455782313
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 237961216.0,
+          "p95": 237977600.0,
+          "min": 236994560.0,
+          "max": 237977600.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "matcha_zh_baker__zh_micro_ack.wav",
+        "wav_sha256": "0dc2fce84a246c84bdfe8daeeae0c1cac493b8fcaef9464c0b056dce91ce9018"
+      },
+      "zh_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "北京是中国的首都。",
+        "reference": "北京是中国的首都",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.1543912079941947,
+          "p95": 0.1563374835939612,
+          "min": 0.1539354170090519,
+          "max": 0.15640554198762402
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.15441066600033082,
+          "p95": 0.15635859980829991,
+          "min": 0.15395445801550522,
+          "max": 0.1564262080064509
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08982574887366226,
+          "p95": 0.09094736937539352,
+          "min": 0.08952492943489782,
+          "max": 0.09102253471638887
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.7196825396825397,
+          "p95": 1.7244807256235828,
+          "min": 1.714829931972789,
+          "max": 1.7256689342403628
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 242286592.0,
+          "p95": 242302976.0,
+          "min": 241467392.0,
+          "max": 242302976.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "matcha_zh_baker__zh_short_clause.wav",
+        "wav_sha256": "ba41916af406ba4128420623a77ee57c2d31cc2a39be3e171fa816d916aef54e"
+      },
+      "zh_answer_short": {
+        "kind": "answer",
+        "text": "北京是中国的首都，也是全国的政治和文化中心。",
+        "reference": "北京是中国的首都也是全国的政治和文化中心",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.149056958995061,
+          "p95": 0.15140886639710516,
+          "min": 0.14695833300356753,
+          "max": 0.15199133299756795
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.3550491670030169,
+          "p95": 0.3621401993965264,
+          "min": 0.3532373330090195,
+          "max": 0.3636699159978889
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0854937103215247,
+          "p95": 0.08704119854501342,
+          "min": 0.08484991930856334,
+          "max": 0.087387309130624
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.157414965986394,
+          "p95": 4.162784580498866,
+          "min": 4.150793650793651,
+          "max": 4.1630839002267575
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 258637824.0,
+          "p95": 259293184.0,
+          "min": 249577472.0,
+          "max": 259293184.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 2.0,
+          "p95": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "matcha_zh_baker__zh_answer_short.wav",
+        "wav_sha256": "34f900bb40d6c351b5e4da880e5226ca6c0a3fcba63e2178d0c372421b613e61"
+      },
+      "zh_answer_medium": {
+        "kind": "answer",
+        "text": "今天下午天气晴朗，气温大约二十四度，出门不需要带伞。",
+        "reference": "今天下午天气晴朗气温大约二十四度出门不需要带伞",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.16111345801618882,
+          "p95": 0.16147651679930278,
+          "min": 0.16095916600897908,
+          "max": 0.16149075000430457
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.48090341698843986,
+          "p95": 0.48369135839748195,
+          "min": 0.477890500013018,
+          "max": 0.484274499991443
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08840136341699262,
+          "p95": 0.08887105472568332,
+          "min": 0.08785484255129185,
+          "max": 0.08898321479305783
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 5.44,
+          "p95": 5.443546485260771,
+          "min": 5.425759637188208,
+          "max": 5.443854875283447
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 261832704.0,
+          "p95": 261858918.4,
+          "min": 260390912.0,
+          "max": 261865472.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 3.0,
+          "p95": 3.0,
+          "min": 3.0,
+          "max": 3.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "matcha_zh_baker__zh_answer_medium.wav",
+        "wav_sha256": "e3c7506013786dbfe63af807d23cd85fee956d51beb54b2c8473d31776cda621"
+      },
+      "zh_answer_long": {
+        "kind": "long_response",
+        "text": "光合作用是植物把光能转换成化学能的过程。叶绿体吸收阳光，并利用水和二氧化碳合成葡萄糖。这个过程同时释放氧气，供其他生物呼吸使用。因此光合作用是地球上大多数生态系统的能量基础。",
+        "reference": "光合作用是植物把光能转换成化学能的过程叶绿体吸收阳光并利用水和二氧化碳合成葡萄糖这个过程同时释放氧气供其他生物呼吸使用因此光合作用是地球上大多数生态系统的能量基础",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.3075777909834869,
+          "p95": 0.35099696659017354,
+          "min": 0.3013152499916032,
+          "max": 0.35724112499156035
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.5709492079913616,
+          "p95": 1.6516350583988242,
+          "min": 1.3894933749979828,
+          "max": 1.6682137500029057
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08886713077128786,
+          "p95": 0.09483797085449305,
+          "min": 0.07951212838562767,
+          "max": 0.09579146251208086
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 17.416507936507937,
+          "p95": 17.63705215419501,
+          "min": 17.393560090702948,
+          "max": 17.67750566893424
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 286326784.0,
+          "p95": 298251059.2,
+          "min": 270811136.0,
+          "max": 299974656.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 6.0,
+          "p95": 6.0,
+          "min": 6.0,
+          "max": 6.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "matcha_zh_baker__zh_answer_long.wav",
+        "wav_sha256": "cf685194f7165dcfec7e242c66e86aa3f26663bef089193cc5f9e5a8e831c9c1"
+      },
+      "zh_numbers": {
+        "kind": "normalization",
+        "text": "会议安排在二零二六年七月二十六日下午三点十五分。",
+        "reference": "会议安排在二零二六年七月二十六日下午三点十五分",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.3637929999968037,
+          "p95": 0.39117329998407513,
+          "min": 0.3541879589902237,
+          "max": 0.39799574998323806
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.3640095840091817,
+          "p95": 0.3912392078025732,
+          "min": 0.35441937498399056,
+          "max": 0.3980242910038214
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.07659593399500383,
+          "p95": 0.08235494600272096,
+          "min": 0.07463277578880159,
+          "max": 0.08372783713792334
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.748843537414966,
+          "p95": 4.7534965986394555,
+          "min": 4.728616780045352,
+          "max": 4.753786848072562
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 300761088.0,
+          "p95": 300761088.0,
+          "min": 299974656.0,
+          "max": 300761088.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "matcha_zh_baker__zh_numbers.wav",
+        "wav_sha256": "cf99022cab36675b8674c0f33cfc9e270a11cd8f538c54adf96f8bc3a6767b5c"
+      },
+      "zh_question": {
+        "kind": "prosody",
+        "text": "你想让我把这段话翻译成英文吗？",
+        "reference": "你想让我把这段话翻译成英文吗",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.23963154200464487,
+          "p95": 0.2658585083903745,
+          "min": 0.22603116699610837,
+          "max": 0.26707999999052845
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.23965549998683855,
+          "p95": 0.2658846577978693,
+          "min": 0.22625908398185857,
+          "max": 0.26710679099778645
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08586522877841167,
+          "p95": 0.09534842367285469,
+          "min": 0.0811987370495749,
+          "max": 0.0957769008602659
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.787392290249433,
+          "p95": 2.7906213151927437,
+          "min": 2.786485260770975,
+          "max": 2.7910657596371884
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 300761088.0,
+          "p95": 300761088.0,
+          "min": 300761088.0,
+          "max": 300761088.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "matcha_zh_baker__zh_question.wav",
+        "wav_sha256": "0fcb1cad1a142c465a6faf0a3f122b791c07878d9ff6328a584d55f515be6a60"
+      }
+    },
+    "chunk_floor_summary": {
+      "好": {
+        "chars": 1,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "好的": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "好的。": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "你好啊": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "这是测试": {
+        "chars": 4,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "请稍等一下": {
+        "chars": 5,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "北京今天很晴朗": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.22706854199408555,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.2706028129911283,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.3141370839881711,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "melotts_zh__zh": {
+    "family": "MeloTTS (VITS)",
+    "language": "zh",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "MIT (MyShell.ai MeloTTS)",
+    "license_risk": "clear",
+    "footprint": {
+      "exclusive_bytes": 191244813,
+      "shared_bytes": 0,
+      "total_bytes": 191244813,
+      "exclusive_mib": 182.39,
+      "total_mib": 182.39
+    },
+    "load": {
+      "load_s": 2.517067874985514,
+      "rss_before_bytes": 41385984,
+      "rss_after_bytes": 269434880,
+      "incremental_rss_bytes": 228048896,
+      "peak_rss_during_load_bytes": 316309504
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "zh_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "好的。",
+        "reference": "好的",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.3438167909916956,
+          "p95": 0.34485371638438667,
+          "min": 0.3424226669885684,
+          "max": 0.3449162079778034
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.343861957982881,
+          "p95": 0.34491177458548916,
+          "min": 0.34244116698391736,
+          "max": 0.34497033298248425
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.6438651641917906,
+          "p95": 0.6458308958568306,
+          "min": 0.6412048006110206,
+          "max": 0.6459405436704975
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 0.5340589569160997,
+          "p95": 0.5340589569160997,
+          "min": 0.5340589569160997,
+          "max": 0.5340589569160997
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 312115200.0,
+          "p95": 312131584.0,
+          "min": 306774016.0,
+          "max": 312131584.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "melotts_zh__zh_micro_ack.wav",
+        "wav_sha256": "cb15f30f505348550dab71005d37ae8a6d6a9826362821a5cc896b643b44b6f2"
+      },
+      "zh_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "北京是中国的首都。",
+        "reference": "北京是中国的首都",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.9908370000193827,
+          "p95": 0.9926160159928259,
+          "min": 0.9835209159937222,
+          "max": 0.9929956659907475
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.9908742090046871,
+          "p95": 0.9926762746064923,
+          "min": 0.9835481249901932,
+          "max": 0.9930444580095354
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.6465665337521707,
+          "p95": 0.6477424199536327,
+          "min": 0.6417861078371733,
+          "max": 0.6479826674689351
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.5325170068027212,
+          "p95": 1.5325170068027212,
+          "min": 1.5325170068027212,
+          "max": 1.5325170068027212
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 321273856.0,
+          "p95": 330989568.0,
+          "min": 316096512.0,
+          "max": 331202560.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "melotts_zh__zh_short_clause.wav",
+        "wav_sha256": "34022dfa822dc0b71ee4a4c645edfc2c6a4f38bf43246620e18310c2bb1e42fc"
+      },
+      "zh_answer_short": {
+        "kind": "answer",
+        "text": "北京是中国的首都，也是全国的政治和文化中心。",
+        "reference": "北京是中国的首都也是全国的政治和文化中心",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.0472089579852764,
+          "p95": 1.0647503002081067,
+          "min": 1.0102761670132168,
+          "max": 1.0679904170101508
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 2.639140041981591,
+          "p95": 2.9448402089998127,
+          "min": 2.54715766699519,
+          "max": 2.991488583997125
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.6646682877112353,
+          "p95": 0.7416589753340399,
+          "min": 0.6415024963135502,
+          "max": 0.7534073839219733
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.9706122448979593,
+          "p95": 3.9706122448979593,
+          "min": 3.9706122448979593,
+          "max": 3.9706122448979593
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 370016256.0,
+          "p95": 373309440.0,
+          "min": 354304000.0,
+          "max": 373604352.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 2.0,
+          "p95": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "gap_free_1_5x": false,
+        "max_gap_s_1_5x": 1.2461926010608395,
+        "wav_path": "melotts_zh__zh_answer_short.wav",
+        "wav_sha256": "3d116302ccdfa6d090c52a9b32f6150c3ee5597a9dc586091552d9b4f2207590"
+      },
+      "zh_answer_medium": {
+        "kind": "answer",
+        "text": "今天下午天气晴朗，气温大约二十四度，出门不需要带伞。",
+        "reference": "今天下午天气晴朗气温大约二十四度出门不需要带伞",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.0582022500166204,
+          "p95": 1.084825458197156,
+          "min": 1.048392208002042,
+          "max": 1.0908934579929337
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 3.069935750012519,
+          "p95": 3.3898515422013586,
+          "min": 3.0002703749923967,
+          "max": 3.398147959000198
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.7149905021655659,
+          "p95": 0.7849735445140165,
+          "min": 0.6930773082798496,
+          "max": 0.7856804133016076
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.293673469387755,
+          "p95": 4.3281496598639455,
+          "min": 4.288321995464853,
+          "max": 4.328911564625851
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 376946688.0,
+          "p95": 379024179.2,
+          "min": 376340480.0,
+          "max": 379469824.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 3.0,
+          "p95": 3.0,
+          "min": 3.0,
+          "max": 3.0
+        },
+        "gap_free_1_5x": false,
+        "max_gap_s_1_5x": 0.416066669224465,
+        "wav_path": "melotts_zh__zh_answer_medium.wav",
+        "wav_sha256": "1e8b44b214014657cda5ddc617ee9112188e4ab46c72129c38c5812141481ab1"
+      },
+      "zh_answer_long": {
+        "kind": "long_response",
+        "text": "光合作用是植物把光能转换成化学能的过程。叶绿体吸收阳光，并利用水和二氧化碳合成葡萄糖。这个过程同时释放氧气，供其他生物呼吸使用。因此光合作用是地球上大多数生态系统的能量基础。",
+        "reference": "光合作用是植物把光能转换成化学能的过程叶绿体吸收阳光并利用水和二氧化碳合成葡萄糖这个过程同时释放氧气供其他生物呼吸使用因此光合作用是地球上大多数生态系统的能量基础",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 2.502020625019213,
+          "p95": 2.688918583584018,
+          "min": 2.3132436250161845,
+          "max": 2.7006842919799965
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 11.103889833000721,
+          "p95": 14.167903416615445,
+          "min": 10.220044208981562,
+          "max": 14.71548400001484
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.7001531925377068,
+          "p95": 0.8933538568824653,
+          "min": 0.6444225121478182,
+          "max": 0.9278814232943106
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 15.85922902494331,
+          "p95": 15.85922902494331,
+          "min": 15.85922902494331,
+          "max": 15.85922902494331
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 465223680.0,
+          "p95": 492329369.6,
+          "min": 425934848.0,
+          "max": 495616000.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 6.0,
+          "p95": 6.0,
+          "min": 6.0,
+          "max": 6.0
+        },
+        "gap_free_1_5x": false,
+        "max_gap_s_1_5x": 5.061713679073904,
+        "wav_path": "melotts_zh__zh_answer_long.wav",
+        "wav_sha256": "d4d0c0895202f09dd29991255d395f03e875aeb019095b4eee060a9b4c5c7ed3"
+      },
+      "zh_numbers": {
+        "kind": "normalization",
+        "text": "会议安排在二零二六年七月二十六日下午三点十五分。",
+        "reference": "会议安排在二零二六年七月二十六日下午三点十五分",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 2.7998474999913014,
+          "p95": 3.7390575168072244,
+          "min": 2.692295083019417,
+          "max": 3.898522875009803
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 2.7999404160073027,
+          "p95": 3.7393415585858745,
+          "min": 2.692409833020065,
+          "max": 3.8988486669841222
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.7051659148044708,
+          "p95": 0.9417544015764179,
+          "min": 0.6780843021072326,
+          "max": 0.9819263192959601
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.9706122448979593,
+          "p95": 3.9706122448979593,
+          "min": 3.9706122448979593,
+          "max": 3.9706122448979593
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 502513664.0,
+          "p95": 505341542.4,
+          "min": 420020224.0,
+          "max": 505348096.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "melotts_zh__zh_numbers.wav",
+        "wav_sha256": "efb94329ea0b76f6bcaf2c2107a6264c91fb0074130f4550f4301d68d5cf35c8"
+      },
+      "zh_question": {
+        "kind": "prosody",
+        "text": "你想让我把这段话翻译成英文吗？",
+        "reference": "你想让我把这段话翻译成英文吗",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.6525945420144126,
+          "p95": 1.90479517520871,
+          "min": 1.6250886250054464,
+          "max": 1.9445231670106295
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.652658250008244,
+          "p95": 1.9048462166218088,
+          "min": 1.6251351250102744,
+          "max": 1.9445781250251457
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.6651780522174683,
+          "p95": 0.7666811309234609,
+          "min": 0.6541002757461404,
+          "max": 0.7826728179177217
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.48453514739229,
+          "p95": 2.48453514739229,
+          "min": 2.48453514739229,
+          "max": 2.48453514739229
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 424591360.0,
+          "p95": 424837120.0,
+          "min": 423493632.0,
+          "max": 424837120.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "melotts_zh__zh_question.wav",
+        "wav_sha256": "e66138a862526030f546167461d9ba235b9a70656d9cf8893ab73c042736667b"
+      }
+    },
+    "chunk_floor_summary": {
+      "好": {
+        "chars": 1,
+        "runs": 5,
+        "gate_pass": 0,
+        "failures": [
+          "near_silent_rms:0.002906",
+          "near_silent_rms:0.003392",
+          "near_silent_rms:0.003597",
+          "near_silent_rms:0.003894",
+          "near_silent_rms:0.004691"
+        ]
+      },
+      "好的": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "好的。": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "你好啊": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "这是测试": {
+        "chars": 4,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "请稍等一下": {
+        "chars": 5,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "北京今天很晴朗": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.48491620797780344,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.6573743119667051,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.8298324159556069,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "piper_ru_dmitri__ru": {
+    "family": "Piper (VITS medium)",
+    "language": "ru",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "Nabu Casa voice-datasets: CC0",
+    "license_risk": "clear",
+    "footprint": {
+      "exclusive_bytes": 81141750,
+      "shared_bytes": 0,
+      "total_bytes": 81141750,
+      "exclusive_mib": 77.38,
+      "total_mib": 77.38
+    },
+    "load": {
+      "load_s": 0.7458912909787614,
+      "rss_before_bytes": 41353216,
+      "rss_after_bytes": 199901184,
+      "incremental_rss_bytes": 158547968,
+      "peak_rss_during_load_bytes": 199933952
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "ru_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "Конечно.",
+        "reference": "конечно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.06984366601682268,
+          "p95": 0.07566890858579427,
+          "min": 0.06403024998144247,
+          "max": 0.07623504198272713
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.06986633301130496,
+          "p95": 0.07569299219176173,
+          "min": 0.06409587498637848,
+          "max": 0.07625908398767933
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.12954529455930663,
+          "p95": 0.14200086174498977,
+          "min": 0.11931987293849369,
+          "max": 0.14254940674197433
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 0.5349659863945578,
+          "p95": 0.5510748299319728,
+          "min": 0.5193650793650794,
+          "max": 0.5540136054421768
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 226312192.0,
+          "p95": 229041766.4,
+          "min": 222822400.0,
+          "max": 229081088.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_dmitri__ru_micro_ack.wav",
+        "wav_sha256": "ba1dee456bb37d93532aa9a17b5ee7cb8e328b165626e9e62f3839bdfe386039"
+      },
+      "ru_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "Москва — столица России.",
+        "reference": "москва столица россии",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.12357787499786355,
+          "p95": 0.1314156248117797,
+          "min": 0.11719983399962075,
+          "max": 0.13237008301075548
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.12360020802589133,
+          "p95": 0.13144872439443134,
+          "min": 0.11722083401400596,
+          "max": 0.13240529099130072
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.09289433086685947,
+          "p95": 0.09396453289695007,
+          "min": 0.08013142950176189,
+          "max": 0.09399174323944351
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.3597732426303855,
+          "p95": 1.527873015873016,
+          "min": 1.3150113378684807,
+          "max": 1.5441269841269842
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 275824640.0,
+          "p95": 275824640.0,
+          "min": 247103488.0,
+          "max": 275824640.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_dmitri__ru_short_clause.wav",
+        "wav_sha256": "33d31fe743e807dc2875bfc796c59a9e83c876eee6126898c28e8d71772bc7de"
+      },
+      "ru_answer_short": {
+        "kind": "answer",
+        "text": "Москва — столица России и её крупнейший город.",
+        "reference": "москва столица россии и её крупнейший город",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.24228341699927114,
+          "p95": 0.2615579752018675,
+          "min": 0.2341250829922501,
+          "max": 0.264222666999558
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.24230833401088603,
+          "p95": 0.2615967331978027,
+          "min": 0.23415170799125917,
+          "max": 0.2642642499995418
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.09275865911354232,
+          "p95": 0.10253208618845414,
+          "min": 0.0920644633501637,
+          "max": 0.103935265277003
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.589024943310658,
+          "p95": 2.621532879818594,
+          "min": 2.5309750566893423,
+          "max": 2.6238548752834467
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 279756800.0,
+          "p95": 279848550.4,
+          "min": 278396928.0,
+          "max": 279871488.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_dmitri__ru_answer_short.wav",
+        "wav_sha256": "4c0d33af4d9914a3322a77deddc11567799129ec45196a32bfc423d686443a3d"
+      },
+      "ru_answer_medium": {
+        "kind": "answer",
+        "text": "Сегодня днём будет ясно, около двадцати четырёх градусов, зонт брать не нужно.",
+        "reference": "сегодня днём будет ясно около двадцати четырёх градусов зонт брать не нужно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.3948109160119202,
+          "p95": 0.5440890750091057,
+          "min": 0.3557298750092741,
+          "max": 0.5674390000058338
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.3948598330025561,
+          "p95": 0.5441456830012612,
+          "min": 0.35580841699265875,
+          "max": 0.5674875830009114
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.09172501444955078,
+          "p95": 0.12805682537331167,
+          "min": 0.08327929257269155,
+          "max": 0.13355000432430517
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.272471655328798,
+          "p95": 4.304979591836735,
+          "min": 4.249251700680272,
+          "max": 4.307301587301588
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 317898752.0,
+          "p95": 319569920.0,
+          "min": 223739904.0,
+          "max": 319569920.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_dmitri__ru_answer_medium.wav",
+        "wav_sha256": "9dd2b11f823b23d287bf95bfa696b8a02ab445a26fa8ffe2c7acb444a5583975"
+      },
+      "ru_answer_long": {
+        "kind": "long_response",
+        "text": "Фотосинтез — это процесс, в котором растения превращают энергию света в химическую энергию. Хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы. При этом выделяется кислород, которым дышат другие организмы. Поэтому фотосинтез лежит в основе большинства экосистем на Земле.",
+        "reference": "фотосинтез это процесс в котором растения превращают энергию света в химическую энергию хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы при этом выделяется кислород которым дышат другие организмы поэтому фотосинтез лежит в основе большинства экосистем на земле",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.4242366249964107,
+          "p95": 0.5471319578005932,
+          "min": 0.40342275000875816,
+          "max": 0.5655072910012677
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.4582523339777254,
+          "p95": 1.6479497079970316,
+          "min": 1.320021124993218,
+          "max": 1.6563287079916336
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.09016298296873712,
+          "p95": 0.10084273927677892,
+          "min": 0.08016300543417616,
+          "max": 0.10165768447028105
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 16.46671201814059,
+          "p95": 16.53492970521542,
+          "min": 16.173514739229024,
+          "max": 16.54421768707483
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 280494080.0,
+          "p95": 291474636.8,
+          "min": 246431744.0,
+          "max": 291880960.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 4.0,
+          "p95": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_dmitri__ru_answer_long.wav",
+        "wav_sha256": "9eef5be6c9643280ee967656e65eedb6cdb7212d29aaa57cc1d9c529fc541ca4"
+      },
+      "ru_numbers": {
+        "kind": "normalization",
+        "text": "Встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать.",
+        "reference": "встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.4452313329966273,
+          "p95": 0.4787087999808136,
+          "min": 0.4211309580132365,
+          "max": 0.47922024998115376
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.4452881249890197,
+          "p95": 0.4787670335965231,
+          "min": 0.4211620409914758,
+          "max": 0.4792799169954378
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08343051132681784,
+          "p95": 0.09070863557023148,
+          "min": 0.07718270448688531,
+          "max": 0.09127564213348954
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 5.358503401360545,
+          "p95": 5.449197278911565,
+          "min": 5.22281179138322,
+          "max": 5.456689342403628
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 299581440.0,
+          "p95": 301069107.2,
+          "min": 299417600.0,
+          "max": 301072384.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_dmitri__ru_numbers.wav",
+        "wav_sha256": "71c6db861a7f3242f23d9539afc94e99e3dd1e705f403aabb8d503213474c690"
+      },
+      "ru_question": {
+        "kind": "prosody",
+        "text": "Хочешь, я переведу этот текст на английский?",
+        "reference": "хочешь я переведу этот текст на английский",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.1853388330200687,
+          "p95": 0.19039903359953314,
+          "min": 0.17768433399032801,
+          "max": 0.19093679200159386
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.18536391700035892,
+          "p95": 0.19042077499907464,
+          "min": 0.17770562498481013,
+          "max": 0.190958999999566
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08708137964532563,
+          "p95": 0.08938003484648865,
+          "min": 0.0809856363863067,
+          "max": 0.08971387365521444
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.1383219954648527,
+          "p95": 2.1940045351473922,
+          "min": 2.0661678004535147,
+          "max": 2.1942857142857144
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 301285376.0,
+          "p95": 301285376.0,
+          "min": 301105152.0,
+          "max": 301285376.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_dmitri__ru_question.wav",
+        "wav_sha256": "0779fb2d06270e4c64e40858474f7ac4d624d3782ccf2547ef4d45a4691da9dc"
+      }
+    },
+    "chunk_floor_summary": {
+      "Да": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Да.": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Хорошо": {
+        "chars": 6,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Секунду": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Одну минуту": {
+        "chars": 11,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Сейчас посмотрю": {
+        "chars": 15,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.20608391701593065,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.23912587552389597,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.2721678340318613,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "piper_ru_irina__ru": {
+    "family": "Piper (VITS medium)",
+    "language": "ru",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "RHVoice corpus: license Unknown (per Piper MODEL_CARD)",
+    "license_risk": "unclear",
+    "footprint": {
+      "exclusive_bytes": 81141742,
+      "shared_bytes": 0,
+      "total_bytes": 81141742,
+      "exclusive_mib": 77.38,
+      "total_mib": 77.38
+    },
+    "load": {
+      "load_s": 0.7029734999814536,
+      "rss_before_bytes": 41172992,
+      "rss_after_bytes": 169033728,
+      "incremental_rss_bytes": 127860736,
+      "peak_rss_during_load_bytes": 169066496
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "ru_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "Конечно.",
+        "reference": "конечно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.07135195899172686,
+          "p95": 0.07746182520641014,
+          "min": 0.06980383300106041,
+          "max": 0.07837541701155715
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.07136837497819215,
+          "p95": 0.07748045800835826,
+          "min": 0.06982766601140611,
+          "max": 0.0783900830138009
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08625038621917284,
+          "p95": 0.10610709920934808,
+          "min": 0.08306971433008535,
+          "max": 0.10674570407317698
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 0.8243083900226758,
+          "p95": 0.8591383219954648,
+          "min": 0.6541496598639456,
+          "max": 0.8591383219954648
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 211681280.0,
+          "p95": 213778432.0,
+          "min": 195395584.0,
+          "max": 213778432.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_irina__ru_micro_ack.wav",
+        "wav_sha256": "eeabf6649c9434a02f7f9d758b7b2c2f3a200a33255746469efba0dc8938098c"
+      },
+      "ru_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "Москва — столица России.",
+        "reference": "москва столица россии",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.21399966700118966,
+          "p95": 0.22941318359808066,
+          "min": 0.20955533397500403,
+          "max": 0.23276241699932143
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.21403437500703149,
+          "p95": 0.2294424418010749,
+          "min": 0.20957804197678342,
+          "max": 0.23279404200729914
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.10939278114528964,
+          "p95": 0.11213018894547967,
+          "min": 0.10758621188257386,
+          "max": 0.1121784119442144
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.9475283446712017,
+          "p95": 2.0653514739229024,
+          "min": 1.9079818594104307,
+          "max": 2.0796825396825396
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 257327104.0,
+          "p95": 257343488.0,
+          "min": 253034496.0,
+          "max": 257343488.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_irina__ru_short_clause.wav",
+        "wav_sha256": "34a3d032f4e82c3995fe9c8decc2515c8b06a0f3a4166983a42baf0663799585"
+      },
+      "ru_answer_short": {
+        "kind": "answer",
+        "text": "Москва — столица России и её крупнейший город.",
+        "reference": "москва столица россии и её крупнейший город",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.3408046670083422,
+          "p95": 0.3522932089865208,
+          "min": 0.3391073750099167,
+          "max": 0.3533392089884728
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.34083737499895506,
+          "p95": 0.3523173503985163,
+          "min": 0.3391487920016516,
+          "max": 0.3533630419988185
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.09590303376170432,
+          "p95": 0.09791669171701728,
+          "min": 0.09529288699617025,
+          "max": 0.09820341151059903
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.576734693877551,
+          "p95": 3.6291882086167804,
+          "min": 3.510068027210884,
+          "max": 3.636916099773243
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 289030144.0,
+          "p95": 289030144.0,
+          "min": 282509312.0,
+          "max": 289030144.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_irina__ru_answer_short.wav",
+        "wav_sha256": "65091a4689f853896f112ef95c271ce851db544fef6916a548e8f7329e79b5d3"
+      },
+      "ru_answer_medium": {
+        "kind": "answer",
+        "text": "Сегодня днём будет ясно, около двадцати четырёх градусов, зонт брать не нужно.",
+        "reference": "сегодня днём будет ясно около двадцати четырёх градусов зонт брать не нужно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.4610275000159163,
+          "p95": 0.49631738319876606,
+          "min": 0.44702029100153595,
+          "max": 0.5014870000013616
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.46105783301754855,
+          "p95": 0.49639235000358894,
+          "min": 0.44707916598417796,
+          "max": 0.5015676250040997
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08531372912991293,
+          "p95": 0.09279267872871612,
+          "min": 0.08375703842837227,
+          "max": 0.09410394495928866
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 5.364580498866213,
+          "p95": 5.427664399092971,
+          "min": 5.311065759637188,
+          "max": 5.433514739229025
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 373161984.0,
+          "p95": 377179340.8,
+          "min": 338280448.0,
+          "max": 377339904.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_irina__ru_answer_medium.wav",
+        "wav_sha256": "90236f93a2a4d4a0bf25d088f59eba072def1c7e815f5618dc48d226322210ba"
+      },
+      "ru_answer_long": {
+        "kind": "long_response",
+        "text": "Фотосинтез — это процесс, в котором растения превращают энергию света в химическую энергию. Хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы. При этом выделяется кислород, которым дышат другие организмы. Поэтому фотосинтез лежит в основе большинства экосистем на Земле.",
+        "reference": "фотосинтез это процесс в котором растения превращают энергию света в химическую энергию хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы при этом выделяется кислород которым дышат другие организмы поэтому фотосинтез лежит в основе большинства экосистем на земле",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.5045931659988128,
+          "p95": 0.5172270670009311,
+          "min": 0.49595791700994596,
+          "max": 0.5202161670022178
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.6807718750205822,
+          "p95": 1.700791675003711,
+          "min": 1.6549967500031926,
+          "max": 1.7012066250026692
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08268746958504648,
+          "p95": 0.08374067530512107,
+          "min": 0.08188312658155096,
+          "max": 0.0837923468541516
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 20.365442176870747,
+          "p95": 20.517414965986397,
+          "min": 20.04027210884354,
+          "max": 20.548843537414967
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 424001536.0,
+          "p95": 435244236.8,
+          "min": 398671872.0,
+          "max": 436158464.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 4.0,
+          "p95": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_irina__ru_answer_long.wav",
+        "wav_sha256": "73f421cfe78835e85fdceb413b8108f0ea86695c982b0aadfc6211e9e68c5bd1"
+      },
+      "ru_numbers": {
+        "kind": "normalization",
+        "text": "Встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать.",
+        "reference": "встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.49912820899044164,
+          "p95": 0.5231755585875362,
+          "min": 0.4881430410023313,
+          "max": 0.5278852919873316
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.4991971669951454,
+          "p95": 0.523238191800192,
+          "min": 0.4882051250024233,
+          "max": 0.527956042002188
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.07853081962492085,
+          "p95": 0.08157881220911431,
+          "min": 0.0761013380271222,
+          "max": 0.0822739210023481
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 6.400725623582766,
+          "p95": 6.531120181405896,
+          "min": 6.327437641723356,
+          "max": 6.559637188208617
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 436191232.0,
+          "p95": 436191232.0,
+          "min": 436158464.0,
+          "max": 436191232.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_irina__ru_numbers.wav",
+        "wav_sha256": "bc3f0ba771cef103e2e634fed455f02221025b6771c186d6860b4c51d41d34f3"
+      },
+      "ru_question": {
+        "kind": "prosody",
+        "text": "Хочешь, я переведу этот текст на английский?",
+        "reference": "хочешь я переведу этот текст на английский",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.23727275000419468,
+          "p95": 0.25022108320845293,
+          "min": 0.2267562079941854,
+          "max": 0.2534442080068402
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.23729329099296592,
+          "p95": 0.250244108599145,
+          "min": 0.22679470799630508,
+          "max": 0.25346716700005345
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.09417078338423561,
+          "p95": 0.09592632917713592,
+          "min": 0.0879698719601479,
+          "max": 0.09628037903622315
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.536825396825397,
+          "p95": 2.661142857142857,
+          "min": 2.465215419501134,
+          "max": 2.681904761904762
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 436191232.0,
+          "p95": 436191232.0,
+          "min": 436191232.0,
+          "max": 436191232.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_irina__ru_question.wav",
+        "wav_sha256": "939914630e3bc9b171db07e08b2bd1035cebfc5d3ff9f15643baf60ce5468a54"
+      }
+    },
+    "chunk_floor_summary": {
+      "Да": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Да.": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Хорошо": {
+        "chars": 6,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Секунду": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Одну минуту": {
+        "chars": 11,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Сейчас посмотрю": {
+        "chars": 15,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.21380745798582212,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.2507111869787332,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.28761491597164424,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "piper_ru_ruslan__ru": {
+    "family": "Piper (VITS medium)",
+    "language": "ru",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "RUSLAN corpus: CC BY-NC-SA 4.0",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 81141764,
+      "shared_bytes": 0,
+      "total_bytes": 81141764,
+      "exclusive_mib": 77.38,
+      "total_mib": 77.38
+    },
+    "load": {
+      "load_s": 0.7108908329973929,
+      "rss_before_bytes": 40992768,
+      "rss_after_bytes": 163692544,
+      "incremental_rss_bytes": 122699776,
+      "peak_rss_during_load_bytes": 163725312
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "ru_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "Конечно.",
+        "reference": "конечно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.05009004200110212,
+          "p95": 0.08435123380040749,
+          "min": 0.049097666022134945,
+          "max": 0.09201608400326222
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.0501101250119973,
+          "p95": 0.08437861658167094,
+          "min": 0.04911470800288953,
+          "max": 0.0920464999799151
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.09251884217974293,
+          "p95": 0.1509387895582108,
+          "min": 0.0898607482845648,
+          "max": 0.16517133175106835
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 0.5572789115646258,
+          "p95": 0.5758548752834467,
+          "min": 0.5224489795918368,
+          "max": 0.5804988662131519
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 181125120.0,
+          "p95": 181216870.4,
+          "min": 178765824.0,
+          "max": 181239808.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_ruslan__ru_micro_ack.wav",
+        "wav_sha256": "17f0ce9e5e34ae61a951f73f675890f180a7b5fa35dbf1fe455d513afeb9be1e"
+      },
+      "ru_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "Москва — столица России.",
+        "reference": "москва столица россии",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.13826754098408855,
+          "p95": 0.14051718360278756,
+          "min": 0.12819312498322688,
+          "max": 0.14104179199784994
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.13829070798237808,
+          "p95": 0.14053774161729962,
+          "min": 0.12821145899943076,
+          "max": 0.1410627500154078
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.07994206457139882,
+          "p95": 0.08169704019097923,
+          "min": 0.07832066353439296,
+          "max": 0.08209548241764522
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.7182766439909296,
+          "p95": 1.757750566893424,
+          "min": 1.6370068027210884,
+          "max": 1.7647165532879818
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 218169344.0,
+          "p95": 218723123.2,
+          "min": 207405056.0,
+          "max": 218857472.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_ruslan__ru_short_clause.wav",
+        "wav_sha256": "925160fb9ec9a35db5ccea2903477d22128da28c0448a19b22cf66879c27381c"
+      },
+      "ru_answer_short": {
+        "kind": "answer",
+        "text": "Москва — столица России и её крупнейший город.",
+        "reference": "москва столица россии и её крупнейший город",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.2372010829858482,
+          "p95": 0.2427573577791918,
+          "min": 0.22762724998756312,
+          "max": 0.24322329097776674
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.23723579201032408,
+          "p95": 0.24278284998727032,
+          "min": 0.22765029198490083,
+          "max": 0.24324799998430535
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.07890232314164716,
+          "p95": 0.07973282290525913,
+          "min": 0.07847054072527407,
+          "max": 0.07973903684792988
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.01859410430839,
+          "p95": 3.090575963718821,
+          "min": 2.8560544217687074,
+          "max": 3.0998639455782313
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 260849664.0,
+          "p95": 262861619.2,
+          "min": 236797952.0,
+          "max": 263077888.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_ruslan__ru_answer_short.wav",
+        "wav_sha256": "87639ddd488f4797b0288321077a8e5801050d93718b74367101bc8a258aacb5"
+      },
+      "ru_answer_medium": {
+        "kind": "answer",
+        "text": "Сегодня днём будет ясно, около двадцати четырёх градусов, зонт брать не нужно.",
+        "reference": "сегодня днём будет ясно около двадцати четырёх градусов зонт брать не нужно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.3516130000061821,
+          "p95": 0.4213729499781039,
+          "min": 0.34318974998313934,
+          "max": 0.43693524997797795
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.3516670420067385,
+          "p95": 0.42141940838773734,
+          "min": 0.3432200420065783,
+          "max": 0.4369861249870155
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0792560523442218,
+          "p95": 0.10057982105313086,
+          "min": 0.07619413437974595,
+          "max": 0.10553139538868289
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.35374149659864,
+          "p95": 4.669532879818594,
+          "min": 4.140816326530612,
+          "max": 4.713650793650793
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 294895616.0,
+          "p95": 297104179.2,
+          "min": 291045376.0,
+          "max": 297484288.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_ruslan__ru_answer_medium.wav",
+        "wav_sha256": "c12f2709b00eb9ff8a5a4db8183bc3d397039f9da5291fe1fe42e3668b0f0535"
+      },
+      "ru_answer_long": {
+        "kind": "long_response",
+        "text": "Фотосинтез — это процесс, в котором растения превращают энергию света в химическую энергию. Хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы. При этом выделяется кислород, которым дышат другие организмы. Поэтому фотосинтез лежит в основе большинства экосистем на Земле.",
+        "reference": "фотосинтез это процесс в котором растения превращают энергию света в химическую энергию хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы при этом выделяется кислород которым дышат другие организмы поэтому фотосинтез лежит в основе большинства экосистем на земле",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.4322505419841036,
+          "p95": 0.48526465860195456,
+          "min": 0.42531916601001285,
+          "max": 0.4952382920018863
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.5318323340034112,
+          "p95": 1.7397226252011022,
+          "min": 1.4447001249936875,
+          "max": 1.7888031670008786
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08022178908801744,
+          "p95": 0.09318169672460797,
+          "min": 0.07741598989803739,
+          "max": 0.09549511142405631
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 18.7318820861678,
+          "p95": 19.086367346938776,
+          "min": 18.389569160997734,
+          "max": 19.09496598639456
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 340639744.0,
+          "p95": 345974374.4,
+          "min": 317767680.0,
+          "max": 346243072.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 4.0,
+          "p95": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_ruslan__ru_answer_long.wav",
+        "wav_sha256": "41ed175f412d637c29aa3b4bc3afaea30ab8cc0456bfdc222d5acaa217ffd54b"
+      },
+      "ru_numbers": {
+        "kind": "normalization",
+        "text": "Встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать.",
+        "reference": "встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.5343911249947269,
+          "p95": 0.6309897497936617,
+          "min": 0.505346667021513,
+          "max": 0.6537977079860866
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.534426458994858,
+          "p95": 0.6311089834023732,
+          "min": 0.5053832500125282,
+          "max": 0.6539297499984968
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08854436136389443,
+          "p95": 0.1032968981536103,
+          "min": 0.08287990616094668,
+          "max": 0.1068678968869139
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 6.097777777777778,
+          "p95": 6.127863945578231,
+          "min": 6.035691609977325,
+          "max": 6.130068027210885
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 424771584.0,
+          "p95": 425377792.0,
+          "min": 376438784.0,
+          "max": 425476096.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_ruslan__ru_numbers.wav",
+        "wav_sha256": "00754a52494e445cb83319d8d584b86a401d63d4b1cd9d3df1c2b451f0678ecd"
+      },
+      "ru_question": {
+        "kind": "prosody",
+        "text": "Хочешь, я переведу этот текст на английский?",
+        "reference": "хочешь я переведу этот текст на английский",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.18605437499354593,
+          "p95": 0.1909859500010498,
+          "min": 0.17749870801344514,
+          "max": 0.19174300000304356
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.18607241599238478,
+          "p95": 0.19101077499217353,
+          "min": 0.17751845801831223,
+          "max": 0.19176799998967908
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08047454768305479,
+          "p95": 0.08168339545096177,
+          "min": 0.07979476901744459,
+          "max": 0.08177010468415347
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.2755555555555556,
+          "p95": 2.391655328798186,
+          "min": 2.2058956916099772,
+          "max": 2.403265306122449
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 425508864.0,
+          "p95": 425508864.0,
+          "min": 425508864.0,
+          "max": 425508864.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_ru_ruslan__ru_question.wav",
+        "wav_sha256": "054b87b82c88885ada1e3d26bb98d3f02981c7ac12e1c98a05dd8d08cef31de7"
+      }
+    },
+    "chunk_floor_summary": {
+      "Да": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Да.": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Хорошо": {
+        "chars": 6,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Секунду": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Одну минуту": {
+        "chars": 11,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Сейчас посмотрю": {
+        "chars": 15,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.18909766602213496,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.21364649903320243,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.2381953320442699,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "piper_zh_huayan__zh": {
+    "family": "Piper (VITS medium)",
+    "language": "zh",
+    "config": {
+      "threads": 2,
+      "sid": 0,
+      "speed": 1.0
+    },
+    "license_weights": "HuaYan_TTS dataset: license Unknown (per Piper MODEL_CARD)",
+    "license_risk": "unclear",
+    "footprint": {
+      "exclusive_bytes": 81193981,
+      "shared_bytes": 0,
+      "total_bytes": 81193981,
+      "exclusive_mib": 77.43,
+      "total_mib": 77.43
+    },
+    "load": {
+      "load_s": 1.0092526670196094,
+      "rss_before_bytes": 40386560,
+      "rss_after_bytes": 166559744,
+      "incremental_rss_bytes": 126173184,
+      "peak_rss_during_load_bytes": 166592512
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "zh_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "好的。",
+        "reference": "好的",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.054621542018139735,
+          "p95": 0.05583615019568242,
+          "min": 0.052583665994461626,
+          "max": 0.05583716699038632
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.05463795902323909,
+          "p95": 0.05585277499631047,
+          "min": 0.05260370799805969,
+          "max": 0.05585287499707192
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0907691549001648,
+          "p95": 0.12067613945007191,
+          "min": 0.08403787642734528,
+          "max": 0.12200607566605828
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 0.615328798185941,
+          "p95": 0.6455147392290249,
+          "min": 0.43115646258503404,
+          "max": 0.6501587301587302
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 183369728.0,
+          "p95": 184110284.8,
+          "min": 182222848.0,
+          "max": 184188928.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_zh_huayan__zh_micro_ack.wav",
+        "wav_sha256": "884633b4b951496d6f8410e9455c9ae5f5ecb94f48c769e5caf698a2c0068d88"
+      },
+      "zh_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "北京是中国的首都。",
+        "reference": "北京是中国的首都",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.14960075000999495,
+          "p95": 0.15410624140640722,
+          "min": 0.1446739160164725,
+          "max": 0.1549014580086805
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.14964370802044868,
+          "p95": 0.1541444250033237,
+          "min": 0.14469362501404248,
+          "max": 0.15494337500422262
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08126018508896493,
+          "p95": 0.0848619048678364,
+          "min": 0.08055770902956283,
+          "max": 0.08536211557040979
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.8575963718820863,
+          "p95": 1.9040362811791383,
+          "min": 1.6950566893424037,
+          "max": 1.9156462585034013
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 223035392.0,
+          "p95": 225725644.8,
+          "min": 208666624.0,
+          "max": 225968128.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_zh_huayan__zh_short_clause.wav",
+        "wav_sha256": "2d8a6e20806805514d32ed08f216850f6559682124363ba0fc546bf2a0a5c77e"
+      },
+      "zh_answer_short": {
+        "kind": "answer",
+        "text": "北京是中国的首都，也是全国的政治和文化中心。",
+        "reference": "北京是中国的首都也是全国的政治和文化中心",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.32804837499861605,
+          "p95": 0.34004302459652536,
+          "min": 0.3181445419904776,
+          "max": 0.34301866599707864
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.328074541001115,
+          "p95": 0.3400694917887449,
+          "min": 0.3181685839954298,
+          "max": 0.343044999986887
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.0828914551739564,
+          "p95": 0.08563743529664918,
+          "min": 0.08162792395387307,
+          "max": 0.08628561609909265
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.959002267573696,
+          "p95": 3.9723537414965984,
+          "min": 3.8312925170068026,
+          "max": 3.975691609977324
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 288014336.0,
+          "p95": 288014336.0,
+          "min": 266272768.0,
+          "max": 288014336.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_zh_huayan__zh_answer_short.wav",
+        "wav_sha256": "0a2a7b90e6a9ba3df538416c1d4b4caca92ec7bc74e92d9635e92780cfe4120d"
+      },
+      "zh_answer_medium": {
+        "kind": "answer",
+        "text": "今天下午天气晴朗，气温大约二十四度，出门不需要带伞。",
+        "reference": "今天下午天气晴朗气温大约二十四度出门不需要带伞",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.40458270799717866,
+          "p95": 0.7528372835949995,
+          "min": 0.3548782079888042,
+          "max": 0.7999359169916715
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.40461070800665766,
+          "p95": 0.7529192503890954,
+          "min": 0.3549242499866523,
+          "max": 0.8000225419818889
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08460198085017469,
+          "p95": 0.15800445346371686,
+          "min": 0.08002781119320274,
+          "max": 0.16810559717450138
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.759047619047619,
+          "p95": 4.83102947845805,
+          "min": 4.435011337868481,
+          "max": 4.838730158730159
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 300941312.0,
+          "p95": 304326246.4,
+          "min": 296550400.0,
+          "max": 304447488.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_zh_huayan__zh_answer_medium.wav",
+        "wav_sha256": "8ffe6f7acf71e4fcf72f25cd02e263e0e9cf75c6629b3cd95c5c25776a3641ab"
+      },
+      "zh_answer_long": {
+        "kind": "long_response",
+        "text": "光合作用是植物把光能转换成化学能的过程。叶绿体吸收阳光，并利用水和二氧化碳合成葡萄糖。这个过程同时释放氧气，供其他生物呼吸使用。因此光合作用是地球上大多数生态系统的能量基础。",
+        "reference": "光合作用是植物把光能转换成化学能的过程叶绿体吸收阳光并利用水和二氧化碳合成葡萄糖这个过程同时释放氧气供其他生物呼吸使用因此光合作用是地球上大多数生态系统的能量基础",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.3359957500069868,
+          "p95": 0.5051856753998436,
+          "min": 0.3313846669916529,
+          "max": 0.5233879169973079
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.4421346250164788,
+          "p95": 1.818145266798092,
+          "min": 1.4181562500016298,
+          "max": 1.862367624999024
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08430271521447016,
+          "p95": 0.10839839390076186,
+          "min": 0.08363223967856888,
+          "max": 0.1118025982266002
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 16.982993197278912,
+          "p95": 17.27427664399093,
+          "min": 16.657641723356008,
+          "max": 17.316190476190478
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 316653568.0,
+          "p95": 319566643.2,
+          "min": 305676288.0,
+          "max": 320274432.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 4.0,
+          "p95": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_zh_huayan__zh_answer_long.wav",
+        "wav_sha256": "58c4265498478b0b0f9473539ca3a3bf3b8d401f46a65e08205c1a20af7c6a31"
+      },
+      "zh_numbers": {
+        "kind": "normalization",
+        "text": "会议安排在二零二六年七月二十六日下午三点十五分。",
+        "reference": "会议安排在二零二六年七月二十六日下午三点十五分",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.3612403750012163,
+          "p95": 0.3797845001856331,
+          "min": 0.3560731250036042,
+          "max": 0.3835976669797674
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.36129991701454856,
+          "p95": 0.379836066585267,
+          "min": 0.35609754201141186,
+          "max": 0.38365049997810274
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08567696136603487,
+          "p95": 0.08975785313992249,
+          "min": 0.08452389875768959,
+          "max": 0.0905184634963744
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.237641723356009,
+          "p95": 4.2578140589569164,
+          "min": 4.156281179138322,
+          "max": 4.262675736961452
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 323371008.0,
+          "p95": 323371008.0,
+          "min": 323354624.0,
+          "max": 323371008.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_zh_huayan__zh_numbers.wav",
+        "wav_sha256": "932642126119c82fd0b385723c521561189e018ffc43552e89f210b62ff03c02"
+      },
+      "zh_question": {
+        "kind": "prosody",
+        "text": "你想让我把这段话翻译成英文吗？",
+        "reference": "你想让我把这段话翻译成英文吗",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.2813380000006873,
+          "p95": 0.2900590744044166,
+          "min": 0.26565116600249894,
+          "max": 0.290067916008411
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.2813616249768529,
+          "p95": 0.2900845496042166,
+          "min": 0.2656731249880977,
+          "max": 0.29009145800955594
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.08704786723769015,
+          "p95": 0.08843414343830418,
+          "min": 0.08608091673242878,
+          "max": 0.08848295401964304
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.2685714285714287,
+          "p95": 3.350367346938776,
+          "min": 3.0108390022675735,
+          "max": 3.354920634920635
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 338182144.0,
+          "p95": 338182144.0,
+          "min": 323371008.0,
+          "max": 338182144.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "piper_zh_huayan__zh_question.wav",
+        "wav_sha256": "0e2b824fa49fce6db4ab66adaa41da72f733d7ac77a8d2d1501cca6a831845e7"
+      }
+    },
+    "chunk_floor_summary": {
+      "好": {
+        "chars": 1,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "好的": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "好的。": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "你好啊": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "这是测试": {
+        "chars": 4,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "请稍等一下": {
+        "chars": 5,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "北京今天很晴朗": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.19583208301686683,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.22374812452530024,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.25166416603373365,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "supertonic3_s4__en": {
+    "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+    "language": "en",
+    "config": {
+      "threads": 2,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 4
+    },
+    "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 145295768,
+      "shared_bytes": 0,
+      "total_bytes": 145295768,
+      "exclusive_mib": 138.56,
+      "total_mib": 138.56
+    },
+    "load": {
+      "load_s": 0.7117150830163155,
+      "rss_before_bytes": 40386560,
+      "rss_after_bytes": 277430272,
+      "incremental_rss_bytes": 237043712,
+      "peak_rss_during_load_bytes": 277463040
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "en_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "Paris is the capital of France.",
+        "reference": "paris is the capital of france",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.5666798339807428,
+          "p95": 0.5686821750074159,
+          "min": 0.564585750020342,
+          "max": 0.5688310000114143
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.566749458987033,
+          "p95": 0.5687395409971941,
+          "min": 0.5646307090064511,
+          "max": 0.5688900410023052
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.22848622464372836,
+          "p95": 0.22928853035046132,
+          "min": 0.2276320461767698,
+          "max": 0.22934920474093742
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.480453514739229,
+          "p95": 2.480453514739229,
+          "min": 2.480453514739229,
+          "max": 2.480453514739229
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 354304000.0,
+          "p95": 357177753.6,
+          "min": 323158016.0,
+          "max": 357335040.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__en_short_clause.wav",
+        "wav_sha256": "ded7b2df67e5987e0a18cb8aa39b82fa23cc8c840998886457dfda673cea2e2c"
+      },
+      "en_answer_medium": {
+        "kind": "answer",
+        "text": "The weather should stay clear this afternoon, so you can leave the umbrella at home.",
+        "reference": "the weather should stay clear this afternoon so you can leave the umbrella at home",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.1056500420090742,
+          "p95": 1.10862042439403,
+          "min": 1.1047644579957705,
+          "max": 1.1089179159898777
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.1057227500132285,
+          "p95": 1.1087337328062858,
+          "min": 1.1048889580124523,
+          "max": 1.1090425410075113
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.1944164730660305,
+          "p95": 0.19494588666006363,
+          "min": 0.1942698694983101,
+          "max": 0.1950001836358068
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 5.687392290249433,
+          "p95": 5.687392290249433,
+          "min": 5.687392290249433,
+          "max": 5.687392290249433
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 401506304.0,
+          "p95": 404583219.2,
+          "min": 358531072.0,
+          "max": 404586496.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__en_answer_medium.wav",
+        "wav_sha256": "7dca0741be969ce0cb8570a24a8b907e3ad79a910c902867d2cb206a7986b4da"
+      }
+    },
+    "chunk_floor_summary": {},
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.7080868749914225,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.9921303124871338,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.2761737499828452,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "supertonic3_s4__es": {
+    "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+    "language": "es",
+    "config": {
+      "threads": 2,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 4
+    },
+    "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 145295768,
+      "shared_bytes": 0,
+      "total_bytes": 145295768,
+      "exclusive_mib": 138.56,
+      "total_mib": 138.56
+    },
+    "load": {
+      "load_s": 0.6475025840045419,
+      "rss_before_bytes": 40419328,
+      "rss_after_bytes": 238419968,
+      "incremental_rss_bytes": 198000640,
+      "peak_rss_during_load_bytes": 238452736
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "es_answer_short": {
+        "kind": "answer",
+        "text": "Madrid es la capital de España y su ciudad más grande.",
+        "reference": "madrid es la capital de españa y su ciudad más grande",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.7953701670048758,
+          "p95": 0.7977944833866786,
+          "min": 0.7951134999748319,
+          "max": 0.7979624999861699
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.7954725000017788,
+          "p95": 0.7979475413914769,
+          "min": 0.7952088749734685,
+          "max": 0.798122832988156
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.18011252945837605,
+          "p95": 0.18067293345123778,
+          "min": 0.18005283893396773,
+          "max": 0.1807126233372748
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.416530612244898,
+          "p95": 4.416530612244898,
+          "min": 4.416530612244898,
+          "max": 4.416530612244898
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 341377024.0,
+          "p95": 343277568.0,
+          "min": 307625984.0,
+          "max": 343490560.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__es_answer_short.wav",
+        "wav_sha256": "a02c2b469f3b84e682758d75234c0fafcda05cf4897d10cb77826d5208ea9580"
+      }
+    },
+    "chunk_floor_summary": {},
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.9379624999861699,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.336943749979255,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.7359249999723398,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "supertonic3_s4__fr": {
+    "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+    "language": "fr",
+    "config": {
+      "threads": 2,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 4
+    },
+    "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 145295768,
+      "shared_bytes": 0,
+      "total_bytes": 145295768,
+      "exclusive_mib": 138.56,
+      "total_mib": 138.56
+    },
+    "load": {
+      "load_s": 0.6481840829947032,
+      "rss_before_bytes": 40419328,
+      "rss_after_bytes": 238436352,
+      "incremental_rss_bytes": 198017024,
+      "peak_rss_during_load_bytes": 238469120
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "fr_answer_short": {
+        "kind": "answer",
+        "text": "Paris est la capitale de la France et sa plus grande ville.",
+        "reference": "paris est la capitale de la france et sa plus grande ville",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.7967911250016186,
+          "p95": 0.7981964330014307,
+          "min": 0.7953237499750685,
+          "max": 0.7984150830016006
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.796897166990675,
+          "p95": 0.7983464669901877,
+          "min": 0.7954179579974152,
+          "max": 0.7985750419902615
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.18053985011655826,
+          "p95": 0.180868194118174,
+          "min": 0.18020473012743513,
+          "max": 0.18091997858668898
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.413968253968254,
+          "p95": 4.413968253968254,
+          "min": 4.413968253968254,
+          "max": 4.413968253968254
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 342474752.0,
+          "p95": 346911539.2,
+          "min": 307675136.0,
+          "max": 347750400.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__fr_answer_short.wav",
+        "wav_sha256": "317d2931f0448d93522e35fb2da570055a2ea540dd051edf2faa808b92ddc4f4"
+      }
+    },
+    "chunk_floor_summary": {},
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.9384150830016006,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.337622624502401,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.7368301660032013,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "supertonic3_s4__it": {
+    "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+    "language": "it",
+    "config": {
+      "threads": 2,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 4
+    },
+    "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 145295768,
+      "shared_bytes": 0,
+      "total_bytes": 145295768,
+      "exclusive_mib": 138.56,
+      "total_mib": 138.56
+    },
+    "load": {
+      "load_s": 0.6452318750089034,
+      "rss_before_bytes": 40419328,
+      "rss_after_bytes": 238747648,
+      "incremental_rss_bytes": 198328320,
+      "peak_rss_during_load_bytes": 238436352
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "it_answer_short": {
+        "kind": "answer",
+        "text": "Roma è la capitale d'Italia e la sua città più grande.",
+        "reference": "roma è la capitale d'italia e la sua città più grande",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.7896837499865796,
+          "p95": 0.7925886995973996,
+          "min": 0.7886538329767063,
+          "max": 0.7930093329923693
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.7897449159936514,
+          "p95": 0.7935180666216184,
+          "min": 0.7887584579875693,
+          "max": 0.7936293750244658
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.18886452065182277,
+          "p95": 0.18976685540607882,
+          "min": 0.1886286129369533,
+          "max": 0.1897934743911746
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 4.181541950113378,
+          "p95": 4.181541950113378,
+          "min": 4.181541950113378,
+          "max": 4.181541950113378
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 341377024.0,
+          "p95": 344771788.8,
+          "min": 310722560.0,
+          "max": 344981504.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__it_answer_short.wav",
+        "wav_sha256": "f3767906198fb5c6e21c53e13d1d511d240eaaa650489abf1bb2c1e9392c1e35"
+      }
+    },
+    "chunk_floor_summary": {},
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.9309061660175212,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.3263592490262819,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.7218123320350425,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "supertonic3_s4__ru": {
+    "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+    "language": "ru",
+    "config": {
+      "threads": 2,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 4
+    },
+    "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 145295768,
+      "shared_bytes": 0,
+      "total_bytes": 145295768,
+      "exclusive_mib": 138.56,
+      "total_mib": 138.56
+    },
+    "load": {
+      "load_s": 0.7385797500028275,
+      "rss_before_bytes": 40386560,
+      "rss_after_bytes": 256589824,
+      "incremental_rss_bytes": 216203264,
+      "peak_rss_during_load_bytes": 256622592
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "ru_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "Конечно.",
+        "reference": "конечно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.38493479101452976,
+          "p95": 0.3879563748079818,
+          "min": 0.3837014999880921,
+          "max": 0.38834058301290497
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.3849647910101339,
+          "p95": 0.38800116701750087,
+          "min": 0.383727957989322,
+          "max": 0.38838916702661663
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.2864630683643849,
+          "p95": 0.28872252067818216,
+          "min": 0.285542706319673,
+          "max": 0.2890112423372333
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.3438548752834467,
+          "p95": 1.3438548752834467,
+          "min": 1.3438548752834467,
+          "max": 1.3438548752834467
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 328990720.0,
+          "p95": 329121792.0,
+          "min": 302743552.0,
+          "max": 329121792.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_micro_ack.wav",
+        "wav_sha256": "73d9183e5d1ff2d9ff8d1340bb5d39c72dee5019c2201f2c6dcf10fed730071c"
+      },
+      "ru_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "Москва — столица России.",
+        "reference": "москва столица россии",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.46186570898862556,
+          "p95": 0.4717591169930529,
+          "min": 0.43528508400777355,
+          "max": 0.47290016699116677
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.46193449999555014,
+          "p95": 0.47180515858344735,
+          "min": 0.43534933400223963,
+          "max": 0.47294829197926447
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.21514142710590317,
+          "p95": 0.21973858877080546,
+          "min": 0.20275964884144523,
+          "max": 0.22027099184992358
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.147120181405896,
+          "p95": 2.147120181405896,
+          "min": 2.147120181405896,
+          "max": 2.147120181405896
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 334938112.0,
+          "p95": 335147827.2,
+          "min": 332152832.0,
+          "max": 335183872.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_short_clause.wav",
+        "wav_sha256": "f7200498e4401c24a7f439041944c01f57b4c916ec3cf48d5abc093a8f725b08"
+      },
+      "ru_answer_short": {
+        "kind": "answer",
+        "text": "Москва — столица России и её крупнейший город.",
+        "reference": "москва столица россии и её крупнейший город",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.7655375419999473,
+          "p95": 0.7660465666151139,
+          "min": 0.7565464589861222,
+          "max": 0.7661472500185482
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.7655861669918522,
+          "p95": 0.7661383415979799,
+          "min": 0.7566329999826849,
+          "max": 0.7662398749962449
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.2072746748625776,
+          "p95": 0.20742417052601442,
+          "min": 0.2048506958765058,
+          "max": 0.20745165966181708
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.6935827664399095,
+          "p95": 3.6935827664399095,
+          "min": 3.6935827664399095,
+          "max": 3.6935827664399095
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 347750400.0,
+          "p95": 348536832.0,
+          "min": 338214912.0,
+          "max": 348536832.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_answer_short.wav",
+        "wav_sha256": "674c9d465c7aeb93d1f9d11cd8a3fce5c81c94b1efc52be8ca3cf02e334190fb"
+      },
+      "ru_answer_medium": {
+        "kind": "answer",
+        "text": "Сегодня днём будет ясно, около двадцати четырёх градусов, зонт брать не нужно.",
+        "reference": "сегодня днём будет ясно около двадцати четырёх градусов зонт брать не нужно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.1391575829766225,
+          "p95": 1.3977323499973864,
+          "min": 1.1299602079961915,
+          "max": 1.4611860000004526
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.1392991250031628,
+          "p95": 1.3978703748027328,
+          "min": 1.1300951250013895,
+          "max": 1.4613240830076393
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.18340710079337483,
+          "p95": 0.22503251964386942,
+          "min": 0.18192541883735405,
+          "max": 0.23524744950824403
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 6.211859410430839,
+          "p95": 6.211859410430839,
+          "min": 6.211859410430839,
+          "max": 6.211859410430839
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 408698880.0,
+          "p95": 409760563.2,
+          "min": 354369536.0,
+          "max": 409763840.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_answer_medium.wav",
+        "wav_sha256": "7679a50d6034723f7eec9d9eac69fdd20049bcf9ffd88800a461b882333d251c"
+      },
+      "ru_answer_long": {
+        "kind": "long_response",
+        "text": "Фотосинтез — это процесс, в котором растения превращают энергию света в химическую энергию. Хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы. При этом выделяется кислород, которым дышат другие организмы. Поэтому фотосинтез лежит в основе большинства экосистем на Земле.",
+        "reference": "фотосинтез это процесс в котором растения превращают энергию света в химическую энергию хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы при этом выделяется кислород которым дышат другие организмы поэтому фотосинтез лежит в основе большинства экосистем на земле",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 3.4473586670064833,
+          "p95": 3.6178450663923285,
+          "min": 3.179251875000773,
+          "max": 3.6362654579861555
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 4.490932042011991,
+          "p95": 4.692014291812666,
+          "min": 4.370620667003095,
+          "max": 4.707981292012846
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.1912636849821907,
+          "p95": 0.199827549169313,
+          "min": 0.18613976043507902,
+          "max": 0.20050756553736956
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 23.480317460317462,
+          "p95": 23.480317460317462,
+          "min": 23.480317460317462,
+          "max": 23.480317460317462
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 485474304.0,
+          "p95": 495032729.6,
+          "min": 416612352.0,
+          "max": 495091712.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 2.0,
+          "p95": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_answer_long.wav",
+        "wav_sha256": "ea09b7be12fec09d07a5d570eb7b877e36d9a020545d8cb983dc9a5887261491"
+      },
+      "ru_numbers": {
+        "kind": "normalization",
+        "text": "Встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать.",
+        "reference": "встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.3662981659872457,
+          "p95": 1.4009049000102096,
+          "min": 1.3555459170020185,
+          "max": 1.4028033750073519
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.3664111249963753,
+          "p95": 1.4010167412052397,
+          "min": 1.3557290419994388,
+          "max": 1.402897791005671
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.17548088077864407,
+          "p95": 0.17992509518902905,
+          "min": 0.1741090379280101,
+          "max": 0.1801666683654543
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 7.786666666666667,
+          "p95": 7.786666666666667,
+          "min": 7.786666666666667,
+          "max": 7.786666666666667
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 492093440.0,
+          "p95": 494180761.6,
+          "min": 491159552.0,
+          "max": 494485504.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_numbers.wav",
+        "wav_sha256": "54c1149c6431d6a7614ee0268d334520d9f0a8084bccfac3054c8b219916932d"
+      },
+      "ru_question": {
+        "kind": "prosody",
+        "text": "Хочешь, я переведу этот текст на английский?",
+        "reference": "хочешь я переведу этот текст на английский",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.8287245829997119,
+          "p95": 0.9546308004006278,
+          "min": 0.7609181250154506,
+          "max": 0.9742662089993246
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.8287899999995716,
+          "p95": 0.9547385753889103,
+          "min": 0.7610118340235204,
+          "max": 0.9743755839881487
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.23902713360788114,
+          "p95": 0.275351325450598,
+          "min": 0.2194795754393908,
+          "max": 0.28101473581765324
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.4673469387755103,
+          "p95": 3.4673469387755103,
+          "min": 3.4673469387755103,
+          "max": 3.4673469387755103
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 464355328.0,
+          "p95": 488456192.0,
+          "min": 450854912.0,
+          "max": 488505344.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_question.wav",
+        "wav_sha256": "45860bb6fe0652018599a145cca0059e6144a01b5909a60bf4b06039442f230c"
+      }
+    },
+    "chunk_floor_summary": {
+      "Да": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Да.": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Хорошо": {
+        "chars": 6,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Секунду": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Одну минуту": {
+        "chars": 11,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Сейчас посмотрю": {
+        "chars": 15,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [
+      "peak_near_full_scale:0.9991",
+      "peak_near_full_scale:1.0569"
+    ],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.528340583012905,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.7225108745193575,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.91668116602581,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  },
+  "supertonic3_s5__ru": {
+    "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+    "language": "ru",
+    "config": {
+      "threads": 2,
+      "sid": 6,
+      "speed": 1.0,
+      "num_steps": 5
+    },
+    "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+    "license_risk": "restricted",
+    "footprint": {
+      "exclusive_bytes": 145295768,
+      "shared_bytes": 0,
+      "total_bytes": 145295768,
+      "exclusive_mib": 138.56,
+      "total_mib": 138.56
+    },
+    "load": {
+      "load_s": 0.7794354580109939,
+      "rss_before_bytes": 41369600,
+      "rss_after_bytes": 265273344,
+      "incremental_rss_bytes": 223903744,
+      "peak_rss_during_load_bytes": 265306112
+    },
+    "rss_cap_bytes": 2684354560,
+    "rss_cap_exceeded_any_run": false,
+    "summary": {
+      "ru_micro_ack": {
+        "kind": "streaming_floor",
+        "text": "Конечно.",
+        "reference": "конечно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.5734924169955775,
+          "p95": 0.6108893084048759,
+          "min": 0.5643830840126611,
+          "max": 0.6181241250014864
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.573615166998934,
+          "p95": 0.6109634918044321,
+          "min": 0.5644237090018578,
+          "max": 0.6182048750051763
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.4268430896438477,
+          "p95": 0.4546350227553904,
+          "min": 0.42000346866532684,
+          "max": 0.46002353853483186
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 1.3438548752834467,
+          "p95": 1.3438548752834467,
+          "min": 1.3438548752834467,
+          "max": 1.3438548752834467
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 336576512.0,
+          "p95": 336609280.0,
+          "min": 309723136.0,
+          "max": 336609280.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_micro_ack.wav",
+        "wav_sha256": "d8fc57d06ba72e71e02260b2d5780661b33ecaae51d6b75d317634849b409c1a"
+      },
+      "ru_short_clause": {
+        "kind": "streaming_first_chunk",
+        "text": "Москва — столица России.",
+        "reference": "москва столица россии",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 0.6664883750199806,
+          "p95": 0.934665116405813,
+          "min": 0.6290877080173232,
+          "max": 0.9983067080029286
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 0.6665760830219369,
+          "p95": 0.9347624252026434,
+          "min": 0.6291395830048714,
+          "max": 0.9983955420029815
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.31045122149868426,
+          "p95": 0.43535635932152517,
+          "min": 0.2930155416791444,
+          "max": 0.46499285445179417
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 2.147120181405896,
+          "p95": 2.147120181405896,
+          "min": 2.147120181405896,
+          "max": 2.147120181405896
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 342376448.0,
+          "p95": 343965696.0,
+          "min": 298549248.0,
+          "max": 343965696.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_short_clause.wav",
+        "wav_sha256": "2ad2825f26c9ab002d7985d27c071e3b276cddd02642a134fe619b5f37c3594f"
+      },
+      "ru_answer_short": {
+        "kind": "answer",
+        "text": "Москва — столица России и её крупнейший город.",
+        "reference": "москва столица россии и её крупнейший город",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.0557121250021737,
+          "p95": 1.1095857999986039,
+          "min": 1.0185118329827674,
+          "max": 1.1158762499981094
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.0558046670048498,
+          "p95": 1.1096830078109634,
+          "min": 1.0185983330011368,
+          "max": 1.1159722910088021
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.2858483845544081,
+          "p95": 0.30043539781850903,
+          "min": 0.27577514771191153,
+          "max": 0.3021381573329251
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.6935827664399095,
+          "p95": 3.6935827664399095,
+          "min": 3.6935827664399095,
+          "max": 3.6935827664399095
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 302792704.0,
+          "p95": 305512448.0,
+          "min": 298991616.0,
+          "max": 305512448.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_answer_short.wav",
+        "wav_sha256": "941758cdb04166c9463e1e1123626c9c14dfb62fb5b638b4e19939988b2d38c4"
+      },
+      "ru_answer_medium": {
+        "kind": "answer",
+        "text": "Сегодня днём будет ясно, около двадцати четырёх градусов, зонт брать не нужно.",
+        "reference": "сегодня днём будет ясно около двадцати четырёх градусов зонт брать не нужно",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.526014374976512,
+          "p95": 1.7304840502038132,
+          "min": 1.5066050839959644,
+          "max": 1.7809529170044698
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.5260935829719529,
+          "p95": 1.7307190836116206,
+          "min": 1.5066906670108438,
+          "max": 1.7812104170152452
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.24567419868024779,
+          "p95": 0.2786153016768907,
+          "min": 0.24255067081538206,
+          "max": 0.2867435174119153
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 6.211859410430839,
+          "p95": 6.211859410430839,
+          "min": 6.211859410430839,
+          "max": 6.211859410430839
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 349306880.0,
+          "p95": 359723827.2,
+          "min": 312754176.0,
+          "max": 359858176.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_answer_medium.wav",
+        "wav_sha256": "4fd0b9e16b5f8e826fb26a2d53d585b768d5770e0797e9d22e9c91867082950f"
+      },
+      "ru_answer_long": {
+        "kind": "long_response",
+        "text": "Фотосинтез — это процесс, в котором растения превращают энергию света в химическую энергию. Хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы. При этом выделяется кислород, которым дышат другие организмы. Поэтому фотосинтез лежит в основе большинства экосистем на Земле.",
+        "reference": "фотосинтез это процесс в котором растения превращают энергию света в химическую энергию хлоропласты поглощают солнечный свет и используют воду и углекислый газ для синтеза глюкозы при этом выделяется кислород которым дышат другие организмы поэтому фотосинтез лежит в основе большинства экосистем на земле",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 4.1987838330096565,
+          "p95": 4.519318933191244,
+          "min": 3.816250999982003,
+          "max": 4.583596749987919
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 5.412971000012476,
+          "p95": 6.887635866791243,
+          "min": 5.213326833996689,
+          "max": 7.232088541990379
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.23053227492177572,
+          "p95": 0.2933365734271516,
+          "min": 0.2220296570865104,
+          "max": 0.30800642087624475
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 23.480317460317462,
+          "p95": 23.480317460317462,
+          "min": 23.480317460317462,
+          "max": 23.480317460317462
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 439648256.0,
+          "p95": 458774937.6,
+          "min": 398475264.0,
+          "max": 462094336.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 2.0,
+          "p95": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_answer_long.wav",
+        "wav_sha256": "d05cdbb099852d07fe26d808e8bde3a80ebaf0da5c594acba67062c84fee1483"
+      },
+      "ru_numbers": {
+        "kind": "normalization",
+        "text": "Встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать.",
+        "reference": "встреча назначена на двадцать шестое июля две тысячи двадцать шестого года в пятнадцать пятнадцать",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 2.0175543750228826,
+          "p95": 2.1517749083985107,
+          "min": 1.6621973750006873,
+          "max": 2.167157749994658
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 2.01766116701765,
+          "p95": 2.151876199990511,
+          "min": 1.662293667002814,
+          "max": 2.167259749985533
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.25911744439438994,
+          "p95": 0.2763539640398772,
+          "min": 0.2134794949061833,
+          "max": 0.2783295911796489
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 7.786666666666667,
+          "p95": 7.786666666666667,
+          "min": 7.786666666666667,
+          "max": 7.786666666666667
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 439418880.0,
+          "p95": 439756390.4,
+          "min": 437305344.0,
+          "max": 439812096.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_numbers.wav",
+        "wav_sha256": "2cbcf5d7e5cd9bb86debf93ed0bc4f936ddc50e1f51fe53b7ec06865a9c91482"
+      },
+      "ru_question": {
+        "kind": "prosody",
+        "text": "Хочешь, я переведу этот текст на английский?",
+        "reference": "хочешь я переведу этот текст на английский",
+        "gate_pass_count": 5,
+        "gate_run_count": 5,
+        "hard_failures": [],
+        "first_chunk_s": {
+          "n": 5,
+          "median": 1.0836887500190642,
+          "p95": 1.6963026743964291,
+          "min": 0.9874402080022264,
+          "max": 1.829308290994959
+        },
+        "total_synthesis_s": {
+          "n": 5,
+          "median": 1.0837863750057295,
+          "p95": 1.6964279828011057,
+          "min": 0.9875357919954695,
+          "max": 1.8294241660041735
+        },
+        "rtf": {
+          "n": 5,
+          "median": 0.31256934888334753,
+          "p95": 0.4892582175235678,
+          "min": 0.28481020487214836,
+          "max": 0.5276149743037345
+        },
+        "audio_duration_s": {
+          "n": 5,
+          "median": 3.4673469387755103,
+          "p95": 3.4673469387755103,
+          "min": 3.4673469387755103,
+          "max": 3.4673469387755103
+        },
+        "peak_rss_bytes": {
+          "n": 5,
+          "median": 430424064.0,
+          "p95": 437960704.0,
+          "min": 430424064.0,
+          "max": 439844864.0
+        },
+        "chunk_count": {
+          "n": 5,
+          "median": 1.0,
+          "p95": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "gap_free_1_5x": true,
+        "max_gap_s_1_5x": 0.0,
+        "wav_path": "supertonic3__ru_question.wav",
+        "wav_sha256": "938b561dc5f8a307ea18b22f34edacc1392d8f800c370b104cc02d0c6a2129d3"
+      }
+    },
+    "chunk_floor_summary": {
+      "Да": {
+        "chars": 2,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Да.": {
+        "chars": 3,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Хорошо": {
+        "chars": 6,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Секунду": {
+        "chars": 7,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Одну минуту": {
+        "chars": 11,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      },
+      "Сейчас посмотрю": {
+        "chars": 15,
+        "runs": 5,
+        "gate_pass": 5,
+        "failures": []
+      }
+    },
+    "gate_warnings": [],
+    "playback_simulation_example": {
+      "1.0x": {
+        "simulated": true,
+        "slowdown_x": 1.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 0.7134924169955775,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "1.5x": {
+        "simulated": true,
+        "slowdown_x": 1.5,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.0002386254933664,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      },
+      "2.0x": {
+        "simulated": true,
+        "slowdown_x": 2.0,
+        "startup_cushion_s": 0.14,
+        "first_audible_s": 1.2869848339911552,
+        "gap_count": 0,
+        "total_gap_s": 0.0,
+        "max_gap_s": 0.0,
+        "gap_free": true
+      }
+    }
+  }
+}

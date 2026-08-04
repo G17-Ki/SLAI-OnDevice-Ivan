@@ -1,0 +1,24 @@
+# ARCHIVED LICENCE CAPTURE - piper-huayan-zh-medium-model-card
+# captured_utc: 2026-08-02
+# source_url: https://huggingface.co/rhasspy/piper-voices/blob/9f967d15e9ccdf43078586d1476ee70f314401bd/zh/zh_CN/huayan/medium/MODEL_CARD
+# sha256: 25d7d8f7a03e9382e629c5c4f074176e7ca84e08be12a873022e91fcac98c2c7
+# bytes: 276
+# captured_by: Lane A (LEDGER & LICENCE), sub2b sprint, task A6
+# note: Vendor metadata establishing the lessac derivation chain. See blizzard2013-lessac-research-licence capture.
+# ----------------------------------------------------------------------
+
+# Model card for huayan (medium)
+
+* Language: zh_CN (Chinese, China)
+* Speakers: 1
+* Quality: medium
+* Samplerate: 22,050Hz
+
+## Dataset
+
+* URL: https://github.com/PlayVoice/HuaYan_TTS
+* License: Unknown
+
+## Training
+
+Finetuned from U.S. English lessac voice (medium quality).

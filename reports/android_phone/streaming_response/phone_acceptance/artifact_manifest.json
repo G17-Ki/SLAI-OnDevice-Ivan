@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "hash": "sha256",
+  "files": [
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/REPORT.md",
+      "bytes": 11713,
+      "sha256": "919827cbed1672a4a47aec727e9d214cfa351b4bdae4e6efb5d6ac72447ed8f3"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/acceptance_plan.template.json",
+      "bytes": 3400,
+      "sha256": "79a9955e50f96463576c30bb6e9eaecb167a6b23a738d3b403fb54eda95b7b5d"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/matrix_results.json",
+      "bytes": 22690,
+      "sha256": "f0a9ea01e0dd0103842fdec62c3be4bc27b7d4509f26614aa86c016240b20a0d"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/npu/backend_selection_matrix.json",
+      "bytes": 3499,
+      "sha256": "11ce843e4d9475a0e51d5014664785e22fb52ea642fac74d913c0d6b63e935e6"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/npu/device_facts.json",
+      "bytes": 594,
+      "sha256": "8e1f1d96ed3442a2a82009b982eb154426f47bfa59c30588e5135416da9ce88c"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/npu/sensevoice_cpu_parity.json",
+      "bytes": 2309,
+      "sha256": "f6117ad63ebe36185e3569cef5573a7e65de5bff6bf79a4311dd64baacf5d00a"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/npu/sensevoice_qnn_reviewed_smoke.json",
+      "bytes": 3070,
+      "sha256": "5e1601d348ebf8a5f2f46eff9a5e5a0b9dfd1db1072e7fe0f00a26db88afdebc"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/screenshots/language_history_vad_controls.png",
+      "bytes": 452932,
+      "sha256": "eb548b95b2fe2be1381721aea5c730ed63f7f064c09ac1e1ace57f8fea6e646b"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/screenshots/model_ready.png",
+      "bytes": 448499,
+      "sha256": "715154dee7407502e68062a30cabbc4a030bfd0237ec346db540681da8c82c1b"
+    },
+    {
+      "path": "reports/android_phone/streaming_response/phone_acceptance/telemetry_summary.json",
+      "bytes": 7345,
+      "sha256": "1a615a413c8bf3973a604f09482bbb1ab906778cb06c15d58e8aafab5e1693f6"
+    },
+    {
+      "path": "scripts/npu_multilingual/compare_sensevoice_cpu_qnn.py",
+      "bytes": 4724,
+      "sha256": "93d10da3c6c714956f55f063f9898677277c020673d7639dfea7f90bb4322859"
+    },
+    {
+      "path": "scripts/npu_multilingual/review_phone_qnn_smoke.py",
+      "bytes": 4825,
+      "sha256": "043a3fd59de5033b7a3c8db0e218d279c631f76db69aa028eb7eba5ea1a82ed4"
+    },
+    {
+      "path": "scripts/phone_cdp_eval.mjs",
+      "bytes": 1897,
+      "sha256": "e4d1e94cfedbd5c228f5c455ef1c33c711e35e69d07cd54141ff3225b3cf64dd"
+    },
+    {
+      "path": "scripts/run_phone_webview_acceptance.mjs",
+      "bytes": 19015,
+      "sha256": "8ced4bad4c7d5c81bebe3ac33b8ac3a01d52a99fee7081d1a79849212e048da3"
+    },
+    {
+      "path": "scripts/summarize_phone_acceptance.py",
+      "bytes": 18726,
+      "sha256": "a4a05a61fb99799fb9de12f2f7dd7fba3c00b267052c01249cdbd250dc0f5e44"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "demo": "DEMO 2 - IT'S GOOD",
+  "run_scope": "warm explicit English distribution",
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "soc": "Snapdragon SM8850",
+    "airplane_mode_on": true
+  },
+  "software": {
+    "main_package": "ai.liquid.lfmdemo",
+    "main_version": "0.6.0-unplugged",
+    "main_apk_sha256": "143b96888005ed42ac97a07d281f76fa831d293ccaf7c0f2f11e19b5af5cb3f0",
+    "runtime_package": "ai.liquid.lfmdemo.runtime",
+    "runtime_version": "0.1.0-unplugged-runtime",
+    "runtime_apk_sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+  },
+  "configuration": {
+    "mode": "tts",
+    "ui_label": "Offline voice",
+    "selected_language": "en",
+    "asr_backend": "sensevoice_qnn",
+    "asr_provider": "qnn",
+    "response_backend": "qwen2_5_1_5b_q4_k_m_cpu",
+    "tts_policy": "supertonic3_en_s5",
+    "memory_enabled": false,
+    "adb_forward_list_before": [],
+    "adb_forward_list_after": [],
+    "chrome_devtools_protocol_used": false
+  },
+  "fixture": {
+    "filename": "question_en.wav",
+    "bytes": 105682,
+    "sha256": "b5fa81a74e608624b52fb3e4cf895d6982a455022597a0da0ad3dc52866f8b69",
+    "prompt": "What is the capital of France? Answer in one short sentence."
+  },
+  "outcome": {
+    "attempts": 22,
+    "completed": 21,
+    "cancelled": 1,
+    "cancelled_turns": [
+      {
+        "turn_id": "1785693068679-22",
+        "message": "replaced_by_new_input",
+        "excluded_from_success_distribution": true
+      }
+    ],
+    "all_completed_turns_npu_executed": true,
+    "all_completed_turns_playback_completed": true,
+    "all_completed_turns_under_3000_ms": true,
+    "dropped_chunks_total": 0,
+    "playback_underflows_total": 0
+  },
+  "completed_only_metrics": {
+    "first_audio_start_proxy_ms": {
+      "n": 21,
+      "median": 1333.865676999092,
+      "p95_nearest_rank": 1395.8740620017052,
+      "max": 1490.413592994213,
+      "first_five_mean": 1378.6286452054978,
+      "last_five_mean": 1327.1094996094703
+    },
+    "first_text_ms": {
+      "median": 550.1276559829712,
+      "p95_nearest_rank": 616.8074480295181,
+      "max": 692.9896879792213
+    },
+    "tts_first_chunk_ms": {
+      "median": 587,
+      "p95_nearest_rank": 597,
+      "max": 598
+    },
+    "tts_rtf": {
+      "median": 0.23664254519371328,
+      "p95_nearest_rank": 0.24104705957126124,
+      "max": 0.24104705957126124
+    }
+  },
+  "evidence_sha256": {
+    "telemetry.jsonl": "21bb6947019c483022680bb913baac0532fadac5c0f3134da92d98eb01b95ad3",
+    "summary.json": "f6ed50cbb26f1ef7c0395aab965e722a010be51bf09aebe918ed90bee6533739",
+    "REPORT.md": "9697817e33ea1604d0beca5c049fb4dd3d61c64c5d2195bf40a04f3239a8f654"
+  },
+  "claim_boundary": "First audio is an in-app UtteranceProgressListener software start proxy, not externally measured acoustic onset. The completed-only distribution excludes the one operator-overlap cancellation."
+}

@@ -1,0 +1,117 @@
+{
+  "components": {
+    "bert_wrapper": {
+      "artifact": {
+        "bytes": 307294208,
+        "filename": "bert_wrapper.bin",
+        "sha256": "45fd58047d0234d3287f806eec34a994b868a9a7452a5dceb34014ac1603566a"
+      },
+      "estimated_inference_peak_mib": 118.078125,
+      "latency_ms": 2.679,
+      "model_id": "mngxvev5q",
+      "operation_count": 332,
+      "placement_counts": {
+        "cpu_fallback": 0,
+        "hexagon_npu": 332,
+        "unsupported_or_export_failure": 0
+      },
+      "profile_job_id": "jprnqv6k5",
+      "status": "profile_passed_strict_npu",
+      "strict_npu_pass": true
+    },
+    "decoder": {
+      "artifact": {
+        "bytes": 21479424,
+        "filename": "decoder.bin",
+        "sha256": "d5ab0849b39e0289db84baf0ffa1964d2fa3004c3bc70de833910cf808393895"
+      },
+      "estimated_inference_peak_mib": 82.2109375,
+      "latency_ms": 43.9,
+      "model_id": "mmr8ygo6n",
+      "operation_count": 447,
+      "placement_counts": {
+        "cpu_fallback": 0,
+        "hexagon_npu": 447,
+        "unsupported_or_export_failure": 0
+      },
+      "profile_job_id": "jpv9ok475",
+      "status": "profile_passed_strict_npu",
+      "strict_npu_pass": true
+    },
+    "encoder": {
+      "artifact": {
+        "bytes": 18739200,
+        "filename": "encoder.bin",
+        "sha256": "dbd5fbe6a09c4d4de973e9cc5e9a41ed7b7706bedace62390b8d91cd41d19090"
+      },
+      "estimated_inference_peak_mib": 125.6171875,
+      "latency_ms": 23.697,
+      "model_id": "mqk5d8d7q",
+      "operation_count": 830,
+      "placement_counts": {
+        "cpu_fallback": 0,
+        "hexagon_npu": 830,
+        "unsupported_or_export_failure": 0
+      },
+      "profile_job_id": "jprnq3k05",
+      "status": "profile_passed_strict_npu",
+      "strict_npu_pass": true
+    },
+    "flow": {
+      "artifact": {
+        "bytes": 30769152,
+        "filename": "flow.bin",
+        "sha256": "836982f3e2afe440450fa33ea769abf570874acf1ffa12ecb4159222fe24a6f4"
+      },
+      "estimated_inference_peak_mib": 122.140625,
+      "latency_ms": 74.563,
+      "model_id": "mmxkydy2n",
+      "operation_count": 763,
+      "placement_counts": {
+        "cpu_fallback": 0,
+        "hexagon_npu": 763,
+        "unsupported_or_export_failure": 0
+      },
+      "profile_job_id": "jpv9okok5",
+      "status": "profile_passed_strict_npu",
+      "strict_npu_pass": true
+    }
+  },
+  "evidence_scope": {
+    "does_not_prove": [
+      "numerical equivalence",
+      "Mandarin intelligibility or naturalness",
+      "Nubia or glasses runtime behavior",
+      "end-to-end first-audio latency"
+    ],
+    "proves": [
+      "context portability from sm8850-ad to exact sm8850 QRD",
+      "profile latency and estimated peak memory",
+      "operator placement"
+    ]
+  },
+  "release": {
+    "generated_for_chipset": "sm8850-ad",
+    "generated_for_htp": "v81",
+    "generated_with_qairt": "2.45.0.260326154327",
+    "package": "qai-hub-models 0.58.0",
+    "precision": "mixed_with_float",
+    "runtime": "voice_ai"
+  },
+  "schema_version": 1,
+  "summary": {
+    "all_component_latency_sum_ms": 144.839,
+    "all_component_operation_count": 2372,
+    "all_components_strict_npu_pass": true,
+    "audio_component_latency_sum_ms": 142.16,
+    "audio_component_operation_count": 2040,
+    "audio_components_strict_npu_pass": true
+  },
+  "target": {
+    "chipset": "sm8850",
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "htp": "v81",
+    "os": "16",
+    "requested_qairt": "2.45"
+  }
+}

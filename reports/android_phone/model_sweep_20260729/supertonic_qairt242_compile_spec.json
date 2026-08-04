@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "gate_id": "supertonic_sm8850_qairt242_context_recompile_v1",
+  "claim_boundary": "Cloud compile compatibility only. No phone execution, TTS audio, numerical-equivalence, latency, or accepted-runtime integration claim.",
+  "qai_hub_client_version": "0.52.0",
+  "requested_qairt_version": "2.42",
+  "phone_runtime_target_build": "2.42.0.251225135753_193295",
+  "fallback_policy": {
+    "allow_qairt_245_retry_for_phone_artifact": false,
+    "allow_qairt_245_context_in_qairt_242_phone_runtime": false
+  },
+  "target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "required_attributes": [
+      "abi:aarch64-android",
+      "chipset:sm8850",
+      "framework:qnn",
+      "hexagon:v81"
+    ]
+  },
+  "components": {
+    "duration_predictor": {
+      "pilot_order": 1,
+      "source_file": {
+        "filename": "duration_predictor.int8.onnx",
+        "bytes": 3700147,
+        "sha256": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db"
+      },
+      "prior_compile_job": "jp2v287x5",
+      "source_model": {
+        "id": "mq92z1y2m",
+        "name": "lfm-demo-supertonic-duration_predictor"
+      },
+      "prior_options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.45 --truncate_64bit_io",
+      "compile_options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.42 --truncate_64bit_io",
+      "input_specs": {
+        "style_dp": [[1, 8, 16], "float32"],
+        "text_ids": [[1, 32], "int64"],
+        "text_mask": [[1, 1, 32], "float32"]
+      }
+    },
+    "text_encoder": {
+      "pilot_order": 2,
+      "source_file": {
+        "filename": "text_encoder.int8.onnx",
+        "bytes": 36416150,
+        "sha256": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff"
+      },
+      "prior_compile_job": "j5mdj79d5",
+      "source_model": {
+        "id": "mq3l4149q",
+        "name": "lfm-demo-supertonic-text_encoder"
+      },
+      "prior_options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.45 --truncate_64bit_io",
+      "compile_options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.42 --truncate_64bit_io",
+      "input_specs": {
+        "style_ttl": [[1, 50, 256], "float32"],
+        "text_ids": [[1, 32], "int64"],
+        "text_mask": [[1, 1, 32], "float32"]
+      }
+    },
+    "vector_estimator": {
+      "pilot_order": 3,
+      "source_file": {
+        "filename": "vector_estimator.int8.onnx",
+        "bytes": 78400833,
+        "sha256": "20cd86fa5c6effedfda0e7cffe5b0569ca401c440a0c3a1d72bf39286c0db3fd"
+      },
+      "prior_compile_job": "j5w1o2k6g",
+      "source_model": {
+        "id": "mqe4zvgym",
+        "name": "lfm-demo-supertonic-vector_estimator-resume"
+      },
+      "prior_options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.45",
+      "compile_options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.42",
+      "input_specs": {
+        "current_step": [[1], "float32"],
+        "latent_mask": [[1, 1, 32], "float32"],
+        "noisy_latent": [[1, 144, 32], "float32"],
+        "style_ttl": [[1, 50, 256], "float32"],
+        "text_emb": [[1, 256, 32], "float32"],
+        "text_mask": [[1, 1, 32], "float32"],
+        "total_step": [[1], "float32"]
+      }
+    },
+    "vocoder": {
+      "pilot_order": 4,
+      "source_file": {
+        "filename": "vocoder.int8.io_sanitized.onnx",
+        "bytes": null,
+        "sha256": "db8cd48bf21464fc23114941dfe4d1ed421754920823b5ff02eb0ff1889e20df",
+        "repair": "Only redundant graph.value_info entry wav_tts was removed from original e923d60f...; graph nodes, weights, inputs, and outputs are unchanged."
+      },
+      "prior_compile_job": "jgo4ykxx5",
+      "source_model": {
+        "id": "mm605yj4m",
+        "name": "lfm-demo-supertonic-vocoder-resume"
+      },
+      "prior_options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.45",
+      "compile_options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.42",
+      "input_specs": {
+        "latent": [[1, 144, 32], "float32"]
+      }
+    }
+  }
+}

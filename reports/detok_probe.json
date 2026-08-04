@@ -1,0 +1,374 @@
+{
+  "probe": "official audio detokenizer neural graph before polar/ISTFT",
+  "model": "LiquidAI/LFM2.5-Audio-1.5B",
+  "model_revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+  "boundary": {
+    "included": [
+      "8-codebook fused embedding",
+      "6x nearest upsample",
+      "8-layer LFM2",
+      "1282-bin linear projection",
+      "split into log_abs and angle"
+    ],
+    "excluded": [
+      "torch.polar",
+      "complex spectrogram",
+      "inverse real FFT",
+      "overlap-add ISTFT"
+    ],
+    "reason": "Keep the first conversion probe entirely real-valued and isolate complex/FFT deployment risk."
+  },
+  "blockers_and_limits": [
+    {
+      "scope": "local neural PT2 export",
+      "status": "none after real-valued split"
+    },
+    {
+      "scope": "full waveform detokenizer graph",
+      "status": "not covered by this probe",
+      "operations": [
+        "torch.polar",
+        "torch.fft.irfft",
+        "torch.nn.functional.fold"
+      ],
+      "next_action": "Keep complex reconstruction/ISTFT on host or replace it with a separately deployable real-valued synthesis implementation."
+    },
+    {
+      "scope": "Qualcomm operator placement, latency, and memory",
+      "status": "not known from local PT2 export",
+      "next_action": "Submit the fixed-shape PT2 artifact through the AI Hub component runner when credentials and an exact target device are available."
+    }
+  ],
+  "environment": {
+    "python_platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+    "torch": "2.8.0",
+    "device": "cpu"
+  },
+  "load": {
+    "config_path": "<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/audio_detokenizer/config.json",
+    "original_layer_types": [
+      "conv",
+      "conv",
+      "sliding_attention",
+      "conv",
+      "sliding_attention",
+      "conv",
+      "sliding_attention",
+      "conv"
+    ],
+    "transformers_layer_types": [
+      "conv",
+      "conv",
+      "full_attention",
+      "conv",
+      "full_attention",
+      "conv",
+      "full_attention",
+      "conv"
+    ],
+    "checkpoint": "<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/audio_detokenizer/model.safetensors",
+    "checkpoint_bytes": 314137512,
+    "checkpoint_tensor_count": 79,
+    "selected_tensor_count": 78,
+    "excluded_tensors": [
+      "istft.window"
+    ],
+    "compute_dtype": "float32",
+    "weight_source_dtype": "bfloat16",
+    "device": "cpu",
+    "parameter_count": 78531010,
+    "seconds": 1.7656744581181556,
+    "rss_before_bytes": 429375488,
+    "rss_after_bytes": 738492416,
+    "rss_delta_bytes": 309116928,
+    "peak_rss_before_bytes": 431734784,
+    "peak_rss_after_bytes": 1052639232,
+    "peak_rss_delta_bytes": 620904448
+  },
+  "cases": {
+    "t4": {
+      "capture": {
+        "length": 4,
+        "artifact_dir": "<workspace>/work/lfm-feasibility/artifacts/detok-neural-probe-t4",
+        "input": {
+          "shape": [
+            1,
+            8,
+            4
+          ],
+          "dtype": "torch.int64",
+          "min": 15,
+          "max": 1990
+        },
+        "outputs": {
+          "log_abs": {
+            "shape": [
+              1,
+              641,
+              24
+            ],
+            "dtype": "torch.float32",
+            "finite_fraction": 1.0,
+            "min": -6.574382305145264,
+            "max": 4.1838884353637695,
+            "mean": -0.8941536545753479,
+            "std": 1.529590129852295
+          },
+          "angle": {
+            "shape": [
+              1,
+              641,
+              24
+            ],
+            "dtype": "torch.float32",
+            "finite_fraction": 1.0,
+            "min": -48.964473724365234,
+            "max": 52.6361198425293,
+            "mean": -1.0620841979980469,
+            "std": 11.435392379760742
+          }
+        },
+        "expected_output_shape": [
+          1,
+          641,
+          24
+        ],
+        "timings": {
+          "first_inference_seconds": 0.055398874916136265,
+          "iterations": 5,
+          "samples_seconds": [
+            0.051930917194113135,
+            0.05117479106411338,
+            0.04917754209600389,
+            0.03926112479530275,
+            0.03986825002357364
+          ],
+          "mean_seconds": 0.04628252503462136,
+          "median_seconds": 0.04917754209600389,
+          "min_seconds": 0.03926112479530275,
+          "max_seconds": 0.051930917194113135
+        },
+        "memory": {
+          "rss_before_inference_bytes": 738869248,
+          "rss_after_inference_bytes": 764477440,
+          "rss_delta_bytes": 25608192,
+          "peak_rss_before_inference_bytes": 1052639232,
+          "peak_rss_after_inference_bytes": 1052639232,
+          "peak_rss_delta_bytes": 0
+        }
+      },
+      "export": {
+        "status": "success",
+        "pt2_path": "<workspace>/work/lfm-feasibility/exports/detok_neural_probe_codes_t4.pt2",
+        "pt2_bytes": 315538773,
+        "export_seconds": 1.1765165419783443,
+        "rss_before_export_bytes": 764493824,
+        "rss_after_export_bytes": 781877248,
+        "rss_delta_bytes": 17383424,
+        "peak_rss_before_export_bytes": 1052639232,
+        "peak_rss_after_export_bytes": 1052639232,
+        "peak_rss_delta_bytes": 0,
+        "eager_vs_exported": {
+          "log_abs": {
+            "max_abs_error": 0.0,
+            "mean_abs_error": 0.0
+          },
+          "angle": {
+            "max_abs_error": 0.0,
+            "mean_abs_error": 0.0
+          }
+        },
+        "eager_vs_serialized_reload": {
+          "log_abs": {
+            "max_abs_error": 0.0,
+            "mean_abs_error": 0.0
+          },
+          "angle": {
+            "max_abs_error": 0.0,
+            "mean_abs_error": 0.0
+          }
+        },
+        "graph": {
+          "node_count": 595,
+          "operator_counts": {
+            "<built-in function getitem>": 19,
+            "aten._assert_tensor_metadata.default": 46,
+            "aten._upsample_nearest_exact1d.vec": 1,
+            "aten.add.Tensor": 46,
+            "aten.arange.default": 2,
+            "aten.arange.start": 1,
+            "aten.cat.default": 6,
+            "aten.chunk.default": 6,
+            "aten.contiguous.default": 1,
+            "aten.conv1d.default": 5,
+            "aten.embedding.default": 1,
+            "aten.expand.default": 6,
+            "aten.gt.Scalar": 1,
+            "aten.le.Scalar": 1,
+            "aten.linear.default": 47,
+            "aten.logical_and.default": 1,
+            "aten.mT.default": 3,
+            "aten.mean.dim": 24,
+            "aten.mul.Tensor": 77,
+            "aten.neg.default": 6,
+            "aten.pow.Tensor_Scalar": 23,
+            "aten.reshape.default": 9,
+            "aten.rsqrt.default": 23,
+            "aten.scaled_dot_product_attention.default": 3,
+            "aten.silu.default": 8,
+            "aten.slice.Tensor": 52,
+            "aten.sub.Tensor": 1,
+            "aten.to.dtype": 46,
+            "aten.transpose.int": 22,
+            "aten.unsqueeze.default": 17,
+            "aten.view.default": 9,
+            "wrap_with_set_grad_enabled": 1
+          },
+          "contains_complex_or_fft": false
+        }
+      }
+    },
+    "t8": {
+      "capture": {
+        "length": 8,
+        "artifact_dir": "<workspace>/work/lfm-feasibility/artifacts/detok-neural-probe-t8",
+        "input": {
+          "shape": [
+            1,
+            8,
+            8
+          ],
+          "dtype": "torch.int64",
+          "min": 11,
+          "max": 1990
+        },
+        "outputs": {
+          "log_abs": {
+            "shape": [
+              1,
+              641,
+              48
+            ],
+            "dtype": "torch.float32",
+            "finite_fraction": 1.0,
+            "min": -9.20881462097168,
+            "max": 4.866738796234131,
+            "mean": -2.813380479812622,
+            "std": 2.044757127761841
+          },
+          "angle": {
+            "shape": [
+              1,
+              641,
+              48
+            ],
+            "dtype": "torch.float32",
+            "finite_fraction": 1.0,
+            "min": -63.71628952026367,
+            "max": 66.04456329345703,
+            "mean": 0.4114867150783539,
+            "std": 9.666035652160645
+          }
+        },
+        "expected_output_shape": [
+          1,
+          641,
+          48
+        ],
+        "timings": {
+          "first_inference_seconds": 0.04361887485720217,
+          "iterations": 5,
+          "samples_seconds": [
+            0.04763325001113117,
+            0.05651595792733133,
+            0.05600083293393254,
+            0.056506792083382607,
+            0.05459166597574949
+          ],
+          "mean_seconds": 0.05424969978630543,
+          "median_seconds": 0.05600083293393254,
+          "min_seconds": 0.04763325001113117,
+          "max_seconds": 0.05651595792733133
+        },
+        "memory": {
+          "rss_before_inference_bytes": 764903424,
+          "rss_after_inference_bytes": 764493824,
+          "rss_delta_bytes": -409600,
+          "peak_rss_before_inference_bytes": 1052639232,
+          "peak_rss_after_inference_bytes": 1052639232,
+          "peak_rss_delta_bytes": 0
+        }
+      },
+      "export": {
+        "status": "success",
+        "pt2_path": "<workspace>/work/lfm-feasibility/exports/detok_neural_probe_codes_t8.pt2",
+        "pt2_bytes": 315539221,
+        "export_seconds": 0.7922825000714511,
+        "rss_before_export_bytes": 1409007616,
+        "rss_after_export_bytes": 1413939200,
+        "rss_delta_bytes": 4931584,
+        "peak_rss_before_export_bytes": 1409007616,
+        "peak_rss_after_export_bytes": 1413939200,
+        "peak_rss_delta_bytes": 4931584,
+        "eager_vs_exported": {
+          "log_abs": {
+            "max_abs_error": 0.0,
+            "mean_abs_error": 0.0
+          },
+          "angle": {
+            "max_abs_error": 0.0,
+            "mean_abs_error": 0.0
+          }
+        },
+        "eager_vs_serialized_reload": {
+          "log_abs": {
+            "max_abs_error": 0.0,
+            "mean_abs_error": 0.0
+          },
+          "angle": {
+            "max_abs_error": 0.0,
+            "mean_abs_error": 0.0
+          }
+        },
+        "graph": {
+          "node_count": 595,
+          "operator_counts": {
+            "<built-in function getitem>": 19,
+            "aten._assert_tensor_metadata.default": 46,
+            "aten._upsample_nearest_exact1d.vec": 1,
+            "aten.add.Tensor": 46,
+            "aten.arange.default": 2,
+            "aten.arange.start": 1,
+            "aten.cat.default": 6,
+            "aten.chunk.default": 6,
+            "aten.contiguous.default": 1,
+            "aten.conv1d.default": 5,
+            "aten.embedding.default": 1,
+            "aten.expand.default": 6,
+            "aten.gt.Scalar": 1,
+            "aten.le.Scalar": 1,
+            "aten.linear.default": 47,
+            "aten.logical_and.default": 1,
+            "aten.mT.default": 3,
+            "aten.mean.dim": 24,
+            "aten.mul.Tensor": 77,
+            "aten.neg.default": 6,
+            "aten.pow.Tensor_Scalar": 23,
+            "aten.reshape.default": 9,
+            "aten.rsqrt.default": 23,
+            "aten.scaled_dot_product_attention.default": 3,
+            "aten.silu.default": 8,
+            "aten.slice.Tensor": 52,
+            "aten.sub.Tensor": 1,
+            "aten.to.dtype": 46,
+            "aten.transpose.int": 22,
+            "aten.unsqueeze.default": 17,
+            "aten.view.default": 9,
+            "wrap_with_set_grad_enabled": 1
+          },
+          "contains_complex_or_fft": false
+        }
+      }
+    }
+  }
+}

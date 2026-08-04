@@ -1,0 +1,182 @@
+{
+  "answer_mismatch_count": 0,
+  "dataset_id": "CohereLabs/Global-MMLU",
+  "dataset_revision": "0e619dbeb34206cd48705a1a0ea7fb21cae09993",
+  "language_counts": {
+    "en": 80,
+    "es": 80,
+    "fr": 80,
+    "ru": 80,
+    "zh": 80
+  },
+  "languages": [
+    "en",
+    "zh",
+    "es",
+    "fr",
+    "ru"
+  ],
+  "manifest_path": "global_mmlu_80x5.jsonl",
+  "manifest_sha256": "2ecb1833861c1cb5f7ce617c4aa692b3060e3f39beb9e7597baffaef118e1849",
+  "paired_across_languages": true,
+  "quota_receipt": [
+    {
+      "cultural_sensitivity_label": "CA",
+      "eligible": 156,
+      "selected": 8,
+      "subject_category": "Business"
+    },
+    {
+      "cultural_sensitivity_label": "CS",
+      "eligible": 25,
+      "selected": 2,
+      "subject_category": "Business"
+    },
+    {
+      "cultural_sensitivity_label": "CA",
+      "eligible": 198,
+      "selected": 10,
+      "subject_category": "Humanities"
+    },
+    {
+      "cultural_sensitivity_label": "CS",
+      "eligible": 339,
+      "selected": 10,
+      "subject_category": "Humanities"
+    },
+    {
+      "cultural_sensitivity_label": "CA",
+      "eligible": 317,
+      "selected": 9,
+      "subject_category": "Medical"
+    },
+    {
+      "cultural_sensitivity_label": "CS",
+      "eligible": 8,
+      "selected": 1,
+      "subject_category": "Medical"
+    },
+    {
+      "cultural_sensitivity_label": "CA",
+      "eligible": 34,
+      "selected": 5,
+      "subject_category": "Other"
+    },
+    {
+      "cultural_sensitivity_label": "CS",
+      "eligible": 39,
+      "selected": 5,
+      "subject_category": "Other"
+    },
+    {
+      "cultural_sensitivity_label": "CA",
+      "eligible": 916,
+      "selected": 14,
+      "subject_category": "STEM"
+    },
+    {
+      "cultural_sensitivity_label": "CS",
+      "eligible": 20,
+      "selected": 1,
+      "subject_category": "STEM"
+    },
+    {
+      "cultural_sensitivity_label": "CA",
+      "eligible": 357,
+      "selected": 8,
+      "subject_category": "Social Sciences"
+    },
+    {
+      "cultural_sensitivity_label": "CS",
+      "eligible": 136,
+      "selected": 7,
+      "subject_category": "Social Sciences"
+    }
+  ],
+  "seed": 1729,
+  "selected_sample_ids_in_stable_order": [
+    "human_sexuality/test/56",
+    "electrical_engineering/test/58",
+    "high_school_psychology/test/164",
+    "college_biology/test/36",
+    "astronomy/test/123",
+    "electrical_engineering/test/66",
+    "human_sexuality/test/127",
+    "logical_fallacies/test/5",
+    "management/test/43",
+    "college_physics/test/40",
+    "high_school_chemistry/test/185",
+    "public_relations/test/53",
+    "professional_psychology/test/246",
+    "logical_fallacies/test/40",
+    "abstract_algebra/test/27",
+    "philosophy/test/107",
+    "world_religions/test/117",
+    "miscellaneous/test/51",
+    "international_law/test/19",
+    "international_law/test/107",
+    "conceptual_physics/test/156",
+    "high_school_macroeconomics/test/151",
+    "high_school_european_history/test/148",
+    "high_school_psychology/test/446",
+    "public_relations/test/26",
+    "college_physics/test/96",
+    "high_school_government_and_politics/test/81",
+    "high_school_european_history/test/20",
+    "abstract_algebra/test/59",
+    "elementary_mathematics/test/75",
+    "high_school_government_and_politics/test/131",
+    "college_physics/test/48",
+    "high_school_statistics/test/27",
+    "high_school_statistics/test/145",
+    "nutrition/test/232",
+    "high_school_government_and_politics/test/114",
+    "prehistory/test/195",
+    "high_school_european_history/test/80",
+    "high_school_government_and_politics/test/132",
+    "high_school_us_history/test/87",
+    "jurisprudence/test/87",
+    "sociology/test/184",
+    "professional_accounting/test/99",
+    "human_sexuality/test/9",
+    "miscellaneous/test/662",
+    "professional_law/test/1000",
+    "professional_law/test/1134",
+    "high_school_geography/test/6",
+    "high_school_us_history/test/124",
+    "prehistory/test/221",
+    "professional_medicine/test/37",
+    "professional_accounting/test/142",
+    "virology/test/163",
+    "human_aging/test/109",
+    "management/test/50",
+    "business_ethics/test/95",
+    "formal_logic/test/60",
+    "clinical_knowledge/test/162",
+    "virology/test/35",
+    "professional_medicine/test/84",
+    "management/test/98",
+    "clinical_knowledge/test/56",
+    "virology/test/107",
+    "logical_fallacies/test/68",
+    "international_law/test/97",
+    "management/test/82",
+    "professional_accounting/test/149",
+    "business_ethics/test/46",
+    "professional_accounting/test/83",
+    "logical_fallacies/test/137",
+    "global_facts/test/83",
+    "miscellaneous/test/375",
+    "elementary_mathematics/test/18",
+    "miscellaneous/test/570",
+    "global_facts/test/75",
+    "global_facts/test/11",
+    "global_facts/test/90",
+    "miscellaneous/test/612",
+    "miscellaneous/test/322",
+    "human_aging/test/173"
+  ],
+  "selection_algorithm": "Filter is_annotated=true, cultural_sensitivity_label in {CA,CS}, and time_sensitive contains no 'Yes'; group by the frozen category/label quotas; sort each group by sha256('1729\\0' + sample_id); take the first quota rows.",
+  "split": "test",
+  "total_records": 400
+}

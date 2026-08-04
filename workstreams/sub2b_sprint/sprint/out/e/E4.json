@@ -1,0 +1,428 @@
+{
+  "sprint_id": "E4",
+  "title": "Pinned Qualcomm AI Hub Models registry reads: Zipformer, TTS HTP, and Qwen packages/performance",
+  "captured_at_utc": "2026-08-02T05:10:39Z",
+  "status": "COMPLETE",
+  "headline": "At pinned ai-hub-models commit 6bbb3e18034b15df2cc4b41736fd900b980a95df, Zipformer's usable published path is float-only and all mixed/quantized QNN paths are disabled after failing Qualcomm scorecard jobs; contrary to the sprint expectation, all six published TTS models now have Voice AI NPU profiles and SM8850-for-Galaxy assets; Qwen3-0.6B has an SM8850 GenieX-QAIRT w4a16 registry package but its accuracy path is disabled, while Qwen3.5-0.8B offers only GenieX-llama.cpp q4_0 and decodes faster on CPU than NPU in the named SM8850 QRD row.",
+  "e1_gate": {
+    "source": "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+    "e1_done": true,
+    "aihub_usable": true,
+    "sm8850_class_target_compile_selectable": false,
+    "registry_reads_allowed": true,
+    "new_ai_hub_jobs_submitted_for_e4": 0,
+    "gate_result": "PROCEED_WITH_REGISTRY_READS_ONLY"
+  },
+  "repository": {
+    "owner": "qualcomm",
+    "name": "ai-hub-models",
+    "requested_ref": "HEAD",
+    "commit_sha": "6bbb3e18034b15df2cc4b41736fd900b980a95df",
+    "tree_sha": "cd30d7c3b7e4473c6239e362b3e71e0739ab458f",
+    "commit_author_date_utc": "2026-08-01T02:10:56Z",
+    "commit_message": "Fixes for prod scorecard (#4207)",
+    "git_ls_remote_head": "6bbb3e18034b15df2cc4b41736fd900b980a95df",
+    "commit_api_url": "https://api.github.com/repos/qualcomm/ai-hub-models/commits/6bbb3e18034b15df2cc4b41736fd900b980a95df",
+    "tree_api_url": "https://api.github.com/repos/qualcomm/ai-hub-models/git/trees/cd30d7c3b7e4473c6239e362b3e71e0739ab458f?recursive=1",
+    "tree_api_truncated": false,
+    "tree_entry_count": 5515,
+    "evidence_class": "EXACT"
+  },
+  "evidence_policy": {
+    "immutable_commit_and_repository_presence": "EXACT",
+    "deterministic_counts_parsed_from_pinned_yaml": "EXACT",
+    "qualcomm_scorecard_status_and_profile_values": "VENDOR",
+    "derived_arithmetic": "PROJECTED",
+    "nubia_nx809j_exact_target_profile": "UNKNOWN",
+    "why_not_aihub_profiled": "No E4 job ran and the repository rows name Samsung Galaxy S26 or Snapdragon 8 Elite Gen 5 QRD, not Nubia NX809J. Vendor-published rows are therefore retained as VENDOR evidence for this programme's exact phone."
+  },
+  "findings": {
+    "zipformer_zh_en": {
+      "model_id": "zipformer",
+      "checkpoint": "pfluo/k2fsa-zipformer-chinese-english-mixed",
+      "scope": "Qualcomm registry at the pinned commit",
+      "verdict": "FLOAT_ONLY_USABLE_PUBLISHED_PATH; MIXED_QUANTIZED_PATH_FAILED_AND_DISABLED",
+      "manifest_declared_precisions": [
+        "float",
+        "mixed"
+      ],
+      "perf_yaml_precisions": [
+        "float"
+      ],
+      "release_asset_precisions": [
+        "float"
+      ],
+      "generated_ci_passing_precisions": [
+        "float"
+      ],
+      "quantized_path": {
+        "registry_precision_name": "mixed",
+        "component_precisions": {
+          "encoder": "w8a16",
+          "decoder": "w16a16",
+          "joiner": "w16a16"
+        },
+        "ci_verdict": "FAILED_AND_DISABLED",
+        "disabled_paths": [
+          {
+            "runtime": "qnn_context_binary",
+            "scorecard_failure": "Failing jobs: jpr9rnv9p"
+          },
+          {
+            "runtime": "qnn_dlc",
+            "scorecard_failure": "Failing jobs: j56vx7y7p"
+          },
+          {
+            "runtime": "precompiled_qnn_onnx",
+            "scorecard_failure": "Failing jobs: j576md4qg"
+          }
+        ],
+        "evidence_class": "VENDOR"
+      },
+      "float_profile_summary": {
+        "components": [
+          "decoder",
+          "encoder",
+          "joiner"
+        ],
+        "runtimes": [
+          "qnn_context_binary",
+          "precompiled_qnn_onnx"
+        ],
+        "profile_rows": 84,
+        "passed_rows": 84,
+        "device_count": 17,
+        "primary_compute_units": [
+          "NPU"
+        ],
+        "qairt_version": "2.45.0.260326154327",
+        "counts_evidence_class": "EXACT",
+        "profile_evidence_class": "VENDOR"
+      },
+      "sm8850_float_assets": [
+        {
+          "chipset_key": "qualcomm-snapdragon-8-elite-gen5-for-galaxy",
+          "runtime": "qnn_context_binary",
+          "s3_key": "pre_release_assets/gh_actions/30148026651/zipformer-qnn_context_binary-float-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip",
+          "qairt_version": "2.45.0.260326154327"
+        },
+        {
+          "chipset_key": "qualcomm-snapdragon-8-elite-gen5-for-galaxy",
+          "runtime": "precompiled_qnn_onnx",
+          "s3_key": "pre_release_assets/gh_actions/30148026651/zipformer-precompiled_qnn_onnx-float-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip",
+          "qairt_version": "2.45.0.260326154327",
+          "onnx_runtime_version": "1.27.1"
+        }
+      ],
+      "registry_presence_evidence_class": "EXACT",
+      "artifact_bytes_downloaded_or_verified": false,
+      "artifact_availability_beyond_registry_entry": "UNKNOWN",
+      "raw_sources": [
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/zipformer/manifest.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/zipformer/perf.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/zipformer/release-assets.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/scorecard/models/zipformer/test_generated.py",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/zipformer/model.py"
+      ]
+    },
+    "tts_htp": {
+      "verdict": "YES_CURRENT_HEAD_CONTRADICTS_EXPECTED_NO",
+      "interpretation": "The pinned repository's Voice AI runtime is QNN-backed, emits .bin assets, maps to QNN_CONTEXT_BINARY as its Hub source type, and the TTS profile rows report primary_compute_unit NPU with npu layer count equal to total. This is an HTP/NPU path, although the runtime label is voice_ai rather than qnn_context_binary.",
+      "inventory_method": "Parsed the complete untruncated recursive Git tree and every model manifest. Exactly six published model manifests use use_case Audio Generation and describe text-to-speech; path/name and manifest text searches found no additional published TTS successor model IDs.",
+      "published_tts_model_count": 6,
+      "inventory_count_evidence_class": "EXACT",
+      "models": [
+        {
+          "id": "pipertts_en",
+          "precision": "float",
+          "runtime": "voice_ai",
+          "component_count": 6,
+          "components": [
+            "charsiu_decoder",
+            "charsiu_encoder",
+            "decoder",
+            "encoder",
+            "flow",
+            "sdp"
+          ],
+          "device_count": 17,
+          "profile_rows": 102,
+          "passed_rows": 102,
+          "npu_primary_rows": 102,
+          "all_layers_on_npu_rows": 102,
+          "qairt_version": "2.45.0.260326154327",
+          "sm8850_profile_device": "Samsung Galaxy S26",
+          "sm8850_example_component_profile": {
+            "component": "encoder",
+            "inference_time_milliseconds": 17.027,
+            "job_id": "jpxxkeo3p",
+            "job_status": "Passed",
+            "primary_compute_unit": "NPU",
+            "npu_layers": 401,
+            "total_layers": 401,
+            "evidence_class": "VENDOR"
+          },
+          "sm8850_asset_s3_key": "pre_release_assets/gh_actions/30148026651/pipertts_en-voice_ai-float-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip"
+        },
+        {
+          "id": "pipertts_de",
+          "precision": "float",
+          "runtime": "voice_ai",
+          "component_count": 6,
+          "device_count": 17,
+          "profile_rows": 102,
+          "passed_rows": 102,
+          "npu_primary_rows": 102,
+          "all_layers_on_npu_rows": 102,
+          "qairt_version": "2.45.0.260326154327",
+          "sm8850_profile_device": "Samsung Galaxy S26",
+          "sm8850_asset_s3_key": "pre_release_assets/gh_actions/30148026651/pipertts_de-voice_ai-float-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip"
+        },
+        {
+          "id": "pipertts_it",
+          "precision": "float",
+          "runtime": "voice_ai",
+          "component_count": 6,
+          "device_count": 17,
+          "profile_rows": 102,
+          "passed_rows": 102,
+          "npu_primary_rows": 102,
+          "all_layers_on_npu_rows": 102,
+          "qairt_version": "2.45.0.260326154327",
+          "sm8850_profile_device": "Samsung Galaxy S26",
+          "sm8850_asset_s3_key": "pre_release_assets/gh_actions/30148026651/pipertts_it-voice_ai-float-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip"
+        },
+        {
+          "id": "melotts_en",
+          "precision": "mixed_with_float",
+          "runtime": "voice_ai",
+          "component_count": 6,
+          "components": [
+            "bert_wrapper",
+            "decoder",
+            "encoder",
+            "flow",
+            "t5_decoder",
+            "t5_encoder"
+          ],
+          "device_count": 14,
+          "profile_rows": 84,
+          "passed_rows": 84,
+          "npu_primary_rows": 84,
+          "all_layers_on_npu_rows": 84,
+          "qairt_version": "2.45.0.260326154327",
+          "sm8850_profile_device": "Samsung Galaxy S26",
+          "sm8850_asset_s3_key": "pre_release_assets/gh_actions/30148026651/melotts_en-voice_ai-mixed_with_float-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip"
+        },
+        {
+          "id": "melotts_es",
+          "precision": "mixed_with_float",
+          "runtime": "voice_ai",
+          "component_count": 5,
+          "components": [
+            "decoder",
+            "encoder",
+            "flow",
+            "t5_decoder",
+            "t5_encoder"
+          ],
+          "device_count": 14,
+          "profile_rows": 70,
+          "passed_rows": 70,
+          "npu_primary_rows": 70,
+          "all_layers_on_npu_rows": 70,
+          "qairt_version": "2.45.0.260326154327",
+          "sm8850_profile_device": "Samsung Galaxy S26",
+          "sm8850_example_component_profile": {
+            "component": "encoder",
+            "inference_time_milliseconds": 23.829,
+            "job_id": "jgo82vv1p",
+            "job_status": "Passed",
+            "primary_compute_unit": "NPU",
+            "npu_layers": 830,
+            "total_layers": 830,
+            "evidence_class": "VENDOR"
+          },
+          "sm8850_asset_s3_key": "pre_release_assets/gh_actions/30148026651/melotts_es-voice_ai-mixed_with_float-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip"
+        },
+        {
+          "id": "melotts_zh",
+          "precision": "mixed_with_float",
+          "runtime": "voice_ai",
+          "component_count": 4,
+          "components": [
+            "bert_wrapper",
+            "decoder",
+            "encoder",
+            "flow"
+          ],
+          "device_count": 14,
+          "profile_rows": 56,
+          "passed_rows": 56,
+          "npu_primary_rows": 56,
+          "all_layers_on_npu_rows": 56,
+          "qairt_version": "2.45.0.260326154327",
+          "sm8850_profile_device": "Samsung Galaxy S26",
+          "sm8850_example_component_profile": {
+            "component": "encoder",
+            "inference_time_milliseconds": 23.812,
+            "job_id": "jpxxk1r9p",
+            "job_status": "Passed",
+            "primary_compute_unit": "NPU",
+            "npu_layers": 830,
+            "total_layers": 830,
+            "evidence_class": "VENDOR"
+          },
+          "sm8850_asset_s3_key": "pre_release_assets/gh_actions/30148026651/melotts_zh-voice_ai-mixed_with_float-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip"
+        }
+      ],
+      "all_profile_counts_evidence_class": "EXACT",
+      "all_profile_values_and_job_statuses_evidence_class": "VENDOR",
+      "component_latency_warning": "These are component rows, not end-to-end synthesis latency. They must not be summed without an execution graph and iteration counts.",
+      "raw_sources": [
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/common.py",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/pipertts_en/manifest.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/pipertts_en/perf.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/pipertts_en/release-assets.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/pipertts_de/manifest.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/pipertts_de/perf.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/pipertts_it/manifest.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/pipertts_it/perf.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/melotts_en/manifest.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/melotts_en/perf.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/melotts_es/manifest.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/melotts_es/perf.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/melotts_es/release-assets.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/melotts_zh/manifest.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/melotts_zh/perf.yaml",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/melotts_zh/release-assets.yaml"
+      ]
+    },
+    "llm": {
+      "qwen3_0_6b": {
+        "model_id": "qwen3_0_6b",
+        "w4a16_geniex_qairt_registry_package_exists": true,
+        "registry_presence_evidence_class": "EXACT",
+        "sm8850_package": {
+          "chipset_key": "qualcomm-snapdragon-8-elite-gen5",
+          "precision": "w4a16",
+          "runtime": "geniex_qairt",
+          "s3_key": "pre_release_assets/gh_actions/30148026651/qwen3_0_6b-geniex_qairt-w4a16-qualcomm_snapdragon_8_elite_gen5.zip",
+          "qairt_version": "2.45.0.260326154327"
+        },
+        "sm8850_vendor_profile": {
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "context_length": 4096,
+          "desired_compute_unit": "npu",
+          "prefill_tokens_per_second": 8806.329549,
+          "tokens_per_second": 119.771461,
+          "time_to_first_token_range_milliseconds": {
+            "min": 14.535,
+            "max": 465.12
+          },
+          "evidence_class": "VENDOR"
+        },
+        "accuracy_status": {
+          "verdict": "DISABLED_FOR_ACCURACY_FAILURE",
+          "affected_runtimes": [
+            "geniex_qairt",
+            "genie"
+          ],
+          "device_accuracy_percent": 70.3,
+          "benchmark_percent": 94.9,
+          "deviation_percentage_points": -24.6,
+          "threshold_percentage_points": 10.0,
+          "evidence_class": "VENDOR"
+        },
+        "interpretation": "The package registry entry and performance row exist, but the current manifest does not classify the w4a16 QAIRT path as passing because Qualcomm's own accuracy gate failed. Do not equate package existence with an accepted production path.",
+        "artifact_bytes_downloaded_or_verified": false,
+        "artifact_availability_beyond_registry_entry": "UNKNOWN",
+        "raw_sources": [
+          "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/qwen3_0_6b/manifest.yaml",
+          "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/qwen3_0_6b/perf.yaml",
+          "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/qwen3_0_6b/release-assets.yaml",
+          "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/scorecard/models/qwen3_0_6b/test_generated.py"
+        ]
+      },
+      "qwen3_5_0_8b": {
+        "model_id": "qwen3_5_0_8b",
+        "offering_verdict": "GENIEX_LLAMACPP_Q4_0_ONLY",
+        "supported_precisions": [
+          "q4_0"
+        ],
+        "orchestrator_runtimes": [
+          "geniex_llamacpp"
+        ],
+        "geniex_qairt_offered": false,
+        "w4a16_offered": false,
+        "release_asset": {
+          "scope": "universal",
+          "runtime": "geniex_llamacpp",
+          "precision": "q4_0",
+          "download_url": "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-Q4_0.gguf",
+          "declared_model_size_mb": 507
+        },
+        "sm8850_vendor_profile": {
+          "device": "Snapdragon 8 Elite Gen 5 QRD",
+          "runtime": "geniex_llamacpp",
+          "precision": "q4_0",
+          "context_length": 4096,
+          "cpu": {
+            "prefill_tokens_per_second": 355.529292,
+            "tokens_per_second": 59.414176,
+            "time_to_first_token_range_milliseconds": {
+              "min": 360.05078125,
+              "max": 11521.625
+            }
+          },
+          "gpu": {
+            "prefill_tokens_per_second": 326.756925,
+            "tokens_per_second": 56.679703,
+            "time_to_first_token_range_milliseconds": {
+              "min": 391.75446875,
+              "max": 12536.143
+            }
+          },
+          "npu": {
+            "prefill_tokens_per_second": 1084.603868,
+            "tokens_per_second": 41.909392,
+            "time_to_first_token_range_milliseconds": {
+              "min": 118.03384375,
+              "max": 3777.083
+            }
+          },
+          "evidence_class": "VENDOR"
+        },
+        "derived_comparison": {
+          "cpu_decode_minus_npu_tokens_per_second": 17.504784,
+          "npu_prefill_divided_by_cpu": 3.050674,
+          "conclusion": "At context length 4096 on the named QRD, CPU decode is faster than NPU decode; NPU's advantage is prefill/TTFT, not decode.",
+          "evidence_class": "PROJECTED"
+        },
+        "raw_sources": [
+          "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/qwen3_5_0_8b/manifest.yaml",
+          "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/qwen3_5_0_8b/perf.yaml",
+          "https://raw.githubusercontent.com/qualcomm/ai-hub-models/6bbb3e18034b15df2cc4b41736fd900b980a95df/src/qai_hub_models/models/qwen3_5_0_8b/release-assets.yaml"
+        ]
+      }
+    }
+  },
+  "non_additivity": {
+    "must_not_sum": true,
+    "asr_tts_named_device": "Samsung Galaxy S26",
+    "llm_named_device": "Snapdragon 8 Elite Gen 5 QRD",
+    "reason": "The rows are from different device entries and different runtime/workload semantics. ASR/TTS component milliseconds and LLM token rates are not a shared end-to-end budget and may not be added. Individual collection-component latencies also may not be summed without invocation counts and orchestration overhead."
+  },
+  "runtime_compatibility_alert": {
+    "severity": "STOP_SHIP_IF_MISMATCHED",
+    "registry_compiled_qairt_version": "2.45.0.260326154327",
+    "e1_trivial_probe_qairt_version": "2.48.0.260626120635",
+    "instruction": "Every Zipformer float, Voice AI TTS, and Qwen3-0.6B w4a16 registry asset recorded here is pinned to QAIRT 2.45.0.260326154327. Never stage or run one with a 2.48 runtime. The E1 2.48 context was not downloaded or staged, so it does not authorize mixing versions."
+  },
+  "limitations": [
+    "E4 performed registry reads only and submitted no AI Hub jobs, as required by the E1 target block and sprint scope.",
+    "No registry package was downloaded, hashed, unpacked, or executed; actual package-byte availability remains UNKNOWN where only an s3_key is present.",
+    "No result is an exact Nubia NX809J profile. The performance values remain VENDOR evidence and must not be upgraded to AIHUB-PROFILED for the project phone.",
+    "Repository conclusions are pinned to commit 6bbb3e18034b15df2cc4b41736fd900b980a95df and may change at later commits."
+  ]
+}

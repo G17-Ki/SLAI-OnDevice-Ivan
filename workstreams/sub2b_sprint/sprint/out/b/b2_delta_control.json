@@ -1,0 +1,178 @@
+{
+  "basic_normalizer_id": "whisper_basic/0.1.15/default",
+  "cells": [
+    {
+      "basic": {
+        "deletions": 4,
+        "error_rate": 0.5,
+        "errors": 16,
+        "insertions": 4,
+        "language": "en",
+        "metric": "WER",
+        "n": 10,
+        "normalizer": "basic",
+        "normalizer_id": "whisper_basic/0.1.15/default",
+        "reference_token_count": 32,
+        "substitutions": 8
+      },
+      "delta_pp_basic_minus_project": 42.592592592592595,
+      "language": "en",
+      "metric": "WER",
+      "n": 10,
+      "project": {
+        "deletions": 0,
+        "error_rate": 0.07407407407407407,
+        "errors": 2,
+        "insertions": 1,
+        "language": "en",
+        "metric": "WER",
+        "n": 10,
+        "normalizer": "project",
+        "normalizer_id": "norm_en/1.0.0+82f38a8c",
+        "reference_token_count": 27,
+        "substitutions": 1
+      },
+      "ranking_inadmissible": true
+    },
+    {
+      "basic": {
+        "deletions": 0,
+        "error_rate": 0.4642857142857143,
+        "errors": 13,
+        "insertions": 0,
+        "language": "zh",
+        "metric": "CER",
+        "n": 10,
+        "normalizer": "basic",
+        "normalizer_id": "whisper_basic/0.1.15/default",
+        "reference_token_count": 28,
+        "substitutions": 13
+      },
+      "delta_pp_basic_minus_project": 46.42857142857143,
+      "language": "zh",
+      "metric": "CER",
+      "n": 10,
+      "project": {
+        "deletions": 0,
+        "error_rate": 0.0,
+        "errors": 0,
+        "insertions": 0,
+        "language": "zh",
+        "metric": "CER",
+        "n": 10,
+        "normalizer": "project",
+        "normalizer_id": "norm_zh/1.0.0+82f38a8c",
+        "reference_token_count": 28,
+        "substitutions": 0
+      },
+      "ranking_inadmissible": true
+    },
+    {
+      "basic": {
+        "deletions": 0,
+        "error_rate": 0.05,
+        "errors": 1,
+        "insertions": 0,
+        "language": "es",
+        "metric": "WER",
+        "n": 10,
+        "normalizer": "basic",
+        "normalizer_id": "whisper_basic/0.1.15/default",
+        "reference_token_count": 20,
+        "substitutions": 1
+      },
+      "delta_pp_basic_minus_project": 0.0,
+      "language": "es",
+      "metric": "WER",
+      "n": 10,
+      "project": {
+        "deletions": 0,
+        "error_rate": 0.05,
+        "errors": 1,
+        "insertions": 0,
+        "language": "es",
+        "metric": "WER",
+        "n": 10,
+        "normalizer": "project",
+        "normalizer_id": "norm_es/1.0.0+82f38a8c",
+        "reference_token_count": 20,
+        "substitutions": 1
+      },
+      "ranking_inadmissible": false
+    },
+    {
+      "basic": {
+        "deletions": 0,
+        "error_rate": 0.03571428571428571,
+        "errors": 1,
+        "insertions": 0,
+        "language": "fr",
+        "metric": "WER",
+        "n": 10,
+        "normalizer": "basic",
+        "normalizer_id": "whisper_basic/0.1.15/default",
+        "reference_token_count": 28,
+        "substitutions": 1
+      },
+      "delta_pp_basic_minus_project": -1.1904761904761905,
+      "language": "fr",
+      "metric": "WER",
+      "n": 10,
+      "project": {
+        "deletions": 0,
+        "error_rate": 0.047619047619047616,
+        "errors": 1,
+        "insertions": 0,
+        "language": "fr",
+        "metric": "WER",
+        "n": 10,
+        "normalizer": "project",
+        "normalizer_id": "norm_fr/1.0.0+82f38a8c",
+        "reference_token_count": 21,
+        "substitutions": 1
+      },
+      "ranking_inadmissible": false
+    },
+    {
+      "basic": {
+        "deletions": 0,
+        "error_rate": 0.23529411764705882,
+        "errors": 4,
+        "insertions": 1,
+        "language": "ru",
+        "metric": "WER",
+        "n": 10,
+        "normalizer": "basic",
+        "normalizer_id": "whisper_basic/0.1.15/default",
+        "reference_token_count": 17,
+        "substitutions": 3
+      },
+      "delta_pp_basic_minus_project": 8.144796380090497,
+      "language": "ru",
+      "metric": "WER",
+      "n": 10,
+      "project": {
+        "deletions": 0,
+        "error_rate": 0.15384615384615385,
+        "errors": 2,
+        "insertions": 1,
+        "language": "ru",
+        "metric": "WER",
+        "n": 10,
+        "normalizer": "project",
+        "normalizer_id": "norm_ru/1.0.0+82f38a8c",
+        "reference_token_count": 13,
+        "substitutions": 1
+      },
+      "ranking_inadmissible": true
+    }
+  ],
+  "normalizer_ids": {
+    "en": "norm_en/1.0.0+82f38a8c",
+    "es": "norm_es/1.0.0+82f38a8c",
+    "fr": "norm_fr/1.0.0+82f38a8c",
+    "ru": "norm_ru/1.0.0+82f38a8c",
+    "zh": "norm_zh/1.0.0+82f38a8c"
+  },
+  "normalizer_package_sha256": "82f38a8cbf3208e360acf0b6789e8940d345ace76e0bd11e3834a34edda828dc"
+}

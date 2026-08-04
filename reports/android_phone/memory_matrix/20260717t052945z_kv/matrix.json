@@ -1,0 +1,50 @@
+{
+  "matrix": "kv",
+  "rows": [
+    {
+      "name": "kv_f16",
+      "runtime_args": "-c 512 --no-repack -ctk f16 -ctv f16",
+      "idle_rss_mib": 1106.921875,
+      "active_peak_rss_mib": 1274.4453125,
+      "vmhwm_mib": 1273.84375,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 556.859375,
+      "first_text_ms": 2886.8911247700453,
+      "first_audio_ms": null,
+      "total_ms": 4157.456915825605,
+      "exact_normalized": true,
+      "transcript": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.",
+      "error": null
+    },
+    {
+      "name": "kv_q8_0",
+      "runtime_args": "-c 512 --no-repack -ctk q8_0 -ctv q8_0",
+      "idle_rss_mib": 1105.38671875,
+      "active_peak_rss_mib": 1276.96484375,
+      "vmhwm_mib": 1276.0546875,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 559.34375,
+      "first_text_ms": 2885.883624665439,
+      "first_audio_ms": null,
+      "total_ms": 4137.662624940276,
+      "exact_normalized": true,
+      "transcript": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.",
+      "error": null
+    },
+    {
+      "name": "kv_q4_0",
+      "runtime_args": "-c 512 --no-repack -ctk q4_0 -ctv q4_0",
+      "idle_rss_mib": 1113.22265625,
+      "active_peak_rss_mib": 1273.8515625,
+      "vmhwm_mib": 1273.07421875,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 556.32421875,
+      "first_text_ms": 2854.419792070985,
+      "first_audio_ms": null,
+      "total_ms": 4113.504332955927,
+      "exact_normalized": true,
+      "transcript": "The stale smell of old beer lingers. It takes heat to bring out the odor. A cold dip restores health and zest. A salt pickle tastes fine with ham. Tacos al pastor are my favorite. A zestful food is the hot cross bun.",
+      "error": null
+    }
+  ]
+}

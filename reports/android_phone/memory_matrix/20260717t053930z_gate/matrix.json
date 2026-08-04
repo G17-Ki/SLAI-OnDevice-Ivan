@@ -1,0 +1,65 @@
+{
+  "matrix": "gate",
+  "rows": [
+    {
+      "name": "no_repack_default",
+      "runtime_args": "-c 512 --no-repack",
+      "idle_rss_mib": 1108.703125,
+      "active_peak_rss_mib": 1348.71875,
+      "vmhwm_mib": 1347.8828125,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 631.30859375,
+      "first_text_ms": 5261.732624843717,
+      "first_audio_ms": null,
+      "total_ms": 7872.700583189726,
+      "exact_normalized": null,
+      "transcript": "Linell's pictures are a sort of upgard's and adam paintings, and mason's exquisite idylls are as national as a jingo poem. Mister burke foster's landscapes smile at one much in the same way that mister carker used to flash his teeth, and mister john collier gives his sitter a cheerful slap on the back before he says, like a shampooer in a turkish bath, next man.",
+      "error": null
+    },
+    {
+      "name": "no_repack_b128_ub32",
+      "runtime_args": "-c 512 --no-repack -b 128 -ub 32",
+      "idle_rss_mib": 1081.58203125,
+      "active_peak_rss_mib": 1305.91796875,
+      "vmhwm_mib": 1304.99609375,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 588.48828125,
+      "first_text_ms": 6002.9356251470745,
+      "first_audio_ms": null,
+      "total_ms": 8798.547000158578,
+      "exact_normalized": null,
+      "transcript": "Linell's pictures are a sort of upgard's and adam paintings, and mason's exquisite idylls are as national as a jingo poem. Mister burke foster's landscapes smile at one much in the same way that mister carker used to flash his teeth, and mister john collier gives his sitter a cheerful slap on the back before he says, like a shampooer in a turkish bath, next man.",
+      "error": null
+    },
+    {
+      "name": "no_repack_b64_ub16",
+      "runtime_args": "-c 512 --no-repack -b 64 -ub 16",
+      "idle_rss_mib": 1081.33984375,
+      "active_peak_rss_mib": 1303.64453125,
+      "vmhwm_mib": 1302.83203125,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 585.9609375,
+      "first_text_ms": 6399.410875048488,
+      "first_audio_ms": null,
+      "total_ms": 9524.233708158135,
+      "exact_normalized": null,
+      "transcript": "Linell's pictures are a sort of upgard's and adam paintings, and mason's exquisite idylls are as national as a jingo poem. Mister burke foster's landscapes smile at one much in the same way that mister carker used to flash his teeth, and mister john collier gives his sitter a cheerful slap on the back before he says, like a shampooer in a turkish bath, next man.",
+      "error": null
+    },
+    {
+      "name": "no_repack_b64_ub16_q4kv",
+      "runtime_args": "-c 512 --no-repack -b 64 -ub 16 -ctk q4_0 -ctv q4_0",
+      "idle_rss_mib": 1077.72265625,
+      "active_peak_rss_mib": 1301.8984375,
+      "vmhwm_mib": 1301.0,
+      "gguf_rss_mib": 707.19140625,
+      "anonymous_rss_mib": 584.29296875,
+      "first_text_ms": 6215.333540923893,
+      "first_audio_ms": null,
+      "total_ms": 8862.260750029236,
+      "exact_normalized": null,
+      "transcript": "Linnell's pictures are a sort of upgard's and adam paintings, and mason's exquisite idylls are as national as a jingo poem. Mister burke foster's landscapes smile at one much in the same way that mister carker used to flash his teeth, and mister john collier gives his sitter a cheerful slap on the back before he says, like a shampooer in a turkish bath, next man.",
+      "error": null
+    }
+  ]
+}

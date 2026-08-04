@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SupertonicProbeTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#5B3FD0</item>
+        <item name="android:navigationBarColor">#21154F</item>
+        <item name="android:statusBarColor">#21154F</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

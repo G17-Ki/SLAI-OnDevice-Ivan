@@ -1,0 +1,20 @@
+category,item,bytes,mib,source_class
+measured file,BF16 main checkpoint,2940723992,2804.4929428100586,measured local file size
+measured file,BF16 input audio tokenizer checkpoint,384644900,366.8259620666504,measured local file size
+measured file,FP32 output audio detokenizer checkpoint,314137512,299.58487701416016,measured local file size
+measured file,Q4 backbone/main GGUF,695750880,663.5197448730469,measured local file size
+measured file,Q4 audio projection/encoder GGUF,219511136,209.34213256835938,measured local file size
+measured file,Q4 vocoder GGUF,108986560,103.93768310546875,measured local file size
+measured file,Q4 tokenizer GGUF,50546112,48.20452880859375,measured local file size
+derived cache,"LFM backbone KV cache, 4096 positions, BF16/FP16",50331648,48.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 8192 positions, BF16/FP16",100663296,96.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 16384 positions, BF16/FP16",201326592,192.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 32768 positions, BF16/FP16",402653184,384.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 128000 positions, BF16/FP16",1572864000,1500.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM fixed convolution cache, BF16/FP16",122880,0.1171875,Derived from pinned config: 10 conv layers x hidden 2048 x cache length 3
+derived cache,"LFM backbone KV cache, 4096 positions, INT8",25165824,24.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 8192 positions, INT8",50331648,48.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 16384 positions, INT8",100663296,96.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 32768 positions, INT8",201326592,192.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 128000 positions, INT8",786432000,750.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM fixed convolution cache, INT8",61440,0.05859375,Derived from pinned config: 10 conv layers x hidden 2048 x cache length 3

@@ -1,0 +1,13 @@
+component,runtime,status,device,latency_ms,peak_memory_mib,npu_runtime_layers,cpu_fallback_runtime_layers,other_runtime_layers,output_checks_passed
+backbone-attention-cached-decode,strict-npu,passed,"QCS8550 (Proxy), Android 12, Hexagon v73",2.452,87.0078125,61,0,0,True
+backbone-attention-prefill,strict-npu,passed,"QCS8550 (Proxy), Android 12, Hexagon v73",2.444,91.546875,62,0,0,True
+backbone-conv-cached-decode,strict-npu,passed,"QCS8550 (Proxy), Android 12, Hexagon v73",2.695,91.8828125,32,0,0,True
+backbone-conv-prefill,strict-npu,passed,"QCS8550 (Proxy), Android 12, Hexagon v73",2.693,92.2421875,36,0,0,True
+depth-decoder,ort-diagnostic,passed,"QCS8550 (Proxy), Android 12, Hexagon v73",26.61,379.64453125,4024,0,0,True
+depth-decoder,strict-npu,passed,"QCS8550 (Proxy), Android 12, Hexagon v73",25.54,91.98046875,2953,0,0,True
+detokenizer-t4,ort-diagnostic,numerical_mismatch,"QCS8550 (Proxy), Android 12, Hexagon v73",2.521,170.54296875,445,0,0,False
+detokenizer-t4,strict-npu,numerical_mismatch,"QCS8550 (Proxy), Android 12, Hexagon v73",1.88,87.984375,371,0,0,False
+detokenizer-t8,ort-diagnostic,numerical_mismatch,"QCS8550 (Proxy), Android 12, Hexagon v73",2.798,195.23046875,445,0,0,False
+detokenizer-t8,strict-npu,numerical_mismatch,"QCS8550 (Proxy), Android 12, Hexagon v73",2.577,87.39453125,371,0,0,False
+fastconformer,ort-diagnostic,numerical_mismatch,"QCS8550 (Proxy), Android 12, Hexagon v73",4.945,306.87109375,1232,0,0,False
+fastconformer,strict-npu,numerical_mismatch,"QCS8550 (Proxy), Android 12, Hexagon v73",4.786,87.00390625,1215,0,0,False

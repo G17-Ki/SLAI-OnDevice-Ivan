@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-07-17T05:47:00.565490+00:00",
+  "dataset": "hf-internal-testing/librispeech_asr_dummy clean/validation",
+  "seed": 20260715,
+  "normalization": "lowercase; strip control tokens and punctuation except apostrophes; collapse whitespace",
+  "configurations": [
+    {
+      "name": "memory_gate_f16kv",
+      "runtime_args": [
+        "-c",
+        "512",
+        "--no-repack",
+        "-b",
+        "64",
+        "-ub",
+        "16"
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "configuration": "memory_gate_f16kv",
+      "runtime_args": "-c 512 --no-repack -b 64 -ub 16",
+      "condition": "clean",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 3.5714285714285716,
+      "mean_first_text_ms": 1736.9136806163524,
+      "median_total_ms": 2088.964270427823,
+      "vmhwm_mib": 1307.73046875
+    },
+    {
+      "configuration": "memory_gate_f16kv",
+      "runtime_args": "-c 512 --no-repack -b 64 -ub 16",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 7.142857142857143,
+      "mean_first_text_ms": 2099.2583357470317,
+      "median_total_ms": 2526.2943126726896,
+      "vmhwm_mib": 1307.73046875
+    },
+    {
+      "configuration": "memory_gate_f16kv",
+      "runtime_args": "-c 512 --no-repack -b 64 -ub 16",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 54.76190476190476,
+      "mean_first_text_ms": 2151.421826410418,
+      "median_total_ms": 2630.5452710948884,
+      "vmhwm_mib": 1307.73046875
+    }
+  ],
+  "comparisons": []
+}

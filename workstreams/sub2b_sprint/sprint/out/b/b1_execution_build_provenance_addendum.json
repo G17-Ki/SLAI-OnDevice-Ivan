@@ -1,0 +1,81 @@
+{
+  "schema_version": "lane-b-execution-build-provenance-addendum/1.0",
+  "sprint_id": "B1",
+  "recorded_at_utc": "2026-08-02T08:23:46Z",
+  "recorded_before_candidate_inference": false,
+  "recorded_after_candidate_inference": true,
+  "candidate_result_rows_observed": 600,
+  "parent_preregistration": {
+    "path": "b1_prereg.json",
+    "sha256": "ff0ccbd0b2ca426bbfe287419c8e47a6ff71a28827da9aaa178ffce1adbc2eb6"
+  },
+  "parent_records": [
+    {
+      "path": "b1_execution_tool_memory_patch.json",
+      "sha256": "ebce8ee04882ad42de8b03446bb3cc68b95b36ec7680056c5e1ac822a13fad15"
+    }
+  ],
+  "triggering_audit": {
+    "finding": "The 9f99a37e harness bound the exact patched source tree, launcher, implementation-library bytes, and CMake cache hash, but record_build accepted a caller-supplied binary directory without proving that its CMake cache was configured from that exact source checkout.",
+    "risk_class": "build-provenance ambiguity, not an observed inference or scoring defect",
+    "mitigation_already_present": "The superseded receipt's exact patched source hash and exact implementation-library hash made the executed patch strongly evidenced, but the source-to-build derivation was not fail-closed.",
+    "discovery_basis": "Independent post-run audit before any second model arm was started."
+  },
+  "superseded_candidate_run": {
+    "model_id": "qwen35_08b",
+    "harness_source_sha256": "9f99a37eeabe6be36f27e8342e98805c4dbd88d0e202e457f291b998a0b726e7",
+    "build_receipt_sha256": "43dbaec478a92ae39b5436bde34d2f81813470e2815757e0903d4b16b2ae2ceb",
+    "global_mmlu": {
+      "n": 400,
+      "correct": 150,
+      "raw_jsonl_sha256": "9d33083195a9e97a3351b0be36c0dfb5c7e00495d1901bed3f8a46d412e8c80d",
+      "receipt_sha256": "f6b15576c69ffe88f2504f38c942db2e9b117fd6d3f0166944a67eda1fd01f33"
+    },
+    "native_generation": {
+      "n": 200,
+      "raw_jsonl_sha256": "9adccd075fbd1851712c2980a88d87fe624bc841ebf568b9cc08442788f7a19e",
+      "receipt_sha256": "69fcf5078e6bc4b13589774461203e62a3f47e63865a36c79c25a21846423ff1"
+    },
+    "preserved_archive": {
+      "path": "superseded/9f99a37e/archives/qwen35_08b.evidence.tar.gz",
+      "sha256": "14c49cafc005206763efe9c1300cacd55056a529b2ed431b58b7b30cab3b265d"
+    },
+    "excluded_from_final_analysis": true,
+    "supersession_reason": "Final Lane B evidence must be produced only after the harness proves source directory, build directory, exact binary directory, build mode, CUDA mode, shared-library mode, and implementation-library bytes as one chain."
+  },
+  "hardened_execution": {
+    "applies_identically_to_models": [
+      "qwen35_08b",
+      "qwen25_15b",
+      "qwen3_06b",
+      "falcon_h1_15b"
+    ],
+    "harness_source_sha256": "3e9b03db7da7ce3e126a4fed80959a2db2b579a59a87cd859c784b9c496c9c2a",
+    "setup_script_sha256": "0372a681cfc3aaf885586d8b5f64fce1abd7ab7c790f88f45dc80a717bb013ca",
+    "llama_cpp_commit": "11924d4c17abc27383376a1ac6a24fa3e36c1c0c",
+    "patch_sha256": "2539f2da48852fa44fdacdba26154e144a01b3986ff7c88dfe6974ac3e4f9dd7",
+    "patched_source_sha256": "65051abf6eb3e68d26cb2f24b62e2fa1af1bf7ddea96a2db53f944c3f0232b78",
+    "required_cmake_configuration": {
+      "CMAKE_HOME_DIRECTORY": "exact resolved llama.cpp source directory",
+      "CMAKE_CACHEFILE_DIR": "exact resolved build directory",
+      "CMAKE_BUILD_TYPE": "Release",
+      "GGML_CUDA": "ON",
+      "BUILD_SHARED_LIBS": "ON",
+      "llama_bin_dir": "exact CMAKE_CACHEFILE_DIR/bin"
+    },
+    "implementation_library": {
+      "relative_path": "bin/libllama-perplexity-impl.so",
+      "sha256": "2adce2e89998bbcbf220ee92af3ac5b91d8d080712db7cfc7cb7809dbd33f714"
+    },
+    "final_mcq_execution": {
+      "context_tokens": 4096,
+      "batch_size": 1024,
+      "ubatch_size": 128,
+      "parallel": 4,
+      "gpu_layers": 999,
+      "seed": 1729
+    }
+  },
+  "rerun_requirement": "Discard the superseded Qwen3.5 result from all B3-B6 calculations. Regenerate the build receipt and rerun Qwen3.5 plus every remaining model under the hardened harness before emitting a programme verdict.",
+  "scope": "This correction was triggered solely by build-provenance review. It changes no model, revision, quantization, item, prompt, continuation, decoded logit, generation request, scoring rule, threshold, or verdict rule."
+}

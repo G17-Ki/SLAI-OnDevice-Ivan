@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "milestone": "demo2_final_physical_inventory_acceptance",
+  "captured_at_host": "2026-08-03T04:54:49+08:00",
+  "branch": "sprint/overnight",
+  "device": {
+    "model": "NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "airplane_mode_on": true,
+    "adb_forwards": [],
+    "launch_condition": "cold-reboot acceptance traces launched only the main app; this inventory was captured afterward with the accepted UI still open"
+  },
+  "installed_packages": {
+    "main": {
+      "package": "ai.liquid.lfmdemo",
+      "version_code": 26,
+      "version_name": "0.6.0-unplugged",
+      "apk_bytes": 20197812,
+      "apk_sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f"
+    },
+    "runtime": {
+      "package": "ai.liquid.lfmdemo.runtime",
+      "version_code": 1,
+      "version_name": "0.1.0-unplugged-runtime",
+      "apk_bytes": 121215600,
+      "apk_sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "physical_model_inventory": {
+    "qwen2_5_gguf": {
+      "bytes": 1117320736,
+      "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "learned_unique_parameters": 1543714304,
+      "conservative_serialized_tensor_elements": 1777088000
+    },
+    "sensevoice": {
+      "model_bytes": 254193664,
+      "model_sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30",
+      "learned_parameters": 233999167
+    },
+    "russian_zipformer": {
+      "learned_parameters": 65610041,
+      "encoder_sha256": "eb6c12fbad810d5bc3e427802e604604c69b5943a91feebc43424dd09d9ec407",
+      "decoder_sha256": "dcbe1ffa0211e77ca6d3a80164df13fbda3ec00e47d12b9f449f89572df12136",
+      "joiner_sha256": "93f2e1d12b78d53e7802f1606488c14bb3d764b15fadf5ef6c022f6ba1fa40f7"
+    },
+    "tts": {
+      "candidate_count": 2,
+      "candidate_ids": [
+        "matcha_zh_baker",
+        "supertonic3_en_s5"
+      ],
+      "authenticated_referenced_files": 22,
+      "metadata_files": 3,
+      "installed_physical_files": 25,
+      "installed_known_mib": 277.3,
+      "learned_unique_parameters": 131471497,
+      "conservative_resident_elements": 131755017,
+      "note": "The staged manifest also inventories an unreferenced Vocos 24 kHz artifact, but the complete phone listing proves it is not installed; the installed TTS total therefore excludes it."
+    },
+    "vad": {
+      "implementation": "AdaptiveEnergyVad.java",
+      "learned_parameters": 0,
+      "source_sha256": "f43f07819d1bf8983809421bc6e0b436046fd7e7a96d2271a9209caf3db4da00",
+      "silero_artifact_installed": false
+    }
+  },
+  "parameter_acceptance": {
+    "strict_cap": 3000000000,
+    "installed_learned_unique_total": 1974795009,
+    "installed_conservative_resident_total": 2208452225,
+    "installed_conservative_headroom": 791547775,
+    "arithmetic": {
+      "learned": "1543714304 + 233999167 + 65610041 + 131471497 + 0 = 1974795009",
+      "conservative": "1777088000 + 233999167 + 65610041 + 131755017 + 0 = 2208452225"
+    },
+    "intentionally_overcounting_host_target_bound": {
+      "learned_unique_total": 1988326684,
+      "conservative_resident_total": 2221983906,
+      "explanation": "Retains the absent Vocos 24 kHz row as a fail-safe overcount; both bases remain strictly below 3B."
+    },
+    "verdict": "PASS_STRICTLY_UNDER_3B"
+  },
+  "exclusions_proven_by_full_listing": {
+    "main_private_lfm_models": [],
+    "extra_qwen_ggufs": [],
+    "stale_tts_candidate_trees": [],
+    "silero_weights": [],
+    "lfm_process_or_port_8080": false
+  },
+  "execution_claim_boundary": {
+    "sensevoice_qnn": "PHONE-MEASURED in the retained EN and ZH cold traces with version-matched runtime artifacts",
+    "qwen": "CPU",
+    "tts": "CPU",
+    "russian_zipformer": "resident and counted; not exercised in Demo 2",
+    "whole_stack_npu_claim": false
+  },
+  "inventory": {
+    "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/device_inventory.tsv",
+    "sha256": "14380fa29ca09fd96eb04b8566aee69a8b93460fbf59e3860c6bad18df22952a",
+    "total_rows": 42,
+    "apk_rows": 2,
+    "private_rows": 15,
+    "external_rows": 25,
+    "coverage": "Both APKs, every file under both packages' private files/ trees, and all 25 physical files in the main app external tts-eval tree.",
+    "loop_correction": "The first draft captured only one external row because nested adb inherited the loop input. This final receipt redirects nested adb stdin and asserts exactly 25 external files."
+  },
+  "supporting_receipts": {
+    "device_state": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/device_state.txt",
+      "sha256": "959c42492bf47a4e08faffefb5bb90d0ceac325109e9655ffdad0ebc90042369"
+    },
+    "tts_verify": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/tts_verify.txt",
+      "sha256": "3b8f0c1c6d9654218cbcf64277cd327fa916eebe713dd9e5166dca4a1fb5383f"
+    },
+    "tts_bundle_manifest": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/tts_bundle_manifest.json",
+      "sha256": "b0b03a99d8d2203d6b40f31925f047c5803770e3513767be8f427026d0db029b",
+      "source_sha256": "d02e2ffb61cd3f7f75ec1e003f6ad9f36de66507e224dcc08174e693139d0733"
+    },
+    "tts_candidates": {
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/tts_candidates.json",
+      "sha256": "1c4413e3135cd1f4c3b560f952cd6f4642ffaa0b15b50344489ffd2b1a9c49ef",
+      "source_sha256": "cf074772477afee15cf7262b3a517c33e0bec6f9815514a207dadebe7bc6afce"
+    },
+    "adaptive_energy_vad_source_sha256": "f43f07819d1bf8983809421bc6e0b436046fd7e7a96d2271a9209caf3db4da00"
+  },
+  "limits": [
+    "First-audio timings are Android software proxies, not microphone-observed acoustic onset.",
+    "The full-stack inventory does not upgrade CPU components to NPU claims.",
+    "Licences are recorded elsewhere and do not gate this research demo."
+  ]
+}

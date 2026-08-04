@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "sprint_id": "F1",
+  "lane": "F",
+  "title": "Ground truth: how the shipped app routes language, and where ES/FR enter",
+  "status": "COMPLETE",
+  "evidence_class": "EXACT",
+  "headline": "A working two-package app-UID runner exists in this repository and has passed physical acceptance. Lane E's BLOCKED_APP_RUNNER_MISSING describes Lane E's own staged bundle, not this repo. ES/FR need seven additive edits: two ASR allow-lists, one companion language switch, one selection branch, one telemetry row, one TTS candidate factory and one auto-priority whitelist.",
+  "corrects": {
+    "claim": "no app-UID runner exists",
+    "source": "workstreams/sub2b_sprint/sprint/out/e/artifacts/nubia_bundle/blockers/BLOCKED_APP_RUNNER_MISSING",
+    "why_wrong": "android-app/{app,runtime-companion} are checked in, build, and are installed by docs/ANDROID_DEPLOYMENT.md steps 3-4; four probe packages demonstrate the isolated-QNN-process pattern."
+  },
+  "asr_routing_before": {
+    "server_allow_list": [
+      "auto",
+      "qnn-auto",
+      "en",
+      "zh",
+      "ja",
+      "ko",
+      "ru"
+    ],
+    "server_location": "android-app/runtime-companion/src/main/java/ai/liquid/lfmdemo/runtime/AsrHttpServer.java:156-171",
+    "client_allow_list": [
+      "auto",
+      "en",
+      "zh",
+      "ja",
+      "ko",
+      "ru"
+    ],
+    "client_location": "android-app/app/src/main/assets/demo-ui/index.html:4394",
+    "es_fr_behaviour": "fell past the companion gate to LFM2.5-Audio Q4 on 127.0.0.1:8080, CPU, labelled npu_fallback_reason=language_not_supported_by_sensevoice_qnn"
+  },
+  "input_contract": {
+    "location": "AsrHttpServer.java:494-505",
+    "requirement": "44-byte RIFF header, PCM format 1, mono, 16000 Hz, 16 bit, data length == file bytes - 44",
+    "max_request_bytes": 320044,
+    "consequence_for_lane_f": "the Parakeet vendor demo WAVs are 22050/24000 Hz and are rejected as shipped; Lane F resamples them once, offline, before staging"
+  },
+  "tts_selection": {
+    "catalog": "read at runtime from candidates.json in the pushed tts-eval bundle, not compiled in",
+    "shared_graph_rule": "android-app/app/src/main/java/ai/liquid/lfmdemo/tts/CandidateRegistry.kt:55-58",
+    "auto_priority_whitelist_before": [
+      "matcha_zh_baker",
+      "supertonic3_s5",
+      "supertonic3_ja_s5",
+      "supertonic3_ko_s5"
+    ],
+    "supertonic_config_has_data_dir_field": false,
+    "supertonic_config_verified_by": "javap over sherpa-onnx-1.13.4.aar: seven String fields, no dataDir"
+  },
+  "seams": [
+    {
+      "id": 1,
+      "file": "android-app/runtime-companion/src/main/java/ai/liquid/lfmdemo/runtime/AsrHttpServer.java",
+      "line": "161-171",
+      "change": "language switch and a third backend runner"
+    },
+    {
+      "id": 2,
+      "file": "android-app/app/src/main/assets/demo-ui/index.html",
+      "line": "4394",
+      "change": "companion allow-list"
+    },
+    {
+      "id": 3,
+      "file": "android-app/app/src/main/assets/demo-ui/index.html",
+      "line": "3589-3623",
+      "change": "explicit-selection branch and script check"
+    },
+    {
+      "id": 4,
+      "file": "android-app/app/src/main/assets/demo-ui/index.html",
+      "line": "4132-4149",
+      "change": "plannedAsrFacts telemetry"
+    },
+    {
+      "id": 5,
+      "file": "scripts/tts_research_20260726/stage_device_bundle.py",
+      "line": "78, 216-218, 221-253",
+      "change": "Supertonic language factory, candidate rows, phrases"
+    },
+    {
+      "id": 6,
+      "file": "android-app/app/src/main/java/ai/liquid/lfmdemo/tts/CandidateRegistry.kt",
+      "line": "135-144",
+      "change": "default auto_priority whitelist"
+    },
+    {
+      "id": 7,
+      "file": "android-app/app/src/main/java/ai/liquid/lfmdemo/NativeAudioBridge.java",
+      "line": "263-265",
+      "change": "user-visible automatic-routing description"
+    }
+  ],
+  "artifacts": [
+    "F1.md"
+  ]
+}

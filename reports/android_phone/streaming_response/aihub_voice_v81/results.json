@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-07-22T21:54:00Z",
+  "scope": {
+    "component_snapshot_cutoff_utc": "2026-07-22T21:54:00Z",
+    "last_evidence_index_update_utc": "2026-07-23T00:19:05Z",
+    "component_values_below_are_frozen_at_cutoff": true,
+    "current_evidence_is_complete_via_index": true,
+    "note": "Later accumulated-chain and release-context evidence is indexed below and remains authoritative in its linked machine-readable file."
+  },
+  "current_evidence_index": {
+    "supertonic_english_accumulated_chain": {
+      "status": "conditional_one_phrase_intelligibility_pass_with_strict_numerical_warnings",
+      "reference": "It is Paris, in France.",
+      "asr_backcheck": "0.0 normalized WER for dynamic-local, fixed-local, and remote WAVs",
+      "remote_vs_fixed_waveform_nrmse": 0.46703775973943684,
+      "remote_vs_fixed_waveform_cosine": 0.8931231273625762,
+      "report": "../supertonic_v81/ACCUMULATED_CHAIN_RESULT.md",
+      "machine_result": "../supertonic_v81/remote_chain/result.json",
+      "state": "../supertonic_v81/remote_chain/state.json"
+    },
+    "supertonic_japanese_accumulated_chain": {
+      "status": "conditional_one_phrase_intelligibility_pass_with_strict_numerical_warnings",
+      "reference": "パリはフランスにあります。",
+      "asr_backcheck": "0.0 normalized CER for dynamic-local, fixed-local, and remote WAVs",
+      "remote_vs_fixed_waveform_nrmse": 0.751074,
+      "remote_vs_fixed_waveform_cosine": 0.727672,
+      "report": "../supertonic_v81/ja_paris/RESULT.md",
+      "machine_result": "../supertonic_v81/ja_paris/remote_chain/result.json",
+      "state": "../supertonic_v81/ja_paris/remote_chain/state.json"
+    },
+    "piper_italian_accumulated_chain": {
+      "status": "invalid_hand_built_phoneme_fixture_low_level_propagation_only",
+      "invalid_fixture_reason": "missing interspersed pad ID 0 after BOS and each phoneme",
+      "execution_complete": true,
+      "strict_numerical_pass": false,
+      "audio_seconds": 0.8243083900226758,
+      "first_decoder_output_seconds": 0.46439909297052157,
+      "production_intelligibility_claim_permitted": false,
+      "corrected_fixture_phoneme_ids": 79,
+      "corrected_retry_status": "completed_with_final_audio_pass_and_conditional_one_phrase_intelligibility_pass",
+      "checkpoint": "../piper_v81/checkpoint.json",
+      "fixture": "../piper_v81/production_fixture.json",
+      "corrected_result": "../piper_v81/PRODUCTION_CHAIN_RESULT.md"
+    },
+    "piper_italian_production_chain": {
+      "status": "conditional_one_phrase_intelligibility_pass_with_sparse_flow_warning_and_final_audio_pass",
+      "reference": "Mi fa piacere che lei sia venuto.",
+      "phoneme_ids": 79,
+      "execution_complete": true,
+      "all_remote_arrays_finite": true,
+      "strict_all_component_numerical_pass": false,
+      "flow_element_failures": 1,
+      "flow_total_elements": 294912,
+      "final_audio_pass": true,
+      "final_audio_element_failures": 0,
+      "final_audio_total_elements": 35584,
+      "audio_seconds": 1.6137868480725623,
+      "decoder_calls": 4,
+      "first_payload_seconds": 0.46439909297052157,
+      "asr_backcheck": "Faster-Whisper Small INT8 recovered the exact normalized sentence from local and remote WAVs at 0.0 WER/CER; Base failed before inference because its cache lacked model.bin",
+      "report": "../piper_v81/PRODUCTION_CHAIN_RESULT.md",
+      "checkpoint": "../piper_v81/checkpoint.json",
+      "fixture": "../piper_v81/production_fixture.json"
+    },
+    "sensevoice_small_release_context": {
+      "status": "exact_sm8850_profile_passed_strict_npu_without_transcript_equivalence",
+      "profile_job": "j5w1ov24g",
+      "latency_ms": 10.871,
+      "peak_memory_mib": 126.22265625,
+      "placement": {
+        "hexagon_npu": 2597,
+        "cpu_fallback": 0,
+        "unsupported_or_unknown": 0
+      },
+      "machine_result": "../sensevoice_asr_mac_m2/aihub_v81_profile_result.json"
+    },
+    "zipformer_release_context": {
+      "status": "exact_sm8850_placement_latency_pass_without_transcript_equivalence",
+      "one_encoder_decoder_joiner_lower_bound_ms": 4.931,
+      "profile_jobs": {
+        "encoder": "jpxdvmzjg",
+        "decoder": "jpy7evl4p",
+        "joiner": "j5qm8wrng"
+      },
+      "machine_result": "../zipformer_v81/release_context_sm8850_profile_result.json"
+    },
+    "whisper_small_w8a16_release_context": {
+      "status": "sm8850_ad_contexts_profiled_on_exact_sm8850_strict_npu_without_transcript_equivalence",
+      "encoder_ms": 186.277,
+      "decoder_ms_per_call": 3.932,
+      "encoder_plus_20_decoder_calls_ms": 264.917,
+      "profile_jobs": {
+        "encoder": "jp8497lx5",
+        "decoder": "jgdz9rnr5"
+      },
+      "placement": {
+        "hexagon_npu": 4867,
+        "cpu_fallback": 0,
+        "unsupported_or_unknown": 0
+      },
+      "machine_result": "../whisper_v81/aihub_exact_qrd_profiles.json"
+    },
+    "melotts_zh_release_context": {
+      "status": "sm8850_ad_contexts_profiled_on_exact_sm8850_strict_npu_without_numerical_or_intelligibility_gate",
+      "all_component_latency_sum_ms": 144.839,
+      "all_component_operation_count": 2372,
+      "profile_jobs": {
+        "bert_wrapper": "jprnqv6k5",
+        "encoder": "jprnq3k05",
+        "flow": "jpv9okok5",
+        "decoder": "jpv9ok475"
+      },
+      "machine_result": "../melotts_zh_v81/aihub_exact_qrd_profiles.json"
+    }
+  },
+  "target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "chipset": "sm8850",
+    "htp": "v81",
+    "qairt": "2.45"
+  },
+  "supertonic_3": {
+    "recommended_denoising_steps": 4,
+    "measured_neural_sum_ms": 118.891,
+    "components": {
+      "text_encoder": {
+        "status": "passed",
+        "jobs": {
+          "compile": "j5mdj79d5",
+          "profile": "jpxdwv1jg",
+          "inference": "jp84lo3z5"
+        },
+        "latency_ms": 1.046,
+        "peak_memory_mib": 117.8359375,
+        "placement": {"npu": 462, "cpu": 0, "other": 0},
+        "comparison": {
+          "passed": true,
+          "atol": 0.05,
+          "rtol": 0.05,
+          "cosine_similarity": 0.9999874938582517,
+          "normalized_rmse": 0.00521421557866245,
+          "max_abs_error": 0.0939645767211914
+        }
+      },
+      "duration_predictor": {
+        "status": "passed",
+        "jobs": {
+          "compile": "jp2v287x5",
+          "profile": "j5qmjoymg",
+          "inference": "jp3wy29z5"
+        },
+        "latency_ms": 0.408,
+        "peak_memory_mib": 117.30078125,
+        "placement": {"npu": 277, "cpu": 0, "other": 0},
+        "comparison": {
+          "passed": true,
+          "atol": 0.05,
+          "rtol": 0.05,
+          "cosine_similarity": 1.0,
+          "normalized_rmse": 0.0009941750343625134,
+          "max_abs_error": 0.003175973892211914
+        }
+      },
+      "vector_estimator_one_step": {
+        "status": "completed_with_numerical_warning",
+        "jobs": {
+          "compile": "j5w1o2k6g",
+          "profile": "jpxdvnq1g",
+          "inference": "j5mdrq7w5"
+        },
+        "latency_ms": 28.571,
+        "peak_memory_mib": 118.0546875,
+        "placement": {"npu": 1111, "cpu": 0, "other": 0},
+        "comparison": {
+          "passed": false,
+          "atol": 0.05,
+          "rtol": 0.05,
+          "cosine_similarity": 0.9997461174205365,
+          "normalized_rmse": 0.022533008336353657,
+          "max_abs_error": 0.20517903566360474
+        }
+      },
+      "vocoder": {
+        "status": "completed_with_numerical_warning",
+        "jobs": {
+          "failed_compile": "jgjwj4q85",
+          "compile": "jgo4ykxx5",
+          "profile": "jgjwxz9x5",
+          "inference": "jpel9eq1g"
+        },
+        "latency_ms": 3.153,
+        "peak_memory_mib": 117.8125,
+        "placement": {"npu": 212, "cpu": 0, "other": 0},
+        "comparison": {
+          "passed": false,
+          "atol": 0.05,
+          "rtol": 0.05,
+          "cosine_similarity": 0.9871662186564635,
+          "normalized_rmse": 0.16110443665970972,
+          "max_abs_error": 0.1351708397269249
+        },
+        "source_repair": {
+          "removed_duplicate_value_info": ["wav_tts"],
+          "original_sha256": "e923d60f53f95eb1ce235f1dc33ec56d9c057823c96fa6f8acf98f32b0da6152",
+          "repaired_sha256": "db8cd48bf21464fc23114941dfe4d1ed421754920823b5ff02eb0ff1889e20df"
+        }
+      }
+    }
+  },
+  "piper_it": {
+    "status": "all_four_neural_components_passed_and_production_chain_conditionally_intelligible",
+    "four_neural_component_latency_sum_ms": 34.311,
+    "placement": {
+      "npu": 1449,
+      "cpu": 0,
+      "other": 0
+    },
+    "sum_exclusions": [
+      "phonemization and G2P",
+      "host orchestration and tensor transfers",
+      "context load time",
+      "repeated decoder calls and overlap stitching",
+      "audio playback"
+    ],
+    "production_chain": {
+      "status": "execution_complete_numerical_warning_final_audio_pass",
+      "reference": "Mi fa piacere che lei sia venuto.",
+      "phoneme_id_count": 79,
+      "inference_jobs": {
+        "encoder": "jgdz9v065",
+        "sdp": "jpy7wdk4p",
+        "flow": "jpy7wdw7p",
+        "decoder_0": "jgn7y96kp",
+        "decoder_1": "jgjwm0ee5",
+        "decoder_2": "jpxdj71lg",
+        "decoder_3": "jgdz9rrz5"
+      },
+      "all_remote_arrays_finite": true,
+      "y_length": 139,
+      "decoder_calls": 4,
+      "audio_samples": 35584,
+      "audio_seconds": 1.6137868480725623,
+      "first_payload_samples": 10240,
+      "first_payload_seconds": 0.46439909297052157,
+      "profiled_full_phrase_neural_arithmetic_ms": 39.774,
+      "flow_comparison": {
+        "passed": false,
+        "atol": 0.03,
+        "rtol": 0.03,
+        "normalized_rmse": 0.00143697497892358,
+        "cosine_similarity": 0.9999989698010134,
+        "max_abs_error": 0.1440563201904297,
+        "element_failures": 1,
+        "total_elements": 294912,
+        "padded_tail_max_abs": 0.0
+      },
+      "final_audio_comparison": {
+        "passed": true,
+        "atol": 0.03,
+        "rtol": 0.03,
+        "normalized_rmse": 0.02462169775895909,
+        "cosine_similarity": 0.9998498831778994,
+        "max_abs_error": 0.0235164612531662,
+        "mean_abs_error": 0.002026513735110258,
+        "rmse": 0.002786117673842474,
+        "element_failures": 0,
+        "total_elements": 35584
+      },
+      "artifact_hashes": {
+        "local_chain_npz": "47bea642a79debe259eaa366f6d80d89ccbd54e9760601ff6a91cc41efcb0fff",
+        "remote_chain_npz": "13ca9e5b9f73d017111f23c7c647597f2791deefd0627b0a051671e5bd5c4f72",
+        "local_reference_wav": "2089b39a2307682d227d474a723bbded4cc8cf5f751728ac88e8587c9a3650a4",
+        "remote_chain_wav": "4ac888f09580adab95a483717db66a0915f9253fb15379f02c21f28b895285a9"
+      },
+      "asr_backcheck": {
+        "status": "conditional_one_phrase_intelligibility_pass",
+        "base_attempt": "failed_before_inference_missing_model_bin",
+        "small_model": "faster-whisper-small-int8",
+        "local_transcript": "mi fa piacere che lei sia venuto",
+        "remote_transcript": "mi fa piacere che lei sia venuto",
+        "local_wer": 0.0,
+        "remote_wer": 0.0,
+        "local_cer": 0.0,
+        "remote_cer": 0.0,
+        "language_probability": 1.0
+      },
+      "peak_process_tree_rss_gib": 0.3729400634765625,
+      "report": "../piper_v81/PRODUCTION_CHAIN_RESULT.md"
+    },
+    "components": {
+      "encoder": {
+        "status": "passed_after_output_name_reconciliation",
+        "jobs": {
+          "compile": "jg9xvoq8g",
+          "link": "jprnkxrk5",
+          "profile": "j5qm810mg",
+          "inference": "jgl1n84l5"
+        },
+        "latency_ms": 16.958,
+        "peak_memory_mib": 83.32421875,
+        "placement": {"npu": 401, "cpu": 0, "other": 0},
+        "all_numerics_pass": true
+      },
+      "sdp": {
+        "status": "passed",
+        "jobs": {
+          "compile": "jp3wko1z5",
+          "link": "jp84ojzx5",
+          "profile": "j5mdr9ww5",
+          "inference": "jpy7e847p"
+        },
+        "latency_ms": 6.602,
+        "peak_memory_mib": 118.2890625,
+        "placement": {"npu": 621, "cpu": 0, "other": 0},
+        "all_numerics_pass": true
+      },
+      "flow": {
+        "status": "passed_after_valid_fixture_recheck",
+        "jobs": {
+          "compile": "jp3wkrkm5",
+          "link": "jpy7ek88p",
+          "profile": "jgz4eq0xp",
+          "invalid_generic_fixture_inference": "jp0vy8xng",
+          "valid_fixture_inference": "j5qm8nv4g"
+        },
+        "latency_ms": 8.93,
+        "peak_memory_mib": 126.14453125,
+        "placement": {"npu": 310, "cpu": 0, "other": 0},
+        "invalid_generic_fixture": {
+          "golden_nan_values": 294912,
+          "golden_total_values": 294912,
+          "remote_finite_values": 294912,
+          "projected_logs_p_min": 105.25267028808594,
+          "projected_logs_p_max": 151.68585205078125,
+          "mask_aware_comparison_justified": false
+        },
+        "valid_fixture": {
+          "sha256": "becc8b2dfad79afa24ebb885458c3849af52b0322913e4c8d4298201f74c1e43",
+          "y_length": 71,
+          "golden_finite_values": 294912,
+          "golden_total_values": 294912,
+          "padded_tail_max_abs": 0.0,
+          "comparison": {
+            "passed": true,
+            "atol": 0.03,
+            "rtol": 0.03,
+            "cosine_similarity": 0.9999998117104435,
+            "normalized_rmse": 0.0006158419250692529,
+            "max_abs_error": 0.028512954711914062
+          }
+        }
+      },
+      "decoder": {
+        "status": "passed",
+        "jobs": {
+          "compile": "jg9x6q1mg",
+          "link": "jp1vrkn8p",
+          "profile": "jpy7er97p",
+          "inference": "jp0vy3n6g"
+        },
+        "latency_ms": 1.821,
+        "peak_memory_mib": 117.77734375,
+        "placement": {"npu": 117, "cpu": 0, "other": 0},
+        "comparison": {
+          "passed": true,
+          "atol": 0.03,
+          "rtol": 0.03,
+          "cosine_similarity": 0.9999958823993121,
+          "normalized_rmse": 0.03738125519372698,
+          "max_abs_error": 0.001890622079372406
+        }
+      }
+    }
+  },
+  "whisper_small_encoder_attempt": {
+    "status": "not_submitted_tooling_blocker",
+    "multilingual": true,
+    "streaming": false,
+    "language_detection": true,
+    "checkpoint": "openai/whisper-small",
+    "input_shape": [1, 80, 3000],
+    "maximum_audio_seconds": 30,
+    "benchmark_max_decoded_tokens": 200,
+    "fresh_jobs": {},
+    "blockers": [
+      "No release assets match the given filters.",
+      "ID 'jpynlm7lg' could not be found. It may not exist or you may not have permission to view it.",
+      "Value error, Model cannot be published: no release assets available"
+    ]
+  }
+}

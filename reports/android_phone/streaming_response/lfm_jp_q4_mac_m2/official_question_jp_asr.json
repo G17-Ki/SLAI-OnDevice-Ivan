@@ -1,0 +1,54 @@
+{
+  "created_utc": "2026-07-22T15:31:27.447549+00:00",
+  "base_url": "http://127.0.0.1:18081/v1/chat/completions",
+  "mode": "asr",
+  "model": "LFM2.5-Audio-1.5B-JP",
+  "system_prompt": "Perform ASR in japanese.",
+  "input_audio": "<workspace>/work/tts-research/lfm-jp/assets/question_jp.wav",
+  "input_text": null,
+  "warmups": 0,
+  "measured_runs": 1,
+  "max_tokens": 64,
+  "summary": {
+    "first_text_ms": {
+      "min": 230.58300000002419,
+      "median": 230.58300000002419,
+      "p95": 230.58300000002419,
+      "max": 230.58300000002419,
+      "mean": 230.58300000002419
+    },
+    "first_pcm_ms": null,
+    "total_ms": {
+      "min": 332.20395800003644,
+      "median": 332.20395800003644,
+      "p95": 332.20395800003644,
+      "max": 332.20395800003644,
+      "mean": 332.20395800003644
+    },
+    "audio_seconds": null,
+    "largest_pcm_arrival_gap_ms": null,
+    "stream_generation_rtf": null,
+    "character_error_rate_percent": null
+  },
+  "runs": [
+    {
+      "run_index": 1,
+      "measured": true,
+      "first_text_ms": 230.58300000002419,
+      "first_pcm_ms": null,
+      "total_ms": 332.20395800003644,
+      "transcript": "こんにちは。あなたのことを教えてください。",
+      "sse_events": 11,
+      "audio_chunks": 0,
+      "audio_formats": [],
+      "audio_sample_rate": null,
+      "audio_seconds": null,
+      "first_chunk_ms": null,
+      "audio_chunk_ms": null,
+      "largest_pcm_arrival_gap_ms": null,
+      "audio_wav": null,
+      "pcm": null,
+      "stream_generation_rtf": null
+    }
+  ]
+}

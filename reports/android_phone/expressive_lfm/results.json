@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "measured_on": "2026-07-25",
+  "device_class": "Nubia SM8850",
+  "application": {
+    "package": "ai.liquid.lfmdemo",
+    "version_code": 21,
+    "version_name": "0.4.13-expressive-lfm",
+    "apk_sha256": "b178c93f05d614f8156843755ea52697f55b299c5bb0b6812209d9ce5f139baf"
+  },
+  "cases": [
+    {
+      "name": "expressive_en_capital_france",
+      "route": "expressive",
+      "response_backend": "lfm2_5_audio_interleaved_q4_cpu",
+      "voice_backend": "lfm_audio_interleaved_streaming",
+      "asr_backend": "sensevoice_qnn",
+      "asr_provider": "qnn",
+      "npu_executed": true,
+      "response": "The capital of France is Paris.",
+      "first_output_head_ms": 1722.77,
+      "first_voiced_output_head_ms": 2542.77,
+      "pcm_duration_seconds": 2.78,
+      "underflows": 0,
+      "passed": true
+    },
+    {
+      "name": "expressive_en_photosynthesis",
+      "route": "expressive",
+      "response_backend": "lfm2_5_audio_interleaved_q4_cpu",
+      "voice_backend": "lfm_audio_interleaved_streaming",
+      "asr_backend": "sensevoice_qnn",
+      "asr_provider": "qnn",
+      "npu_executed": true,
+      "first_output_head_ms": 1744.376,
+      "first_voiced_output_head_ms": 2624.376,
+      "pcm_duration_seconds": 26.62,
+      "underflows": 0,
+      "passed": true
+    },
+    {
+      "name": "expressive_selector_memory_store_reroutes_exact",
+      "route": "automatic_exact_reroute",
+      "response_backend": "qwen3_1_7b_q4_cpu",
+      "voice_backend": "lfm_audio_natural_tts_streaming",
+      "asr_backend": "sensevoice_qnn",
+      "asr_provider": "qnn",
+      "npu_executed": true,
+      "response": "Conversation memory is off, so I cannot save that.",
+      "first_output_head_ms": 1716.667,
+      "first_voiced_output_head_ms": 1956.667,
+      "pcm_duration_seconds": 3.42,
+      "underflows": 0,
+      "passed": true
+    },
+    {
+      "name": "exact_en_capital_france",
+      "route": "exact",
+      "response_backend": "qwen3_1_7b_q4_cpu",
+      "voice_backend": "lfm_audio_natural_tts_streaming",
+      "asr_backend": "sensevoice_qnn",
+      "asr_provider": "qnn",
+      "npu_executed": true,
+      "response": "The capital of France is Paris.",
+      "first_output_head_ms": 1758.867,
+      "first_voiced_output_head_ms": 1958.867,
+      "pcm_duration_seconds": 2.14,
+      "underflows": 0,
+      "passed": true
+    },
+    {
+      "name": "exact_en_photosynthesis",
+      "route": "exact",
+      "response_backend": "qwen3_1_7b_q4_cpu",
+      "voice_backend": "lfm_audio_natural_tts_streaming",
+      "asr_backend": "sensevoice_qnn",
+      "asr_provider": "qnn",
+      "npu_executed": true,
+      "first_output_head_ms": 2073.79,
+      "first_voiced_output_head_ms": 2353.79,
+      "pcm_duration_seconds": 19.88,
+      "underflows": 0,
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Output-head timing is not an external acoustic-onset measurement.",
+    "This is a phone result, not an AR1 or glasses result.",
+    "Only SenseVoice ASR is NPU-accelerated in this application path."
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "lane_id": "qairt245_supertonic_isolated_sm8850_htp_v81_v1",
+  "claim_boundary": "Artifact acquisition and isolated-package input locking only. No APK, phone, NPU, latency, audio-quality, or accepted-runtime compatibility claim is made by this lane.",
+  "safety_policy": {
+    "host_metadata_allowed": true,
+    "host_artifact_download_allowed": false,
+    "macos_acquisition_allowed": false,
+    "phone_mutation_allowed": false,
+    "adb_allowed": false,
+    "accepted_package_mutation_allowed": false,
+    "accepted_runtime_mixing_allowed": false,
+    "candidate_package_id": "ai.liquid.lfmdemo.ttsprobe.qairt245",
+    "candidate_process_name": "ai.liquid.lfmdemo.ttsprobe.qairt245:qairt245",
+    "candidate_storage_policy": "APK assets and app-private storage owned only by the candidate UID; no shared native-library directory or model path with an accepted package.",
+    "candidate_trust_root": "Record and verify the whole candidate APK SHA-256 outside the candidate UID before any later installation.",
+    "protected_runtime": {
+      "qairt_build": "2.42.0.251225135753_193295",
+      "package_id": "ai.liquid.lfmdemo.runtime",
+      "apk_sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    },
+    "protected_main_app": {
+      "package_id": "ai.liquid.lfmdemo",
+      "apk_sha256": "a24e203a30dcaaf9215dc3f0d5b99fa4b893a9e0ceca71c99c13e49bdb1b020a"
+    }
+  },
+  "hub": {
+    "client_version": "0.52.0",
+    "api_qairt_version": "2.45",
+    "exact_qairt_build": "2.45.0.260326154327",
+    "hub_version": "aihub-2026.07.17.0",
+    "target": {
+      "device": "Snapdragon 8 Elite Gen 5 QRD",
+      "os": "16",
+      "chipset": "sm8850",
+      "soc_model": "87",
+      "htp_arch": "v81",
+      "backend": "HTP",
+      "required_attributes": [
+        "abi:aarch64-android",
+        "chipset:sm8850",
+        "framework:qnn",
+        "hexagon:v81",
+        "soc-model:87"
+      ]
+    },
+    "total_target_model_bytes": 188518400,
+    "components": {
+      "duration_predictor": {
+        "compile_job": {
+          "id": "jp2v287x5",
+          "name": "lfm-demo-v81-supertonic-duration_predictor",
+          "date": "2026-07-22T18:21:48",
+          "options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.45 --truncate_64bit_io"
+        },
+        "source_model": {
+          "id": "mq92z1y2m",
+          "name": "lfm-demo-supertonic-duration_predictor",
+          "type": "ONNX"
+        },
+        "target_model": {
+          "id": "mq3l4wjrq",
+          "name": "job_jp2v287x5_optimized_bin",
+          "type": "QNN_CONTEXT_BINARY",
+          "filename": "job_jp2v287x5_optimized_bin_mq3l4wjrq.bin",
+          "bytes": 1998848,
+          "opaque_etag": "0fcbf3f0cd68add465a3e9e8bf472e19",
+          "object_version_id": "Y0bcFFFqJv7kjlmuTYYx.gSbfdnGUaAr",
+          "last_modified": "2026-07-22T10:23:15+00:00",
+          "sha256": null,
+          "sha256_status": "must_be_computed_after_authenticated_download_on_linux",
+          "metadata": {
+            "QAIRT_SDK_VERSION": "2.45.0.260326154327",
+            "QNN_CONTEXT_BIN_BACKEND": "HTP",
+            "QNN_CONTEXT_BIN_HEXAGON_VERSION": "v81",
+            "QNN_CONTEXT_BIN_OPTIMIZATION_LEVEL": "3",
+            "QNN_CONTEXT_BIN_SOC_MODEL": "87",
+            "QNN_CONTEXT_BIN_VTCM": "0",
+            "QNN_MODEL_GRAPH_NAMES": "graph_xhu8ty4m",
+            "QNN_SDK_VARIANT": "default"
+          },
+          "inputs": [
+            {"name": "text_ids", "dtype": "int32", "shape": [1, 32]},
+            {"name": "style_dp", "dtype": "float32", "shape": [1, 8, 16]},
+            {"name": "text_mask", "dtype": "float32", "shape": [1, 1, 32]}
+          ],
+          "outputs": [
+            {"name": "output_0", "dtype": "float32", "shape": [1]}
+          ]
+        }
+      },
+      "text_encoder": {
+        "compile_job": {
+          "id": "j5mdj79d5",
+          "name": "lfm-demo-v81-supertonic-text_encoder",
+          "date": "2026-07-22T17:58:27",
+          "options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.45 --truncate_64bit_io"
+        },
+        "source_model": {
+          "id": "mq3l4149q",
+          "name": "lfm-demo-supertonic-text_encoder",
+          "type": "ONNX"
+        },
+        "target_model": {
+          "id": "mq3l410lq",
+          "name": "job_j5mdj79d5_optimized_bin",
+          "type": "QNN_CONTEXT_BINARY",
+          "filename": "job_j5mdj79d5_optimized_bin_mq3l410lq.bin",
+          "bytes": 18841600,
+          "opaque_etag": "3d698f91574cc3d64abe8b2f2bf3d427",
+          "object_version_id": "nlI0ciKAjpeny8Yjd7vOQNnfv.xKmnEw",
+          "last_modified": "2026-07-22T09:59:28+00:00",
+          "sha256": null,
+          "sha256_status": "must_be_computed_after_authenticated_download_on_linux",
+          "metadata": {
+            "QAIRT_SDK_VERSION": "2.45.0.260326154327",
+            "QNN_CONTEXT_BIN_BACKEND": "HTP",
+            "QNN_CONTEXT_BIN_HEXAGON_VERSION": "v81",
+            "QNN_CONTEXT_BIN_OPTIMIZATION_LEVEL": "3",
+            "QNN_CONTEXT_BIN_SOC_MODEL": "87",
+            "QNN_CONTEXT_BIN_VTCM": "0",
+            "QNN_MODEL_GRAPH_NAMES": "graph_xc0ahxj1",
+            "QNN_SDK_VARIANT": "default"
+          },
+          "inputs": [
+            {"name": "text_ids", "dtype": "int32", "shape": [1, 32]},
+            {"name": "style_ttl", "dtype": "float32", "shape": [1, 50, 256]},
+            {"name": "text_mask", "dtype": "float32", "shape": [1, 1, 32]}
+          ],
+          "outputs": [
+            {"name": "output_0", "dtype": "float32", "shape": [1, 256, 32]}
+          ]
+        }
+      },
+      "vector_estimator": {
+        "compile_job": {
+          "id": "j5w1o2k6g",
+          "name": "lfm-demo-v81-supertonic-vector_estimator-resume",
+          "date": "2026-07-22T23:31:25",
+          "options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.45"
+        },
+        "source_model": {
+          "id": "mqe4zvgym",
+          "name": "lfm-demo-supertonic-vector_estimator-resume",
+          "type": "ONNX"
+        },
+        "target_model": {
+          "id": "mqvwv53jn",
+          "name": "job_j5w1o2k6g_optimized_bin",
+          "type": "QNN_CONTEXT_BINARY",
+          "filename": "job_j5w1o2k6g_optimized_bin_mqvwv53jn.bin",
+          "bytes": 132395008,
+          "opaque_etag": "1edb15efc14de908a66d85b1206ddf30",
+          "object_version_id": "tZhO2p82_yCBSzUT2dRGVuvKnDYiDfET",
+          "last_modified": "2026-07-22T15:34:01+00:00",
+          "sha256": null,
+          "sha256_status": "must_be_computed_after_authenticated_download_on_linux",
+          "metadata": {
+            "QAIRT_SDK_VERSION": "2.45.0.260326154327",
+            "QNN_CONTEXT_BIN_BACKEND": "HTP",
+            "QNN_CONTEXT_BIN_HEXAGON_VERSION": "v81",
+            "QNN_CONTEXT_BIN_OPTIMIZATION_LEVEL": "3",
+            "QNN_CONTEXT_BIN_SOC_MODEL": "87",
+            "QNN_CONTEXT_BIN_VTCM": "0",
+            "QNN_MODEL_GRAPH_NAMES": "graph_q_jnfod9",
+            "QNN_SDK_VARIANT": "default"
+          },
+          "inputs": [
+            {"name": "noisy_latent", "dtype": "float32", "shape": [1, 144, 32]},
+            {"name": "text_emb", "dtype": "float32", "shape": [1, 256, 32]},
+            {"name": "style_ttl", "dtype": "float32", "shape": [1, 50, 256]},
+            {"name": "latent_mask", "dtype": "float32", "shape": [1, 1, 32]},
+            {"name": "text_mask", "dtype": "float32", "shape": [1, 1, 32]},
+            {"name": "current_step", "dtype": "float32", "shape": [1]},
+            {"name": "total_step", "dtype": "float32", "shape": [1]}
+          ],
+          "outputs": [
+            {"name": "output_0", "dtype": "float32", "shape": [1, 144, 32]}
+          ]
+        }
+      },
+      "vocoder": {
+        "compile_job": {
+          "id": "jgo4ykxx5",
+          "name": "lfm-demo-v81-supertonic-vocoder-resume",
+          "date": "2026-07-22T23:45:48",
+          "options": "--target_runtime qnn_context_binary --qnn_options default_graph_htp_precision=FLOAT16 --qairt_version 2.45"
+        },
+        "source_model": {
+          "id": "mm605yj4m",
+          "name": "lfm-demo-supertonic-vocoder-resume",
+          "type": "ONNX"
+        },
+        "target_model": {
+          "id": "mngx4ve6q",
+          "name": "job_jgo4ykxx5_optimized_bin",
+          "type": "QNN_CONTEXT_BINARY",
+          "filename": "job_jgo4ykxx5_optimized_bin_mngx4ve6q.bin",
+          "bytes": 35282944,
+          "opaque_etag": "d4b98f9801348409432532d0cc623433",
+          "object_version_id": "MlDtvyCkrvLyCc0y1QFMiJ4DJ9PbsbsO",
+          "last_modified": "2026-07-22T15:47:36+00:00",
+          "sha256": null,
+          "sha256_status": "must_be_computed_after_authenticated_download_on_linux",
+          "metadata": {
+            "QAIRT_SDK_VERSION": "2.45.0.260326154327",
+            "QNN_CONTEXT_BIN_BACKEND": "HTP",
+            "QNN_CONTEXT_BIN_HEXAGON_VERSION": "v81",
+            "QNN_CONTEXT_BIN_OPTIMIZATION_LEVEL": "3",
+            "QNN_CONTEXT_BIN_SOC_MODEL": "87",
+            "QNN_CONTEXT_BIN_VTCM": "0",
+            "QNN_MODEL_GRAPH_NAMES": "graph_xr9x6gdr",
+            "QNN_SDK_VARIANT": "default"
+          },
+          "inputs": [
+            {"name": "latent", "dtype": "float32", "shape": [1, 144, 32]}
+          ],
+          "outputs": [
+            {"name": "output_0", "dtype": "float32", "shape": [1, 98304]}
+          ]
+        }
+      }
+    }
+  },
+  "runtime": {
+    "product": "QAIRT",
+    "archive_version": "2.45.0.260326",
+    "exact_build": "2.45.0.260326154327",
+    "qnn_backend_api_version": "2.18.0",
+    "android_ndk": "r26c",
+    "url": "https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.45.0.260326/v2.45.0.260326.zip",
+    "filename": "v2.45.0.260326.zip",
+    "bytes": 1657471677,
+    "opaque_etag": "c54aff28c456271cc0fa4b97b9d04b17",
+    "object_version_id": "9iP6qAPad6HDRH7Pl7izwqeq_nw.jxY.",
+    "last_modified": "Fri, 03 Apr 2026 03:30:18 GMT",
+    "sha256": null,
+    "sha256_status": "must_be_computed_after_full_download_on_linux",
+    "sdk_root_member": "qairt/2.45.0.260326",
+    "central_directory": {
+      "entries": 10660,
+      "offset": 1655805354,
+      "bytes": 1666301,
+      "sha256": "ce4b40a874cc4e97dad40b92aed8fe7058eec977fbbbacd21c6e014386d39151"
+    },
+    "sdk_yaml_contract": {
+      "path": "qairt/2.45.0.260326/sdk.yaml",
+      "bytes": 975,
+      "crc32": "13b651ae",
+      "sha256": "3f1e62262514b454ec66ad9095a1ef12f9642341f0007952a36f79997ce8edf3",
+      "required_values": {
+        "product": "QAIRT",
+        "version": "2.45.0",
+        "build_id": "260326154327",
+        "qnn_backend_api_version": "2.18.0",
+        "android-ndk": "r26c"
+      }
+    },
+    "required_members": [
+      {
+        "role": "engineering_canary_frontend",
+        "path": "qairt/2.45.0.260326/bin/aarch64-android/qnn-net-run",
+        "bytes": 5051616,
+        "compressed_bytes": 1868565,
+        "crc32": "66911783",
+        "sha256": "812a0f98f8bcd2ecc39c8a2462e39ad0f031dfaa565b3d095e4475b5484ecba3"
+      },
+      {
+        "role": "htp_backend",
+        "path": "qairt/2.45.0.260326/lib/aarch64-android/libQnnHtp.so",
+        "bytes": 2952008,
+        "compressed_bytes": 1125187,
+        "crc32": "2d5069cf",
+        "sha256": "b5b36b2d5e0cc352b5e5f468f6f668b1585d515854fc1c5890b1365047a36be1"
+      },
+      {
+        "role": "net_run_extensions",
+        "path": "qairt/2.45.0.260326/lib/aarch64-android/libQnnHtpNetRunExtensions.so",
+        "bytes": 957864,
+        "compressed_bytes": 369394,
+        "crc32": "2fc81082",
+        "sha256": "0d29d3dac7d82d8eb5bdc47a0649a7d6a5f5b4a2fbc52b2f975b6ae2c16b6213"
+      },
+      {
+        "role": "htp_prepare",
+        "path": "qairt/2.45.0.260326/lib/aarch64-android/libQnnHtpPrepare.so",
+        "bytes": 87739504,
+        "compressed_bytes": 34892416,
+        "crc32": "29f3c38a",
+        "sha256": "d0001d629c6d7ded14f2c850e93983b87589cd5748724bb9aaf56f7adb2b338a"
+      },
+      {
+        "role": "htp_v81_stub",
+        "path": "qairt/2.45.0.260326/lib/aarch64-android/libQnnHtpV81Stub.so",
+        "bytes": 803416,
+        "compressed_bytes": 294006,
+        "crc32": "701bb84f",
+        "sha256": "e97898d6772288e202e9cf988b80b39b8336f3dca8b99ee3075d234093582e3c"
+      },
+      {
+        "role": "qnn_system",
+        "path": "qairt/2.45.0.260326/lib/aarch64-android/libQnnSystem.so",
+        "bytes": 3635400,
+        "compressed_bytes": 1342585,
+        "crc32": "21266ace",
+        "sha256": "f08e9ddc18a40719839cce8bbfb3afd3aef06f5ad486b21934a1c4568c9a6a48"
+      },
+      {
+        "role": "htp_v81_unsigned_runtime",
+        "path": "qairt/2.45.0.260326/lib/hexagon-v81/unsigned/libQnnHtpV81.so",
+        "bytes": 12108736,
+        "compressed_bytes": 4101773,
+        "crc32": "368b3fec",
+        "sha256": "b4610877765705aa12bdb27fb8d7e8f87692bfa2bbf86a0a9e525d3159cf1c1d"
+      },
+      {
+        "role": "htp_v81_unsigned_skel",
+        "path": "qairt/2.45.0.260326/lib/hexagon-v81/unsigned/libQnnHtpV81Skel.so",
+        "bytes": 11788496,
+        "compressed_bytes": 3965180,
+        "crc32": "3b31a841",
+        "sha256": "57330ed3f7846b94181b25b7a87bc3fe5dc71033766f2d5630520a1400477c97"
+      },
+      {
+        "role": "license",
+        "path": "qairt/2.45.0.260326/LICENSE.pdf",
+        "bytes": 147577,
+        "compressed_bytes": 136043,
+        "crc32": "9c76433f",
+        "sha256": "ec1dccfdcba5c6e64126e84199b8362bf4999107bfa567ebe831dbb4c461692b"
+      },
+      {
+        "role": "notice",
+        "path": "qairt/2.45.0.260326/NOTICE.txt",
+        "bytes": 129238,
+        "compressed_bytes": 17289,
+        "crc32": "f4d46344",
+        "sha256": "c8a22fa8b9ed3e9266c4a3366965474cef5cb147ee2a1f33e488bbb24a071c09"
+      },
+      {
+        "role": "sdk_identity",
+        "path": "qairt/2.45.0.260326/sdk.yaml",
+        "bytes": 975,
+        "compressed_bytes": 441,
+        "crc32": "13b651ae",
+        "sha256": "3f1e62262514b454ec66ad9095a1ef12f9642341f0007952a36f79997ce8edf3"
+      }
+    ]
+  },
+  "acquisition": {
+    "allowed_host": {
+      "system": "Linux",
+      "machine": "x86_64",
+      "recommended_environment": "Google Colab Ubuntu runtime with a persistent Google Drive workspace"
+    },
+    "minimum_free_bytes": 4294967296,
+    "resume_policy": "Checkpoint after each authenticated context download, after the runtime archive hash, and after each extracted runtime member. Context checkpoints are audit evidence only until their hashes are externally pinned, so every acquisition run freshly re-downloads all four contexts. Reuse a completed runtime archive only after its recorded size and SHA-256 plus the repository-pinned ZIP central-directory and required-member contract all match.",
+    "context_output_names": {
+      "duration_predictor": "contexts/duration_predictor.bin",
+      "text_encoder": "contexts/text_encoder.bin",
+      "vector_estimator": "contexts/vector_estimator.bin",
+      "vocoder": "contexts/vocoder.bin"
+    },
+    "runtime_output_root": "runtime/qairt/2.45.0.260326",
+    "artifact_lock": "qairt245_supertonic_artifact_lock.json",
+    "required_result_status": "artifacts_locked_unpackaged_unexecuted"
+  },
+  "isolated_package_plan": {
+    "phase_1_canary_frontend": "Package the exact qnn-net-run executable only as a private engineering canary or replace it with a minimal JNI runner compiled against the exact 2.45 headers. Do not reuse the accepted ORT-QNN 2.42 AAR.",
+    "phase_2_app_frontend": "Use a minimal candidate-owned JNI bridge compiled against QAIRT 2.45 QNN headers, loading only the candidate-owned 2.45 libraries and four context binaries.",
+    "cpu_fallback_policy": "No neural CPU fallback. Host-side Supertonic text preprocessing and tensor scheduling are allowed only outside the measured neural placement claim.",
+    "first_phone_gate": "In a separate authorized task, build and externally hash the isolated APK, install only the new package, validate each context with the exact runtime, then capture candidate-UID HTP/CDSP, FastRPC, DMA, latency, output, and cleanup evidence.",
+    "promotion_forbidden_until": [
+      "all four contexts load and execute under exact QAIRT 2.45",
+      "no CPU fallback or mixed 2.42 library mapping is observed",
+      "English and Japanese accumulated fixtures pass intelligibility and listening gates",
+      "Japanese, Korean, and Russian production phrase matrix passes",
+      "accepted APK hashes and runtime health remain unchanged"
+    ]
+  }
+}

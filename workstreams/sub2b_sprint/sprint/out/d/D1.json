@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "sprint_id": "D1",
+  "lane": "D",
+  "status": "COMPLETE_WITH_KOKORO_ZH_HARD_FAILURE_AND_SPRINT_LIMITS",
+  "evidence_class": "HOST",
+  "headline": {
+    "complete_engine_language_comparisons": 12,
+    "all_complete_point_estimates_at_or_below_plus_5pp_ceiling": true,
+    "th13_gate_cleared_by_any_cell": false,
+    "th13_gate_blocker": "n=40 per cell; TH-13 requires n>=60",
+    "hard_failure": "Kokoro v1.1 ZH emitted non-finite PCM for 7/40 D1 items; the incomplete arm was not scored or imputed."
+  },
+  "protocol": {
+    "corpus": {
+      "path": "D1_corpus.json",
+      "sha256": "a0b80de8ace2d948723bacbbadf3832030d28562e818b1ffede3e1d51d0619e6",
+      "items_canonical_sha256": "fac305ffe07d7fa9a508111001aa114e610f5541a24e0a9c74ab27600e5844c5",
+      "item_count": 40,
+      "dataset": "google/fleurs",
+      "dataset_source_ref": "refs/convert/parquet",
+      "dataset_source_ref_status": "MUTABLE_REF_NOT_RESOLVED_OR_HASHED_AT_FETCH",
+      "source_parquet_hashes_retained": false,
+      "split": "test",
+      "selection_method": "deterministic shared-ID stratification; first recording per semantic sentence ID"
+    },
+    "coverage_targets": {
+      "question": 1,
+      "numbers": 8,
+      "dates": 6,
+      "names": 8,
+      "acronyms": 6,
+      "long_clause": 10
+    },
+    "coverage_achieved": {
+      "acronyms": 9,
+      "dates": 9,
+      "long_clause": 10,
+      "names": 35,
+      "numbers": 13,
+      "question": 1
+    },
+    "matched_human_recordings": 200,
+    "reference_asr": {
+      "en": "faster-whisper-tiny (OpenAI Whisper family)",
+      "es": "faster-whisper-tiny (OpenAI Whisper family)",
+      "fr": "faster-whisper-tiny (OpenAI Whisper family)",
+      "zh": "sherpa-onnx Paraformer ZH small INT8",
+      "ru": "sherpa-onnx GigaAM-v2 CTC INT8; Whisper forbidden and not used"
+    },
+    "metric": "WER except CER for ZH",
+    "delta_definition": "reference-ASR error rate on synthesized audio minus the same reference-ASR error rate on the matched human recording",
+    "statistics": {
+      "point_estimator": "ratio_of_sums_sum_errors_div_sum_reference_units",
+      "paired_delta": "synth_error_rate_minus_matched_human_error_rate",
+      "bootstrap_B": 10000,
+      "seed": 20260801,
+      "rng": "numpy.random.PCG64",
+      "ci_method": "paired_utterance_bootstrap_percentile",
+      "percentiles": [
+        2.5,
+        97.5
+      ],
+      "cluster_unit": "utterance"
+    },
+    "normalization": {
+      "source_sha256": "d754293b250e6532b1254f46afbd3a4b7fc36383e64cd44ac3ef1d79493bc989",
+      "golden_fixture_count": 40,
+      "golden_fixture_status": "PASS",
+      "fixture_file_sha256": "2727aa790225ba7a2e4852f73793e941d962662e36f1855a807980dfc75f9835",
+      "basic_control_threshold_percent_points": 2
+    },
+    "th13_context": {
+      "margin_percent_points": 5,
+      "minimum_n": 60,
+      "sprint_n": 40,
+      "interpretation": "Point-estimate screen only. A value within the margin at n=40 must not be reported as clearing TH-13."
+    }
+  },
+  "synthesis_inventory": {
+    "attempted": 520,
+    "valid_wavs_written": 513,
+    "hard_failures": 7,
+    "hard_failure_route": "zh/kokoro_v1_1",
+    "derivation": "Supertonic 160 + Piper 160 + Kokoro v1.0 EN/ES/FR 120 + Matcha ZH 40 + Kokoro v1.1 ZH 40",
+    "kokoro_zh": {
+      "attempted": 40,
+      "valid_wavs_written": 33,
+      "nonfinite_outputs": 7,
+      "missing_item_ids": [
+        "fleurs_06",
+        "fleurs_11",
+        "fleurs_23",
+        "fleurs_30",
+        "fleurs_31",
+        "fleurs_34",
+        "fleurs_37"
+      ],
+      "score_disposition": "NOT_SCORED_NO_IMPUTATION"
+    }
+  },
+  "comparisons": [
+    {
+      "language": "en",
+      "engine_id": "kokoro",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 15.393518518518517,
+      "synth_rate_percent": 7.060185185185184,
+      "delta_percent_points": -8.333333333333332,
+      "delta_ci95_percent_points": [
+        -11.600928074245942,
+        -5.405405405405405
+      ],
+      "basic_control_delta_percent_points": -7.8431372549019605,
+      "basic_control_delta_ci95_percent_points": [
+        -11.599109411609412,
+        -3.9911308203991136
+      ],
+      "normalizer_control_status": "STABLE",
+      "ranking_inadmissible": false,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 67,
+          "deletions": 12,
+          "insertions": 54,
+          "errors": 133,
+          "reference_units": 864
+        },
+        "synth": {
+          "substitutions": 21,
+          "deletions": 4,
+          "insertions": 36,
+          "errors": 61,
+          "reference_units": 864
+        }
+      }
+    },
+    {
+      "language": "en",
+      "engine_id": "piper",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 15.393518518518517,
+      "synth_rate_percent": 9.027777777777777,
+      "delta_percent_points": -6.36574074074074,
+      "delta_ci95_percent_points": [
+        -9.741844795937624,
+        -3.128530561993051
+      ],
+      "basic_control_delta_percent_points": -6.459054209919262,
+      "basic_control_delta_ci95_percent_points": [
+        -9.879253567508231,
+        -3.1590779058382203
+      ],
+      "normalizer_control_status": "STABLE",
+      "ranking_inadmissible": false,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 67,
+          "deletions": 12,
+          "insertions": 54,
+          "errors": 133,
+          "reference_units": 864
+        },
+        "synth": {
+          "substitutions": 35,
+          "deletions": 5,
+          "insertions": 38,
+          "errors": 78,
+          "reference_units": 864
+        }
+      }
+    },
+    {
+      "language": "en",
+      "engine_id": "supertonic",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 15.393518518518517,
+      "synth_rate_percent": 6.481481481481481,
+      "delta_percent_points": -8.912037037037036,
+      "delta_ci95_percent_points": [
+        -12.336930385437272,
+        -5.749621606134031
+      ],
+      "basic_control_delta_percent_points": -9.457900807381776,
+      "basic_control_delta_ci95_percent_points": [
+        -12.829816050307452,
+        -6.293667007150154
+      ],
+      "normalizer_control_status": "STABLE",
+      "ranking_inadmissible": false,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 67,
+          "deletions": 12,
+          "insertions": 54,
+          "errors": 133,
+          "reference_units": 864
+        },
+        "synth": {
+          "substitutions": 20,
+          "deletions": 4,
+          "insertions": 32,
+          "errors": 56,
+          "reference_units": 864
+        }
+      }
+    },
+    {
+      "language": "zh",
+      "engine_id": "matcha_zh_baker_vocos",
+      "metric": "CER",
+      "n": 40,
+      "matched_human_rate_percent": 6.886858749121575,
+      "synth_rate_percent": 6.535488404778636,
+      "delta_percent_points": -0.35137034434293835,
+      "delta_ci95_percent_points": [
+        -3.143389907785568,
+        2.414536973082274
+      ],
+      "basic_control_delta_percent_points": -2.1481481481481475,
+      "basic_control_delta_ci95_percent_points": [
+        -4.5310868739661325,
+        -0.0728318867406433
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 69,
+          "deletions": 10,
+          "insertions": 19,
+          "errors": 98,
+          "reference_units": 1423
+        },
+        "synth": {
+          "substitutions": 74,
+          "deletions": 16,
+          "insertions": 3,
+          "errors": 93,
+          "reference_units": 1423
+        }
+      }
+    },
+    {
+      "language": "es",
+      "engine_id": "kokoro",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 16.309412861136998,
+      "synth_rate_percent": 8.574091332712023,
+      "delta_percent_points": -7.735321528424977,
+      "delta_ci95_percent_points": [
+        -10.531706023801535,
+        -4.890739403092886
+      ],
+      "basic_control_delta_percent_points": -7.776669990029912,
+      "basic_control_delta_ci95_percent_points": [
+        -10.744855456809118,
+        -4.728290184695445
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 136,
+          "deletions": 18,
+          "insertions": 21,
+          "errors": 175,
+          "reference_units": 1073
+        },
+        "synth": {
+          "substitutions": 70,
+          "deletions": 11,
+          "insertions": 11,
+          "errors": 92,
+          "reference_units": 1073
+        }
+      }
+    },
+    {
+      "language": "es",
+      "engine_id": "piper",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 16.309412861136998,
+      "synth_rate_percent": 14.818266542404473,
+      "delta_percent_points": -1.4911463187325253,
+      "delta_ci95_percent_points": [
+        -4.719805794412829,
+        1.688926453143535
+      ],
+      "basic_control_delta_percent_points": -1.5952143569292143,
+      "basic_control_delta_ci95_percent_points": [
+        -5.015151632503688,
+        1.8312003872787177
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 136,
+          "deletions": 18,
+          "insertions": 21,
+          "errors": 175,
+          "reference_units": 1073
+        },
+        "synth": {
+          "substitutions": 117,
+          "deletions": 19,
+          "insertions": 23,
+          "errors": 159,
+          "reference_units": 1073
+        }
+      }
+    },
+    {
+      "language": "es",
+      "engine_id": "supertonic",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 16.309412861136998,
+      "synth_rate_percent": 8.760484622553587,
+      "delta_percent_points": -7.548928238583411,
+      "delta_ci95_percent_points": [
+        -9.829867674858223,
+        -5.158578698655038
+      ],
+      "basic_control_delta_percent_points": -7.676969092721836,
+      "basic_control_delta_ci95_percent_points": [
+        -10.157255591653449,
+        -4.858299595141702
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 136,
+          "deletions": 18,
+          "insertions": 21,
+          "errors": 175,
+          "reference_units": 1073
+        },
+        "synth": {
+          "substitutions": 68,
+          "deletions": 12,
+          "insertions": 14,
+          "errors": 94,
+          "reference_units": 1073
+        }
+      }
+    },
+    {
+      "language": "fr",
+      "engine_id": "kokoro",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 34.8,
+      "synth_rate_percent": 17.299999999999997,
+      "delta_percent_points": -17.5,
+      "delta_ci95_percent_points": [
+        -23.04724948641863,
+        -12.298820046600001
+      ],
+      "basic_control_delta_percent_points": -19.219219219219223,
+      "basic_control_delta_ci95_percent_points": [
+        -25.22167487684729,
+        -13.714170506912446
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 257,
+          "deletions": 18,
+          "insertions": 73,
+          "errors": 348,
+          "reference_units": 1000
+        },
+        "synth": {
+          "substitutions": 135,
+          "deletions": 15,
+          "insertions": 23,
+          "errors": 173,
+          "reference_units": 1000
+        }
+      }
+    },
+    {
+      "language": "fr",
+      "engine_id": "piper",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 34.8,
+      "synth_rate_percent": 19.3,
+      "delta_percent_points": -15.499999999999996,
+      "delta_ci95_percent_points": [
+        -22.278764910209308,
+        -8.959502394875926
+      ],
+      "basic_control_delta_percent_points": -16.716716716716718,
+      "basic_control_delta_ci95_percent_points": [
+        -23.708285024911483,
+        -10.09253213508757
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 257,
+          "deletions": 18,
+          "insertions": 73,
+          "errors": 348,
+          "reference_units": 1000
+        },
+        "synth": {
+          "substitutions": 155,
+          "deletions": 15,
+          "insertions": 23,
+          "errors": 193,
+          "reference_units": 1000
+        }
+      }
+    },
+    {
+      "language": "fr",
+      "engine_id": "supertonic",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 34.8,
+      "synth_rate_percent": 16.3,
+      "delta_percent_points": -18.499999999999996,
+      "delta_ci95_percent_points": [
+        -24.461944027511258,
+        -12.87004732181021
+      ],
+      "basic_control_delta_percent_points": -19.41941941941942,
+      "basic_control_delta_ci95_percent_points": [
+        -25.82719644117449,
+        -13.399975369458128
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 257,
+          "deletions": 18,
+          "insertions": 73,
+          "errors": 348,
+          "reference_units": 1000
+        },
+        "synth": {
+          "substitutions": 135,
+          "deletions": 6,
+          "insertions": 22,
+          "errors": 163,
+          "reference_units": 1000
+        }
+      }
+    },
+    {
+      "language": "ru",
+      "engine_id": "piper",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 6.641604010025063,
+      "synth_rate_percent": 9.649122807017543,
+      "delta_percent_points": 3.007518796992481,
+      "delta_ci95_percent_points": [
+        0.8695652173913049,
+        5.4727635706816224
+      ],
+      "basic_control_delta_percent_points": 3.4013605442176855,
+      "basic_control_delta_ci95_percent_points": [
+        1.3642564802182817,
+        5.657775346267781
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 39,
+          "deletions": 10,
+          "insertions": 4,
+          "errors": 53,
+          "reference_units": 798
+        },
+        "synth": {
+          "substitutions": 52,
+          "deletions": 18,
+          "insertions": 7,
+          "errors": 77,
+          "reference_units": 798
+        }
+      },
+      "yo_preserved_delta_percent_points": 2.882205513784461
+    },
+    {
+      "language": "ru",
+      "engine_id": "supertonic",
+      "metric": "WER",
+      "n": 40,
+      "matched_human_rate_percent": 6.641604010025063,
+      "synth_rate_percent": 8.145363408521304,
+      "delta_percent_points": 1.5037593984962405,
+      "delta_ci95_percent_points": [
+        -0.38512148922057504,
+        3.2846835224493316
+      ],
+      "basic_control_delta_percent_points": -0.40816326530612457,
+      "basic_control_delta_ci95_percent_points": [
+        -2.0915169415046333,
+        1.1766009210183328
+      ],
+      "normalizer_control_status": "UNSTABLE",
+      "ranking_inadmissible": true,
+      "point_estimate_at_or_below_th13_plus_5pp_ceiling": true,
+      "th13_gate_verdict": "INSUFFICIENT_N_40_LT_60",
+      "evidence_class": "HOST",
+      "edit_counts": {
+        "matched_human": {
+          "substitutions": 39,
+          "deletions": 10,
+          "insertions": 4,
+          "errors": 53,
+          "reference_units": 798
+        },
+        "synth": {
+          "substitutions": 44,
+          "deletions": 20,
+          "insertions": 1,
+          "errors": 65,
+          "reference_units": 798
+        }
+      },
+      "yo_preserved_delta_percent_points": 1.3784461152882206
+    }
+  ],
+  "frontend_findings": [
+    {
+      "route": "matcha_zh_baker_vocos",
+      "finding": "SILENT_LATIN_OOV_OMISSION",
+      "affected_d1_item_ids": [
+        "fleurs_03",
+        "fleurs_06",
+        "fleurs_10",
+        "fleurs_13",
+        "fleurs_21",
+        "fleurs_28",
+        "fleurs_37",
+        "fleurs_39"
+      ],
+      "direct_host_probe": "The sherpa-onnx frontend logged 'Ignore OOV' for Wild, Card, SANParks, Eee, PC, IT, CPU, RAM, GB, API, JSON, Wi, Fi, and VPN.",
+      "probe_artifact": {
+        "path": "artifacts/matcha/frontend_oov_probe.json",
+        "bytes": 10794,
+        "sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+        "case_count": 14
+      },
+      "metric_consequence": "Mandarin CER can look good while unsupported Latin spans are omitted; the D1 point estimate is not evidence of mixed-script coverage."
+    }
+  ],
+  "unscored_or_unsupported": [
+    {
+      "language": "zh",
+      "engine": "kokoro_v1_1",
+      "status": "UNSAFE_INCOMPLETE_NOT_SCORED",
+      "detail": {
+        "attempted": 40,
+        "valid_wavs_written": 33,
+        "nonfinite_outputs": 7,
+        "missing_item_ids": [
+          "fleurs_06",
+          "fleurs_11",
+          "fleurs_23",
+          "fleurs_30",
+          "fleurs_31",
+          "fleurs_34",
+          "fleurs_37"
+        ],
+        "score_disposition": "NOT_SCORED_NO_IMPUTATION"
+      }
+    },
+    {
+      "language": "zh",
+      "engine": "supertonic",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "language": "ru",
+      "engine": "kokoro",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "language": "ru",
+      "engine": "silero_v5_cis_base",
+      "status": "NO_D1_BACKCHECK_IN_THIS_SPRINT"
+    }
+  ],
+  "artifacts": {
+    "scoring_result": {
+      "path": "artifacts/d1_scoring/d1_scoring_results.json",
+      "bytes": 4192364,
+      "sha256": "f0dc4fc918332ce16eaf6bc0565f08f45cd6cf91e85b05f43dbb768b3302c39c"
+    },
+    "verification_receipt": {
+      "path": "artifacts/d1_scoring/verification_receipt.json",
+      "bytes": 2493,
+      "sha256": "6582e13e486c768558e8eca24dae59fbe612456dc609e04dc735ae913df168e8",
+      "status": "PASS"
+    },
+    "kokoro_zh_execution": {
+      "path": "artifacts/kokoro_v1_1_zh/logs/execution_summary.json",
+      "sha256": "0132048fe184daf0187deabc5974eeb7a41571fda8a241b59fab944dd2279cb5"
+    },
+    "matcha_frontend_probe": {
+      "path": "artifacts/matcha/frontend_oov_probe.json",
+      "bytes": 10794,
+      "sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "case_count": 14
+    }
+  },
+  "limits": [
+    "The FLEURS Parquet fetch used the mutable refs/convert/parquet ref; its resolved source revision and Parquet blob hashes were not retained. The committed manifest and each retained human WAV remain hash-pinned locally.",
+    "Only one different-family reference ASR was run per language; the full parent task's dual-reference stability requirement was not attempted.",
+    "n=40 is below TH-13's n>=60 screen requirement.",
+    "No wrong-language LID test, speaker-consistency score, phone run, or listening panel was performed.",
+    "Negative delta values do not establish naturalness or superiority to human speech; they only show how this reference ASR scored this matched corpus.",
+    "Rows marked normalizer-unstable are inadmissible for engine ranking."
+  ]
+}

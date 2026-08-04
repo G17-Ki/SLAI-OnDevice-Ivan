@@ -1,0 +1,90 @@
+{
+  "language": "ja",
+  "fixed_locale": true,
+  "num_threads": 2,
+  "load_s": 0.8103823749988806,
+  "rss_before_bytes": 36618240,
+  "rss_after_load_bytes": 449003520,
+  "incremental_rss_bytes": 412385280,
+  "observed_peak_rss_bytes": 460734464,
+  "results": [
+    {
+      "id": "supertonic_ja_local_dynamic_31",
+      "kind": "dynamic_local_reference",
+      "language": "ja",
+      "audio_path": "reports/android_phone/streaming_response/supertonic_v81/ja_paris/local_dynamic_trimmed.wav",
+      "reference": "パリはフランスにあります。",
+      "transcript": "パリはフランスにあります。",
+      "audio_duration_s": 2.15475,
+      "decode_s": 0.512495333001425,
+      "inference_s": 0.06159620800099219,
+      "rtf": 0.028586243416169946,
+      "errors": {
+        "normalized_reference_words": "パリはフランスにあります",
+        "normalized_hypothesis_words": "パリはフランスにあります",
+        "normalized_reference_chars": "パリはフランスにあります",
+        "normalized_hypothesis_chars": "パリはフランスにあります",
+        "word_edits": 0,
+        "reference_words": 1,
+        "wer": 0.0,
+        "char_edits": 0,
+        "reference_chars": 12,
+        "cer": 0.0,
+        "primary_metric": "cer",
+        "primary_error_rate": 0.0
+      }
+    },
+    {
+      "id": "supertonic_ja_local_fixed_32",
+      "kind": "fixed_shape_local_reference",
+      "language": "ja",
+      "audio_path": "reports/android_phone/streaming_response/supertonic_v81/ja_paris/local_fixed_trimmed.wav",
+      "reference": "パリはフランスにあります。",
+      "transcript": "パリはフランスにあります。",
+      "audio_duration_s": 2.15475,
+      "decode_s": 0.08185245799904806,
+      "inference_s": 0.05754233300103806,
+      "rtf": 0.02670487666830865,
+      "errors": {
+        "normalized_reference_words": "パリはフランスにあります",
+        "normalized_hypothesis_words": "パリはフランスにあります",
+        "normalized_reference_chars": "パリはフランスにあります",
+        "normalized_hypothesis_chars": "パリはフランスにあります",
+        "word_edits": 0,
+        "reference_words": 1,
+        "wer": 0.0,
+        "char_edits": 0,
+        "reference_chars": 12,
+        "cer": 0.0,
+        "primary_metric": "cer",
+        "primary_error_rate": 0.0
+      }
+    },
+    {
+      "id": "supertonic_ja_remote_fixed_32",
+      "kind": "accumulated_aihub_chain",
+      "language": "ja",
+      "audio_path": "reports/android_phone/streaming_response/supertonic_v81/ja_paris/remote_chain/remote_fixed_trimmed.wav",
+      "reference": "パリはフランスにあります。",
+      "transcript": "パリはフランスにあります。",
+      "audio_duration_s": 2.15475,
+      "decode_s": 0.05991662500309758,
+      "inference_s": 0.05651179200140177,
+      "rtf": 0.02622661190458372,
+      "errors": {
+        "normalized_reference_words": "パリはフランスにあります",
+        "normalized_hypothesis_words": "パリはフランスにあります",
+        "normalized_reference_chars": "パリはフランスにあります",
+        "normalized_hypothesis_chars": "パリはフランスにあります",
+        "word_edits": 0,
+        "reference_words": 1,
+        "wer": 0.0,
+        "char_edits": 0,
+        "reference_chars": 12,
+        "cer": 0.0,
+        "primary_metric": "cer",
+        "primary_error_rate": 0.0
+      }
+    }
+  ]
+}

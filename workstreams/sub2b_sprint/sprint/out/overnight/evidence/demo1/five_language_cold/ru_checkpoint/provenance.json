@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "demo": "DEMO 1 - IT FITS",
+  "run_scope": "cold-boot uninterrupted five-language sequence, Russian checkpoint after accepted English",
+  "captured_at": "2026-08-03T06:06:30+08:00",
+  "branch": "sprint/overnight",
+  "boot": {
+    "boot_id": "67f1bad3-d306-4787-ac17-d9ab1c87e169",
+    "airplane_mode_on": true,
+    "adb_forward_list_immediately_before_inference": [],
+    "adb_forward_list_after_capture": [],
+    "main_pid_after_turn": 10316,
+    "runtime_pid_after_turn": 10410,
+    "same_main_and_runtime_processes_as_english_checkpoint": true
+  },
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "soc": "Snapdragon SM8850"
+  },
+  "packages": {
+    "main": {
+      "package": "ai.liquid.lfmdemo",
+      "uid": 10538,
+      "version": "0.6.0-unplugged",
+      "installed_apk_sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d"
+    },
+    "runtime": {
+      "package": "ai.liquid.lfmdemo.runtime",
+      "uid": 10514,
+      "version": "0.1.0-unplugged-runtime",
+      "installed_apk_sha256": "d43c0423d66e1cbe9e3fac313b54437c5c58ef8a5a8498382a255f619ad46ae1"
+    }
+  },
+  "configuration": {
+    "mode": "tts",
+    "ui_label": "Offline voice",
+    "selected_language": "ru",
+    "memory_enabled": false,
+    "asr_backend": "zipformer_ru_cpu",
+    "asr_provider": "cpu",
+    "response_backend": "qwen3_5_0_8b_q4_0_cpu",
+    "response_model": "Qwen3.5-0.8B-Q4_0",
+    "tts_policy": "supertonic3_s5",
+    "tts_ui_label": "Supertonic 3 RU — 5 steps"
+  },
+  "fixture": {
+    "filename": "question_ru.wav",
+    "bytes": 48674,
+    "sha256": "3545b8a20e3f320174a4e4dee57ff77268f30f79526eef91c86c778e3c180683",
+    "verbatim_asr_transcript": "расскажи коротко о москве"
+  },
+  "result": {
+    "turn_id": "1785708180123-2",
+    "complete": true,
+    "visible_response": "Москва — это столица России и крупнейший в мире город с населением более 12 миллионов человек, расположенный на территории страны.",
+    "factual_quality_warning": "The visible answer calls Moscow the largest city in the world. This turn is accepted only as offline five-language coverage and end-to-end execution, not as factual-quality acceptance.",
+    "npu_selected": false,
+    "npu_executed": false,
+    "cpu_execution_claim_only": true,
+    "first_text_ms": 2083.7153640000615,
+    "first_audio_start_proxy_ms": 4437.485519999871,
+    "request_to_playback_terminal_ms": 15605.081660999916,
+    "tts_chunks_queued": 2,
+    "tts_chunk_metrics": [
+      {
+        "chunk_index": 0,
+        "generation_ms": 1949,
+        "rtf": 0.3606683270203858,
+        "audio_seconds": 5.4537641723356005
+      },
+      {
+        "chunk_index": 1,
+        "generation_ms": 1647,
+        "rtf": 0.29046286967344276,
+        "audio_seconds": 5.739115646258504
+      }
+    ],
+    "tts_total_audio_seconds": 11.192879818594105,
+    "dropped_chunks": 0,
+    "playback_underflows": 0,
+    "playback_status": "completed",
+    "reasoning_filter": {
+      "raw_characters": 149,
+      "visible_characters": 130,
+      "filtered_characters": 19,
+      "reasoning_blocks_removed": 1,
+      "user_visible_reasoning_leakage": false
+    }
+  },
+  "asr_runner_binding": {
+    "runner_provider_argument": "--provider=cpu",
+    "model_family": "Zipformer transducer",
+    "model_create_seconds": 1.273,
+    "runner_decode_seconds": 0.041,
+    "duplicate_stdout_transcript_rows": 2,
+    "duplicate_reason": "The current Russian runner invocation intentionally supplies the same WAV twice; both rows are identical and this is not treated as two user turns."
+  },
+  "evidence_sha256": {
+    "telemetry.jsonl": "588467b8ee151dd72db10e33d072ffe6369519567cfff6d50b9b862275b8872e",
+    "summary.json": "66dd0fafd3836eac20da785b6dfa160e8c31088835a1359c8d40446571adcf05",
+    "REPORT.md": "360b7dd9e8894fa4b4c26a658a25b92f3937762b520743fea595ee80c49a9de1",
+    "ui.xml": "f0fd2033715f9cb18d8332cb736e214ab148494a955310dbfc946a1b27bface5",
+    "screen_result.png": "7e40e32a8e5c037aa098ea8a9ed8b4459fd8457c0b098d111a37db72a9aa23f6",
+    "last-russian.stdout.txt": "6db3e79f7eeaf6002670845f1b227b808f968ad2ff3f73a16b68d28303189715",
+    "last-russian.stderr.txt": "47900332b905503df692491fdc5a3390fb0d4a0b88d92e7a30c2e78bad27a3bc",
+    "device_state.txt": "0198f60c1a6b3edad58b6f8c15a3b38aebab4967dfa46ec40376253a54d9ed9a",
+    "adb_forwards_after.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "claim_boundary": "This checkpoint proves a completed explicit-Russian CPU-ASR/Qwen3.5/Supertonic turn in the same offline cold-boot process as English. It is a coverage/execution pass, not a factual-quality pass: the answer incorrectly calls Moscow the largest city in the world. No Russian NPU claim is made. First audio is an in-app software start proxy, not microphone-observed acoustic onset. Qwen again emitted one hidden reasoning-tag block; the supported claim is no user-visible reasoning leakage. The screenshot also contains stale English response & advanced text above the result and must be cropped for filming."
+}

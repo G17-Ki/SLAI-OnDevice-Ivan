@@ -1,0 +1,507 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-22T20:12:13Z",
+  "host": {
+    "platform": "macOS-15.4.1-arm64-arm-64bit",
+    "python": "3.11.11",
+    "numpy": "2.4.6",
+    "onnxruntime": "1.27.0",
+    "local_threads": 2
+  },
+  "fixture": {
+    "text": "It is Paris, in France.",
+    "language": "en",
+    "processed_text": "<en>It is Paris, in France.</en>",
+    "unpadded_text_length": 32,
+    "text_ids": [
+      29,
+      64,
+      73,
+      31,
+      41,
+      79,
+      2,
+      68,
+      78,
+      2,
+      48,
+      60,
+      77,
+      68,
+      78,
+      13,
+      2,
+      68,
+      73,
+      2,
+      38,
+      77,
+      60,
+      73,
+      62,
+      64,
+      15,
+      29,
+      16,
+      64,
+      73,
+      31
+    ],
+    "fixed_text_length": 32,
+    "speaker": 6,
+    "steps": 4,
+    "seed": 42,
+    "speed": 1.0,
+    "duration_raw_s": 2.127588987350464,
+    "duration_s": 2.127588987350464,
+    "sample_rate": 44100,
+    "wav_length": 93826,
+    "samples_per_latent": 3072,
+    "latent_channels": 144,
+    "real_latent_length": 31,
+    "fixed_latent_length": 32,
+    "padded_positions": 1,
+    "latent_mask_last": 0.0
+  },
+  "voice": {
+    "speaker_count": 10,
+    "speaker": 6,
+    "ttl_shape": [
+      1,
+      50,
+      256
+    ],
+    "dp_shape": [
+      1,
+      8,
+      16
+    ]
+  },
+  "models": {
+    "duration_predictor": {
+      "filename": "duration_predictor.int8.onnx",
+      "bytes": 3700147,
+      "sha256": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db"
+    },
+    "text_encoder": {
+      "filename": "text_encoder.int8.onnx",
+      "bytes": 36416150,
+      "sha256": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff"
+    },
+    "vector_estimator": {
+      "filename": "vector_estimator.int8.onnx",
+      "bytes": 78400833,
+      "sha256": "20cd86fa5c6effedfda0e7cffe5b0569ca401c440a0c3a1d72bf39286c0db3fd"
+    },
+    "vocoder": {
+      "filename": "vocoder.int8.onnx",
+      "bytes": 25991073,
+      "sha256": "e923d60f53f95eb1ce235f1dc33ec56d9c057823c96fa6f8acf98f32b0da6152"
+    }
+  },
+  "support_files": {
+    "voice.bin": {
+      "bytes": 517168,
+      "sha256": "67d5209b0ee8ce6c74105ffbe12fe6a7628aea3b4ba2fcb308a4a67938a93ce8"
+    },
+    "unicode_indexer.bin": {
+      "bytes": 262144,
+      "sha256": "8402ca48e5189a8950138580b0fff64db6f072f24ac07cd54ba8b2fbb9883b30"
+    },
+    "tts.json": {
+      "bytes": 8253,
+      "sha256": "42078d3aef1cd43ab43021f3c54f47d2d75ceb4e75f627f118890128b06a0d09"
+    }
+  },
+  "fixture_file": {
+    "filename": "fixture.npz",
+    "bytes": 1799880,
+    "sha256": "58b5b7a7a5af083b526029282a35401c8887add5e847ff631bc32457940507d3"
+  },
+  "arrays": {
+    "text_ids_local": {
+      "shape": [
+        1,
+        32
+      ],
+      "dtype": "int64",
+      "finite": true,
+      "min": 2.0,
+      "max": 79.0,
+      "mean": 48.6875,
+      "sha256": "2fd3fac41650673075085524f4b2e3a5aed442ddff672caeba14c9f7cb8d5890"
+    },
+    "text_ids_remote": {
+      "shape": [
+        1,
+        32
+      ],
+      "dtype": "int32",
+      "finite": true,
+      "min": 2.0,
+      "max": 79.0,
+      "mean": 48.6875,
+      "sha256": "63765aff64f935e18f3248ed03585bdb6a9253285615b6844212804bd9beb1c3"
+    },
+    "text_mask": {
+      "shape": [
+        1,
+        1,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": 1.0,
+      "max": 1.0,
+      "mean": 1.0,
+      "sha256": "4c821d782d02e504c72b4f24521dd786a78f6e8af8f14aa9a4e85ab96089f746"
+    },
+    "style_ttl": {
+      "shape": [
+        1,
+        50,
+        256
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -0.7399735450744629,
+      "max": 0.8084799647331238,
+      "mean": 0.0014625698723300217,
+      "sha256": "fb92cc6a6f470d5570c2cce6a4ace633ea63087f064a4f0e096f8d434da416f6"
+    },
+    "style_dp": {
+      "shape": [
+        1,
+        8,
+        16
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -0.7119339108467102,
+      "max": 0.628514289855957,
+      "mean": 0.0107541552283692,
+      "sha256": "1340f291942c45d0ff4226da9c77ecc1e8cf4301379a2f1249a1efbf77ea4e21"
+    },
+    "duration_raw_local": {
+      "shape": [
+        1
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": 2.127588987350464,
+      "max": 2.127588987350464,
+      "mean": 2.127588987350464,
+      "sha256": "9790218b17df1d99d3dfcf02a11a7aafc59f3e8346ee0f4e55dbb2fda7df5cbe"
+    },
+    "duration_local": {
+      "shape": [
+        1
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": 2.127588987350464,
+      "max": 2.127588987350464,
+      "mean": 2.127588987350464,
+      "sha256": "9790218b17df1d99d3dfcf02a11a7aafc59f3e8346ee0f4e55dbb2fda7df5cbe"
+    },
+    "text_embedding_local": {
+      "shape": [
+        1,
+        256,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -1.6800168752670288,
+      "max": 1.288165807723999,
+      "mean": -0.008313386457962701,
+      "sha256": "e059e5281d8085604a861857f6d9c63a4a42b8f09c573aa458991378fffc1fe7"
+    },
+    "latent_mask": {
+      "shape": [
+        1,
+        1,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.96875,
+      "sha256": "31e29f29a1e668fa9ef0460e44bc9e0e2f5279b4c646c1415b5ee8ea16116865"
+    },
+    "latent_initial": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -3.194735527038574,
+      "max": 4.011876106262207,
+      "mean": 0.0011553407849381376,
+      "sha256": "b4943d187105cd5efaecacac8e967219215ba8875248b17550182f17deb09ede"
+    },
+    "waveform_padded_local": {
+      "shape": [
+        1,
+        98304
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -0.900099515914917,
+      "max": 1.019890308380127,
+      "mean": -0.0004788528328630525,
+      "sha256": "179b32995063b8f3ef19c6c406d90fd5ab96712d12cf80974d09cadd6cee7880"
+    },
+    "waveform_trimmed_local": {
+      "shape": [
+        1,
+        93826
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -0.900099515914917,
+      "max": 1.019890308380127,
+      "mean": -0.0005009830520810461,
+      "sha256": "14b9088ec4330e6974179e108c78099daace46a4a6a28f92cba955323059f611"
+    },
+    "latent_step_0_raw_local": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -2.4368085861206055,
+      "max": 2.946053981781006,
+      "mean": 0.001802367693219114,
+      "sha256": "846ad1358af4037379a2415f5917b444dd9fd882e7edc2935f7124a2412cd063"
+    },
+    "latent_step_0_masked_local": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -2.4368085861206055,
+      "max": 2.946053981781006,
+      "mean": 0.001802367693219114,
+      "sha256": "846ad1358af4037379a2415f5917b444dd9fd882e7edc2935f7124a2412cd063"
+    },
+    "latent_step_1_raw_local": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -2.101179599761963,
+      "max": 2.033234119415283,
+      "mean": -0.0011520145693187562,
+      "sha256": "99ea75c8103b36b69f4e5dc6491bb1838948caa1dbc8b0dd92d0bb3452daea24"
+    },
+    "latent_step_1_masked_local": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -2.101179599761963,
+      "max": 2.033234119415283,
+      "mean": -0.0011520145693187562,
+      "sha256": "99ea75c8103b36b69f4e5dc6491bb1838948caa1dbc8b0dd92d0bb3452daea24"
+    },
+    "latent_step_2_raw_local": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -1.4217184782028198,
+      "max": 1.6251842975616455,
+      "mean": -0.003944416879069952,
+      "sha256": "12910d6b341b84e014f487ab34bea2a0ae85afe7da6ff92fbf0ccb1c81268aef"
+    },
+    "latent_step_2_masked_local": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -1.4217184782028198,
+      "max": 1.6251842975616455,
+      "mean": -0.003944416879069952,
+      "sha256": "12910d6b341b84e014f487ab34bea2a0ae85afe7da6ff92fbf0ccb1c81268aef"
+    },
+    "latent_step_3_raw_local": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -1.6526927947998047,
+      "max": 2.1371846199035645,
+      "mean": -0.0034299014310413944,
+      "sha256": "095b2d9cfeecd92c1da39954029c945b769e5cce67f889d67a93df63dc450c6a"
+    },
+    "latent_step_3_masked_local": {
+      "shape": [
+        1,
+        144,
+        32
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -1.6526927947998047,
+      "max": 2.1371846199035645,
+      "mean": -0.0034299014310413944,
+      "sha256": "095b2d9cfeecd92c1da39954029c945b769e5cce67f889d67a93df63dc450c6a"
+    },
+    "latent_final_dynamic_local": {
+      "shape": [
+        1,
+        144,
+        31
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -3.4107115268707275,
+      "max": 3.2132086753845215,
+      "mean": -0.0009475753364724017,
+      "sha256": "052ffb62d01ad67e4ea3ec362c852b3594ef14cc8c21828639f1c648a8c1ca8c"
+    },
+    "waveform_dynamic_local": {
+      "shape": [
+        1,
+        95232
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -0.9468835592269897,
+      "max": 0.8347412347793579,
+      "mean": -0.0004368198949369598,
+      "sha256": "632368a25b9cda6fa734c83bb4e14770ab96cc457e3fce437d598e39e0e5f52b"
+    },
+    "waveform_dynamic_trimmed_local": {
+      "shape": [
+        1,
+        93826
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "min": -0.9468835592269897,
+      "max": 0.8347412347793579,
+      "mean": -0.00044342849996824085,
+      "sha256": "4113eb4a8f28a144adcf1c55b4dba858299da3d759d4e7fb0a850280013f213e"
+    }
+  },
+  "local_checks": {
+    "final_padding_is_zero": true,
+    "raw_and_masked_final": {
+      "actual": {
+        "shape": [
+          1,
+          144,
+          32
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "min": -1.6526927947998047,
+        "max": 2.1371846199035645,
+        "mean": -0.0034299014310413944,
+        "sha256": "095b2d9cfeecd92c1da39954029c945b769e5cce67f889d67a93df63dc450c6a"
+      },
+      "reference": {
+        "shape": [
+          1,
+          144,
+          32
+        ],
+        "dtype": "float32",
+        "finite": true,
+        "min": -1.6526927947998047,
+        "max": 2.1371846199035645,
+        "mean": -0.0034299014310413944,
+        "sha256": "095b2d9cfeecd92c1da39954029c945b769e5cce67f889d67a93df63dc450c6a"
+      },
+      "atol": 0.0,
+      "rtol": 0.0,
+      "passed": true,
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "p95_abs_error": 0.0,
+      "rmse": 0.0,
+      "reference_rms": 0.2903673820014746,
+      "normalized_rmse": 0.0,
+      "cosine_similarity": 1.0
+    },
+    "dynamic_reference": {
+      "status": "completed",
+      "latent_length": 31,
+      "waveform": {
+        "sample_rate": 44100,
+        "actual_samples": 93826,
+        "reference_samples": 93826,
+        "aligned_samples": 93826,
+        "waveform": {
+          "actual": {
+            "shape": [
+              93826
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -0.900099515914917,
+            "max": 1.019890308380127,
+            "mean": -0.0005009830520810461,
+            "sha256": "a86760480fdd3b12cdcc94a94ed9f6ac820ac3c4fb08bb36091de0ad59c28e04"
+          },
+          "reference": {
+            "shape": [
+              93826
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -0.9468835592269897,
+            "max": 0.8347412347793579,
+            "mean": -0.00044342849996824085,
+            "sha256": "178a0411ef4e9405f5a7cb21cc6791b0b5dc9c01054062073af509964a481811"
+          },
+          "atol": 0.05,
+          "rtol": 0.05,
+          "passed": false,
+          "max_abs_error": 1.0194870563282166,
+          "mean_abs_error": 0.03694782456329754,
+          "p95_abs_error": 0.16602535475976765,
+          "rmse": 0.0813472075628612,
+          "reference_rms": 0.07957356569031526,
+          "normalized_rmse": 1.0222893351222768,
+          "cosine_similarity": 0.544772969751246
+        },
+        "spectral": {
+          "n_fft": 1024,
+          "hop_length": 256,
+          "frames": 363,
+          "spectral_convergence": 0.8099598289352725,
+          "log_magnitude_rmse": 0.3050433639711674,
+          "log_magnitude_mae": 0.08474834422595313
+        }
+      },
+      "note": "This compares fixed-length padded inference with a dynamic-length run using the same real-position initial noise. Flow trajectories are stochastic, so ASR/listening evidence is more meaningful than sample-aligned waveform correlation."
+    }
+  },
+  "elapsed_s": 1.2073719170002732
+}

@@ -1,0 +1,74 @@
+{
+  "component": "LFM2.5-Audio real-weight RQ/depth decoder",
+  "model_revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+  "checkpoint": "<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/model.safetensors",
+  "dtype": "float32",
+  "fixed_input_shapes": {
+    "hidden": [
+      1,
+      2048
+    ]
+  },
+  "output_shapes": {
+    "tokens": [
+      1,
+      8
+    ],
+    "next_audio_embedding": [
+      1,
+      2048
+    ]
+  },
+  "golden": {
+    "artifact_dir": "<workspace>/work/lfm-feasibility/artifacts/depth-probe-golden",
+    "tokens": [
+      [
+        199,
+        1769,
+        319,
+        147,
+        1871,
+        1971,
+        1107,
+        45
+      ]
+    ],
+    "official_sample_audio_frame_tokens_equal": true,
+    "next_audio_embedding_statistics": {
+      "min": -0.325439453125,
+      "max": 0.2783203125,
+      "mean": -0.002743713790550828,
+      "std": 0.08520925045013428
+    }
+  },
+  "timings": {
+    "component_load_seconds": 3.409989000065252,
+    "eager_inference_seconds": 0.11689258296974003
+  },
+  "memory": {
+    "rss_before_component_load_bytes": 411680768,
+    "rss_after_component_load_bytes": 1096515584,
+    "rss_after_eager_inference_bytes": 1108918272
+  },
+  "selective_weight_prefixes": [
+    "depth_linear.",
+    "depthformer.",
+    "depth_embeddings.",
+    "audio_embedding."
+  ],
+  "export": {
+    "status": "passed",
+    "format": "torch.export pt2",
+    "artifact": "<workspace>/work/lfm-feasibility/exports/depth_decoder_hidden1x2048.pt2",
+    "artifact_bytes": 776869068,
+    "export_seconds": 2.2677576660644263,
+    "exported_vs_eager": {
+      "tokens_equal": true,
+      "next_audio_embedding": {
+        "max_abs": 0.0,
+        "mean_abs": 0.0
+      }
+    }
+  },
+  "status": "passed"
+}

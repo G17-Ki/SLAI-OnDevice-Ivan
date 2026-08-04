@@ -1,0 +1,23 @@
+{
+  "model": "LiquidAI/LFM2.5-Audio-1.5B-GGUF",
+  "revision": "7d525f883a077e20afb782f2ff618edcae0e39e4",
+  "quantization": "Q4_0",
+  "hardware": "Apple M2",
+  "input_audio": "liquid-audio/assets/question.wav",
+  "input_audio_seconds": 4.904,
+  "task": "ASR",
+  "generated_text": "Can you help me come up with a slogan for my woodworking site business?",
+  "audio_encode_ms": 227,
+  "audio_feature_decode_ms": 51,
+  "prompt_tokens_per_second": 183.68,
+  "generation_tokens_per_second": 96.2,
+  "reported_text_tokens_per_second": 101.9,
+  "projected_device_memory_mib": 849,
+  "status": "passed",
+  "metal_fallback_hotspots": [
+    "CONV_2D_DW",
+    "ROLL",
+    "UNARY"
+  ],
+  "notes": "Quantized smoke test only. It is not the BF16 component golden reference."
+}

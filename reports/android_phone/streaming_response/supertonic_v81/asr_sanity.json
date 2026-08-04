@@ -1,0 +1,90 @@
+{
+  "language": "en",
+  "fixed_locale": true,
+  "num_threads": 2,
+  "load_s": 0.788328000002366,
+  "rss_before_bytes": 36782080,
+  "rss_after_load_bytes": 425869312,
+  "incremental_rss_bytes": 389087232,
+  "observed_peak_rss_bytes": 432914432,
+  "results": [
+    {
+      "id": "supertonic_local_dynamic_31",
+      "kind": "dynamic_local_reference",
+      "language": "en",
+      "audio_path": "reports/android_phone/streaming_response/supertonic_v81/local_dynamic_trimmed.wav",
+      "reference": "It is Paris, in France.",
+      "transcript": "It is Paris in France.",
+      "audio_duration_s": 2.1275625,
+      "decode_s": 0.5299982079995971,
+      "inference_s": 0.06570691600063583,
+      "rtf": 0.030883659587267513,
+      "errors": {
+        "normalized_reference_words": "it is paris in france",
+        "normalized_hypothesis_words": "it is paris in france",
+        "normalized_reference_chars": "itisparisinfrance",
+        "normalized_hypothesis_chars": "itisparisinfrance",
+        "word_edits": 0,
+        "reference_words": 5,
+        "wer": 0.0,
+        "char_edits": 0,
+        "reference_chars": 17,
+        "cer": 0.0,
+        "primary_metric": "wer",
+        "primary_error_rate": 0.0
+      }
+    },
+    {
+      "id": "supertonic_local_fixed_32",
+      "kind": "fixed_shape_local_reference",
+      "language": "en",
+      "audio_path": "reports/android_phone/streaming_response/supertonic_v81/local_fixed_trimmed.wav",
+      "reference": "It is Paris, in France.",
+      "transcript": "It is Paris in France.",
+      "audio_duration_s": 2.1275625,
+      "decode_s": 0.06464341600076295,
+      "inference_s": 0.059174625002924586,
+      "rtf": 0.02781334273513685,
+      "errors": {
+        "normalized_reference_words": "it is paris in france",
+        "normalized_hypothesis_words": "it is paris in france",
+        "normalized_reference_chars": "itisparisinfrance",
+        "normalized_hypothesis_chars": "itisparisinfrance",
+        "word_edits": 0,
+        "reference_words": 5,
+        "wer": 0.0,
+        "char_edits": 0,
+        "reference_chars": 17,
+        "cer": 0.0,
+        "primary_metric": "wer",
+        "primary_error_rate": 0.0
+      }
+    },
+    {
+      "id": "supertonic_remote_fixed_32",
+      "kind": "accumulated_aihub_chain",
+      "language": "en",
+      "audio_path": "reports/android_phone/streaming_response/supertonic_v81/remote_chain/remote_fixed_trimmed.wav",
+      "reference": "It is Paris, in France.",
+      "transcript": "It is Paris in France.",
+      "audio_duration_s": 2.1275625,
+      "decode_s": 0.06656154200027231,
+      "inference_s": 0.08666412499951548,
+      "rtf": 0.04073399723839628,
+      "errors": {
+        "normalized_reference_words": "it is paris in france",
+        "normalized_hypothesis_words": "it is paris in france",
+        "normalized_reference_chars": "itisparisinfrance",
+        "normalized_hypothesis_chars": "itisparisinfrance",
+        "word_edits": 0,
+        "reference_words": 5,
+        "wer": 0.0,
+        "char_edits": 0,
+        "reference_chars": 17,
+        "cer": 0.0,
+        "primary_metric": "wer",
+        "primary_error_rate": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+configuration,runtime_args,condition,samples,failures,audio_seconds,wer_percent,mean_first_text_ms,median_total_ms,vmhwm_mib
+memory_gate_ub32,-c 512 --no-repack -b 128 -ub 32,clean,18,0,178.68499999999997,3.5714285714285716,1837.9959330583613,2096.964937634766,1309.84375
+memory_gate_ub32,-c 512 --no-repack -b 128 -ub 32,gaussian_10db,18,0,178.68499999999997,7.142857142857143,2148.1448703755937,2541.935479734093,1309.84375
+memory_gate_ub32,-c 512 --no-repack -b 128 -ub 32,competing_speech_5db,18,0,178.68499999999997,55.714285714285715,2162.3476088409207,2613.467938033864,1309.84375

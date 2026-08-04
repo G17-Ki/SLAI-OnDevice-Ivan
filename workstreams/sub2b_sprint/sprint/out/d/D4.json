@@ -1,0 +1,449 @@
+{
+  "schema_version": 1,
+  "sprint_id": "D4",
+  "status": "COMPLETE",
+  "title": "Matcha ZH CPU re-acceptance and first-chunk timing",
+  "headline": {
+    "verdict": "HOST_ROUTE_FUNCTIONAL_COMMERCIAL_SHIP_BLOCKED",
+    "canonical_text": "北京是中国的首都。",
+    "canonical_first_chunk_ms": {
+      "n": 10,
+      "median": 181.919,
+      "p95": 296.435,
+      "evidence_class": "HOST"
+    },
+    "all_case_first_chunk_ms": {
+      "n": 70,
+      "median": 234.608,
+      "p95": 518.899,
+      "evidence_class": "HOST"
+    },
+    "all_case_rtf": {
+      "n": 70,
+      "median": 0.101239,
+      "p95": 0.1888,
+      "evidence_class": "HOST"
+    },
+    "measured_pcm_finite": true,
+    "minimal_route_bytes": {
+      "value": 131104197,
+      "mib": 125.031,
+      "evidence_class": "EXACT"
+    }
+  },
+  "route": {
+    "engine": "Matcha Baker acoustic model + Vocos 22.05 kHz universal vocoder",
+    "runtime": "sherpa-onnx OfflineTts",
+    "provider": "cpu",
+    "num_threads": 2,
+    "max_num_sentences": 1,
+    "speed": 1.0,
+    "rule_fsts": [
+      "phone.fst",
+      "date.fst",
+      "number.fst"
+    ],
+    "minimal_required_files": [
+      "model/matcha-icefall-zh-baker/model-steps-3.onnx",
+      "model/vocos-22khz-univ.onnx",
+      "model/matcha-icefall-zh-baker/lexicon.txt",
+      "model/matcha-icefall-zh-baker/tokens.txt",
+      "model/matcha-icefall-zh-baker/phone.fst",
+      "model/matcha-icefall-zh-baker/date.fst",
+      "model/matcha-icefall-zh-baker/number.fst"
+    ],
+    "minimal_required_bytes": 131104197,
+    "dict_dir_supplied": false,
+    "dict_dir_basis": "sherpa-onnx 1.13.4 declares OfflineTtsMatchaModelConfig.dict_dir unused",
+    "acoustic": {
+      "path": "model/matcha-icefall-zh-baker/model-steps-3.onnx",
+      "bytes": 75624611,
+      "sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd"
+    },
+    "vocoder": {
+      "path": "model/vocos-22khz-univ.onnx",
+      "bytes": 53884024,
+      "sha256": "0574a135aa1db2de6e181050db2ec528496cacd4a4701fc5d7faf9f9804c0081"
+    }
+  },
+  "runtime_and_host": {
+    "evidence_class": "HOST",
+    "host": {
+      "platform": "macOS-15.4.1-arm64-arm-64bit",
+      "machine": "arm64",
+      "cpu": "Apple M2",
+      "logical_cpu": 8,
+      "physical_cpu": 8,
+      "python": "3.11.11",
+      "sherpa_onnx": "1.13.4",
+      "thread_environment": {
+        "OMP_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "VECLIB_MAXIMUM_THREADS": "2",
+        "NUMEXPR_NUM_THREADS": "2"
+      },
+      "rss_before_load_bytes": 46628864,
+      "rss_after_load_bytes": 279511040,
+      "incremental_rss_after_load_bytes": 232882176,
+      "rss_after_all_runs_bytes": 244940800,
+      "load_average_1m_5m_15m_before_load": [
+        4.7412109375,
+        6.22265625,
+        5.9453125
+      ],
+      "load_average_1m_5m_15m_before_measured": [
+        4.921875,
+        6.2353515625,
+        5.951171875
+      ],
+      "load_average_1m_5m_15m_after_measured": [
+        5.158203125,
+        6.13916015625,
+        5.927734375
+      ],
+      "thermal_status_after_run": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "model_load_wall_time_s": 1.572106417,
+    "run_started_utc": "2026-08-02T05:08:17Z",
+    "run_finished_utc": "2026-08-02T05:08:59Z",
+    "git_head": "a6e0cbaf39db9d9d4d2e836d2953a2afaa8662c7"
+  },
+  "methodology": {
+    "clock": "time.perf_counter_ns monotonic wall clock",
+    "warmup_runs": 3,
+    "measured_repeats_per_case": 10,
+    "measured_case_count": 7,
+    "measured_run_count": 70,
+    "first_chunk_definition": "elapsed synthesis-call time until sherpa-onnx invokes its first PCM callback; with max_num_sentences=1 this is the first internally segmented sentence batch",
+    "rtf_definition": "total synthesis wall time divided by returned PCM duration",
+    "timed_region_excludes": [
+      "model load",
+      "WAV serialization",
+      "SHA-256 hashing",
+      "summary construction",
+      "sound-device playback"
+    ],
+    "safety_duration_bounds_s": [
+      0.15,
+      5.0
+    ],
+    "safety_rms_floor": 0.005,
+    "safety_clip_fraction_ceiling": 0.001,
+    "safety_clip_level_abs": 0.999
+  },
+  "timing_by_case": [
+    {
+      "case_id": "zh_micro_ack",
+      "text": "好的。",
+      "kind": "streaming_floor",
+      "n": 10,
+      "first_chunk_ms_median": 99.295,
+      "first_chunk_ms_p95": 168.11,
+      "rtf_median": 0.166563,
+      "rtf_p95": 0.28324,
+      "audio_duration_s_median": 0.593107,
+      "callback_count_median": 1.0,
+      "all_pcm_finite": true,
+      "evidence_class": "HOST"
+    },
+    {
+      "case_id": "zh_short_clause",
+      "text": "北京是中国的首都。",
+      "kind": "canonical_first_chunk",
+      "n": 10,
+      "first_chunk_ms_median": 181.919,
+      "first_chunk_ms_p95": 296.435,
+      "rtf_median": 0.105742,
+      "rtf_p95": 0.173206,
+      "audio_duration_s_median": 1.718435,
+      "callback_count_median": 1.0,
+      "all_pcm_finite": true,
+      "evidence_class": "HOST"
+    },
+    {
+      "case_id": "zh_answer_short",
+      "text": "北京是中国的首都，也是全国的政治和文化中心。",
+      "kind": "answer",
+      "n": 10,
+      "first_chunk_ms_median": 178.574,
+      "first_chunk_ms_p95": 222.999,
+      "rtf_median": 0.105086,
+      "rtf_p95": 0.145598,
+      "audio_duration_s_median": 4.157664,
+      "callback_count_median": 2.0,
+      "all_pcm_finite": true,
+      "evidence_class": "HOST"
+    },
+    {
+      "case_id": "zh_answer_medium",
+      "text": "今天下午天气晴朗，气温大约二十四度，出门不需要带伞。",
+      "kind": "answer",
+      "n": 10,
+      "first_chunk_ms_median": 186.367,
+      "first_chunk_ms_p95": 351.122,
+      "rtf_median": 0.102195,
+      "rtf_p95": 0.145175,
+      "audio_duration_s_median": 5.436485,
+      "callback_count_median": 3.0,
+      "all_pcm_finite": true,
+      "evidence_class": "HOST"
+    },
+    {
+      "case_id": "zh_numbers",
+      "text": "会议安排在二零二六年七月二十六日下午三点十五分。",
+      "kind": "normalization",
+      "n": 10,
+      "first_chunk_ms_median": 408.995,
+      "first_chunk_ms_p95": 512.287,
+      "rtf_median": 0.085794,
+      "rtf_p95": 0.108025,
+      "audio_duration_s_median": 4.750023,
+      "callback_count_median": 1.0,
+      "all_pcm_finite": true,
+      "evidence_class": "HOST"
+    },
+    {
+      "case_id": "zh_question",
+      "text": "你想让我把这段话翻译成英文吗？",
+      "kind": "prosody",
+      "n": 10,
+      "first_chunk_ms_median": 268.084,
+      "first_chunk_ms_p95": 654.458,
+      "rtf_median": 0.096159,
+      "rtf_p95": 0.234896,
+      "audio_duration_s_median": 2.785669,
+      "callback_count_median": 1.0,
+      "all_pcm_finite": true,
+      "evidence_class": "HOST"
+    },
+    {
+      "case_id": "zh_answer_long",
+      "text": "光合作用是植物把光能转换成化学能的过程。叶绿体吸收阳光，并利用水和二氧化碳合成葡萄糖。这个过程同时释放氧气，供其他生物呼吸使用。因此光合作用是地球上大多数生态系统的能量基础。",
+      "kind": "multi_sentence",
+      "n": 10,
+      "first_chunk_ms_median": 348.889,
+      "first_chunk_ms_p95": 599.938,
+      "rtf_median": 0.088864,
+      "rtf_p95": 0.148067,
+      "audio_duration_s_median": 17.400544,
+      "callback_count_median": 6.0,
+      "all_pcm_finite": true,
+      "evidence_class": "HOST"
+    }
+  ],
+  "short_input_safety": {
+    "overall_verdict": "PASS_HOST",
+    "run_count": 9,
+    "passed_count": 9,
+    "hard_fail_count": 0,
+    "cases": [
+      {
+        "case_id": "han_1",
+        "text": "好",
+        "han_characters": 1,
+        "run_count": 3,
+        "pass_count": 3,
+        "verdict": "PASS_HOST",
+        "finite_pass_count": 3,
+        "nonempty_pass_count": 3,
+        "nonsilent_pass_count": 3,
+        "nonclipped_pass_count": 3,
+        "plausible_duration_pass_count": 3,
+        "duration_s": {
+          "min": 0.361361,
+          "median": 0.364444,
+          "max": 0.366077
+        },
+        "rms_min": 0.065109,
+        "peak_abs_max": 0.400564,
+        "clip_fraction_max": 0.0,
+        "nonfinite_count_total": 0,
+        "evidence_class": "HOST"
+      },
+      {
+        "case_id": "han_2",
+        "text": "好的",
+        "han_characters": 2,
+        "run_count": 3,
+        "pass_count": 3,
+        "verdict": "PASS_HOST",
+        "finite_pass_count": 3,
+        "nonempty_pass_count": 3,
+        "nonsilent_pass_count": 3,
+        "nonclipped_pass_count": 3,
+        "plausible_duration_pass_count": 3,
+        "duration_s": {
+          "min": 0.449252,
+          "median": 0.449524,
+          "max": 0.452154
+        },
+        "rms_min": 0.059679,
+        "peak_abs_max": 0.480879,
+        "clip_fraction_max": 0.0,
+        "nonfinite_count_total": 0,
+        "evidence_class": "HOST"
+      },
+      {
+        "case_id": "han_3",
+        "text": "没问题",
+        "han_characters": 3,
+        "run_count": 3,
+        "pass_count": 3,
+        "verdict": "PASS_HOST",
+        "finite_pass_count": 3,
+        "nonempty_pass_count": 3,
+        "nonsilent_pass_count": 3,
+        "nonclipped_pass_count": 3,
+        "plausible_duration_pass_count": 3,
+        "duration_s": {
+          "min": 0.787846,
+          "median": 0.787846,
+          "max": 0.790431
+        },
+        "rms_min": 0.064518,
+        "peak_abs_max": 0.491786,
+        "clip_fraction_max": 0.0,
+        "nonfinite_count_total": 0,
+        "evidence_class": "HOST"
+      }
+    ],
+    "integration_result": "artifacts/matcha/matcha_d3_results.json"
+  },
+  "non_comparability": {
+    "prior_phone_anchor": {
+      "standalone_end_to_speaker_ms": 118,
+      "rtf": 0.055,
+      "backcheck_cer": 0.048,
+      "evidence_class": "PRIOR",
+      "venue": "phone"
+    },
+    "comparison_permitted": false,
+    "reason": "The present HOST first-chunk boundary is the first PCM callback and excludes sound-device playback. Hardware, runtime build, operating load, and metric boundary differ from the prior phone end-to-speaker record; no delta or speedup is computed."
+  },
+  "provenance_and_licensing": {
+    "acoustic_model": {
+      "repo": "csukuangfj/matcha-icefall-zh-baker",
+      "revision": "75e64a57a80fb370abb18a4e4d86bb090ed46e93",
+      "file": "model-steps-3.onnx",
+      "bytes": 75624611,
+      "sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+      "embedded_metadata": {
+        "model_type": "matcha-tts",
+        "language": "Chinese",
+        "has_espeak": "0",
+        "n_speakers": "1",
+        "jieba": "1",
+        "sample_rate": "22050",
+        "version": "1",
+        "pad_id": "1",
+        "model_author": "icefall",
+        "maintainer": "k2-fsa",
+        "dataset": "baker-zh",
+        "use_eos_bos": "0",
+        "dataset_url": "https://www.data-baker.com/open_source.html",
+        "dataset_comment": "The dataset is for non-commercial use only.",
+        "num_ode_steps": "3"
+      },
+      "repository_license_tags": [],
+      "repository_license_files": [],
+      "weight_license": "ABSENT/UNKNOWN",
+      "weight_license_evidence_class": "EXACT",
+      "disposition": "Do not infer a weight grant from Matcha/icefall code licences; the exact model repository has no licence tag and no LICENSE file."
+    },
+    "training_corpus": {
+      "name": "DataBaker Chinese Mandarin Female Corpus (10,000 sentences, about 12 h)",
+      "owner_quote": "Non-commercial use only.",
+      "owner_contact": "Fbd-data@data-baker.com",
+      "commercial_use": "NON_COMMERCIAL_ONLY",
+      "evidence_class": "EXACT",
+      "commercial_ship_disposition": "BLOCKED_PENDING_WRITTEN_RIGHTS_OR_REPLACEMENT"
+    },
+    "vocoder": {
+      "release_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos-22khz-univ.onnx",
+      "release_created_at": "2025-03-17T01:05:03Z",
+      "release_bytes": 53884024,
+      "sha256": "0574a135aa1db2de6e181050db2ec528496cacd4a4701fc5d7faf9f9804c0081",
+      "upstream_repo": "BSC-LT/vocos-mel-22khz",
+      "upstream_revision": "b4b331d85370cdd94c644b5d1922a27a0b219c15",
+      "upstream_weight_license": "apache-2.0",
+      "upstream_training_datasets": [
+        "projecte-aina/festcat_trimmed_denoised",
+        "projecte-aina/openslr-slr69-ca-trimmed-denoised",
+        "lj_speech",
+        "blabble-io/libritts_r"
+      ],
+      "sherpa_change": "metadata replacement only, then ONNX save",
+      "runtime_license": "Apache-2.0",
+      "evidence_class": "EXACT"
+    }
+  },
+  "commercial_replacement_cost": {
+    "direct_commercial_license": {
+      "option": "Negotiate commercial rights for the Baker corpus/checkpoint chain",
+      "price": null,
+      "evidence_class": "UNKNOWN",
+      "basis": "The corpus owner publishes no commercial price. The page says 'Non-commercial use only.' and gives Fbd-data@data-baker.com for questions."
+    },
+    "new_clean_voice": {
+      "option": "Replace Baker with a newly recorded, commercially cleared Mandarin voice",
+      "studio_speech_hours": {
+        "low": 10,
+        "high": 20,
+        "evidence_class": "PROJECTED"
+      },
+      "recording_usd": {
+        "low": 3000,
+        "high": 15000,
+        "evidence_class": "PROJECTED"
+      },
+      "gpu_hours": {
+        "low": 24,
+        "high": 72,
+        "evidence_class": "PROJECTED"
+      },
+      "gpu_usd": {
+        "low": 75,
+        "high": 250,
+        "evidence_class": "PROJECTED"
+      },
+      "known_cash_subtotal_usd": {
+        "low": 3075,
+        "high": 15250,
+        "evidence_class": "PROJECTED",
+        "excludes": [
+          "engineering",
+          "data cleaning and labeling",
+          "speaker/recording rights review",
+          "evaluation and native review",
+          "commercial corpus licence if third-party data is used"
+        ]
+      },
+      "basis": "Internal programme estimate included as contingency context only. No training was run in this sprint."
+    }
+  },
+  "warnings_and_limits": [
+    "The runtime logged four 'Unknown token: shei2' messages while loading the supplied lexicon; the token is absent from tokens.txt. None of the timed or short-safety inputs used that reading, so its pronunciation remains unverified.",
+    "This is a HOST point measurement on a non-idle Mac; load averages are preserved with the result.",
+    "No phone, sound-device playback, ASR backcheck, listening panel, training, export, or quantization was performed for D4.",
+    "A finite-PCM pass is not a naturalness or intelligibility verdict."
+  ],
+  "artifacts": {
+    "raw_benchmark": "artifacts/matcha/raw/matcha_host_benchmark.json",
+    "repeat_clean_run": "artifacts/matcha/raw/matcha_host_benchmark_run2_dict_ignored.json",
+    "preliminary_contended_run": "artifacts/matcha/raw/matcha_host_benchmark_run1_contended.json",
+    "onnx_metadata": "artifacts/matcha/raw/onnx_metadata.json",
+    "source_manifest": "artifacts/matcha/raw/source_manifest.json",
+    "reproduction_script": "artifacts/matcha/run_matcha_benchmark.py",
+    "environment_python": "artifacts/matcha/venv/bin/python",
+    "audio_examples": [
+      "artifacts/matcha/audio/zh_matcha_d4_zh_answer_long.wav",
+      "artifacts/matcha/audio/zh_matcha_d4_zh_answer_medium.wav",
+      "artifacts/matcha/audio/zh_matcha_d4_zh_answer_short.wav",
+      "artifacts/matcha/audio/zh_matcha_d4_zh_micro_ack.wav",
+      "artifacts/matcha/audio/zh_matcha_d4_zh_numbers.wav",
+      "artifacts/matcha/audio/zh_matcha_d4_zh_question.wav",
+      "artifacts/matcha/audio/zh_matcha_d4_zh_short_clause.wav"
+    ]
+  }
+}

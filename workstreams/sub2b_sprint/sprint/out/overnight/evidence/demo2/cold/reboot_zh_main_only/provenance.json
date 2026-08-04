@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "demo": "DEMO 2 - IT'S GOOD",
+  "run_scope": "cold reboot, main-app-only launch, explicit Mandarin",
+  "boot": {
+    "airplane_mode_on": true,
+    "adb_forward_list_before_reboot": [],
+    "adb_forward_list_after_boot": [],
+    "main_pid_before_launch": null,
+    "runtime_pid_before_launch": null,
+    "only_explicit_launch": "ai.liquid.lfmdemo/.MainActivity",
+    "runtime_started_by_main_app_binding": true,
+    "main_pid_after_launch": 10454,
+    "runtime_pid_after_launch": 10584
+  },
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "soc": "Snapdragon SM8850",
+    "android": 16
+  },
+  "packages": {
+    "main": {
+      "package": "ai.liquid.lfmdemo",
+      "uid": 10538,
+      "version": "0.6.0-unplugged",
+      "installed_apk_bytes": 20060774,
+      "installed_apk_sha256": "143b96888005ed42ac97a07d281f76fa831d293ccaf7c0f2f11e19b5af5cb3f0"
+    },
+    "runtime": {
+      "package": "ai.liquid.lfmdemo.runtime",
+      "uid": 10514,
+      "version": "0.1.0-unplugged-runtime",
+      "installed_apk_bytes": 121215600,
+      "installed_apk_sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "runtime_artifacts": {
+    "qnn_version": "2.40.0.251030",
+    "sensevoice_context_sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30",
+    "sensevoice_tokens_sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+    "qwen2_5_1_5b_q4_k_m_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "qnn_native_libraries": {
+      "libQnnHtp.so": "328cf737ca8942c2dde5c6f3e32a113378df2750afb9af1aafdd1775bef59875",
+      "libQnnHtpPrepare.so": "05cfaff3c2180d7d9006320c16579c5869c2261ba5f891bcaab172ced21c266c",
+      "libQnnHtpV81Skel.so": "2dff3367e70920742e8122cdbebfe4d5f9aa1d88d863a200b663842551d2b6f0",
+      "libQnnHtpV81Stub.so": "0fccba2bd6b66d3e5ac32381cfbf5b10b80088055ff6dab712ce99633e3bc8c9",
+      "libQnnSystem.so": "2d42b6bb2710155fa963ee623ce3c320f8a9896b9cfd8dcc25506affb41ab8ab"
+    },
+    "main_apk_contains_libQnn_members": false,
+    "runner_log_names_one_qnn_provider_set": true
+  },
+  "execution_health_after_turn": {
+    "sensevoice_ready": true,
+    "sensevoice_execution_verified": true,
+    "sensevoice_provider": "qnn",
+    "sensevoice_processor": "htp_v81",
+    "sensevoice_execution_state": "passed",
+    "service_uid": 10514,
+    "last_runner_uid": 10514,
+    "runner_owned_by_service": true,
+    "overall_complete": false,
+    "overall_complete_note": "The unused Russian CPU backend remained untested after reboot; the Demo 2 SenseVoice backend was ready and execution-verified."
+  },
+  "configuration": {
+    "mode": "tts",
+    "ui_label": "Offline voice",
+    "selected_language": "zh",
+    "tts_policy": "matcha_zh_baker",
+    "memory_enabled": false,
+    "fixture_sha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63"
+  },
+  "result": {
+    "completed_turns": 1,
+    "asr_transcript": "请用中文简单介绍一下北京。",
+    "npu_selected": true,
+    "npu_executed": true,
+    "first_text_ms": 1800.3051030000206,
+    "first_audio_start_proxy_ms": 2651.683332000044,
+    "under_3000_ms": true,
+    "tts_first_chunk_ms": 258,
+    "tts_rtf": 0.114559080648017,
+    "dropped_chunks": 0,
+    "playback_underflows": 0,
+    "playback_status": "completed"
+  },
+  "evidence_sha256": {
+    "telemetry.jsonl": "af5cf5346d86acf7ef80013b37187030cbad08f6d3c40e96caefe2c190967191",
+    "summary.json": "09549066555b1f2357bd7836d6b5eb044f9ded4630de739b0e46094c76ac4459",
+    "REPORT.md": "b00825f29f7c4237356d41f66c64243a88e4e7bebfae79d1d6e883aef03a5dfa",
+    "health_http.txt": "03628b712c704c02885e811fef000b4ab7eef4c863f19ebba9c96439bddd3512",
+    "qnn_runner.stdout.txt": "8113e680156605c9582ea5713de5879bef3382793a16ce67ee71296c4569f81b",
+    "qnn_runner.stderr.txt": "fae7f42e959619de99bd69ca0424fa09aec587f9f5faa863c95f814cbfed6efe"
+  },
+  "claim_boundary": "This cold run proves the current installed performance stack and version-matched SenseVoice QNN execution after main-app-only launch. The installed main APK still starts/ships the LFM laboratory stack, so this evidence does not by itself prove the final complete-inventory <3B claim; that requires the separately built no-LFM APK and phone inventory pruning. First audio remains a software proxy, not acoustic onset."
+}

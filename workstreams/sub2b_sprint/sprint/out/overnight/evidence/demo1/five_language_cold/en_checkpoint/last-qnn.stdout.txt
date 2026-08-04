@@ -1,0 +1,4 @@
+     0.0ms [WARN   ] QnnDsp <W> Initializing HtpProvider
+     0.0ms [WARN   ] QnnDsp <W> m_CFBCallbackInfoObj is not initialized, return emptyList
+{"lang": "<|en|>", "emotion": "<|EMO_UNKNOWN|>", "event": "<|Speech|>", "text": "What is the capital of France, answer in one short sentence?", "timestamps": [0.06, 0.18, 0.30, 0.48, 0.84, 1.02, 1.38, 1.62, 2.04, 2.16, 2.40, 2.76, 9.90], "durations": [], "tokens":["What", " is", " the", " capital", " of", " France", ",", " answer", " in", " one", " short", " sentence", "?"], "ys_log_probs": [], "words": []}
+     0.0ms [WARN   ] QnnDsp <W> m_CFBCallbackInfoObj is not initialized, return emptyList

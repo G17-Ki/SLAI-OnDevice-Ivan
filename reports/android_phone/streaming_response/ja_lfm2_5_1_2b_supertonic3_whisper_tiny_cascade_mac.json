@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T11:20:15.636540+00:00",
+  "evidence_class": "Apple Silicon architecture experiment; not phone/NPU/glasses",
+  "settings": {
+    "audio": "ja_request.wav",
+    "asr_backend": "faster-whisper",
+    "asr_url": "http://127.0.0.1:8080/v1/chat/completions",
+    "whisper_model": "tiny",
+    "whisper_compute_type": "int8",
+    "asr_load_ms": 1884.6841249614954,
+    "llm_url": "http://127.0.0.1:8083/v1/chat/completions",
+    "llm_model": "LFM2.5-1.2B-Instruct-Q4_0",
+    "tts_model": "sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+    "language": "ja",
+    "threads": 2,
+    "steps": 4,
+    "speaker": 6,
+    "speed": 1.05,
+    "flush_chars": 64,
+    "playback_cushion_ms": 140.0,
+    "tts_load_ms": 503.6304579116404,
+    "warmups": 1,
+    "runs": 3
+  },
+  "summary": {
+    "asr_first_text": {
+      "min": 286.74416709691286,
+      "median": 288.1524171680212,
+      "p95": 324.8929590918124,
+      "max": 324.8929590918124,
+      "mean": 299.9298477855821
+    },
+    "asr_complete": {
+      "min": 286.83370910584927,
+      "median": 288.29912515357137,
+      "p95": 324.9539169482887,
+      "max": 324.9539169482887,
+      "mean": 300.02891706923646
+    },
+    "llm_first_token_from_llm_start": {
+      "min": 38.306749891489744,
+      "median": 38.94424997270107,
+      "p95": 43.04466722533107,
+      "max": 43.04466722533107,
+      "mean": 40.0985556965073
+    },
+    "llm_first_visible_from_llm_start": {
+      "min": 38.306749891489744,
+      "median": 38.94424997270107,
+      "p95": 43.04466722533107,
+      "max": 43.04466722533107,
+      "mean": 40.0985556965073
+    },
+    "first_chunk_ready_from_llm_start": {
+      "min": 151.6081248410046,
+      "median": 152.1184160374105,
+      "p95": 160.4569172486663,
+      "max": 160.4569172486663,
+      "mean": 154.7278193756938
+    },
+    "llm_complete_from_llm_start": {
+      "min": 162.796791177243,
+      "median": 162.92833304032683,
+      "p95": 171.56433314085007,
+      "max": 171.56433314085007,
+      "mean": 165.76315245280662
+    },
+    "tts_first_callback_from_tts_start": {
+      "min": 411.47891571745276,
+      "median": 412.69908426329494,
+      "p95": 561.877999920398,
+      "max": 561.877999920398,
+      "mean": 462.0186666337152
+    },
+    "tts_complete_from_tts_start": {
+      "min": 411.59041598439217,
+      "median": 412.8452502191067,
+      "p95": 562.0428333058953,
+      "max": 562.0428333058953,
+      "mean": 462.1594998364647
+    },
+    "pipeline_first_pcm": {
+      "min": 851.6418747603893,
+      "median": 889.9370841681957,
+      "p95": 1009.6632917411625,
+      "max": 1009.6632917411625,
+      "mean": 917.0807502232492
+    },
+    "pipeline_first_audible_scheduled": {
+      "min": 991.6418748907745,
+      "median": 1029.9370842985809,
+      "p95": 1149.6632918715477,
+      "max": 1149.6632918715477,
+      "mean": 1057.0807503536344
+    },
+    "pipeline_complete": {
+      "min": 855.3356667980552,
+      "median": 894.0621251240373,
+      "p95": 1015.0514170527458,
+      "max": 1015.0514170527458,
+      "mean": 921.4830696582794
+    }
+  },
+  "runs": [
+    {
+      "run_index": 0,
+      "measured": false,
+      "transcript": "フランスの1をパナクスカ",
+      "asr_detected_language": "ja",
+      "asr_language_probability": 1.0,
+      "response": "パナクスカはフランスの1を表します。",
+      "first_tts_chunk": "パナクスカはフランスの1を表します。",
+      "timing_ms": {
+        "asr_first_text": 257.6511250808835,
+        "asr_complete": 257.67154106870294,
+        "llm_first_token_from_llm_start": 147.2892090678215,
+        "llm_first_visible_from_llm_start": 147.2892090678215,
+        "first_chunk_ready_from_llm_start": 258.5160001181066,
+        "llm_complete_from_llm_start": 269.5188340730965,
+        "tts_first_callback_from_tts_start": 362.66141571104527,
+        "tts_complete_from_tts_start": 363.05362498387694,
+        "pipeline_first_pcm": 879.3067499063909,
+        "pipeline_first_audible_scheduled": 1019.3067500367761,
+        "pipeline_complete": 883.0313752405345
+      },
+      "tts_audio_seconds": 2.7447845804988664,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 1,
+      "measured": true,
+      "transcript": "フランスの1をパナクスカ",
+      "asr_detected_language": "ja",
+      "asr_language_probability": 1.0,
+      "response": "パナクスカはフランスの1を表します。",
+      "first_tts_chunk": "パナクスカはフランスの1を表します。",
+      "timing_ms": {
+        "asr_first_text": 324.8929590918124,
+        "asr_complete": 324.9539169482887,
+        "llm_first_token_from_llm_start": 38.94424997270107,
+        "llm_first_visible_from_llm_start": 38.94424997270107,
+        "first_chunk_ready_from_llm_start": 152.1184160374105,
+        "llm_complete_from_llm_start": 162.92833304032683,
+        "tts_first_callback_from_tts_start": 412.69908426329494,
+        "tts_complete_from_tts_start": 412.8452502191067,
+        "pipeline_first_pcm": 889.9370841681957,
+        "pipeline_first_audible_scheduled": 1029.9370842985809,
+        "pipeline_complete": 894.0621251240373
+      },
+      "tts_audio_seconds": 2.7447845804988664,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 2,
+      "measured": true,
+      "transcript": "フランスの1をパナクスカ",
+      "asr_detected_language": "ja",
+      "asr_language_probability": 1.0,
+      "response": "パナクスカはフランスの1を表します。",
+      "first_tts_chunk": "パナクスカはフランスの1を表します。",
+      "timing_ms": {
+        "asr_first_text": 288.1524171680212,
+        "asr_complete": 288.29912515357137,
+        "llm_first_token_from_llm_start": 38.306749891489744,
+        "llm_first_visible_from_llm_start": 38.306749891489744,
+        "first_chunk_ready_from_llm_start": 151.6081248410046,
+        "llm_complete_from_llm_start": 162.796791177243,
+        "tts_first_callback_from_tts_start": 411.47891571745276,
+        "tts_complete_from_tts_start": 411.59041598439217,
+        "pipeline_first_pcm": 851.6418747603893,
+        "pipeline_first_audible_scheduled": 991.6418748907745,
+        "pipeline_complete": 855.3356667980552
+      },
+      "tts_audio_seconds": 2.7447845804988664,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 3,
+      "measured": true,
+      "transcript": "フランスの1をパナクスカ",
+      "asr_detected_language": "ja",
+      "asr_language_probability": 1.0,
+      "response": "パナクスカはフランスの1を表します。",
+      "first_tts_chunk": "パナクスカはフランスの1を表します。",
+      "timing_ms": {
+        "asr_first_text": 286.74416709691286,
+        "asr_complete": 286.83370910584927,
+        "llm_first_token_from_llm_start": 43.04466722533107,
+        "llm_first_visible_from_llm_start": 43.04466722533107,
+        "first_chunk_ready_from_llm_start": 160.4569172486663,
+        "llm_complete_from_llm_start": 171.56433314085007,
+        "tts_first_callback_from_tts_start": 561.877999920398,
+        "tts_complete_from_tts_start": 562.0428333058953,
+        "pipeline_first_pcm": 1009.6632917411625,
+        "pipeline_first_audible_scheduled": 1149.6632918715477,
+        "pipeline_complete": 1015.0514170527458
+      },
+      "tts_audio_seconds": 2.7447845804988664,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    }
+  ]
+}

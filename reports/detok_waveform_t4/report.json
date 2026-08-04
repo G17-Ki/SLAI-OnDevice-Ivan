@@ -1,0 +1,20 @@
+{
+  "remote_outputs": "work/lfm-feasibility/aihub/int64-corrections-20260715t104753z/detokenizer-t4/outputs-strict-npu.npz",
+  "waveform_shape": [
+    1,
+    7680
+  ],
+  "waveform_seconds": 0.32,
+  "waveform": {
+    "cosine_similarity": 0.07374912689873629,
+    "rmse": 0.1393472914010095,
+    "golden_rms": 0.12460112501884474,
+    "normalized_rmse": 1.1183469762406602,
+    "si_sdr_db": -22.6211768775265,
+    "actual_peak_abs": 0.5510318279266357,
+    "golden_peak_abs": 0.8357918858528137
+  },
+  "wrapped_phase_mean_abs_radians": 1.4947980642318726,
+  "wrapped_phase_p95_abs_radians": 2.975292682647705,
+  "complex_spectrogram_normalized_rmse": 1.219816754072359
+}

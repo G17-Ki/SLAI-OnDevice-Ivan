@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "scope": "bounded Apple M2 CPU quality and streaming gate",
+  "provenance": {
+    "model_repo": "pfluo/k2fsa-zipformer-chinese-english-mixed",
+    "model_revision": "6eb615ae77ecac05c5628d5c8ed7037c14a338d5",
+    "model_url": "https://huggingface.co/pfluo/k2fsa-zipformer-chinese-english-mixed/tree/6eb615ae77ecac05c5628d5c8ed7037c14a338d5",
+    "dataset_repo": "argmaxinc/common_voice_17_0-debug-zip",
+    "dataset_revision": "e77e410d41a77f733efbaf7307bd0ff7ebd6d0af",
+    "dataset_url": "https://huggingface.co/datasets/argmaxinc/common_voice_17_0-debug-zip/tree/e77e410d41a77f733efbaf7307bd0ff7ebd6d0af",
+    "files": {
+      "encoder": {
+        "path": "<model_dir>/exp/encoder-epoch-99-avg-1.int8.onnx",
+        "bytes": 80530659,
+        "sha256": "e92df89d84ae5cb1571a2489c85d5d385c31fb8022892a240bd8c4c301b3ecc8"
+      },
+      "decoder": {
+        "path": "<model_dir>/exp/decoder-epoch-99-avg-1.onnx",
+        "bytes": 13876468,
+        "sha256": "d91b63c84f27f1d822244ced4cc2b9f7fb8a60a328f13b860408b8889dd0a0ed"
+      },
+      "joiner": {
+        "path": "<model_dir>/exp/joiner-epoch-99-avg-1.int8.onnx",
+        "bytes": 3259918,
+        "sha256": "16e901969495d5704a27a929e396a2ff9cc6fbfdeafdc6418e8c88b370113af6"
+      },
+      "tokens": {
+        "path": "<model_dir>/data/lang_char_bpe/tokens.txt",
+        "bytes": 56317,
+        "sha256": "a8e0e4ec53810e433789b54a5c0134a7eaa2ffca595a6334d54c00da858841d3"
+      },
+      "dataset_archive": {
+        "path": "<fixture_source>/debug.zip",
+        "bytes": 6880938,
+        "sha256": "4dc5cd3f2f65f0ede599dc778b893d25baa9efb97570d114bf6085ea86208c57"
+      },
+      "dataset_metadata": {
+        "path": "<fixture_source>/metadata.json",
+        "bytes": 63345,
+        "sha256": "826476a68f5f90d238bc72e894ff1dfe4a0233bc2c869d4573db3f5325627d70"
+      }
+    }
+  },
+  "environment": {
+    "platform": "macOS-15.4.1-arm64-arm-64bit",
+    "python": "3.11.11",
+    "sherpa_onnx": "1.13.4",
+    "numpy": "1.26.4",
+    "threads": 2,
+    "provider": "cpu",
+    "decoding_method": "greedy_search",
+    "ffmpeg_first_line": "ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers"
+  },
+  "method": {
+    "samples": "3 EN + 3 zh-CN clips selected from the existing pinned 21-clip Common Voice manifest",
+    "audio": "MP3 decoded before timing to mono PCM16 WAV at 16 kHz",
+    "warmup": "one untimed utterance",
+    "repeats_per_clip": 3,
+    "timed_region": "stream creation + waveform accept + 660 ms zero tail + input_finished + decode loop + result retrieval",
+    "streaming_probe": "one additional replay per clip, 100 ms PCM feed increments, decode immediately whenever ready; no sleeping",
+    "normalization": "Unicode NFKC; casefold; remove punctuation/symbols; WER for EN and CER for ZH"
+  },
+  "runtime": {
+    "model_load_ms": 922.1452500005398,
+    "post_load_rss_delta_mib": 282.296875,
+    "peak_incremental_rss_mib": 293.0,
+    "final_ms_median": 251.2995419992876,
+    "final_ms_p95": 348.1751892988541,
+    "rtf_median": 0.04273851806767337,
+    "rtf_p95": 0.048913336511128724
+  },
+  "quality": {
+    "en": {
+      "metric": "wer",
+      "edits": 10,
+      "denominator": 19,
+      "error_rate": 0.5263157894736842
+    },
+    "zh": {
+      "metric": "cer",
+      "edits": 25,
+      "denominator": 33,
+      "error_rate": 0.7575757575757576
+    }
+  },
+  "per_clip": [
+    {
+      "sample_id": "common_voice_en_21953345",
+      "language": "en",
+      "reference": "six",
+      "hypothesis": "",
+      "final_ms_median": 270.7842920008261,
+      "final_ms_p95": 283.6924295004792,
+      "first_nonempty_audio_fed_ms": null,
+      "first_partial": null
+    },
+    {
+      "sample_id": "common_voice_en_27710027",
+      "language": "en",
+      "reference": "Joe Keaton disapproved of films, and Buster also had reservations about the medium.",
+      "hypothesis": "KITAN DISAPPROVED OF FILMS AND BUSTER ALSO HAD PRESERVATIONS ABOUT THE MEDIA",
+      "final_ms_median": 271.20599999943806,
+      "final_ms_p95": 271.9937627996842,
+      "first_nonempty_audio_fed_ms": 2100.0,
+      "first_partial": "KITAN DIS"
+    },
+    {
+      "sample_id": "common_voice_en_699711",
+      "language": "en",
+      "reference": "She'll be all right.",
+      "hypothesis": "",
+      "final_ms_median": 78.03829200020118,
+      "final_ms_p95": 78.09874140020838,
+      "first_nonempty_audio_fed_ms": null,
+      "first_partial": null
+    },
+    {
+      "sample_id": "common_voice_zh-CN_22069600",
+      "language": "zh",
+      "reference": "宋朝末年年间定居粉岭围。",
+      "hypothesis": "",
+      "final_ms_median": 232.5094160005392,
+      "final_ms_p95": 232.76179219919868,
+      "first_nonempty_audio_fed_ms": null,
+      "first_partial": null
+    },
+    {
+      "sample_id": "common_voice_zh-CN_32269533",
+      "language": "zh",
+      "reference": "否",
+      "hypothesis": "",
+      "final_ms_median": 116.13575000046694,
+      "final_ms_p95": 116.6297753003164,
+      "first_nonempty_audio_fed_ms": null,
+      "first_partial": null
+    },
+    {
+      "sample_id": "common_voice_zh-CN_33411896",
+      "language": "zh",
+      "reference": "黑身准裂腹鱼为辐鳍鱼纲鲤形目鲤科的其中一种。",
+      "hypothesis": "准列负于为负几于刚离行木理科的其中一种",
+      "final_ms_median": 348.1427079987043,
+      "final_ms_p95": 348.33759579960315,
+      "first_nonempty_audio_fed_ms": 2100.0,
+      "first_partial": "准"
+    }
+  ],
+  "runs": [
+    {
+      "sample_id": "common_voice_en_21953345",
+      "language": "en",
+      "repeat_index": 0,
+      "duration_s": 6.576,
+      "reference": "six",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 3,
+      "reference_chars": 3,
+      "final_ms": 270.7842920008261,
+      "rtf": 0.04117765997579473,
+      "decode_calls": 7
+    },
+    {
+      "sample_id": "common_voice_en_21953345",
+      "language": "en",
+      "repeat_index": 1,
+      "duration_s": 6.576,
+      "reference": "six",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 3,
+      "reference_chars": 3,
+      "final_ms": 285.12666700044065,
+      "rtf": 0.04335867807184317,
+      "decode_calls": 7
+    },
+    {
+      "sample_id": "common_voice_en_21953345",
+      "language": "en",
+      "repeat_index": 2,
+      "duration_s": 6.576,
+      "reference": "six",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 3,
+      "reference_chars": 3,
+      "final_ms": 269.8092499995255,
+      "rtf": 0.04102938716537797,
+      "decode_calls": 7
+    },
+    {
+      "sample_id": "common_voice_en_27710027",
+      "language": "en",
+      "repeat_index": 0,
+      "duration_s": 6.3,
+      "reference": "Joe Keaton disapproved of films, and Buster also had reservations about the medium.",
+      "hypothesis": "KITAN DISAPPROVED OF FILMS AND BUSTER ALSO HAD PRESERVATIONS ABOUT THE MEDIA",
+      "word_edits": 4,
+      "reference_words": 13,
+      "char_edits": 9,
+      "reference_chars": 69,
+      "final_ms": 272.08129199971154,
+      "rtf": 0.04318750666662088,
+      "decode_calls": 7
+    },
+    {
+      "sample_id": "common_voice_en_27710027",
+      "language": "en",
+      "repeat_index": 1,
+      "duration_s": 6.3,
+      "reference": "Joe Keaton disapproved of films, and Buster also had reservations about the medium.",
+      "hypothesis": "KITAN DISAPPROVED OF FILMS AND BUSTER ALSO HAD PRESERVATIONS ABOUT THE MEDIA",
+      "word_edits": 4,
+      "reference_words": 13,
+      "char_edits": 9,
+      "reference_chars": 69,
+      "final_ms": 271.20599999943806,
+      "rtf": 0.04304857142848224,
+      "decode_calls": 7
+    },
+    {
+      "sample_id": "common_voice_en_27710027",
+      "language": "en",
+      "repeat_index": 2,
+      "duration_s": 6.3,
+      "reference": "Joe Keaton disapproved of films, and Buster also had reservations about the medium.",
+      "hypothesis": "KITAN DISAPPROVED OF FILMS AND BUSTER ALSO HAD PRESERVATIONS ABOUT THE MEDIA",
+      "word_edits": 4,
+      "reference_words": 13,
+      "char_edits": 9,
+      "reference_chars": 69,
+      "final_ms": 270.8322919988859,
+      "rtf": 0.042989252698235864,
+      "decode_calls": 7
+    },
+    {
+      "sample_id": "common_voice_en_699711",
+      "language": "en",
+      "repeat_index": 0,
+      "duration_s": 2.184,
+      "reference": "She'll be all right.",
+      "hypothesis": "",
+      "word_edits": 5,
+      "reference_words": 5,
+      "char_edits": 15,
+      "reference_chars": 15,
+      "final_ms": 78.03829200020118,
+      "rtf": 0.035731818681410794,
+      "decode_calls": 2
+    },
+    {
+      "sample_id": "common_voice_en_699711",
+      "language": "en",
+      "repeat_index": 1,
+      "duration_s": 2.184,
+      "reference": "She'll be all right.",
+      "hypothesis": "",
+      "word_edits": 5,
+      "reference_words": 5,
+      "char_edits": 15,
+      "reference_chars": 15,
+      "final_ms": 77.69124999867927,
+      "rtf": 0.03557291666606193,
+      "decode_calls": 2
+    },
+    {
+      "sample_id": "common_voice_en_699711",
+      "language": "en",
+      "repeat_index": 2,
+      "duration_s": 2.184,
+      "reference": "She'll be all right.",
+      "hypothesis": "",
+      "word_edits": 5,
+      "reference_words": 5,
+      "char_edits": 15,
+      "reference_chars": 15,
+      "final_ms": 78.10545800020918,
+      "rtf": 0.03576257234441812,
+      "decode_calls": 2
+    },
+    {
+      "sample_id": "common_voice_zh-CN_22069600",
+      "language": "zh",
+      "repeat_index": 0,
+      "duration_s": 5.52,
+      "reference": "宋朝末年年间定居粉岭围。",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 11,
+      "reference_chars": 11,
+      "final_ms": 231.60304099837958,
+      "rtf": 0.04195707264463398,
+      "decode_calls": 6
+    },
+    {
+      "sample_id": "common_voice_zh-CN_22069600",
+      "language": "zh",
+      "repeat_index": 1,
+      "duration_s": 5.52,
+      "reference": "宋朝末年年间定居粉岭围。",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 11,
+      "reference_chars": 11,
+      "final_ms": 232.5094160005392,
+      "rtf": 0.04212127101459044,
+      "decode_calls": 6
+    },
+    {
+      "sample_id": "common_voice_zh-CN_22069600",
+      "language": "zh",
+      "repeat_index": 2,
+      "duration_s": 5.52,
+      "reference": "宋朝末年年间定居粉岭围。",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 11,
+      "reference_chars": 11,
+      "final_ms": 232.78983399904973,
+      "rtf": 0.04217207137663945,
+      "decode_calls": 6
+    },
+    {
+      "sample_id": "common_voice_zh-CN_32269533",
+      "language": "zh",
+      "repeat_index": 0,
+      "duration_s": 2.376,
+      "reference": "否",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 1,
+      "reference_chars": 1,
+      "final_ms": 115.9605829998327,
+      "rtf": 0.04880495917501376,
+      "decode_calls": 3
+    },
+    {
+      "sample_id": "common_voice_zh-CN_32269533",
+      "language": "zh",
+      "repeat_index": 1,
+      "duration_s": 2.376,
+      "reference": "否",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 1,
+      "reference_chars": 1,
+      "final_ms": 116.13575000046694,
+      "rtf": 0.04887868266012919,
+      "decode_calls": 3
+    },
+    {
+      "sample_id": "common_voice_zh-CN_32269533",
+      "language": "zh",
+      "repeat_index": 2,
+      "duration_s": 2.376,
+      "reference": "否",
+      "hypothesis": "",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 1,
+      "reference_chars": 1,
+      "final_ms": 116.68466700029967,
+      "rtf": 0.049109708333459456,
+      "decode_calls": 3
+    },
+    {
+      "sample_id": "common_voice_zh-CN_33411896",
+      "language": "zh",
+      "repeat_index": 0,
+      "duration_s": 8.136,
+      "reference": "黑身准裂腹鱼为辐鳍鱼纲鲤形目鲤科的其中一种。",
+      "hypothesis": "准列负于为负几于刚离行木理科的其中一种",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 13,
+      "reference_chars": 21,
+      "final_ms": 348.359249999703,
+      "rtf": 0.04281701696161542,
+      "decode_calls": 9
+    },
+    {
+      "sample_id": "common_voice_zh-CN_33411896",
+      "language": "zh",
+      "repeat_index": 1,
+      "duration_s": 8.136,
+      "reference": "黑身准裂腹鱼为辐鳍鱼纲鲤形目鲤科的其中一种。",
+      "hypothesis": "准列负于为负几于刚离行木理科的其中一种",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 13,
+      "reference_chars": 21,
+      "final_ms": 347.2984579984768,
+      "rtf": 0.042686634463922915,
+      "decode_calls": 9
+    },
+    {
+      "sample_id": "common_voice_zh-CN_33411896",
+      "language": "zh",
+      "repeat_index": 2,
+      "duration_s": 8.136,
+      "reference": "黑身准裂腹鱼为辐鳍鱼纲鲤形目鲤科的其中一种。",
+      "hypothesis": "准列负于为负几于刚离行木理科的其中一种",
+      "word_edits": 1,
+      "reference_words": 1,
+      "char_edits": 13,
+      "reference_chars": 21,
+      "final_ms": 348.1427079987043,
+      "rtf": 0.04279040167142383,
+      "decode_calls": 9
+    }
+  ],
+  "streaming": [
+    {
+      "sample_id": "common_voice_en_21953345",
+      "language": "en",
+      "first_nonempty_audio_fed_ms": null,
+      "first_nonempty_accumulated_decode_ms": null,
+      "first_partial": null,
+      "final": "",
+      "total_decode_compute_ms": 261.97629300077097,
+      "post_input_finished_ms": 0.0005000001692678779
+    },
+    {
+      "sample_id": "common_voice_en_27710027",
+      "language": "en",
+      "first_nonempty_audio_fed_ms": 2100.0,
+      "first_nonempty_accumulated_decode_ms": 75.22108200100774,
+      "first_partial": "KITAN DIS",
+      "final": "KITAN DISAPPROVED OF FILMS AND BUSTER ALSO HAD PRESERVATIONS ABOUT THE MEDIA",
+      "total_decode_compute_ms": 265.0473320027231,
+      "post_input_finished_ms": 0.0003749992174562067
+    },
+    {
+      "sample_id": "common_voice_en_699711",
+      "language": "en",
+      "first_nonempty_audio_fed_ms": null,
+      "first_nonempty_accumulated_decode_ms": null,
+      "first_partial": null,
+      "final": "",
+      "total_decode_compute_ms": 75.09666700025264,
+      "post_input_finished_ms": 0.0004169996827840805
+    },
+    {
+      "sample_id": "common_voice_zh-CN_22069600",
+      "language": "zh",
+      "first_nonempty_audio_fed_ms": null,
+      "first_nonempty_accumulated_decode_ms": null,
+      "first_partial": null,
+      "final": "",
+      "total_decode_compute_ms": 225.29300000132935,
+      "post_input_finished_ms": 0.0004579997039400041
+    },
+    {
+      "sample_id": "common_voice_zh-CN_32269533",
+      "language": "zh",
+      "first_nonempty_audio_fed_ms": null,
+      "first_nonempty_accumulated_decode_ms": null,
+      "first_partial": null,
+      "final": "",
+      "total_decode_compute_ms": 112.50175100030901,
+      "post_input_finished_ms": 0.00045900014811195433
+    },
+    {
+      "sample_id": "common_voice_zh-CN_33411896",
+      "language": "zh",
+      "first_nonempty_audio_fed_ms": 2100.0,
+      "first_nonempty_accumulated_decode_ms": 74.68250000056287,
+      "first_partial": "准",
+      "final": "准列负于为负几于刚离行木理科的其中一种",
+      "total_decode_compute_ms": 338.24133300186077,
+      "post_input_finished_ms": 0.00041600105760153383
+    }
+  ],
+  "decision": {
+    "status": "reject_public_int8_route",
+    "reason": "Quality is materially below SenseVoice and Whisper controls on the same EN/ZH fixture, with four of six empty transcripts. This does not certify or reject the distinct QAI Hub float/FP16 compiled release."
+  }
+}

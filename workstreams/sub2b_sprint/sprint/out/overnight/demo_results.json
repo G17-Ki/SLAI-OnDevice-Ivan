@@ -1,0 +1,1387 @@
+{
+  "schema_version": "overnight-demo-results/1.0",
+  "generated_at_utc": "2026-08-04T19:37:21Z",
+  "branch": "sprint/overnight",
+  "overall_status": "PASS_BOTH_ENGINEERING_GATES__BOTH_FILMS_CAPTURED_NORMALIZED_AUTOMATED_MEDIA_PASS__DEMO1_RU_FACT_PASS__SELECTED_ROUTE_LATENCY_PRELOAD_DEPLOYED__HOST_DEBUGGER_DISCONNECT_SURVIVAL_PASS__SHORT_RU_DRAIN_LIMIT_RETAINED__OWNER_VIEWING_PENDING",
+  "evidence_policy": {
+    "allowed_classes": [
+      "EXACT",
+      "UB",
+      "HOST",
+      "PHONE-MEASURED",
+      "PROJECTED",
+      "UNKNOWN"
+    ],
+    "first_audio_definition": "UtteranceProgressListener.onStart software timestamp relative to turn start; not externally measured acoustic onset",
+    "cap_rule": "All model artifacts resident across both app-private package inventories count; a host target becomes a physical cap claim only after an installed file-and-hash inventory proves excluded artifacts and rollback copies are absent.",
+    "npu_rule": "No NPU claim without a version-matched compiled artifact and runtime. Never load two QNN runtime providers in one process."
+  },
+  "post_capture_tts_repair": {
+    "status": "PASS_UNPLUG_READY",
+    "phase": "FINAL_USER_SELECTED_DEFAULTS",
+    "evidence_class": "PHONE-MEASURED",
+    "receipt": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_voice_defaults/deployment_receipt.json",
+      "sha256": "710aa0393c427a44ac9bd579338cec3c31ce0f8e80de32b553cc1c01e88de84c"
+    },
+    "manifest_only": true,
+    "manifest_only_scope": "final default-priority switch; the earlier audition-catalog expansion transferred additional assets",
+    "model_files_verified": 397,
+    "model_files_transferred": 0,
+    "candidate_count": 26,
+    "selector_entries_including_auto_and_system": 28,
+    "authenticated_resident_mib": 773.7,
+    "automatic_routes": {
+      "en-US": "supertonic3_en_v4_s5",
+      "ru-RU": "piper_ru_ruslan",
+      "zh-CN": "matcha_zh_baker"
+    },
+    "automatic_policy_persisted_across_restart": true,
+    "automated_playback_checks": {
+      "status": "PASS_3_OF_3",
+      "english": {
+        "engine": "supertonic3_en_v4_s5",
+        "first_chunk_ms": 844,
+        "dropped_chunks": 0,
+        "terminal": "completed"
+      },
+      "russian": {
+        "engine": "piper_ru_ruslan",
+        "first_chunk_ms": 49,
+        "dropped_chunks": 0,
+        "terminal": "completed"
+      },
+      "mandarin": {
+        "engine": "matcha_zh_baker",
+        "first_chunk_ms": 57,
+        "dropped_chunks": 0,
+        "terminal": "completed"
+      }
+    },
+    "final_state": {
+      "airplane_mode": true,
+      "wifi_disabled": true,
+      "adb_forward_count": 0,
+      "main_app_foreground": true,
+      "screen_mode": "voice_answer",
+      "selected_language": "auto",
+      "visible_voice_policy": "Automatic by language",
+      "media_volume_index": 80,
+      "media_volume_maximum": 150,
+      "safe_to_unplug": true
+    },
+    "historical_inventory_boundary": "The Demo 1 and Demo 2 filmed physical-inventory receipts predate the later 26-candidate audition catalog and default switch.",
+    "claim_boundary": "Playback lifecycle and routing are phone-measured; first-audio values are in-app proxies, not microphone-observed acoustic onset. Voice preference came from the user's manual audition, not a formal listening panel."
+  },
+  "latency_preload_handoff": {
+    "status": "PASS_WITH_DISCLOSED_SHORT_RUSSIAN_PLAYBACK_LIMITATION",
+    "phase": "SELECTED_ROUTE_LATENCY_PRELOAD_AND_BOUNDED_HOST_DISCONNECT_SURVIVAL",
+    "evidence_class": "PHONE-MEASURED",
+    "receipt": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/deployment_receipt.json",
+      "sha256": "072d2cc4a2c73c627670ddf37d89224ed7a55a11e367487d7ff5dc9a89754eaa"
+    },
+    "deployment": {
+      "source_commit": "e1a2a06ff34fd2a23950b49e45d65d71971d21ce",
+      "main_apk": {
+        "build_sha256": "91b225aaba45a2c0875d5d4316449ff255306773f6593011f8edaa626f797add",
+        "installed_sha256": "91b225aaba45a2c0875d5d4316449ff255306773f6593011f8edaa626f797add",
+        "identity_match": true,
+        "bytes": 20205724
+      },
+      "runtime_apk": {
+        "build_sha256": "081cba99cf8abb151ce258481b83297bf8f2caf0446efea4d03d9b1e34b3e971",
+        "installed_sha256": "081cba99cf8abb151ce258481b83297bf8f2caf0446efea4d03d9b1e34b3e971",
+        "identity_match": true,
+        "bytes": 122327590
+      },
+      "rollback_local_and_phone_hash_verified": true,
+      "rollback_restore_tested": false
+    },
+    "selected_route_readiness": {
+      "scope": "ONE_EXPLICIT_ROUTE_AT_A_TIME",
+      "input_enabled_only_when_all_ready": true,
+      "asr_resident_route_must_match_selection": true,
+      "response_warm_language_must_match_selection": true,
+      "tts_preload_key_must_match_policy_and_locale": true,
+      "fresh_install_default_language": "en",
+      "explicit_selection_persisted": true,
+      "direct_warmup_event_capture": false
+    },
+    "warm_full_turn_checks": {
+      "english": {
+        "server_warmth": "warm",
+        "n": 1,
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/en_acceptance.json",
+        "sha256": "60a4f5fc01b72b901a713753c528092a0a85e80aa60cd9aae2cbb73fc82e1c17",
+        "first_text_ms": 237.30000000074506,
+        "first_audio_start_proxy_ms": 1008.4821349978447,
+        "tts_first_chunk_ms": 604,
+        "terminal": "completed",
+        "dropped_chunks": 0,
+        "asr_provider": "qnn",
+        "tts_engine": "supertonic3_en_v4_s5"
+      },
+      "mandarin": {
+        "server_warmth": "warm",
+        "n": 1,
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/zh_acceptance.json",
+        "sha256": "4a7fb2caac8be33dfc3facc28a0b0838dc081dfada7f60dc892eae70b5912e3f",
+        "first_text_ms": 192.89999999850988,
+        "first_audio_start_proxy_ms": 597.0384899973869,
+        "tts_first_chunk_ms": 90,
+        "terminal": "completed",
+        "dropped_chunks": 0,
+        "asr_provider": "qnn",
+        "tts_engine": "matcha_zh_baker"
+      },
+      "russian_long": {
+        "server_warmth": "warm",
+        "n": 1,
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_long_acceptance.json",
+        "sha256": "eaa6a3f93c4df36b1901d9c239330ff3fca457cc8d67fd4345cf7e7c03e3fcfc",
+        "first_text_ms": 220.29999999701977,
+        "first_audio_start_proxy_ms": 461.273280993104,
+        "tts_first_chunk_ms": 66,
+        "terminal": "completed",
+        "dropped_chunks": 0,
+        "asr_provider": "cpu",
+        "tts_engine": "piper_ru_ruslan",
+        "response": "Москва - столица России.",
+        "response_factually_correct": true
+      }
+    },
+    "retained_negative_attempts": [
+      {
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_acceptance.json",
+        "sha256": "927106d1ba7d59d38e250d51717f6060d0b8864d3a6a24e53ba2e20dddae39ca",
+        "response": "Москва.",
+        "response_factually_correct": true,
+        "first_audio_start_proxy_ms": 340.9690109938383,
+        "utterance_done_count": 0,
+        "terminal": "failed",
+        "failure": "playback_drain_timeout"
+      },
+      {
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_acceptance_retry.json",
+        "sha256": "3a2e33300bb140686a2523488bac3ddb52693b7eb635a3c1ff385cbb5e1aacfd",
+        "response": "Москва.",
+        "response_factually_correct": true,
+        "first_audio_start_proxy_ms": 248.38364499807358,
+        "utterance_done_count": 0,
+        "terminal": "failed",
+        "failure": "playback_drain_timeout"
+      }
+    ],
+    "resident_memory": {
+      "selected_route": "en",
+      "total_pss_kib": 2632219,
+      "total_pss_gib": 2.510279655456543,
+      "total_rss_kib": 3033120,
+      "total_rss_gib": 2.892608642578125,
+      "mem_available_kib": 9548780,
+      "mem_available_gib": 9.106426239013672,
+      "fits_phone_ram_with_large_headroom": true,
+      "all_languages_simultaneously_resident": false
+    },
+    "host_debugger_disconnect_survival": {
+      "duration_seconds": 75,
+      "app_foreground": true,
+      "same_boot_id": true,
+      "same_processes": {
+        "main": true,
+        "runtime": true,
+        "qwen": true,
+        "asr": true,
+        "webview": true
+      },
+      "runtime_foreground_service_active": true,
+      "runtime_partial_wake_lock_held": true,
+      "runtime_oom_adj": 0,
+      "postcheck_selected_route_ready": true,
+      "forward_and_reverse_lists_empty_during_interval": true,
+      "temporary_cdp_forward_used_for_postcheck": true,
+      "temporary_forward_removed": true,
+      "final_forward_count": 0,
+      "final_reverse_count": 0,
+      "physical_unplug_tested": false,
+      "restart_tested": false,
+      "process_death_tested": false,
+      "boot_persistence_tested": false,
+      "background_operation_tested": false,
+      "long_duration_tested": false
+    },
+    "final_state": {
+      "main_app_foreground": true,
+      "screen_mode": "tts",
+      "selected_language": "en",
+      "persisted_language": "en",
+      "tts_policy": "auto",
+      "selected_route_ready": true,
+      "airplane_mode": true,
+      "wifi_disabled": true,
+      "ip_route_count": 0,
+      "adb_forward_count": 0,
+      "adb_reverse_count": 0,
+      "media_volume_index": 60,
+      "media_volume_maximum": 150
+    },
+    "historical_inventory_boundary": "NOT_RECALCULATED_OR_REBOUND",
+    "relationship_to_films": "POST_CAPTURE_NOT_FILMED",
+    "qnn_claim_scope": "SENSEVOICE_ASR_ONLY",
+    "whole_stack_npu_claim": false,
+    "claim_boundary": "Warm n=1 software start proxies only. No acoustic-onset, cold/boot-to-audio, distribution, preload-causality, all-routes-resident, physical-unplug, restart/process-death recovery, background/always-on, long-duration, or whole-stack-NPU claim."
+  },
+  "demos": {
+    "demo2": {
+      "name": "IT'S GOOD",
+      "languages": [
+        "en",
+        "zh"
+      ],
+      "acceptance_status": {
+        "performance_path": "PHONE_MEASURED_RECEIPT_BOUND_N1_PASS_EN_AND_ZH",
+        "final_cap_valid_install": "PASS_PHONE_INVENTORY_ACCEPTED",
+        "filmed_demo": "CAPTURED_UNTRIMMED_NORMALIZED_AUTOMATED_MEDIA_PASS_OWNER_REVIEW_PENDING"
+      },
+      "constraints": {
+        "parameter_cap_exclusive": {
+          "value": 3000000000,
+          "unit": "parameters",
+          "evidence_class": "EXACT",
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/DEMO_REQUIREMENTS.md"
+        },
+        "first_audio_gate": {
+          "value": 3000,
+          "unit": "ms",
+          "evidence_class": "EXACT",
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/DEMO_REQUIREMENTS.md"
+        }
+      },
+      "configuration": {
+        "asr": "SenseVoiceSmall QNN/HTP in runtime companion",
+        "backbone": "Qwen2.5-1.5B-Instruct Q4_K_M CPU",
+        "tts_en": "Supertonic 3, 5 steps",
+        "tts_zh": "Matcha Baker plus Vocos 22 kHz",
+        "vad": "AdaptiveEnergyVad (dependency-free Java, zero learned parameters)",
+        "qnn_runtime_version": "2.40.0.251030",
+        "whole_stack_npu_claim": false
+      },
+      "film": {
+        "status": "PASS_CAPTURED_NORMALIZED_AUTOMATED_MEDIA_CHECKS",
+        "receipt": {
+          "path": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json",
+          "sha256": "593ee2273df46f05f710549e9ca1138578adf0eccb19de566eb1c9134d33d382"
+        },
+        "path": "workstreams/sub2b_sprint/sprint/out/overnight/films/DEMO2_ITS_GOOD.mp4",
+        "source_order": [
+          "en",
+          "zh"
+        ],
+        "bytes": {
+          "value": 4807655,
+          "evidence_class": "EXACT"
+        },
+        "duration_seconds": {
+          "value": 356.36,
+          "evidence_class": "EXACT"
+        },
+        "sha256": "68740c0d2d521d01564bebd53003bfd32e4bcef0c46b7f4a1ce732c27369871d",
+        "streams": {
+          "video_codec": "h264",
+          "video_profile": "High",
+          "video_level": "5.1",
+          "video_width": {
+            "value": 1216,
+            "evidence_class": "EXACT"
+          },
+          "video_height": {
+            "value": 2688,
+            "evidence_class": "EXACT"
+          },
+          "video_fps": {
+            "value": 25,
+            "evidence_class": "EXACT"
+          },
+          "audio_codec": "aac",
+          "audio_sample_rate_hz": {
+            "value": 48000,
+            "evidence_class": "EXACT"
+          },
+          "audio_channels": {
+            "value": 1,
+            "evidence_class": "EXACT"
+          },
+          "audio_stream_present": true,
+          "full_decode_exit_code": {
+            "value": 0,
+            "evidence_class": "EXACT"
+          },
+          "mean_volume_db": {
+            "value": -36.6,
+            "evidence_class": "HOST"
+          },
+          "max_volume_db": {
+            "value": -0.7,
+            "evidence_class": "HOST"
+          }
+        },
+        "raw_captures": {
+          "en": {
+            "device_name": "Screenrecorder-20260803-122223.mp4",
+            "host_staging_path": "/private/tmp/DEMO2_EN_COLD_RAW.mp4",
+            "bytes": {
+              "value": 9221301,
+              "evidence_class": "EXACT"
+            },
+            "duration_seconds": {
+              "value": 227.106356,
+              "evidence_class": "EXACT"
+            },
+            "sha256": "94de25b7e435960cdc47ec0dff164007113112f1cec35abfcceddc77e7a17d19"
+          },
+          "zh": {
+            "device_name": "Screenrecorder-20260803-123351.mp4",
+            "host_staging_path": "/private/tmp/DEMO2_ZH_COLD_RAW.mp4",
+            "bytes": {
+              "value": 9519479,
+              "evidence_class": "EXACT"
+            },
+            "duration_seconds": {
+              "value": 129.237756,
+              "evidence_class": "EXACT"
+            },
+            "sha256": "8f11da64f4b3591e644613d59ef29c7b1e230e889e6660ec4b60acef32ebe599"
+          }
+        },
+        "filmed_runner_receipts": {
+          "en": {
+            "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/film_capture/demo2_en_film_capture.json",
+            "sha256": "a44dfcef18bb48c70b9a59668d4c9e1481e223915edfd8bcd90bc022f893b00a",
+            "request_to_first_audio_proxy_ms": {
+              "value": 1988.9219270001631,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "playback_completed": true,
+            "automated_acceptance": "PASS"
+          },
+          "zh": {
+            "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/film_capture/demo2_zh_film_capture.json",
+            "sha256": "745ada5ade3b432ca954857d15e6cb0cdf9bf6c85a4d02bfa67c1e3ba1b163c4",
+            "request_to_first_audio_proxy_ms": {
+              "value": 1740.2889569999825,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "playback_completed": true,
+            "automated_acceptance": "PASS",
+            "operator_note": "A pre-request setup attempt submitted no audio; the retained case is the first real request."
+          }
+        },
+        "review": {
+          "mode": "AUTOMATED_MEDIA_ONLY",
+          "full_semantic_and_editorial_review": {
+            "value": null,
+            "evidence_class": "UNKNOWN"
+          },
+          "owner_review_pending": true
+        }
+      },
+      "restore": {
+        "accepted_apk_pair": {
+          "receipt": {
+            "path": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/accepted_apk_pair.json",
+            "bytes": {
+              "value": 1542,
+              "evidence_class": "EXACT"
+            },
+            "sha256": "a1b823dd66395343f1bd8786adaa83103139a5009685146653f7cfcb1bf65720"
+          },
+          "main": {
+            "path": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/app-main-accepted-712632b7.apk",
+            "bytes": {
+              "value": 20197812,
+              "evidence_class": "EXACT"
+            },
+            "sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+            "relationship": "BYTE_IDENTICAL_TO_CORRESPONDING_ACCEPTED_INSTALLED_MAIN_ARTIFACT"
+          },
+          "runtime": {
+            "path": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/app-runtime-accepted-33bf0d6d.apk",
+            "bytes": {
+              "value": 121215600,
+              "evidence_class": "EXACT"
+            },
+            "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244",
+            "relationship": "BYTE_IDENTICAL_TO_CORRESPONDING_ACCEPTED_INSTALLED_RUNTIME_ARTIFACT"
+          },
+          "require_both_exact_hashes": true
+        }
+      },
+      "cap_ledger": {
+        "installed_physical_acceptance": {
+          "learned_unique": {
+            "value": 1974795009,
+            "unit": "parameters",
+            "evidence_class": "HOST"
+          },
+          "learned_headroom": {
+            "value": 1025204991,
+            "unit": "parameters",
+            "evidence_class": "HOST"
+          },
+          "conservative_resident": {
+            "value": 2208452225,
+            "unit": "tensor_or_export_elements",
+            "evidence_class": "UB"
+          },
+          "conservative_headroom": {
+            "value": 791547775,
+            "unit": "tensor_or_export_elements",
+            "evidence_class": "UB"
+          },
+          "inventory_rows": {
+            "value": 42,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "strictly_below_cap": true,
+          "physical_inventory_status": "PASS",
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json"
+        },
+        "pruned_target": {
+          "learned_unique": {
+            "value": 1988326684,
+            "unit": "parameters",
+            "evidence_class": "EXACT"
+          },
+          "learned_headroom": {
+            "value": 1011673316,
+            "unit": "parameters",
+            "evidence_class": "EXACT"
+          },
+          "conservative_resident": {
+            "value": 2221983906,
+            "unit": "tensor_or_export_elements",
+            "evidence_class": "UB"
+          },
+          "conservative_headroom": {
+            "value": 778016094,
+            "unit": "tensor_or_export_elements",
+            "evidence_class": "UB"
+          },
+          "strictly_below_cap": true,
+          "physical_inventory_status": "SAFE_HOST_OVERCOUNT_BOUND; INSTALLED_PHONE_TOTAL_IS_SMALLER"
+        },
+        "remove_lfm_only_full_tts_laboratory": {
+          "conservative_resident": {
+            "value": 2672875114,
+            "unit": "tensor_or_export_elements",
+            "evidence_class": "UB"
+          },
+          "conservative_headroom": {
+            "value": 327124886,
+            "unit": "tensor_or_export_elements",
+            "evidence_class": "UB"
+          },
+          "strictly_below_cap_if_lfm_and_rollback_copies_are_absent": true,
+          "physical_inventory_status": "ANALYTICAL_FALLBACK_NOT_THE_ACCEPTED_INSTALLED_SCOPE"
+        },
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/cap_ledger.json"
+      },
+      "phone_results": {
+        "timing_boundary": {
+          "gate_start": "request_start_after_input_enabled",
+          "gate_end": "UtteranceProgressListener.onStart",
+          "startup_warmup_excluded_from_request_timer": true,
+          "boot_to_audio_claim": false,
+          "acoustic_onset_claim": false
+        },
+        "warm_en": {
+          "installed_main_apk_sha256": "143b96888005ed42ac97a07d281f76fa831d293ccaf7c0f2f11e19b5af5cb3f0",
+          "installed_build_boundary": "OLDER_APK_CONTAINED_AND_STARTED_LFM_LABORATORY_STACK",
+          "attempts": {
+            "value": 22,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "completed": {
+            "value": 21,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "cancelled_operator_overlap": {
+            "value": 1,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "median": {
+              "value": 1333.865676999092,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "p95_nearest_rank": {
+              "value": 1395.8740620017052,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "max": {
+              "value": 1490.413592994213,
+              "evidence_class": "PHONE-MEASURED"
+            }
+          },
+          "first_text_ms_median": {
+            "value": 550.1276559829712,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "tts_first_chunk_ms_median": {
+            "value": 587,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "tts_rtf_median": {
+            "value": 0.23664254519371328,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "playback_underflows": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "dropped_chunks": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/explicit_en_21/provenance.json"
+        },
+        "warm_zh": {
+          "installed_main_apk_sha256": "143b96888005ed42ac97a07d281f76fa831d293ccaf7c0f2f11e19b5af5cb3f0",
+          "installed_build_boundary": "OLDER_APK_CONTAINED_AND_STARTED_LFM_LABORATORY_STACK",
+          "attempts": {
+            "value": 22,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "completed": {
+            "value": 20,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "cancelled_operator_overlap": {
+            "value": 2,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "median": {
+              "value": 1031.277317494154,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "p95_nearest_rank": {
+              "value": 1221.0340619683266,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "max": {
+              "value": 1603.031822025776,
+              "evidence_class": "PHONE-MEASURED"
+            }
+          },
+          "first_text_ms_median": {
+            "value": 555.7789580225945,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "tts_first_chunk_ms_median": {
+            "value": 92,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "tts_rtf_median": {
+            "value": 0.03899160761623165,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "playback_underflows": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "dropped_chunks": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/explicit_zh_20/provenance.json"
+        },
+        "cold_zh_main_only": {
+          "installed_main_apk_sha256": "143b96888005ed42ac97a07d281f76fa831d293ccaf7c0f2f11e19b5af5cb3f0",
+          "installed_build_boundary": "OLDER_APK_CONTAINED_AND_STARTED_LFM_LABORATORY_STACK",
+          "completed_turns": {
+            "value": 1,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_text_ms": {
+            "value": 1800.3051030000206,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "value": 2651.683332000044,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "tts_first_chunk_ms": {
+            "value": 258,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "tts_rtf": {
+            "value": 0.114559080648017,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "playback_underflows": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "dropped_chunks": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "runtime_uid": {
+            "value": 10514,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "sensevoice_qnn_executed": true,
+          "airplane_mode": true,
+          "adb_forwards": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/cold/reboot_zh_main_only/provenance.json"
+        },
+        "cold_en_final_no_lfm": {
+          "status": "PASS_RECEIPT_BOUND_N1_INDIRECT_APK_AND_PROTOCOL_CONTEXT",
+          "indirectly_bound_main_apk_sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+          "completed_turns": {
+            "value": 1,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "startup_en_warmup_ms": {
+            "value": 2075.800000000003,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_text_ms": {
+            "value": 758.8620309999678,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_chunk_queued_ms": {
+            "value": 1368.3734889999032,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "value": 2452.153905999963,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "complete_ms": {
+            "value": 4943.2471339999465,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "playback_underflows": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "sensevoice_qnn_executed": true,
+          "gate_pass": true,
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold_final_712/summary.json",
+          "indirect_protocol_and_apk_context_source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json"
+        },
+        "cold_zh_final_no_lfm": {
+          "status": "PASS_RECEIPT_BOUND_N1_INDIRECT_APK_AND_PROTOCOL_CONTEXT",
+          "indirectly_bound_main_apk_sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+          "completed_turns": {
+            "value": 1,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "startup_en_warmup_ms": {
+            "value": 2482.800000000003,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "selection_zh_warmup_ms": {
+            "value": 549.7999999999884,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_text_ms": {
+            "value": 617.9064060000237,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_chunk_queued_ms": {
+            "value": 2153.444373999955,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "value": 2446.833123999997,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "complete_ms": {
+            "value": 11849.714630999952,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "playback_underflows": {
+            "value": 0,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "sensevoice_qnn_executed": true,
+          "gate_pass": true,
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/zh_cold_prefix/summary.json",
+          "indirect_protocol_and_apk_context_source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json"
+        },
+        "cold_en_regression_history": {
+          "no_qwen_warmup": {
+            "first_audio_start_proxy_ms": {
+              "value": 3873.129165999999,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "gate_pass": false,
+            "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold/summary.json"
+          },
+          "generic_one_token_warmup": {
+            "first_audio_start_proxy_ms": {
+              "value": 4040.406665000017,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "gate_pass": false,
+            "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold_warmed/summary.json"
+          },
+          "production_prefix_intermediate_apk": {
+            "first_audio_start_proxy_ms": {
+              "value": 2694.633280000009,
+              "evidence_class": "PHONE-MEASURED"
+            },
+            "gate_pass": true,
+            "final_build_acceptance": false,
+            "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold_prefix/summary.json"
+          }
+        }
+      },
+      "quality_basis": {
+        "qwen25_backbone": {
+          "sample_count_per_language": {
+            "value": 120,
+            "evidence_class": "HOST"
+          },
+          "en_score": {
+            "value": 42.5,
+            "evidence_class": "HOST"
+          },
+          "zh_score": {
+            "value": 54.875,
+            "evidence_class": "HOST"
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/b/backbone_verdict.json"
+        },
+        "sensevoice_asr": {
+          "sample_count_per_language": {
+            "value": 150,
+            "evidence_class": "HOST"
+          },
+          "en_wer_percent": {
+            "value": 9.170052234474753,
+            "evidence_class": "HOST"
+          },
+          "zh_cer_percent": {
+            "value": 6.547196593328603,
+            "evidence_class": "HOST"
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/c/asr_table.json"
+        },
+        "omniasr_rejected": {
+          "en_wer_percent": {
+            "value": 18.630295995356935,
+            "evidence_class": "HOST"
+          },
+          "zh_cer_percent": {
+            "value": 15.205819730305182,
+            "evidence_class": "HOST"
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/c/asr_table.json"
+        },
+        "native_speaker_acceptance": {
+          "value": null,
+          "evidence_class": "UNKNOWN"
+        }
+      }
+    },
+    "demo1": {
+      "name": "IT FITS",
+      "languages": [
+        "en",
+        "zh",
+        "es",
+        "fr",
+        "ru"
+      ],
+      "acceptance_status": {
+        "host_cap_arithmetic": "PASS",
+        "exact_qwen35_inventory": "PASS_PHONE_INSTALL_IDENTITY",
+        "five_language_model_provisioning": "PASS_PHONE_HASH_VERIFIED",
+        "es_fr_cpu_asr_diagnostic": "PASS_EXACT_TRANSCRIPT_PARITY_NOT_APP_E2E",
+        "accepted_app_language_turns": [
+          "en",
+          "zh",
+          "es",
+          "fr",
+          "ru"
+        ],
+        "pending_app_language_turns": [],
+        "physical_inventory": "PASS_PHONE_INVENTORY_ACCEPTED_STRICTLY_UNDER_2B",
+        "five_language_post_reboot_phone_turns": "PASS_PHONE_MEASURED_ONE_UNINTERRUPTED_COLD_SEQUENCE",
+        "filming_readiness": "PASS_CAPTURED_WITH_FACTUALLY_CORRECT_RU_TAKE",
+        "filmed_demo": "CAPTURED_COMMITTED_UNTRIMMED_AUTOMATED_MEDIA_PASS_OWNER_REVIEW_PENDING"
+      },
+      "constraints": {
+        "parameter_cap_exclusive": {
+          "value": 2000000000,
+          "unit": "parameters",
+          "evidence_class": "EXACT",
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/DEMO_REQUIREMENTS.md"
+        }
+      },
+      "configuration": {
+        "backbone": "Qwen3.5-0.8B Q4_0 text-only GGUF",
+        "asr_en_zh": "SenseVoiceSmall",
+        "asr_es_fr": "Parakeet-TDT-0.6B-v3 INT8 CPU",
+        "asr_ru": "RU Zipformer INT8 CPU",
+        "tts_en_es_fr_ru": "shared Supertonic 3, 5 steps",
+        "tts_zh": "Matcha Baker plus Vocos 22 kHz",
+        "vad": "AdaptiveEnergyVad (dependency-free Java, zero learned parameters)"
+      },
+      "film": {
+        "status": "PASS_CAPTURED_NORMALIZED_AUTOMATED_MEDIA_CHECKS",
+        "receipt": {
+          "path": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json",
+          "sha256": "593ee2273df46f05f710549e9ca1138578adf0eccb19de566eb1c9134d33d382"
+        },
+        "path": "workstreams/sub2b_sprint/sprint/out/overnight/films/DEMO1_IT_FITS.mp4",
+        "bytes": {
+          "value": 46810178,
+          "evidence_class": "EXACT"
+        },
+        "duration_seconds": {
+          "value": 5701.162,
+          "evidence_class": "EXACT"
+        },
+        "sha256": "cf7ba53b9cf1a387b4c52501161253906e1002284b7cc48bd4907a0e80367958",
+        "streams": {
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "audio_stream_present": true,
+          "full_decode_exit_code": {
+            "value": 0,
+            "evidence_class": "EXACT"
+          },
+          "mean_volume_db": {
+            "value": -43.7,
+            "evidence_class": "HOST"
+          },
+          "max_volume_db": {
+            "value": -0.5,
+            "evidence_class": "HOST"
+          }
+        },
+        "review": {
+          "mode": "AUTOMATED_MEDIA_ONLY_EXCEPT_FINAL_RUSSIAN_FACT_CHECK",
+          "full_semantic_and_editorial_review": {
+            "value": null,
+            "evidence_class": "UNKNOWN"
+          },
+          "final_russian_answer": "Москва",
+          "final_russian_factually_correct": true,
+          "fact_check_frame": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/film_ru_fact_check.png"
+        },
+        "actual_russian_fixture": {
+          "text": "Какова столица России?",
+          "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/fixtures/question_ru_simple.wav",
+          "bytes": {
+            "value": 53538,
+            "evidence_class": "EXACT"
+          },
+          "duration_seconds": {
+            "value": 1.670625,
+            "evidence_class": "EXACT"
+          },
+          "sha256": "e8d931545ebddf124d63acd5d42bbde10fab7ba2f3f65998ce2ab7237693bc45",
+          "latency_measurement": {
+            "value": null,
+            "evidence_class": "UNKNOWN"
+          }
+        },
+        "editorial_note": "The full untrimmed capture retains a failed earlier Russian attempt before the correct final retry."
+      },
+      "cap_ledger": {
+        "learned_unique": {
+          "value": 1810531015,
+          "unit": "parameters",
+          "evidence_class": "PHONE-MEASURED"
+        },
+        "learned_headroom": {
+          "value": 189468985,
+          "unit": "parameters",
+          "evidence_class": "PHONE-MEASURED"
+        },
+        "conservative_resident": {
+          "value": 1820982302,
+          "unit": "tensor_or_export_elements",
+          "evidence_class": "UB"
+        },
+        "conservative_headroom": {
+          "value": 179017698,
+          "unit": "tensor_or_export_elements",
+          "evidence_class": "UB"
+        },
+        "inventory_rows": {
+          "value": 61,
+          "evidence_class": "PHONE-MEASURED"
+        },
+        "strictly_below_cap": true,
+        "physical_inventory_status": "PASS",
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/inventory_receipt.json",
+        "receipt_sha256": "7da4c77a757c9f1dfab63316470b0986233866427312734a3b75fbf1ab546b4a",
+        "evidence_commit": "95bd4fc",
+        "host_target_overcount": {
+          "learned_unique": {
+            "value": 1824062690,
+            "unit": "parameters",
+            "evidence_class": "EXACT"
+          },
+          "conservative_resident": {
+            "value": 1834513983,
+            "unit": "tensor_or_export_elements",
+            "evidence_class": "UB"
+          },
+          "conservative_headroom": {
+            "value": 165486017,
+            "unit": "tensor_or_export_elements",
+            "evidence_class": "UB"
+          },
+          "note": "Safe host bound only; retains the absent Vocos 24 kHz export.",
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/cap_ledger.json"
+        }
+      },
+      "qwen35_exact_artifact": {
+        "bytes": {
+          "value": 507154688,
+          "evidence_class": "EXACT"
+        },
+        "sha256": "a28efb2f66a432dcf26c64cdeb97151275a56c3d781885de8ede5a3cfac2d407",
+        "tensor_count": {
+          "value": 320,
+          "evidence_class": "EXACT"
+        },
+        "tensor_elements": {
+          "value": 752393024,
+          "evidence_class": "EXACT"
+        },
+        "mtp_or_draft_tensor_count": {
+          "value": 0,
+          "evidence_class": "EXACT"
+        },
+        "vision_visual_or_mmproj_tensor_count": {
+          "value": 0,
+          "evidence_class": "EXACT"
+        },
+        "installation_status": "PASS_PHONE_PRIVATE_EXACT_HASH_QWEN25_REMOVED_ONE_GGUF",
+        "installed_main_apk_sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d",
+        "installed_runtime_apk_sha256": "d43c0423d66e1cbe9e3fac313b54437c5c58ef8a5a8498382a255f619ad46ae1",
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/qwen35_runtime_install.json"
+      },
+      "provisioning": {
+        "tts_candidate_count": {
+          "value": 5,
+          "evidence_class": "PHONE-MEASURED"
+        },
+        "tts_referenced_files_verified": {
+          "value": 22,
+          "evidence_class": "PHONE-MEASURED"
+        },
+        "tts_metadata_files_verified": {
+          "value": 3,
+          "evidence_class": "PHONE-MEASURED"
+        },
+        "parakeet_payload_rows": {
+          "value": 16,
+          "evidence_class": "PHONE-MEASURED"
+        },
+        "parakeet_provider": "cpu",
+        "parakeet_qnn_or_qualcomm_payloads": false,
+        "partial_incoming_files": {
+          "value": 0,
+          "evidence_class": "PHONE-MEASURED"
+        },
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/provisioning_receipt.json"
+      },
+      "es_fr_cpu_asr_diagnostic": {
+        "status": "PASS_PHONE_CPU_BACKEND_HEALTH_EXACT_PARITY",
+        "evidence_class": "PHONE-MEASURED",
+        "provider": "cpu",
+        "runtime_service_uid": 10514,
+        "spanish": {
+          "round_trip_ms_including_adb_forward": {
+            "value": 5828.66,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "exact_expected_transcript_match": true
+        },
+        "french": {
+          "round_trip_ms_including_adb_forward": {
+            "value": 5526.684,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "exact_expected_transcript_match": true
+        },
+        "temporary_forward_removed": true,
+        "final_forward_count": 0,
+        "measurement_scope": "ASR_ONLY_HOST_ROUND_TRIP_THROUGH_TEMPORARY_DIAGNOSTIC_FORWARD_NOT_APP_END_TO_END_NOT_NO_FORWARD_ACCEPTANCE",
+        "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/esfr_verifier/provenance.json"
+      },
+      "host_quality_basis": {
+        "qwen35_backbone": {
+          "sample_count_per_language": {
+            "value": 120,
+            "evidence_class": "HOST"
+          },
+          "en_score": {
+            "value": 43.3,
+            "evidence_class": "HOST"
+          },
+          "zh_score": {
+            "value": 47.5,
+            "evidence_class": "HOST"
+          },
+          "es_score": {
+            "value": 31.466666666666665,
+            "evidence_class": "HOST"
+          },
+          "fr_score": {
+            "value": 34.166666666666664,
+            "evidence_class": "HOST"
+          },
+          "ru_score": {
+            "value": 34,
+            "evidence_class": "HOST"
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/b/backbone_verdict.json"
+        },
+        "parakeet_asr": {
+          "sample_count_per_language": {
+            "value": 150,
+            "evidence_class": "HOST"
+          },
+          "es_wer_percent": {
+            "value": 3.550742885922941,
+            "evidence_class": "HOST"
+          },
+          "fr_wer_percent": {
+            "value": 5.344735435595938,
+            "evidence_class": "HOST"
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/c/asr_table.json"
+        }
+      },
+      "phone_results": {
+        "en": {
+          "status": "PASS_PHONE_END_TO_END_COVERAGE",
+          "evidence_class": "PHONE-MEASURED",
+          "first_text_ms": {
+            "value": 769.5053130000015,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "value": 2339.208697000053,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "full_turn_latency_ms": {
+            "value": 4840.145780000021,
+            "evidence_class": "PHONE-MEASURED",
+            "boundary": "request_to_playback_terminal"
+          },
+          "verbatim_asr_transcript": "What is the capital of France, answer in one short sentence?",
+          "visible_response": "Paris is the capital of France.",
+          "asr_provider": "qnn",
+          "playback_underflows": 0,
+          "dropped_chunks": 0,
+          "user_visible_reasoning_leakage": false,
+          "filtered_reasoning_characters": 19,
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/en_checkpoint/provenance.json"
+        },
+        "zh": {
+          "status": "PASS_PHONE_END_TO_END_COVERAGE",
+          "evidence_class": "PHONE-MEASURED",
+          "first_text_ms": {
+            "value": 582.5906250001863,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "value": 1549.2145830001682,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "full_turn_latency_ms": {
+            "value": 11291.198433000129,
+            "evidence_class": "PHONE-MEASURED",
+            "boundary": "request_to_playback_terminal"
+          },
+          "verbatim_asr_transcript": "请用中文简单介绍一下北京。",
+          "visible_response": "北京是中国的首都，位于中国东部中北部，是中国的政治、经济、文化、科技和旅游中心。",
+          "visible_response_contains_latin_or_digits": false,
+          "asr_provider": "qnn",
+          "tts_chunks": 2,
+          "tts_total_audio_seconds": 9.798820861678005,
+          "playback_underflows": 0,
+          "dropped_chunks": 0,
+          "user_visible_reasoning_leakage": false,
+          "filtered_reasoning_characters": 19,
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/zh_checkpoint/provenance.json"
+        },
+        "es": {
+          "status": "PASS_PHONE_END_TO_END_COVERAGE",
+          "evidence_class": "PHONE-MEASURED",
+          "first_text_ms": {
+            "value": 2348.7394780004397,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "value": 3343.35744599998,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "full_turn_latency_ms": {
+            "value": 6104.679059999995,
+            "evidence_class": "PHONE-MEASURED",
+            "boundary": "request_to_playback_terminal"
+          },
+          "verbatim_asr_transcript": "Dime brevemente cuál es la capital de España.",
+          "visible_response": "La capital de España es Madrid.",
+          "asr_provider": "cpu",
+          "tts_chunks": 1,
+          "tts_audio_seconds": 2.7920408163265305,
+          "playback_underflows": 0,
+          "dropped_chunks": 0,
+          "npu_execution_claim": false,
+          "user_visible_reasoning_leakage": false,
+          "filtered_reasoning_characters": 19,
+          "prior_projected_full_turn_latency_seconds": {
+            "low": {
+              "value": 7,
+              "evidence_class": "PROJECTED"
+            },
+            "high": {
+              "value": 11,
+              "evidence_class": "PROJECTED"
+            }
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/es_checkpoint/provenance.json"
+        },
+        "fr": {
+          "status": "PASS_PHONE_END_TO_END_COVERAGE",
+          "evidence_class": "PHONE-MEASURED",
+          "first_text_ms": {
+            "value": 2269.577708000317,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "value": 3223.414686000906,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "full_turn_latency_ms": {
+            "value": 6022.731612000614,
+            "evidence_class": "PHONE-MEASURED",
+            "boundary": "request_to_playback_terminal"
+          },
+          "verbatim_asr_transcript": "Dis-moi brièvement quelle est la capitale de la France.",
+          "visible_response": "La capitale de la France est Paris.",
+          "asr_provider": "cpu",
+          "tts_chunks": 1,
+          "tts_audio_seconds": 2.8185260770975056,
+          "playback_underflows": 0,
+          "dropped_chunks": 0,
+          "npu_execution_claim": false,
+          "user_visible_reasoning_leakage": false,
+          "filtered_reasoning_characters": 19,
+          "prior_projected_full_turn_latency_seconds": {
+            "low": {
+              "value": 7,
+              "evidence_class": "PROJECTED"
+            },
+            "high": {
+              "value": 11,
+              "evidence_class": "PROJECTED"
+            }
+          },
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/fr_checkpoint/provenance.json"
+        },
+        "ru": {
+          "status": "PASS_PHONE_END_TO_END_COVERAGE_FACTUAL_QUALITY_FAIL",
+          "evidence_class": "PHONE-MEASURED",
+          "first_text_ms": {
+            "value": 2083.7153640000615,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "first_audio_start_proxy_ms": {
+            "value": 4437.485519999871,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          "full_turn_latency_ms": {
+            "value": 15605.081660999916,
+            "evidence_class": "PHONE-MEASURED",
+            "boundary": "request_to_playback_terminal"
+          },
+          "verbatim_asr_transcript": "расскажи коротко о москве",
+          "asr_provider": "cpu",
+          "tts_chunks": 2,
+          "tts_total_audio_seconds": 11.192879818594106,
+          "playback_underflows": 0,
+          "dropped_chunks": 0,
+          "factual_quality_acceptance": false,
+          "factual_quality_warning": "Visible answer incorrectly calls Moscow the largest city in the world; retain only as execution coverage.",
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/ru_checkpoint/provenance.json"
+        },
+        "aggregate": {
+          "status": "PASS_PHONE_FIVE_LANGUAGE_EXECUTION",
+          "evidence_class": "PHONE-MEASURED",
+          "same_boot_id": "67f1bad3-d306-4787-ac17-d9ab1c87e169",
+          "same_main_pid": 10316,
+          "same_runtime_pid": 10410,
+          "completed_turns": 5,
+          "completed_playbacks": 5,
+          "qnn_executed_asr_turns": 2,
+          "playback_underflows": 0,
+          "failures": 0,
+          "first_audio_start_proxy_ms": {
+            "median": 3223.414686000906,
+            "max": 4437.485519999871
+          },
+          "request_to_playback_terminal_ms": {
+            "median": 6104.679059999995,
+            "max": 15605.081660999916
+          },
+          "manual_quality_warning": "The aggregate telemetry has zero technical warnings, but the retained RU visible answer has a separately reviewed factual error and is not the filming take.",
+          "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/final/summary.json"
+        }
+      }
+    }
+  },
+  "programme_findings": {
+    "six_lane_a_stacks": [
+      {
+        "stack": "H",
+        "measured": {
+          "value": 1396245218,
+          "evidence_class": "EXACT"
+        },
+        "worst_case_known_rows": {
+          "value": 1396245218,
+          "evidence_class": "UB"
+        },
+        "verdict": "COMPLIANT"
+      },
+      {
+        "stack": "L",
+        "measured": {
+          "value": 1676733894,
+          "evidence_class": "EXACT"
+        },
+        "worst_case_known_rows": {
+          "value": 1720220241,
+          "evidence_class": "UB"
+        },
+        "verdict": "UNVERIFIED"
+      },
+      {
+        "stack": "D",
+        "measured": {
+          "value": 1831533225,
+          "evidence_class": "EXACT"
+        },
+        "worst_case_known_rows": {
+          "value": 1831533225,
+          "evidence_class": "UB"
+        },
+        "verdict": "UNVERIFIED"
+      },
+      {
+        "stack": "M",
+        "measured": {
+          "value": 1674645423,
+          "evidence_class": "EXACT"
+        },
+        "worst_case_known_rows": {
+          "value": 1880539567,
+          "evidence_class": "UB"
+        },
+        "verdict": "UNVERIFIED"
+      },
+      {
+        "stack": "Q",
+        "measured": {
+          "value": 1964482923,
+          "evidence_class": "EXACT"
+        },
+        "worst_case_known_rows": {
+          "value": 1964482923,
+          "evidence_class": "UB"
+        },
+        "verdict": "UNVERIFIED"
+      },
+      {
+        "stack": "F",
+        "measured": {
+          "value": 1975632107,
+          "evidence_class": "EXACT"
+        },
+        "worst_case_known_rows": {
+          "value": 1975632107,
+          "evidence_class": "UB"
+        },
+        "verdict": "UNVERIFIED"
+      }
+    ],
+    "mandarin_failures": {
+      "kokoro_zh_nihao_all_nonfinite": {
+        "failed_runs": {
+          "value": 3,
+          "evidence_class": "HOST"
+        },
+        "attempted_runs": {
+          "value": 3,
+          "evidence_class": "HOST"
+        },
+        "source": "workstreams/sub2b_sprint/sprint/out/d/D3.json"
+      },
+      "matcha_mixed_script_latin_oov_omission": {
+        "status": "HOST_REPRODUCED",
+        "source": "workstreams/sub2b_sprint/sprint/out/d/D1.json"
+      }
+    },
+    "acceleration_boundary": {
+      "sm8850_compile_selectable_for_lane_e_account": false,
+      "published_sm8850_paths_exist": true,
+      "qnn_245_parakeet_phone_parity": {
+        "value": null,
+        "evidence_class": "UNKNOWN"
+      },
+      "source": "workstreams/sub2b_sprint/sprint/out/e/LANE_SUMMARY.md"
+    },
+    "glasses_evidence": {
+      "value": null,
+      "evidence_class": "UNKNOWN"
+    }
+  },
+  "release_correction": {
+    "artifact": "android-app/releases/lfm-audio-demo-0.4.14-expressive-default-guard.apk",
+    "artifact_git_tracked": false,
+    "receipt": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/release_0_4_14_receipt.json",
+    "bytes": {
+      "value": 4816382,
+      "evidence_class": "EXACT"
+    },
+    "sha256": "47bc3b3938c7f347d0a9cddedea777f18ba766c24da2a29b9f55140acf1bc939",
+    "package": "ai.liquid.lfmdemo",
+    "version_code": {
+      "value": 22,
+      "evidence_class": "EXACT"
+    },
+    "version_name": "0.4.14-expressive-default-guard",
+    "deployment_status": "HISTORICAL_DEBUG_APK_NOT_CURRENT_TWO_PACKAGE_DEPLOYMENT"
+  },
+  "validation": {
+    "json_parse_checked": true,
+    "all_numeric_result_leaves_have_an_evidence_class_ancestor": true,
+    "cap_totals_recomputed_from_component_rows": "PASS",
+    "headroom_recomputed_as_exclusive_cap_minus_total": "PASS",
+    "warm_and_cold_metrics_cross_checked_against_provenance": "PASS",
+    "final_demo1_inventory_and_execution_binding_cross_checked": "PASS",
+    "source_hashes_verified_by_evidence_index": "PASS",
+    "normalized_film_decode_audio_volume_hash_checks": "PASS_BOTH_FILMS",
+    "post_capture_tts_repair_cross_checked": "PASS",
+    "latency_preload_deployment_and_host_disconnect_cross_checked": "PASS"
+  }
+}

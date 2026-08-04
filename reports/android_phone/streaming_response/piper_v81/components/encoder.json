@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "component": "encoder",
+  "language": "it",
+  "status": "passed_after_output_name_reconciliation",
+  "target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "chipset": "sm8850",
+    "htp": "v81",
+    "qairt": "2.45"
+  },
+  "external_state_run": "piper-v81-20260722t204222z-it-encoder",
+  "jobs": {
+    "compile": "jg9xvoq8g",
+    "link": "jprnkxrk5",
+    "profile": "j5qm810mg",
+    "inference": "jgl1n84l5"
+  },
+  "source": {
+    "format": "torchscript",
+    "bytes": 95245468,
+    "sha256": "47f2c631d4d4cb895289fcc11463ff7d241680cfba81a9d92cd0ab2a56c90100"
+  },
+  "input_shapes": {
+    "x": [1, 512],
+    "x_lengths": [1]
+  },
+  "output_shapes": {
+    "x_encoded": [1, 192, 512],
+    "m_p": [1, 192, 512],
+    "logs_p": [1, 192, 512],
+    "x_mask": [1, 1, 512]
+  },
+  "latency_ms": 16.958,
+  "peak_memory_mib": 83.32421875,
+  "all_inference_times_us": [
+    17584,
+    17014,
+    17118,
+    17111,
+    16958,
+    16973,
+    17067,
+    17023,
+    17066,
+    17124,
+    17073,
+    17767,
+    17373,
+    17075,
+    17035,
+    17038,
+    17067,
+    17233,
+    17196,
+    17800
+  ],
+  "placement": {
+    "npu_runtime_layers": 401,
+    "cpu_fallback_runtime_layers": 0,
+    "other_runtime_layers": 0,
+    "strict_npu_pass": true
+  },
+  "comparisons": {
+    "x_encoded": {
+      "passed": true,
+      "atol": 0.03,
+      "rtol": 0.03,
+      "cosine_similarity": 0.9999994389230594,
+      "normalized_rmse": 0.0010622967352664054,
+      "max_abs_error": 0.0011949241161346436
+    },
+    "m_p": {
+      "passed": true,
+      "atol": 0.03,
+      "rtol": 0.03,
+      "cosine_similarity": 0.999998989653838,
+      "normalized_rmse": 0.0014571449129877154,
+      "max_abs_error": 0.004935264587402344
+    },
+    "logs_p": {
+      "passed": true,
+      "atol": 0.03,
+      "rtol": 0.03,
+      "cosine_similarity": 0.9999999488980226,
+      "normalized_rmse": 0.0003384275813897489,
+      "max_abs_error": 0.000996321439743042
+    },
+    "x_mask": {
+      "passed": true,
+      "atol": 0.03,
+      "rtol": 0.03,
+      "cosine_similarity": 0.9999999999999998,
+      "normalized_rmse": 0.0,
+      "max_abs_error": 0.0
+    }
+  },
+  "all_numerics_pass": true,
+  "output_mapping_audit": "encoder_output_mapping_audit.json",
+  "local_resource_guard": {
+    "initial_peak_process_tree_rss_gib": 0.429168701171875,
+    "initial_abort_reason": "kern.memorystatus_vm_pressure_level is 2, expected 1",
+    "resume_peak_process_tree_rss_gib": 0.2606201171875,
+    "rss_limit_gib": 2.5,
+    "final_memory_pressure_level": 1
+  },
+  "artifact_hashes": {
+    "golden_io.npz": "2da2cb5e74c9a7dbd85c42dbf5ed045cae11c3deff98c00cebd960a79eafa04f",
+    "profile.json": "0f984ba05467ce386e638cf85da76ee2ca03f5ac04d58d97c3585720106f8812",
+    "placement.json": "5403626bf72eede8b1157ebe806ab74619e7d868001f4da1b8818a69d4db6d5e",
+    "remote_outputs.npz": "82e97f90e2c3f6d24d8987b8486a0c5ab89a9e7f40eeb95024e0ac9beca32078",
+    "output_order_audit.json": "0e8c82b012177067a6c3bcb56e8e41891fd6b3c8064bbc57b47003207a113f22"
+  }
+}

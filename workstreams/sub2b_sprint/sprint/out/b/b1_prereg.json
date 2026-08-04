@@ -1,0 +1,261 @@
+{
+  "schema_version": "lane-b-prereg/1.0",
+  "sprint_id": "B1",
+  "frozen_at_utc": "2026-08-02T05:06:11Z",
+  "branch": "sprint/b-backbone",
+  "purpose": "A reduced-n five-language screen of whether Qwen3.5-0.8B retains credible relative competence in Spanish, French, and Russian, with Qwen2.5-1.5B, Qwen3-0.6B, and Falcon-H1-1.5B controls.",
+  "scope_warning": "This is a HOST screen at n=120 items per language, not the parent plan's n>=1200 non-inferiority study and not a native-speaker validation. It can detect collapse and rank the four frozen arms; it cannot certify native fluency.",
+  "models": [
+    {
+      "model_id": "qwen35_08b",
+      "role": "sub-1B candidate for stacks L/D/M",
+      "base_repo": "Qwen/Qwen3.5-0.8B",
+      "base_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+      "tokenizer_repo": "Qwen/Qwen3.5-0.8B",
+      "tokenizer_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+      "quant_repo": "unsloth/Qwen3.5-0.8B-GGUF",
+      "quant_revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+      "quant_file": "Qwen3.5-0.8B-Q4_0.gguf",
+      "quant_format": "Q4_0",
+      "quant_file_bytes": 507154688,
+      "quant_file_sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701",
+      "text_only": true,
+      "vision_projector_loaded": false,
+      "thinking_mode": "disabled at template render with enable_thinking=false"
+    },
+    {
+      "model_id": "qwen25_15b",
+      "role": "incumbent and Stack Q control",
+      "base_repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "tokenizer_repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "quant_repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "quant_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "quant_file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "quant_format": "Q4_K_M",
+      "quant_file_bytes": 1117320736,
+      "quant_file_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "text_only": true,
+      "thinking_mode": "not exposed by this chat template; no reasoning prompt is added"
+    },
+    {
+      "model_id": "qwen3_06b",
+      "role": "footprint floor and Stack H control",
+      "base_repo": "Qwen/Qwen3-0.6B",
+      "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "tokenizer_repo": "Qwen/Qwen3-0.6B",
+      "tokenizer_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "quant_repo": "unsloth/Qwen3-0.6B-GGUF",
+      "quant_revision": "50968a4468ef4233ed78cd7c3de230dd1d61a56b",
+      "quant_file": "Qwen3-0.6B-Q4_0.gguf",
+      "quant_format": "Q4_0",
+      "quant_file_bytes": 382156480,
+      "quant_file_sha256": "33bcc57074ec7b6eada5a90651ee546ec0c2b271002c22baf9f1b2dd1e8f75cb",
+      "text_only": true,
+      "thinking_mode": "disabled at template render with enable_thinking=false"
+    },
+    {
+      "model_id": "falcon_h1_15b",
+      "role": "Stack F challenger",
+      "base_repo": "tiiuae/Falcon-H1-1.5B-Instruct",
+      "base_revision": "80ebc50d7799a440b96c93bb6686a3924a09b0cb",
+      "tokenizer_repo": "tiiuae/Falcon-H1-1.5B-Instruct",
+      "tokenizer_revision": "80ebc50d7799a440b96c93bb6686a3924a09b0cb",
+      "quant_repo": "tiiuae/Falcon-H1-1.5B-Instruct-GGUF",
+      "quant_revision": "0d3a6cfe25fb4eeab0153fb8623aac5b69d6bd0a",
+      "quant_file": "Falcon-H1-1.5B-Instruct-Q4_K_M.gguf",
+      "quant_format": "Q4_K_M",
+      "quant_file_bytes": 944786656,
+      "quant_file_sha256": "8b51aa2aa34a0373fd0cd64c02eb91d1bc1da681c09e955ad769d4a9b2d8385f",
+      "text_only": true,
+      "thinking_mode": "not exposed by this chat template; no reasoning prompt is added"
+    }
+  ],
+  "harness": {
+    "venue": "Google Colab GPU",
+    "evidence_class": "HOST",
+    "llama_cpp_repo": "ggml-org/llama.cpp",
+    "llama_cpp_commit": "11924d4c17abc27383376a1ac6a24fa3e36c1c0c",
+    "transformers_version": "5.14.1",
+    "huggingface_hub_version": "1.26.0",
+    "regex_version": "2026.7.19",
+    "lingua_language_detector_version": "2.0.2",
+    "opencc_python_reimplemented_version": "0.1.7",
+    "python_requirement": ">=3.11,<3.14",
+    "model_loading": "One GGUF arm at a time; no conversion, quantization, export, fine-tuning, or training.",
+    "prompt_rendering": "Pinned Hugging Face tokenizer chat template rendered to UTF-8, then supplied as a raw prompt to llama.cpp. The rendered prompt SHA-256 for the first item of every language/model is retained.",
+    "cache_prompt": false,
+    "cache_prompt_reason": "The pinned llama.cpp server documentation warns that prompt-cache reuse can change logits with different batch shapes."
+  },
+  "languages": [
+    "en",
+    "zh",
+    "es",
+    "fr",
+    "ru"
+  ],
+  "suites": {
+    "global_mmlu": {
+      "dataset_id": "CohereLabs/Global-MMLU",
+      "dataset_revision": "0e619dbeb34206cd48705a1a0ea7fb21cae09993",
+      "dataset_variant": "FULL",
+      "prohibited_variant": "Global-MMLU-Lite because Russian is absent",
+      "split": "test",
+      "items_per_language": 80,
+      "paired_sample_ids_across_languages": true,
+      "selection_seed": 1729,
+      "selection": "54 CA and 26 CS items, category-stratified, time-sensitive annotations excluded, stable SHA-256 ordering",
+      "manifest": "protocol/global_mmlu_80x5.jsonl",
+      "manifest_sha256": "2ecb1833861c1cb5f7ce617c4aa692b3060e3f39beb9e7597baffaef118e1849"
+    },
+    "native_generation": {
+      "items_per_language": 40,
+      "total_items": 200,
+      "manifest": "protocol/native_generation_40x5.jsonl",
+      "manifest_sha256": "aa8160ab5aacb180c2e1869878c947ed3e9987daa0169b934f22f89519d20e80",
+      "blueprint_per_language": {
+        "everyday_local_factual_or_practical": 16,
+        "instruction_following": 8,
+        "culture_civic_school_geography": 6,
+        "repair_noisy_input": 4,
+        "benign_safety_refusal_discriminator": 3,
+        "concise_summarisation_or_rephrasing": 3
+      },
+      "authorship": "Codex-authored directly in each target language before candidate output existed; no native-human authorship or validation claimed."
+    },
+    "total_items_per_language": 120
+  },
+  "prompts": {
+    "system_by_language": {
+      "en": "Answer directly in English. Do not show reasoning. Keep the answer concise and suitable for speech.",
+      "zh": "请只用简体中文直接作答，不要展示推理过程。回答要简洁，适合语音播报。",
+      "es": "Responde directamente en español. No muestres el razonamiento. Sé conciso y apto para voz.",
+      "fr": "Répondez directement en français. Ne montrez pas votre raisonnement. Soyez concis et adapté à l'oral.",
+      "ru": "Отвечайте прямо по-русски. Не показывайте ход рассуждений. Ответ должен быть кратким и пригодным для озвучивания."
+    },
+    "mcq_user_template": "{question}\n\nA. {option_a}\nB. {option_b}\nC. {option_c}\nD. {option_d}\n\n{localized_instruction}",
+    "mcq_instruction_by_language": {
+      "en": "Return only the letter A, B, C, or D.",
+      "zh": "只返回字母 A、B、C 或 D。",
+      "es": "Devuelve solo la letra A, B, C o D.",
+      "fr": "Répondez uniquement par la lettre A, B, C ou D.",
+      "ru": "Верните только букву A, B, C или D."
+    },
+    "native_user_template": "{prompt}",
+    "thinking_assertion": "For qwen35_08b and qwen3_06b, apply_chat_template(..., add_generation_prompt=true, enable_thinking=false) is mandatory. Prompting the model not to think is not a substitute. Any other template setting is a protocol deviation.",
+    "mode_pin_violation_rule": "A rendered Qwen prompt lacking the template's non-thinking empty-think block, or any output reasoning tag/initial deliberation match, is recorded. A model arm with >0.5% template/mode-pin violations is VOID for ranking."
+  },
+  "decoding": {
+    "global_mmlu": {
+      "method": "llama-perplexity --multiple-choice over answer-letter continuations A/B/C/D",
+      "scoring_path": "Length-normalized log-likelihood of each answer-letter continuation; select the maximum. No generated rationale and no judge.",
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "seed": 1729,
+      "context_tokens": 4096,
+      "candidate_answers": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "native_generation": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "top_k": 0,
+      "min_p": 0.0,
+      "repeat_penalty": 1.0,
+      "seed": 1729,
+      "max_new_tokens": 192,
+      "context_tokens": 4096,
+      "stream": false,
+      "cache_prompt": false,
+      "stop_strings": [
+        "<|im_end|>",
+        "<|end_of_text|>"
+      ],
+      "raw_output_policy": "Retain the exact UTF-8 completion before normalization or filtering."
+    }
+  },
+  "scoring": {
+    "global_mmlu_correctness": "C_i=1 when the highest length-normalized log-likelihood answer letter equals the frozen gold letter; otherwise 0.",
+    "native_generation_correctness": "C_i is binary from the item's frozen deterministic regex/structure rubric. Reference answers are audit examples only; no semantic judge may rescue a frozen rubric failure.",
+    "surface_fluency_proxy": {
+      "warning": "This is a mechanical surface proxy for language/script/degeneracy/speakability, not native fluency, grammaticality, or cultural appropriateness.",
+      "language_component_L": "With >=8 Unicode letters, restrict Lingua to EN/ES/FR/RU/ZH: L=1 if expected language is top, L=0.5 if expected confidence is within 0.10 of the maximum, else 0. With <8 letters, L=S.",
+      "script_component_S": "EN/ES/FR: Latin ratio >=0.90. RU: Cyrillic ratio >=0.90. ZH: Han/(Han+Latin+Cyrillic) >=0.70 and OpenCC t2s changes no Han-bearing segment. No-script numeric/symbol answers get S=1 only if their correctness rubric passes.",
+      "nondegenerate_component_D": "Nonempty; no U+FFFD; no disallowed C0/C1 controls; no letter/digit repeated six times consecutively; no same word repeated four times consecutively.",
+      "speakability_component_P": "No URL, backtick, Markdown heading, table pipe, emoji, bare LaTeX delimiter, list longer than three entries, or reasoning-leakage match.",
+      "formula": "F_i = 0.50*L + 0.25*S + 0.15*D + 0.10*P"
+    },
+    "concision": {
+      "latin_cyrillic_languages": "K_i=1 iff nonempty and <=60 words, using Unicode letter/mark words plus numeric tokens; otherwise 0.",
+      "zh": "K_i=1 iff nonempty and <=90 non-whitespace NFKC code points; otherwise 0."
+    },
+    "generation_item_score": "s_i = C_i * (0.70 + 0.20*F_i + 0.10*K_i)",
+    "mmlu_item_score": "s_i = C_i",
+    "language_score": "score_lang = 100 * sum(s_i over the 120 frozen items) / 120, using unrounded values internally",
+    "strict_generation_pass": "Also report the unweighted rate where C_i=1, F_i=1, and K_i=1; it does not replace the headline score.",
+    "intervals": "Report Wilson 95% intervals for binary component rates. Report a 10,000-resample item bootstrap 95% interval for score_lang with RNG seed 20260801. Intervals are diagnostic at this reduced n and do not change the mechanical point-estimate rule.",
+    "no_cross_language_average": true
+  },
+  "failure_mode_counters": {
+    "denominator": "Exactly 40 native generations per language and 200 per model. Per-language rates therefore have n=40; the >=200 requirement is met per model across the five frozen languages, not per model-language. This reduced sprint interpretation is disclosed and is weaker than the parent plan.",
+    "wrong_language": "For outputs with >=8 Unicode letters, wrong_language=1 when expected Lingua confidence is >0.20 below the maximum and the maximum is >=0.70. Report eligible n and do not turn ineligible short numeric answers into language evidence.",
+    "wrong_script_en_es_fr": "wrong_script=1 with >=4 script-assigned letters and Latin ratio <0.90.",
+    "wrong_script_ru": "wrong_script=1 with >=4 script-assigned letters and Cyrillic ratio <0.90; retain the raw ratio.",
+    "wrong_script_zh": "wrong_script=1 with >=4 Han+Latin+Cyrillic characters and Han ratio <0.70.",
+    "traditional_han_leakage": "On raw ZH output before B2 normalization, leakage=1 if OpenCC t2s changes any Han-bearing segment; report changed-Han fraction and response count.",
+    "reasoning_leakage": {
+      "inspection": "Raw output after NFKC only; case-insensitive. Tags match anywhere. Step/deliberation preambles match only when beginning within the first 40 Unicode code points.",
+      "tag_regex": [
+        "<\\s*/?\\s*(?:think|analysis|reasoning)\\s*>",
+        "\\[\\s*/?\\s*(?:think|analysis|reasoning)\\s*\\]"
+      ],
+      "first_40_regex": [
+        "(?:Step\\s*1|Paso\\s*1|Étape\\s*1|Etape\\s*1|Шаг\\s*1|第一步|步骤\\s*1)",
+        "(?:let me (?:think|reason|analy[sz]e)|I need to (?:think|reason|analy[sz]e|solve)|we need to (?:think|reason|analy[sz]e|solve))",
+        "(?:déjame pensar|necesito (?:analizar|razonar)|vamos a (?:analizar|razonar|resolver))",
+        "(?:laisse(?:z)?-moi réfléchir|je dois (?:analyser|raisonner)|analysons|raisonnons)",
+        "(?:давайте (?:подумаем|разбер[её]м)|мне нужно (?:подумать|проанализировать|решить)|ход рассуждений)",
+        "(?:让我想想|我们需要(?:分析|推理)|我需要(?:分析|推理)|思考过程|推理过程)"
+      ],
+      "interpretation": "A reproducible lower bound; marker-free prose reasoning can be missed."
+    }
+  },
+  "decision_rule": {
+    "competence_ratio": "ratio_lang = score_lang / score_en for the same model, from unrounded values. score_en=0 makes the arm UNDECIDABLE.",
+    "threshold": 0.75,
+    "qwen35_outcomes": [
+      {
+        "condition": "es, fr, and ru ratios are all >=0.75",
+        "verdict": "SUB1B_HOLDS"
+      },
+      {
+        "condition": "ru alone is <0.75 and es/fr are >=0.75",
+        "verdict": "SUB1B_HOLDS_RU_REDUCED_SCOPE"
+      },
+      {
+        "condition": "es or fr is <0.75, or two or more of es/fr/ru are <0.75",
+        "verdict": "MOVE_TO_Q_OR_F"
+      }
+    ],
+    "single_es_or_fr_gap_resolution": "The lane text explicitly grants a reduced-scope exception only to RU and otherwise omits the one-failure ES/FR branch. Frozen conservative resolution before seeing outputs: any ES-only or FR-only failure moves to Q/F.",
+    "q_vs_f_leader": "Compare unrounded language scores directly. The arm winning more of the five languages leads. If language-win counts tie, choose the arm with the higher minimum of its own es/en, fr/en, and ru/en ratios; then higher RU score; then Qwen2.5-1.5B as the incumbent/headroom tie-break. No cross-language average may rescue a language.",
+    "equality_at_threshold": "0.75 exactly passes"
+  },
+  "prior_registered_before_run": {
+    "qwen35_prior": "18/28 broad HOST screen, rejected",
+    "qwen25_prior": "23/28 automatic, 24/28 after one scorer correction",
+    "interpretation": "Directional but statistically weak; the prior is context, never substituted for this screen.",
+    "quantization_confound": "The prior challenger was recorded only as Q4 while the incumbent was Q4_K_M. The present screen uses each frozen shipping artifact and names the format difference rather than treating it as controlled."
+  },
+  "evidence_rules": {
+    "scores": "HOST only after an actual Colab execution with raw outputs, environment, hashes, seed, and n retained. VENDOR or BENCHMARK values may not substitute.",
+    "artifact_revisions_and_lfs_hashes": "EXACT from repository metadata before download; downloaded bytes must match before execution.",
+    "unknown_policy": "A model/runtime failure is reported as UNKNOWN or documented remote-run failure. It is never filled from a vendor table or another language."
+  },
+  "deviation_policy": "Any change to model/revision/file hash, item or order, prompt, template setting, decoding parameter, rubric, detector, weight, threshold, or leader tie-break after this hash requires an append-only deviation record with timestamp and reason. The frozen result is not silently replaced."
+}

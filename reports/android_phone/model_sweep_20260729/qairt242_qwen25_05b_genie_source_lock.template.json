@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "profile_id": "qwen2_5_0_5b_instruct_q4_0",
+  "source": {
+    "repository": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+    "revision": null,
+    "filename": "qwen2.5-0.5b-instruct-q4_0.gguf",
+    "url": null,
+    "bytes": null,
+    "sha256": null
+  },
+  "approval": {
+    "status": "unapproved_template",
+    "approved_for_conversion": false,
+    "approved_utc": null,
+    "approved_by": null,
+    "evidence_sha256": null,
+    "evidence_note": "Discovery data must be independently locked and reviewed. Editing identity fields alone must not promote this template; approval fields are a separate gate."
+  }
+}

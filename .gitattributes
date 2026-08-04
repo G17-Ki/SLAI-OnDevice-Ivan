@@ -1,0 +1,6 @@
+# Preserve the pinned upstream KissFFT bytes; do not apply project whitespace
+# policy to verbatim third-party source and license files.
+android-app/whisper-probe/src/main/cpp/third_party/kissfft/** -whitespace
+
+# This generated contract is itself hash-pinned by the diagnostic probe.
+reports/android_phone/model_sweep_20260729/supertonic_chain_ort_qnn_probe_spec.json -whitespace

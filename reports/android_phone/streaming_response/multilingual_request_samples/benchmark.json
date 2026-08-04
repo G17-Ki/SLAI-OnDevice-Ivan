@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-22T10:21:24Z",
+  "runtime": {
+    "python": "3.11.11 (main, Dec 11 2024, 10:25:04) [Clang 14.0.6 ]",
+    "platform": "macOS-15.4.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "sherpa_onnx": "1.13.4",
+    "numpy": "2.4.6"
+  },
+  "settings": {
+    "num_threads": 2,
+    "repeats": 1,
+    "num_steps": 4,
+    "speed": 1.05,
+    "sid": 6,
+    "warmup": true
+  },
+  "model_dir": "<workspace>/work/tts-research/supertonic/sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+  "load": {
+    "load_s": 0.584690666757524,
+    "rss_before_bytes": 38436864,
+    "rss_after_bytes": 242319360,
+    "incremental_rss_bytes": 203882496,
+    "peak_rss_bytes": 242352128
+  },
+  "summary_by_case": {
+    "en_request": {
+      "lang": "en",
+      "text": "What is the capital of France?",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 1,
+        "median": 0.27886141696944833,
+        "p95": 0.27886141696944833,
+        "min": 0.27886141696944833,
+        "max": 0.27886141696944833
+      },
+      "total_s": {
+        "n": 1,
+        "median": 0.27895037503913045,
+        "p95": 0.27895037503913045,
+        "min": 0.27895037503913045,
+        "max": 0.27895037503913045
+      },
+      "rtf": {
+        "n": 1,
+        "median": 0.12789503190927634,
+        "p95": 0.12789503190927634,
+        "min": 0.12789503190927634,
+        "max": 0.12789503190927634
+      },
+      "audio_duration_s": {
+        "n": 1,
+        "median": 2.1810884353741495,
+        "p95": 2.1810884353741495,
+        "min": 2.1810884353741495,
+        "max": 2.1810884353741495
+      },
+      "peak_rss_bytes": {
+        "n": 1,
+        "median": 284360704.0,
+        "p95": 284360704.0,
+        "min": 284360704.0,
+        "max": 284360704.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "es_request": {
+      "lang": "es",
+      "text": "¿Cuál es la capital de Francia?",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 1,
+        "median": 0.3664664579555392,
+        "p95": 0.3664664579555392,
+        "min": 0.3664664579555392,
+        "max": 0.3664664579555392
+      },
+      "total_s": {
+        "n": 1,
+        "median": 0.3665501670911908,
+        "p95": 0.3665501670911908,
+        "min": 0.3665501670911908,
+        "max": 0.3665501670911908
+      },
+      "rtf": {
+        "n": 1,
+        "median": 0.1545043428727779,
+        "p95": 0.1545043428727779,
+        "min": 0.1545043428727779,
+        "max": 0.1545043428727779
+      },
+      "audio_duration_s": {
+        "n": 1,
+        "median": 2.3724263038548754,
+        "p95": 2.3724263038548754,
+        "min": 2.3724263038548754,
+        "max": 2.3724263038548754
+      },
+      "peak_rss_bytes": {
+        "n": 1,
+        "median": 287555584.0,
+        "p95": 287555584.0,
+        "min": 287555584.0,
+        "max": 287555584.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "de_request": {
+      "lang": "de",
+      "text": "Was ist die Hauptstadt von Frankreich?",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 1,
+        "median": 0.37298541562631726,
+        "p95": 0.37298541562631726,
+        "min": 0.37298541562631726,
+        "max": 0.37298541562631726
+      },
+      "total_s": {
+        "n": 1,
+        "median": 0.3730845828540623,
+        "p95": 0.3730845828540623,
+        "min": 0.3730845828540623,
+        "max": 0.3730845828540623
+      },
+      "rtf": {
+        "n": 1,
+        "median": 0.13898135799788947,
+        "p95": 0.13898135799788947,
+        "min": 0.13898135799788947,
+        "max": 0.13898135799788947
+      },
+      "audio_duration_s": {
+        "n": 1,
+        "median": 2.684421768707483,
+        "p95": 2.684421768707483,
+        "min": 2.684421768707483,
+        "max": 2.684421768707483
+      },
+      "peak_rss_bytes": {
+        "n": 1,
+        "median": 284393472.0,
+        "p95": 284393472.0,
+        "min": 284393472.0,
+        "max": 284393472.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "fr_request": {
+      "lang": "fr",
+      "text": "Quelle est la capitale de la France ?",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 1,
+        "median": 0.36734770936891437,
+        "p95": 0.36734770936891437,
+        "min": 0.36734770936891437,
+        "max": 0.36734770936891437
+      },
+      "total_s": {
+        "n": 1,
+        "median": 0.3674262501299381,
+        "p95": 0.3674262501299381,
+        "min": 0.3674262501299381,
+        "max": 0.3674262501299381
+      },
+      "rtf": {
+        "n": 1,
+        "median": 0.1433747522959808,
+        "p95": 0.1433747522959808,
+        "min": 0.1433747522959808,
+        "max": 0.1433747522959808
+      },
+      "audio_duration_s": {
+        "n": 1,
+        "median": 2.562698412698413,
+        "p95": 2.562698412698413,
+        "min": 2.562698412698413,
+        "max": 2.562698412698413
+      },
+      "peak_rss_bytes": {
+        "n": 1,
+        "median": 277577728.0,
+        "p95": 277577728.0,
+        "min": 277577728.0,
+        "max": 277577728.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "ja_request": {
+      "lang": "ja",
+      "text": "フランスの首都はどこですか。",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 1,
+        "median": 0.3539632079191506,
+        "p95": 0.3539632079191506,
+        "min": 0.3539632079191506,
+        "max": 0.3539632079191506
+      },
+      "total_s": {
+        "n": 1,
+        "median": 0.35404975013807416,
+        "p95": 0.35404975013807416,
+        "min": 0.35404975013807416,
+        "max": 0.35404975013807416
+      },
+      "rtf": {
+        "n": 1,
+        "median": 0.15720651618611817,
+        "p95": 0.15720651618611817,
+        "min": 0.15720651618611817,
+        "max": 0.15720651618611817
+      },
+      "audio_duration_s": {
+        "n": 1,
+        "median": 2.2521315192743763,
+        "p95": 2.2521315192743763,
+        "min": 2.2521315192743763,
+        "max": 2.2521315192743763
+      },
+      "peak_rss_bytes": {
+        "n": 1,
+        "median": 276660224.0,
+        "p95": 276660224.0,
+        "min": 276660224.0,
+        "max": 276660224.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    },
+    "ko_request": {
+      "lang": "ko",
+      "text": "프랑스의 수도는 어디인가요?",
+      "max_len": null,
+      "first_callback_s": {
+        "n": 1,
+        "median": 0.2798301661387086,
+        "p95": 0.2798301661387086,
+        "min": 0.2798301661387086,
+        "max": 0.2798301661387086
+      },
+      "total_s": {
+        "n": 1,
+        "median": 0.27991825016215444,
+        "p95": 0.27991825016215444,
+        "min": 0.27991825016215444,
+        "max": 0.27991825016215444
+      },
+      "rtf": {
+        "n": 1,
+        "median": 0.13054563062765454,
+        "p95": 0.13054563062765454,
+        "min": 0.13054563062765454,
+        "max": 0.13054563062765454
+      },
+      "audio_duration_s": {
+        "n": 1,
+        "median": 2.1442176870748297,
+        "p95": 2.1442176870748297,
+        "min": 2.1442176870748297,
+        "max": 2.1442176870748297
+      },
+      "peak_rss_bytes": {
+        "n": 1,
+        "median": 277446656.0,
+        "p95": 277446656.0,
+        "min": 277446656.0,
+        "max": 277446656.0
+      },
+      "callback_chunk_count": [
+        1
+      ]
+    }
+  },
+  "runs": [
+    {
+      "case_id": "en_request",
+      "lang": "en",
+      "text": "What is the capital of France?",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.27886141696944833,
+      "callback_times_s": [
+        0.27886141696944833
+      ],
+      "callback_chunk_samples": [
+        96186
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.27895037503913045,
+      "rtf": 0.12789503190927634,
+      "peak_rss_bytes": 284360704,
+      "wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/en_request.wav",
+      "first_chunk_wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/en_request.first_chunk.wav",
+      "num_samples": 96186,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.1810884353741495,
+      "peak_abs": 0.6382097005844116,
+      "rms": 0.053509220480918884,
+      "dc_mean": -0.0005875077331438661,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "es_request",
+      "lang": "es",
+      "text": "¿Cuál es la capital de Francia?",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.3664664579555392,
+      "callback_times_s": [
+        0.3664664579555392
+      ],
+      "callback_chunk_samples": [
+        104624
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3665501670911908,
+      "rtf": 0.1545043428727779,
+      "peak_rss_bytes": 287555584,
+      "wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/es_request.wav",
+      "first_chunk_wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/es_request.first_chunk.wav",
+      "num_samples": 104624,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.3724263038548754,
+      "peak_abs": 0.5533809661865234,
+      "rms": 0.06248321384191513,
+      "dc_mean": -0.0004271618672646582,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "de_request",
+      "lang": "de",
+      "text": "Was ist die Hauptstadt von Frankreich?",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.37298541562631726,
+      "callback_times_s": [
+        0.37298541562631726
+      ],
+      "callback_chunk_samples": [
+        118383
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3730845828540623,
+      "rtf": 0.13898135799788947,
+      "peak_rss_bytes": 284393472,
+      "wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/de_request.wav",
+      "first_chunk_wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/de_request.first_chunk.wav",
+      "num_samples": 118383,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.684421768707483,
+      "peak_abs": 0.9089974164962769,
+      "rms": 0.05569276213645935,
+      "dc_mean": -0.0003693190519697964,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "fr_request",
+      "lang": "fr",
+      "text": "Quelle est la capitale de la France ?",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.36734770936891437,
+      "callback_times_s": [
+        0.36734770936891437
+      ],
+      "callback_chunk_samples": [
+        113015
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.3674262501299381,
+      "rtf": 0.1433747522959808,
+      "peak_rss_bytes": 277577728,
+      "wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/fr_request.wav",
+      "first_chunk_wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/fr_request.first_chunk.wav",
+      "num_samples": 113015,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.562698412698413,
+      "peak_abs": 0.708864688873291,
+      "rms": 0.07470625638961792,
+      "dc_mean": -0.00033583957701921463,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ja_request",
+      "lang": "ja",
+      "text": "フランスの首都はどこですか。",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.3539632079191506,
+      "callback_times_s": [
+        0.3539632079191506
+      ],
+      "callback_chunk_samples": [
+        99319
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.35404975013807416,
+      "rtf": 0.15720651618611817,
+      "peak_rss_bytes": 276660224,
+      "wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/ja_request.wav",
+      "first_chunk_wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/ja_request.first_chunk.wav",
+      "num_samples": 99319,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.2521315192743763,
+      "peak_abs": 0.4880981147289276,
+      "rms": 0.04885907843708992,
+      "dc_mean": -0.0008277438464574516,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    },
+    {
+      "case_id": "ko_request",
+      "lang": "ko",
+      "text": "프랑스의 수도는 어디인가요?",
+      "max_len": null,
+      "repeat_index": 0,
+      "first_callback_s": 0.2798301661387086,
+      "callback_times_s": [
+        0.2798301661387086
+      ],
+      "callback_chunk_samples": [
+        94560
+      ],
+      "callback_chunk_count": 1,
+      "total_s": 0.27991825016215444,
+      "rtf": 0.13054563062765454,
+      "peak_rss_bytes": 277446656,
+      "wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/ko_request.wav",
+      "first_chunk_wav_path": "reports/android_phone/streaming_response/multilingual_request_samples/ko_request.first_chunk.wav",
+      "num_samples": 94560,
+      "sample_rate_hz": 44100,
+      "audio_duration_s": 2.1442176870748297,
+      "peak_abs": 0.5900591611862183,
+      "rms": 0.0627049133181572,
+      "dc_mean": -0.0005013976478949189,
+      "clip_count": 0,
+      "nonfinite_count": 0
+    }
+  ]
+}

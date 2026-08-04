@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "artifact": {
+    "repository": "k2-fsa/sherpa-onnx",
+    "release_tag": "tts-models",
+    "release_url": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models",
+    "release_published_utc": "2023-11-21T07:43:51Z",
+    "asset_id": 265069793,
+    "asset_name": "kokoro-int8-multi-lang-v1_1.tar.bz2",
+    "asset_created_utc": "2025-06-18T11:57:01Z",
+    "asset_updated_utc": "2025-06-18T11:57:06Z",
+    "asset_size_bytes": 147031220,
+    "asset_sha256": "a1e94694776049035c4f2c6529f003aaece993c76aae9a78995831c3c4dcafc6",
+    "download_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-int8-multi-lang-v1_1.tar.bz2"
+  },
+  "archive_audit": {
+    "bzip2_test": "pass",
+    "entries": 417,
+    "unsafe_paths": 0,
+    "symbolic_or_hard_links": 0,
+    "extracted_regular_files": 377,
+    "extracted_regular_file_bytes": 215321602
+  },
+  "extracted_files": {
+    "model.int8.onnx": {
+      "bytes": 114299010,
+      "sha256": "bda15858163726a492d02a9a727bc263551b86ac77f90812c4b30ff41d380e26"
+    },
+    "voices.bin": {
+      "bytes": 53790720,
+      "sha256": "e64a5a581d8c2a350d848f51c3121657cd83aa07ed6109172177345874a7244c"
+    },
+    "tokens.txt": {
+      "bytes": 1111,
+      "sha256": "931ab2df2400cd65d580a22402024c2347ced8ae9ea300e545144b1aacc48e14"
+    },
+    "README.md": {
+      "bytes": 114,
+      "sha256": "e2d39356ea4d67ac15c39a7e5a238ea12b0f6fb8a55bb0c87bc2f659eb1cf7ac"
+    },
+    "LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "spdx": "Apache-2.0",
+      "scope": "Exact top-level file bundled by the release asset; the archive contains no third-party notice inventory proving that this file covers every frontend dictionary/data file."
+    }
+  },
+  "source_model": {
+    "repository": "hexgrad/Kokoro-82M-v1.1-zh",
+    "resolved_revision": "01e7505bd6a7a2ac4975463114c3a7650a9f7218",
+    "model_card_url": "https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh/blob/01e7505bd6a7a2ac4975463114c3a7650a9f7218/README.md",
+    "model_card_sha256": "02ed578bdd24c42f3e4ed0d88d33e923365b41e6a37e86d3a5055f75d456f8e6",
+    "model_card_declared_weight_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
+    "declared_parameters": 82000000,
+    "declared_languages": [
+      "English",
+      "Chinese"
+    ],
+    "declared_license": "Apache-2.0"
+  },
+  "onnx_metadata": {
+    "model_type": "kokoro",
+    "version": 2,
+    "sample_rate_hz": 24000,
+    "n_speakers": 103,
+    "style_dim": [
+      510,
+      1,
+      256
+    ],
+    "language": "multi-lang, e.g., English, Chinese",
+    "comment": "This is Kokoro v1.1-zh, a multilingual TTS model, supporting English, Chinese.",
+    "quantizer_marker": "onnxruntime.quant",
+    "ir_version": 7,
+    "opset": 14,
+    "microsoft_opset": 1,
+    "unseeded_random_ops": {
+      "RandomNormalLike": 1,
+      "RandomUniformLike": 1
+    }
+  },
+  "conversion_provenance_limit": "The release asset and its digest are exact, but the archive contains no build manifest tying it to an exact sherpa-onnx source commit. The v1.1-zh conversion scripts were introduced in commit dfcbc8d40b222296d855a526f61261b00e0a792d and refactored in commit 59d118c25619e55dc86c482f57c1bfe5049b32d2 shortly after the asset upload; neither should be represented as a cryptographically proven build revision for this asset.",
+  "license_provenance_limit": "The source model card declares Apache-2.0 and the release archive includes an exact Apache-2.0 top-level LICENSE. The archive also bundles espeak-ng-data and CppJieba-style dictionaries without a complete third-party notice/manifest, so redistribution of the whole extracted archive needs a separate dependency-license audit. This public repository stores only code, reports, hashes, and small generated WAV evidence, not the model archive."
+}

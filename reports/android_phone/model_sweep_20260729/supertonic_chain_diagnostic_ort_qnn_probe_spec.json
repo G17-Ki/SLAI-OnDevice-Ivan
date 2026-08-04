@@ -1,0 +1,142 @@
+{
+  "schema_version": 3,
+  "gate_id": "supertonic3_full_chain_stage_diagnostic_raw_onnx_ort_qnn_sm8850_probe_v2",
+  "target": {
+    "package": "ai.liquid.lfmdemo.supertonicchaindiagprobe",
+    "soc": "SM8850",
+    "abi": "arm64-v8a",
+    "htp_arch": "v81",
+    "android_api": 28
+  },
+  "apk": {
+    "bytes": 197695292,
+    "sha256": "b854439ce533027b447822e86944d67eed27f1deb0d57bbf147b7c6e189bb14c"
+  },
+  "payload_manifest": {
+    "path": "supertonic_chain_diagnostic_probe/payload_manifest.json",
+    "bytes": 19969,
+    "sha256": "96a9254d1f793147869da198a717901e90ae2609694b58fce5b6a689fae77c29"
+  },
+  "stager": {
+    "path": "scripts/stage_supertonic_chain_diagnostic_ort_qnn_probe.py",
+    "bytes": 8291,
+    "sha256": "1096b9ba4ef6882a0d6468f97f8b697da0bbb1b4f2cb8bda4b010f6de0399438"
+  },
+  "source_chain_spec": {
+    "path": "reports/android_phone/model_sweep_20260729/supertonic_chain_ort_qnn_probe_spec.json",
+    "bytes": 25413,
+    "sha256": "239a83e940e22f0289af5059900f5b815ea2b865da4abac3c698558fd0494dc5"
+  },
+  "source_payload_manifest": {
+    "bytes": 19378,
+    "sha256": "735e61b070c7ad199a67bc18829036f4575551b5533a49e9ead5b36392f0819f"
+  },
+  "apk_policy": {
+    "package": "ai.liquid.lfmdemo.supertonicchaindiagprobe",
+    "version_code": 1,
+    "version_name": "0.2.0-stage-diagnostic-raw-onnx-qnn-probe",
+    "compile_sdk": 35,
+    "min_sdk": 28,
+    "target_sdk": 35,
+    "launcher": "ai.liquid.lfmdemo.supertonicchaindiagprobe.ProbeActivity",
+    "application_label": "Supertonic chain diagnostic",
+    "permissions": [],
+    "native_abis": [
+      "arm64-v8a"
+    ],
+    "required_native_libraries": [],
+    "optional_native_libraries": [
+      "libcdsprpc.so"
+    ],
+    "optional_features": [],
+    "debuggable": true,
+    "allow_backup": false,
+    "supports_rtl": true,
+    "extract_native_libs": true,
+    "uses_cleartext_traffic": false,
+    "launcher_exported": true,
+    "signing": {
+      "v1": false,
+      "v2": true,
+      "v3": false,
+      "v3_1": false,
+      "v4": false,
+      "source_stamp": false,
+      "signer_count": 1,
+      "certificate_sha256": "9ad7b2846b7c18853b99e444d4d05323321b3a9118c13c5a8fc242e58b5859e4"
+    }
+  },
+  "accepted_packages": {
+    "ai.liquid.lfmdemo": {
+      "sha256": "a24e203a30dcaaf9215dc3f0d5b99fa4b893a9e0ceca71c99c13e49bdb1b020a"
+    },
+    "ai.liquid.lfmdemo.runtime": {
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "diagnostic_policy": {
+    "completed_stages_recorded": true,
+    "cpu_ep_fallback_remains_disabled": true,
+    "failure_phase_recorded": true,
+    "failure_stage_recorded": true,
+    "promotion_allowed": false,
+    "diagnostic_schema_version": 2,
+    "diagnostic_marker": "SUPERTONIC_CHAIN_STAGE_DIAGNOSTIC_V2",
+    "ordered_success_stages": [
+      "payload_install",
+      "runtime_initialization",
+      "duration_predictor",
+      "text_encoder",
+      "vector_estimator",
+      "vocoder"
+    ],
+    "component_phases": [
+      "session_create",
+      "contract_validation",
+      "execute",
+      "output_validation"
+    ],
+    "vector_step_index_recorded": true,
+    "completed_stage_reports_recorded": true,
+    "completed_vector_step_reports_recorded": true
+  },
+  "zip_policy": {
+    "alignment_bytes": 4,
+    "all_assets_stored": true,
+    "other_members": [
+      "AndroidManifest.xml",
+      "META-INF/com/android/build/gradle/app-metadata.properties",
+      "classes.dex",
+      "classes2.dex",
+      "classes3.dex",
+      "resources.arsc"
+    ]
+  },
+  "device_output_contract": {
+    "evidence_schema_version": 1,
+    "diagnostic_schema_version": 2,
+    "report_path": "/data/user/0/ai.liquid.lfmdemo.supertonicchaindiagprobe/files/supertonic_chain_diagnostic_probe/reports/latest.json",
+    "partial_report_path": "/data/user/0/ai.liquid.lfmdemo.supertonicchaindiagprobe/files/supertonic_chain_diagnostic_probe/reports/latest.json.partial",
+    "completion_marker": "SUPERTONIC_CHAIN_DIAGNOSTIC_REPORT_COMPLETE_V2",
+    "diagnostic_marker": "SUPERTONIC_CHAIN_STAGE_DIAGNOSTIC_V2",
+    "run_trigger": "automation_intent"
+  },
+  "inheritance": {
+    "from_source_chain_spec": [
+      "runtime",
+      "models",
+      "fixture",
+      "fixture_source",
+      "verification_policy",
+      "capabilities",
+      "ort_aar",
+      "payload_native_libraries",
+      "required_native_libraries",
+      "device_policy",
+      "verification_toolchain"
+    ],
+    "asset_path_prefix_from": "supertonic_chain_probe/",
+    "asset_path_prefix_to": "supertonic_chain_diagnostic_probe/"
+  },
+  "claim_boundary": "Isolated stage-diagnostic raw-ONNX four-component scaffold. It preserves CPU EP fallback disabled and records the exact failing component/phase plus completed stages. A pass or failure is diagnostic only and cannot promote full TTS, PCM quality, language identity, latency, unplugged durability, or production integration."
+}

@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T10:12:02.059609+00:00",
+  "evidence_class": "Apple Silicon architecture experiment; not phone/NPU/glasses",
+  "settings": {
+    "audio": "question.wav",
+    "asr_url": "http://127.0.0.1:8080/v1/chat/completions",
+    "llm_url": "http://127.0.0.1:8082/v1/chat/completions",
+    "llm_model": "Qwen3-0.6B-Q4_0",
+    "tts_model": "sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+    "language": "en",
+    "threads": 2,
+    "steps": 4,
+    "speaker": 6,
+    "speed": 1.05,
+    "flush_chars": 64,
+    "playback_cushion_ms": 140.0,
+    "tts_load_ms": 526.8391249701381,
+    "warmups": 1,
+    "runs": 10
+  },
+  "summary": {
+    "asr_first_text": {
+      "min": 206.78516710177064,
+      "median": 210.56710393168032,
+      "p95": 229.461541865021,
+      "max": 229.461541865021,
+      "mean": 215.2002583257854
+    },
+    "asr_complete": {
+      "min": 360.3673749603331,
+      "median": 371.3289585430175,
+      "p95": 397.50554179772735,
+      "max": 397.50554179772735,
+      "mean": 372.78566248714924
+    },
+    "llm_first_token_from_llm_start": {
+      "min": 15.916791744530201,
+      "median": 17.03474996611476,
+      "p95": 22.392916958779097,
+      "max": 22.392916958779097,
+      "mean": 17.418591771274805
+    },
+    "llm_first_visible_from_llm_start": {
+      "min": 15.916791744530201,
+      "median": 17.03474996611476,
+      "p95": 22.392916958779097,
+      "max": 22.392916958779097,
+      "mean": 17.418591771274805
+    },
+    "first_chunk_ready_from_llm_start": {
+      "min": 105.32412491738796,
+      "median": 111.04347882792354,
+      "p95": 122.12399998679757,
+      "max": 122.12399998679757,
+      "mean": 112.26130807772279
+    },
+    "llm_complete_from_llm_start": {
+      "min": 167.4035000614822,
+      "median": 172.24120907485485,
+      "p95": 189.78862510994077,
+      "max": 189.78862510994077,
+      "mean": 175.2954626455903
+    },
+    "tts_first_callback_from_tts_start": {
+      "min": 569.4906669668853,
+      "median": 591.655645519495,
+      "p95": 658.9299170300364,
+      "max": 658.9299170300364,
+      "mean": 601.5023584011942
+    },
+    "tts_complete_from_tts_start": {
+      "min": 569.5956251583993,
+      "median": 591.8459580279887,
+      "p95": 659.0872080996633,
+      "max": 659.0872080996633,
+      "mean": 601.8948541488498
+    },
+    "pipeline_first_pcm": {
+      "min": 1042.6005837507546,
+      "median": 1070.8973752334714,
+      "p95": 1150.2377092838287,
+      "max": 1150.2377092838287,
+      "mean": 1087.0743625797331
+    },
+    "pipeline_first_audible_scheduled": {
+      "min": 1182.6005838811398,
+      "median": 1210.8973753638566,
+      "p95": 1290.237709414214,
+      "max": 1290.237709414214,
+      "mean": 1227.0743627101183
+    },
+    "pipeline_complete": {
+      "min": 1047.6170000620186,
+      "median": 1076.2636670842767,
+      "p95": 1155.2516669034958,
+      "max": 1155.2516669034958,
+      "mean": 1092.9733416531235
+    }
+  },
+  "runs": [
+    {
+      "run_index": 0,
+      "measured": false,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 291.72350000590086,
+        "asr_complete": 447.5355837494135,
+        "llm_first_token_from_llm_start": 131.78212521597743,
+        "llm_first_visible_from_llm_start": 131.78212521597743,
+        "first_chunk_ready_from_llm_start": 227.41416608914733,
+        "llm_complete_from_llm_start": 290.26850033551455,
+        "tts_first_callback_from_tts_start": 601.3534576632082,
+        "tts_complete_from_tts_start": 601.5684576705098,
+        "pipeline_first_pcm": 1277.6516247540712,
+        "pipeline_first_audible_scheduled": 1417.6516248844564,
+        "pipeline_complete": 1283.2592497579753
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 1,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 225.2901247702539,
+        "asr_complete": 380.1778326742351,
+        "llm_first_token_from_llm_start": 17.17495871707797,
+        "llm_first_visible_from_llm_start": 17.17495871707797,
+        "first_chunk_ready_from_llm_start": 110.91549973934889,
+        "llm_complete_from_llm_start": 171.76420893520117,
+        "tts_first_callback_from_tts_start": 575.8358328603208,
+        "tts_complete_from_tts_start": 575.9790828451514,
+        "pipeline_first_pcm": 1067.3465831205249,
+        "pipeline_first_audible_scheduled": 1207.34658325091,
+        "pipeline_complete": 1073.2216672040522
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 2,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 210.15433268621564,
+        "asr_complete": 366.0933328792453,
+        "llm_first_token_from_llm_start": 16.681999899446964,
+        "llm_first_visible_from_llm_start": 16.681999899446964,
+        "first_chunk_ready_from_llm_start": 110.02308269962668,
+        "llm_complete_from_llm_start": 170.33741669729352,
+        "tts_first_callback_from_tts_start": 571.1010419763625,
+        "tts_complete_from_tts_start": 571.2880832143128,
+        "pipeline_first_pcm": 1047.652999870479,
+        "pipeline_first_audible_scheduled": 1187.6530000008643,
+        "pipeline_complete": 1053.1089156866074
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 3,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 207.5132909230888,
+        "asr_complete": 360.5975001119077,
+        "llm_first_token_from_llm_start": 16.573958098888397,
+        "llm_first_visible_from_llm_start": 16.573958098888397,
+        "first_chunk_ready_from_llm_start": 110.52491702139378,
+        "llm_complete_from_llm_start": 178.02816722542048,
+        "tts_first_callback_from_tts_start": 658.9299170300364,
+        "tts_complete_from_tts_start": 659.0872080996633,
+        "pipeline_first_pcm": 1130.4476247169077,
+        "pipeline_first_audible_scheduled": 1270.447624847293,
+        "pipeline_complete": 1138.1053747609258
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 4,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 224.50879216194153,
+        "asr_complete": 380.3783333860338,
+        "llm_first_token_from_llm_start": 16.96249982342124,
+        "llm_first_visible_from_llm_start": 16.96249982342124,
+        "first_chunk_ready_from_llm_start": 111.8349158205092,
+        "llm_complete_from_llm_start": 173.268583137542,
+        "tts_first_callback_from_tts_start": 657.3961251415312,
+        "tts_complete_from_tts_start": 657.5288330204785,
+        "pipeline_first_pcm": 1150.2377092838287,
+        "pipeline_first_audible_scheduled": 1290.237709414214,
+        "pipeline_complete": 1155.2516669034958
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 5,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 208.85400008410215,
+        "asr_complete": 363.81037486717105,
+        "llm_first_token_from_llm_start": 15.916791744530201,
+        "llm_first_visible_from_llm_start": 15.916791744530201,
+        "first_chunk_ready_from_llm_start": 109.28520793095231,
+        "llm_complete_from_llm_start": 169.03583286330104,
+        "tts_first_callback_from_tts_start": 600.9262083098292,
+        "tts_complete_from_tts_start": 601.0229582898319,
+        "pipeline_first_pcm": 1074.448167346418,
+        "pipeline_first_audible_scheduled": 1214.448167476803,
+        "pipeline_complete": 1079.3056669645011
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 6,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 220.39616713300347,
+        "asr_complete": 376.268417108804,
+        "llm_first_token_from_llm_start": 17.10700010880828,
+        "llm_first_visible_from_llm_start": 17.10700010880828,
+        "first_chunk_ready_from_llm_start": 111.17145791649818,
+        "llm_complete_from_llm_start": 171.65187513455749,
+        "tts_first_callback_from_tts_start": 575.3271249122918,
+        "tts_complete_from_tts_start": 575.5091668106616,
+        "pipeline_first_pcm": 1063.1127497181296,
+        "pipeline_first_audible_scheduled": 1203.1127498485148,
+        "pipeline_complete": 1068.2275416329503
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 7,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 208.05929135531187,
+        "asr_complete": 375.2778749912977,
+        "llm_first_token_from_llm_start": 17.270707990974188,
+        "llm_first_visible_from_llm_start": 17.270707990974188,
+        "first_chunk_ready_from_llm_start": 119.63137472048402,
+        "llm_complete_from_llm_start": 188.95820807665586,
+        "tts_first_callback_from_tts_start": 616.6440420784056,
+        "tts_complete_from_tts_start": 619.1712920553982,
+        "pipeline_first_pcm": 1112.521542236209,
+        "pipeline_first_audible_scheduled": 1252.521542366594,
+        "pipeline_complete": 1121.0235422477126
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 8,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 229.461541865021,
+        "asr_complete": 397.50554179772735,
+        "llm_first_token_from_llm_start": 22.392916958779097,
+        "llm_first_visible_from_llm_start": 22.392916958779097,
+        "first_chunk_ready_from_llm_start": 122.12399998679757,
+        "llm_complete_from_llm_start": 189.78862510994077,
+        "tts_first_callback_from_tts_start": 606.9875420071185,
+        "tts_complete_from_tts_start": 607.097334228456,
+        "pipeline_first_pcm": 1127.400207798928,
+        "pipeline_first_audible_scheduled": 1267.4002079293132,
+        "pipeline_complete": 1132.997457869351
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 9,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 210.979875177145,
+        "asr_complete": 367.3800420947373,
+        "llm_first_token_from_llm_start": 16.76500029861927,
+        "llm_first_visible_from_llm_start": 16.76500029861927,
+        "first_chunk_ready_from_llm_start": 105.32412491738796,
+        "llm_complete_from_llm_start": 167.4035000614822,
+        "tts_first_callback_from_tts_start": 569.4906669668853,
+        "tts_complete_from_tts_start": 569.5956251583993,
+        "pipeline_first_pcm": 1042.6005837507546,
+        "pipeline_first_audible_scheduled": 1182.6005838811398,
+        "pipeline_complete": 1047.6170000620186
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 10,
+      "measured": true,
+      "transcript": "Can you help me come up with a slogan for my woodworking site business?",
+      "response": "Sure, here's a slogan for your woodworking business: \"Crafted with care, every piece is a masterpiece.\"",
+      "first_tts_chunk": "Sure, here's a slogan for your woodworking business: \"Crafted",
+      "timing_ms": {
+        "asr_first_text": 206.78516710177064,
+        "asr_complete": 360.3673749603331,
+        "llm_first_token_from_llm_start": 17.340084072202444,
+        "llm_first_visible_from_llm_start": 17.340084072202444,
+        "first_chunk_ready_from_llm_start": 111.77850002422929,
+        "llm_complete_from_llm_start": 172.71820921450853,
+        "tts_first_callback_from_tts_start": 582.3850827291608,
+        "tts_complete_from_tts_start": 582.6689577661455,
+        "pipeline_first_pcm": 1054.9754579551518,
+        "pipeline_first_audible_scheduled": 1194.975458085537,
+        "pipeline_complete": 1060.8745831996202
+      },
+      "tts_audio_seconds": 4.495600907029479,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "sprint_id": "A1",
+  "lane": "A",
+  "title": "Settle Qwen3-ASR-0.6B tied-vs-untied lm_head",
+  "date_utc": "2026-08-02",
+  "question": "Is Qwen3-ASR-0.6B's lm_head tied to embed_tokens? 155,582,464 parameters at stake; decides whether Stack M's ASR basis is 782,426,112 (unique) or 938,008,576 (serialized).",
+
+  "verdict": "TIED",
+  "verdict_confidence": "EXACT",
+  "counted_params_unique": 782426112,
+  "counted_params_serialized": 938008576,
+  "delta_resolved": 155582464,
+
+  "target": {
+    "repo": "Qwen/Qwen3-ASR-0.6B",
+    "revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+    "revision_asserted": true,
+    "file": "model.safetensors",
+    "file_bytes": 1876091704,
+    "safetensors_header_len": 74544,
+    "n_tensors": 612,
+    "dtype": "BF16 (all 612 tensors)"
+  },
+
+  "evidence": [
+    {
+      "id": "A1-E1",
+      "method": "safetensors header parse via HTTP Range (bytes=0-7 -> u64 header length -> bytes=8-74551 -> JSON tensor map)",
+      "class": "EXACT",
+      "finding": "Both tensors are present on disk at DISTINCT, non-overlapping offsets. The tie is MATERIALISED in this export.",
+      "detail": {
+        "thinker.lm_head.weight": {"dtype": "BF16", "shape": [151936, 1024], "data_offsets": [372752384, 683917312]},
+        "thinker.model.embed_tokens.weight": {"dtype": "BF16", "shape": [151936, 1024], "data_offsets": [683917312, 995082240]},
+        "region_bytes_each": 311164928,
+        "params_each": 155582464,
+        "note": "151936 x 1024 = 155,582,464 -- exactly the Qwen-family token-embedding matrix."
+      }
+    },
+    {
+      "id": "A1-E2",
+      "method": "byte comparison, 33 sampled blocks of 65,536 B spread evenly across both 311,164,928 B data regions",
+      "class": "EXACT",
+      "finding": "33 of 33 blocks byte-identical; 0 differ.",
+      "artifact": "artifacts/a1_block_probe.json",
+      "bytes_compared": 4325376
+    },
+    {
+      "id": "A1-E3",
+      "method": "full-region streaming SHA-256 of BOTH tensor data regions (100% coverage, streamed and hashed, nothing written to disk)",
+      "class": "EXACT",
+      "finding": "sha256(lm_head region) == sha256(embed_tokens region); zero mismatching chunks over the entire 311,164,928 B.",
+      "artifact": "artifacts/a1_full_hash.json",
+      "bytes_streamed": 622329856,
+      "sha256_lm_head": "ab067cf4287b06781cd926874df9d0917e79a2360381e661b5010b99651ffc09",
+      "sha256_embed_tokens": "ab067cf4287b06781cd926874df9d0917e79a2360381e661b5010b99651ffc09",
+      "mismatch_chunk_offsets": []
+    },
+    {
+      "id": "A1-E4",
+      "method": "config.json read at the pinned revision",
+      "class": "EXACT",
+      "finding": "thinker_config.text_config.tie_word_embeddings = true; vocab_size = 151936; hidden_size = 1024; num_hidden_layers = 28; model_type = qwen3.",
+      "note": "Config corroborates the byte evidence. It is NOT the basis -- a config flag is a declaration, the byte comparison is the measurement."
+    }
+  ],
+
+  "adjudication": {
+    "source_reports_tied": ["A", "B"],
+    "source_report_untied": ["C"],
+    "ruling": "A and B are correct. C is WRONG, and its EXACT label was unearned.",
+    "how_C_went_wrong": "The HuggingFace API reports safetensors.total = 938,008,576 for this repo. That figure is a sum of prod(shape) over the on-disk tensor map and performs NO tensor-identity de-duplication. Because this export materialises the tie twice, the API total is the serialized basis. Reading it as a parameter count yields 'untied' and looks authoritative. This is exactly the failure mode _COMMON.md's evidence discipline exists to prevent: an API total is a header sum, not a tensor-identity measurement.",
+    "generalisation": "Any Qwen-family repo whose HF API total exceeds config-derived arithmetic by exactly vocab_size x hidden_size should be assumed to be a materialised tie until byte-compared. Verified again in this lane on Qwen/Qwen3-0.6B -- see A1-E5."
+  },
+
+  "corroborating_second_case": {
+    "id": "A1-E5",
+    "repo": "Qwen/Qwen3-0.6B",
+    "hf_api_safetensors_total": 751632384,
+    "byte_comparison": "TIED (17/17 sampled 32,768 B blocks identical)",
+    "config_tie_word_embeddings": true,
+    "unique_total": 596049920,
+    "delta": 155582464,
+    "significance": "Independent confirmation of the same trap on the same tensor shape, and confirmation of Stack H row H3's 596,049,920."
+  },
+
+  "consequences": {
+    "stack_M_basis": "unique",
+    "stack_M_row_M1": 782426112,
+    "stack_M_total_unique": 1674717228,
+    "stack_M_total_serialized_superseded": 1830299692,
+    "compliance_effect": "NONE. Stack M was COMPLIANT on both bases (1,674,717,228 and 1,830,299,692 are both < 2,000,000,000). X-01 was an arithmetic-hygiene question, never a compliance question -- 01_STACK_DECISION.md section 2.4 recorded this correctly.",
+    "planning_effect": "M's headroom is now 325,282,772 rather than 169,700,308. Under section 2.4's own rule, glasses planning was forbidden to spend above 169,700,308 'until T001 returns TIED'. T001 has now returned TIED, so that restriction is discharged and the larger figure is the planning basis.",
+    "rule_applied": "S-2 (a tied lm_head is counted once; the serialized basis is recorded in a parallel column as an upper bound, never as the headline). S-3 no longer binds: the tie is resolved."
+  },
+
+  "residual_uncertainty": [
+    {
+      "item": "Export-time re-tying",
+      "statement": "This verdict is about the upstream safetensors checkpoint. An ONNX/QNN/GGUF export MAY re-materialise the tie, in which case the shipped artefact carries 938,008,576 on disk while the model has 782,426,112 unique parameters.",
+      "class": "UNKNOWN",
+      "closing_experiment": "Initializer enumeration of the sherpa-onnx INT8 export of Qwen3-ASR-0.6B, de-duplicated by external-data (location, offset, length). Lane A demonstrated this method on MOSS-TTS-Nano and it found exactly this duplication there (see A3).",
+      "note": "Does not change the ledger under S-2, which counts the unique basis and records the serialized figure as a parallel bound."
+    }
+  ],
+
+  "storage_used_bytes": 0,
+  "method_note": "No model weights were downloaded. All reads were HTTP Range requests against file headers, plus a streaming hash comparison that was never written to disk.",
+  "tools": ["tools/hdr.py", "tools/net.py", "tools/st_batch.py"]
+}

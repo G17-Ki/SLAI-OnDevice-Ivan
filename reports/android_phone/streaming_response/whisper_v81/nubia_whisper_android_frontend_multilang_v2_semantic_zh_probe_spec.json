@@ -1,0 +1,243 @@
+{
+  "accepted_packages": {
+    "ai.liquid.lfmdemo": {
+      "sha256": "a24e203a30dcaaf9215dc3f0d5b99fa4b893a9e0ceca71c99c13e49bdb1b020a"
+    },
+    "ai.liquid.lfmdemo.runtime": {
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "apk": {
+    "bytes": 414786946,
+    "sha256": "b33bf51b988c1def433d42d37fc00d7df1a2de788c5758efab0be68ef0331d3c"
+  },
+  "apk_policy": {
+    "compile_sdk": 35,
+    "launcher": "ai.liquid.lfmdemo.whisperprobe.ProbeActivity",
+    "min_sdk": 28,
+    "native_abis": [
+      "arm64-v8a"
+    ],
+    "optional_native_libraries": [
+      "libcdsprpc.so"
+    ],
+    "package": "ai.liquid.lfmdemo.whisperprobe",
+    "permissions": [],
+    "required_native_libraries": [],
+    "required_optional_features": [
+      "android.hardware.microphone"
+    ],
+    "signing": {
+      "certificate_sha256": "9ad7b2846b7c18853b99e444d4d05323321b3a9118c13c5a8fc242e58b5859e4",
+      "signer_count": 1,
+      "source_stamp": false,
+      "v1": false,
+      "v2": true,
+      "v3": false,
+      "v3_1": false,
+      "v4": false
+    },
+    "target_sdk": 35,
+    "version_code": 1,
+    "version_name": "0.1.0-ort-qnn-probe"
+  },
+  "base_probe": {
+    "gate_id": "nubia_whisper_small_ort_qnn_epcontext_sm8850_probe_v1",
+    "spec": {
+      "bytes": 9332,
+      "path": "reports/android_phone/streaming_response/whisper_v81/nubia_whisper_ort_qnn_probe_spec.json",
+      "sha256": "af7859d8d3cb69facd202b39fceab11e71a7d2e068b11bf0ea32575c562444bd"
+    }
+  },
+  "build_policy": {
+    "android_ndk": "27.0.12077973",
+    "frontend_compile_flags": [
+      "-O2",
+      "-fno-fast-math",
+      "-ffp-contract=off"
+    ],
+    "frontend_profile": "v2",
+    "java": 17,
+    "max_gradle_workers": 2,
+    "semantic_decode_enabled": true,
+    "semantic_language": "zh"
+  },
+  "claim_boundary": {
+    "final_runtime_integration": false,
+    "microphone_input": false,
+    "probe_package_feasibility_only": true,
+    "real_audio_acceptance": false,
+    "real_audio_transcription": false
+  },
+  "device_output_contract": {
+    "completion_marker": "WHISPER_PROBE_REPORT_COMPLETE_V1",
+    "decoder": {
+      "attention_unmask_order": [
+        199,
+        198,
+        197,
+        196
+      ],
+      "steps": 4
+    },
+    "evidence_schema_version": 1,
+    "feature_source": "bundled_question_en_native_frontend",
+    "frontend": {
+      "feature_dtype": "uint16",
+      "feature_layout": "mel_major_frame_minor",
+      "feature_shape": [
+        1,
+        80,
+        3000
+      ],
+      "fixtures": {
+        "en": {
+          "golden_tensor_sha256": "29c478d40bb98b7782280dcfbc98662cee514df7e62c180c5ba849db24a2f6a1",
+          "wav_pcm_frames": 52819,
+          "wav_sha256": "b5fa81a74e608624b52fb3e4cf895d6982a455022597a0da0ad3dc52866f8b69"
+        },
+        "zh": {
+          "golden_tensor_sha256": "6d18da5e1ec42bbd8161881a598e835c365138377b3d42364ff360e4849d4263",
+          "wav_pcm_frames": 41717,
+          "wav_sha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63"
+        }
+      },
+      "implementation": "jni_persistent_kissfft_400_real",
+      "max_differing_fraction": 0.001,
+      "max_differing_values": 240,
+      "max_uint16_delta": 1
+    },
+    "native_frontend_sha256": "475cad57685c04f3027c3c07a5dbfc9b67a33e8f0669fd4f2da36eefd48e9a6d",
+    "report_path": "/data/user/0/ai.liquid.lfmdemo.whisperprobe/files/whisper_probe/reports/latest.json",
+    "run_id_pattern": "[A-Za-z0-9][A-Za-z0-9._-]{0,127}",
+    "run_trigger": "automation_intent"
+  },
+  "frontend_assets": [
+    {
+      "bytes": 105682,
+      "path": "whisper_frontend/v2/fixtures/question_en.wav",
+      "sha256": "b5fa81a74e608624b52fb3e4cf895d6982a455022597a0da0ad3dc52866f8b69"
+    },
+    {
+      "bytes": 79464,
+      "path": "whisper_frontend/v2/fixtures/question_ja.wav",
+      "sha256": "0da6ee3b9514a96597bf9225a1bcdf7cae86608e095e157490899a443948b761"
+    },
+    {
+      "bytes": 66908,
+      "path": "whisper_frontend/v2/fixtures/question_ko.wav",
+      "sha256": "0ce8353dc9faa844cc8214c613f182a127338b71b139955ccb903ca806a7b3de"
+    },
+    {
+      "bytes": 48674,
+      "path": "whisper_frontend/v2/fixtures/question_ru.wav",
+      "sha256": "3545b8a20e3f320174a4e4dee57ff77268f30f79526eef91c86c778e3c180683"
+    },
+    {
+      "bytes": 83478,
+      "path": "whisper_frontend/v2/fixtures/question_zh.wav",
+      "sha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63"
+    },
+    {
+      "bytes": 480000,
+      "path": "whisper_frontend/v2/goldens/en.features.u16le.bin",
+      "sha256": "29c478d40bb98b7782280dcfbc98662cee514df7e62c180c5ba849db24a2f6a1"
+    },
+    {
+      "bytes": 480000,
+      "path": "whisper_frontend/v2/goldens/ja.features.u16le.bin",
+      "sha256": "8cf37ba9a60f5cd91453dae2d721e9fd7fec69919582223bf02a3f76f8421a80"
+    },
+    {
+      "bytes": 480000,
+      "path": "whisper_frontend/v2/goldens/ko.features.u16le.bin",
+      "sha256": "808b38d3c4198c15566116562eb7ad61fbafc01912a747ae439047fb9d7eb1c5"
+    },
+    {
+      "bytes": 480000,
+      "path": "whisper_frontend/v2/goldens/ru.features.u16le.bin",
+      "sha256": "0e0c25a24157edabe3c1d193e60e8b59886aa9b2ba9b1581fb5c90c2eaf3bbc4"
+    },
+    {
+      "bytes": 480000,
+      "path": "whisper_frontend/v2/goldens/zh.features.u16le.bin",
+      "sha256": "6d18da5e1ec42bbd8161881a598e835c365138377b3d42364ff360e4849d4263"
+    },
+    {
+      "bytes": 1600,
+      "path": "whisper_frontend/v2/tables/hann.f32le.bin",
+      "sha256": "c692d19f0b2bd745f0dfc967261c3e3d21a2473e485a677d219e9b4a73e0218e"
+    },
+    {
+      "bytes": 64320,
+      "path": "whisper_frontend/v2/tables/mel_filters.f32le.bin",
+      "sha256": "d18b48f33345d958ea71098bb990b5e32cebc78d9a2cf65ca0d7302f34ebe8a9"
+    }
+  ],
+  "frontend_manifest": {
+    "bytes": 5110,
+    "path": "whisper_frontend/v2/manifest.json",
+    "sha256": "acb5c46f3bbbe3c11620bd662242157b30695500c1a0e8b6e7510acdc3157736"
+  },
+  "frontend_native_library": {
+    "bytes": 23048,
+    "elf": "aarch64",
+    "path": "arm64-v8a/libwhisper_frontend.so",
+    "sha256": "475cad57685c04f3027c3c07a5dbfc9b67a33e8f0669fd4f2da36eefd48e9a6d"
+  },
+  "frontend_profile": "v2",
+  "gate_id": "whisper_qai_hf_bundled_wav_frontend_multilang_v2",
+  "schema_version": 1,
+  "semantic_decode_overlay": {
+    "allowed_generated_token_max": 50257,
+    "allowed_generated_token_min": 0,
+    "attention_mask_mode": "cumulative_suffix_uint16",
+    "build_flag": "WHISPER_FRONTEND_PROFILE=v2;WHISPER_SEMANTIC_DECODE_ENABLED=true;WHISPER_SEMANTIC_LANGUAGE=zh",
+    "eot_token_id": 50257,
+    "feature_source": "bundled_question_zh_native_frontend",
+    "gate_id": "whisper_small_bundled_zh_semantic_candidate_v1",
+    "language_code": "zh",
+    "language_token_id": 50260,
+    "max_cer": 0.2,
+    "max_decoder_calls": 199,
+    "max_semantic_compute_ms": 2500,
+    "max_wer": 1.0,
+    "maximum_generated_tokens": 196,
+    "prompt_token_ids": [
+      50258,
+      50260,
+      50359,
+      50363
+    ],
+    "reference_fixture": "zh",
+    "reference_text": "请用中文简单介绍一下北京。",
+    "reference_wav_sha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63",
+    "require_eot": true,
+    "suppressed_generated_token_max": 51864,
+    "suppressed_generated_token_min": 50258
+  },
+  "stager": {
+    "bytes": 11188,
+    "path": "scripts/stage_whisper_android_frontend_assets_multilang.py",
+    "sha256": "4a89e1ffcbdebd62368d0ed95274da586c758b9e70380ad19323dfe7067f16a7"
+  },
+  "target": {
+    "abi": "arm64-v8a",
+    "htp_arch": "v81",
+    "model": "NX809J",
+    "package": "ai.liquid.lfmdemo.whisperprobe",
+    "soc": "SM8850"
+  },
+  "zip_policy": {
+    "duplicate_entries_forbidden": true,
+    "other_members": [
+      "AndroidManifest.xml",
+      "META-INF/com/android/build/gradle/app-metadata.properties",
+      "classes.dex",
+      "classes2.dex",
+      "classes3.dex",
+      "classes4.dex",
+      "resources.arsc"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "lane-b-execution-clarification-addendum/1.0",
+  "sprint_id": "B1",
+  "recorded_at_utc": "2026-08-02T06:20:43Z",
+  "recorded_before_candidate_inference": true,
+  "parent_records": [
+    {
+      "path": "b1_execution_clarifications.json",
+      "sha256": "cb3921b1dbfa9a38040d6ffae13f04606dbcebe72b2806a14193d89f06140b91"
+    },
+    {
+      "path": "b1_execution_clarification_correction.json",
+      "sha256": "d5df5eb593a6e93995c9dbb21039407328709b90ed940520950a0d3e2ef57482"
+    }
+  ],
+  "purpose": "Freeze the previously unspecified deterministic implementation details of the diagnostic percentile bootstrap before any candidate-model inference.",
+  "bootstrap_execution": {
+    "rng": "Python standard-library random.Random (MT19937/Mersenne Twister), initialized once with integer seed 20260801 at report-assembly start.",
+    "rng_reset": "Do not reset between model-language cells.",
+    "cell_order": [
+      "qwen35_08b/en",
+      "qwen35_08b/zh",
+      "qwen35_08b/es",
+      "qwen35_08b/fr",
+      "qwen35_08b/ru",
+      "qwen25_15b/en",
+      "qwen25_15b/zh",
+      "qwen25_15b/es",
+      "qwen25_15b/fr",
+      "qwen25_15b/ru",
+      "qwen3_06b/en",
+      "qwen3_06b/zh",
+      "qwen3_06b/es",
+      "qwen3_06b/fr",
+      "qwen3_06b/ru",
+      "falcon_h1_15b/en",
+      "falcon_h1_15b/zh",
+      "falcon_h1_15b/es",
+      "falcon_h1_15b/fr",
+      "falcon_h1_15b/ru"
+    ],
+    "within_resample": "For each cell and each of 10,000 replicates, draw 80 MCQ item scores with replacement first using equal-weight random.choices(k=80), then 40 generation item scores with replacement using equal-weight random.choices(k=40), and compute 100*(sum_mcq+sum_generation)/120.",
+    "percentiles": "Sort the 10,000 replicate scores. For p=0.025 and p=0.975 use h=(N-1)*p and linearly interpolate between floor(h) and ceil(h): Hyndman-Fan type 7 / NumPy default linear convention.",
+    "runtime_receipt": "Record the Python runtime version used for report assembly."
+  },
+  "scope": "This addendum affects diagnostic interval endpoints only. It changes no point estimate, item score, model ranking, competence threshold, tie-break, or backbone verdict."
+}

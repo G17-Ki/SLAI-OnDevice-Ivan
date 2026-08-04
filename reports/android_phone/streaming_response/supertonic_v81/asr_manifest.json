@@ -1,0 +1,23 @@
+[
+  {
+    "id": "supertonic_local_dynamic_31",
+    "kind": "dynamic_local_reference",
+    "language": "en",
+    "audio_path": "reports/android_phone/streaming_response/supertonic_v81/local_dynamic_trimmed.wav",
+    "reference": "It is Paris, in France."
+  },
+  {
+    "id": "supertonic_local_fixed_32",
+    "kind": "fixed_shape_local_reference",
+    "language": "en",
+    "audio_path": "reports/android_phone/streaming_response/supertonic_v81/local_fixed_trimmed.wav",
+    "reference": "It is Paris, in France."
+  },
+  {
+    "id": "supertonic_remote_fixed_32",
+    "kind": "accumulated_aihub_chain",
+    "language": "en",
+    "audio_path": "reports/android_phone/streaming_response/supertonic_v81/remote_chain/remote_fixed_trimmed.wav",
+    "reference": "It is Paris, in France."
+  }
+]

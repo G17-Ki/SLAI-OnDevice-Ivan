@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "purpose": "On-phone acceptance of the Android WebView audio file chooser and one complete Mandarin offline turn",
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "airplane_mode_on": true
+  },
+  "app": {
+    "package": "ai.liquid.lfmdemo",
+    "version_code": 26,
+    "version_name": "0.6.0-unplugged",
+    "installed_apk_sha256": "143b96888005ed42ac97a07d281f76fa831d293ccaf7c0f2f11e19b5af5cb3f0",
+    "host_apk_sha256": "143b96888005ed42ac97a07d281f76fa831d293ccaf7c0f2f11e19b5af5cb3f0",
+    "installed_matches_host": true
+  },
+  "input": {
+    "device_path": "/sdcard/Download/LMF_overnight/question_zh.wav",
+    "sha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63",
+    "selection_surface": "Android DocumentsUI opened from WebChromeClient.onShowFileChooser"
+  },
+  "debug_transport": {
+    "adb_forward_list_before": [],
+    "adb_forward_list_after": [],
+    "chrome_devtools_protocol_used": false
+  },
+  "result": {
+    "turn_id": "1785692163960-1",
+    "status": "completed",
+    "resolved_language": "zh",
+    "asr_backend": "sensevoice_qnn",
+    "asr_provider": "qnn",
+    "npu_selected": true,
+    "npu_executed": true,
+    "tts_engine_id": "matcha_zh_baker",
+    "first_audio_start_proxy_ms": 1466.8124470114708,
+    "tts_first_chunk_ms": 87,
+    "tts_rtf": 0.037797270085644374,
+    "dropped_chunks": 0,
+    "playback_underflows": 0
+  },
+  "claim_boundary": "This is a one-turn software-timestamp smoke of the automatic chat route. It proves the chooser and current APK end to end; it is not the 20-turn explicit Demo 2 distribution and is not an external acoustic-onset measurement."
+}

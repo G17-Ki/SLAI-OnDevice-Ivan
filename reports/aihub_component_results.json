@@ -1,0 +1,639 @@
+{
+  "target_note": "Runs use AI Hub QCS8550 (Proxy), Android 12, Hexagon v73. Placement is transfer evidence; latency and memory are not AR1 measurements.",
+  "results": [
+    {
+      "component": "backbone-attention-cached-decode",
+      "runtime": "strict-npu",
+      "status": "passed",
+      "source": "<workspace>/work/lfm-feasibility/aihub/component-matrix-20260715t093440z/backbone-attention-cached-decode/summary-strict-npu.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jgz4lvxkp",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jgz4lvxkp/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "j56d8qv6p",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j56d8qv6p/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "j5md0vl75",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j5md0vl75/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": true,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 2.452,
+      "peak_memory_mb": 87.0078125,
+      "npu_runtime_layers": 61,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "output": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 0.0006003975868225098,
+          "mean_abs_error": 0.00011504850378685205,
+          "p95_abs_error": 0.00029185228049755096,
+          "p99_abs_error": 0.00037981301546096785,
+          "normalized_rmse": 0.000769121712828314,
+          "cosine_similarity": 0.9999997568204069
+        },
+        "updated_key_cache": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 0.002434968948364258,
+          "mean_abs_error": 0.00012306349345259093,
+          "p95_abs_error": 0.0005845785140991201,
+          "p99_abs_error": 0.0009515714645385743,
+          "normalized_rmse": 0.000245767164371199,
+          "cosine_similarity": 0.9999999698130786
+        },
+        "updated_value_cache": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 5.817413330078125e-05,
+          "mean_abs_error": 3.4340501624541275e-06,
+          "p95_abs_error": 1.4751777052879332e-05,
+          "p99_abs_error": 2.6822760701179505e-05,
+          "normalized_rmse": 0.00023091650386950594,
+          "cosine_similarity": 0.9999999733426489
+        }
+      }
+    },
+    {
+      "component": "backbone-attention-prefill",
+      "runtime": "strict-npu",
+      "status": "passed",
+      "source": "<workspace>/work/lfm-feasibility/aihub/component-matrix-20260715t093440z/backbone-attention-prefill/summary-strict-npu.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jpv9l1vj5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpv9l1vj5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "jgk92lrw5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jgk92lrw5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "jp84e3eo5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jp84e3eo5/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": true,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 2.444,
+      "peak_memory_mb": 91.546875,
+      "npu_runtime_layers": 62,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "output": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 0.0011278390884399414,
+          "mean_abs_error": 0.00014728938085273313,
+          "p95_abs_error": 0.00042233765125274645,
+          "p99_abs_error": 0.0005751049518585203,
+          "normalized_rmse": 0.0003429325560232946,
+          "cosine_similarity": 0.9999999411996339
+        }
+      }
+    },
+    {
+      "component": "backbone-conv-cached-decode",
+      "runtime": "strict-npu",
+      "status": "passed",
+      "source": "<workspace>/work/lfm-feasibility/aihub/component-matrix-20260715t093440z/backbone-conv-cached-decode/summary-strict-npu.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jp1vndrkp",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jp1vndrkp/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "jpv9l1o75",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpv9l1o75/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "jpel74o0g",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpel74o0g/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": true,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 2.695,
+      "peak_memory_mb": 91.8828125,
+      "npu_runtime_layers": 32,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "output": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 0.0003621131181716919,
+          "mean_abs_error": 6.689848784446895e-05,
+          "p95_abs_error": 0.000181145966053009,
+          "p99_abs_error": 0.0002641582489013671,
+          "normalized_rmse": 0.00045798194791488124,
+          "cosine_similarity": 0.9999998985228898
+        },
+        "updated_conv_cache": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 0.0002784132957458496,
+          "mean_abs_error": 1.3762435334171985e-05,
+          "p95_abs_error": 5.573248490691181e-05,
+          "p99_abs_error": 0.00010055486112833006,
+          "normalized_rmse": 0.0003810617073981793,
+          "cosine_similarity": 0.9999999276184386
+        }
+      }
+    },
+    {
+      "component": "backbone-conv-prefill",
+      "runtime": "strict-npu",
+      "status": "passed",
+      "source": "<workspace>/work/lfm-feasibility/aihub/component-matrix-20260715t093440z/backbone-conv-prefill/summary-strict-npu.json",
+      "jobs": {
+        "compile": {
+          "job_id": "j5w1l9y4g",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j5w1l9y4g/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "jprnlydk5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jprnlydk5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "jpxdl1vjg",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpxdl1vjg/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": true,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 2.693,
+      "peak_memory_mb": 92.2421875,
+      "npu_runtime_layers": 36,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "output": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 0.0008569955825805664,
+          "mean_abs_error": 0.000133326293446423,
+          "p95_abs_error": 0.0004042387008666992,
+          "p99_abs_error": 0.0005444085597991941,
+          "normalized_rmse": 0.000320599750757097,
+          "cosine_similarity": 0.9999999486085044
+        }
+      }
+    },
+    {
+      "component": "depth-decoder",
+      "runtime": "ort-diagnostic",
+      "status": "passed",
+      "source": "<workspace>/work/lfm-feasibility/aihub/component-matrix-20260715t093440z/depth-decoder/summary-ort-diagnostic.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jpy7ond7p",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpy7ond7p/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "jgk92d4w5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jgk92d4w5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "j56d8ryvp",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j56d8ryvp/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": false,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 26.61,
+      "peak_memory_mb": 379.64453125,
+      "npu_runtime_layers": 4024,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "tokens": {
+          "comparison": "exact",
+          "passed": true
+        },
+        "next_audio_embedding": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 7.62641429901123e-05,
+          "mean_abs_error": 1.1255052296377244e-05,
+          "p95_abs_error": 4.576146602630615e-05,
+          "p99_abs_error": 6.105005741119385e-05,
+          "normalized_rmse": 0.00022206903546487415,
+          "cosine_similarity": 0.9999999763336989
+        }
+      }
+    },
+    {
+      "component": "depth-decoder",
+      "runtime": "strict-npu",
+      "status": "passed",
+      "source": "<workspace>/work/lfm-feasibility/aihub/int64-corrections-20260715t104753z/depth-decoder/summary-strict-npu.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jp49ym215",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jp49ym215/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "j577e7dr5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j577e7dr5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "j5w1l186g",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j5w1l186g/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": true,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 25.54,
+      "peak_memory_mb": 91.98046875,
+      "npu_runtime_layers": 2953,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "tokens": {
+          "comparison": "exact",
+          "passed": true
+        },
+        "next_audio_embedding": {
+          "comparison": "allclose",
+          "passed": true,
+          "max_abs_error": 7.62641429901123e-05,
+          "mean_abs_error": 1.1255052296377244e-05,
+          "p95_abs_error": 4.576146602630615e-05,
+          "p99_abs_error": 6.105005741119385e-05,
+          "normalized_rmse": 0.00022206903546487415,
+          "cosine_similarity": 0.9999999763336989
+        }
+      }
+    },
+    {
+      "component": "detokenizer-t4",
+      "runtime": "ort-diagnostic",
+      "status": "numerical_mismatch",
+      "source": "<workspace>/work/lfm-feasibility/aihub/component-matrix-20260715t093440z/detokenizer-t4/summary-ort-diagnostic.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jpxdl3d3g",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpxdl3d3g/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "j577ek9v5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j577ek9v5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "jpxdl343g",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpxdl343g/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": false,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 2.521,
+      "peak_memory_mb": 170.54296875,
+      "npu_runtime_layers": 445,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "log_abs": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 9.916390895843506,
+          "mean_abs_error": 1.9752286004255122,
+          "p95_abs_error": 5.24633278250694,
+          "p99_abs_error": 7.012515206336976,
+          "normalized_rmse": 1.446674320833416,
+          "cosine_similarity": 0.41994945352988194
+        },
+        "angle": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 95.14801025390625,
+          "mean_abs_error": 11.574752033031624,
+          "p95_abs_error": 36.16572193503378,
+          "p99_abs_error": 51.21443298339844,
+          "normalized_rmse": 1.4382947627337226,
+          "cosine_similarity": 0.015958544173259464
+        }
+      }
+    },
+    {
+      "component": "detokenizer-t4",
+      "runtime": "strict-npu",
+      "status": "numerical_mismatch",
+      "source": "<workspace>/work/lfm-feasibility/aihub/int64-corrections-20260715t104753z/detokenizer-t4/summary-strict-npu.json",
+      "jobs": {
+        "compile": {
+          "job_id": "j5w1l116g",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j5w1l116g/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "jp84e44x5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jp84e44x5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "j5qmlm4ng",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j5qmlm4ng/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": true,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 1.88,
+      "peak_memory_mb": 87.984375,
+      "npu_runtime_layers": 371,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "log_abs": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 7.941803455352783,
+          "mean_abs_error": 1.4674618340146142,
+          "p95_abs_error": 4.035926643013952,
+          "p99_abs_error": 5.576113290190697,
+          "normalized_rmse": 1.1039126755141329,
+          "cosine_similarity": 0.4909824572309882
+        },
+        "angle": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 86.99109649658203,
+          "mean_abs_error": 9.527163583149454,
+          "p95_abs_error": 32.6058614134788,
+          "p99_abs_error": 47.81330855846406,
+          "normalized_rmse": 1.255182301231275,
+          "cosine_similarity": -0.023606459729678855
+        }
+      }
+    },
+    {
+      "component": "detokenizer-t8",
+      "runtime": "ort-diagnostic",
+      "status": "numerical_mismatch",
+      "source": "<workspace>/work/lfm-feasibility/aihub/component-matrix-20260715t093440z/detokenizer-t8/summary-ort-diagnostic.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jgjwrwkx5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jgjwrwkx5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "jg9xzxklg",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jg9xzxklg/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "jpel7l81g",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpel7l81g/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": false,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 2.798,
+      "peak_memory_mb": 195.23046875,
+      "npu_runtime_layers": 445,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "log_abs": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 10.433135986328125,
+          "mean_abs_error": 2.69429502052255,
+          "p95_abs_error": 6.159996020793913,
+          "p99_abs_error": 7.619871771335598,
+          "normalized_rmse": 0.9387704004129993,
+          "cosine_similarity": 0.8462879491650535
+        },
+        "angle": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 100.8133716583252,
+          "mean_abs_error": 10.287852779851596,
+          "p95_abs_error": 33.686906051635724,
+          "p99_abs_error": 56.03671812057491,
+          "normalized_rmse": 1.5930852392081698,
+          "cosine_similarity": 0.28064686417674733
+        }
+      }
+    },
+    {
+      "component": "detokenizer-t8",
+      "runtime": "strict-npu",
+      "status": "numerical_mismatch",
+      "source": "<workspace>/work/lfm-feasibility/aihub/detok-t8-correction-20260715t110231z/detokenizer-t8/summary-strict-npu.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jpy7o7q7p",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpy7o7q7p/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "jgo4l4ox5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jgo4l4ox5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "jg9xzxmwg",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jg9xzxmwg/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": true,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 2.577,
+      "peak_memory_mb": 87.39453125,
+      "npu_runtime_layers": 371,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "log_abs": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 10.154121398925781,
+          "mean_abs_error": 1.3928092781612482,
+          "p95_abs_error": 3.563290463387963,
+          "p99_abs_error": 4.920064763426777,
+          "normalized_rmse": 0.5179878529663402,
+          "cosine_similarity": 0.8708089964936845
+        },
+        "angle": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 73.85165405273438,
+          "mean_abs_error": 7.967370154230597,
+          "p95_abs_error": 26.39287227690219,
+          "p99_abs_error": 42.78151639461514,
+          "normalized_rmse": 1.2437100245271526,
+          "cosine_similarity": 0.2648549500679535
+        }
+      }
+    },
+    {
+      "component": "fastconformer",
+      "runtime": "ort-diagnostic",
+      "status": "numerical_mismatch",
+      "source": "<workspace>/work/lfm-feasibility/aihub/fastconformer-first-pass-20260715t091744z/fastconformer/summary-ort-diagnostic.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jp3wzmq35",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jp3wzmq35/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "j5qml2mog",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j5qml2mog/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "jpy7ody0p",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpy7ody0p/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": false,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 4.945,
+      "peak_memory_mb": 306.87109375,
+      "npu_runtime_layers": 1232,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "adapted": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 0.08194214105606079,
+          "mean_abs_error": 0.010690846511429996
+        }
+      }
+    },
+    {
+      "component": "fastconformer",
+      "runtime": "strict-npu",
+      "status": "numerical_mismatch",
+      "source": "<workspace>/work/lfm-feasibility/aihub/fastconformer-first-pass-20260715t091744z/fastconformer/summary-strict-npu.json",
+      "jobs": {
+        "compile": {
+          "job_id": "jpxdly8jg",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jpxdly8jg/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "profile": {
+          "job_id": "j577exzq5",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/j577exzq5/",
+          "status": "SUCCESS",
+          "message": ""
+        },
+        "inference": {
+          "job_id": "jp1vn82lp",
+          "url": "https://workbench.aihub.qualcomm.com/jobs/jp1vn82lp/",
+          "status": "SUCCESS",
+          "message": ""
+        }
+      },
+      "compile_message": "",
+      "strict_npu_pass": true,
+      "truncate_64bit_io": null,
+      "remote_input_dtypes": null,
+      "latency_ms": 4.786,
+      "peak_memory_mb": 87.00390625,
+      "npu_runtime_layers": 1215,
+      "cpu_fallback_runtime_layers": 0,
+      "other_runtime_layers": 0,
+      "comparisons": {
+        "adapted": {
+          "comparison": "allclose",
+          "passed": false,
+          "max_abs_error": 0.08194214105606079,
+          "mean_abs_error": 0.010690846511429996
+        }
+      }
+    }
+  ]
+}

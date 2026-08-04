@@ -1,0 +1,8 @@
+[
+  {"id": "en_request", "lang": "en", "text": "What is the capital of France?"},
+  {"id": "es_request", "lang": "es", "text": "¿Cuál es la capital de Francia?"},
+  {"id": "de_request", "lang": "de", "text": "Was ist die Hauptstadt von Frankreich?"},
+  {"id": "fr_request", "lang": "fr", "text": "Quelle est la capitale de la France ?"},
+  {"id": "ja_request", "lang": "ja", "text": "フランスの首都はどこですか。"},
+  {"id": "ko_request", "lang": "ko", "text": "프랑스의 수도는 어디인가요?"}
+]

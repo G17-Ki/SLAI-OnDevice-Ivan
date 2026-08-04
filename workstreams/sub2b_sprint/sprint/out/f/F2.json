@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "sprint_id": "F2",
+  "lane": "F",
+  "title": "ES/FR ASR route decision",
+  "status": "COMPLETE_DECIDED_OPTION_B_CPU",
+  "decision": {
+    "chosen": "b_parakeet_int8_cpu_in_existing_runtime_companion",
+    "rejected_for_tonight": "a_isolated_exact_2_40_qnn_process",
+    "rationale": "Exactly one QNN runtime provider may exist per process (out/e artifact_registry runtime_provider_policy). The companion already hosts a 2.40 SenseVoice provider and the programme pins 2.45. A second NPU consumer belongs in its own package, like the four existing probes, and deserves its own acceptance run - not the night of the shoot.",
+    "follow_up_ranked": [
+      "persistent in-process recognizer via the sherpa-onnx AAR already linked by the main app",
+      "option (a): an isolated exact-2.40 Parakeet package modelled on android-app/supertonic-probe",
+      "a smaller multilingual CPU recognizer (unmeasured in this lane)",
+      "thread tuning on the NX809J"
+    ]
+  },
+  "qnn_version_conflict": {
+    "published_sm8850_context_build": "2.40.0.251030114326_189385",
+    "programme_pin": "2.45.0.260326154327",
+    "contexts_loaded_by_lane_f": 0,
+    "qualcomm_runtime_objects_pushed_by_lane_f": 0
+  },
+  "model": {
+    "id": "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8",
+    "source_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8.tar.bz2",
+    "archive_bytes": 487170055,
+    "archive_sha256": "5793d0fd397c5778d2cf2126994d58e9d56b1be7c04d13c7a15bb1b4eafb16bf",
+    "archive_checksum_class": "HOST",
+    "parent_model": "nvidia/parakeet-tdt-0.6b-v3",
+    "parent_licence": "CC-BY-4.0",
+    "device_payload_bytes": 670478772,
+    "files": {
+      "encoder.int8.onnx": {
+        "bytes": 652184281,
+        "sha256": "acfc2b4456377e15d04f0243af540b7fe7c992f8d898d751cf134c3a55fd2247"
+      },
+      "decoder.int8.onnx": {
+        "bytes": 11845275,
+        "sha256": "179e50c43d1a9de79c8a24149a2f9bac6eb5981823f2a2ed88d655b24248db4e"
+      },
+      "joiner.int8.onnx": {
+        "bytes": 6355277,
+        "sha256": "3164c13fc2821009440d20fcb5fdc78bff28b4db2f8d0f0b329101719c0948b3"
+      },
+      "tokens.txt": {
+        "bytes": 93939,
+        "sha256": "d58544679ea4bc6ac563d1f545eb7d474bd6cfa467f0a6e2c1dc1c7d37e3c35d"
+      }
+    },
+    "tokens_txt_identical_to_lane_e_qnn_prebuilt": true
+  },
+  "host_measurement": {
+    "evidence_class": "HOST",
+    "runtime": {
+      "host": "macOS-15.4.1-arm64-arm-64bit arm64",
+      "python": "3.11.11",
+      "sherpa_onnx": "1.13.4",
+      "provider": "cpu",
+      "model_type": "nemo_transducer",
+      "decoding_method": "greedy_search",
+      "sample_rate_hz": 16000,
+      "feature_dim": 80,
+      "maximum_resident_set_bytes": 879149056
+    },
+    "num_threads": 2,
+    "repeats_per_input": 5,
+    "recognizer_init_seconds": 4.160989584052004,
+    "results": {
+      "es": {
+        "fixture": "asr_es_parakeet_vendor.wav",
+        "fixture_sha256": "b0bad1bdf474dcad2f30fbbf850695d90f86ea5b543872d7c6370762a237ccea",
+        "duration_seconds": 5.329,
+        "real_time_factor_median": 0.19508599173288102,
+        "real_time_factor_min": 0.13592732387534934,
+        "real_time_factor_max": 0.23513535203401342,
+        "text": "No preguntes qué puede hacer tu país por ti, pregunta qué puedes hacer tú por tu país.",
+        "deterministic_across_repeats": true
+      },
+      "fr": {
+        "fixture": "asr_fr_parakeet_vendor.wav",
+        "fixture_sha256": "c28d2afd8d0b85ff3fdc2bf8d6ff8e75f5574bd1332531b56b1a20a8a3ccc199",
+        "duration_seconds": 4.9690625,
+        "real_time_factor_median": 0.13524899474161767,
+        "real_time_factor_min": 0.13339225619583414,
+        "real_time_factor_max": 0.15825244541453398,
+        "text": "Ne vous demandez pas ce que votre pays peut faire pour vous. Demandez-vous plutôt ce que vous pouvez faire pour lui.",
+        "deterministic_across_repeats": true
+      },
+      "en": {
+        "fixture": "asr_en_parakeet_vendor.wav",
+        "fixture_sha256": "8141f0092908878c656b5b36fb455b875944152b3c93eb216135b580cf859e9d",
+        "duration_seconds": 3.8450625,
+        "real_time_factor_median": 0.1652059731350572,
+        "real_time_factor_min": 0.14882203919307085,
+        "real_time_factor_max": 0.37243542854403533,
+        "text": "Ask not what your country can do for you, ask what you can do for your country.",
+        "deterministic_across_repeats": true
+      },
+      "de": {
+        "fixture": "asr_de_parakeet_vendor.wav",
+        "fixture_sha256": "7ef72e4b7325d3cde14702d4994f3c40ad23cf2fa461fbdf0882c94acd5fdc8a",
+        "duration_seconds": 2.7515625,
+        "real_time_factor_median": 0.1999827370699125,
+        "real_time_factor_min": 0.18524203650454513,
+        "real_time_factor_max": 0.25969870176963816,
+        "text": "Alles hat ein Ende, nur die Wurst hat zwei.",
+        "deterministic_across_repeats": true
+      }
+    }
+  },
+  "cold_process_cost": {
+    "evidence_class": "HOST",
+    "why_it_matters": "AsrHttpServer.run() spawns the runner per request, so every ES/FR turn re-creates the ONNX session for a 652 MiB INT8 encoder. The page cache was warm for all three runs, so this is graph deserialization, not disk.",
+    "runs": [
+      {
+        "import_seconds": 0.116,
+        "model_load_seconds": 4.15,
+        "decode_seconds": 0.843,
+        "total_seconds": 5.123
+      },
+      {
+        "import_seconds": 0.137,
+        "model_load_seconds": 4.443,
+        "decode_seconds": 1.643,
+        "total_seconds": 6.243
+      },
+      {
+        "import_seconds": 0.185,
+        "model_load_seconds": 5.568,
+        "decode_seconds": 1.38,
+        "total_seconds": 7.143
+      }
+    ],
+    "audio_seconds": 5.329
+  },
+  "phone_projection": {
+    "evidence_class": "PROJECTED",
+    "anchor": "reports/android_phone/streaming_response/tts_research_20260726/evidence/device/device_vs_host_main.json",
+    "anchor_class": "PRIOR",
+    "anchor_note": "host RTF / device RTF over n=72 onnxruntime-CPU runs on this exact phone",
+    "anchor_median_all": 0.7482092982173463,
+    "anchor_median_supertonic_subset": 0.642,
+    "anchor_min": 0.554387696259285,
+    "es_decode_rtf_band": [
+      0.3,
+      0.35
+    ],
+    "fr_decode_rtf_band": [
+      0.21,
+      0.24
+    ],
+    "session_creation_seconds_band": [
+      6,
+      9
+    ],
+    "session_creation_transfer_confidence": "LOW",
+    "total_per_turn_seconds_band": [
+      7,
+      11
+    ],
+    "total_transfer_confidence": "LOW"
+  },
+  "host_timing_quality": {
+    "usable_as_absolute_numbers": false,
+    "reason": "The measuring Mac carried load average 29-53 on eight cores throughout, with unrelated applications holding 40-90% CPU. Repeats of the same command differed by more than 2x here and up to 7x in the F3 harness.",
+    "what_is_unaffected": [
+      "transcripts were byte-identical across every repeat of every run",
+      "session creation costs several times the decode it enables, which is a property of per-request 652 MiB graph deserialization, not of load"
+    ],
+    "evidence_class_of_absolute_latency": "UNKNOWN"
+  },
+  "restrictions": [
+    "auto never routes to ES/FR; both are an explicit selection",
+    "ES/FR fail closed rather than falling back to LFM2.5-Audio",
+    "Italian is untouched and still falls through to the LFM CPU path"
+  ],
+  "not_established": [
+    "any phone latency (no phone was connected)",
+    "word error rate for Spanish or French",
+    "behaviour on noisy, accented, far-field or conversational speech",
+    "any NPU execution"
+  ],
+  "artifacts": [
+    "F2.md",
+    "artifacts/f2_parakeet_cpu_reference.json"
+  ]
+}

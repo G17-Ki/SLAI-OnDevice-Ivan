@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "component": "sdp",
+  "language": "it",
+  "status": "passed",
+  "target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "chipset": "sm8850",
+    "htp": "v81",
+    "qairt": "2.45"
+  },
+  "external_state_run": "piper-v81-20260722t202737z-it-sdp",
+  "jobs": {
+    "compile": "jp3wko1z5",
+    "link": "jp84ojzx5",
+    "profile": "j5mdr9ww5",
+    "inference": "jpy7e847p"
+  },
+  "source": {
+    "format": "torchscript",
+    "bytes": 95194420,
+    "sha256": "8db237015141e9be08406005e708bc0b3a4a0db267c75bd4c37d7959983a6bbf"
+  },
+  "input_shapes": {
+    "x_encoded": [1, 192, 512],
+    "x_mask": [1, 1, 512],
+    "length_scale": [1],
+    "noise_scale_w": [1]
+  },
+  "output_shapes": {
+    "y_lengths": [1],
+    "w_ceil": [1, 1, 512]
+  },
+  "latency_ms": 6.602,
+  "peak_memory_mib": 118.2890625,
+  "all_inference_times_us": [
+    7484,
+    6608,
+    6640,
+    6610,
+    6612,
+    6609,
+    6604,
+    6602,
+    6612,
+    6605,
+    6602,
+    6878,
+    6627,
+    6627,
+    6639,
+    6633,
+    6615,
+    6617,
+    6625,
+    6614
+  ],
+  "placement": {
+    "npu_runtime_layers": 621,
+    "cpu_fallback_runtime_layers": 0,
+    "other_runtime_layers": 0,
+    "strict_npu_pass": true
+  },
+  "comparisons": {
+    "y_lengths": {
+      "passed": true,
+      "atol": 0.03,
+      "rtol": 0.03,
+      "cosine_similarity": 1.0,
+      "normalized_rmse": 0.0,
+      "max_abs_error": 0.0
+    },
+    "w_ceil": {
+      "passed": true,
+      "atol": 0.03,
+      "rtol": 0.03,
+      "cosine_similarity": 1.0,
+      "normalized_rmse": 0.0,
+      "max_abs_error": 0.0
+    }
+  },
+  "all_numerics_pass": true,
+  "local_resource_guard": {
+    "peak_process_tree_rss_gib": 0.4423370361328125,
+    "rss_limit_gib": 2.5,
+    "final_memory_pressure_level": 1
+  },
+  "artifact_hashes": {
+    "golden_io.npz": "0ac405a5b05963f8a291a9beb1f1f3762dd95fbbebb7f7dd8947edb51ff61a2a",
+    "profile.json": "778765389b2912e1c48ea2c1bf0b08bc659bf47afa010bde4e8b9458848f10b7",
+    "placement.json": "8574572e202329939f94e1eec526150764607c7716eaa052ac584294b1fb6e04",
+    "remote_outputs.npz": "3427a0deee1d0c1afd1248caf74609a263f0e4df5209c5c731d05eede9264885"
+  }
+}

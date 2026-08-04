@@ -1,0 +1,33 @@
+{
+  "schema_version": "overnight-demo2-apk-pair/1.0",
+  "preserved_at_utc": "2026-08-03T01:53:03Z",
+  "purpose": "Byte-identical restore pair for the accepted Demo 2 phone configuration",
+  "packages": {
+    "main": {
+      "package": "ai.liquid.lfmdemo",
+      "version_code": 26,
+      "version_name": "0.6.0-unplugged",
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/app-main-accepted-712632b7.apk",
+      "bytes": 20197812,
+      "sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f"
+    },
+    "runtime": {
+      "package": "ai.liquid.lfmdemo.runtime",
+      "version_code": 1,
+      "version_name": "0.1.0-unplugged-runtime",
+      "file": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/app-runtime-accepted-33bf0d6d.apk",
+      "bytes": 121215600,
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "binding": {
+    "accepted_phone_inventory": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json",
+    "main_apk_reconstruction_receipt": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/apk_reconstruction_receipt.json",
+    "require_both_exact_hashes": true,
+    "clean_rebuild_is_not_a_substitute": true
+  },
+  "limits": [
+    "The APK pair alone does not restore the app-private Qwen model or external TTS inventory.",
+    "Cap and execution claims require the accepted phone inventory and trace evidence, not APK identity alone."
+  ]
+}

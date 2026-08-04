@@ -1,0 +1,359 @@
+{
+  "sprint_id": "D2",
+  "lane": "D",
+  "task": "Silero v5_cis_base parameter count and Russian TTS ladder probe",
+  "run_date": "2026-08-02",
+  "status": "COMPLETE_WITH_LICENSING_BLOCKERS",
+  "constraints": {
+    "training_performed": false,
+    "quantization_performed": false,
+    "local_cpu_only": true,
+    "incremental_cache_bytes_approx": {
+      "value": 386924544,
+      "unit": "bytes",
+      "evidence_class": "HOST",
+      "note": "Peak temporary footprint: du reported 369 MiB for /tmp/d2_tts_cache after D2. The cache was reused for D3/D5, then removed after final hash reconciliation."
+    }
+  },
+  "headline": {
+    "silero_v5_cis_base_parameters": {
+      "value": 20926952,
+      "unit": "learned_parameters",
+      "evidence_class": "EXACT"
+    },
+    "stack_l_compliance": "PASS",
+    "stack_l_updated_total_parameters": {
+      "value": 1611051613,
+      "unit": "parameters",
+      "evidence_class": "PROJECTED",
+      "derivation": "1,690,124,661 - 100,000,000 UB placeholder + 20,926,952 EXACT"
+    },
+    "stack_l_updated_headroom": {
+      "value": 388948387,
+      "unit": "parameters",
+      "evidence_class": "PROJECTED"
+    },
+    "piper_commercial_disposition": "BLOCKED_PENDING_REPLACEMENT_OR_RIGHTS_CLEARANCE"
+  },
+  "host": {
+    "model": "MacBook Air Mac14,15",
+    "chip": "Apple M2",
+    "cpu_cores": 8,
+    "memory_gb": 8,
+    "os": "macOS 15.4.1 (24E263)",
+    "python": "3.11.11"
+  },
+  "silero": {
+    "identity": {
+      "repo": "snakers4/silero-models",
+      "repo_revision": "d9355348e2781dc8fa25a135d1602c530afae24c",
+      "repo_revision_date": "2026-07-31T16:29:51Z",
+      "model_id": "v5_cis_base",
+      "model_url": "https://models.silero.ai/models/tts/ru/v5_cis_base.pt",
+      "artifact_sha256": "ba41b18f6a707ad93605a162998865e7c087153d2e010a26dd02229dab0e672a",
+      "artifact_bytes": {
+        "value": 91680514,
+        "unit": "bytes",
+        "evidence_class": "EXACT"
+      },
+      "container": "torch.package archive containing one torch.jit RecursiveScriptModule",
+      "torch_version": "2.9.1"
+    },
+    "parameter_count": {
+      "adopted": {
+        "value": 20926952,
+        "unit": "learned_parameters",
+        "evidence_class": "EXACT"
+      },
+      "method": "wrapper = torch.package.PackageImporter(path).load_pickle('tts_models', 'model'); enumerate every module in wrapper.packages[*].models[*]; sum p.numel() for every module.parameters() tensor",
+      "package_count": 1,
+      "torchscript_module_count": 1,
+      "parameter_tensor_count": 306,
+      "parameter_dtype": "torch.float32",
+      "unique_parameter_storage_count": 306,
+      "candidate_a_direct_parameter_sum": 20926952,
+      "candidate_b_state_dict_elements": 22850584,
+      "candidate_b_registered_buffer_elements": 1923632,
+      "candidate_b_difference": 20926952,
+      "tie_check": "PASS_EXACT",
+      "registered_buffer_count": 11,
+      "buffer_note": "The excluded buffers are deterministic positional encodings, PQMF filters, and an ISTFT window; they are not learned parameters.",
+      "empty_parameter_note": "One registered parameter tensor, pitch_predictor.pitch_pred.emotion_embedding.weight, has shape [0, 64] and contributes zero elements.",
+      "full_inventory": "artifacts/d2/meta/silero_parameter_inventory.json"
+    },
+    "stack_l_gate": {
+      "strict_compliance_ceiling": {
+        "value": 409875339,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      },
+      "observed_count": 20926952,
+      "margin_below_ceiling": {
+        "value": 388948387,
+        "unit": "parameters",
+        "evidence_class": "PROJECTED"
+      },
+      "verdict": "PASS"
+    },
+    "front_end_dependency": {
+      "stress_marking_required": true,
+      "evidence": "The pinned README says v5_cis_base assumes proper stress is added for each word; the loaded package reports packages[0].accentor == None and accentor_public == False.",
+      "bundled_neural_accentor": false,
+      "speaker_count_in_artifact": 60,
+      "probe_speaker": "ru_zhadyra",
+      "risk": "Unstressed Russian is accepted syntactically but pronunciation quality is not established. A production route needs an explicit stress front end; this probe used manually marked stress."
+    },
+    "license": {
+      "spdx": "MIT",
+      "scope": "v5_cis_base specifically",
+      "license_url": "https://github.com/snakers4/silero-models/blob/d9355348e2781dc8fa25a135d1602c530afae24c/LICENSE_CIS",
+      "license_sha256": "a27fc071e03323fecda8a6ba416109bf36811801fa0c95e4371cf9105848718d",
+      "disposition": "CLEARED_WITH_MIT_NOTICE",
+      "deny_list": [
+        "v5_5_ru",
+        "v5_4_ru",
+        "v5_3_ru",
+        "v5_2_ru",
+        "v5_ru",
+        "v5_cis_ext"
+      ],
+      "deny_list_reason": "These sibling variants are CC-BY-NC rather than the v5_cis_base MIT license."
+    },
+    "synthesis": {
+      "source_text": "Москва, двенадцатое августа две тысячи двадцать шестого года. Инженер Анна Петрова спросит: сможет ли система произнести аббревиатуру И И и число сто двенадцать?",
+      "model_input": "Москв+а, двен+адцатое +августа две т+ысячи дв+адцать шест+ого г+ода. Инжен+ер +Анна Петр+ова спр+осит: см+ожет ли сист+ема произнест+и аббревиат+уру И И и числ+о сто двен+адцать?",
+      "sample_rate_hz": 24000,
+      "timing_protocol": "One cold synthesis followed by three warm full-utterance runs; median reported. Model loading, WAV encoding, and playback excluded.",
+      "load_seconds": {
+        "value": 0.3393138749524951,
+        "evidence_class": "HOST"
+      },
+      "cold_full_seconds": {
+        "value": 1.0064438339322805,
+        "evidence_class": "HOST"
+      },
+      "warm_full_seconds": [
+        0.25025599997024983,
+        0.2691997919464484,
+        0.251921416958794
+      ],
+      "warm_median_full_seconds": {
+        "value": 0.251921416958794,
+        "evidence_class": "HOST"
+      },
+      "audio_duration_seconds": {
+        "value": 12.3,
+        "evidence_class": "HOST"
+      },
+      "warm_median_rtf": {
+        "value": 0.02048141601291008,
+        "evidence_class": "HOST"
+      },
+      "streaming_first_chunk": "UNKNOWN_API_RETURNS_COMPLETE_WAVEFORM"
+    },
+    "waveform_safety": {
+      "finite": true,
+      "non_silent": true,
+      "rms": 0.0708089096912922,
+      "peak_abs": 0.7793664932250977,
+      "samples_abs_ge_0_999": 0,
+      "duration_plausible": true,
+      "evidence_class": "HOST",
+      "scope": "One representative utterance only; D3 owns systematic short-input safety."
+    },
+    "audio_artifact": {
+      "path": "artifacts/d2/audio/ru_silero_v5_cis_base_001.wav",
+      "sha256": "2db732a175a4475aa3d683c1293eba8adb07b3fb2522a572f83a05608a0a26c3",
+      "bytes": 590444
+    }
+  },
+  "piper": {
+    "identity": {
+      "voice_repo": "rhasspy/piper-voices",
+      "voice_repo_revision": "9f967d15e9ccdf43078586d1476ee70f314401bd",
+      "voice_repo_revision_date": "2026-07-31T15:55:59Z",
+      "voice_repo_card_license": "MIT",
+      "inference_runtime": "piper-tts 1.6.0",
+      "runtime_home": "https://github.com/OHF-Voice/piper1-gpl",
+      "runtime_license": "GPL-3.0-or-later",
+      "runtime_role": "TEST_HARNESS_ONLY",
+      "runtime_wheel": "piper_tts-1.6.0-cp39-abi3-macosx_11_0_arm64.whl",
+      "runtime_wheel_sha256": "b37ddd191b31995fbe981d5900df9c15888cccf427bff8e0b368cc95489fd60a",
+      "onnxruntime_version": "1.28.0",
+      "execution_provider": "CPUExecutionProvider"
+    },
+    "shared_prior_phone_result": {
+      "end_to_speaker_ms": {
+        "value": 185,
+        "evidence_class": "PRIOR"
+      },
+      "cer_percent": {
+        "value": 5.6,
+        "evidence_class": "PRIOR"
+      },
+      "note": "Carried from this project's earlier phone measurement; not rerun here and not comparable to the HOST inference-only timings below."
+    },
+    "voices": [
+      {
+        "id": "ru_RU-dmitri-medium",
+        "model_sha256": "f073356ebc4bd0f80c5af58df2953a5988bd5bdab1eb38635ce960b071fbefcb",
+        "model_bytes": 63201294,
+        "config_sha256": "667ef3117bc642c2892dff7690d8bdc8ca4228aeaa783b2dc1416df632855e0d",
+        "onnx_initializer_count": 401,
+        "onnx_initializer_elements": {
+          "value": 15650556,
+          "evidence_class": "EXACT",
+          "note": "All initializer elements, not asserted as all learned parameters"
+        },
+        "float_initializer_elements": 15650475,
+        "integer_initializer_elements": 81,
+        "initializer_inventory": "artifacts/d2/meta/piper_dmitri_initializer_inventory.json",
+        "sample_rate_hz": 22050,
+        "load_seconds": {
+          "value": 1.061388917034492,
+          "evidence_class": "HOST"
+        },
+        "warm_median_sentence_chunk_seconds": {
+          "value": 0.1911235840525478,
+          "evidence_class": "HOST",
+          "note": "Time until Piper yielded the complete first sentence, not audio-device first sound"
+        },
+        "warm_median_full_seconds": {
+          "value": 0.46375087497290224,
+          "evidence_class": "HOST"
+        },
+        "audio_duration_seconds": {
+          "value": 9.137052154195011,
+          "evidence_class": "HOST"
+        },
+        "warm_median_rtf": {
+          "value": 0.05075497733259458,
+          "evidence_class": "HOST"
+        },
+        "waveform_safety": {
+          "finite": true,
+          "non_silent": true,
+          "duration_plausible": true,
+          "default_normalized_peak_abs": 1.0,
+          "default_samples_abs_ge_0_999": 2,
+          "raw_no_normalization_peak_abs": 0.56108158826828,
+          "raw_no_normalization_samples_abs_ge_0_999": 0,
+          "interpretation": "Piper 1.6 intentionally peak-normalizes each sentence, creating one full-scale sample per sentence; a no-normalization control had no near-clipped samples."
+        },
+        "license_provenance": {
+          "voice_repo_license": "MIT",
+          "voice_dataset": "OHF-Voice/voice-datasets",
+          "voice_dataset_license_from_model_card": "CC0",
+          "training": "Fine-tuned from en_US-lessac-medium",
+          "base_dataset": "Lessac Blizzard 2013",
+          "base_dataset_license": "RESEARCH_ONLY_NON_COMMERCIAL",
+          "disposition": "BLOCKED_FOR_COMMERCIAL_USE",
+          "reason": "The base corpus license defines Research Purposes to exclude development or commercialization of voice-synthesis products."
+        },
+        "audio_artifact": {
+          "path": "artifacts/d2/audio/ru_piper_dmitri_001.wav",
+          "sha256": "e1d56fd50d477df22dd85881264086c7ba6e95a252515dc44b934e28a95dabac",
+          "bytes": 402988
+        }
+      },
+      {
+        "id": "ru_RU-irina-medium",
+        "model_sha256": "8ff38212d23da300bbe3705c645e6e5b9475f0bfde01558eb17813e22acaaaaa",
+        "model_bytes": 63201294,
+        "config_sha256": "c2ec28bb38e2b59e93b959b3e40348c1afebbd272f30fed5d41205d08e98a9d7",
+        "onnx_initializer_count": 401,
+        "onnx_initializer_elements": {
+          "value": 15650556,
+          "evidence_class": "EXACT",
+          "note": "All initializer elements, not asserted as all learned parameters"
+        },
+        "float_initializer_elements": 15650475,
+        "integer_initializer_elements": 81,
+        "initializer_inventory": "artifacts/d2/meta/piper_irina_initializer_inventory.json",
+        "sample_rate_hz": 22050,
+        "load_seconds": {
+          "value": 1.0389673330355436,
+          "evidence_class": "HOST"
+        },
+        "warm_median_sentence_chunk_seconds": {
+          "value": 0.24125804100185633,
+          "evidence_class": "HOST",
+          "note": "Time until Piper yielded the complete first sentence, not audio-device first sound"
+        },
+        "warm_median_full_seconds": {
+          "value": 0.6269827090436593,
+          "evidence_class": "HOST"
+        },
+        "audio_duration_seconds": {
+          "value": 13.595283446712019,
+          "evidence_class": "HOST"
+        },
+        "warm_median_rtf": {
+          "value": 0.04611766363689117,
+          "evidence_class": "HOST"
+        },
+        "waveform_safety": {
+          "finite": true,
+          "non_silent": true,
+          "duration_plausible": true,
+          "default_normalized_peak_abs": 1.0,
+          "default_samples_abs_ge_0_999": 2,
+          "raw_no_normalization_peak_abs": 0.44261616468429565,
+          "raw_no_normalization_samples_abs_ge_0_999": 0,
+          "interpretation": "Piper 1.6 intentionally peak-normalizes each sentence, creating one full-scale sample per sentence; a no-normalization control had no near-clipped samples."
+        },
+        "license_provenance": {
+          "voice_repo_license": "MIT",
+          "voice_dataset": "RHVoice/RHVoice",
+          "voice_dataset_license_from_model_card": "UNKNOWN",
+          "training": "Fine-tuned from en_US-lessac-medium",
+          "base_dataset": "Lessac Blizzard 2013",
+          "base_dataset_license": "RESEARCH_ONLY_NON_COMMERCIAL",
+          "disposition": "BLOCKED_FOR_COMMERCIAL_USE",
+          "reason": "The immediate dataset license is unknown and the base corpus independently excludes commercial voice-synthesis products."
+        },
+        "audio_artifact": {
+          "path": "artifacts/d2/audio/ru_piper_irina_001.wav",
+          "sha256": "7546f8c3023cd4c60f72608bf4f23c5c2aaf5226949d50813b394ec2d6ce438c",
+          "bytes": 599596
+        }
+      }
+    ],
+    "timing_protocol": "Each voice: load a CPU ONNX Runtime session, run one cold synthesis, then three warm runs on the same two-sentence text. Full time stops after both sentence chunks are yielded. WAV encoding and playback are excluded."
+  },
+  "representative_probe_verdict": {
+    "silero_v5_cis_base": "WAVEFORM_PASS_WITH_MANUAL_STRESS_DEPENDENCY",
+    "piper_dmitri": "WAVEFORM_PASS_COMMERCIAL_LICENSE_BLOCK",
+    "piper_irina": "WAVEFORM_PASS_COMMERCIAL_LICENSE_BLOCK_AND_UNKNOWN_IMMEDIATE_DATASET_LICENSE",
+    "naturalness": "UNKNOWN_USER_LISTENING_REQUIRED",
+    "intelligibility": "UNKNOWN_NO_ASR_BACKCHECK_IN_D2",
+    "short_input_safety": "UNKNOWN_D3_OWNS_SYSTEMATIC_TEST"
+  },
+  "temporary_cache_lifecycle": {
+    "path": "/tmp/d2_tts_cache",
+    "peak_bytes_approx": 386924544,
+    "reused_by": [
+      "D3 Piper/Silero short-input battery",
+      "D5 Piper/Silero listening synthesis"
+    ],
+    "present_at_finalization": false,
+    "deleted_after": "Every requested WAV and evidence hash reconciled; no active process held a cache file open.",
+    "reproduction_note": "Re-synthesis requires re-fetching the pinned assets and reconstructing the temporary runtime."
+  },
+  "sources": [
+    "https://github.com/snakers4/silero-models/tree/d9355348e2781dc8fa25a135d1602c530afae24c",
+    "https://github.com/snakers4/silero-models/blob/d9355348e2781dc8fa25a135d1602c530afae24c/LICENSE_CIS",
+    "https://models.silero.ai/models/tts/ru/v5_cis_base.pt",
+    "https://huggingface.co/rhasspy/piper-voices/tree/9f967d15e9ccdf43078586d1476ee70f314401bd/ru/ru_RU/dmitri/medium",
+    "https://huggingface.co/rhasspy/piper-voices/tree/9f967d15e9ccdf43078586d1476ee70f314401bd/ru/ru_RU/irina/medium",
+    "https://huggingface.co/rhasspy/piper-voices/blob/9f967d15e9ccdf43078586d1476ee70f314401bd/en/en_US/lessac/medium/MODEL_CARD",
+    "https://www.cstr.ed.ac.uk/projects/blizzard/2013/lessac_blizzard2013/license.html",
+    "https://pypi.org/project/piper-tts/1.6.0/"
+  ],
+  "limitations": [
+    "Only one representative Russian passage was synthesized; this is not an intelligibility, naturalness, or short-input acceptance test.",
+    "HOST timing is Mac inference-only and must not be compared directly with PRIOR phone end-to-speaker timing.",
+    "No production Piper runtime or alternative phonemizer licensing route was evaluated.",
+    "The Silero model URL is not revision-addressed; exact bits are pinned by SHA-256."
+  ]
+}

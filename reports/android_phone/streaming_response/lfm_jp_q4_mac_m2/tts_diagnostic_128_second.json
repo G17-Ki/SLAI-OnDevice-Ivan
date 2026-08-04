@@ -1,0 +1,85 @@
+{
+  "created_utc": "2026-07-22T15:35:47.450029+00:00",
+  "base_url": "http://127.0.0.1:18081/v1/chat/completions",
+  "mode": "tts",
+  "model": "LFM2.5-Audio-1.5B-JP",
+  "system_prompt": "Perform TTS in japanese.",
+  "input_audio": null,
+  "input_text": "こんにちは、お元気ですか？",
+  "warmups": 0,
+  "measured_runs": 1,
+  "max_tokens": 128,
+  "summary": {
+    "first_text_ms": null,
+    "first_pcm_ms": {
+      "min": 105.51054100005786,
+      "median": 105.51054100005786,
+      "p95": 105.51054100005786,
+      "max": 105.51054100005786,
+      "mean": 105.51054100005786
+    },
+    "total_ms": {
+      "min": 779.1564999999991,
+      "median": 779.1564999999991,
+      "p95": 779.1564999999991,
+      "max": 779.1564999999991,
+      "mean": 779.1564999999991
+    },
+    "audio_seconds": {
+      "min": 2.14,
+      "median": 2.14,
+      "p95": 2.14,
+      "max": 2.14,
+      "mean": 2.14
+    },
+    "largest_pcm_arrival_gap_ms": {
+      "min": 28.72987499995361,
+      "median": 28.72987499995361,
+      "p95": 28.72987499995361,
+      "max": 28.72987499995361,
+      "mean": 28.72987499995361
+    },
+    "stream_generation_rtf": {
+      "min": 0.3147878313083838,
+      "median": 0.3147878313083838,
+      "p95": 0.3147878313083838,
+      "max": 0.3147878313083838,
+      "mean": 0.3147878313083838
+    },
+    "character_error_rate_percent": null
+  },
+  "runs": [
+    {
+      "run_index": 1,
+      "measured": true,
+      "first_text_ms": null,
+      "first_pcm_ms": 105.51054100005786,
+      "total_ms": 779.1564999999991,
+      "transcript": "",
+      "sse_events": 29,
+      "audio_chunks": 28,
+      "audio_formats": [
+        "pcm"
+      ],
+      "audio_sample_rate": 24000,
+      "audio_seconds": 2.14,
+      "first_chunk_ms": 60.0,
+      "audio_chunk_ms": {
+        "min": 0.0,
+        "median": 80.0,
+        "p95": 80.0,
+        "max": 80.0,
+        "mean": 76.42857142857143
+      },
+      "largest_pcm_arrival_gap_ms": 28.72987499995361,
+      "audio_wav": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/audio/tts-01.wav",
+      "pcm": {
+        "samples": 51360,
+        "peak_normalized": 0.43426513671875,
+        "rms_normalized": 0.06210176367812131
+      },
+      "pcm_sha256": "2fc05cae419ca564ccba4f922d70021442ecba019ab71bcdba6b30763781f23f",
+      "stream_generation_rtf": 0.3147878313083838
+    }
+  ]
+}

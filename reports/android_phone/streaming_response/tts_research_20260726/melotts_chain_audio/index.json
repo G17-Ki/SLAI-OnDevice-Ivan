@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "text": "北京是中国的首都，也是全国的政治和文化中心。",
+  "note": "Not blinded and not a preference test. This is an A/B/C listening check that the exact-QRD chain sounds like the host golden.",
+  "files": {
+    "local_golden.wav": {
+      "sample_rate_hz": 44100,
+      "samples": 179712,
+      "duration_s": 4.075102,
+      "sha256": "11dda3816a03f7ee1e177c4bfbbc8ef01c7eeb7832c3fe97a870c6fef66ce3da"
+    },
+    "exact_qrd_fixed_local.wav": {
+      "sample_rate_hz": 44100,
+      "samples": 179712,
+      "duration_s": 4.075102,
+      "sha256": "76fdb5806ccafe89123b5e0073c09fa12791557c3b175a58fdf06266f0df9978"
+    },
+    "exact_qrd_accumulated.wav": {
+      "sample_rate_hz": 44100,
+      "samples": 179712,
+      "duration_s": 4.075102,
+      "sha256": "20d2844f9a03d91bc09796994b51f6dea40b3947bbc1392d062c4a33215e9181"
+    }
+  }
+}

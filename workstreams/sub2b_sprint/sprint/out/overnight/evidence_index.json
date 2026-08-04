@@ -1,0 +1,1442 @@
+{
+  "schema_version": "overnight-evidence-index/1.0",
+  "generated_at_utc": "2026-08-04T19:37:21Z",
+  "branch": "sprint/overnight",
+  "policy": "Each indexed claim preserves the producing evidence class. UNKNOWN means the closing experiment or physical receipt has not landed; it is not inferred from an adjacent result.",
+  "claims": [
+    {
+      "id": "constraint.demo2.parameter_cap",
+      "claim": "Demo 2 has an exclusive parameter cap of 3,000,000,000.",
+      "value": 3000000000,
+      "evidence_class": "EXACT",
+      "producing_task": "Public demo requirements summary",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/DEMO_REQUIREMENTS.md",
+      "sha256": "de1d4003ee73ba96517543aee8b374df53c85d0b262c9b2730d24f18e3115f6c"
+    },
+    {
+      "id": "constraint.demo2.first_audio_gate_ms",
+      "claim": "Demo 2 requires first audio below 3,000 ms in both EN and ZH.",
+      "value": 3000,
+      "evidence_class": "EXACT",
+      "producing_task": "Public demo requirements summary",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/DEMO_REQUIREMENTS.md",
+      "sha256": "de1d4003ee73ba96517543aee8b374df53c85d0b262c9b2730d24f18e3115f6c"
+    },
+    {
+      "id": "constraint.demo1.parameter_cap",
+      "claim": "Demo 1 has an exclusive parameter cap of 2,000,000,000.",
+      "value": 2000000000,
+      "evidence_class": "EXACT",
+      "producing_task": "Public demo requirements summary",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/DEMO_REQUIREMENTS.md",
+      "sha256": "de1d4003ee73ba96517543aee8b374df53c85d0b262c9b2730d24f18e3115f6c"
+    },
+    {
+      "id": "finding.cap_not_binding.six_stacks",
+      "claim": "All six Lane A stacks have measured and known-row worst-case totals below 2B; only H has a closed arithmetic verdict.",
+      "value": {
+        "H": [
+          1396245218,
+          1396245218,
+          "COMPLIANT"
+        ],
+        "L": [
+          1676733894,
+          1720220241,
+          "UNVERIFIED"
+        ],
+        "D": [
+          1831533225,
+          1831533225,
+          "UNVERIFIED"
+        ],
+        "M": [
+          1674645423,
+          1880539567,
+          "UNVERIFIED"
+        ],
+        "Q": [
+          1964482923,
+          1964482923,
+          "UNVERIFIED"
+        ],
+        "F": [
+          1975632107,
+          1975632107,
+          "UNVERIFIED"
+        ]
+      },
+      "evidence_class": "UB",
+      "producing_task": "Lane A A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "sha256": "ea0f24964f998a15e553c943a12ef9978957bd2dfc2819d8c4f61e30b40e0f91",
+      "note": "Weakest class used for the aggregate claim. The measured subtotal in each row is EXACT; the second total is Lane A's recorded known-row UB subtotal; UNKNOWN rows remain explicit."
+    },
+    {
+      "id": "demo2.cap.pruned_learned",
+      "claim": "The intentionally overcounting Demo 2 EN+ZH host target contains 1,988,326,684 unique learned parameters; the app uses zero-parameter AdaptiveEnergyVad rather than a Silero model.",
+      "value": 1988326684,
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight cap ledger",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/cap_ledger.json",
+      "sha256": "800790363f61f4b8d0dddef32a65de3607bf2e799df61c5e7d2cc47ebf3e03a0"
+    },
+    {
+      "id": "demo2.cap.pruned_conservative",
+      "claim": "The intentionally overcounting Demo 2 EN+ZH host target has a conservative resident-element bound of 2,221,983,906; the accepted physical phone total is smaller.",
+      "value": 2221983906,
+      "evidence_class": "UB",
+      "producing_task": "Overnight cap ledger",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/cap_ledger.json",
+      "sha256": "800790363f61f4b8d0dddef32a65de3607bf2e799df61c5e7d2cc47ebf3e03a0"
+    },
+    {
+      "id": "demo2.cap.remove_lfm_only_conservative",
+      "claim": "Removing LFM while conservatively retaining the full nineteen-candidate TTS laboratory yields a 2,672,875,114 resident-element upper bound with the deployed zero-parameter VAD.",
+      "value": 2672875114,
+      "evidence_class": "UB",
+      "producing_task": "Overnight cap ledger",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/cap_ledger.json",
+      "sha256": "800790363f61f4b8d0dddef32a65de3607bf2e799df61c5e7d2cc47ebf3e03a0"
+    },
+    {
+      "id": "inventory.vad.adaptive_energy",
+      "claim": "The deployed AdaptiveEnergyVad implementation is dependency-free Java signal-processing code and contributes zero learned model parameters.",
+      "value": {
+        "learned_parameters": 0,
+        "source_sha256": "f43f07819d1bf8983809421bc6e0b436046fd7e7a96d2271a9209caf3db4da00"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight deployed-VAD source audit",
+      "source_file": "android-app/app/src/main/java/ai/liquid/lfmdemo/AdaptiveEnergyVad.java",
+      "sha256": "f43f07819d1bf8983809421bc6e0b436046fd7e7a96d2271a9209caf3db4da00"
+    },
+    {
+      "id": "inventory.vad.adaptive_energy_wiring",
+      "claim": "The Android native audio bridge constructs and runs AdaptiveEnergyVad for VAD capture mode.",
+      "value": "ADAPTIVE_ENERGY_VAD_WIRED",
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight deployed-VAD source audit",
+      "source_file": "android-app/app/src/main/java/ai/liquid/lfmdemo/NativeAudioBridge.java",
+      "sha256": "1033279fb48e9a26279d0b99fba8e31acff12a530eaaad43883dbfa3a1a61fa2"
+    },
+    {
+      "id": "demo2.cap.physical_inventory",
+      "claim": "The final Demo 2 phone inventory is accepted strictly below 3B: 1,974,795,009 learned and 2,208,452,225 conservative resident elements, with 791,547,775 conservative headroom.",
+      "value": {
+        "learned_unique": 1974795009,
+        "conservative_resident": 2208452225,
+        "conservative_headroom": 791547775,
+        "inventory_rows": 42,
+        "verdict": "PASS_STRICTLY_UNDER_3B"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 2 physical inventory acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json",
+      "sha256": "14fd19ce1e9bb06063a577923935571a7d82aff17a39734eee2792653c87ae5d",
+      "note": "The conservative element count is a UB counting basis combined with PHONE-MEASURED physical inventory coverage."
+    },
+    {
+      "id": "demo2.inventory.coverage_and_exclusions",
+      "claim": "The final listing contains 42 data rows: two APKs, fifteen private files, and twenty-five external TTS files; no LFM weight, extra GGUF, Silero weight, or sibling stale TTS tree appears in the covered model roots.",
+      "value": {
+        "rows": 42,
+        "apk_rows": 2,
+        "private_rows": 15,
+        "external_tts_rows": 25
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 2 physical inventory acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json",
+      "sha256": "14fd19ce1e9bb06063a577923935571a7d82aff17a39734eee2792653c87ae5d"
+    },
+    {
+      "id": "demo2.inventory.final_apks_and_state",
+      "claim": "Final main APK 712632...2f53f and runtime APK 33bf0d...7e244 were installed on NX809J with airplane mode on, no ADB forwards, one Qwen GGUF, and no relevant/8080 listener matched.",
+      "value": {
+        "main_apk_sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+        "runtime_apk_sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244",
+        "airplane_mode": true,
+        "adb_forwards": 0
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 2 physical inventory acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json",
+      "sha256": "14fd19ce1e9bb06063a577923935571a7d82aff17a39734eee2792653c87ae5d"
+    },
+    {
+      "id": "demo2.build.accepted_apk_recovered",
+      "claim": "The exact accepted Demo 2 main APK was recovered byte-for-byte, signature-verified, and preserved in the overnight device bundle.",
+      "value": {
+        "bytes": 20197812,
+        "sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+        "apk_signature_scheme_v2_verified": true,
+        "control_reproduced_base_apk": true
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight accepted APK deterministic recovery",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/apk_reconstruction_receipt.json",
+      "sha256": "3c16cdab244427f40ae4bdbda73a99cb4959ab7880a31e6d9a204cf4a9de9e16"
+    },
+    {
+      "id": "demo2.inventory.tts_physical",
+      "claim": "The installed two-candidate TTS tree verifies 22 referenced files plus 3 metadata files; unreferenced Vocos 24 kHz is absent, yielding 131,471,497 learned / 131,755,017 conservative TTS elements.",
+      "value": {
+        "candidate_count": 2,
+        "referenced_files": 22,
+        "metadata_files": 3,
+        "learned_unique": 131471497,
+        "conservative_resident": 131755017
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 2 physical inventory acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json",
+      "sha256": "14fd19ce1e9bb06063a577923935571a7d82aff17a39734eee2792653c87ae5d",
+      "note": "The conservative TTS count itself is a UB derived from direct ONNX parsing; physical presence/absence is PHONE-MEASURED."
+    },
+    {
+      "id": "demo2.build.no_lfm_apk",
+      "claim": "A no-LFM debug APK built successfully at 20,197,812 bytes with SHA-256 a415970f...d3677ea.",
+      "value": {
+        "bytes": 20197812,
+        "sha256": "a415970f73950ddd1214e2a9b8bda874b06f806e3714d3db2647c7a78d3677ea",
+        "acceptance": "SOURCE_AND_BUILD_ONLY"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight no-LFM source/build milestone",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/no_lfm_build.json",
+      "sha256": "91083ea0f83ecc2289723c123bd23e2a14954b0476ed5421e86c3b7680a6dc85"
+    },
+    {
+      "id": "demo2.phone.warm_en",
+      "claim": "Warm English completed n=21 with first-audio proxy median 1,333.866 ms, P95 1,395.874 ms, and max 1,490.414 ms; playback completed with zero underflows and dropped chunks.",
+      "value": {
+        "completed": 21,
+        "median_ms": 1333.865676999092,
+        "p95_ms": 1395.8740620017052,
+        "max_ms": 1490.413592994213,
+        "underflows": 0,
+        "dropped_chunks": 0
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 warm English distribution",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/explicit_en_21/provenance.json",
+      "sha256": "a14ac86c6058ac85614778632c7664928751f6c7df0d6bf1151149894bfbbdd7"
+    },
+    {
+      "id": "demo2.phone.warm_en_cancelled",
+      "claim": "The warm English record contains one operator-overlap cancellation excluded from the completed-only distribution.",
+      "value": 1,
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 warm English distribution",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/explicit_en_21/provenance.json",
+      "sha256": "a14ac86c6058ac85614778632c7664928751f6c7df0d6bf1151149894bfbbdd7"
+    },
+    {
+      "id": "demo2.phone.warm_zh",
+      "claim": "Warm Mandarin completed n=20 with first-audio proxy median 1,031.277 ms, P95 1,221.034 ms, and max 1,603.032 ms; playback completed with zero underflows and dropped chunks.",
+      "value": {
+        "completed": 20,
+        "median_ms": 1031.277317494154,
+        "p95_ms": 1221.0340619683266,
+        "max_ms": 1603.031822025776,
+        "underflows": 0,
+        "dropped_chunks": 0
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 warm Mandarin distribution",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/explicit_zh_20/provenance.json",
+      "sha256": "e3090d369dc25f3a8bd27636967e52d4903a868bb3c2d2710087715ac42ae40b"
+    },
+    {
+      "id": "demo2.phone.warm_zh_cancelled",
+      "claim": "The warm Mandarin record contains two operator-overlap cancellations excluded from the completed-only distribution.",
+      "value": 2,
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 warm Mandarin distribution",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/explicit_zh_20/provenance.json",
+      "sha256": "e3090d369dc25f3a8bd27636967e52d4903a868bb3c2d2710087715ac42ae40b"
+    },
+    {
+      "id": "demo2.phone.warm_build_boundary",
+      "claim": "The warm English distribution used main APK 143b...5cb3f0, which still contained and started the LFM laboratory stack.",
+      "value": "EN_OLDER_LFM_BEARING_APK",
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 warm English distribution",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/explicit_en_21/provenance.json",
+      "sha256": "a14ac86c6058ac85614778632c7664928751f6c7df0d6bf1151149894bfbbdd7"
+    },
+    {
+      "id": "demo2.phone.warm_zh_build_boundary",
+      "claim": "The warm Mandarin distribution used main APK 143b...5cb3f0, which still contained and started the LFM laboratory stack.",
+      "value": "ZH_OLDER_LFM_BEARING_APK",
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 warm Mandarin distribution",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/explicit_zh_20/provenance.json",
+      "sha256": "e3090d369dc25f3a8bd27636967e52d4903a868bb3c2d2710087715ac42ae40b"
+    },
+    {
+      "id": "demo2.phone.cold_zh_latency",
+      "claim": "One cold reboot Mandarin turn completed with first-audio proxy 2,651.683 ms, zero underflows, and zero dropped chunks.",
+      "value": {
+        "completed": 1,
+        "first_audio_proxy_ms": 2651.683332000044,
+        "underflows": 0,
+        "dropped_chunks": 0
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 cold main-app-only Mandarin",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/cold/reboot_zh_main_only/provenance.json",
+      "sha256": "f23ccd4e92ad9717c4d716f20f42cdd2639a64ad35512ee7585e5db892801e05"
+    },
+    {
+      "id": "demo2.phone.cold_zh_boot_protocol",
+      "claim": "The cold Mandarin record used airplane mode, no ADB forwards, and only the main activity was explicitly launched; the main app bound and started the runtime companion.",
+      "value": {
+        "airplane_mode": true,
+        "forwards_before": 0,
+        "forwards_after": 0,
+        "runtime_started_by_binding": true
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 cold main-app-only Mandarin",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/cold/reboot_zh_main_only/provenance.json",
+      "sha256": "f23ccd4e92ad9717c4d716f20f42cdd2639a64ad35512ee7585e5db892801e05"
+    },
+    {
+      "id": "demo2.phone.final_pruned_en_cold_failure",
+      "claim": "The retained final-pruned English cold trace without Qwen warmup completed playback but missed the gate at a 3,873.129 ms first-audio proxy.",
+      "value": {
+        "first_text_ms": 2546.143281000026,
+        "first_audio_proxy_ms": 3873.129165999999,
+        "playback_completed": true,
+        "underflows": 0,
+        "gate_pass": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 final-pruned cold regression",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold/summary.json",
+      "sha256": "032db5c37e48e4cf256bdb0408a07368d6047971c10697c9ce8b7a3dc9d04162"
+    },
+    {
+      "id": "demo2.phone.final_pruned_en_generic_warmup_failure",
+      "claim": "A generic one-token Qwen warmup did not close the cold English gate: the retained trace completed playback at a 4,040.407 ms first-audio proxy.",
+      "value": {
+        "startup_warmup_ms": 240.59999999999127,
+        "first_text_ms": 2716.035832000023,
+        "first_audio_proxy_ms": 4040.406665000017,
+        "playback_completed": true,
+        "underflows": 0,
+        "gate_pass": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 generic-warmup cold regression",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold_warmed/summary.json",
+      "sha256": "53ef6e198894173a6c5fb12abd0b872b99ca224a18f2f65a9fff35835f6abad9"
+    },
+    {
+      "id": "demo2.phone.final_pruned_en_prefix_intermediate",
+      "claim": "Warming the exact production prefix produced a 2,694.633 ms cold-English timing pass on an intermediate APK; this trace predates the final 712632... build and is not the final-build acceptance result.",
+      "value": {
+        "startup_warmup_ms": 2043.300000000003,
+        "first_text_ms": 755.9396870000055,
+        "first_chunk_ms": 1581.1006760000018,
+        "first_audio_proxy_ms": 2694.633280000009,
+        "playback_completed": true,
+        "underflows": 0,
+        "gate_pass": true,
+        "final_build_acceptance": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 production-prefix warmup experiment",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold_prefix/summary.json",
+      "sha256": "a1513b4163454f4569aa3ed5a1d6cd3bdd08b45e0006a683cd2c61758987f958"
+    },
+    {
+      "id": "demo2.phone.final_712_en_latency",
+      "claim": "The retained English trace completed playback with first audio at 2,452.154 ms after a visible 2,075.8 ms pre-input EN warmup; final installed-APK and protocol context are indirectly supplied by separate receipts because this summary does not self-authenticate them.",
+      "value": {
+        "startup_warmup_ms": 2075.8,
+        "first_text_ms": 758.8620309999678,
+        "first_chunk_ms": 1368.3734889999032,
+        "first_audio_proxy_ms": 2452.153905999963,
+        "complete_ms": 4943.2471339999465,
+        "playback_completed": true,
+        "underflows": 0,
+        "sensevoice_qnn_executed": true,
+        "gate_pass": true
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 retained cold-English trace",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold_final_712/summary.json",
+      "sha256": "2505e5573063342174a59515daf0313793c1bedfba5489ef62c633e7e6a92eb1"
+    },
+    {
+      "id": "demo2.phone.final_712_zh_latency",
+      "claim": "The final-source Mandarin trace completed playback with first audio at 2,446.833 ms after visible pre-input EN and ZH warmups; installed-APK binding is supplied by the separate final provenance receipt.",
+      "value": {
+        "startup_en_warmup_ms": 2482.800000000003,
+        "selection_zh_warmup_ms": 549.7999999999884,
+        "first_text_ms": 617.9064060000237,
+        "first_chunk_ms": 2153.444373999955,
+        "first_audio_proxy_ms": 2446.833123999997,
+        "complete_ms": 11849.714630999952,
+        "playback_completed": true,
+        "underflows": 0,
+        "sensevoice_qnn_executed": true,
+        "gate_pass": true
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 final-source cold Mandarin",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/zh_cold_prefix/summary.json",
+      "sha256": "7711f828cf7a050c6d5fe646b42cd1e6c53dbc48c61b1e3b519d2a9eab0fd40e"
+    },
+    {
+      "id": "demo2.phone.sensevoice_qnn_health",
+      "claim": "The collected health response reports SenseVoice ready and execution-verified for the cold phone route.",
+      "value": "READY_AND_EXECUTION_VERIFIED",
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 cold health capture",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/cold/reboot_zh_main_only/health_http.txt",
+      "sha256": "03628b712c704c02885e811fef000b4ab7eef4c863f19ebba9c96439bddd3512"
+    },
+    {
+      "id": "demo2.phone.sensevoice_qnn_runner_stdout",
+      "claim": "The cold runner stdout logs HtpProvider initialization and the Mandarin transcript.",
+      "value": "HTP_PROVIDER_INITIALIZATION_AND_TRANSCRIPT_LOGGED",
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 cold runner capture",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/cold/reboot_zh_main_only/qnn_runner.stdout.txt",
+      "sha256": "8113e680156605c9582ea5713de5879bef3382793a16ce67ee71296c4569f81b"
+    },
+    {
+      "id": "demo2.phone.sensevoice_qnn_runner_stderr",
+      "claim": "The cold runner stderr logs provider=qnn, libQnnHtp/libQnnSystem, the SenseVoice context binary, recognizer creation, and completed decoding.",
+      "value": "QNN_PROVIDER_AND_CONTEXT_EXECUTION_CONFIGURATION_LOGGED",
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 cold runner capture",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/cold/reboot_zh_main_only/qnn_runner.stderr.txt",
+      "sha256": "fae7f42e959619de99bd69ca0424fa09aec587f9f5faa863c95f814cbfed6efe"
+    },
+    {
+      "id": "demo2.phone.cold_en_final",
+      "claim": "One final receipt-bound cold English turn completed at a 2,452.154 ms first-audio proxy with QNN SenseVoice execution, completed playback, and zero underflows.",
+      "value": {
+        "completed_turns": 1,
+        "first_audio_start_proxy_ms": 2452.153905999963
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 2 cold English acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/en_cold_final_712/summary.json",
+      "sha256": "2505e5573063342174a59515daf0313793c1bedfba5489ef62c633e7e6a92eb1",
+      "note": "Final-build cold evidence is n=1, not a latency distribution. The trace does not self-authenticate APK/reboot state; binding is indirect through the final inventory and warmup/build receipts."
+    },
+    {
+      "id": "demo2.phone.cold_zh_final",
+      "claim": "One final receipt-bound cold Mandarin turn completed at a 2,446.833 ms first-audio proxy with QNN SenseVoice execution, completed playback, and zero underflows.",
+      "value": {
+        "completed_turns": 1,
+        "first_audio_start_proxy_ms": 2446.833123999997
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 2 cold Mandarin acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/zh_cold_prefix/summary.json",
+      "sha256": "7711f828cf7a050c6d5fe646b42cd1e6c53dbc48c61b1e3b519d2a9eab0fd40e",
+      "note": "Final-build cold evidence is n=1, not a latency distribution. The trace does not self-authenticate APK/reboot state; binding is indirect through the final inventory and warmup/build receipts."
+    },
+    {
+      "id": "quality.backbone.qwen25_en_zh",
+      "claim": "Qwen2.5-1.5B scored 42.5 EN and 54.875 ZH on the HOST n=120/language backbone screen and was the selected EN+ZH model.",
+      "value": {
+        "n_per_language": 120,
+        "en": 42.5,
+        "zh": 54.875,
+        "selected": true
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Lane B backbone verdict",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/b/backbone_verdict.json",
+      "sha256": "d7e5a13dba8cc9467479453a222c75be61a35d0b22ac27499b95e4137d849c08"
+    },
+    {
+      "id": "quality.backbone.qwen35_five_language",
+      "claim": "Qwen3.5-0.8B HOST scores at n=120/language were EN 43.3, ZH 47.5, ES 31.467, FR 34.167, and RU 34.0.",
+      "value": {
+        "n_per_language": 120,
+        "en": 43.3,
+        "zh": 47.5,
+        "es": 31.466666666666665,
+        "fr": 34.166666666666664,
+        "ru": 34
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Lane B backbone verdict",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/b/backbone_verdict.json",
+      "sha256": "d7e5a13dba8cc9467479453a222c75be61a35d0b22ac27499b95e4137d849c08"
+    },
+    {
+      "id": "quality.asr.sensevoice_en_zh",
+      "claim": "SenseVoice HOST clean-screen results at n=150/language were 9.170% EN WER and 6.547% ZH CER.",
+      "value": {
+        "n_per_language": 150,
+        "en_wer_percent": 9.170052234474753,
+        "zh_cer_percent": 6.547196593328603
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Lane C ASR table",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/c/asr_table.json",
+      "sha256": "62172907d9d27415c316c2daea41ff03d79de59d9b41e2ac343b30f3b1e44179"
+    },
+    {
+      "id": "quality.asr.omniasr_rejected",
+      "claim": "OmniASR HOST clean error exceeded 15% in both EN and ZH: 18.630% EN WER and 15.206% ZH CER.",
+      "value": {
+        "en_wer_percent": 18.630295995356935,
+        "zh_cer_percent": 15.205819730305182
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Lane C ASR table",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/c/asr_table.json",
+      "sha256": "62172907d9d27415c316c2daea41ff03d79de59d9b41e2ac343b30f3b1e44179"
+    },
+    {
+      "id": "quality.asr.parakeet_es_fr",
+      "claim": "Parakeet HOST clean-screen results at n=150/language were 3.551% ES WER and 5.345% FR WER.",
+      "value": {
+        "n_per_language": 150,
+        "es_wer_percent": 3.550742885922941,
+        "fr_wer_percent": 5.344735435595938
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Lane C ASR table",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/c/asr_table.json",
+      "sha256": "62172907d9d27415c316c2daea41ff03d79de59d9b41e2ac343b30f3b1e44179"
+    },
+    {
+      "id": "quality.tts.matcha_mixed_script_defect",
+      "claim": "Matcha's frontend silently ignores unsupported Latin/OOV spans in mixed-script Mandarin probes.",
+      "value": "REPRODUCED_IGNORE_OOV_DIAGNOSTICS",
+      "evidence_class": "HOST",
+      "producing_task": "Lane D D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "sha256": "3307b2735f9ca9f82ccd9743b584f15b7eed5f702c6dcf6ed646a3087cb0f6b8"
+    },
+    {
+      "id": "quality.tts.kokoro_zh_nonfinite",
+      "claim": "Kokoro v1.1 ZH produced all-non-finite PCM for the short prompt 你好 in three of three HOST attempts.",
+      "value": {
+        "attempted": 3,
+        "failed": 3
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Lane D D3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0"
+    },
+    {
+      "id": "quality.tts.route_table",
+      "claim": "Supertonic is the bounded technical candidate for EN/ES/FR/RU, while the tested set has no general Mandarin ship route; Matcha remains a research-demo diagnostic route.",
+      "value": {
+        "en": "SUPERTONIC_CANDIDATE",
+        "es": "SUPERTONIC_CANDIDATE",
+        "fr": "SUPERTONIC_CANDIDATE",
+        "ru": "SUPERTONIC_ONLY_TECHNICAL_CANDIDATE",
+        "zh": "NO_GENERAL_SHIP_ROUTE_MATCHA_RESEARCH_DEMO_ONLY"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Lane D + G TTS route table",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/tts_table.json",
+      "sha256": "e44a77791eff385f258208e9f440ac6d4e6bb32d72e772efddbac9689ea64762"
+    },
+    {
+      "id": "quality.native_speaker_acceptance",
+      "claim": "No native-speaker listening acceptance was performed.",
+      "value": "ABSENT",
+      "evidence_class": "UNKNOWN",
+      "producing_task": "Lane D closeout",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/LANE_SUMMARY.md",
+      "sha256": "4294fa7a0310e867a6f9fd7406c92cf3072e01b8df335154569831c8225f3290"
+    },
+    {
+      "id": "acceleration.sm8850_compile_account",
+      "claim": "The Lane E account could discover but not compile-select SM8850.",
+      "value": "NOT_SELECTABLE_FOR_ACCOUNT",
+      "evidence_class": "HOST",
+      "producing_task": "Lane E E1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+      "sha256": "d621ce8509ac9a29c677a8c064b74331a677d8671a0aeceb98e1beecbc785464"
+    },
+    {
+      "id": "acceleration.parakeet_prebuilt_version",
+      "claim": "The verified SM8850 Parakeet prebuilt embeds exact QNN 2.40.0.251030114326_189385.",
+      "value": "2.40.0.251030114326_189385",
+      "evidence_class": "EXACT",
+      "producing_task": "Lane E E3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+      "sha256": "13d64730bdbe072444ee46e55bf538857915aed60d70988f505ebf5767ae4de6"
+    },
+    {
+      "id": "acceleration.published_sm8850_paths",
+      "claim": "Published Qualcomm registry paths for SM8850-family acceleration exist, including TTS profiles; these are vendor/registry evidence, not Nubia measurements.",
+      "value": "PUBLISHED_PATHS_EXIST",
+      "evidence_class": "EXACT",
+      "producing_task": "Lane E E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7"
+    },
+    {
+      "id": "acceleration.npu_numerical_parity",
+      "claim": "No on-device NPU numerical-parity comparison against a pinned CPU reference was performed.",
+      "value": "ABSENT",
+      "evidence_class": "UNKNOWN",
+      "producing_task": "Lane E closeout",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/LANE_SUMMARY.md",
+      "sha256": "01ed030aaa88c0f77cb413824eaf741bbed5513e31a8bd44bca3c321f6843c0d"
+    },
+    {
+      "id": "demo1.cap.learned",
+      "claim": "Demo 1's intentionally overcounting five-language host target totals 1,824,062,690 unique learned parameters; it retains an absent Vocos 24 kHz export.",
+      "value": 1824062690,
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight cap ledger",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/cap_ledger.json",
+      "sha256": "800790363f61f4b8d0dddef32a65de3607bf2e799df61c5e7d2cc47ebf3e03a0"
+    },
+    {
+      "id": "demo1.cap.conservative",
+      "claim": "Demo 1's intentionally overcounting five-language host target has a conservative resident-element total of 1,834,513,983, leaving 165,486,017 headroom below 2B; the accepted physical phone total is smaller.",
+      "value": {
+        "total": 1834513983,
+        "headroom": 165486017
+      },
+      "evidence_class": "UB",
+      "producing_task": "Overnight cap ledger",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/cap_ledger.json",
+      "sha256": "800790363f61f4b8d0dddef32a65de3607bf2e799df61c5e7d2cc47ebf3e03a0"
+    },
+    {
+      "id": "demo1.cap.physical_inventory",
+      "claim": "The final Demo 1 phone inventory is accepted strictly below 2B: 1,810,531,015 learned and 1,820,982,302 conservative resident elements, with 179,017,698 conservative headroom.",
+      "value": {
+        "learned_unique": 1810531015,
+        "learned_headroom": 189468985,
+        "conservative_resident": 1820982302,
+        "conservative_headroom": 179017698,
+        "inventory_rows": 61,
+        "verdict": "PASS_STRICTLY_UNDER_2B"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 1 physical inventory acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/inventory_receipt.json",
+      "sha256": "ea265985b3cb3ebaf0feb3f0d43203f56ea5cdeb7619bdcf8d5fe40330d0620b",
+      "note": "The conservative element count is a UB counting basis combined with PHONE-MEASURED physical inventory coverage."
+    },
+    {
+      "id": "demo1.inventory.coverage_and_exclusions",
+      "claim": "The final Demo 1 listing contains 61 data rows—two APKs, thirty-four private files, and twenty-five external TTS files—and proves the required Qwen2.5/LFM/extra-GGUF/Silero/Vocos-24k/stale-TTS/partial/Parakeet-QNN absences in the covered scope.",
+      "value": {
+        "rows": 61,
+        "apk_rows": 2,
+        "private_rows": 34,
+        "external_rows": 25,
+        "exact_qwen35_gguf_count": 1,
+        "required_absence_categories": 10,
+        "port_8080_listener_enumerated": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 1 inventory listing and state audit",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/inventory_receipt.json",
+      "sha256": "ea265985b3cb3ebaf0feb3f0d43203f56ea5cdeb7619bdcf8d5fe40330d0620b",
+      "note": "The unprivileged listener probe could not expose owning PIDs. This supports no enumerated port-8080 listener, not a claim that the device had no network sockets."
+    },
+    {
+      "id": "demo1.qwen35.exact_inventory",
+      "claim": "The pinned Qwen3.5 GGUF is 507,154,688 bytes with SHA-256 444406dd...c652c and contains exactly 752,393,024 tensor elements, with no MTP/draft or vision/mmproj tensors.",
+      "value": {
+        "bytes": 507154688,
+        "tensor_elements": 752393024,
+        "mtp_or_draft_tensors": 0,
+        "vision_or_mmproj_tensors": 0,
+        "sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 1 GGUF inventory",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/qwen35_08b_gguf_inventory.json",
+      "sha256": "b3eae9a09258cefccc85fd57ee8e7a27406d3249b39908af73f5654af67d311e"
+    },
+    {
+      "id": "demo1.qwen35.phone_install",
+      "claim": "The exact Qwen3.5 GGUF is installed under the runtime package with its pinned hash; Qwen2.5 is removed and exactly one GGUF remains.",
+      "value": {
+        "gguf_sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701",
+        "gguf_bytes": 507154688,
+        "main_apk_sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d",
+        "runtime_apk_sha256": "d43c0423d66e1cbe9e3fac313b54437c5c58ef8a5a8498382a255f619ad46ae1",
+        "qwen25_removed": true,
+        "exact_only_gguf": true
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 exact Qwen3.5 runtime installation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/qwen35_runtime_install.json",
+      "sha256": "a28efb2f66a432dcf26c64cdeb97151275a56c3d781885de8ede5a3cfac2d407"
+    },
+    {
+      "id": "demo1.phone.model_provisioning",
+      "claim": "Demo 1's five-candidate TTS tree and 16-row CPU-only Parakeet overlay are installed and hash-verified; no partial incoming file or QNN/Qualcomm/context payload remains.",
+      "value": {
+        "tts_candidates": 5,
+        "tts_referenced_files": 22,
+        "tts_metadata_files": 3,
+        "parakeet_payload_rows": 16,
+        "parakeet_provider": "cpu",
+        "partial_incoming_files": 0,
+        "qnn_or_qualcomm_payloads": 0
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 five-language model provisioning",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/provisioning_receipt.json",
+      "sha256": "6ad57edca522b96e7ec1cc684a060d2a06d728bc691694b590b915df79749d30"
+    },
+    {
+      "id": "demo1.phone.five_language_acceptance",
+      "claim": "Demo 1's complete physical inventory is accepted below 2B and is bound to completed EN, ZH, ES, FR, and RU app turns in one uninterrupted cold offline process; the RU result is coverage-only because its answer contains a factual error.",
+      "value": {
+        "accepted_app_turns": [
+          "en",
+          "zh",
+          "es",
+          "fr",
+          "ru"
+        ],
+        "pending_app_turns": [],
+        "physical_inventory": "PASS_STRICTLY_UNDER_2B",
+        "same_boot_and_processes": true,
+        "completed_playbacks": 5,
+        "ru_factual_quality": "FAIL"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight final Demo 1 physical and five-language acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/inventory_receipt.json",
+      "sha256": "ea265985b3cb3ebaf0feb3f0d43203f56ea5cdeb7619bdcf8d5fe40330d0620b",
+      "note": "The receipt binds the complete physical inventory to five committed language checkpoint hashes. The RU quality warning is a manual semantic review, not a telemetry failure."
+    },
+    {
+      "id": "demo1.phone.five_language_aggregate",
+      "claim": "The merged Demo 1 telemetry records five completed turns, five completed playbacks, two SenseVoice QNN-executed ASR turns, and zero failures or playback underflows in the accepted same-boot sequence.",
+      "value": {
+        "completed_turns": 5,
+        "completed_playbacks": 5,
+        "qnn_executed_asr_turns": 2,
+        "failures": 0,
+        "playback_underflows": 0,
+        "first_audio_start_proxy_median_ms": 3223.414686000906,
+        "first_audio_start_proxy_max_ms": 4437.485519999871,
+        "request_to_playback_terminal_median_ms": 6104.679059999995,
+        "request_to_playback_terminal_max_ms": 15605.081660999916
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 five-language aggregate",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/final/summary.json",
+      "sha256": "365565af07a432351a7b39c04cc8e9d662d07df714b1ceb67f6d54c966a9de7e",
+      "note": "First audio is an Android playback-start callback proxy, not acoustic onset. The separately reviewed RU factual error remains a filming-quality warning despite zero technical telemetry warnings."
+    },
+    {
+      "id": "demo1.phone.en_checkpoint",
+      "claim": "A cold, airplane-mode, no-forward English turn completed through SenseVoice QNN, Qwen3.5 CPU, and Supertonic with the exact Paris answer, no playback failures, and no user-visible reasoning leakage.",
+      "value": {
+        "first_text_ms": 769.5053130000015,
+        "first_audio_start_proxy_ms": 2339.208697000053,
+        "request_to_playback_terminal_ms": 4840.145780000021,
+        "playback_underflows": 0,
+        "dropped_chunks": 0,
+        "filtered_reasoning_characters": 19,
+        "user_visible_reasoning_leakage": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 cold English checkpoint",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/en_checkpoint/provenance.json",
+      "sha256": "0fd060a11a0a6bf0dec89f2ade2cd0c1b20804bd4a7a65fcb448e19f4c016933",
+      "note": "First audio is an Android playback-start callback proxy, not acoustic onset. The evidence supports no user-visible reasoning leakage, not absence of emitted reasoning markers."
+    },
+    {
+      "id": "demo1.phone.ru_checkpoint",
+      "claim": "A Russian CPU ASR/Qwen3.5/Supertonic turn completed in the same cold offline process as English, with zero playback failures; it is accepted only as route coverage because the visible answer contains a factual error.",
+      "value": {
+        "first_text_ms": 2083.7153640000615,
+        "first_audio_start_proxy_ms": 4437.485519999871,
+        "request_to_playback_terminal_ms": 15605.081660999916,
+        "tts_chunks": 2,
+        "tts_total_audio_seconds": 11.192879818594106,
+        "playback_underflows": 0,
+        "dropped_chunks": 0,
+        "factual_quality_acceptance": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 cold Russian checkpoint",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/ru_checkpoint/provenance.json",
+      "sha256": "388e3b4bc2be73ccdd6cfc968e21a6fda06bb16d89857052838d268fb500f8d1",
+      "note": "Coverage/execution evidence only. The visible answer incorrectly calls Moscow the largest city in the world and is not a film-quality acceptance take."
+    },
+    {
+      "id": "demo1.phone.zh_checkpoint",
+      "claim": "A Mandarin turn in the same cold, airplane-mode, no-forward process completed through SenseVoice QNN, Qwen3.5 CPU, and Matcha with an exact Han transcript/response, no Latin letters or digits, and no playback failures.",
+      "value": {
+        "first_text_ms": 582.5906250001863,
+        "first_audio_start_proxy_ms": 1549.2145830001682,
+        "request_to_playback_terminal_ms": 11291.198433000129,
+        "tts_chunks": 2,
+        "tts_total_audio_seconds": 9.798820861678005,
+        "visible_response_characters": 40,
+        "visible_response_contains_latin_or_digits": false,
+        "playback_underflows": 0,
+        "dropped_chunks": 0,
+        "filtered_reasoning_characters": 19,
+        "user_visible_reasoning_leakage": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 cold Mandarin checkpoint",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/zh_checkpoint/provenance.json",
+      "sha256": "ce23223d571331d2cd3b66537c4f084c1b2d468c7b6c73b4749cf31d97e72d64",
+      "note": "First audio is an Android playback-start callback proxy, not acoustic onset. The accepted Han-only line deliberately avoids Matcha's known Latin/OOV defect and does not prove mixed-script coverage."
+    },
+    {
+      "id": "demo1.phone.es_fr_cpu_asr_verifier",
+      "claim": "Parakeet executed on CPU under runtime service UID 10514 and reproduced the exact expected Spanish and French transcripts; the temporary diagnostic ADB forward was removed and the final forward list was empty.",
+      "value": {
+        "provider": "cpu",
+        "service_uid": 10514,
+        "es_round_trip_ms_including_adb_forward": 5828.66,
+        "fr_round_trip_ms_including_adb_forward": 5526.684,
+        "es_exact_expected_transcript_match": true,
+        "fr_exact_expected_transcript_match": true,
+        "temporary_forward_removed": true,
+        "final_forward_count": 0
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 ES/FR CPU ASR verifier",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/esfr_verifier/provenance.json",
+      "sha256": "4232148e0eb4e28a3597507f133a385a4a77888b98b7ec0663ee242ca84ed2d0",
+      "note": "Backend-health and exact-transcript-parity evidence only. Timings are ASR-only host round trips through a temporary diagnostic forward, not no-forward app end-to-end latency; no Parakeet NPU claim is supported."
+    },
+    {
+      "id": "demo1.phone.es_checkpoint",
+      "claim": "A Spanish turn in the same cold, airplane-mode, no-forward process completed through Parakeet CPU, Qwen3.5 CPU, and Supertonic with the exact transcript, correct Madrid answer, and no playback failures.",
+      "value": {
+        "first_text_ms": 2348.7394780004397,
+        "first_audio_start_proxy_ms": 3343.35744599998,
+        "request_to_playback_terminal_ms": 6104.679059999995,
+        "tts_chunks": 1,
+        "tts_audio_seconds": 2.7920408163265305,
+        "playback_underflows": 0,
+        "dropped_chunks": 0,
+        "parakeet_qnn_executed": false,
+        "filtered_reasoning_characters": 19,
+        "user_visible_reasoning_leakage": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 cold Spanish checkpoint",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/es_checkpoint/provenance.json",
+      "sha256": "dd559e4859d9526d4dfc0e6cf91c23d69ef7b8cea02136f9eaa985413549d629",
+      "note": "CPU-only coverage evidence for one pinned fixture. First audio is an Android playback-start callback proxy, not acoustic onset; one fixture is not a phone accuracy study."
+    },
+    {
+      "id": "demo1.phone.fr_checkpoint",
+      "claim": "A French turn in the same cold, airplane-mode, no-forward process completed through Parakeet CPU, Qwen3.5 CPU, and Supertonic with the exact transcript, correct Paris answer, and no playback failures.",
+      "value": {
+        "first_text_ms": 2269.577708000317,
+        "first_audio_start_proxy_ms": 3223.414686000906,
+        "request_to_playback_terminal_ms": 6022.731612000614,
+        "tts_chunks": 1,
+        "tts_audio_seconds": 2.8185260770975056,
+        "playback_underflows": 0,
+        "dropped_chunks": 0,
+        "parakeet_qnn_executed": false,
+        "filtered_reasoning_characters": 19,
+        "user_visible_reasoning_leakage": false
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 1 cold French checkpoint",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/fr_checkpoint/provenance.json",
+      "sha256": "f83fda5a6e43f056828204b79b73b49aef961e50bfa1fc5a9265149b08fa4439",
+      "note": "CPU-only coverage evidence for one pinned fixture. First audio is an Android playback-start callback proxy, not acoustic onset; one fixture is not a phone accuracy study."
+    },
+    {
+      "id": "demo1.phone.es_fr_latency_projection_superseded",
+      "claim": "Lane F projected 7–11 second ES/FR app turns; the estimate is superseded by separate no-forward app measurements for both languages.",
+      "value": {
+        "low_seconds": 7,
+        "high_seconds": 11,
+        "superseded_by_claims": [
+          "demo1.phone.es_checkpoint",
+          "demo1.phone.fr_checkpoint"
+        ]
+      },
+      "evidence_class": "PROJECTED",
+      "producing_task": "Lane F F2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/f/F2.json",
+      "sha256": "c0e97f9f8afed0643df0dbf8460fa03485f48209aff52d7067225023ccb09066",
+      "note": "Retained as the historical planning estimate; do not use it as a measured result."
+    },
+    {
+      "id": "demo2.restore.accepted_apk_pair",
+      "claim": "Each preserved Demo 2 APK is byte-identical to its corresponding accepted installed artifact; both exact hashes are required together and a clean rebuild is not a substitute.",
+      "value": {
+        "main_apk_sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+        "main_apk_bytes": 20197812,
+        "runtime_apk_sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244",
+        "runtime_apk_bytes": 121215600,
+        "both_exact_hashes_required": true
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 2 durable restore preservation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/accepted_apk_pair.json",
+      "sha256": "a1b823dd66395343f1bd8786adaa83103139a5009685146653f7cfcb1bf65720",
+      "note": "The APK pair does not by itself restore or prove the accepted private/external model inventory; use the physical inventory receipt for cap and execution claims."
+    },
+    {
+      "id": "demo2.restore.main_apk_binary",
+      "claim": "The preserved Demo 2 main APK binary is byte-identical to the corresponding accepted installed main artifact.",
+      "value": {
+        "bytes": 20197812,
+        "sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+        "package": "ai.liquid.lfmdemo",
+        "version_code": 26,
+        "version_name": "0.6.0-unplugged"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 2 durable restore preservation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/app-main-accepted-712632b7.apk",
+      "sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f"
+    },
+    {
+      "id": "demo2.restore.runtime_apk_binary",
+      "claim": "The preserved Demo 2 runtime APK binary is byte-identical to the corresponding accepted installed runtime artifact.",
+      "value": {
+        "bytes": 121215600,
+        "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244",
+        "package": "ai.liquid.lfmdemo.runtime",
+        "version_code": 1,
+        "version_name": "0.1.0-unplugged-runtime"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 2 durable restore preservation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/app-runtime-accepted-33bf0d6d.apk",
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    },
+    {
+      "id": "filming.fixture_lines",
+      "claim": "The original EN/ZH/ES/FR/RU engineering-acceptance prompts and canonical WAV hashes are pinned in the phone fixture manifest.",
+      "value": {
+        "en": "What is the capital of France? Answer in one short sentence.",
+        "zh": "请用中文简单介绍一下北京。",
+        "es": "Dime brevemente cuál es la capital de España.",
+        "fr": "Dis-moi brièvement quelle est la capitale de la France.",
+        "ru": "Расскажи коротко о Москве."
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Phone acceptance fixture manifest",
+      "source_file": "scripts/phone_acceptance_fixtures/manifest.json",
+      "sha256": "5931aa810d3bb7b5148455514134090e510d801f3abaa19ee3f6371316582acd"
+    },
+    {
+      "id": "filming.demo1.ru_actual_fixture",
+      "claim": "The actual successful Demo 1 Russian fixture binary is canonical mono 16 kHz PCM WAV; its question-text binding is recorded separately in the film receipt.",
+      "value": {
+        "bytes": 53538,
+        "duration_seconds": 1.670625,
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight successful Russian film retry",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/fixtures/question_ru_simple.wav",
+      "sha256": "e8d931545ebddf124d63acd5d42bbde10fab7ba2f3f65998ce2ab7237693bc45",
+      "note": "No latency measurement from the different historical Russian prompt is transferred to this filmed fixture."
+    },
+    {
+      "id": "filming.demo1.normalized_film_binary",
+      "claim": "Demo 1 has an exact committed normalized phone-capture binary with H.264 video and AAC mono audio.",
+      "value": {
+        "bytes": 46810178,
+        "duration_seconds": 5701.162,
+        "video_codec": "h264",
+        "audio_codec": "aac"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 1 fast-handoff capture",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/films/DEMO1_IT_FITS.mp4",
+      "sha256": "cf7ba53b9cf1a387b4c52501161253906e1002284b7cc48bd4907a0e80367958"
+    },
+    {
+      "id": "filming.demo1.automated_decode_audio_checks",
+      "claim": "The Demo 1 film receipt records H.264/AAC streams, an audio stream, and a successful full decode with exit code 0.",
+      "value": {
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "audio_stream_present": true,
+        "full_decode_exit_code": 0
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 1 automated media validation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json",
+      "sha256": "593ee2273df46f05f710549e9ca1138578adf0eccb19de566eb1c9134d33d382"
+    },
+    {
+      "id": "filming.demo1.volume_checks",
+      "claim": "Host-side volumedetect found non-silent audio in the Demo 1 normalized film.",
+      "value": {
+        "mean_volume_db": -43.7,
+        "max_volume_db": -0.5,
+        "non_silent_audio_detected": true
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Overnight Demo 1 host audio validation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json",
+      "sha256": "593ee2273df46f05f710549e9ca1138578adf0eccb19de566eb1c9134d33d382"
+    },
+    {
+      "id": "filming.demo1.ru_fact_check_frame",
+      "claim": "This is the exact retained frame binary used for the permitted Demo 1 Russian fact check.",
+      "value": {
+        "bytes": 461854
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 1 fact-check frame extraction",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/film_ru_fact_check.png",
+      "sha256": "05c6f6f251e542886cbb9aeb7a1d62f60ca3964bc4a2e99fcd7b2bb471a5dfb5"
+    },
+    {
+      "id": "filming.demo1.ru_manual_fact_check",
+      "claim": "The permitted manual exception linked the question “Какова столица России?” to the final visible answer “Москва” and confirmed that Moscow is the capital of Russia.",
+      "value": {
+        "fixture_text": "Какова столица России?",
+        "fixture_sha256": "e8d931545ebddf124d63acd5d42bbde10fab7ba2f3f65998ce2ab7237693bc45",
+        "visible_answer": "Москва",
+        "factual_quality_acceptance": true
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Overnight Demo 1 permitted manual Russian fact check",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json",
+      "sha256": "593ee2273df46f05f710549e9ca1138578adf0eccb19de566eb1c9134d33d382",
+      "note": "This was the only requested manual semantic exception; no historical Russian latency is transferred to the new fixture."
+    },
+    {
+      "id": "filming.demo2.normalized_film_binary",
+      "claim": "Demo 2 has an exact normalized handoff-film binary with H.264 High 5.1 video and AAC LC mono audio.",
+      "value": {
+        "bytes": 4807655,
+        "duration_seconds": 356.36,
+        "video_codec": "h264",
+        "video_profile": "High",
+        "video_level": "5.1",
+        "width": 1216,
+        "height": 2688,
+        "frame_rate_fps": 25,
+        "audio_codec": "aac",
+        "audio_sample_rate_hz": 48000,
+        "audio_channels": 1
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 2 fast-handoff normalization",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/films/DEMO2_ITS_GOOD.mp4",
+      "sha256": "68740c0d2d521d01564bebd53003bfd32e4bcef0c46b7f4a1ce732c27369871d"
+    },
+    {
+      "id": "filming.demo2.capture_assembly_receipt",
+      "claim": "The normalization receipt records the complete EN capture followed by the complete ZH capture, with no timeline trimming and no manual film-quality or semantic review.",
+      "value": {
+        "source_order": [
+          "en",
+          "zh"
+        ],
+        "timeline_trimmed": false,
+        "review_mode": "AUTOMATED_MEDIA_ONLY",
+        "owner_review_pending": true
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 2 fast-handoff assembly receipt",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json",
+      "sha256": "593ee2273df46f05f710549e9ca1138578adf0eccb19de566eb1c9134d33d382"
+    },
+    {
+      "id": "filming.demo2.automated_decode_audio_checks",
+      "claim": "The Demo 2 film receipt records H.264/AAC streams, an audio stream, and a successful full video-plus-audio decode with exit code 0.",
+      "value": {
+        "audio_stream_present": true,
+        "full_decode_exit_code": 0,
+        "hash_and_size_recorded": true
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight Demo 2 automated media validation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json",
+      "sha256": "593ee2273df46f05f710549e9ca1138578adf0eccb19de566eb1c9134d33d382"
+    },
+    {
+      "id": "filming.demo2.volume_checks",
+      "claim": "Host-side volumedetect found non-silent audio in the Demo 2 normalized film.",
+      "value": {
+        "mean_volume_db": -36.6,
+        "max_volume_db": -0.7,
+        "non_silent_audio_detected": true
+      },
+      "evidence_class": "HOST",
+      "producing_task": "Overnight Demo 2 host audio validation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json",
+      "sha256": "593ee2273df46f05f710549e9ca1138578adf0eccb19de566eb1c9134d33d382"
+    },
+    {
+      "id": "filming.demo2.cold_en_runner",
+      "claim": "The filmed cold-English runner case passed all automated assertions, completed playback, and stayed below the request-to-in-app-audio-start proxy gate.",
+      "value": {
+        "first_text_ms": 992.5,
+        "first_audio_proxy_ms": 1988.9219270001631,
+        "tts_first_chunk_ms": 586,
+        "tts_rtf": 0.24344952195901468,
+        "playback_completed": true,
+        "transcript": "What is the capital of France, answer in one short sentence?",
+        "response": "The capital of France is Paris.",
+        "automated_assertions_passed": true
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 cold-English film capture",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/film_capture/demo2_en_film_capture.json",
+      "sha256": "a44dfcef18bb48c70b9a59668d4c9e1481e223915edfd8bcd90bc022f893b00a",
+      "note": "This is automated runner evidence, not manual semantic, native-speaker, or acoustic-onset approval."
+    },
+    {
+      "id": "filming.demo2.cold_zh_runner",
+      "claim": "The filmed cold-Mandarin runner case passed all automated assertions, completed Matcha playback, and stayed below the request-to-in-app-audio-start proxy gate.",
+      "value": {
+        "first_text_ms": 867.6,
+        "first_audio_proxy_ms": 1740.2889569999825,
+        "tts_first_chunk_ms": 84,
+        "tts_rtf": 0.03709471859706362,
+        "playback_completed": true,
+        "transcript": "请用中文简单介绍一下北京。",
+        "response": "北京是中国的首都，位于中国北部，是世界上最大的城市之一。",
+        "automated_assertions_passed": true
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Overnight Demo 2 cold-Mandarin film capture",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/film_capture/demo2_zh_film_capture.json",
+      "sha256": "745ada5ade3b432ca954857d15e6cb0cdf9bf6c85a4d02bfa67c1e3ba1b163c4",
+      "note": "A pre-request setup attempt submitted no audio; the retained case is the first real request. This is automated runner evidence, not manual semantic, native-speaker, or acoustic-onset approval."
+    },
+    {
+      "id": "handoff.tts_repair.registry",
+      "claim": "The post-capture repair installed the authenticated five-candidate TTS metadata while verifying 22 resident model files and transferring zero model weights.",
+      "value": {
+        "candidate_count": 5,
+        "model_files_verified": 22,
+        "model_files_transferred": 0,
+        "candidates_sha256": "7b781a3612f3b381be3e81273370464a4ef0df421b533dfd4dc66bd75c5cdf05",
+        "bundle_manifest_sha256": "67ffedc475464216d64143c8c15332ea82398170fe11f66b91da3eb9051a3384"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Post-capture unplugged EN/RU TTS repair",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_en_ru_repair/deployment_receipt.json",
+      "sha256": "fc2954e4890427be852212e1e7e1e2cb39cde69de1feab11c1de23ad629c07a5"
+    },
+    {
+      "id": "handoff.tts_repair.english_auto_end_to_end",
+      "claim": "Under Automatic by language, the English end-to-end fixture resolved to Supertonic EN, passed every automated assertion, queued no dropped chunks, and reached completed playback.",
+      "value": {
+        "resolved_engine": "supertonic3_en_s5",
+        "first_chunk_ms": 329,
+        "rtf": 0.1409444600815348,
+        "dropped_chunks": 0,
+        "terminal_status": "completed",
+        "response": "The capital of France is Paris."
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Post-capture English automatic-routing smoke",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_en_ru_repair/en_auto_end_to_end.json",
+      "sha256": "e2f21eb6c1db930b86eeb22af0b00c51b1dc90bd0fb0597265d1de82218e1e22",
+      "note": "This proves app playback lifecycle, not microphone-observed acoustic onset or native-speaker quality."
+    },
+    {
+      "id": "handoff.tts_repair.ru_zh_auto_native",
+      "claim": "Automatic routing resolved Russian to Supertonic RU and Mandarin to Matcha; both native TTS cases passed all assertions and reached completed playback with zero dropped chunks.",
+      "value": {
+        "ru": {
+          "resolved_engine": "supertonic3_s5",
+          "first_chunk_ms": 743,
+          "rtf": 0.2312801923899402,
+          "dropped_chunks": 0,
+          "terminal_status": "completed"
+        },
+        "zh": {
+          "resolved_engine": "matcha_zh_baker",
+          "first_chunk_ms": 62,
+          "rtf": 0.04272187499999999,
+          "dropped_chunks": 0,
+          "terminal_status": "completed"
+        }
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Post-capture Russian/Mandarin automatic-routing smoke",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_en_ru_repair/native_auto_ru_zh.json",
+      "sha256": "9158fc6e6757da528852ac6a0a98b911d33cf955353acd5977d9405e9bc5d5da",
+      "note": "The Russian smoke phrase is a playback check, not the final-film factual fixture."
+    },
+    {
+      "id": "handoff.tts_repair.unplug_state",
+      "claim": "Automatic by language persisted across a cold app restart, all EN/RU/ZH routes remained available, and the phone was left foregrounded in Offline voice mode with airplane mode on, Wi-Fi off, no ADB forwards, and media volume 90/150.",
+      "value": {
+        "policy": "auto",
+        "restart_persistence": true,
+        "routes_available": [
+          "en-US",
+          "ru-RU",
+          "zh-CN"
+        ],
+        "airplane_mode": true,
+        "wifi_disabled": true,
+        "adb_forward_count": 0,
+        "media_volume_index": 90,
+        "media_volume_maximum": 150,
+        "safe_to_unplug": true
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Post-capture unplugged handoff",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_en_ru_repair/deployment_receipt.json",
+      "sha256": "fc2954e4890427be852212e1e7e1e2cb39cde69de1feab11c1de23ad629c07a5"
+    },
+    {
+      "id": "handoff.tts_voice_audition.smoke",
+      "claim": "The expanded phone selector exposed every installed audition entry, and representative Kokoro, Supertonic EN/RU, and Piper Irina/Ruslan cases completed on-phone playback with zero dropped chunks.",
+      "value": {
+        "candidate_count": 26,
+        "selector_entries_including_auto_and_system": 28,
+        "available_entries": 28,
+        "playback_cases_passed": 7,
+        "playback_cases_failed": 0
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "English/Russian voice audition deployment",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_voice_audition/deployment_smoke.json",
+      "sha256": "f598374974d2d09839b5a9c01f47f58b786df6a5e345d2717dfdd1a1375016b8",
+      "note": "This is functional playback evidence, not a formal naturalness or intelligibility panel."
+    },
+    {
+      "id": "handoff.tts_voice_defaults.registry",
+      "claim": "A manifest-only update made the user's EN voice-4 and RU Ruslan choices the highest-priority automatic routes while retaining the existing ZH/ES/FR defaults and prior EN/RU routes as fallbacks; all 397 resident files were authenticated and no model file was transferred in this final switch.",
+      "value": {
+        "candidate_count": 26,
+        "referenced_files_verified": 397,
+        "model_files_transferred": 0,
+        "authenticated_resident_mib": 773.7,
+        "en_default": "supertonic3_en_v4_s5",
+        "ru_default": "piper_ru_ruslan",
+        "zh_default": "matcha_zh_baker",
+        "candidates_sha256": "77ebeb75f0766df2195ddffdc855b352a7c0f861f8f6a5db0f7523bf97241372"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "User-selected TTS default deployment",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_voice_defaults/deployment_receipt.json",
+      "sha256": "710aa0393c427a44ac9bd579338cec3c31ce0f8e80de32b553cc1c01e88de84c",
+      "note": "Zero transfer is scoped to the final metadata-only default switch; the earlier catalog expansion added model assets."
+    },
+    {
+      "id": "handoff.tts_voice_defaults.routes_and_playback",
+      "claim": "Automatic routing resolved EN to Supertonic voice 4, RU to Piper Ruslan, and ZH to Matcha; all three cases reached completed playback with zero dropped chunks.",
+      "value": {
+        "en": {
+          "engine": "supertonic3_en_v4_s5",
+          "first_chunk_ms": 844,
+          "dropped_chunks": 0
+        },
+        "ru": {
+          "engine": "piper_ru_ruslan",
+          "first_chunk_ms": 49,
+          "dropped_chunks": 0
+        },
+        "zh": {
+          "engine": "matcha_zh_baker",
+          "first_chunk_ms": 57,
+          "dropped_chunks": 0
+        }
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Final automatic-route playback acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_voice_defaults/automatic_routes.json",
+      "sha256": "1de42c55b4e7cee22bbfa0e790df06428a5d1b94b2655bfcc8a88e750901629a",
+      "note": "First-audio values are in-app proxies, not microphone-observed acoustic onset."
+    },
+    {
+      "id": "handoff.tts_voice_defaults.unplug_state",
+      "claim": "Automatic by language survived a cold app restart, and the phone was left foregrounded in Voice answer mode with airplane mode on, Wi-Fi off, no ADB forwards, and audible media volume 80/150.",
+      "value": {
+        "policy": "auto",
+        "restart_persistence": true,
+        "screen_mode": "voice_answer",
+        "airplane_mode": true,
+        "wifi_disabled": true,
+        "adb_forward_count": 0,
+        "media_volume_index": 80,
+        "media_volume_maximum": 150,
+        "safe_to_unplug": true
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Final supervisor handoff",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_voice_defaults/deployment_receipt.json",
+      "sha256": "710aa0393c427a44ac9bd579338cec3c31ce0f8e80de32b553cc1c01e88de84c",
+      "note": "The Demo 1 and Demo 2 filmed physical-inventory receipts predate this expanded audition catalog."
+    },
+    {
+      "id": "handoff.latency_preload.deployment_and_host_disconnect",
+      "claim": "The current post-film latency build is byte-identical between each local APK and its installed base APK, preserves hash-matched rollback APKs locally and on the phone, keeps one selected route ready at a time, fits the resident English process set in RAM with large headroom, and survived a 75-second host-ADB-server disconnect with the same boot and five principal PIDs.",
+      "value": {
+        "source_commit": "e1a2a06ff34fd2a23950b49e45d65d71971d21ce",
+        "main_apk_sha256": "91b225aaba45a2c0875d5d4316449ff255306773f6593011f8edaa626f797add",
+        "runtime_apk_sha256": "081cba99cf8abb151ce258481b83297bf8f2caf0446efea4d03d9b1e34b3e971",
+        "installed_build_hashes_match": true,
+        "selected_route_scope": "ONE_EXPLICIT_ROUTE_AT_A_TIME",
+        "resident_total_pss_gib": 2.510279655456543,
+        "resident_total_rss_gib": 2.892608642578125,
+        "mem_available_gib": 9.106426239013672,
+        "disconnect_seconds": 75,
+        "same_boot_id": true,
+        "same_main_runtime_qwen_asr_webview_pids": true,
+        "final_forward_count": 0,
+        "final_reverse_count": 0,
+        "selected_language": "en",
+        "selected_route_ready": true,
+        "media_volume_index": 60,
+        "media_volume_maximum": 150
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Selected-route latency deployment and bounded host-disconnect verification",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/deployment_receipt.json",
+      "sha256": "072d2cc4a2c73c627670ddf37d89224ed7a55a11e367487d7ff5dc9a89754eaa",
+      "note": "Version codes alone are not the identity proof; build and installed APK hashes are recorded separately. This is host-debugger-disconnected foreground survival, not physical unplug, restart, process-death, boot, background, or long-duration evidence. The filmed cap inventories were not recalculated or rebound."
+    },
+    {
+      "id": "handoff.latency_preload.en_warm_n1",
+      "claim": "With explicit English selected and the route-ready gate complete, one warm full turn reached the Android first-audio start proxy at 1,008.482 ms and completed Supertonic voice-4 playback with zero dropped chunks.",
+      "value": {
+        "server_warmth": "warm",
+        "n": 1,
+        "first_text_ms": 237.30000000074506,
+        "first_audio_start_proxy_ms": 1008.4821349978447,
+        "tts_first_chunk_ms": 604,
+        "tts_engine": "supertonic3_en_v4_s5",
+        "asr_provider": "qnn",
+        "dropped_chunks": 0,
+        "terminal": "completed"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Final explicitly selected English warm acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/en_acceptance.json",
+      "sha256": "60a4f5fc01b72b901a713753c528092a0a85e80aa60cd9aae2cbb73fc82e1c17",
+      "note": "Warm n=1 software proxy only; not acoustic onset, cold/boot-to-audio, a distribution, or proof that preload caused the result."
+    },
+    {
+      "id": "handoff.latency_preload.zh_warm_n1",
+      "claim": "With explicit Mandarin selected and the route-ready gate complete, one warm full turn reached the Android first-audio start proxy at 597.038 ms and completed Matcha playback with zero dropped chunks.",
+      "value": {
+        "server_warmth": "warm",
+        "n": 1,
+        "first_text_ms": 192.89999999850988,
+        "first_audio_start_proxy_ms": 597.0384899973869,
+        "tts_first_chunk_ms": 90,
+        "tts_engine": "matcha_zh_baker",
+        "asr_provider": "qnn",
+        "dropped_chunks": 0,
+        "terminal": "completed"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Final explicitly selected Mandarin warm acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/zh_acceptance.json",
+      "sha256": "4a7fb2caac8be33dfc3facc28a0b0838dc081dfada7f60dc892eae70b5912e3f",
+      "note": "Warm n=1 software proxy only; not acoustic onset, cold/boot-to-audio, a distribution, or proof that preload caused the result."
+    },
+    {
+      "id": "handoff.latency_preload.ru_long_warm_n1",
+      "claim": "With explicit Russian selected and the route-ready gate complete, one warm longer turn reached the Android first-audio start proxy at 461.273 ms and completed Piper Ruslan playback with zero dropped chunks; the answer ‘Москва - столица России.’ is factually correct.",
+      "value": {
+        "server_warmth": "warm",
+        "n": 1,
+        "first_text_ms": 220.29999999701977,
+        "first_audio_start_proxy_ms": 461.273280993104,
+        "tts_first_chunk_ms": 66,
+        "tts_engine": "piper_ru_ruslan",
+        "asr_provider": "cpu",
+        "response": "Москва - столица России.",
+        "response_factually_correct": true,
+        "dropped_chunks": 0,
+        "terminal": "completed"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Final explicitly selected Russian warm acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_long_acceptance.json",
+      "sha256": "eaa6a3f93c4df36b1901d9c239330ff3fca457cc8d67fd4345cf7e7c03e3fcfc",
+      "note": "Warm n=1 software proxy only; not acoustic onset, cold/boot-to-audio, a distribution, or proof that preload caused the result."
+    },
+    {
+      "id": "handoff.latency_preload.ru_short_drain_failure_1",
+      "claim": "A retained warm short-Russian attempt returned the factually correct answer ‘Москва.’ and reached the first-audio start proxy at 340.969 ms, but emitted no utterance_done event and failed playback_drain_timeout.",
+      "value": {
+        "server_warmth": "warm",
+        "n": 1,
+        "first_audio_start_proxy_ms": 340.9690109938383,
+        "tts_first_chunk_ms": 43,
+        "response": "Москва.",
+        "response_factually_correct": true,
+        "utterance_done_count": 0,
+        "terminal": "failed",
+        "failure": "playback_drain_timeout"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Retained short-Russian negative acceptance",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_acceptance.json",
+      "sha256": "927106d1ba7d59d38e250d51717f6060d0b8864d3a6a24e53ba2e20dddae39ca",
+      "note": "This is a disclosed failure, not a completed-playback latency pass."
+    },
+    {
+      "id": "handoff.latency_preload.ru_short_drain_failure_2",
+      "claim": "A second retained warm short-Russian attempt returned the factually correct answer ‘Москва.’ and reached the first-audio start proxy at 248.384 ms, but emitted no utterance_done event and failed playback_drain_timeout.",
+      "value": {
+        "server_warmth": "warm",
+        "n": 1,
+        "first_audio_start_proxy_ms": 248.38364499807358,
+        "tts_first_chunk_ms": 34,
+        "response": "Москва.",
+        "response_factually_correct": true,
+        "utterance_done_count": 0,
+        "terminal": "failed",
+        "failure": "playback_drain_timeout"
+      },
+      "evidence_class": "PHONE-MEASURED",
+      "producing_task": "Retained short-Russian negative acceptance retry",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_acceptance_retry.json",
+      "sha256": "3a2e33300bb140686a2523488bac3ddb52693b7eb635a3c1ff385cbb5e1aacfd",
+      "note": "This is a disclosed failure, not a completed-playback latency pass."
+    },
+    {
+      "id": "release.correction.0_4_14",
+      "claim": "A durable parse/hash receipt verifies the ignored historical 0.4.14 debug APK at 4,816,382 bytes with SHA-256 47bc3b39...bc939.",
+      "value": {
+        "bytes": 4816382,
+        "sha256": "47bc3b3938c7f347d0a9cddedea777f18ba766c24da2a29b9f55140acf1bc939",
+        "package": "ai.liquid.lfmdemo",
+        "version_code": 22,
+        "version_name": "0.4.14-expressive-default-guard"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "Overnight release correction",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/release_0_4_14_receipt.json",
+      "sha256": "48b1eacfc31e7a47677643df67c611441860e8928d17946bf2e521c640189635",
+      "note": "The underlying APK is intentionally ignored by git; this tracked receipt makes the correction durable without treating the APK as an overnight demo artifact."
+    },
+    {
+      "id": "limits.glasses",
+      "claim": "No glasses evidence of any kind exists in the sprint record.",
+      "value": "ABSENT",
+      "evidence_class": "UNKNOWN",
+      "producing_task": "Lane E closeout",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/LANE_SUMMARY.md",
+      "sha256": "01ed030aaa88c0f77cb413824eaf741bbed5513e31a8bd44bca3c321f6843c0d"
+    }
+  ]
+}

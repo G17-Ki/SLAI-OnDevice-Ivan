@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "demo": "DEMO 1 - IT FITS",
+  "run_scope": "cold-boot uninterrupted five-language sequence, Mandarin checkpoint after accepted English and Russian",
+  "captured_at": "2026-08-03T06:37:25+08:00",
+  "branch": "sprint/overnight",
+  "boot": {
+    "boot_id": "67f1bad3-d306-4787-ac17-d9ab1c87e169",
+    "airplane_mode_on": true,
+    "adb_forward_list_immediately_before_inference": [],
+    "adb_forward_list_after_capture": [],
+    "main_pid_after_turn": 10316,
+    "runtime_pid_after_turn": 10410,
+    "same_main_and_runtime_processes_as_english_and_russian_checkpoints": true
+  },
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "soc": "Snapdragon SM8850"
+  },
+  "packages": {
+    "main": {
+      "package": "ai.liquid.lfmdemo",
+      "uid": 10538,
+      "version": "0.6.0-unplugged",
+      "installed_apk_sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d"
+    },
+    "runtime": {
+      "package": "ai.liquid.lfmdemo.runtime",
+      "uid": 10514,
+      "version": "0.1.0-unplugged-runtime",
+      "installed_apk_sha256": "d43c0423d66e1cbe9e3fac313b54437c5c58ef8a5a8498382a255f619ad46ae1"
+    }
+  },
+  "configuration": {
+    "mode": "tts",
+    "ui_label": "Offline voice",
+    "selected_language": "zh",
+    "memory_enabled": false,
+    "asr_backend": "sensevoice_qnn",
+    "asr_provider": "qnn",
+    "asr_processor": "HTP v81",
+    "response_backend": "qwen3_5_0_8b_q4_0_cpu",
+    "response_model": "Qwen3.5-0.8B-Q4_0",
+    "tts_policy": "matcha_zh_baker",
+    "tts_ui_label": "Matcha ZH (baker)"
+  },
+  "fixture": {
+    "filename": "question_zh.wav",
+    "bytes": 83478,
+    "sha256": "bfc02160e9b86c487dc122a7e501e71d411ada2d7a5b94ad59b1bf0f8e149c63",
+    "verbatim_asr_transcript": "请用中文简单介绍一下北京。"
+  },
+  "result": {
+    "turn_id": "1785710053705-3",
+    "complete": true,
+    "visible_response": "北京是中国的首都，位于中国东部中北部，是中国的政治、经济、文化、科技和旅游中心。",
+    "visible_response_characters": 40,
+    "visible_response_contains_latin_or_digits": false,
+    "npu_selected": true,
+    "npu_executed": true,
+    "first_text_ms": 582.5906250001863,
+    "first_audio_start_proxy_ms": 1549.2145830001682,
+    "request_to_playback_terminal_ms": 11291.198433000129,
+    "tts_chunks_queued": 2,
+    "tts_chunk_metrics": [
+      {
+        "chunk_index": 0,
+        "generation_ms": 85,
+        "rtf": 0.034453125,
+        "audio_seconds": 7.720634920634921
+      },
+      {
+        "chunk_index": 1,
+        "generation_ms": 61,
+        "rtf": 0.030314900488826818,
+        "audio_seconds": 2.078185941043084
+      }
+    ],
+    "tts_total_audio_seconds": 9.798820861678005,
+    "dropped_chunks": 0,
+    "playback_underflows": 0,
+    "playback_status": "completed",
+    "reasoning_filter": {
+      "raw_characters": 59,
+      "visible_characters": 40,
+      "filtered_characters": 19,
+      "reasoning_blocks_removed": 1,
+      "user_visible_reasoning_leakage": false
+    }
+  },
+  "qnn_execution_binding": {
+    "runner_provider_argument": "--provider=qnn",
+    "backend_library": "libQnnHtp.so",
+    "system_library": "libQnnSystem.so",
+    "context_binary": "files/asr/models/sensevoice/model.bin",
+    "runner_model_create_seconds": 0.220,
+    "runner_decode_seconds": 0.039,
+    "source": "last-qnn.stderr.txt"
+  },
+  "evidence_sha256": {
+    "telemetry.jsonl": "7fc3511944d7826752bc9abc4ad7f51843b012d1c63468f8a6b2d37d7c95d868",
+    "summary.json": "1f766e47074adcd6f711e6fa9a695ed5f8c7a244be8a20752446be368966d58c",
+    "REPORT.md": "1ce5ac69f9e3d9b194df88367229aae6c1e29eb29a0221ae274d5dfc350d7e5b",
+    "ui.xml": "f1020f43584f903b54ff97b7039edd094501e96f1d7913fe7870d3c88d814525",
+    "screen_result.png": "6c60cdc924851a6209b0fdbd0d0e9867567f246ae4d639d7b4c60964dc670a8d",
+    "last-qnn.stdout.txt": "8113e680156605c9582ea5713de5879bef3382793a16ce67ee71296c4569f81b",
+    "last-qnn.stderr.txt": "89275e358efa6cdc692ef573cb61f8d2fb430027ff4678f759cce673d587eed3",
+    "device_state.txt": "0198f60c1a6b3edad58b6f8c15a3b38aebab4967dfa46ec40376253a54d9ed9a",
+    "adb_forwards_after.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "claim_boundary": "This checkpoint proves a completed explicit-Mandarin SenseVoice-QNN/Qwen3.5/Matcha turn in the same airplane-mode cold-boot process as English and Russian, with no ADB forward during the in-app turn. The response contains no Latin letters or digits, avoiding Matcha's known OOV hazard, and playback completed with no drops or underflows. First audio is an in-app software start proxy, not microphone-observed acoustic onset. Qwen again emitted one hidden reasoning-tag block; the supported claim is no user-visible reasoning leakage. The static footer still says EN / Chinese offline demo and must be cropped out of a five-language film frame."
+}

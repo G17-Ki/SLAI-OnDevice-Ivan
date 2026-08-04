@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-22T10:58:00Z",
+  "source": {
+    "package": "qai-hub-models",
+    "version": "0.58.0",
+    "wheel_sha256": "2100a95f173c6c7b8f3bf65dcb710586098099522a5a901c6f918f3b981c4ada",
+    "note": "Published scorecard data extracted from the wheel; no new AI Hub jobs were submitted by this Mac benchmark."
+  },
+  "v81_targets": {
+    "published_profile_device": {
+      "name": "Samsung Galaxy S26",
+      "os": "16",
+      "chipset": "sm8850-ad",
+      "hexagon": "v81",
+      "supports_qnn": true,
+      "supports_htp_fp16": true
+    },
+    "fresh_compile_target": {
+      "name": "Snapdragon 8 Elite Gen 5 QRD",
+      "os": "16",
+      "chipset": "sm8850",
+      "hexagon": "v81",
+      "supports_qnn": true,
+      "supports_htp_fp16": true
+    },
+    "warning": "The published Samsung asset targets sm8850-ad. Compile a fresh QRD/sm8850 asset before testing a non-Samsung SM8850 phone."
+  },
+  "common_export_contract": {
+    "sample_rate_hz": 16000,
+    "audio_window_seconds": 30,
+    "mel_frames": 3000,
+    "audio_embedding_length": 1500,
+    "max_decoded_tokens": 200,
+    "runtime": "qnn_context_binary",
+    "source_precision": "float",
+    "qnn_float_compile_behavior": "--quantize_full_type float16 --quantize_io",
+    "capabilities": {
+      "streaming": false,
+      "file_based": true,
+      "language_detection": true,
+      "confidence_scores": false
+    },
+    "implementation_changes": [
+      "Multi-head attention is rewritten as single-head attention branches.",
+      "Linear projections are rewritten as 2-D convolutions for edge export.",
+      "The encoder emits decoder cross-attention K/V caches.",
+      "The decoder consumes one token and fixed-size self/cross caches per invocation."
+    ]
+  },
+  "models": {
+    "whisper_tiny": {
+      "checkpoint": "openai/whisper-tiny",
+      "source_model_sizes_mb": {
+        "encoder_float": 35.9,
+        "decoder_float": 109.0
+      },
+      "dimensions": {
+        "d_model": 384,
+        "head_count": 6,
+        "head_dim": 64,
+        "encoder_layers": 4,
+        "decoder_layers": 4,
+        "vocabulary": 51865
+      },
+      "encoder_source_graph": {
+        "inputs": {
+          "input_features": {
+            "shape": [1, 80, 3000],
+            "dtype": "float32"
+          }
+        },
+        "outputs_per_decoder_layer": {
+          "k_cache_cross_i": {
+            "shape": [6, 1, 64, 1500],
+            "dtype": "float32"
+          },
+          "v_cache_cross_i": {
+            "shape": [6, 1, 1500, 64],
+            "dtype": "float32"
+          }
+        }
+      },
+      "decoder_source_graph": {
+        "inputs": {
+          "input_ids": {"shape": [1, 1], "dtype": "int32"},
+          "attention_mask": {"shape": [1, 1, 1, 200], "dtype": "float32"},
+          "k_cache_self_i": {"shape": [6, 1, 64, 199], "dtype": "float32"},
+          "v_cache_self_i": {"shape": [6, 1, 199, 64], "dtype": "float32"},
+          "k_cache_cross_i": {"shape": [6, 1, 64, 1500], "dtype": "float32"},
+          "v_cache_cross_i": {"shape": [6, 1, 1500, 64], "dtype": "float32"},
+          "position_ids": {"shape": [1], "dtype": "int32"}
+        },
+        "outputs": {
+          "logits": {"shape": [1, 51865, 1, 1]},
+          "k_cache_self_i": {"shape": [6, 1, 64, 199]},
+          "v_cache_self_i": {"shape": [6, 1, 199, 64]}
+        }
+      },
+      "published_s26_v81_qnn_context": {
+        "encoder": {
+          "job_id": "j5qmrqdog",
+          "latency_ms": 12.51,
+          "estimated_peak_memory_mb": [1, 10],
+          "layers": {"total": 294, "npu": 294},
+          "qairt": "2.45.0.260326154327"
+        },
+        "decoder_per_token": {
+          "job_id": "jgl12m9m5",
+          "latency_ms": 1.498,
+          "estimated_peak_memory_mb": [0, 9],
+          "layers": {"total": 509, "npu": 509},
+          "qairt": "2.45.0.260326154327"
+        },
+        "derived_compute_ms": {
+          "20_tokens": 42.47,
+          "50_tokens": 87.41,
+          "200_tokens": 312.11
+        }
+      }
+    },
+    "whisper_base": {
+      "checkpoint": "openai/whisper-base",
+      "source_model_sizes_mb": {
+        "encoder_float": 90.7,
+        "decoder_float": 187.0
+      },
+      "dimensions": {
+        "d_model": 512,
+        "head_count": 8,
+        "head_dim": 64,
+        "encoder_layers": 6,
+        "decoder_layers": 6,
+        "vocabulary": 51865
+      },
+      "encoder_source_graph": {
+        "inputs": {
+          "input_features": {
+            "shape": [1, 80, 3000],
+            "dtype": "float32"
+          }
+        },
+        "outputs_per_decoder_layer": {
+          "k_cache_cross_i": {
+            "shape": [8, 1, 64, 1500],
+            "dtype": "float32"
+          },
+          "v_cache_cross_i": {
+            "shape": [8, 1, 1500, 64],
+            "dtype": "float32"
+          }
+        }
+      },
+      "decoder_source_graph": {
+        "inputs": {
+          "input_ids": {"shape": [1, 1], "dtype": "int32"},
+          "attention_mask": {"shape": [1, 1, 1, 200], "dtype": "float32"},
+          "k_cache_self_i": {"shape": [8, 1, 64, 199], "dtype": "float32"},
+          "v_cache_self_i": {"shape": [8, 1, 199, 64], "dtype": "float32"},
+          "k_cache_cross_i": {"shape": [8, 1, 64, 1500], "dtype": "float32"},
+          "v_cache_cross_i": {"shape": [8, 1, 1500, 64], "dtype": "float32"},
+          "position_ids": {"shape": [1], "dtype": "int32"}
+        },
+        "outputs": {
+          "logits": {"shape": [1, 51865, 1, 1]},
+          "k_cache_self_i": {"shape": [8, 1, 64, 199]},
+          "v_cache_self_i": {"shape": [8, 1, 199, 64]}
+        }
+      },
+      "published_s26_v81_qnn_context": {
+        "encoder": {
+          "job_id": "jp840o085",
+          "latency_ms": 22.028,
+          "estimated_peak_memory_mb": [0, 14],
+          "layers": {"total": 556, "npu": 556},
+          "qairt": "2.45.0.260326154327"
+        },
+        "decoder_per_token": {
+          "job_id": "jgk97z7o5",
+          "latency_ms": 2.657,
+          "estimated_peak_memory_mb": [20, 29],
+          "layers": {"total": 975, "npu": 975},
+          "qairt": "2.45.0.260326154327"
+        },
+        "derived_compute_ms": {
+          "20_tokens": 75.168,
+          "50_tokens": 154.878,
+          "200_tokens": 553.428
+        }
+      }
+    }
+  },
+  "next_quality_candidates": {
+    "whisper_small_float": {
+      "published_s26_v81_encoder_ms": 58.128,
+      "published_s26_v81_decoder_ms_per_token": 7.365,
+      "all_layers_on_npu": true,
+      "derived_compute_ms": {
+        "20_tokens": 205.428,
+        "50_tokens": 426.378,
+        "200_tokens": 1531.128
+      },
+      "source_float_model_size_mb": 924.0
+    },
+    "whisper_small_w8a16": {
+      "published_s26_v81_encoder_ms": 175.083,
+      "published_s26_v81_decoder_ms_per_token": 3.961,
+      "all_layers_on_npu": true,
+      "derived_compute_ms": {
+        "20_tokens": 254.303,
+        "50_tokens": 373.133,
+        "200_tokens": 967.283
+      }
+    },
+    "whisper_large_v3_turbo_float": {
+      "published_s26_v81_encoder_ms": 267.72,
+      "published_s26_v81_decoder_ms_per_token": 6.262,
+      "all_layers_on_npu": true,
+      "derived_compute_ms": {
+        "20_tokens": 392.96,
+        "50_tokens": 580.82,
+        "200_tokens": 1520.12
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-08-03T15:56:02+08:00",
+  "branch": "sprint/overnight",
+  "task": "deploy user-selected offline TTS defaults for supervisor handoff",
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "package": "ai.liquid.lfmdemo"
+  },
+  "user_selection": {
+    "english": {
+      "label": "Supertonic 3 EN — voice 4",
+      "candidate_id": "supertonic3_en_v4_s5",
+      "speaker_id": 4,
+      "auto_priority": 20
+    },
+    "russian": {
+      "label": "Piper RU (ruslan)",
+      "candidate_id": "piper_ru_ruslan",
+      "auto_priority": 20
+    },
+    "other_languages": "retain their existing automatic defaults"
+  },
+  "automatic_fallbacks": {
+    "english": {
+      "candidate_id": "supertonic3_en_s5",
+      "auto_priority": 10
+    },
+    "russian": {
+      "candidate_id": "supertonic3_s5",
+      "auto_priority": 10
+    },
+    "mandarin": {
+      "candidate_id": "matcha_zh_baker",
+      "auto_priority": 10
+    },
+    "spanish": {
+      "candidate_id": "supertonic3_es_s5",
+      "auto_priority": 10
+    },
+    "french": {
+      "candidate_id": "supertonic3_fr_s5",
+      "auto_priority": 10
+    }
+  },
+  "deployment": {
+    "method": "existing installer, manifest-only",
+    "target": "/sdcard/Android/data/ai.liquid.lfmdemo/files/tts-eval",
+    "candidate_count": 26,
+    "selector_entry_count_including_auto_and_system": 28,
+    "referenced_files_verified": 397,
+    "referenced_files_transferred": 0,
+    "authenticated_resident_mib": 773.7,
+    "metadata_files_verified": 3,
+    "metadata_files_updated": 2,
+    "unrelated_files_removed": 0,
+    "metadata": {
+      "candidates.json": {
+        "bytes": 30450,
+        "sha256": "77ebeb75f0766df2195ddffdc855b352a7c0f861f8f6a5db0f7523bf97241372"
+      },
+      "bundle_manifest.json": {
+        "bytes": 65963,
+        "sha256": "621f9bef3224a1c480da2f92ebf7bfbc1ccb221de003715587391d1065712bf1"
+      },
+      "phrases.json": {
+        "bytes": 3118,
+        "sha256": "98d609075bb71f358430c0371e10c591a4b4614574e2c9750a74d0cb37230a97"
+      }
+    }
+  },
+  "automatic_playback_checks": {
+    "all_passed": true,
+    "passed": 3,
+    "failed": 0,
+    "english": {
+      "requested_locale": "en-US",
+      "resolved_engine": "supertonic3_en_v4_s5",
+      "first_chunk_ms": 844,
+      "rtf": 0.2216093503360942,
+      "audio_seconds": 3.835578231292517,
+      "dropped_chunks": 0,
+      "terminal_status": "completed"
+    },
+    "russian": {
+      "requested_locale": "ru-RU",
+      "resolved_engine": "piper_ru_ruslan",
+      "first_chunk_ms": 49,
+      "rtf": 0.044748687744140626,
+      "audio_seconds": 2.972154195011338,
+      "dropped_chunks": 0,
+      "terminal_status": "completed"
+    },
+    "mandarin": {
+      "requested_locale": "zh-CN",
+      "resolved_engine": "matcha_zh_baker",
+      "first_chunk_ms": 57,
+      "rtf": 0.0383578125,
+      "audio_seconds": 4.35374149659864,
+      "dropped_chunks": 0,
+      "terminal_status": "completed"
+    },
+    "evidence": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_voice_defaults/automatic_routes.json",
+      "bytes": 215961,
+      "sha256": "1de42c55b4e7cee22bbfa0e790df06428a5d1b94b2655bfcc8a88e750901629a"
+    }
+  },
+  "cold_restart": {
+    "automatic_policy_persisted": true,
+    "visible_voice_policy": "Automatic by language",
+    "visible_language_policy": "Auto",
+    "foreground_mode": "Voice answer",
+    "screenshot": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_voice_defaults/supervisor_ready.png",
+      "bytes": 459258,
+      "sha256": "3509679f455c76b4c71f57f564540bdccbec60644a561aebf5934954e887db17"
+    }
+  },
+  "final_handoff": {
+    "main_app_foreground": true,
+    "airplane_mode": true,
+    "wifi": "disabled",
+    "adb_forwards": [],
+    "media_volume": {
+      "index": 80,
+      "maximum": 150,
+      "muted": false
+    },
+    "mac_runtime_dependency": false,
+    "safe_to_unplug": true
+  },
+  "claim_boundary": "The automated checks prove on-phone automatic routing, neural synthesis, AudioTrack lifecycle, and completed playback events while airplane mode was enabled. The user's manual audition selected the voices. No microphone-observed acoustic-onset measurement or formal listening panel is claimed."
+}

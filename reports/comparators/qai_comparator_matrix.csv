@@ -1,0 +1,24 @@
+model_id,model_name,component,precision,runtime,device,latency_ms,peak_memory_min_mb,peak_memory_max_mb,ops_total,ops_npu,job_id,job_status,qairt_version
+zipformer,Zipformer,encoder,float,qnn_context_binary,QCS8550 (Proxy),8.895,3,8,2546,2546,jpxmqxvjg,Passed,2.45.0.260326154327
+zipformer,Zipformer,decoder,float,qnn_context_binary,QCS8550 (Proxy),0.075,0,1,8,8,j5m478ry5,Passed,2.45.0.260326154327
+zipformer,Zipformer,joiner,float,qnn_context_binary,QCS8550 (Proxy),0.187,0,2,5,5,jgnx4kyv5,Passed,2.45.0.260326154327
+whisper_tiny,Whisper-Tiny,encoder,float,qnn_context_binary,QCS8550 (Proxy),25.307,1,7,294,294,jp139nv85,Passed,2.45.0.260326154327
+whisper_tiny,Whisper-Tiny,decoder,float,qnn_context_binary,QCS8550 (Proxy),2.459,10,11,509,509,jgd0kdzrp,Passed,2.45.0.260326154327
+whisper_base,Whisper-Base,encoder,float,qnn_context_binary,QCS8550 (Proxy),47.978,0,3,556,556,jgd0k2rrp,Passed,2.45.0.260326154327
+whisper_base,Whisper-Base,decoder,float,qnn_context_binary,QCS8550 (Proxy),4.202,20,22,975,975,jp4873x8g,Passed,2.45.0.260326154327
+whisper_small,Whisper-Small,encoder,float,qnn_context_binary,QCS8550 (Proxy),130.318,0,3,1582,1582,jpxmqx4lg,Passed,2.45.0.260326154327
+whisper_small,Whisper-Small,decoder,float,qnn_context_binary,QCS8550 (Proxy),12.074,58,60,2277,2277,j5m478m95,Passed,2.45.0.260326154327
+whisper_small_quantized,Whisper-Small-Quantized,encoder,w8a16,qnn_context_binary,QCS8550 (Proxy),376.895,1,3,2014,2014,j5m470eq5,Passed,2.45.0.260326154327
+whisper_small_quantized,Whisper-Small-Quantized,decoder,w8a16,qnn_context_binary,QCS8550 (Proxy),7.856,30,32,2853,2853,jgnx4z0m5,Passed,2.45.0.260326154327
+pipertts_en,PiperTTS-EN,encoder,float,voice_ai,QCS8550 (Proxy),30.344,0,2,401,401,j5wxk4njp,Passed,2.45.0.260326154327
+pipertts_en,PiperTTS-EN,sdp,float,voice_ai,QCS8550 (Proxy),10.43,0,2,620,620,jg98rdevp,Passed,2.45.0.260326154327
+pipertts_en,PiperTTS-EN,flow,float,voice_ai,QCS8550 (Proxy),15.189,4,5,310,310,jp1396xl5,Passed,2.45.0.260326154327
+pipertts_en,PiperTTS-EN,decoder,float,voice_ai,QCS8550 (Proxy),3.018,0,2,117,117,jgd0k2llp,Passed,2.45.0.260326154327
+pipertts_en,PiperTTS-EN,charsiu_encoder,float,voice_ai,QCS8550 (Proxy),0.917,0,1,461,461,jp4871rlg,Passed,2.45.0.260326154327
+pipertts_en,PiperTTS-EN,charsiu_decoder,float,voice_ai,QCS8550 (Proxy),0.393,1,2,180,180,j5m47mxq5,Passed,2.45.0.260326154327
+melotts_en,MeloTTS-EN,encoder,mixed_with_float,voice_ai,QCS8550 (Proxy),40.447,4,5,830,830,jpxmq411g,Passed,2.45.0.260326154327
+melotts_en,MeloTTS-EN,flow,mixed_with_float,voice_ai,QCS8550 (Proxy),132.616,2,4,763,763,j5m47mzw5,Passed,2.45.0.260326154327
+melotts_en,MeloTTS-EN,decoder,mixed_with_float,voice_ai,QCS8550 (Proxy),86.739,1,3,447,447,jgnx4ner5,Passed,2.45.0.260326154327
+melotts_en,MeloTTS-EN,bert_wrapper,mixed_with_float,voice_ai,QCS8550 (Proxy),7.076,0,1,332,332,jpr9r0y9p,Passed,2.45.0.260326154327
+melotts_en,MeloTTS-EN,t5_encoder,mixed_with_float,voice_ai,QCS8550 (Proxy),0.899,0,1,461,461,jp2j1wm45,Passed,2.45.0.260326154327
+melotts_en,MeloTTS-EN,t5_decoder,mixed_with_float,voice_ai,QCS8550 (Proxy),0.404,1,2,180,180,jpynlxd7g,Passed,2.45.0.260326154327

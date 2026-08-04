@@ -1,0 +1,72 @@
+{
+  "schema_version": "lane-b-execution-tool-memory-patch/1.0",
+  "sprint_id": "B1",
+  "recorded_at_utc": "2026-08-02T07:59:33Z",
+  "recorded_before_candidate_inference": false,
+  "recorded_after_failed_unscored_candidate_attempt": true,
+  "candidate_result_rows_observed": 0,
+  "parent_preregistration": {
+    "path": "b1_prereg.json",
+    "sha256": "ff0ccbd0b2ca426bbfe287419c8e47a6ff71a28827da9aaa178ffce1adbc2eb6"
+  },
+  "parent_records": [
+    {
+      "path": "b1_execution_resource_correction_fallback.json",
+      "sha256": "e1a46e0dc06cc5e42abdb5e0327ff6280919beba178596a180a5048818f173c8"
+    }
+  ],
+  "failed_attempt": {
+    "model_id": "qwen35_08b",
+    "run_kind": "global_mmlu_log_likelihood",
+    "previous_harness_source_sha256": "0ddb1e5d24d76abb2c2f42338cb18b311407b9e2bf69b4200ee01ba8d1ef76e2",
+    "returncode": -9,
+    "raw_jsonl_created": false,
+    "cumulative_accuracy_rows_observed": 0,
+    "command": {
+      "context_tokens": 3072,
+      "batch_size": 1024,
+      "ubatch_size": 128,
+      "parallel": 4
+    },
+    "log_artifact": "failures/qwen35_08b.mcq.ctx3072.batch1024.ubatch128.parallel4.sigkill.log",
+    "log_sha256": "10338b94d465016699295e5031a2671cea2661434ab40ca0b7303a385e16d2fd",
+    "log_bytes": 854,
+    "last_progress": "multiple_choice_score began calculating 400 tasks and printed the task/acc_norm header; the process was killed before emitting any task row",
+    "diagnosis": "Reducing context did not remove the pinned tool's fixed context-by-vocabulary float32 host allocation. A source-level allocation correction is required to make the frozen evaluation executable on the available Colab T4 without changing model or scoring semantics."
+  },
+  "audited_tool_patch": {
+    "applies_identically_to_models": [
+      "qwen35_08b",
+      "qwen25_15b",
+      "qwen3_06b",
+      "falcon_h1_15b"
+    ],
+    "llama_cpp_commit": "11924d4c17abc27383376a1ac6a24fa3e36c1c0c",
+    "source_relative_path": "tools/perplexity/perplexity.cpp",
+    "source_original_sha256": "380aadd9d8000bf1b95cc3a338708385ac75240a5ba1c1f2bb34b208892a1777",
+    "patch_path": "llama_mcq_memory.patch",
+    "patch_sha256": "2539f2da48852fa44fdacdba26154e144a01b3986ff7c88dfe6974ac3e4f9dd7",
+    "source_patched_sha256": "65051abf6eb3e68d26cb2f24b62e2fa1af1bf7ddea96a2db53f944c3f0232b78",
+    "semantic_change": "Replace the eager n_ctx-by-n_vocab float32 host logits allocation with a vector resized to exactly i_logits-by-n_vocab immediately before the unchanged decode_helper call.",
+    "invariance_basis": "The patch changes only unused host-buffer capacity. Batch construction, task order, token ids, prompt and continuation bytes, llama_decode calls, returned logits, log-softmax computation, length normalization, answer selection, GPU offload, and cumulative-accuracy reporting remain unchanged."
+  },
+  "final_mcq_execution": {
+    "context_tokens": 4096,
+    "batch_size": 1024,
+    "ubatch_size": 128,
+    "parallel": 4,
+    "gpu_layers": 999,
+    "seed": 1729,
+    "harness_source_sha256": "9f99a37eeabe6be36f27e8342e98805c4dbd88d0e202e457f291b998a0b726e7",
+    "setup_script_sha256": "0372a681cfc3aaf885586d8b5f64fce1abd7ab7c790f88f45dc80a717bb013ca",
+    "patched_impl_library_receipt": {
+      "relative_path": "bin/libllama-perplexity-impl.so",
+      "sha256": "2adce2e89998bbcbf220ee92af3ac5b91d8d080712db7cfc7cb7809dbd33f714",
+      "launcher_sha256": "3407a0ae6bb48bd300799b965fbe937f4b06a040ff9dcea7917e88cc239dc255",
+      "basis": "At this pinned CMake revision perplexity.cpp is compiled into the dynamically loaded implementation library; the llama-perplexity launcher is unchanged by the patch. The final harness receipts and revalidates the implementation library itself before every inference run."
+    },
+    "context_restoration_basis": "The memory patch removes the failed fixed allocation, so MCQ context returns to the preregistered 4096 tokens. The already-recorded scheduler correction keeps batch_size=1024 and ubatch_size=128; every frozen Qwen3.5 task requires at most 580 batch tokens and therefore remains within one outer llama_decode call."
+  },
+  "fallback_not_authorized_by_this_record": "If this exact patched build still fails before any candidate result row, stop and append-record any further change before running it.",
+  "scope": "This is a disclosed tool-memory correction after three unscored allocation failures, not response-conditioned tuning. It changes no model, revision, quantization, item, prompt, candidate answer, decoded logit, scoring rubric, weight, threshold, or verdict rule."
+}

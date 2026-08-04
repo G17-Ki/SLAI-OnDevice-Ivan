@@ -1,0 +1,465 @@
+{
+ "sprint_id": "A5",
+ "lane": "A",
+ "date_utc": "2026-08-02",
+ "title": "Front-end inventory, per stack per language",
+ "scope": "Every phonemiser, polyphone disambiguator, stress/accent marker, punctuation restorer, ITN and text normaliser each stack needs.",
+ "headline": "The named ~102,000,000 g2pW hazard is NOT what kills Q and F. A punctuation restorer is, and it is cheaper AND unavoidable. OmniASR-CTC-300M's tokenizer is character-level with ZERO punctuation tokens, so a punctuation source is architecturally REQUIRED for Q and F; the cheapest measured five-language neural restorer is 58,199,117, which exceeds Q's headroom (35,517,077) and F's (24,367,893). Both survive only by delegating punctuation and ITN to the backbone LLM at zero additional parameters.",
+ "rows": [
+  {
+   "stack": "H",
+   "language": "en,es,fr,ru",
+   "function": "G2P / phonemisation",
+   "implementation": "charsiu byT5 tiny 16L",
+   "neural": true,
+   "params": 20653952,
+   "evidence_class": "EXACT",
+   "notes": "Header-parsed. FR and RU routes are a <fra>/<rus> control-token repoint of a hardcoded '<eng-us>' tag -- ZERO additional parameters (L-3).",
+   "licence": "NONE DECLARED on repo -- a real gap",
+   "closing_experiment": null
+  },
+  {
+   "stack": "H",
+   "language": "zh",
+   "function": "G2P polyphone disambiguation",
+   "implementation": "g2pM (PyPI wheel)",
+   "neural": true,
+   "params": 401548,
+   "evidence_class": "EXACT",
+   "notes": "BiLSTM: embedding [5398,64] + LSTM + [876] class head. Prior 477,228 was 75,680 high. HF repo kakaobrain/g2pM does not exist; artefact is the PyPI wheel g2pM 0.1.2.5.",
+   "licence": "Apache-2.0",
+   "closing_experiment": null
+  },
+  {
+   "stack": "H",
+   "language": "en,es,fr,ru,zh",
+   "function": "TTS phonemisation (inside Piper)",
+   "implementation": "eSpeak NG rule tables",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "VERIFIED per voice: all five voice configs declare phoneme_type=espeak. Rule tables do not count (1.2).",
+   "licence": "GPL-3.0 -- linkage flag, see A6",
+   "closing_experiment": null
+  },
+  {
+   "stack": "H",
+   "language": "all five",
+   "function": "ASR punctuation / ITN",
+   "implementation": "not enumerated",
+   "neural": null,
+   "params": null,
+   "evidence_class": "UNKNOWN",
+   "notes": "parakeet (en/es/fr/ru) and the zh-en zipformer. Neither was verified to emit punctuation. H is a disposable rig with 603,754,782 of headroom, so this is hygiene, not risk.",
+   "licence": null,
+   "closing_experiment": "Inspect both token sets, ~30 min."
+  },
+  {
+   "stack": "H",
+   "language": "ru",
+   "function": "RU stress marking",
+   "implementation": "not specified in the plan",
+   "neural": null,
+   "params": null,
+   "evidence_class": "UNKNOWN",
+   "notes": "H carries no RU stress row at all. Piper ru_RU-dmitri uses eSpeak NG ru rules, which do place stress -- so the likely answer is 0.",
+   "licence": null,
+   "closing_experiment": "Confirm eSpeak ru stress is sufficient for the rig."
+  },
+  {
+   "stack": "L",
+   "language": "zh",
+   "function": "G2P polyphone disambiguation",
+   "implementation": "g2pM",
+   "neural": true,
+   "params": 401548,
+   "evidence_class": "EXACT",
+   "notes": "Row L7. NOTE: Magpie carries its OWN ChineseG2p (pinyin, rule-based) in model_config.yaml, so g2pM may be REDUNDANT in L. Verify before shipping both.",
+   "licence": "Apache-2.0",
+   "closing_experiment": "Check whether the Magpie zh route uses its built-in ChineseG2p; if so drop g2pM and save 401,548."
+  },
+  {
+   "stack": "L",
+   "language": "en,es,fr,zh",
+   "function": "TTS phonemisation (inside Magpie)",
+   "implementation": "NeMo IPATokenizer + IpaG2p, dict-driven",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Extracted from magpie's model_config.yaml. The .nemo bundles the dictionaries as data (ipa_cmudict-0.7b_nv23.01.txt, es_ES_nv230301.dict, heteronyms, etc.). Rule+lexicon, not neural (1.2).",
+   "licence": "NVIDIA Open Model License",
+   "closing_experiment": null
+  },
+  {
+   "stack": "L",
+   "language": "ru",
+   "function": "RU stress marking",
+   "implementation": "EXTERNAL -- not bundled",
+   "neural": null,
+   "params": null,
+   "evidence_class": "UNKNOWN",
+   "notes": "**Section 2.2 is REFUTED.** It states the stress marker is 'bundled inside Silero TTS as silero_stress' and that this is why L6's bound is 100,000,000 rather than 20,000,000. It is NOT bundled: the packaged module's constructor takes accentor=None and the archive contains no accentor tensors. L needs an external RU stress source.",
+   "licence": null,
+   "closing_experiment": "Rule rung (eSpeak NG ru + marked-stress lexicon) = 0 params. RUAccent-class = ~12,500,000 CLAIMED (none of four candidate repo names resolves on HF). Pin one and header-parse it. L's headroom absorbs either."
+  },
+  {
+   "stack": "L",
+   "language": "ru",
+   "function": "ASR punctuation / ITN",
+   "implementation": "required -- GigaAM is char-CTC",
+   "neural": null,
+   "params": null,
+   "evidence_class": "UNKNOWN",
+   "notes": "GigaAM-Multilingual is a character CTC model over 71 classes and cannot emit punctuation. canary-180m-flash (en/es/fr) is a NeMo AED model whose token set was not checked here.",
+   "licence": null,
+   "closing_experiment": "Cheapest measured neural restorer 58,199,117 fits L's 323,266,106 headroom with 265,066,989 to spare. Or delegate to the backbone at 0."
+  },
+  {
+   "stack": "D",
+   "language": "zh",
+   "function": "G2P grapheme->pinyin",
+   "implementation": "pypinyin, rule-based",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Ships as data with the Matcha recipe. Deterministic lookup (1.2). The repo carries jieba dicts, lexicon.txt and phone/number/date FSTs -- all non-neural (1.2 excludes FST/WFST graphs).",
+   "licence": "see Matcha licence flag",
+   "closing_experiment": null
+  },
+  {
+   "stack": "D",
+   "language": "ru",
+   "function": "RU stress marking",
+   "implementation": "eSpeak NG ru rules + marked-stress lexicon",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Rung 1 of the ladder in section 3.10. Non-neural.",
+   "licence": "GPL-3.0 -- linkage flag",
+   "closing_experiment": null
+  },
+  {
+   "stack": "D",
+   "language": "en,es,fr,ru",
+   "function": "TTS phonemisation / normalisation",
+   "implementation": "Supertonic built-in",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "unicode_indexer.json (277,676 B) + internal normalisation, inside the D6 bundle. No separate graph. Selecting Supertonic DELETES the external G2P ladder for four languages -- a real structural advantage.",
+   "licence": "BigScience Open RAIL-M",
+   "closing_experiment": null
+  },
+  {
+   "stack": "D",
+   "language": "zh,en",
+   "function": "ASR punctuation / ITN",
+   "implementation": "SenseVoiceSmall, NATIVE",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "**CLOSED.** SenseVoiceSmall exposes use_itn: 'Whether the output result includes punctuation and inverse text normalization' (model card, verbatim). Punctuation and ITN are IN-MODEL, inside the 233,999,167 already counted. Zero additional parameters.",
+   "licence": "FunASR Model License v1.1",
+   "closing_experiment": null
+  },
+  {
+   "stack": "D",
+   "language": "es,fr,ru",
+   "function": "ASR punctuation / ITN",
+   "implementation": "parakeet -- token set not verified",
+   "neural": null,
+   "params": null,
+   "evidence_class": "UNKNOWN",
+   "notes": "Row D11b. parakeet-tdt-0.6b-v3 is TDT/RNN-T over a BPE vocabulary. Whether that vocabulary carries punctuation for es/fr/ru was not established.",
+   "licence": null,
+   "closing_experiment": "Inspect nvidia/parakeet-tdt-0.6b-v3 tokenizer.json token set, exactly as this lane did for OmniASR. ~20 minutes. If absent, cheapest neural restorer 58,199,117 fits D's 168,466,775 headroom with 110,267,658 to spare."
+  },
+  {
+   "stack": "M",
+   "language": "all five",
+   "function": "TTS front end",
+   "implementation": "MOSS SentencePiece tokenizer",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Section 1.2: text tokenizer vocabularies and SentencePiece models do not count. MOSS-TTS-Nano needs NO external G2P for any of the five languages -- the same structural advantage Supertonic gives D, and one of the few real arguments for M.",
+   "licence": "apache-2.0",
+   "closing_experiment": null
+  },
+  {
+   "stack": "M",
+   "language": "all five",
+   "function": "ASR punctuation / ITN",
+   "implementation": "Qwen3-ASR -- not verified",
+   "neural": null,
+   "params": null,
+   "evidence_class": "UNKNOWN",
+   "notes": "Row M7. Qwen3-ASR-0.6B decodes autoregressively through a 28-layer Qwen3 LM over a 151,936-token vocabulary, so it CAN emit punctuation. This lane did not verify that it DOES. Not interpolated (SR-02).",
+   "licence": null,
+   "closing_experiment": "Transcribe a punctuated fixture in each of the five languages and inspect the raw output. Lane C can return this at zero marginal cost. M's 325,354,577 headroom absorbs the cheapest neural restorer with 267,155,460 to spare."
+  },
+  {
+   "stack": "Q",
+   "language": "zh",
+   "function": "G2P grapheme->pinyin",
+   "implementation": "pypinyin, rule-based",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Identical to D8. Deterministic lookup (1.2).",
+   "licence": "see Matcha licence flag",
+   "closing_experiment": null
+  },
+  {
+   "stack": "Q",
+   "language": "en,es,fr,ru",
+   "function": "TTS phonemisation",
+   "implementation": "eSpeak NG (Piper's own)",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "VERIFIED: all four voice configs declare phoneme_type=espeak. Rule tables do not count (1.2).",
+   "licence": "GPL-3.0 -- linkage flag, see A6",
+   "closing_experiment": null
+  },
+  {
+   "stack": "Q",
+   "language": "zh",
+   "function": "G2P polyphone disambiguation",
+   "implementation": "NONE -- pypinyin only",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Neither Q nor F carries a polyphone disambiguator. This is a ZH TTS QUALITY gap, not a cap problem, and it should stay that way: the g2pW upgrade costs 102,882,442 EXACT (bert-base-chinese) which is 2.9x Q's headroom and 4.2x F's.",
+   "licence": "apache-2.0 if ever adopted",
+   "closing_experiment": null
+  },
+  {
+   "stack": "Q",
+   "language": "ru",
+   "function": "RU stress marking",
+   "implementation": "eSpeak NG ru rules",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Inside Piper's eSpeak front end. Non-neural.",
+   "licence": "GPL-3.0 -- linkage flag",
+   "closing_experiment": null
+  },
+  {
+   "stack": "Q",
+   "language": "all five",
+   "function": "ASR punctuation / ITN",
+   "implementation": "ARCHITECTURALLY REQUIRED",
+   "neural": null,
+   "params": null,
+   "evidence_class": "UNKNOWN",
+   "notes": "**The decisive row for both stacks.** OmniASR-CTC-300M's tokenizer is character-level with ZERO punctuation tokens (exhaustive byte scan of the 87,562 B sentencepiece blob: 0 occurrences of . , ? ! ; :). A punctuation source is not merely likely -- it is required. The cheapest measured five-language neural restorer is 58,199,117, which EXCEEDS Q's headroom of 35,517,077.",
+   "licence": null,
+   "closing_experiment": "Delegate punctuation and ITN to the backbone LLM (0 additional parameters) and record it as a BINDING ARCHITECTURAL CONSTRAINT in the build-time assertion. There is no affordable neural alternative."
+  },
+  {
+   "stack": "F",
+   "language": "zh",
+   "function": "G2P grapheme->pinyin",
+   "implementation": "pypinyin, rule-based",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Identical to D8. Deterministic lookup (1.2).",
+   "licence": "see Matcha licence flag",
+   "closing_experiment": null
+  },
+  {
+   "stack": "F",
+   "language": "en,es,fr,ru",
+   "function": "TTS phonemisation",
+   "implementation": "eSpeak NG (Piper's own)",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "VERIFIED: all four voice configs declare phoneme_type=espeak. Rule tables do not count (1.2).",
+   "licence": "GPL-3.0 -- linkage flag, see A6",
+   "closing_experiment": null
+  },
+  {
+   "stack": "F",
+   "language": "zh",
+   "function": "G2P polyphone disambiguation",
+   "implementation": "NONE -- pypinyin only",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Neither Q nor F carries a polyphone disambiguator. This is a ZH TTS QUALITY gap, not a cap problem, and it should stay that way: the g2pW upgrade costs 102,882,442 EXACT (bert-base-chinese) which is 2.9x Q's headroom and 4.2x F's.",
+   "licence": "apache-2.0 if ever adopted",
+   "closing_experiment": null
+  },
+  {
+   "stack": "F",
+   "language": "ru",
+   "function": "RU stress marking",
+   "implementation": "eSpeak NG ru rules",
+   "neural": false,
+   "params": 0,
+   "evidence_class": "EXACT",
+   "notes": "Inside Piper's eSpeak front end. Non-neural.",
+   "licence": "GPL-3.0 -- linkage flag",
+   "closing_experiment": null
+  },
+  {
+   "stack": "F",
+   "language": "all five",
+   "function": "ASR punctuation / ITN",
+   "implementation": "ARCHITECTURALLY REQUIRED",
+   "neural": null,
+   "params": null,
+   "evidence_class": "UNKNOWN",
+   "notes": "**The decisive row for both stacks.** OmniASR-CTC-300M's tokenizer is character-level with ZERO punctuation tokens (exhaustive byte scan of the 87,562 B sentencepiece blob: 0 occurrences of . , ? ! ; :). A punctuation source is not merely likely -- it is required. The cheapest measured five-language neural restorer is 58,199,117, which EXCEEDS F's headroom of 24,367,893.",
+   "licence": null,
+   "closing_experiment": "Delegate punctuation and ITN to the backbone LLM (0 additional parameters) and record it as a BINDING ARCHITECTURAL CONSTRAINT in the build-time assertion. There is no affordable neural alternative."
+  }
+ ],
+ "hazard_envelope_measured": {
+  "zh_polyphone_g2pw_class": {
+   "params": 102882442,
+   "class": "EXACT",
+   "basis": "google-bert/bert-base-chinese, own safetensors parse; g2pW = bert-base-chinese + polyphone head",
+   "confirms_plan_figure": 102882442,
+   "avoidable_by": "pypinyin (0) or g2pM (401,548)"
+  },
+  "punct_itn_cheapest_5lang": {
+   "repo": "1-800-BAD-CODE/punct_cap_seg_47_language",
+   "params": 58199117,
+   "class": "EXACT",
+   "method": "ONNX initializer enumeration",
+   "note": "47 languages; punctuation + capitalisation + segmentation. The cheapest credible five-language option found."
+  },
+  "punct_itn_midrange": {
+   "repo": "kredor/punctuate-all",
+   "params": 277458184,
+   "class": "EXACT"
+  },
+  "punct_itn_xlmr_base": {
+   "repo": "1-800-BAD-CODE/xlm-roberta_punctuation_fullstop_truecase",
+   "params": 278052454,
+   "class": "EXACT"
+  },
+  "punct_itn_xlmr_large": {
+   "repo": "oliverguhr/fullstop-punctuation-multilang-large",
+   "params": 558847496,
+   "class": "EXACT"
+  },
+  "ru_accent_ruaccent_class": {
+   "params": 12500000,
+   "class": "CLAIMED",
+   "note": "section 3.10 figure. NOT verified: none of ruaccent/ruaccent, ruaccent/ruaccent_big_poetry, TeamRUAccent/RUAccent, Den4ikAI/ruaccent resolves on HuggingFace."
+  }
+ },
+ "affordability_by_stack": {
+  "H": {
+   "headroom": 603754782,
+   "affords_cheapest_neural_punct_58199117": true,
+   "margin_after_cheapest_punct": 545555665,
+   "affords_g2pw_102882442": true,
+   "margin_after_g2pw": 500872340,
+   "affords_ruaccent_12500000": true
+  },
+  "L": {
+   "headroom": 323266106,
+   "affords_cheapest_neural_punct_58199117": true,
+   "margin_after_cheapest_punct": 265066989,
+   "affords_g2pw_102882442": true,
+   "margin_after_g2pw": 220383664,
+   "affords_ruaccent_12500000": true
+  },
+  "D": {
+   "headroom": 168466775,
+   "affords_cheapest_neural_punct_58199117": true,
+   "margin_after_cheapest_punct": 110267658,
+   "affords_g2pw_102882442": true,
+   "margin_after_g2pw": 65584333,
+   "affords_ruaccent_12500000": true
+  },
+  "M": {
+   "headroom": 325354577,
+   "affords_cheapest_neural_punct_58199117": true,
+   "margin_after_cheapest_punct": 267155460,
+   "affords_g2pw_102882442": true,
+   "margin_after_g2pw": 222472135,
+   "affords_ruaccent_12500000": true
+  },
+  "Q": {
+   "headroom": 35517077,
+   "affords_cheapest_neural_punct_58199117": false,
+   "margin_after_cheapest_punct": -22682040,
+   "affords_g2pw_102882442": false,
+   "margin_after_g2pw": -67365365,
+   "affords_ruaccent_12500000": true
+  },
+  "F": {
+   "headroom": 24367893,
+   "affords_cheapest_neural_punct_58199117": false,
+   "margin_after_cheapest_punct": -33831224,
+   "affords_g2pw_102882442": false,
+   "margin_after_g2pw": -78514549,
+   "affords_ruaccent_12500000": true
+  }
+ },
+ "structural_findings": [
+  {
+   "id": "FE-1",
+   "severity": "HIGH",
+   "stacks": "Q,F",
+   "finding": "facebook/omniASR-CTC-300M cannot emit punctuation. Its sentencepiece tokenizer is character-level and contains ZERO punctuation tokens.",
+   "evidence": "Exhaustive byte scan of the 87,562 B omniASR_tokenizer.model: 0 occurrences of '.', ',', '?', '!', ';', ':'. Digits and CJK/Cyrillic/Greek/Khmer characters ARE present, confirming the scan is sound rather than a decode failure.",
+   "evidence_class": "EXACT (architectural)",
+   "consequence": "Section 2.4a's 'more likely to be non-zero' understates this. The row is mandatory.",
+   "only_affordable_resolution": "Delegate to the backbone LLM (0 params). Must be a build-time assertion."
+  },
+  {
+   "id": "FE-2",
+   "severity": "MEDIUM",
+   "stack": "D",
+   "finding": "D's zh/en punctuation and ITN row is CLOSED at zero parameters. SenseVoiceSmall does it natively via use_itn.",
+   "evidence": "FunAudioLLM/SenseVoiceSmall model card, verbatim: 'use_itn: Whether the output result includes punctuation and inverse text normalization.'",
+   "consequence": "Section 2.3 row D11 was UNKNOWN for all five languages. It is now 0 for zh/en and UNKNOWN only for es/fr/ru (D11b)."
+  },
+  {
+   "id": "FE-3",
+   "severity": "MEDIUM",
+   "stack": "L",
+   "finding": "Section 2.2's claim that the RU stress marker is 'bundled inside Silero TTS as silero_stress' is REFUTED.",
+   "evidence": "The v5_cis_base torch.package archive's module constructor takes accentor=None, and no accentor tensors exist among its 317 storages.",
+   "consequence": "The stated justification for L6's 100,000,000 bound (rather than 20,000,000) does not hold. The measured count is 22,850,584 and L needs a SEPARATE external RU stress row."
+  },
+  {
+   "id": "FE-4",
+   "severity": "LOW",
+   "stack": "L",
+   "finding": "g2pM (row L7) may be redundant in L. Magpie's model_config.yaml declares its own ChinesePhonemesTokenizer + ChineseG2p (rule-based pinyin) for the zh route.",
+   "consequence": "If the Magpie zh route uses its built-in G2P, L7's 401,548 is a duplicate.",
+   "closing_experiment": "Check which zh G2P the shipped Magpie route calls."
+  },
+  {
+   "id": "FE-5",
+   "severity": "INFO",
+   "stacks": "D,M",
+   "finding": "D and M each DELETE the external G2P ladder entirely -- D for en/es/fr/ru via Supertonic's built-in front end, M for all five via MOSS's SentencePiece-only design.",
+   "consequence": "Section 2.4's note that this is 'one of the few real arguments for M' is supported by the inventory: M's front-end row count is the smallest of any stack, and its only open row is punctuation."
+  },
+  {
+   "id": "FE-6",
+   "severity": "INFO",
+   "stacks": "H,Q,F",
+   "finding": "eSpeak NG linkage is confirmed per voice, not inferred. Every Piper voice config audited declares phoneme_type=espeak.",
+   "consequence": "The GPL-3.0 linkage flag applies to H, Q and F with EXACT provenance. A licence row, not a parameter row."
+  }
+ ],
+ "the_comparison_was_not_like_for_like": {
+  "observation": "LANE_A_LEDGER.md notes that Stack D carried no front-end row at all while L carried g2pM. That is now resolved in both directions.",
+  "D": "D8/D9/D10 are genuinely 0 (pypinyin, eSpeak ru rules, Supertonic built-in) and D11 is 0 for zh/en. D's front end is genuinely almost free -- the low row count reflected reality, not an omission.",
+  "L": "L's g2pM row may be redundant against Magpie's built-in ChineseG2p (FE-4), and L is MISSING an RU stress row that section 2.2 wrongly believed was bundled (FE-3).",
+  "conclusion": "D's front end is cheaper than L's, not less well documented. The like-for-like comparison favours D."
+ },
+ "storage_used_bytes": 0
+}

@@ -1,0 +1,38 @@
+{
+  "device": {
+    "abi": "arm64-v8a",
+    "abilist64": "arm64-v8a",
+    "board_platform": "canoe",
+    "connected": true,
+    "evidence_source": "previous read-only phone inventory; not a live 2026-07-23 probe",
+    "hardware": "qcom",
+    "product": "NX809J",
+    "qnn_libraries": [
+      "/system/etc/custom_config/app/systemUI/depth/libQnnHtp.so",
+      "/system/etc/custom_config/app/systemUI/depth/libQnnHtpV81Skel.so",
+      "/system/etc/custom_config/app/systemUI/depth/libQnnHtpV81Stub.so",
+      "/vendor/lib64/libQnnHtp.so",
+      "/vendor/lib64/libQnnHtpV81.so",
+      "/vendor/lib64/libQnnHtpV81Stub.so"
+    ],
+    "qnn_oem_version": "2.37.0",
+    "soc_model": "SM8850"
+  },
+  "schema_version": 1,
+  "selection": {
+    "auto_scope": "all",
+    "backend": "cpu_multilingual",
+    "contract": {
+      "cpu": "multilingual CPU backend must support zh/en/ru/fr/it/es and preserve the requested or detected language",
+      "qnn": "fixed 10-second SenseVoice context; pad short input and segment input longer than 10 seconds"
+    },
+    "fallback_required": true,
+    "provider": "cpu",
+    "qnn_activated": false,
+    "reason_codes": [
+      "phone_qnn_smoke_not_passed"
+    ],
+    "requested_language": "en",
+    "resolved_request": "en"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "device": {
+    "abi": "arm64-v8a",
+    "abilist64": "arm64-v8a",
+    "android_release": "16",
+    "board_platform": "canoe",
+    "connected": true,
+    "hardware": "qcom",
+    "probe_status": "ok",
+    "product": "NX809J",
+    "qnn_libraries": [
+      "/system/etc/custom_config/app/systemUI/depth/libQnnHtp.so",
+      "/system/etc/custom_config/app/systemUI/depth/libQnnHtpV81.so",
+      "/system/etc/custom_config/app/systemUI/depth/libQnnHtpV81Skel.so",
+      "/system/etc/custom_config/app/systemUI/depth/libQnnHtpV81Stub.so",
+      "/system/etc/custom_config/app/systemUI/depth/libQnnSystem.so"
+    ],
+    "soc_model": "SM8850"
+  },
+  "routes": {
+    "explicit_en": {
+      "auto_scope": "all",
+      "backend": "sensevoice_qnn_sm8850",
+      "contract": {
+        "cpu": "multilingual CPU backend must support zh/en/ru/fr/it/es and preserve the requested or detected language",
+        "qnn": "fixed 10-second SenseVoice context; pad short input and segment input longer than 10 seconds"
+      },
+      "fallback_required": false,
+      "provider": "qnn",
+      "qnn_activated": true,
+      "reason_codes": [],
+      "requested_language": "en",
+      "resolved_request": "en"
+    },
+    "explicit_zh": {
+      "auto_scope": "all",
+      "backend": "sensevoice_qnn_sm8850",
+      "contract": {
+        "cpu": "multilingual CPU backend must support zh/en/ru/fr/it/es and preserve the requested or detected language",
+        "qnn": "fixed 10-second SenseVoice context; pad short input and segment input longer than 10 seconds"
+      },
+      "fallback_required": false,
+      "provider": "qnn",
+      "qnn_activated": true,
+      "reason_codes": [],
+      "requested_language": "zh",
+      "resolved_request": "zh"
+    },
+    "auto_en_zh_only": {
+      "auto_scope": "zh_en",
+      "backend": "sensevoice_qnn_sm8850",
+      "contract": {
+        "cpu": "multilingual CPU backend must support zh/en/ru/fr/it/es and preserve the requested or detected language",
+        "qnn": "fixed 10-second SenseVoice context; pad short input and segment input longer than 10 seconds"
+      },
+      "fallback_required": false,
+      "provider": "qnn",
+      "qnn_activated": true,
+      "reason_codes": [],
+      "requested_language": "auto",
+      "resolved_request": "auto_zh_en"
+    },
+    "broad_auto": {
+      "auto_scope": "all",
+      "backend": "cpu_multilingual",
+      "contract": {
+        "cpu": "multilingual CPU backend must support zh/en/ru/fr/it/es and preserve the requested or detected language",
+        "qnn": "fixed 10-second SenseVoice context; pad short input and segment input longer than 10 seconds"
+      },
+      "fallback_required": true,
+      "provider": "cpu",
+      "qnn_activated": false,
+      "reason_codes": [
+        "broad_auto_requires_cpu_multilingual_asr"
+      ],
+      "requested_language": "auto",
+      "resolved_request": "auto_all"
+    },
+    "explicit_ru": {
+      "auto_scope": "all",
+      "backend": "cpu_multilingual",
+      "contract": {
+        "cpu": "multilingual CPU backend must support zh/en/ru/fr/it/es and preserve the requested or detected language",
+        "qnn": "fixed 10-second SenseVoice context; pad short input and segment input longer than 10 seconds"
+      },
+      "fallback_required": true,
+      "provider": "cpu",
+      "qnn_activated": false,
+      "reason_codes": [
+        "language_not_supported_by_sensevoice_qnn"
+      ],
+      "requested_language": "ru",
+      "resolved_request": "ru"
+    }
+  }
+}

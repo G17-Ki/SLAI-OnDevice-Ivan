@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "component": "flow",
+  "language": "it",
+  "status": "passed_after_valid_fixture_recheck",
+  "target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "chipset": "sm8850",
+    "htp": "v81",
+    "qairt": "2.45"
+  },
+  "external_state_runs": {
+    "compile_and_raw_fixture": "piper-v81-20260722t211234z-it-flow",
+    "saved_id_resume": "piper-v81-20260722t212401z-it-flow-resume",
+    "valid_fixture_recheck": "piper-flow-valid-20260722t213952z"
+  },
+  "jobs": {
+    "compile": "jp3wkrkm5",
+    "link": "jpy7ek88p",
+    "profile": "jgz4eq0xp",
+    "raw_fixture_inference": "jp0vy8xng",
+    "valid_fixture_inference": "j5qm8nv4g"
+  },
+  "source": {
+    "format": "torchscript",
+    "bytes": 29671616,
+    "sha256": "bfebea399ac0f418cb8bca1e3977d785763fee4dcebca5abbbc043020738458b"
+  },
+  "input_shapes": {
+    "m_p": [1, 192, 512],
+    "logs_p": [1, 192, 512],
+    "y_mask": [1, 1, 1536],
+    "attn_squeezed": [1, 1536, 512],
+    "noise_scale": [1]
+  },
+  "output_shapes": {
+    "z": [1, 192, 1536]
+  },
+  "latency_ms": 8.93,
+  "peak_memory_mib": 126.14453125,
+  "all_inference_times_us": [
+    9989,
+    9100,
+    9036,
+    8930,
+    8958,
+    8991,
+    8962,
+    8954,
+    8965,
+    8939,
+    8961,
+    9243,
+    8968,
+    9020,
+    8985,
+    8988,
+    8992,
+    8958,
+    8970,
+    8994
+  ],
+  "placement": {
+    "npu_runtime_layers": 310,
+    "cpu_fallback_runtime_layers": 0,
+    "other_runtime_layers": 0,
+    "strict_npu_pass": true
+  },
+  "raw_generic_fixture": {
+    "status": "invalid_fixture_preserved_for_provenance",
+    "inference_job": "jp0vy8xng",
+    "inputs_finite": true,
+    "y_mask_zero_positions": 0,
+    "projected_logs_p_min": 105.25267028808594,
+    "projected_logs_p_max": 151.68585205078125,
+    "projected_values_above_float32_exp_overflow": 294912,
+    "projected_total_values": 294912,
+    "golden_nan_values": 294912,
+    "golden_total_values": 294912,
+    "remote_finite_values": 294912,
+    "remote_total_values": 294912,
+    "mask_aware_comparison_justified": false,
+    "reason": "NaNs cover every output channel and time position, not only masked or padded positions."
+  },
+  "valid_fixture_recheck": {
+    "status": "passed",
+    "inference_job": "j5qm8nv4g",
+    "construction": "official serialized encoder -> official serialized SDP -> monotonic binary attention -> exact serialized flow",
+    "fixture_sha256": "becc8b2dfad79afa24ebb885458c3849af52b0322913e4c8d4298201f74c1e43",
+    "phoneme_id_count": 34,
+    "y_length": 71,
+    "valid_mask_positions": 71,
+    "attention_nonzero": 71,
+    "golden_finite_values": 294912,
+    "golden_total_values": 294912,
+    "padded_tail_max_abs": 0.0,
+    "comparison": {
+      "passed": true,
+      "atol": 0.03,
+      "rtol": 0.03,
+      "cosine_similarity": 0.9999998117104435,
+      "normalized_rmse": 0.0006158419250692529,
+      "max_abs_error": 0.028512954711914062,
+      "mean_abs_error": 0.0000206328987799351,
+      "p95_abs_error": 0.0,
+      "p99_abs_error": 0.0005912747979164128
+    }
+  },
+  "all_numerics_pass": true,
+  "local_resource_guard": {
+    "peak_process_tree_rss_gib": 0.3790283203125,
+    "rss_limit_gib": 2.5,
+    "final_memory_pressure_level": 1
+  },
+  "artifact_hashes": {
+    "raw_golden_io.npz": "8a51d2e6b3146cf5d16c92a3a921dd0f991e6edcf2dd733901d7bf4696a8fb35",
+    "profile.json": "2b7ce40379e43fcc79b22ab68c42e5e99adcf37c6262b8ff51ebbfd87de165a0",
+    "placement.json": "6080960168317ff1846ddb008a8f7fdd9e9d340409dca6fbef4cebb4994058bd",
+    "raw_remote_outputs.npz": "2ba26fb09f4a99f298030f13db68e224c9063575a7222eaf7da08178af12147f",
+    "valid_fixture.npz": "becc8b2dfad79afa24ebb885458c3849af52b0322913e4c8d4298201f74c1e43",
+    "valid_remote_outputs.npz": "f03ff05b2e6c55b1763108e21f470f72e26501774fad9a44aac4ae6dcf2135b5"
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T11:18:39.087399+00:00",
+  "evidence_class": "Apple Silicon architecture experiment; not phone/NPU/glasses",
+  "settings": {
+    "audio": "es_request.wav",
+    "asr_backend": "faster-whisper",
+    "asr_url": "http://127.0.0.1:8080/v1/chat/completions",
+    "whisper_model": "tiny",
+    "whisper_compute_type": "int8",
+    "asr_load_ms": 5998.453083913773,
+    "llm_url": "http://127.0.0.1:8083/v1/chat/completions",
+    "llm_model": "LFM2.5-1.2B-Instruct-Q4_0",
+    "tts_model": "sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+    "language": "es",
+    "threads": 2,
+    "steps": 4,
+    "speaker": 6,
+    "speed": 1.05,
+    "flush_chars": 64,
+    "playback_cushion_ms": 140.0,
+    "tts_load_ms": 511.66591700166464,
+    "warmups": 1,
+    "runs": 5
+  },
+  "summary": {
+    "asr_first_text": {
+      "min": 365.9345000050962,
+      "median": 387.80425023287535,
+      "p95": 413.48608303815126,
+      "max": 413.48608303815126,
+      "mean": 390.95494160428643
+    },
+    "asr_complete": {
+      "min": 365.9713747911155,
+      "median": 387.8714172169566,
+      "p95": 413.63075003027916,
+      "max": 413.63075003027916,
+      "mean": 391.04517493397
+    },
+    "llm_first_token_from_llm_start": {
+      "min": 28.36945792660117,
+      "median": 36.50162508711219,
+      "p95": 40.99741717800498,
+      "max": 40.99741717800498,
+      "mean": 35.77398341149092
+    },
+    "llm_first_visible_from_llm_start": {
+      "min": 28.36945792660117,
+      "median": 36.50162508711219,
+      "p95": 40.99741717800498,
+      "max": 40.99741717800498,
+      "mean": 35.77398341149092
+    },
+    "first_chunk_ready_from_llm_start": {
+      "min": 57.49558284878731,
+      "median": 68.51795874536037,
+      "p95": 74.52150015160441,
+      "max": 74.52150015160441,
+      "mean": 66.17008354514837
+    },
+    "llm_complete_from_llm_start": {
+      "min": 57.49558284878731,
+      "median": 68.51795874536037,
+      "p95": 74.52150015160441,
+      "max": 74.52150015160441,
+      "mean": 66.17008354514837
+    },
+    "tts_first_callback_from_tts_start": {
+      "min": 297.88354178890586,
+      "median": 326.40141574665904,
+      "p95": 435.5700840242207,
+      "max": 435.5700840242207,
+      "mean": 344.4071580655873
+    },
+    "tts_complete_from_tts_start": {
+      "min": 297.9328748770058,
+      "median": 326.59533293917775,
+      "p95": 435.7889173552394,
+      "max": 435.7889173552394,
+      "mean": 344.58999997004867
+    },
+    "pipeline_first_pcm": {
+      "min": 772.64149999246,
+      "median": 789.0427499078214,
+      "p95": 860.8577088452876,
+      "max": 860.8577088452876,
+      "mean": 801.9090666435659
+    },
+    "pipeline_first_audible_scheduled": {
+      "min": 912.6415001228452,
+      "median": 929.0427500382066,
+      "p95": 1000.8577089756727,
+      "max": 1000.8577089756727,
+      "mean": 941.909066773951
+    },
+    "pipeline_complete": {
+      "min": 774.3420000188053,
+      "median": 791.1249590106308,
+      "p95": 863.2925418205559,
+      "max": 863.2925418205559,
+      "mean": 804.3521419167519
+    }
+  },
+  "runs": [
+    {
+      "run_index": 0,
+      "measured": false,
+      "transcript": "¿Cuál es la capital de Francia?",
+      "asr_detected_language": "es",
+      "asr_language_probability": 1.0,
+      "response": "París",
+      "first_tts_chunk": "París",
+      "timing_ms": {
+        "asr_first_text": 318.6278333887458,
+        "asr_complete": 318.639166187495,
+        "llm_first_token_from_llm_start": 134.4588748179376,
+        "llm_first_visible_from_llm_start": 134.4588748179376,
+        "first_chunk_ready_from_llm_start": 153.053583111614,
+        "llm_complete_from_llm_start": 153.053583111614,
+        "tts_first_callback_from_tts_start": 249.63958328589797,
+        "tts_complete_from_tts_start": 249.72145818173885,
+        "pipeline_first_pcm": 721.5250423178077,
+        "pipeline_first_audible_scheduled": 861.5250424481928,
+        "pipeline_complete": 723.1769589707255
+      },
+      "tts_audio_seconds": 1.2825850340136054,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 1,
+      "measured": true,
+      "transcript": "¿Cuál es la capital de Francia?",
+      "asr_detected_language": "es",
+      "asr_language_probability": 1.0,
+      "response": "París",
+      "first_tts_chunk": "París",
+      "timing_ms": {
+        "asr_first_text": 365.9345000050962,
+        "asr_complete": 365.9713747911155,
+        "llm_first_token_from_llm_start": 37.374916952103376,
+        "llm_first_visible_from_llm_start": 37.374916952103376,
+        "first_chunk_ready_from_llm_start": 59.12304203957319,
+        "llm_complete_from_llm_start": 59.12304203957319,
+        "tts_first_callback_from_tts_start": 435.5700840242207,
+        "tts_complete_from_tts_start": 435.7889173552394,
+        "pipeline_first_pcm": 860.8577088452876,
+        "pipeline_first_audible_scheduled": 1000.8577089756727,
+        "pipeline_complete": 863.2925418205559
+      },
+      "tts_audio_seconds": 1.2825850340136054,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 2,
+      "measured": true,
+      "transcript": "¿Cuál es la capital de Francia?",
+      "asr_detected_language": "es",
+      "asr_language_probability": 1.0,
+      "response": "París",
+      "first_tts_chunk": "París",
+      "timing_ms": {
+        "asr_first_text": 413.48608303815126,
+        "asr_complete": 413.63075003027916,
+        "llm_first_token_from_llm_start": 28.36945792660117,
+        "llm_first_visible_from_llm_start": 28.36945792660117,
+        "first_chunk_ready_from_llm_start": 57.49558284878731,
+        "llm_complete_from_llm_start": 57.49558284878731,
+        "tts_first_callback_from_tts_start": 317.6530827768147,
+        "tts_complete_from_tts_start": 317.75924982503057,
+        "pipeline_first_pcm": 789.0427499078214,
+        "pipeline_first_audible_scheduled": 929.0427500382066,
+        "pipeline_complete": 791.1249590106308
+      },
+      "tts_audio_seconds": 1.2825850340136054,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 3,
+      "measured": true,
+      "transcript": "¿Cuál es la capital de Francia?",
+      "asr_detected_language": "es",
+      "asr_language_probability": 1.0,
+      "response": "París",
+      "first_tts_chunk": "París",
+      "timing_ms": {
+        "asr_first_text": 403.25562469661236,
+        "asr_complete": 403.2883746549487,
+        "llm_first_token_from_llm_start": 40.99741717800498,
+        "llm_first_visible_from_llm_start": 40.99741717800498,
+        "first_chunk_ready_from_llm_start": 71.19233394041657,
+        "llm_complete_from_llm_start": 71.19233394041657,
+        "tts_first_callback_from_tts_start": 297.88354178890586,
+        "tts_complete_from_tts_start": 297.9328748770058,
+        "pipeline_first_pcm": 772.64149999246,
+        "pipeline_first_audible_scheduled": 912.6415001228452,
+        "pipeline_complete": 774.3420000188053
+      },
+      "tts_audio_seconds": 1.2825850340136054,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 4,
+      "measured": true,
+      "transcript": "¿Cuál es la capital de Francia?",
+      "asr_detected_language": "es",
+      "asr_language_probability": 1.0,
+      "response": "París",
+      "first_tts_chunk": "París",
+      "timing_ms": {
+        "asr_first_text": 384.294250048697,
+        "asr_complete": 384.46395797654986,
+        "llm_first_token_from_llm_start": 36.50162508711219,
+        "llm_first_visible_from_llm_start": 36.50162508711219,
+        "first_chunk_ready_from_llm_start": 68.51795874536037,
+        "llm_complete_from_llm_start": 68.51795874536037,
+        "tts_first_callback_from_tts_start": 326.40141574665904,
+        "tts_complete_from_tts_start": 326.59533293917775,
+        "pipeline_first_pcm": 779.7457496635616,
+        "pipeline_first_audible_scheduled": 919.7457497939467,
+        "pipeline_complete": 783.4817920811474
+      },
+      "tts_audio_seconds": 1.2825850340136054,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 5,
+      "measured": true,
+      "transcript": "¿Cuál es la capital de Francia?",
+      "asr_detected_language": "es",
+      "asr_language_probability": 1.0,
+      "response": "París",
+      "first_tts_chunk": "París",
+      "timing_ms": {
+        "asr_first_text": 387.80425023287535,
+        "asr_complete": 387.8714172169566,
+        "llm_first_token_from_llm_start": 35.62649991363287,
+        "llm_first_visible_from_llm_start": 35.62649991363287,
+        "first_chunk_ready_from_llm_start": 74.52150015160441,
+        "llm_complete_from_llm_start": 74.52150015160441,
+        "tts_first_callback_from_tts_start": 344.5276659913361,
+        "tts_complete_from_tts_start": 344.8736248537898,
+        "pipeline_first_pcm": 807.2576248086989,
+        "pipeline_first_audible_scheduled": 947.257624939084,
+        "pipeline_complete": 809.5194166526198
+      },
+      "tts_audio_seconds": 1.2825850340136054,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    }
+  ]
+}

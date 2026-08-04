@@ -1,0 +1,16 @@
+model,condition,samples,audio_seconds,wer_percent,measurement_hardware
+LiquidAI/LFM2.5-Audio-1.5B,clean,18,178.68499999999997,2.857142857142857,NVIDIA L4
+LiquidAI/LFM2.5-Audio-1.5B,gaussian_10db,18,178.68499999999997,6.428571428571428,NVIDIA L4
+LiquidAI/LFM2.5-Audio-1.5B,competing_speech_5db,18,178.68499999999997,55.714285714285715,NVIDIA L4
+openai/whisper-tiny,clean,18,178.685,11.428571428571429,NVIDIA L4
+openai/whisper-tiny,gaussian_10db,18,178.685,21.666666666666668,NVIDIA L4
+openai/whisper-tiny,competing_speech_5db,18,178.685,71.9047619047619,NVIDIA L4
+openai/whisper-base,clean,18,178.685,8.80952380952381,NVIDIA L4
+openai/whisper-base,gaussian_10db,18,178.685,20.714285714285715,NVIDIA L4
+openai/whisper-base,competing_speech_5db,18,178.685,55.00000000000001,NVIDIA L4
+openai/whisper-small,clean,18,178.685,7.142857142857142,NVIDIA L4
+openai/whisper-small,gaussian_10db,18,178.685,10.714285714285714,NVIDIA L4
+openai/whisper-small,competing_speech_5db,18,178.685,31.428571428571427,NVIDIA L4
+UsefulSensors/moonshine-base,clean,18,178.685,8.571428571428571,Apple M2 MPS
+UsefulSensors/moonshine-base,gaussian_10db,18,178.685,14.523809523809526,Apple M2 MPS
+UsefulSensors/moonshine-base,competing_speech_5db,18,178.685,64.04761904761904,Apple M2 MPS

@@ -1,0 +1,386 @@
+{
+  "app_uid": {
+    "required_checks": {
+      "decoder_context_loaded": true,
+      "decoder_execute_passed": true,
+      "encoder_context_loaded": true,
+      "encoder_execute_passed": true,
+      "eos_decode_loop_passed": true,
+      "host_transport_required": false,
+      "htp_v81_skeleton_loaded": true,
+      "model_files_app_private": true,
+      "network_required": false,
+      "preprocessing_assets_app_private": true,
+      "qnn_htp_backend_loaded": true,
+      "qnn_system_loaded": true,
+      "runner_bound_release_contract": true,
+      "runtime_files_app_private": true,
+      "run_as_package_uid": true
+    },
+    "target": {
+      "abi": "arm64-v8a",
+      "device_serial": "<redacted-adb-serial>",
+      "htp_arch": "v81",
+      "package": "ai.liquid.lfmdemo.runtime",
+      "soc": "SM8850"
+    }
+  },
+  "gate_id": "nubia_whisper_small_w8a16_app_uid",
+  "metadata": {
+    "layer_count": 12,
+    "required_values": [
+      {
+        "equals": "whisper_small_quantized",
+        "path": "model_id"
+      },
+      {
+        "equals": "Whisper-Small-Quantized",
+        "path": "model_name"
+      },
+      {
+        "equals": "qnn_context_binary",
+        "path": "runtime"
+      },
+      {
+        "equals": "w8a16",
+        "path": "precision"
+      },
+      {
+        "equals": "2.45.0.260326154327",
+        "path": "tool_versions.qairt"
+      },
+      {
+        "equals": 81,
+        "path": "chipset_attributes.htp_version"
+      },
+      {
+        "equals": "Samsung Galaxy S26",
+        "path": "chipset_attributes.reference_device"
+      },
+      {
+        "equals": [
+          "qualcomm-snapdragon-8-elite-gen5-for-galaxy",
+          "sm8850-ad"
+        ],
+        "path": "chipset_attributes.aliases"
+      }
+    ],
+    "sha256": "a288221ad7825eb63b0113708aa4c9c9d12d9a2932398811fc7376008be731cd",
+    "tensor_contract_sha256": "b2ecfbc6d7ffabfb933a32f04a4b20f03ee7d15a40001f631372f72220f1b2a3",
+    "tensor_names": {
+      "decoder": {
+        "inputs": [
+          "attention_mask",
+          "input_ids",
+          "position_ids",
+          "k_cache_cross_{layer}",
+          "v_cache_cross_{layer}",
+          "k_cache_self_{layer}_in",
+          "v_cache_self_{layer}_in"
+        ],
+        "outputs": [
+          "logits",
+          "k_cache_self_{layer}_out",
+          "v_cache_self_{layer}_out"
+        ]
+      },
+      "encoder": {
+        "inputs": [
+          "input_features"
+        ],
+        "outputs": [
+          "k_cache_cross_{layer}",
+          "v_cache_cross_{layer}"
+        ]
+      }
+    }
+  },
+  "preprocessing": {
+    "feature_extractor": {
+      "chunk_length_seconds": 30,
+      "feature_frames": 3000,
+      "n_mels": 80,
+      "sample_rate_hz": 16000
+    },
+    "required_asset_roles": [
+      "tokenizer_model",
+      "tokenizer_config",
+      "feature_extractor_config",
+      "generation_config"
+    ],
+    "required_language_codes": [
+      "de",
+      "en",
+      "es",
+      "fr",
+      "it",
+      "ja",
+      "ko",
+      "ru",
+      "zh"
+    ],
+    "source_repository": "openai/whisper-small",
+    "tokenizer": {
+      "decoder_start_token_id": 50258,
+      "eos_token_id": 50257,
+      "multilingual": true,
+      "vocab_size": 51865
+    }
+  },
+  "release": {
+    "archive_bytes": 293970655,
+    "archive_filename": "whisper_small_quantized-qnn_context_binary-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip",
+    "archive_root": "whisper_small_quantized-qnn_context_binary-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy",
+    "archive_sha256": "f798189b2e98c6ec139a3ad26ddc6cd2d41ee19c0ef87fab99f8d5fdc456c79e",
+    "members": [
+      {
+        "bytes": 0,
+        "name": "whisper_small_quantized-qnn_context_binary-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/",
+        "type": "directory"
+      },
+      {
+        "bytes": 43647,
+        "name": "whisper_small_quantized-qnn_context_binary-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/metadata.json",
+        "sha256": "a288221ad7825eb63b0113708aa4c9c9d12d9a2932398811fc7376008be731cd",
+        "type": "file"
+      },
+      {
+        "bytes": 225411072,
+        "name": "whisper_small_quantized-qnn_context_binary-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/decoder.bin",
+        "sha256": "41e048ff84c10205082c264e8ca6894c9bcfaf54e7eef19316ec35567b693388",
+        "type": "file"
+      },
+      {
+        "bytes": 133701632,
+        "name": "whisper_small_quantized-qnn_context_binary-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/encoder.bin",
+        "sha256": "af6e8d5514306c4e7fe54dc709880a9c1743b094257b15694e45bc688753a5a9",
+        "type": "file"
+      }
+    ]
+  },
+  "runner": {
+    "decode_loop": {
+      "attention_mask_unfilled_value": -100,
+      "cross_kv_source": "encoder_outputs",
+      "initial_self_kv": "zeros",
+      "max_decode_tokens": 200,
+      "position_ids": "incremental",
+      "self_kv_update": "copy_outputs_to_next_inputs",
+      "termination_token": "eos",
+      "token_selection": "argmax"
+    },
+    "deployment": {
+      "assets_storage": "app_private",
+      "model_storage": "app_private",
+      "requires_host_transport": false,
+      "requires_network": false,
+      "runtime_storage": "app_private"
+    },
+    "required_artifact_roles": [
+      "whisper_runner",
+      "qnn_loader"
+    ],
+    "target": {
+      "abi": "arm64-v8a",
+      "htp_arch": "v81",
+      "package": "ai.liquid.lfmdemo.runtime",
+      "platform": "android"
+    }
+  },
+  "runtime": {
+    "minimum_qairt": "2.45",
+    "required_libraries": [
+      {
+        "elf_machine": "aarch64",
+        "name": "libQnnHtp.so"
+      },
+      {
+        "elf_machine": "aarch64",
+        "name": "libQnnHtpPrepare.so"
+      },
+      {
+        "elf_machine": "aarch64",
+        "name": "libQnnSystem.so"
+      },
+      {
+        "elf_machine": "aarch64",
+        "name": "libQnnHtpV81Stub.so"
+      },
+      {
+        "elf_machine": "hexagon",
+        "name": "libQnnHtpV81Skel.so"
+      }
+    ],
+    "target": {
+      "host_abi": "arm64-v8a",
+      "htp_arch": "v81",
+      "platform": "android",
+      "soc": "SM8850"
+    }
+  },
+  "schema_version": 1,
+  "voice_ai": {
+    "config": {
+      "required_values": [
+        {
+          "equals": "whisper-small-quantized",
+          "path": "name"
+        },
+        {
+          "equals": "1.0.0",
+          "path": "version"
+        },
+        {
+          "equals": "whisper",
+          "path": "model_type"
+        },
+        {
+          "equals": true,
+          "path": "capabilities.language_detection"
+        },
+        {
+          "equals": [
+            16000
+          ],
+          "path": "parameters.sample_rates"
+        },
+        {
+          "equals": "encoder.bin",
+          "path": "assets.encoder_path"
+        },
+        {
+          "equals": "decoder.bin",
+          "path": "assets.decoder_path"
+        },
+        {
+          "equals": "vocab.bin",
+          "path": "assets.vocab_path"
+        },
+        {
+          "equals": 2,
+          "path": "runtime.qnn_version.major"
+        },
+        {
+          "equals": 45,
+          "path": "runtime.qnn_version.minor"
+        },
+        {
+          "equals": 0,
+          "path": "runtime.qnn_version.patch"
+        },
+        {
+          "equals": 64,
+          "path": "runtime.arch"
+        }
+      ],
+      "sha256": "b55a56acd03d62469e00566b9f48230485b4bd6919e85134f662a4a20f48f281"
+    },
+    "metadata": {
+      "layer_count": 12,
+      "required_values": [
+        {
+          "equals": "whisper_small_quantized",
+          "path": "model_id"
+        },
+        {
+          "equals": "Whisper-Small-Quantized",
+          "path": "model_name"
+        },
+        {
+          "equals": "voice_ai",
+          "path": "runtime"
+        },
+        {
+          "equals": "w8a16",
+          "path": "precision"
+        },
+        {
+          "equals": "2.45.0.260326154327",
+          "path": "tool_versions.qairt"
+        },
+        {
+          "equals": 81,
+          "path": "chipset_attributes.htp_version"
+        }
+      ],
+      "sha256": "87ee76d7204ef9f454d7e108d6f74a5d1d10042aec013073e68b56c73f16f113",
+      "tensor_contract_sha256": "b2ecfbc6d7ffabfb933a32f04a4b20f03ee7d15a40001f631372f72220f1b2a3",
+      "tensor_names": {
+        "decoder": {
+          "inputs": [
+            "attention_mask",
+            "input_ids",
+            "position_ids",
+            "k_cache_cross_{layer}",
+            "v_cache_cross_{layer}",
+            "k_cache_self_{layer}_in",
+            "v_cache_self_{layer}_in"
+          ],
+          "outputs": [
+            "logits",
+            "k_cache_self_{layer}_out",
+            "v_cache_self_{layer}_out"
+          ]
+        },
+        "encoder": {
+          "inputs": [
+            "input_features"
+          ],
+          "outputs": [
+            "k_cache_cross_{layer}",
+            "v_cache_cross_{layer}"
+          ]
+        }
+      }
+    },
+    "release": {
+      "archive_bytes": 294167485,
+      "archive_filename": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip",
+      "archive_root": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy",
+      "archive_sha256": "7472bd2bdc06d71dd95039ff2202e8bd8bf8e89dcd1a8cef02c8724dd91af69c",
+      "members": [
+        {
+          "bytes": 0,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/",
+          "type": "directory"
+        },
+        {
+          "bytes": 874,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/config.json",
+          "sha256": "b55a56acd03d62469e00566b9f48230485b4bd6919e85134f662a4a20f48f281",
+          "type": "file"
+        },
+        {
+          "bytes": 43878,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/metadata.json",
+          "sha256": "87ee76d7204ef9f454d7e108d6f74a5d1d10042aec013073e68b56c73f16f113",
+          "type": "file"
+        },
+        {
+          "bytes": 225411072,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/decoder.bin",
+          "sha256": "41e048ff84c10205082c264e8ca6894c9bcfaf54e7eef19316ec35567b693388",
+          "type": "file"
+        },
+        {
+          "bytes": 133701632,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/encoder.bin",
+          "sha256": "af6e8d5514306c4e7fe54dc709880a9c1743b094257b15694e45bc688753a5a9",
+          "type": "file"
+        },
+        {
+          "bytes": 357313,
+          "name": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy/vocab.bin",
+          "sha256": "0ba87984671b92e03b56b84ce9b217020663f6a269b5a9800901391430b79c4b",
+          "type": "file"
+        }
+      ]
+    },
+    "runner_compatibility": {
+      "runtime_family": "qualcomm_voice_ai",
+      "sdk_provenance": "qualcomm_voice_ai_asr_sdk_qpm"
+    },
+    "runner_requirement": "Qualcomm VoiceAI ASR SDK from QPM, bound to this exact Voice AI archive",
+    "vocab_sha256": "0ba87984671b92e03b56b84ce9b217020663f6a269b5a9800901391430b79c4b"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "release": {
+    "package": "qai-hub-models 0.58.0",
+    "model_id": "whisper_small_quantized",
+    "checkpoint": "openai/whisper-small",
+    "runtime": "qnn_context_binary",
+    "precision": "w8a16",
+    "archive_bytes": 293970655,
+    "archive_sha256": "f798189b2e98c6ec139a3ad26ddc6cd2d41ee19c0ef87fab99f8d5fdc456c79e",
+    "metadata_sha256": "a288221ad7825eb63b0113708aa4c9c9d12d9a2932398811fc7376008be731cd",
+    "generated_for_device": "Samsung Galaxy S26",
+    "generated_for_chipset": "sm8850-ad",
+    "generated_for_htp": 81,
+    "generated_with_qairt": "2.45.0.260326154327",
+    "fixed_audio_seconds": 30,
+    "encoder_input_shape": [1, 80, 3000],
+    "maximum_decoded_tokens": 200
+  },
+  "target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "chipset": "sm8850",
+    "htp": 81,
+    "requested_qairt": "2.45"
+  },
+  "method": {
+    "profile_iterations": 20,
+    "purpose": "sm8850-ad_to_sm8850_context_portability_probe",
+    "inference_submitted": false,
+    "numerical_gate": "unavailable_without_matching_sample_inputs_and_golden",
+    "transcript_gate": "unavailable_without_end_to_end_pre_and_post_processing"
+  },
+  "components": {
+    "encoder": {
+      "artifact": {
+        "filename": "encoder.bin",
+        "bytes": 133701632,
+        "sha256": "af6e8d5514306c4e7fe54dc709880a9c1743b094257b15694e45bc688753a5a9"
+      },
+      "model_id": "mq3lzg43q",
+      "profile_job_id": "jp8497lx5",
+      "latency_ms": 186.277,
+      "estimated_inference_peak_mib": 145.7265625,
+      "first_load_ms": 301.884,
+      "warm_load_ms": 306.598,
+      "operation_count": 2014,
+      "placement_counts": {
+        "hexagon_npu": 2014,
+        "cpu_fallback": 0,
+        "unsupported_or_unknown": 0
+      },
+      "strict_npu_pass": true
+    },
+    "decoder": {
+      "artifact": {
+        "filename": "decoder.bin",
+        "bytes": 225411072,
+        "sha256": "41e048ff84c10205082c264e8ca6894c9bcfaf54e7eef19316ec35567b693388"
+      },
+      "model_id": "mqpre1ljm",
+      "profile_job_id": "jgdz9rnr5",
+      "latency_ms_per_call": 3.932,
+      "estimated_inference_peak_mib": 146.3984375,
+      "first_load_ms": 143.951,
+      "warm_load_ms": 134.014,
+      "operation_count": 2853,
+      "placement_counts": {
+        "hexagon_npu": 2853,
+        "cpu_fallback": 0,
+        "unsupported_or_unknown": 0
+      },
+      "strict_npu_pass": true
+    }
+  },
+  "component_arithmetic": {
+    "catalog_first_token_convention_encoder_ms": 186.277,
+    "encoder_plus_one_decoder_call_ms": 190.209,
+    "encoder_plus_20_decoder_calls_ms": 264.917,
+    "encoder_plus_50_decoder_calls_ms": 382.877,
+    "encoder_plus_200_decoder_calls_ms": 972.677,
+    "is_end_to_end_transcript_latency": false
+  },
+  "published_samsung_galaxy_s26_comparator": {
+    "encoder_ms": 175.083,
+    "decoder_ms_per_call": 3.961,
+    "encoder_plus_20_decoder_calls_ms": 254.303,
+    "compute_unit": "NPU"
+  },
+  "evidence_scope": {
+    "proves": [
+      "context portability from sm8850-ad to exact sm8850 QRD",
+      "exact-QRD profile latency and estimated peak memory",
+      "strict Hexagon HTP placement"
+    ],
+    "does_not_prove": [
+      "numerical equivalence",
+      "transcript equivalence or WER/CER",
+      "end-to-end ASR latency",
+      "Nubia or glasses runtime compatibility",
+      "incremental streaming ASR"
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{"id":"en01","language":"en","reference":"I have twenty three apples.","hypothesis":"I have 23 apples."}
+{"id":"en02","language":"en","reference":"Mr Smith cannot come.","hypothesis":"Mr. Smith can't come."}
+{"id":"en03","language":"en","reference":"one hundred and five","hypothesis":"105"}
+{"id":"en04","language":"en","reference":"Hello world","hypothesis":"Hello, world!"}
+{"id":"en05","language":"en","reference":"Doctor Jones arrived","hypothesis":"Dr. Jones arrived."}
+{"id":"en06","language":"en","reference":"She will arrive","hypothesis":"She'll arrive"}
+{"id":"en07","language":"en","reference":"color","hypothesis":"colour"}
+{"id":"en08","language":"en","reference":"A B C","hypothesis":"A.B.C."}
+{"id":"en09","language":"en","reference":"The price is $20.50","hypothesis":"The price is twenty dollars and fifty cents"}
+{"id":"en10","language":"en","reference":"hello world","hypothesis":"[noise] hello (aside) world"}
+{"id":"zh01","language":"zh","reference":"繁体中文","hypothesis":"繁體中文"}
+{"id":"zh02","language":"zh","reference":"台湾","hypothesis":"臺灣"}
+{"id":"zh03","language":"zh","reference":"后台","hypothesis":"後臺"}
+{"id":"zh04","language":"zh","reference":"学习测试","hypothesis":"學習（測試）"}
+{"id":"zh05","language":"zh","reference":"门里","hypothesis":"門裏"}
+{"id":"zh06","language":"zh","reference":"你好世界","hypothesis":"你好，世界！"}
+{"id":"zh07","language":"zh","reference":"ABC测试","hypothesis":"ＡＢＣ，测试"}
+{"id":"zh08","language":"zh","reference":"一二三","hypothesis":"一、二；三"}
+{"id":"zh09","language":"zh","reference":"上海","hypothesis":"「上海」"}
+{"id":"zh10","language":"zh","reference":"简体","hypothesis":"簡體"}
+{"id":"es01","language":"es","reference":"está aquí","hypothesis":"¿Está aquí?"}
+{"id":"es02","language":"es","reference":"sí","hypothesis":"¡Sí!"}
+{"id":"es03","language":"es","reference":"el pingüino nada","hypothesis":"El pingüino nada."}
+{"id":"es04","language":"es","reference":"la canción terminó","hypothesis":"La canción terminó."}
+{"id":"es05","language":"es","reference":"niño niña año","hypothesis":"Niño, niña; año."}
+{"id":"es06","language":"es","reference":"qué tal","hypothesis":"¿Qué tal?"}
+{"id":"es07","language":"es","reference":"atención","hypothesis":"¡Atención!"}
+{"id":"es08","language":"es","reference":"uno dos","hypothesis":"uno—dos"}
+{"id":"es09","language":"es","reference":"más espacios","hypothesis":"  más   espacios "}
+{"id":"es10","language":"es","reference":"está","hypothesis":"esta"}
+{"id":"fr01","language":"fr","reference":"l'eau est bonne","hypothesis":"L’eau est bonne."}
+{"id":"fr02","language":"fr","reference":"est-ce vrai","hypothesis":"EST-CE vrai ?"}
+{"id":"fr03","language":"fr","reference":"dit-il oui","hypothesis":"Dit-il : oui."}
+{"id":"fr04","language":"fr","reference":"le garçon arrive","hypothesis":"Le garçon arrive."}
+{"id":"fr05","language":"fr","reference":"le cœur bat","hypothesis":"Le cœur bat."}
+{"id":"fr06","language":"fr","reference":"l'élève écoute","hypothesis":"L'élève écoute."}
+{"id":"fr07","language":"fr","reference":"qu'en pensez-vous","hypothesis":"Qu’en pensez-vous ?"}
+{"id":"fr08","language":"fr","reference":"un deux","hypothesis":"un—deux"}
+{"id":"fr09","language":"fr","reference":"aujourd'hui","hypothesis":"Aujourd’hui"}
+{"id":"fr10","language":"fr","reference":"côte","hypothesis":"cote"}
+{"id":"ru01","language":"ru","reference":"елка","hypothesis":"Ёлка"}
+{"id":"ru02","language":"ru","reference":"все хорошо","hypothesis":"Всё хорошо."}
+{"id":"ru03","language":"ru","reference":"молоко","hypothesis":"молоко́"}
+{"id":"ru04","language":"ru","reference":"где-то","hypothesis":"Где-то"}
+{"id":"ru05","language":"ru","reference":"кто-нибудь","hypothesis":"Кто-нибудь?"}
+{"id":"ru06","language":"ru","reference":"скажи-ка","hypothesis":"Скажи-ка!"}
+{"id":"ru07","language":"ru","reference":"привет мир","hypothesis":"ПРИВЕТ, МИР!"}
+{"id":"ru08","language":"ru","reference":"по-русски","hypothesis":"по—русски"}
+{"id":"ru09","language":"ru","reference":"много пробелов","hypothesis":"  много   пробелов "}
+{"id":"ru10","language":"ru","reference":"елка","hypothesis":"Е́лка"}

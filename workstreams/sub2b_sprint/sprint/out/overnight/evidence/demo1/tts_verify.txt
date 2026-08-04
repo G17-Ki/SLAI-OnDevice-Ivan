@@ -1,0 +1,7 @@
+bundle: /private/tmp/lmf-demo1-pruned.9JOlbI
+target: /sdcard/Android/data/ai.liquid.lfmdemo/files/tts-eval
+candidates: 5
+referenced files: 22 (277.3 MiB known; 22 SHA-256 authenticated)
+metadata files: 3
+device: REDACTED_DEVICE_SERIAL (NX809J)
+verified: 22 referenced files, 3 metadata files; no changes made

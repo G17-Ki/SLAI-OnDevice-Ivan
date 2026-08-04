@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "sprint_id": "F4",
+  "lane": "F",
+  "title": "Staged ES/FR overlay bundle for the Nubia NX809J",
+  "status": "STAGED_CPU_ONLY_NO_PHONE_CONNECTED",
+  "bundle_root": "artifacts/nubia_esfr_bundle",
+  "extends": {
+    "deployment": "docs/ANDROID_DEPLOYMENT.md",
+    "control_plane_derived_from": "workstreams/sub2b_sprint/sprint/out/e/artifacts/nubia_bundle",
+    "divergences": [
+      "no APK is staged: the runner already exists as two installed packages, and the scripts refuse to run unless both are present",
+      "no QAIRT pin machinery: the route is CPU-only, so there is no context/runtime pair to match"
+    ]
+  },
+  "payload": {
+    "files": 16,
+    "bytes": 671938556,
+    "asr_model_bytes": 670478772,
+    "tts_model_bytes": 0,
+    "fixture_files": 12,
+    "every_row_has_sha256": true
+  },
+  "artifact_registry": {
+    "path": "artifact_registry.json",
+    "rows": 26,
+    "every_row_has_local_sha256": true,
+    "every_row_npu_claim_false": true,
+    "unmet_dependencies": 4
+  },
+  "control_plane_files": [
+    "README.md",
+    "collect_esfr.sh",
+    "config/esfr.env",
+    "install_esfr.sh",
+    "lib/common.sh",
+    "manifest/bundle.sha256",
+    "manifest/bundle_manifest.json",
+    "manifest/esfr_expected_transcripts.json",
+    "manifest/esfr_payload.psv",
+    "manifest/esfr_tts_candidates.json",
+    "rollback_esfr.sh",
+    "tests/mock_adb.sh",
+    "tests/smoke.sh",
+    "verify_esfr.sh"
+  ],
+  "safety": {
+    "mock_adb_cases": 20,
+    "all_passed": true,
+    "real_adb_calls": 0,
+    "shellcheck": "clean with -x over all seven shell files",
+    "enforced": [
+      "exactly one authorized NX809J/SM8850 arm64 target",
+      "zero adb forwards before and after every script",
+      "both packages already installed, single unsplit APK each",
+      "run-as resolves to the companion UID and is neither root nor shell",
+      "byte size and SHA-256 verified on host and again after import",
+      "atomic placement via a .incoming temporary and mv",
+      "refusal of any payload row that looks like a QNN context or a Qualcomm runtime object (exit 24)",
+      "rollback asserts the accepted EN/ZH/JA/KO/RU assets survive"
+    ]
+  },
+  "storage": {
+    "lane_bytes": 818467735,
+    "cap_bytes": 3000000000
+  },
+  "artifacts": [
+    "F4.md",
+    "artifacts/nubia_esfr_bundle/",
+    "artifact_registry.json"
+  ]
+}

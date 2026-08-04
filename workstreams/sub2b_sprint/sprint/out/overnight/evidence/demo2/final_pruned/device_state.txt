@@ -1,0 +1,31 @@
+captured_at_host=2026-08-03T04:54:49+08:00
+adb_state=device
+device_model=NX809J
+device_serial=REDACTED_DEVICE_SERIAL
+airplane_mode_on=1
+
+[main_package]
+    versionCode=26 minSdk=28 targetSdk=35
+    versionName=0.6.0-unplugged
+[runtime_package]
+    versionCode=1 minSdk=28 targetSdk=35
+    versionName=0.1.0-unplugged-runtime
+[adb_forwards]
+<none>
+[relevant_processes]
+u0_a538      10303  1603   42146860 625952 0                   0 S ai.liquid.lfmdemo
+u0_a514      10379  1603   15129508 149248 0                   0 S ai.liquid.lfmdemo.runtime
+u0_a514      10412 10379   13070892 1987632 0                  0 S libqwenserver.so
+[relevant_listeners]
+<none matched>
+[main_private_files_models]
+<empty>
+[runtime_text_models]
+files/text/models/qwen2.5-1.5b-instruct-q4_k_m.gguf
+[external_app_directories]
+/sdcard/Android/data/ai.liquid.lfmdemo/files
+/sdcard/Android/data/ai.liquid.lfmdemo/files/e2e
+/sdcard/Android/data/ai.liquid.lfmdemo/files/tts-eval
+/sdcard/Android/data/ai.liquid.lfmdemo/files/tts-eval/matcha-icefall-zh-baker
+/sdcard/Android/data/ai.liquid.lfmdemo/files/tts-eval/shared
+/sdcard/Android/data/ai.liquid.lfmdemo/files/tts-eval/supertonic3-int8

@@ -1,0 +1,114 @@
+{
+  "status": "completed",
+  "remote_trimmed": {
+    "shape": [
+      1,
+      93826
+    ],
+    "dtype": "float32",
+    "finite": true,
+    "min": -0.85791015625,
+    "max": 0.99951171875,
+    "mean": -0.0005091471256135514,
+    "sha256": "ef9e5ce5efbe9bd8aaea03e6a4486fe0326f3623aed9bdc7887ebac6915ab988"
+  },
+  "audio_comparisons": {
+    "fixed_local": {
+      "sample_rate": 44100,
+      "actual_samples": 93826,
+      "reference_samples": 93826,
+      "aligned_samples": 93826,
+      "waveform": {
+        "actual": {
+          "shape": [
+            93826
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "min": -0.85791015625,
+          "max": 0.99951171875,
+          "mean": -0.0005091471256135514,
+          "sha256": "bb9e8addcdeaf9aaf27a5ee2dc35d551ae69ab501d807a65da2038be6e78e8d8"
+        },
+        "reference": {
+          "shape": [
+            93826
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "min": -0.900099515914917,
+          "max": 1.019890308380127,
+          "mean": -0.0005009830520810461,
+          "sha256": "a86760480fdd3b12cdcc94a94ed9f6ac820ac3c4fb08bb36091de0ad59c28e04"
+        },
+        "atol": 0.05,
+        "rtol": 0.05,
+        "passed": false,
+        "max_abs_error": 0.534186065196991,
+        "mean_abs_error": 0.01815358096280918,
+        "p95_abs_error": 0.08642356656491756,
+        "rmse": 0.041974907229627254,
+        "reference_rms": 0.08987476141767489,
+        "normalized_rmse": 0.46703775973943684,
+        "cosine_similarity": 0.8931231273625762
+      },
+      "spectral": {
+        "n_fft": 1024,
+        "hop_length": 256,
+        "frames": 363,
+        "spectral_convergence": 0.16042063371990253,
+        "log_magnitude_rmse": 0.06011191455135769,
+        "log_magnitude_mae": 0.018492690432734743
+      }
+    },
+    "dynamic_local": {
+      "sample_rate": 44100,
+      "actual_samples": 93826,
+      "reference_samples": 93826,
+      "aligned_samples": 93826,
+      "waveform": {
+        "actual": {
+          "shape": [
+            93826
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "min": -0.85791015625,
+          "max": 0.99951171875,
+          "mean": -0.0005091471256135514,
+          "sha256": "bb9e8addcdeaf9aaf27a5ee2dc35d551ae69ab501d807a65da2038be6e78e8d8"
+        },
+        "reference": {
+          "shape": [
+            93826
+          ],
+          "dtype": "float32",
+          "finite": true,
+          "min": -0.9468835592269897,
+          "max": 0.8347412347793579,
+          "mean": -0.00044342849996824085,
+          "sha256": "178a0411ef4e9405f5a7cb21cc6791b0b5dc9c01054062073af509964a481811"
+        },
+        "atol": 0.05,
+        "rtol": 0.05,
+        "passed": false,
+        "max_abs_error": 1.0075953006744385,
+        "mean_abs_error": 0.04198039986847446,
+        "p95_abs_error": 0.19219162315130234,
+        "rmse": 0.09152819669795094,
+        "reference_rms": 0.07957356569031528,
+        "normalized_rmse": 1.1502336976347238,
+        "cosine_similarity": 0.4349731755595759
+      },
+      "spectral": {
+        "n_fft": 1024,
+        "hop_length": 256,
+        "frames": 363,
+        "spectral_convergence": 0.8259930044132358,
+        "log_magnitude_rmse": 0.3085065466949256,
+        "log_magnitude_mae": 0.08733043480329099
+      }
+    }
+  },
+  "remote_wav": "remote_fixed_trimmed.wav"
+}

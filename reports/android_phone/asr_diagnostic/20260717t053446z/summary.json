@@ -1,0 +1,117 @@
+{
+  "created_utc": "2026-07-17T05:38:13.525499+00:00",
+  "dataset": "hf-internal-testing/librispeech_asr_dummy clean/validation",
+  "seed": 20260715,
+  "normalization": "lowercase; strip control tokens and punctuation except apostrophes; collapse whitespace",
+  "configurations": [
+    {
+      "name": "repack_ctx512",
+      "runtime_args": [
+        "-c",
+        "512"
+      ]
+    },
+    {
+      "name": "no_repack_ctx512",
+      "runtime_args": [
+        "-c",
+        "512",
+        "--no-repack"
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "configuration": "repack_ctx512",
+      "runtime_args": "-c 512",
+      "condition": "clean",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 3.5714285714285716,
+      "mean_first_text_ms": 560.1376990735945,
+      "median_total_ms": 802.2763330955058,
+      "vmhwm_mib": 1919.34375
+    },
+    {
+      "configuration": "repack_ctx512",
+      "runtime_args": "-c 512",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 7.142857142857143,
+      "mean_first_text_ms": 837.3477270361036,
+      "median_total_ms": 1142.500479472801,
+      "vmhwm_mib": 1919.34375
+    },
+    {
+      "configuration": "repack_ctx512",
+      "runtime_args": "-c 512",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 54.285714285714285,
+      "mean_first_text_ms": 836.9072524623739,
+      "median_total_ms": 1199.6131255291402,
+      "vmhwm_mib": 1919.34375
+    },
+    {
+      "configuration": "no_repack_ctx512",
+      "runtime_args": "-c 512 --no-repack",
+      "condition": "clean",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 3.5714285714285716,
+      "mean_first_text_ms": 1885.5145695205365,
+      "median_total_ms": 2325.627521146089,
+      "vmhwm_mib": 1365.27734375
+    },
+    {
+      "configuration": "no_repack_ctx512",
+      "runtime_args": "-c 512 --no-repack",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 6.904761904761905,
+      "mean_first_text_ms": 1913.8603194409775,
+      "median_total_ms": 2344.050520565361,
+      "vmhwm_mib": 1365.27734375
+    },
+    {
+      "configuration": "no_repack_ctx512",
+      "runtime_args": "-c 512 --no-repack",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "failures": 0,
+      "audio_seconds": 178.68499999999997,
+      "wer_percent": 54.285714285714285,
+      "mean_first_text_ms": 1917.590733876245,
+      "median_total_ms": 2422.1390003804117,
+      "vmhwm_mib": 1365.27734375
+    }
+  ],
+  "comparisons": [
+    {
+      "condition": "clean",
+      "baseline_wer_percent": 3.5714285714285716,
+      "candidate_wer_percent": 3.5714285714285716,
+      "delta_wer_pp": 0.0
+    },
+    {
+      "condition": "gaussian_10db",
+      "baseline_wer_percent": 7.142857142857143,
+      "candidate_wer_percent": 6.904761904761905,
+      "delta_wer_pp": -0.23809523809523814
+    },
+    {
+      "condition": "competing_speech_5db",
+      "baseline_wer_percent": 54.285714285714285,
+      "candidate_wer_percent": 54.285714285714285,
+      "delta_wer_pp": 0.0
+    }
+  ]
+}

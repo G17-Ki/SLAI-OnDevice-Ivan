@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-02T18:34:23Z",
+  "purpose": "Close the Demo 1 Qwen3.5 text-only GGUF identity and MTP/vision exclusion before installation.",
+  "artifact": {
+    "repository": "unsloth/Qwen3.5-0.8B-GGUF",
+    "revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+    "filename": "Qwen3.5-0.8B-Q4_0.gguf",
+    "source_url": "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/Qwen3.5-0.8B-Q4_0.gguf",
+    "host_path_at_inspection": "/private/tmp/lmf-demo1-qwen.T9Rwm2/Qwen3.5-0.8B-Q4_0.gguf",
+    "bytes": 507154688,
+    "sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701"
+  },
+  "gguf_header": {
+    "version": 3,
+    "header_end_byte": 10961919,
+    "metadata_entries": 46,
+    "tensor_count": 320,
+    "architecture": "qwen35",
+    "model_name": "Qwen3.5-0.8B",
+    "file_type": 2,
+    "quantization_version": 2
+  },
+  "tensor_inventory": {
+    "method": "Local GGUF v3 header parse; sum product(shape) for every tensor entry.",
+    "evidence_class": "EXACT",
+    "total_tensor_elements": 752393024,
+    "top_level_prefix_elements": {
+      "blk": 498112320,
+      "output_norm": 1024,
+      "token_embd": 254279680
+    },
+    "mtp_or_draft_tensor_count": 0,
+    "vision_visual_or_mmproj_tensor_count": 0,
+    "flagged_tensor_names": []
+  },
+  "verdict": {
+    "text_only_lm_inventory_proven": true,
+    "mtp_materialized": false,
+    "vision_projector_materialized": false,
+    "demo1_backbone_count": 752393024,
+    "demo1_conservative_total_after_closure": 1835059374,
+    "strictly_below_2000000000": true,
+    "conservative_headroom": 164940626
+  },
+  "acceptance_status": "HOST_VERIFIED_NOT_YET_INSTALLED",
+  "limits": [
+    "This receipt proves artifact identity and tensor inventory on the host only.",
+    "App-private installation, on-device hash verification, and physical five-language acceptance remain required."
+  ]
+}

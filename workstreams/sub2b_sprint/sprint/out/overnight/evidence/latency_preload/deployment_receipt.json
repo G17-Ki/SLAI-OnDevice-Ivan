@@ -1,0 +1,286 @@
+{
+  "schema_version": "overnight-latency-preload-deployment/1.0",
+  "captured_at_utc": "2026-08-04T19:37:21Z",
+  "task": "Deploy and verify selected-route latency improvements while preserving phone-local, host-debugger-disconnected operation and rollback artifacts.",
+  "status": "PASS_WITH_DISCLOSED_SHORT_RUSSIAN_PLAYBACK_LIMITATION",
+  "relationship_to_films": "POST_CAPTURE_NOT_FILMED",
+  "relationship_to_cap_inventories": "NOT_RECALCULATED_OR_REBOUND",
+  "qnn_claim_scope": "SENSEVOICE_ASR_ONLY",
+  "whole_stack_npu_claim": false,
+  "device": {
+    "serial": "REDACTED_FOR_PUBLIC_REPOSITORY",
+    "product": "NX809J",
+    "model": "NX809J",
+    "ram_total_kib": 15600416
+  },
+  "source": {
+    "branch": "sprint/overnight",
+    "commit": "e1a2a06ff34fd2a23950b49e45d65d71971d21ce",
+    "base_commit_before_latency_changes": "783d408b6df7c2d0e94f33f47d7abb23923f0c10",
+    "focused_tests": {
+      "scope": "SOURCE_AND_MOCK_ONLY",
+      "scripts/test_android_native_tts_bridge.py": "PASS",
+      "scripts/test_runtime_companion_source.py": "PASS",
+      "scripts/test_streaming_audio_ui.mjs": "PASS",
+      "git_diff_check": "PASS"
+    }
+  },
+  "deployment": {
+    "main_apk": {
+      "package": "ai.liquid.lfmdemo",
+      "version_name": "0.6.0-unplugged",
+      "version_code": 26,
+      "build_path": "android-app/app/build/outputs/apk/debug/app-debug.apk",
+      "bytes": 20205724,
+      "build_sha256": "91b225aaba45a2c0875d5d4316449ff255306773f6593011f8edaa626f797add",
+      "installed_sha256": "91b225aaba45a2c0875d5d4316449ff255306773f6593011f8edaa626f797add",
+      "identity_match": true
+    },
+    "runtime_apk": {
+      "package": "ai.liquid.lfmdemo.runtime",
+      "version_name": "0.1.0-unplugged-runtime",
+      "version_code": 1,
+      "build_path": "android-app/runtime-companion/build/outputs/apk/debug/runtime-companion-debug.apk",
+      "bytes": 122327590,
+      "build_sha256": "081cba99cf8abb151ce258481b83297bf8f2caf0446efea4d03d9b1e34b3e971",
+      "installed_sha256": "081cba99cf8abb151ce258481b83297bf8f2caf0446efea4d03d9b1e34b3e971",
+      "identity_match": true
+    },
+    "signing_certificate_sha256": "9ad7b2846b7c18853b99e444d4d05323321b3a9118c13c5a8fc242e58b5859e4",
+    "installed_without_data_clear": true,
+    "models_reused_in_place": true
+  },
+  "publication_normalization": {
+    "absolute_workspace_prefixes_removed_from_acceptance_audio_paths": true,
+    "device_serial_redacted_in_this_receipt": true,
+    "measurement_values_and_event_payloads_other_than_audio_path_unchanged": true
+  },
+  "rollback": {
+    "local_directory": "workstreams/sub2b_sprint/sprint/out/overnight/rollback/pre_final_latency_20260805",
+    "phone_directory": "/sdcard/Download/on-device-speech-agent-rollback-pre-final-20260805",
+    "main_apk": {
+      "filename": "lfm-audio-pre-final-latency.apk",
+      "bytes": 20205712,
+      "sha256": "86bc6629174ab66223de117f2e9ce320990c34fe5e416566e67746916a704fb6",
+      "local_and_phone_hash_match": true
+    },
+    "runtime_apk": {
+      "filename": "lfm-runtime-pre-final-latency.apk",
+      "bytes": 122327590,
+      "sha256": "05f45819abf6688c8183fc5157e6ac08fb65b691c3f8e62b72c8cbd584a13f7f",
+      "local_and_phone_hash_match": true
+    },
+    "instructions_sha256": "41be7737e16f096a5adbce93dfd46c21fa13804f822541e6abb211a13a7a2cb6",
+    "restore_tested": false
+  },
+  "selected_route_readiness": {
+    "scope": "ONE_EXPLICIT_ROUTE_AT_A_TIME",
+    "input_enabled_only_when_all_ready": true,
+    "asr_resident_route_must_match_selection": true,
+    "response_warm_language_must_match_selection": true,
+    "tts_preload_key_must_match_policy_and_locale": true,
+    "fresh_install_default_language": "en",
+    "explicit_language_selection_persisted": true,
+    "direct_preload_event_capture": false,
+    "all_language_asr_and_tts_graphs_loaded_simultaneously": false,
+    "qnn_runtime_provider_policy": "one version-matched SenseVoice QNN provider in its resident runner; no second QNN provider loaded in that process"
+  },
+  "warm_full_turn_checks": {
+    "measurement_boundary": "request to Android UtteranceProgressListener.onStart software proxy",
+    "server_warmth": "warm",
+    "distribution_claimed": false,
+    "preload_causality_claimed": false,
+    "english": {
+      "status": "PASS",
+      "n": 1,
+      "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/en_acceptance.json",
+      "sha256": "60a4f5fc01b72b901a713753c528092a0a85e80aa60cd9aae2cbb73fc82e1c17",
+      "first_text_ms": 237.30000000074506,
+      "first_audio_start_proxy_ms": 1008.4821349978447,
+      "tts_first_chunk_ms": 604,
+      "tts_rtf": 0.2533296627666896,
+      "native_playback_span_ms": 2444.3607280105352,
+      "harness_elapsed_ms": 3495.099999997765,
+      "asr_backend": "sensevoice_qnn",
+      "asr_provider": "qnn",
+      "npu_executed_for_asr": true,
+      "tts_engine": "supertonic3_en_v4_s5",
+      "response": "The capital of France is Paris.",
+      "dropped_chunks": 0,
+      "terminal": "completed"
+    },
+    "mandarin": {
+      "status": "PASS",
+      "n": 1,
+      "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/zh_acceptance.json",
+      "sha256": "4a7fb2caac8be33dfc3facc28a0b0838dc081dfada7f60dc892eae70b5912e3f",
+      "first_text_ms": 192.89999999850988,
+      "first_audio_start_proxy_ms": 597.0384899973869,
+      "tts_first_chunk_ms": 90,
+      "tts_rtf": 0.03403832108711049,
+      "native_playback_span_ms": 8172.370725989342,
+      "harness_elapsed_ms": 8846.5,
+      "asr_backend": "sensevoice_qnn",
+      "asr_provider": "qnn",
+      "npu_executed_for_asr": true,
+      "tts_engine": "matcha_zh_baker",
+      "dropped_chunks": 0,
+      "terminal": "completed"
+    },
+    "russian_long": {
+      "status": "PASS",
+      "n": 1,
+      "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_long_acceptance.json",
+      "sha256": "eaa6a3f93c4df36b1901d9c239330ff3fca457cc8d67fd4345cf7e7c03e3fcfc",
+      "first_text_ms": 220.29999999701977,
+      "first_audio_start_proxy_ms": 461.273280993104,
+      "tts_first_chunk_ms": 66,
+      "tts_rtf": 0.04338541666666667,
+      "native_playback_span_ms": 1572.032082989812,
+      "harness_elapsed_ms": 2100,
+      "asr_backend": "zipformer_ru_cpu",
+      "asr_provider": "cpu",
+      "npu_executed_for_asr": false,
+      "tts_engine": "piper_ru_ruslan",
+      "transcript": "расскажи коротко о москве",
+      "response": "Москва - столица России.",
+      "response_factually_correct": true,
+      "dropped_chunks": 0,
+      "terminal": "completed"
+    }
+  },
+  "retained_negative_attempts": [
+    {
+      "name": "russian_short_1",
+      "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_acceptance.json",
+      "sha256": "927106d1ba7d59d38e250d51717f6060d0b8864d3a6a24e53ba2e20dddae39ca",
+      "response": "Москва.",
+      "response_factually_correct": true,
+      "first_text_ms": 209.79999999701977,
+      "first_audio_start_proxy_ms": 340.9690109938383,
+      "tts_first_chunk_ms": 43,
+      "utterance_done_count": 0,
+      "terminal": "failed",
+      "failure": "playback_drain_timeout"
+    },
+    {
+      "name": "russian_short_2",
+      "source": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/latency_preload/ru_acceptance_retry.json",
+      "sha256": "3a2e33300bb140686a2523488bac3ddb52693b7eb635a3c1ff385cbb5e1aacfd",
+      "response": "Москва.",
+      "response_factually_correct": true,
+      "first_text_ms": 135.20000000298023,
+      "first_audio_start_proxy_ms": 248.38364499807358,
+      "tts_first_chunk_ms": 34,
+      "utterance_done_count": 0,
+      "terminal": "failed",
+      "failure": "playback_drain_timeout"
+    }
+  ],
+  "resident_memory": {
+    "captured_with_selected_route": "en",
+    "units": "KiB",
+    "processes": {
+      "main": {"pid": 31986, "pss": 444314, "rss": 547608},
+      "webview": {"pid": 32025, "pss": 118484, "rss": 250752},
+      "runtime_service": {"pid": 31719, "pss": 38714, "rss": 178692},
+      "qwen_server": {"pid": 31752, "pss": 1985509, "rss": 1987652},
+      "selected_asr_runner": {"pid": 715, "pss": 45198, "rss": 68416}
+    },
+    "total_pss_kib": 2632219,
+    "total_rss_kib": 3033120,
+    "total_pss_gib": 2.510279655456543,
+    "total_rss_gib": 2.892608642578125,
+    "mem_available_kib": 9548780,
+    "mem_available_gib": 9.106426239013672,
+    "fits_phone_ram_with_large_headroom": true,
+    "scope_note": "Qwen plus exactly one selected ASR runner and one selected TTS graph. This does not measure or approve simultaneous residency of every language route."
+  },
+  "host_debugger_disconnect_survival": {
+    "duration_seconds": 75,
+    "app_foreground": true,
+    "airplane_mode": true,
+    "wifi_disabled": true,
+    "ip_route_empty": true,
+    "forward_and_reverse_lists_empty_during_interval": true,
+    "pre": {
+      "boot_id": "8dc4e558-9722-44a4-8424-d9379d00e20b",
+      "uptime_seconds": 130625.47,
+      "main_pid": 31986,
+      "runtime_pid": 31719,
+      "qwen_pid": 31752,
+      "asr_pid": 715,
+      "webview_pid": 32025
+    },
+    "post": {
+      "boot_id": "8dc4e558-9722-44a4-8424-d9379d00e20b",
+      "uptime_seconds": 130805.36,
+      "main_pid": 31986,
+      "runtime_pid": 31719,
+      "qwen_pid": 31752,
+      "asr_pid": 715,
+      "webview_pid": 32025
+    },
+    "same_boot_id": true,
+    "same_processes": {
+      "main": true,
+      "runtime": true,
+      "qwen": true,
+      "asr": true,
+      "webview": true
+    },
+    "runtime_foreground_service_active": true,
+    "runtime_partial_wake_lock_held": true,
+    "runtime_oom_adj": 0,
+    "selected_en_asr_resident": true,
+    "postcheck_selected_route_ready": true,
+    "temporary_cdp_forward_used_for_postcheck": true,
+    "temporary_forward_removed": true,
+    "final_forward_count": 0,
+    "final_reverse_count": 0,
+    "physical_unplug_tested": false,
+    "restart_tested": false,
+    "process_death_tested": false,
+    "boot_persistence_tested": false,
+    "background_operation_tested": false,
+    "long_duration_tested": false
+  },
+  "final_state": {
+    "main_app_foreground": true,
+    "screen_awake": true,
+    "screen_mode": "tts",
+    "selected_language": "en",
+    "persisted_language": "en",
+    "tts_policy": "auto",
+    "selected_route_ready": true,
+    "asr_resident_route": "sensevoice_qnn:en",
+    "qwen_health": "ok",
+    "status_text": "Offline ASR · Qwen · voice ready",
+    "record_label": "Tap to speak",
+    "media_volume_index": 60,
+    "media_volume_maximum": 150,
+    "airplane_mode": true,
+    "wifi_disabled": true,
+    "active_default_network": null,
+    "ip_route_count": 0,
+    "adb_forward_count": 0,
+    "adb_reverse_count": 0,
+    "mac_or_network_required_for_inference": false
+  },
+  "claim_boundary": {
+    "safe": "The selected English, Mandarin, or Russian route can be warmed locally before input is enabled. One selected route fits comfortably in RAM and the measured warm n=1 turns reached the in-app first-audio proxy below 1.1 seconds.",
+    "not_claimed": [
+      "microphone-observed acoustic onset",
+      "cold-start or boot-to-audio latency",
+      "a latency distribution for this final build",
+      "causal attribution of the improvement to preload alone",
+      "simultaneous residency of every language route",
+      "whole-stack NPU execution",
+      "physical unplug testing in this checkpoint",
+      "restart or process-death recovery",
+      "background or always-on operation",
+      "long-duration thermal, battery, memory-pressure, or reliability stability",
+      "short Russian utterance playback stability"
+    ]
+  }
+}

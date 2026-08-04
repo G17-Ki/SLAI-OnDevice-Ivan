@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-08-03T14:18:15+08:00",
+  "branch": "sprint/overnight",
+  "task": "post-capture unplugged English/Russian TTS repair",
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "main_package": "ai.liquid.lfmdemo",
+    "runtime_package": "ai.liquid.lfmdemo.runtime"
+  },
+  "root_cause": {
+    "catalog_before": [
+      "matcha_zh_baker",
+      "supertonic3_en_s5"
+    ],
+    "persisted_policy_before": "matcha_zh_baker",
+    "media_volume_at_diagnosis": {
+      "index": 0,
+      "maximum": 150,
+      "muted": true
+    },
+    "effect": "A concrete Mandarin policy rejects EN/RU locales, and the pruned catalog omitted the Russian alias. The phone therefore completed text but selected its text-only fallback for EN/RU. The media stream was also muted when the repair began."
+  },
+  "deployment": {
+    "method": "existing installer, manifest-only",
+    "target": "/sdcard/Android/data/ai.liquid.lfmdemo/files/tts-eval",
+    "model_files_verified": 22,
+    "model_files_transferred": 0,
+    "metadata_files_verified": 3,
+    "candidate_count": 5,
+    "candidate_ids": [
+      "matcha_zh_baker",
+      "supertonic3_en_s5",
+      "supertonic3_s5",
+      "supertonic3_es_s5",
+      "supertonic3_fr_s5"
+    ],
+    "metadata": {
+      "candidates.json": {
+        "bytes": 5503,
+        "sha256": "7b781a3612f3b381be3e81273370464a4ef0df421b533dfd4dc66bd75c5cdf05"
+      },
+      "bundle_manifest.json": {
+        "bytes": 59815,
+        "sha256": "67ffedc475464216d64143c8c15332ea82398170fe11f66b91da3eb9051a3384"
+      },
+      "phrases.json": {
+        "bytes": 3118,
+        "sha256": "98d609075bb71f358430c0371e10c591a4b4614574e2c9750a74d0cb37230a97"
+      }
+    },
+    "shared_supertonic_payload": true,
+    "note": "English and Russian reuse the same already-resident seven-file Supertonic graph/style payload; Russian required only its language-routing metadata row. Matcha Mandarin was preserved."
+  },
+  "routing_after_restart": {
+    "selected_policy": "auto",
+    "stored_policy": "auto",
+    "visible_label": "Automatic by language",
+    "persisted_across_cold_app_restart": true,
+    "routes": {
+      "en-US": "supertonic3_en_s5",
+      "ru-RU": "supertonic3_s5",
+      "zh-CN": "matcha_zh_baker"
+    },
+    "all_three_routes_available": true
+  },
+  "automated_playback_checks": {
+    "english_end_to_end": {
+      "all_assertions_passed": true,
+      "policy": "auto",
+      "resolved_engine": "supertonic3_en_s5",
+      "requested_locale": "en-US",
+      "resolved_locale": "en",
+      "transcript": "What is the capital of France, answer in one short sentence?",
+      "response": "The capital of France is Paris.",
+      "first_chunk_ms": 329,
+      "rtf": 0.1409444600815348,
+      "dropped_chunks": 0,
+      "playback_span_ms": 2492.8158330004662,
+      "terminal_status": "completed"
+    },
+    "russian_native_tts": {
+      "all_assertions_passed": true,
+      "policy": "auto",
+      "resolved_engine": "supertonic3_s5",
+      "requested_locale": "ru-RU",
+      "resolved_locale": "ru",
+      "fixture_text": "Привет. Это проверка русской офлайн речи.",
+      "first_chunk_ms": 743,
+      "rtf": 0.2312801923899402,
+      "audio_seconds": 3.234172335600907,
+      "dropped_chunks": 0,
+      "terminal_status": "completed"
+    },
+    "mandarin_native_tts": {
+      "all_assertions_passed": true,
+      "policy": "auto",
+      "resolved_engine": "matcha_zh_baker",
+      "requested_locale": "zh-CN",
+      "resolved_locale": "zh",
+      "fixture_text": "你好，这是中文离线语音路由测试。",
+      "first_chunk_ms": 62,
+      "rtf": 0.04272187499999999,
+      "audio_seconds": 4.35374149659864,
+      "dropped_chunks": 0,
+      "terminal_status": "completed"
+    }
+  },
+  "russian_fact_check": {
+    "scope": "existing final Demo 1 film take, not the routing smoke phrase above",
+    "question": "Какова столица России?",
+    "visible_answer": "Москва",
+    "factually_correct": true,
+    "source": "workstreams/sub2b_sprint/sprint/out/overnight/film_receipt.json"
+  },
+  "final_handoff": {
+    "main_app_foreground": true,
+    "screen_mode": "tts",
+    "selected_language": "en",
+    "visible_voice_policy": "Automatic by language",
+    "timer": "Ready",
+    "input_busy": false,
+    "airplane_mode": true,
+    "wifi": "disabled",
+    "adb_forwards": [],
+    "media_volume": {
+      "index": 90,
+      "maximum": 150
+    },
+    "mac_runtime_dependency": false,
+    "safe_to_unplug": true
+  },
+  "evidence_files": {
+    "english_plan": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_en_ru_repair/en_auto_end_to_end_plan.json",
+      "sha256": "0a1dfe9153ea72103360682357d0f721f338c47c7e041e3cf35b6f9c8d1c6a4c"
+    },
+    "english_result": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_en_ru_repair/en_auto_end_to_end.json",
+      "sha256": "e2f21eb6c1db930b86eeb22af0b00c51b1dc90bd0fb0597265d1de82218e1e22"
+    },
+    "russian_mandarin_result": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/tts_en_ru_repair/native_auto_ru_zh.json",
+      "sha256": "9158fc6e6757da528852ac6a0a98b911d33cf955353acd5977d9405e9bc5d5da"
+    }
+  },
+  "claim_boundary": "The checks prove on-phone automatic routing, neural synthesis, AudioTrack lifecycle, and completed playback events while offline. They do not measure microphone-observed acoustic onset or replace the user's final listening approval."
+}

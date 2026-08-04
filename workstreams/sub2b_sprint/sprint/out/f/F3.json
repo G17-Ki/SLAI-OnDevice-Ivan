@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "sprint_id": "F3",
+  "lane": "F",
+  "title": "ES/FR TTS through the resident Supertonic graphs",
+  "status": "COMPLETE_ALL_RUNS_PASSED",
+  "evidence_class": "HOST",
+  "headline": {
+    "attempted": 69,
+    "passed": 69,
+    "failed": 0,
+    "statement": "69/69 ES/FR synthesis runs passed both the app's own PcmGate and Lane D's exact D3 short-input gate, with zero chunks dropped."
+  },
+  "device_model_bytes_added": 0,
+  "why_zero_bytes": "supertonic3_es_s5 and supertonic3_fr_s5 carry a files map byte-identical to the shipped supertonic3_s5 / _ja_s5 / _ko_s5 rows, so Candidate.sharesModelWith() matches and SherpaTtsEngine reuses the resident graph without a second model load.",
+  "candidate_parameters": {
+    "engine": "supertonic",
+    "num_steps": 5,
+    "sid": 6,
+    "speed": 1.0,
+    "extra": {
+      "lang": "<per case>",
+      "seed": "0"
+    },
+    "mirrors": "SherpaTtsEngine.kt:171-179 and :253-261"
+  },
+  "model": {
+    "directory": "sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+    "files": {
+      "duration_predictor.int8.onnx": {
+        "bytes": 3700147,
+        "sha256": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db"
+      },
+      "text_encoder.int8.onnx": {
+        "bytes": 36416150,
+        "sha256": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff"
+      },
+      "vector_estimator.int8.onnx": {
+        "bytes": 78400833,
+        "sha256": "20cd86fa5c6effedfda0e7cffe5b0569ca401c440a0c3a1d72bf39286c0db3fd"
+      },
+      "vocoder.int8.onnx": {
+        "bytes": 25991073,
+        "sha256": "e923d60f53f95eb1ce235f1dc33ec56d9c057823c96fa6f8acf98f32b0da6152"
+      },
+      "tts.json": {
+        "bytes": 8253,
+        "sha256": "42078d3aef1cd43ab43021f3c54f47d2d75ceb4e75f627f118890128b06a0d09"
+      },
+      "unicode_indexer.bin": {
+        "bytes": 262144,
+        "sha256": "8402ca48e5189a8950138580b0fff64db6f072f24ac07cd54ba8b2fbb9883b30"
+      },
+      "voice.bin": {
+        "bytes": 517168,
+        "sha256": "67d5209b0ee8ce6c74105ffbe12fe6a7628aea3b4ba2fcb308a4a67938a93ce8"
+      }
+    }
+  },
+  "gates": {
+    "pcm_gate": {
+      "source": "android-app/.../tts/PcmGate.kt:20-89",
+      "min_rms": 0.005,
+      "max_abs_dc": 0.1,
+      "max_clip_fraction": 0.001,
+      "clip_level": 0.999,
+      "applied": "per generated chunk and to the whole waveform"
+    },
+    "d3_gate": {
+      "source": "workstreams/sub2b_sprint/sprint/out/d/D3.json gate",
+      "min_rms_linear_exclusive": 0.0031622776601683794,
+      "duration_seconds_inclusive": [
+        0.15,
+        30.0
+      ],
+      "sustained_clipping_linear": 0.9885530946569389,
+      "max_sustained_clipping_ms": 5.0
+    }
+  },
+  "fixture_source": {
+    "short_inputs": "verbatim from workstreams/sub2b_sprint/sprint/out/d/run_kokoro_v1.py:31-51",
+    "plus": "the text 'A' that broke Piper DaveFX ES in out/d/D3.json named_failures",
+    "demo_phrases": "authored for this lane in the shape of stage_device_bundle.py PHRASES"
+  },
+  "per_language": {
+    "es": {
+      "runs": 36,
+      "real_time_factor_median": 8.216236516212025,
+      "real_time_factor_min": 1.716123948516997,
+      "real_time_factor_max": 26.503582106627597,
+      "first_chunk_ms_median": 16014.052666490898,
+      "audio_seconds_min": 1.3173696145124716,
+      "audio_seconds_max": 5.402358276643991,
+      "min_whole_waveform_rms": 0.04950043210862644,
+      "chunks_dropped_by_pcm_gate": 0,
+      "distinct_chunk_counts": [
+        1
+      ]
+    },
+    "fr": {
+      "runs": 33,
+      "real_time_factor_median": 4.541716676538867,
+      "real_time_factor_min": 1.199902131664724,
+      "real_time_factor_max": 16.04143562026682,
+      "first_chunk_ms_median": 7863.285667030141,
+      "audio_seconds_min": 1.3005668934240362,
+      "audio_seconds_max": 6.456757369614513,
+      "min_whole_waveform_rms": 0.04787608855828242,
+      "chunks_dropped_by_pcm_gate": 0,
+      "distinct_chunk_counts": [
+        1
+      ]
+    }
+  },
+  "thread_comparison": {
+    "note": "device_threads() gives Supertonic 4 on the NX809J; 2 is the host default",
+    "threads_4": {
+      "engine_init_seconds": 3.428304334054701,
+      "es_rtf_median": 8.216236516212025,
+      "fr_rtf_median": 4.541716676538867,
+      "passed": 69
+    },
+    "threads_2": {
+      "engine_init_seconds": 8.608863667002879,
+      "es_rtf_median": 2.028191264243647,
+      "fr_rtf_median": 1.584161678304257,
+      "passed": 69
+    },
+    "verdict": "Both thread counts passed every gate. No latency conclusion is drawn: the two runs were taken under different and heavy external CPU load, and repeated runs of the identical configuration differed by more than a factor of seven. Thread choice must be measured on the phone."
+  },
+  "host_timing_quality": {
+    "usable": false,
+    "reason": "The measuring Mac carried load average 29-53 on eight cores throughout, with unrelated applications holding 40-90% CPU. Identical repeats of the same configuration differed by more than 7x.",
+    "what_is_unaffected": "Gate verdicts. Whether a waveform is finite, non-silent, unclipped and of plausible duration does not depend on CPU contention. 69/69 stands.",
+    "observed_real_time_factor_range_across_all_runs": [
+      0.7487658988917596,
+      26.503582106627597
+    ],
+    "evidence_class": "UNKNOWN"
+  },
+  "single_chunk_finding": "sherpa-onnx emitted exactly one callback chunk for every utterance at these text lengths, so first_chunk_ms equals whole-utterance synthesis time. The Supertonic path did not stream here.",
+  "host_vs_prior_phone_discrepancy": "PRIOR phone figures for Supertonic s5 report RU/JA/KO final chunks at 290-584 ms (reports/.../PRIORITIZED_MODEL_SWEEP.md:115). This lane's host RTFs are slower than that implies. The two are not comparable without a controlled re-run: different measurement point, different text, different machine. No reconciliation is claimed.",
+  "fixtures_generated": [
+    {
+      "fixture_id": "tts_es_supertonic3_s5_micro",
+      "language": "es",
+      "case_id": "micro",
+      "text": "Claro.",
+      "path": "tts_es_supertonic3_s5_micro.wav",
+      "bytes": 42482,
+      "sha256": "54cf93a0d36124338283aad41457b02c1705ef75199e3506a00618be1edc4ec7",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_es_supertonic3_s5_clause",
+      "language": "es",
+      "case_id": "clause",
+      "text": "Madrid es la capital de España.",
+      "path": "tts_es_supertonic3_s5_clause.wav",
+      "bytes": 89130,
+      "sha256": "54a7a5b24aba6e411f89bd617e31e34d70efa4bac9acab73063dc89e29cd03a9",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_es_supertonic3_s5_answer",
+      "language": "es",
+      "case_id": "answer",
+      "text": "Madrid es la capital de España y su ciudad más grande.",
+      "path": "tts_es_supertonic3_s5_answer.wav",
+      "bytes": 141372,
+      "sha256": "577097a5c5a318ec37fda0d71e26464b4ead913421bf0e650631ac8f27a7bc90",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_es_supertonic3_s5_weather",
+      "language": "es",
+      "case_id": "weather",
+      "text": "Esta tarde hará sol, unos veinticuatro grados; no hace falta paraguas.",
+      "path": "tts_es_supertonic3_s5_weather.wav",
+      "bytes": 172920,
+      "sha256": "bd19bdee3b12766b32973e040ce1ef1346f878f9df4ac04f14f4b44a2b8362f2",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_es_supertonic3_s5_question",
+      "language": "es",
+      "case_id": "question",
+      "text": "¿Quieres que traduzca este texto al inglés?",
+      "path": "tts_es_supertonic3_s5_question.wav",
+      "bytes": 99386,
+      "sha256": "e7286ca35ff59112cca8b598ab56186a90452b53eb37ace7b645a64da1de8aa4",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_fr_supertonic3_s5_micro",
+      "language": "fr",
+      "case_id": "micro",
+      "text": "Bien sûr.",
+      "path": "tts_fr_supertonic3_s5_micro.wav",
+      "bytes": 43288,
+      "sha256": "e2a04765cce64d466e1b250e3e9fac7ac45e615ede50f9d9e2a264aa9322c96a",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_fr_supertonic3_s5_clause",
+      "language": "fr",
+      "case_id": "clause",
+      "text": "Paris est la capitale de la France.",
+      "path": "tts_fr_supertonic3_s5_clause.wav",
+      "bytes": 89682,
+      "sha256": "fc6babcfa0983fd2e35a2a648e8af0ed2b3e53758b254d9d4d883ee93e0b6638",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_fr_supertonic3_s5_answer",
+      "language": "fr",
+      "case_id": "answer",
+      "text": "Paris est la capitale de la France et sa plus grande ville.",
+      "path": "tts_fr_supertonic3_s5_answer.wav",
+      "bytes": 141290,
+      "sha256": "47a04342ce24e0f3dd981a3495e1af53828f8f07c2271a6bedefce6a2bd954f9",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_fr_supertonic3_s5_weather",
+      "language": "fr",
+      "case_id": "weather",
+      "text": "Cet après-midi il fera beau, environ vingt-quatre degrés; inutile de prendre un parapluie.",
+      "path": "tts_fr_supertonic3_s5_weather.wav",
+      "bytes": 206660,
+      "sha256": "ab2eb9056e513af58df7e5c97cab10d304be3a864f52a823451a3053ce2cef48",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    },
+    {
+      "fixture_id": "tts_fr_supertonic3_s5_question",
+      "language": "fr",
+      "case_id": "question",
+      "text": "Veux-tu que je traduise ce texte en anglais ?",
+      "path": "tts_fr_supertonic3_s5_question.wav",
+      "bytes": 103948,
+      "sha256": "909ed13417787a1a5de22b74151537abcf5ba4bcfabbe497a266cefc1dc6e559",
+      "native_sample_rate_hz": 44100,
+      "stored_sample_rate_hz": 16000,
+      "canonical_contract": "riff44_pcm16_mono_16000hz",
+      "fits_fixed_10s_window": true
+    }
+  ],
+  "not_established": [
+    "intelligibility, naturalness, or language correctness",
+    "listening acceptance",
+    "any phone timing",
+    "mixed-script or long-form frontend coverage"
+  ],
+  "artifacts": [
+    "F3.md",
+    "artifacts/f3_supertonic_esfr.json",
+    "artifacts/f3_supertonic_esfr_threads2.json"
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "scope": "same 12 EN/JA/KO/ZH Common Voice clips; fixed locale",
+  "normalization": "Unicode NFKC, case fold, punctuation/symbol removal, whitespace normalization",
+  "rows": [
+    {
+      "model": "SenseVoiceSmall INT8",
+      "runtime": "sherpa-onnx",
+      "cpu_threads": 2,
+      "sample_count": 12,
+      "final_ms_median": 100.9724375,
+      "final_ms_p95": 173.8560105,
+      "rtf_median": 0.021697018280843555,
+      "model_file_mib": 228.4582281112671,
+      "incremental_peak_rss_mb": 620.578125,
+      "en_wer": 0.15789473684210525,
+      "ja_ko_zh_micro_cer": 0.24324324324324326,
+      "macro_primary_error_rate": 0.23824545037968053,
+      "languages": {
+        "en": {
+          "samples": 3,
+          "wer": 0.15789473684210525,
+          "cer": 0.06896551724137931,
+          "word_edits": 3,
+          "reference_words": 19,
+          "char_edits": 6,
+          "reference_chars": 87,
+          "primary_metric": "wer",
+          "primary_error_rate": 0.15789473684210525
+        },
+        "ja": {
+          "samples": 3,
+          "wer": 1.8,
+          "cer": 0.3125,
+          "word_edits": 9,
+          "reference_words": 5,
+          "char_edits": 15,
+          "reference_chars": 48,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.3125
+        },
+        "ko": {
+          "samples": 3,
+          "wer": 1.0,
+          "cer": 0.14925373134328357,
+          "word_edits": 25,
+          "reference_words": 25,
+          "char_edits": 10,
+          "reference_chars": 67,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.14925373134328357
+        },
+        "zh": {
+          "samples": 3,
+          "wer": 1.3333333333333333,
+          "cer": 0.3333333333333333,
+          "word_edits": 4,
+          "reference_words": 3,
+          "char_edits": 11,
+          "reference_chars": 33,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "model": "Whisper Base INT8",
+      "runtime": "faster-whisper",
+      "cpu_threads": 4,
+      "sample_count": 12,
+      "final_ms_median": 420.0344165,
+      "final_ms_p95": 512.14748975,
+      "rtf_median": 0.10192325081953071,
+      "model_file_mib": 141.0321626663208,
+      "incremental_peak_rss_mb": 315.15625,
+      "en_wer": 0.3684210526315789,
+      "ja_ko_zh_micro_cer": 0.3918918918918919,
+      "macro_primary_error_rate": 0.41169340200909327,
+      "languages": {
+        "en": {
+          "samples": 3,
+          "wer": 0.3684210526315789,
+          "cer": 0.11494252873563218,
+          "word_edits": 7,
+          "reference_words": 19,
+          "char_edits": 10,
+          "reference_chars": 87,
+          "primary_metric": "wer",
+          "primary_error_rate": 0.3684210526315789
+        },
+        "ja": {
+          "samples": 3,
+          "wer": 1.0,
+          "cer": 0.4791666666666667,
+          "word_edits": 5,
+          "reference_words": 5,
+          "char_edits": 23,
+          "reference_chars": 48,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.4791666666666667
+        },
+        "ko": {
+          "samples": 3,
+          "wer": 0.52,
+          "cer": 0.2537313432835821,
+          "word_edits": 13,
+          "reference_words": 25,
+          "char_edits": 17,
+          "reference_chars": 67,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.2537313432835821
+        },
+        "zh": {
+          "samples": 3,
+          "wer": 1.3333333333333333,
+          "cer": 0.5454545454545454,
+          "word_edits": 4,
+          "reference_words": 3,
+          "char_edits": 18,
+          "reference_chars": 33,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.5454545454545454
+        }
+      }
+    },
+    {
+      "model": "Whisper Small INT8",
+      "runtime": "faster-whisper",
+      "cpu_threads": 4,
+      "sample_count": 12,
+      "final_ms_median": 1613.86725,
+      "final_ms_p95": 2219.0695832500005,
+      "rtf_median": 0.3914162703804348,
+      "model_file_mib": 463.6882514953613,
+      "incremental_peak_rss_mb": 614.0,
+      "en_wer": 0.21052631578947367,
+      "ja_ko_zh_micro_cer": 0.2972972972972973,
+      "macro_primary_error_rate": 0.3049071329953105,
+      "languages": {
+        "en": {
+          "samples": 3,
+          "wer": 0.21052631578947367,
+          "cer": 0.04597701149425287,
+          "word_edits": 4,
+          "reference_words": 19,
+          "char_edits": 4,
+          "reference_chars": 87,
+          "primary_metric": "wer",
+          "primary_error_rate": 0.21052631578947367
+        },
+        "ja": {
+          "samples": 3,
+          "wer": 0.8,
+          "cer": 0.375,
+          "word_edits": 4,
+          "reference_words": 5,
+          "char_edits": 18,
+          "reference_chars": 48,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.375
+        },
+        "ko": {
+          "samples": 3,
+          "wer": 0.36,
+          "cer": 0.14925373134328357,
+          "word_edits": 9,
+          "reference_words": 25,
+          "char_edits": 10,
+          "reference_chars": 67,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.14925373134328357
+        },
+        "zh": {
+          "samples": 3,
+          "wer": 1.3333333333333333,
+          "cer": 0.48484848484848486,
+          "word_edits": 4,
+          "reference_words": 3,
+          "char_edits": 16,
+          "reference_chars": 33,
+          "primary_metric": "cer",
+          "primary_error_rate": 0.48484848484848486
+        }
+      }
+    }
+  ],
+  "comparison_caveat": "Quality is directly comparable on the same clips and normalizer. Latency is host evidence but thread counts and runtimes differ."
+}

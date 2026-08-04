@@ -1,0 +1,123 @@
+diff --git a/sherpa-onnx/csrc/sherpa-onnx-offline.cc b/sherpa-onnx/csrc/sherpa-onnx-offline.cc
+index 8253898..d9418fd 100644
+--- a/sherpa-onnx/csrc/sherpa-onnx-offline.cc
++++ b/sherpa-onnx/csrc/sherpa-onnx-offline.cc
+@@ -5,6 +5,7 @@
+ #include <stdio.h>
+ 
+ #include <chrono>
++#include <iostream>
+ #include <string>
+ #include <utility>
+ #include <vector>
+@@ -118,14 +119,37 @@ for a list of pre-trained models to download.
+ 
+   sherpa_onnx::ParseOptions po(kUsageMessage);
+   sherpa_onnx::OfflineRecognizerConfig config;
++  bool persistent_server = false;
++  int32_t persistent_copies = 1;
+   config.Register(&po);
++  po.Register(
++      "persistent-server", &persistent_server,
++      "Create the recognizer once, emit a JSON readiness line, then read one "
++      "UTF-8 wave-file path per line from stdin and emit one JSON result line "
++      "per request. This mode is intended for an app-owned local pipe only.");
++  po.Register(
++      "persistent-copies", &persistent_copies,
++      "Number of identical streams decoded for each persistent request. Use 2 "
++      "only for an execution provider that requires the established duplicate-"
++      "stream workaround; only the first result is returned.");
+ 
+   po.Read(argc, argv);
+-  if (po.NumArgs() < 1) {
++  if (persistent_copies < 1 || persistent_copies > 2) {
++    fprintf(stderr, "Error: --persistent-copies must be 1 or 2.\n\n");
++    po.PrintUsage();
++    SHERPA_ONNX_EXIT(EXIT_FAILURE);
++  }
++  if (!persistent_server && po.NumArgs() < 1) {
+     fprintf(stderr, "Error: Please provide at least 1 wave file.\n\n");
+     po.PrintUsage();
+     SHERPA_ONNX_EXIT(EXIT_FAILURE);
+   }
++  if (persistent_server && po.NumArgs() != 0) {
++    fprintf(stderr,
++            "Error: Persistent mode accepts wave paths only on stdin.\n\n");
++    po.PrintUsage();
++    SHERPA_ONNX_EXIT(EXIT_FAILURE);
++  }
+ 
+   fprintf(stderr, "%s\n", config.ToString().c_str());
+ 
+@@ -147,6 +171,71 @@ for a list of pre-trained models to download.
+       1000.;
+   fprintf(stderr, "recognizer created in %.3f s\n", elapsed_seconds_init);
+ 
++  if (persistent_server) {
++    static const char *kQuitCommand =
++        "__SHERPA_ONNX_PERSISTENT_QUIT__";
++    fprintf(stdout,
++            "{\"persistent_ready\":true,\"protocol_version\":1}\n");
++    fflush(stdout);
++
++    std::string wav_filename;
++    while (std::getline(std::cin, wav_filename)) {
++      if (!wav_filename.empty() && wav_filename.back() == '\r') {
++        wav_filename.pop_back();
++      }
++      if (wav_filename == kQuitCommand) {
++        break;
++      }
++      if (wav_filename.empty()) {
++        continue;
++      }
++
++      int32_t sampling_rate = -1;
++      bool is_ok = false;
++      std::vector<float> samples =
++          sherpa_onnx::ReadWave(wav_filename, &sampling_rate, &is_ok);
++      if (!is_ok) {
++        fprintf(stderr, "Failed to read '%s'\n", wav_filename.c_str());
++        fprintf(stdout,
++                "{\"persistent_error\":\"read_wave_failed\","
++                "\"protocol_version\":1}\n");
++        fflush(stdout);
++        continue;
++      }
++
++      const auto begin = std::chrono::steady_clock::now();
++      std::vector<std::unique_ptr<sherpa_onnx::OfflineStream>> streams;
++      std::vector<sherpa_onnx::OfflineStream *> stream_pointers;
++      streams.reserve(persistent_copies);
++      stream_pointers.reserve(persistent_copies);
++      for (int32_t i = 0; i != persistent_copies; ++i) {
++        auto stream = recognizer.CreateStream();
++        stream->AcceptWaveform(sampling_rate, samples.data(), samples.size());
++        streams.push_back(std::move(stream));
++        stream_pointers.push_back(streams.back().get());
++      }
++      recognizer.DecodeStreams(stream_pointers.data(), stream_pointers.size());
++      const auto end = std::chrono::steady_clock::now();
++      const float elapsed_seconds =
++          std::chrono::duration_cast<std::chrono::milliseconds>(end - begin)
++              .count() /
++          1000.;
++      const float duration =
++          samples.size() / static_cast<float>(sampling_rate);
++
++      fprintf(stderr, "Done!\n\n%s\n----\n", wav_filename.c_str());
++      fprintf(stdout, "%s\n",
++              streams.front()->GetResult().AsJsonString().c_str());
++      fflush(stdout);
++      fprintf(stderr, "Elapsed seconds: %.3f s\n", elapsed_seconds);
++      fprintf(stderr, "Real time factor (RTF): %.3f / %.3f = %.3f\n",
++              elapsed_seconds, duration,
++              duration > 0 ? elapsed_seconds / duration : 0);
++    }
++    fprintf(stderr, "Persistent ASR server stopped\n");
++    return 0;
++  }
++
+   fprintf(stderr, "Started\n");
+   const auto begin = std::chrono::steady_clock::now();
+ 

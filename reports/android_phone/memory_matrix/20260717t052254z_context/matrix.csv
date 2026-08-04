@@ -1,0 +1,6 @@
+name,runtime_args,idle_rss_mib,active_peak_rss_mib,vmhwm_mib,gguf_rss_mib,anonymous_rss_mib,first_text_ms,first_audio_ms,total_ms,exact_normalized,transcript,error
+ctx_512,-c 512,1646.27734375,1702.1484375,1700.96875,697.63671875,994.1484375,271.7257090844214,,482.93500021100044,True,Can you help me come up with a slogan for my woodworking site business?,
+ctx_1024,-c 1024,1654.3046875,1708.87890625,1708.13671875,697.63671875,1000.953125,295.7012918777764,,528.3254589885473,True,Can you help me come up with a slogan for my woodworking site business?,
+ctx_2048,-c 2048,1666.89453125,1723.48828125,1722.82421875,697.63671875,1015.64453125,290.88458279147744,,496.48816604167223,True,Can you help me come up with a slogan for my woodworking site business?,
+ctx_4096,-c 4096,1690.81640625,1745.046875,1744.2890625,697.63671875,1037.09765625,295.4956251196563,,511.28012500703335,True,Can you help me come up with a slogan for my woodworking site business?,
+ctx_8192,-c 8192,1739.79296875,1795.23828125,1794.98828125,697.63671875,1087.0859375,278.0487919226289,,492.54895793274045,True,Can you help me come up with a slogan for my woodworking site business?,

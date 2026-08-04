@@ -1,0 +1,23 @@
+[
+  {
+    "id": "supertonic_ja_local_dynamic_31",
+    "kind": "dynamic_local_reference",
+    "language": "ja",
+    "audio_path": "reports/android_phone/streaming_response/supertonic_v81/ja_paris/local_dynamic_trimmed.wav",
+    "reference": "パリはフランスにあります。"
+  },
+  {
+    "id": "supertonic_ja_local_fixed_32",
+    "kind": "fixed_shape_local_reference",
+    "language": "ja",
+    "audio_path": "reports/android_phone/streaming_response/supertonic_v81/ja_paris/local_fixed_trimmed.wav",
+    "reference": "パリはフランスにあります。"
+  },
+  {
+    "id": "supertonic_ja_remote_fixed_32",
+    "kind": "accumulated_aihub_chain",
+    "language": "ja",
+    "audio_path": "reports/android_phone/streaming_response/supertonic_v81/ja_paris/remote_chain/remote_fixed_trimmed.wav",
+    "reference": "パリはフランスにあります。"
+  }
+]

@@ -1,0 +1,188 @@
+{
+  "sprint_id": "E3",
+  "title": "Fetch and verify one Parakeet SM8850 QNN prebuilt",
+  "status": "COMPLETE_WITH_VERSION_BLOCK",
+  "captured_at_utc": "2026-08-02T05:24:16Z",
+  "headline": "A genuine SM8850 Parakeet-TDT 0.6B v3 prebuilt exists and its archive and extracted files verified, but all three context binaries embed QNN 2.40.0.251030114326_189385. Under Lane E's single QAIRT 2.45.0.260326154327 pin, the programme verdict is EXPORT; it is REPACKAGE only inside an exactly matched 2.40 runtime process.",
+  "fork_decision": {
+    "programme_single_pin_verdict": "EXPORT",
+    "artifact_level_verdict": "REPACKAGE_IF_EXACT_QNN_2_40_RUNTIME_IS_SELECTED",
+    "reason": "The contexts are correctly targeted to SM8850 but their embedded QNN build differs from the programme-wide QAIRT 2.45.0.260326154327 pin. They must be recompiled at 2.45 before NPU use in the staged programme bundle.",
+    "evidence_class": "HOST"
+  },
+  "selection": {
+    "rationale": "The 3-second Parakeet v3 asset is the smallest useful published window and the smallest of the 12 SM8850 Parakeet v3 window assets enumerated in E2.",
+    "release_tag": "asr-models-qnn-binary-2",
+    "release_id": 341256442,
+    "asset_id": 465352256,
+    "filename": "sherpa-onnx-qnn-SM8850-binary-parakeet-tdt-0.6b-v3-3s-transducer.tar.bz2",
+    "source_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models-qnn-binary-2/sherpa-onnx-qnn-SM8850-binary-parakeet-tdt-0.6b-v3-3s-transducer.tar.bz2",
+    "target_soc": "SM8850",
+    "window_seconds": 3,
+    "precision_from_release_naming_convention": "float",
+    "precision_evidence_class": "VENDOR"
+  },
+  "archive_verification": {
+    "downloads_of_model_asset": 1,
+    "expected_bytes": 437668456,
+    "observed_bytes": 437668456,
+    "expected_sha256": "9935bbeecab3583516bbf437fa750cf2d2daf9959f2702f3b18781d6c5988b2f",
+    "observed_sha256": "9935bbeecab3583516bbf437fa750cf2d2daf9959f2702f3b18781d6c5988b2f",
+    "size_match": true,
+    "sha256_match": true,
+    "evidence_class": "HOST",
+    "post_verification_disposition": "The recoverable compressed archive was deleted after verified extraction to remain under the Lane E storage cap. Extracted files remain in the git-ignored staged bundle."
+  },
+  "extracted_bundle": {
+    "directory": "workstreams/sub2b_sprint/sprint/out/e/artifacts/nubia_bundle/models/asr/parakeet_v3_3s/sherpa-onnx-qnn-SM8850-binary-parakeet-tdt-0.6b-v3-3s-transducer/",
+    "total_file_bytes": 635553382,
+    "files": [
+      {
+        "path": "encoder.bin",
+        "bytes": 604205056,
+        "sha256": "38151957887dbe87718ade940f06c69871d14f25f43024dd9af4c8ed3fc2695a",
+        "artifact_type": "QNN_CONTEXT_BINARY"
+      },
+      {
+        "path": "decoder.bin",
+        "bytes": 23732224,
+        "sha256": "e4da17c61b01f371f33a00a1c02b8560a3521d08b4a20c309c114b3e706ef0a1",
+        "artifact_type": "QNN_CONTEXT_BINARY"
+      },
+      {
+        "path": "joiner.bin",
+        "bytes": 6537216,
+        "sha256": "adce9764ef654fd9fc6aed03aa8f5a614c02d3ae50729b22e19408604a21ecdb",
+        "artifact_type": "QNN_CONTEXT_BINARY"
+      },
+      {
+        "path": "tokens.txt",
+        "bytes": 93939,
+        "sha256": "d58544679ea4bc6ac563d1f545eb7d474bd6cfa467f0a6e2c1dc1c7d37e3c35d",
+        "artifact_type": "TOKEN_TABLE"
+      },
+      {
+        "path": "info.txt",
+        "bytes": 15,
+        "sha256": "cc6c3bca0499a4f27960dfd6a2334007724e9ed2c78993f139de8b31dfab3960",
+        "content": "num_seconds=3s"
+      },
+      {
+        "path": "test_wavs/0.wav",
+        "bytes": 212044,
+        "sha256": "6bc58a4efdf20daac252b6b1502632601a71efe0308f6757dc1eda34891a7e4f",
+        "format": "PCM S16LE mono 16000 Hz"
+      },
+      {
+        "path": "test_wavs/1.wav",
+        "bytes": 534924,
+        "sha256": "5143a6ba93c4b274e2c4ac22deb75c2c48936c853f0519add1de828b6c79cc5a",
+        "format": "PCM S16LE mono 16000 Hz"
+      },
+      {
+        "path": "test_wavs/2.wav",
+        "bytes": 237964,
+        "sha256": "5fceacff0315d49cb59fcc505bcecf1ed5f2f35c2897b1e65a59f30e5d922150",
+        "format": "PCM S16LE mono 16000 Hz"
+      }
+    ],
+    "evidence_class": "HOST"
+  },
+  "context_header_inspection": {
+    "method": "Printable strings were inspected independently in encoder.bin, decoder.bin, and joiner.bin.",
+    "all_three_contexts_match": true,
+    "embedded_qnn_build": "v2.40.0.251030114326_189385",
+    "soc_type": "SM8850",
+    "min_arch": 81,
+    "quantize_graph_flag": false,
+    "evidence_class": "EXACT",
+    "safety_conclusion": "These files are not authorized for NPU loading with QAIRT 2.45.0.260326154327 or the E1 2.48.0.260626120635 probe runtime."
+  },
+  "cpu_numerical_reference": {
+    "purpose": "Provide reproducible CPU-side text/token/timestamp reference output from the official FP32 sherpa-onnx ONNX equivalent. This is not a run of the QNN binaries and is not a device-performance measurement.",
+    "source_repository": "https://huggingface.co/csukuangfj/sherpa-onnx-nemo-parakeet-tdt-0.6b-v3",
+    "source_revision": "1a468a35cbba69418f126de829e75261dea4a4e4",
+    "model_files": [
+      {
+        "path": "encoder.onnx",
+        "bytes": 41766257,
+        "sha256": "3eed7ce424bf8339ad09233533c687e2dbd07e74ccf5027b5e7344019ea373b0"
+      },
+      {
+        "path": "encoder.weights",
+        "bytes": 2435420160,
+        "sha256": "3af3f51af5f2d01dbbf5af47d42c7962a2c205f11004254bb4f2b979862f39a8"
+      },
+      {
+        "path": "decoder.onnx",
+        "bytes": 47233743,
+        "sha256": "d593cdb0e571f5a457ec2219af9968cbf6b0e8198e8f7839b40a8754593bf68c"
+      },
+      {
+        "path": "joiner.onnx",
+        "bytes": 25286330,
+        "sha256": "b9b0bcf88ac571902e69a6536223ed2d94885e981b85045410f1403d53121a63"
+      },
+      {
+        "path": "tokens.txt",
+        "bytes": 93939,
+        "sha256": "d58544679ea4bc6ac563d1f545eb7d474bd6cfa467f0a6e2c1dc1c7d37e3c35d"
+      }
+    ],
+    "runtime": {
+      "host": "Apple M2, macOS 15.4.1 arm64",
+      "python": "3.11.11",
+      "sherpa_onnx": "1.13.4",
+      "provider": "cpu",
+      "model_type": "nemo_transducer",
+      "decoding_method": "greedy_search",
+      "num_threads": 4,
+      "sample_rate_hz": 16000,
+      "feature_dim": 80,
+      "recognizer_init_seconds": 24.06122625002172,
+      "process_wall_seconds": 51.33,
+      "maximum_resident_set_bytes": 1371701248
+    },
+    "results": [
+      {
+        "wav": "test_wavs/0.wav",
+        "sample_count": 106000,
+        "duration_seconds": 6.625,
+        "decode_elapsed_seconds": 13.701615167083219,
+        "real_time_factor": 2.068168327106901,
+        "text": "After early nightfall the yellow lamps would light up here and there the squalid quarter of the brothels.",
+        "tokens": [" A", "fter", " e", "ar", "ly", " n", "ight", "f", "all", " the", " y", "ell", "ow", " l", "am", "ps", " would", " lig", "ht", " up", " here", " and", " there", " the", " s", "qu", "al", "id", " quar", "ter", " of", " the", " b", "rot", "h", "els", "."],
+        "timestamps_seconds": [0.23999999463558197, 0.47999998927116394, 0.6399999856948853, 0.7199999690055847, 0.8799999952316284, 1.0399999618530273, 1.1999999284744263, 1.3600000143051147, 1.5199999809265137, 1.7599999904632568, 1.8399999141693115, 1.9199999570846558, 2.0, 2.1599998474121094, 2.319999933242798, 2.4800000190734863, 2.6399998664855957, 2.799999952316284, 2.879999876022339, 3.0399999618530273, 3.2799999713897705, 3.5199999809265137, 3.679999828338623, 4.0, 4.159999847412109, 4.319999694824219, 4.480000019073486, 4.639999866485596, 4.799999713897705, 5.039999961853027, 5.199999809265137, 5.279999732971191, 5.519999980926514, 5.679999828338623, 5.839999675750732, 6.0, 6.399999618530273]
+      },
+      {
+        "wav": "test_wavs/1.wav",
+        "sample_count": 267440,
+        "duration_seconds": 16.715,
+        "decode_elapsed_seconds": 8.705390167073347,
+        "real_time_factor": 0.5208130521730988,
+        "text": "God, as a direct consequence of the sin which man thus punished, had given her a lovely child, whose place was on that same dishonored bosom, to connect her parent for ever with the race and descent of mortals, and to be finally a blessed soul in heaven.",
+        "tokens": [" God", ",", " as", " a", " dire", "ct", " con", "se", "qu", "ence", " of", " the", " sin", " which", " man", " th", "us", " pun", "is", "hed", ",", " had", " g", "iv", "en", " her", " a", " lov", "ely", " ch", "ild", ",", " wh", "ose", " place", " was", " on", " that", " sam", "e", " dis", "h", "on", "or", "ed", " bos", "om", ",", " to", " con", "ne", "ct", " her", " par", "ent", " for", " ever", " with", " the", " ra", "ce", " and", " des", "cent", " of", " m", "ort", "als", ",", " and", " to", " be", " fin", "ally", " a", " bl", "ess", "ed", " so", "ul", " in", " he", "av", "en", "."],
+        "timestamps_seconds": [0.23999999463558197, 0.5600000023841858, 0.7199999690055847, 0.8799999952316284, 1.0399999618530273, 1.1999999284744263, 1.4399999380111694, 1.5199999809265137, 1.6799999475479126, 1.8399999141693115, 2.0, 2.1599998474121094, 2.3999998569488525, 2.6399998664855957, 2.9600000381469727, 3.1999998092651367, 3.2799999713897705, 3.43999981880188, 3.679999828338623, 3.919999837875366, 4.079999923706055, 4.239999771118164, 4.480000019073486, 4.559999942779541, 4.71999979019165, 4.799999713897705, 5.039999961853027, 5.199999809265137, 5.440000057220459, 5.679999828338623, 5.839999675750732, 6.0, 6.239999771118164, 6.399999618530273, 6.71999979019165, 6.960000038146973, 7.199999809265137, 7.440000057220459, 7.599999904632568, 7.679999828338623, 7.919999599456787, 8.079999923706055, 8.239999771118164, 8.399999618530273, 8.559999465942383, 8.639999389648438, 8.880000114440918, 9.039999961853027, 9.119999885559082, 9.359999656677246, 9.4399995803833, 9.59999942779541, 9.760000228881836, 10.0, 10.239999771118164, 10.559999465942383, 10.719999313354492, 11.039999961853027, 11.279999732971191, 11.519999504089355, 11.59999942779541, 11.75999927520752, 12.079999923706055, 12.319999694824219, 12.559999465942383, 12.799999237060547, 12.880000114440918, 13.119999885559082, 13.359999656677246, 13.59999942779541, 13.75999927520752, 13.920000076293945, 14.15999984741211, 14.319999694824219, 14.559999465942383, 14.799999237060547, 14.960000038146973, 15.119999885559082, 15.359999656677246, 15.519999504089355, 15.679999351501465, 15.920000076293945, 16.079999923706055, 16.239999771118164, 16.479999542236328]
+      },
+      {
+        "wav": "test_wavs/2.wav",
+        "sample_count": 118960,
+        "duration_seconds": 7.435,
+        "decode_elapsed_seconds": 3.945500500034541,
+        "real_time_factor": 0.5306658372608664,
+        "text": "Well, I don't wish to see it any more, observed Phoebe, turning away her eyes. It is certainly very like the old portrait.",
+        "tokens": [" W", "ell", ",", " I", " don", "'", "t", " w", "ish", " to", " see", " it", " any", " more", ",", " obser", "ved", " P", "ho", "eb", "e", ",", " tur", "ning", " a", "way", " her", " e", "y", "es", ".", " It", " is", " cer", "tain", "ly", " very", " like", " the", " ol", "d", " port", "rait", "."],
+        "timestamps_seconds": [0.3199999928474426, 0.3999999761581421, 0.5600000023841858, 0.6399999856948853, 0.7999999523162842, 0.8799999952316284, 0.9599999785423279, 1.0399999618530273, 1.1200000047683716, 1.2799999713897705, 1.3600000143051147, 1.5199999809265137, 1.6799999475479126, 1.8399999141693115, 2.0, 2.1599998474121094, 2.3999998569488525, 2.559999942779541, 2.6399998664855957, 2.799999952316284, 2.9600000381469727, 3.119999885559082, 3.2799999713897705, 3.5199999809265137, 3.679999828338623, 3.8399999141693115, 4.0, 4.159999847412109, 4.319999694824219, 4.400000095367432, 4.639999866485596, 4.880000114440918, 5.119999885559082, 5.279999732971191, 5.440000057220459, 5.599999904632568, 5.759999752044678, 6.0, 6.159999847412109, 6.319999694824219, 6.399999618530273, 6.639999866485596, 6.87999963760376, 7.199999809265137]
+      }
+    ],
+    "evidence_class": "HOST",
+    "post_run_disposition": "The 2.4 GB temporary CPU reference export was deleted after hashes and outputs were recorded. It is reproducible from the pinned revision."
+  },
+  "limitations": [
+    "No phone was connected, so the QNN contexts were not executed or profiled.",
+    "The CPU transcript run establishes a numerical reference only; it does not prove QNN numerical parity.",
+    "The 3-second compile window does not cap accepted utterance duration in the bundled examples, but device behavior remains unmeasured.",
+    "The GitHub release body for asr-models-qnn-binary-2 does not state a QNN version; compatibility was determined from the embedded context strings instead.",
+    "No context/runtime mismatch was attempted."
+  ]
+}

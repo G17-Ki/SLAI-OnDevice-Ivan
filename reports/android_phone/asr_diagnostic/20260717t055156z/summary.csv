@@ -1,0 +1,4 @@
+configuration,runtime_args,condition,samples,failures,audio_seconds,wer_percent,mean_first_text_ms,median_total_ms,vmhwm_mib
+memory_gate_ub128_q4kv,-c 512 --no-repack -b 512 -ub 128 -ctk q4_0 -ctv q4_0,clean,18,0,178.68499999999997,3.0952380952380953,2007.5014722533524,2379.336124518886,1320.2421875
+memory_gate_ub128_q4kv,-c 512 --no-repack -b 512 -ub 128 -ctk q4_0 -ctv q4_0,gaussian_10db,18,0,178.68499999999997,7.142857142857143,2303.291483833972,2887.854792177677,1320.2421875
+memory_gate_ub128_q4kv,-c 512 --no-repack -b 512 -ub 128 -ctk q4_0 -ctv q4_0,competing_speech_5db,18,0,178.68499999999997,56.19047619047619,2347.5335439822325,3028.9977288339287,1320.2421875

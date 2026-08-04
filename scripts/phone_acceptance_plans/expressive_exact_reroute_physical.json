@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "name": "nubia-expressive-selector-exact-reroute-physical-acceptance",
+  "englishResponseStyle": "expressive",
+  "resetTelemetry": true,
+  "cooldownMs": 900,
+  "expectedResponseBackend": "qwen3_1_7b_q4_cpu",
+  "expectedResponseModel": "Qwen3-1.7B-Q4_0",
+  "expectedFinishReason": "stop",
+  "expectedNoReasoning": true,
+  "maxFirstAudioMs": 3000,
+  "cases": [
+    {
+      "name": "expressive_selector_memory_store_reroutes_exact",
+      "serverWarmth": "warm",
+      "mode": "chat",
+      "language": "en",
+      "audio": "scripts/phone_acceptance_fixtures/context_store_en.wav",
+      "contextEnabled": false,
+      "clearHistoryBefore": true,
+      "expectedOutcome": "complete",
+      "expectedResolvedLanguage": "en",
+      "expectedResponseMode": "chat",
+      "expectedVoiceBackend": "lfm_audio_natural_tts_streaming",
+      "expectedAsrBackend": "sensevoice_qnn",
+      "expectedAsrProvider": "qnn",
+      "expectedNpuExecuted": true,
+      "expectedCompanionLanguages": ["en"],
+      "expectedTranscriptIncludes": "cobalt tulip",
+      "expectedResponseIncludes": "memory",
+      "expectedResponseExcludes": "cobalt tulip",
+      "expectedResponseScript": "latin",
+      "expectedMinResponseCharacters": 8,
+      "expectedMaxDuplicateGramRatio": 0.2,
+      "expectedHistoryTurnsAfter": 0
+    }
+  ]
+}

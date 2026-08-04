@@ -1,0 +1,764 @@
+{
+  "schema_version": 1,
+  "candidate": {
+    "application_id": "ai.liquid.lfmdemo",
+    "version_code": 9,
+    "version_name": "0.4.1-protocol-recovery",
+    "apk_sha256": "4f13fb28ef244dd5d2bd90bf7731841a0995fa2e8b4231c4feccf24068942a1d"
+  },
+  "device": {
+    "product": "NX809J",
+    "soc": "SM8850",
+    "android_release": "16",
+    "abi": "arm64-v8a",
+    "htp_arch": "v81"
+  },
+  "run": {
+    "started_at": "2026-07-24T04:21:41.413Z",
+    "finished_at": "2026-07-24T04:22:57.468Z",
+    "harness_failure": null,
+    "case_count": 12,
+    "blocked_file_input_events": 0
+  },
+  "static_inspection": {
+    "model_ready": true,
+    "device_status": "Model ready",
+    "language_options": [
+      {
+        "value": "auto",
+        "label": "Auto"
+      },
+      {
+        "value": "en",
+        "label": "English"
+      },
+      {
+        "value": "zh",
+        "label": "Chinese (Mandarin)"
+      },
+      {
+        "value": "ru",
+        "label": "Russian"
+      },
+      {
+        "value": "fr",
+        "label": "French"
+      },
+      {
+        "value": "it",
+        "label": "Italian"
+      },
+      {
+        "value": "es",
+        "label": "Spanish"
+      }
+    ],
+    "controls": {
+      "chat": true,
+      "asr": true,
+      "tts": true,
+      "push": true,
+      "vad": true,
+      "clearHistory": true
+    },
+    "native_bridge": {
+      "present": true,
+      "telemetry": true,
+      "tts": true,
+      "vad_start": true,
+      "vad_resume": true,
+      "vad_stop": true,
+      "tts_engine_available": false,
+      "default_tts_locale": "en-GB"
+    },
+    "history": {
+      "turns": 0,
+      "characters": 0,
+      "approximate_tokens": 0,
+      "limits": {
+        "max_turns": 6,
+        "max_characters": 6000,
+        "max_approximate_tokens": 1500
+      }
+    },
+    "service_worker_controlled": true
+  },
+  "cases": [
+    {
+      "name": "english_voice_response",
+      "verdict": "pass",
+      "requested_mode": "chat",
+      "selected_language": "en",
+      "resolved_language": "en",
+      "voice_backend": "integrated_lfm_pcm",
+      "response": "Sure, here are a few ideas: Woodworking Made Easy, Crafting Your Dream Home, Woodworking Made Simple, Your Woodworking Haven, Woodworking Made Simple, Handcrafted Woodworking, Woodworking Made Simple, Your Woodworking Haven, Woodworking Made Simple, Crafting Your Dream Home.",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "scheduled 0.88s · output-head 0.96s · done 4.63s",
+      "harness_elapsed_ms_including_playback_drain": 11230.3,
+      "latency": {
+        "first_text_ms": 604.5,
+        "first_pcm_ms": 695,
+        "first_audio_scheduled_ms": 880.6,
+        "first_output_head_ms": 962.864,
+        "response_complete_ms": 4632.3,
+        "output_head_status": "observed",
+        "playback_underflows": 0,
+        "audio_chunks": 129,
+        "voice_backend": "integrated_lfm_pcm",
+        "history_mutated": true,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 1,
+        "characters": 346,
+        "approximate_tokens": 87,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr",
+        "response"
+      ],
+      "drain": {
+        "status": "drained"
+      }
+    },
+    {
+      "name": "sapphire_history_turn_1",
+      "verdict": "pass",
+      "requested_mode": "chat",
+      "selected_language": "en",
+      "resolved_language": "en",
+      "voice_backend": "integrated_lfm_pcm",
+      "response": "Remember to keep the passphrase safe.",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "scheduled 1.02s · output-head 1.06s · done 1.68s",
+      "harness_elapsed_ms_including_playback_drain": 3486.6,
+      "latency": {
+        "first_text_ms": 780.3,
+        "first_pcm_ms": 877.5,
+        "first_audio_scheduled_ms": 1024.2,
+        "first_output_head_ms": 1061.002,
+        "response_complete_ms": 1680.3,
+        "output_head_status": "observed",
+        "playback_underflows": 0,
+        "audio_chunks": 31,
+        "voice_backend": "integrated_lfm_pcm",
+        "history_mutated": true,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 1,
+        "characters": 114,
+        "approximate_tokens": 29,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr",
+        "response"
+      ],
+      "drain": {
+        "status": "drained"
+      }
+    },
+    {
+      "name": "sapphire_history_turn_2",
+      "verdict": "pass",
+      "requested_mode": "chat",
+      "selected_language": "en",
+      "resolved_language": "en",
+      "voice_backend": "integrated_lfm_pcm",
+      "response": "The passphrase is sapphire.",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "scheduled 0.65s · output-head 0.69s · done 2.07s",
+      "harness_elapsed_ms_including_playback_drain": 5672.1,
+      "latency": {
+        "first_text_ms": 409.7,
+        "first_pcm_ms": 509.4,
+        "first_audio_scheduled_ms": 653.2,
+        "first_output_head_ms": 691.165,
+        "response_complete_ms": 2071.6,
+        "output_head_status": "observed",
+        "playback_underflows": 0,
+        "audio_chunks": 63,
+        "voice_backend": "integrated_lfm_pcm",
+        "history_mutated": true,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 1,
+        "characters": 114,
+        "approximate_tokens": 29,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 2,
+        "characters": 164,
+        "approximate_tokens": 41,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr",
+        "response"
+      ],
+      "drain": {
+        "status": "drained"
+      }
+    },
+    {
+      "name": "explicit_fr_chat",
+      "verdict": "partial_text_only",
+      "requested_mode": "chat",
+      "selected_language": "fr",
+      "resolved_language": "fr",
+      "voice_backend": "text_only_no_android_tts",
+      "response": "La capitale de la France est Paris.",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "no audio · done 3.22s",
+      "harness_elapsed_ms_including_playback_drain": 3225.9,
+      "latency": {
+        "first_text_ms": 842.7,
+        "first_pcm_ms": null,
+        "first_audio_scheduled_ms": null,
+        "first_output_head_ms": null,
+        "response_complete_ms": 3223.6,
+        "output_head_status": "not-started",
+        "playback_underflows": 0,
+        "audio_chunks": 0,
+        "voice_backend": "text_only_no_android_tts",
+        "history_mutated": true,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 1,
+        "characters": 82,
+        "approximate_tokens": 21,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr",
+        "response"
+      ],
+      "drain": {
+        "status": "no_pending_audio"
+      }
+    },
+    {
+      "name": "explicit_it_chat",
+      "verdict": "partial_text_only",
+      "requested_mode": "chat",
+      "selected_language": "it",
+      "resolved_language": "it",
+      "voice_backend": "text_only_no_android_tts",
+      "response": "La capitale d'Italia è Roma.",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "no audio · done 5.91s",
+      "harness_elapsed_ms_including_playback_drain": 5913.8,
+      "latency": {
+        "first_text_ms": 724.6,
+        "first_pcm_ms": null,
+        "first_audio_scheduled_ms": null,
+        "first_output_head_ms": null,
+        "response_complete_ms": 5912.4,
+        "output_head_status": "not-started",
+        "playback_underflows": 0,
+        "audio_chunks": 0,
+        "voice_backend": "text_only_no_android_tts",
+        "history_mutated": true,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 1,
+        "characters": 70,
+        "approximate_tokens": 18,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr",
+        "response"
+      ],
+      "drain": {
+        "status": "no_pending_audio"
+      }
+    },
+    {
+      "name": "explicit_es_chat",
+      "verdict": "partial_text_only",
+      "requested_mode": "chat",
+      "selected_language": "es",
+      "resolved_language": "es",
+      "voice_backend": "text_only_no_android_tts",
+      "response": "La capital de España es Madrid.",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "no audio · done 5.65s",
+      "harness_elapsed_ms_including_playback_drain": 5652,
+      "latency": {
+        "first_text_ms": 1010.9,
+        "first_pcm_ms": null,
+        "first_audio_scheduled_ms": null,
+        "first_output_head_ms": null,
+        "response_complete_ms": 5650.1,
+        "output_head_status": "not-started",
+        "playback_underflows": 0,
+        "audio_chunks": 0,
+        "voice_backend": "text_only_no_android_tts",
+        "history_mutated": true,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 1,
+        "characters": 76,
+        "approximate_tokens": 19,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr",
+        "response"
+      ],
+      "drain": {
+        "status": "no_pending_audio"
+      }
+    },
+    {
+      "name": "auto_zh_asr",
+      "verdict": "fail_asr_quality",
+      "requested_mode": "asr",
+      "selected_language": "auto",
+      "resolved_language": "en",
+      "voice_backend": null,
+      "response": "Xing yung zhong wen zi yi shu chu zhong guo de shou du",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "Transcript 0.69s",
+      "harness_elapsed_ms_including_playback_drain": 693.4,
+      "latency": {
+        "first_text_ms": 320,
+        "first_pcm_ms": null,
+        "first_audio_scheduled_ms": null,
+        "first_output_head_ms": null,
+        "response_complete_ms": 692.5,
+        "output_head_status": null,
+        "playback_underflows": 0,
+        "audio_chunks": 0,
+        "voice_backend": null,
+        "history_mutated": false,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr"
+      ],
+      "drain": {
+        "status": "no_pending_audio"
+      }
+    },
+    {
+      "name": "explicit_zh_chat",
+      "verdict": "pass_fail_closed_feature_unavailable",
+      "requested_mode": "chat",
+      "selected_language": "zh",
+      "resolved_language": "zh",
+      "voice_backend": null,
+      "response": "",
+      "visible_error": "Mandarin conversation is blocked because this LFM ASR pass returned phonetic Latin text instead of Chinese characters. Use Transcription for this build; the verified SenseVoice NPU route is not integrated into the APK yet.",
+      "expected_guard_error": "Mandarin conversation is blocked because this LFM ASR pass returned phonetic Latin text instead of Chinese characters. Use Transcription for this build; the verified SenseVoice NPU route is not integrated into the APK yet.",
+      "timer_text": "Not ready",
+      "harness_elapsed_ms_including_playback_drain": 701.7,
+      "latency": null,
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr"
+      ],
+      "drain": null
+    },
+    {
+      "name": "auto_zh_chat",
+      "verdict": "fail_unsafe_auto_route",
+      "requested_mode": "chat",
+      "selected_language": "auto",
+      "resolved_language": "en",
+      "voice_backend": "integrated_lfm_pcm",
+      "response": "Xing yung zhong wen zi yi shu chu zhong guo de shou du",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "scheduled 1.31s · output-head 1.35s · done 7.21s",
+      "harness_elapsed_ms_including_playback_drain": 14570.5,
+      "latency": {
+        "first_text_ms": 1034,
+        "first_pcm_ms": 1165,
+        "first_audio_scheduled_ms": 1311.4,
+        "first_output_head_ms": 1349.671,
+        "response_complete_ms": 7205.5,
+        "output_head_status": "observed",
+        "playback_underflows": 0,
+        "audio_chunks": 166,
+        "voice_backend": "integrated_lfm_pcm",
+        "history_mutated": true,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 1,
+        "characters": 108,
+        "approximate_tokens": 27,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr",
+        "response"
+      ],
+      "drain": {
+        "status": "drained"
+      }
+    },
+    {
+      "name": "auto_ru_asr",
+      "verdict": "fail_asr_quality",
+      "requested_mode": "asr",
+      "selected_language": "auto",
+      "resolved_language": "en",
+      "voice_backend": null,
+      "response": "Kazhikradka, Kakna Zvaitsa Stalitsa Reciye.",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "Transcript 0.79s",
+      "harness_elapsed_ms_including_playback_drain": 795.7,
+      "latency": {
+        "first_text_ms": 451.6,
+        "first_pcm_ms": null,
+        "first_audio_scheduled_ms": null,
+        "first_output_head_ms": null,
+        "response_complete_ms": 794.2,
+        "output_head_status": null,
+        "playback_underflows": 0,
+        "audio_chunks": 0,
+        "voice_backend": null,
+        "history_mutated": false,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr"
+      ],
+      "drain": {
+        "status": "no_pending_audio"
+      }
+    },
+    {
+      "name": "explicit_ru_chat",
+      "verdict": "pass_fail_closed_feature_unavailable",
+      "requested_mode": "chat",
+      "selected_language": "ru",
+      "resolved_language": "ru",
+      "voice_backend": null,
+      "response": "",
+      "visible_error": "Russian conversation is blocked because this LFM ASR pass returned phonetic Latin text instead of Cyrillic Russian. Use Transcription for this build; the verified SenseVoice NPU route is not integrated into the APK yet.",
+      "expected_guard_error": "Russian conversation is blocked because this LFM ASR pass returned phonetic Latin text instead of Cyrillic Russian. Use Transcription for this build; the verified SenseVoice NPU route is not integrated into the APK yet.",
+      "timer_text": "Not ready",
+      "harness_elapsed_ms_including_playback_drain": 836,
+      "latency": null,
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr"
+      ],
+      "drain": null
+    },
+    {
+      "name": "auto_ru_chat",
+      "verdict": "fail_unsafe_auto_route",
+      "requested_mode": "chat",
+      "selected_language": "auto",
+      "resolved_language": "en",
+      "voice_backend": "integrated_lfm_pcm",
+      "response": "The phrase Kazhikradka, Kakna Zvaitsa Reciye is a Russian phrase that roughly means \"the people of Kazhikradka, the people of Kakna Zvaitsa Reciye.\" It’s a way of referring to the residents of those two villages.",
+      "visible_error": "",
+      "expected_guard_error": null,
+      "timer_text": "scheduled 1.61s · output-head 1.65s · done 7.16s",
+      "harness_elapsed_ms_including_playback_drain": 11990.2,
+      "latency": {
+        "first_text_ms": 1312,
+        "first_pcm_ms": 1466.3,
+        "first_audio_scheduled_ms": 1610.1,
+        "first_output_head_ms": 1647.136,
+        "response_complete_ms": 7161.5,
+        "output_head_status": "observed",
+        "playback_underflows": 0,
+        "audio_chunks": 130,
+        "voice_backend": "integrated_lfm_pcm",
+        "history_mutated": true,
+        "npu_executed": false
+      },
+      "history_before": {
+        "turns": 0,
+        "characters": 0,
+        "approximate_tokens": 0,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "history_after": {
+        "turns": 1,
+        "characters": 255,
+        "approximate_tokens": 64,
+        "limits": {
+          "max_turns": 6,
+          "max_characters": 6000,
+          "max_approximate_tokens": 1500
+        }
+      },
+      "protocol_assertions": {
+        "asrExactlyOneInputAudio": true,
+        "responseContainsNoInputAudio": true,
+        "responseUsesTextUserContent": true,
+        "rolesOnlySystemAndUser": true
+      },
+      "request_stages": [
+        "asr",
+        "response"
+      ],
+      "drain": {
+        "status": "drained"
+      }
+    }
+  ]
+}

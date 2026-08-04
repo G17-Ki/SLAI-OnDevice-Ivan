@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T11:20:22.700864+00:00",
+  "evidence_class": "Apple Silicon architecture experiment; not phone/NPU/glasses",
+  "settings": {
+    "audio": "ko_request.wav",
+    "asr_backend": "faster-whisper",
+    "asr_url": "http://127.0.0.1:8080/v1/chat/completions",
+    "whisper_model": "tiny",
+    "whisper_compute_type": "int8",
+    "asr_load_ms": 1850.1627501100302,
+    "llm_url": "http://127.0.0.1:8083/v1/chat/completions",
+    "llm_model": "LFM2.5-1.2B-Instruct-Q4_0",
+    "tts_model": "sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+    "language": "ko",
+    "threads": 2,
+    "steps": 4,
+    "speaker": 6,
+    "speed": 1.05,
+    "flush_chars": 64,
+    "playback_cushion_ms": 140.0,
+    "tts_load_ms": 593.9772920683026,
+    "warmups": 1,
+    "runs": 3
+  },
+  "summary": {
+    "asr_first_text": {
+      "min": 287.968875374645,
+      "median": 320.5203339457512,
+      "p95": 323.6838751472533,
+      "max": 323.6838751472533,
+      "mean": 310.7243614892165
+    },
+    "asr_complete": {
+      "min": 288.02008321508765,
+      "median": 320.57058392092586,
+      "p95": 323.87670828029513,
+      "max": 323.87670828029513,
+      "mean": 310.8224584721029
+    },
+    "llm_first_token_from_llm_start": {
+      "min": 33.878291957080364,
+      "median": 34.97116733342409,
+      "p95": 41.57908400520682,
+      "max": 41.57908400520682,
+      "mean": 36.80951443190376
+    },
+    "llm_first_visible_from_llm_start": {
+      "min": 33.878291957080364,
+      "median": 34.97116733342409,
+      "p95": 41.57908400520682,
+      "max": 41.57908400520682,
+      "mean": 36.80951443190376
+    },
+    "first_chunk_ready_from_llm_start": {
+      "min": 90.99300019443035,
+      "median": 94.28120916709304,
+      "p95": 98.45583373680711,
+      "max": 98.45583373680711,
+      "mean": 94.57668103277683
+    },
+    "llm_complete_from_llm_start": {
+      "min": 101.62970935925841,
+      "median": 105.37712508812547,
+      "p95": 110.29854184016585,
+      "max": 110.29854184016585,
+      "mean": 105.76845876251657
+    },
+    "tts_first_callback_from_tts_start": {
+      "min": 406.68324986472726,
+      "median": 410.50845803692937,
+      "p95": 464.4854171201587,
+      "max": 464.4854171201587,
+      "mean": 427.2257083406051
+    },
+    "tts_complete_from_tts_start": {
+      "min": 406.7801251076162,
+      "median": 410.7088749296963,
+      "p95": 464.7256671451032,
+      "max": 464.7256671451032,
+      "mean": 427.40488906080526
+    },
+    "pipeline_first_pcm": {
+      "min": 797.1040830016136,
+      "median": 821.6393329203129,
+      "p95": 879.8600831069052,
+      "max": 879.8600831069052,
+      "mean": 832.8678330096105
+    },
+    "pipeline_first_audible_scheduled": {
+      "min": 937.1040831319988,
+      "median": 961.639333050698,
+      "p95": 1019.8600832372904,
+      "max": 1019.8600832372904,
+      "mean": 972.8678331399957
+    },
+    "pipeline_complete": {
+      "min": 805.3103326819837,
+      "median": 826.4669999480247,
+      "p95": 884.7170830704272,
+      "max": 884.7170830704272,
+      "mean": 838.8314719001452
+    }
+  },
+  "runs": [
+    {
+      "run_index": 0,
+      "measured": false,
+      "transcript": "프랑스의 student 어딘가요?",
+      "asr_detected_language": "ko",
+      "asr_language_probability": 1.0,
+      "response": "There are student places in France.",
+      "first_tts_chunk": "There are student places in France.",
+      "timing_ms": {
+        "asr_first_text": 299.40570890903473,
+        "asr_complete": 299.5916251093149,
+        "llm_first_token_from_llm_start": 120.74695900082588,
+        "llm_first_visible_from_llm_start": 120.74695900082588,
+        "first_chunk_ready_from_llm_start": 180.9415416792035,
+        "llm_complete_from_llm_start": 192.98766693100333,
+        "tts_first_callback_from_tts_start": 441.0345829091966,
+        "tts_complete_from_tts_start": 441.13554200157523,
+        "pipeline_first_pcm": 921.7809997498989,
+        "pipeline_first_audible_scheduled": 1061.780999880284,
+        "pipeline_complete": 925.9539591148496
+      },
+      "tts_audio_seconds": 2.6394784580498865,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 1,
+      "measured": true,
+      "transcript": "프랑스의 student 어딘가요?",
+      "asr_detected_language": "ko",
+      "asr_language_probability": 1.0,
+      "response": "There are student places in France.",
+      "first_tts_chunk": "There are student places in France.",
+      "timing_ms": {
+        "asr_first_text": 320.5203339457512,
+        "asr_complete": 320.57058392092586,
+        "llm_first_token_from_llm_start": 34.97116733342409,
+        "llm_first_visible_from_llm_start": 34.97116733342409,
+        "first_chunk_ready_from_llm_start": 94.28120916709304,
+        "llm_complete_from_llm_start": 105.37712508812547,
+        "tts_first_callback_from_tts_start": 464.4854171201587,
+        "tts_complete_from_tts_start": 464.7256671451032,
+        "pipeline_first_pcm": 879.8600831069052,
+        "pipeline_first_audible_scheduled": 1019.8600832372904,
+        "pipeline_complete": 884.7170830704272
+      },
+      "tts_audio_seconds": 2.6394784580498865,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 2,
+      "measured": true,
+      "transcript": "프랑스의 student 어딘가요?",
+      "asr_detected_language": "ko",
+      "asr_language_probability": 1.0,
+      "response": "There are student places in France.",
+      "first_tts_chunk": "There are student places in France.",
+      "timing_ms": {
+        "asr_first_text": 323.6838751472533,
+        "asr_complete": 323.87670828029513,
+        "llm_first_token_from_llm_start": 33.878291957080364,
+        "llm_first_visible_from_llm_start": 33.878291957080364,
+        "first_chunk_ready_from_llm_start": 90.99300019443035,
+        "llm_complete_from_llm_start": 101.62970935925841,
+        "tts_first_callback_from_tts_start": 406.68324986472726,
+        "tts_complete_from_tts_start": 406.7801251076162,
+        "pipeline_first_pcm": 821.6393329203129,
+        "pipeline_first_audible_scheduled": 961.639333050698,
+        "pipeline_complete": 826.4669999480247
+      },
+      "tts_audio_seconds": 2.6394784580498865,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    },
+    {
+      "run_index": 3,
+      "measured": true,
+      "transcript": "프랑스의 student 어딘가요?",
+      "asr_detected_language": "ko",
+      "asr_language_probability": 1.0,
+      "response": "There are student places in France.",
+      "first_tts_chunk": "There are student places in France.",
+      "timing_ms": {
+        "asr_first_text": 287.968875374645,
+        "asr_complete": 288.02008321508765,
+        "llm_first_token_from_llm_start": 41.57908400520682,
+        "llm_first_visible_from_llm_start": 41.57908400520682,
+        "first_chunk_ready_from_llm_start": 98.45583373680711,
+        "llm_complete_from_llm_start": 110.29854184016585,
+        "tts_first_callback_from_tts_start": 410.50845803692937,
+        "tts_complete_from_tts_start": 410.7088749296963,
+        "pipeline_first_pcm": 797.1040830016136,
+        "pipeline_first_audible_scheduled": 937.1040831319988,
+        "pipeline_complete": 805.3103326819837
+      },
+      "tts_audio_seconds": 2.6394784580498865,
+      "sample_rate": 44100,
+      "sample_path": null,
+      "first_chunk_path": null
+    }
+  ]
+}

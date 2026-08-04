@@ -1,0 +1,24 @@
+{
+  "device": {
+    "connected": false,
+    "probe_status": "no_device"
+  },
+  "schema_version": 1,
+  "selection": {
+    "auto_scope": "all",
+    "backend": "cpu_multilingual",
+    "contract": {
+      "cpu": "multilingual CPU backend must support zh/en/ru/fr/it/es and preserve the requested or detected language",
+      "qnn": "fixed 10-second SenseVoice context; pad short input and segment input longer than 10 seconds"
+    },
+    "fallback_required": true,
+    "provider": "cpu",
+    "qnn_activated": false,
+    "reason_codes": [
+      "phone_disconnected",
+      "phone_qnn_smoke_not_passed"
+    ],
+    "requested_language": "en",
+    "resolved_request": "en"
+  }
+}

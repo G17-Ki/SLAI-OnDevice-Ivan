@@ -1,0 +1,30 @@
+| Candidate | Lang | First chunk P95 (s) | RTF median | RTF P95 | micro-CER | micro-WER | Footprint (MiB) | Peak RSS (MiB) | Waveform gate | Screen |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---|---|
+| `espeak_ng` | en | 0.02 | 0.010 | 0.010 | - | - | 0 | 49 | pass | conditional |
+| `supertonic3_s4` | en | 0.57 | 0.228 | 0.229 | - | - | 139 | 386 | pass | conditional |
+| `espeak_ng` | es | - | 0.006 | 0.006 | - | - | 0 | 47 | pass | conditional |
+| `supertonic3_s4` | es | - | 0.180 | 0.181 | - | - | 139 | 328 | pass | conditional |
+| `espeak_ng` | fr | - | 0.007 | 0.007 | - | - | 0 | 47 | pass | conditional |
+| `supertonic3_s4` | fr | - | 0.181 | 0.181 | - | - | 139 | 332 | pass | conditional |
+| `espeak_ng` | it | - | 0.007 | 0.007 | - | - | 0 | 47 | pass | conditional |
+| `supertonic3_s4` | it | - | 0.189 | 0.190 | - | - | 139 | 329 | pass | conditional |
+| `espeak_ng` | ru | 0.02 | 0.028 | 0.032 | 30.1% | 61.7% | 0 | 74 | pass | blocked |
+| `piper_ru_dmitri` | ru | 0.13 | 0.130 | 0.142 | 4.7% | 13.3% | 77 | 305 | pass | clear |
+| `piper_ru_irina` | ru | 0.23 | 0.109 | 0.112 | 1.4% | 5.0% | 77 | 416 | pass | blocked |
+| `piper_ru_ruslan` | ru | 0.14 | 0.093 | 0.151 | 5.0% | 18.3% | 77 | 406 | pass | conditional |
+| `supertonic3_s4` | ru | 0.44 | 0.287 | 0.314 | 2.5% | 8.3% | 139 | 517 | pass | conditional |
+| `supertonic3_s4` | ru | 0.47 | 0.286 | 0.289 | 2.5% | 8.3% | 139 | 472 | pass | conditional |
+| `supertonic3_s5` | ru | 0.53 | 0.350 | 0.351 | 0.3% | 1.7% | 139 | 480 | pass | conditional |
+| `supertonic3_s5` | ru | 0.93 | 0.427 | 0.489 | 0.3% | 1.7% | 139 | 441 | pass | conditional |
+| `supertonic3_s6` | ru | 0.70 | 0.449 | 0.608 | 0.3% | 1.7% | 139 | 482 | pass | conditional |
+| `supertonic3_s6` | ru | 0.62 | 0.413 | 0.417 | 0.3% | 1.7% | 139 | 512 | pass | conditional |
+| `supertonic3_s8` | ru | 2.16 | 0.776 | 1.607 | 1.1% | 5.0% | 139 | 450 | pass | conditional |
+| `supertonic3_s8` | ru | 0.81 | 0.540 | 0.574 | 1.1% | 5.0% | 139 | 492 | pass | conditional |
+| `espeak_ng` | zh | 0.02 | 0.025 | 0.028 | 51.2% | - | 0 | 76 | pass | blocked |
+| `kokoro_zh` | zh | 2.65 | 1.385 | 1.412 | 8.9% | - | 199 | 519 | FAIL | blocked |
+| `kokoro_zh_fp32` | zh | 2.07 | 1.204 | 1.347 | 7.2% | - | 401 | 662 | pass | conditional |
+| `matcha_zh_baker` | zh | 0.16 | 0.146 | 0.146 | 4.0% | - | 139 | 287 | pass | conditional |
+| `melotts_zh` | zh | 0.99 | 0.715 | 0.942 | 17.6% | - | 182 | 482 | pass | conditional |
+| `melotts_zh_int8` | zh | 3.24 | 2.288 | 2.835 | 19.2% | - | 71 | 266 | pass | conditional |
+| `piper_zh_huayan` | zh | 0.15 | 0.091 | 0.158 | 9.6% | - | 77 | 322 | pass | blocked |
+| `zipvoice_zh` | zh | 3.59 | 3.355 | 4.758 | 4.8% | - | 195 | 1008 | pass | blocked |

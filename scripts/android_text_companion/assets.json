@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "target": {
+    "android_abi": "arm64-v8a",
+    "soc": "SM8850",
+    "listen": "127.0.0.1:6020",
+    "package": "ai.liquid.lfmdemo"
+  },
+  "model": {
+    "name": "Qwen3-1.7B-Q4_0",
+    "filename": "Qwen3-1.7B-Q4_0.gguf",
+    "repository": "unsloth/Qwen3-1.7B-GGUF",
+    "revision": "d7f544eead698dbd1f15126ef60b45a1e1933222",
+    "url": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/d7f544eead698dbd1f15126ef60b45a1e1933222/Qwen3-1.7B-Q4_0.gguf?download=true",
+    "bytes": 1056782912,
+    "sha256": "c876f159707a4e4f70e045106c69db15bfc935a4981706fd4f65c6e7ea1e81c5",
+    "upstream_model": "Qwen/Qwen3-1.7B",
+    "license": "Apache-2.0",
+    "repository_policy": "external_acquisition_only"
+  },
+  "runner": {
+    "name": "llama.cpp Android arm64",
+    "source_repository": "ggml-org/llama.cpp",
+    "version": "b10083",
+    "source_revision": "846e991ec3c7ccec49112ff2c5b00b710e5f551d",
+    "archive_filename": "llama-b10083-bin-android-arm64.tar.gz",
+    "archive_url": "https://github.com/ggml-org/llama.cpp/releases/download/b10083/llama-b10083-bin-android-arm64.tar.gz",
+    "archive_bytes": 74822792,
+    "archive_sha256": "c53e7989142bb1c56e29f1df780451810363b2cfae829827d4e2d79bb21c7189",
+    "extracted_directory": "llama-b10083",
+    "license": "MIT",
+    "repository_policy": "external_acquisition_only",
+    "files": {
+      "llama-server": {"bytes": 7192, "sha256": "db82377125f69e87c06b402bba1af072e2a4c4cc9945946e4d6378cc213a84d7", "executable": true},
+      "libllama-server-impl.so": {"bytes": 68575728, "sha256": "99e4c2dac31f4c077f5351a348aae253b371b57ca4422174e9a916c1db2b1b4d", "executable": true},
+      "libllama-common.so": {"bytes": 83907080, "sha256": "7753c86e417acc27ad6deee879ee0c6264032622d5654de5469f631649bc051e", "executable": true},
+      "libmtmd.so": {"bytes": 11700944, "sha256": "4cfce2989f597eb5cba071e6483142297ac52191035202f7614ba61d1ffeed64", "executable": true},
+      "libllama.so": {"bytes": 34593632, "sha256": "9bc3fcd80dd22520df2971a1dab2ecf621de4b01cdcbc28f15ec616dae412c88", "executable": true},
+      "libggml.so": {"bytes": 4919976, "sha256": "3ba8db66bf7497282ef534b5ca82e1b5bb68740459d9eebb5ce9d4e4102cbab3", "executable": true},
+      "libggml-base.so": {"bytes": 7886848, "sha256": "1cdb3cb1e9e5ec8e57c457280f7259895356313a9518290f2131dd83795d82d4", "executable": true},
+      "libggml-cpu-android_armv8.0_1.so": {"bytes": 4623032, "sha256": "bc23047d6b2000143d41fce1f9bfc1b6b5039a71f1276ac8f18014e3e49f65ad", "executable": true},
+      "libggml-cpu-android_armv8.2_1.so": {"bytes": 4889520, "sha256": "aa6d9033def3ad72b8a7bc8ac9b4ec84d69cb8e4bc31e590b290d98ff48ff938", "executable": true},
+      "libggml-cpu-android_armv8.2_2.so": {"bytes": 4876560, "sha256": "f934b37709ce1025b5739f5ab71c62513409437cb16de5a64a7c522ccae70e17", "executable": true},
+      "libggml-cpu-android_armv8.6_1.so": {"bytes": 4979528, "sha256": "32e43e7ca7111c7ccbc01366a9bfa3f3e78bb5188d3593cb299e04d67b7cec5c", "executable": true},
+      "libggml-cpu-android_armv9.0_1.so": {"bytes": 5020056, "sha256": "94dc84265974fc1b2ba6eba1d918774ead6ee3b46c1a0ee07026b5e68891464d", "executable": true},
+      "libggml-cpu-android_armv9.2_1.so": {"bytes": 5020000, "sha256": "ce6563c5fa3cc32d17317e909e38ee87308a78f1f17f1dc9c8772b1644853f83", "executable": true},
+      "libggml-cpu-android_armv9.2_2.so": {"bytes": 5020024, "sha256": "a7a6126eab659ef7848b3390bd36181dabaf8f0ddf3feaed40adcb93d7411b6d", "executable": true},
+      "LICENSE": {"bytes": 1078, "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d", "executable": false}
+    }
+  },
+  "runtime": {
+    "model_alias": "Qwen3-1.7B-Q4_0",
+    "context_tokens": 2048,
+    "max_completion_tokens": 768,
+    "generation_threads": 4,
+    "batch_threads": 4,
+    "http_threads": 1,
+    "parallel_slots": 1,
+    "batch_tokens": 128,
+    "microbatch_tokens": 64,
+    "gpu_layers": 0,
+    "reasoning": "off",
+    "reasoning_budget": 0,
+    "reasoning_format": "deepseek"
+  }
+}

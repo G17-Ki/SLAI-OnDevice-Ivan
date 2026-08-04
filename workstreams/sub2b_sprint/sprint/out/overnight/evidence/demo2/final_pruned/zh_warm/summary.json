@@ -1,0 +1,1045 @@
+{
+  "aggregate": {
+    "complete_turns": 1,
+    "generation_length_cap_turns": 0,
+    "native_tts_cancelled_turns": 0,
+    "native_tts_playback_completed_turns": 1,
+    "native_tts_playback_failed_turns": 0,
+    "native_tts_turns": 1,
+    "npu_executed_turns": 1,
+    "output_head_status_counts": {},
+    "quality_warning_turns": 0,
+    "repetition_warning_turns": 0,
+    "timing_ms": {
+      "manual_input_stop_to_request_start": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "p95": null
+      },
+      "manual_input_stop_to_wav_ready": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "p95": null
+      },
+      "request_to_complete": {
+        "count": 1,
+        "max": 15058.44171299995,
+        "median": 15058.44171299995,
+        "p95": 15058.44171299995
+      },
+      "request_to_first_buffer_queued_event": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "p95": null
+      },
+      "request_to_first_pcm_sse": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "p95": null
+      },
+      "request_to_first_text_sse": {
+        "count": 1,
+        "max": 1870.468905000016,
+        "median": 1870.468905000016,
+        "p95": 1870.468905000016
+      },
+      "request_to_first_voiced_audio_scheduled": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "p95": null
+      },
+      "request_to_first_voiced_output_head_estimate": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "p95": null
+      },
+      "request_to_native_tts_first_audio_start_proxy": {
+        "count": 1,
+        "max": 2329.613124000025,
+        "median": 2329.613124000025,
+        "p95": 2329.613124000025
+      },
+      "request_to_native_tts_first_chunk_queued": {
+        "count": 1,
+        "max": 2211.142343000043,
+        "median": 2211.142343000043,
+        "p95": 2211.142343000043
+      },
+      "request_to_native_tts_init_ready": {
+        "count": 1,
+        "max": 1999.3708839999745,
+        "median": 1999.3708839999745,
+        "p95": 1999.3708839999745
+      },
+      "request_to_native_tts_last_utterance_done": {
+        "count": 1,
+        "max": 15057.349368999945,
+        "median": 15057.349368999945,
+        "p95": 15057.349368999945
+      },
+      "request_to_native_tts_playback_terminal": {
+        "count": 1,
+        "max": 15058.44171299995,
+        "median": 15058.44171299995,
+        "p95": 15058.44171299995
+      },
+      "request_to_native_tts_queue_closed": {
+        "count": 1,
+        "max": 2504.241144999978,
+        "median": 2504.241144999978,
+        "p95": 2504.241144999978
+      },
+      "request_to_native_tts_utterance_start": {
+        "count": 1,
+        "max": 2329.2854669999797,
+        "median": 2329.2854669999797,
+        "p95": 2329.2854669999797
+      },
+      "request_to_output_head": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "p95": null
+      },
+      "request_to_scheduled_first_buffer": {
+        "count": 0,
+        "max": null,
+        "median": null,
+        "p95": null
+      },
+      "request_to_tts_text_sse_complete": {
+        "count": 1,
+        "max": 2504.455103000044,
+        "median": 2504.455103000044,
+        "p95": 2504.455103000044
+      }
+    },
+    "total_underflows": 0,
+    "turns": 2,
+    "turns_with_underflow": 0
+  },
+  "created_at_utc": "2026-08-02T19:15:16.032585+00:00",
+  "interpretation": {
+    "first_voiced_output_head_includes_pcm_silence_scan": true,
+    "first_voiced_output_head_is_still_not_external_acoustic_onset": true,
+    "manual_stop_is_not_speech_end": true,
+    "native_tts_on_start_is_not_acoustic_onset": true,
+    "output_head_is_not_acoustic_onset": true
+  },
+  "raw_event_count": 30,
+  "schema_version": 1,
+  "source": "adb run-as app-private telemetry",
+  "turns": [
+    {
+      "asr": {
+        "backend": "sensevoice_qnn",
+        "npu_executed": true,
+        "npu_selected": true,
+        "provider": "qnn",
+        "resolved_language": "zh",
+        "selected_language": "zh"
+      },
+      "complete": true,
+      "errors": [],
+      "event_names": [
+        "wav_ready",
+        "request_start",
+        "asr_request_start",
+        "asr_segment_complete",
+        "asr_request_complete",
+        "language_resolved",
+        "native_tts_init_requested",
+        "conversation_request_ready",
+        "response_backend_request_start",
+        "first_text_sse",
+        "native_tts_init_ready",
+        "tts_engine_resolved",
+        "native_tts_queue_flush",
+        "native_tts_chunk_queued",
+        "native_tts_utterance_start",
+        "native_tts_first_audio_start_proxy",
+        "native_tts_chunk_queued",
+        "native_tts_queue_closed",
+        "tts_text_sse_complete",
+        "native_tts_engine_metrics",
+        "native_tts_utterance_start",
+        "native_tts_engine_metrics",
+        "native_tts_utterance_done",
+        "native_tts_utterance_done",
+        "native_tts_playback_terminal"
+      ],
+      "events": [
+        {
+          "details": {
+            "filename": "question_zh.wav",
+            "input": "file",
+            "wav_bytes": 83478
+          },
+          "event": "wav_ready",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1039060.406529,
+          "native_received_monotonic_ms": 1039060.699029,
+          "performance_ms": 924005.3,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:18.385Z"
+        },
+        {
+          "details": {
+            "asr_companion": true,
+            "backend": "sensevoice_qnn",
+            "context_enabled": false,
+            "english_response_style": "exact",
+            "generation": 1785697074503001,
+            "history_approx_tokens": 0,
+            "history_characters": 0,
+            "history_turns": 0,
+            "lfm_tts_voice": "uk_female",
+            "npu_candidate": "sensevoice_qnn_sm8850",
+            "npu_executed": false,
+            "npu_fallback_reason": null,
+            "npu_gate": "pending",
+            "npu_selected": false,
+            "provider": "qnn",
+            "selected_language": "zh",
+            "tts_policy": "matcha_zh_baker",
+            "wav_bytes": 83478
+          },
+          "event": "request_start",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1039067.323873,
+          "native_received_monotonic_ms": 1039067.515279,
+          "performance_ms": 924012.2000000001,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:18.392Z"
+        },
+        {
+          "details": {
+            "asr_companion": true,
+            "backend": "sensevoice_qnn",
+            "generation": 1785697074503001,
+            "npu_candidate": "sensevoice_qnn_sm8850",
+            "npu_executed": false,
+            "npu_fallback_reason": null,
+            "npu_gate": "pending",
+            "npu_selected": false,
+            "provider": "qnn",
+            "selected_language": "zh"
+          },
+          "event": "asr_request_start",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1039067.885539,
+          "native_received_monotonic_ms": 1039067.995696,
+          "performance_ms": 924012.8,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:18.392Z"
+        },
+        {
+          "details": {
+            "asr_companion": true,
+            "backend": "sensevoice_qnn",
+            "candidate_summaries": [
+              {
+                "backend": "sensevoice_qnn",
+                "cyrillic_characters": 0,
+                "han_characters": 12,
+                "hangul_characters": 0,
+                "kana_characters": 0,
+                "language_hint": "zh",
+                "latin_characters": 0,
+                "mean_token_log_probability": null,
+                "ok": true,
+                "provider": "qnn",
+                "transcript_characters": 13
+              }
+            ],
+            "npu_candidate": "sensevoice_qnn_sm8850",
+            "npu_executed": true,
+            "npu_fallback_reason": null,
+            "npu_gate": "executed",
+            "npu_selected": true,
+            "provider": "qnn",
+            "requested_language": "zh",
+            "resolved_language": "zh",
+            "segment_count": 1,
+            "segment_end_seconds": 2.6073125,
+            "segment_index": 0,
+            "segment_ms": 722.7000000000698,
+            "segment_start_seconds": 0
+          },
+          "event": "asr_segment_complete",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1039793.024445,
+          "native_received_monotonic_ms": 1039793.280383,
+          "performance_ms": 924737.9,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:19.117Z"
+        },
+        {
+          "details": {
+            "asr_companion": true,
+            "backend": "sensevoice_qnn",
+            "candidate_summaries": [
+              {
+                "backend": "sensevoice_qnn",
+                "cyrillic_characters": 0,
+                "han_characters": 12,
+                "hangul_characters": 0,
+                "kana_characters": 0,
+                "language_hint": "zh",
+                "latin_characters": 0,
+                "mean_token_log_probability": null,
+                "ok": true,
+                "provider": "qnn",
+                "transcript_characters": 13
+              }
+            ],
+            "first_text_ms": 726.7999999999302,
+            "generation": 1785697074503001,
+            "input_duration_seconds": 2.6073125,
+            "npu_candidate": "sensevoice_qnn_sm8850",
+            "npu_executed": true,
+            "npu_fallback_reason": null,
+            "npu_gate": "executed",
+            "npu_selected": true,
+            "provider": "qnn",
+            "resolved_language": "zh",
+            "segment_count": 1,
+            "segment_summaries": [
+              {
+                "backend": "sensevoice_qnn",
+                "index": 0,
+                "npu_executed": true,
+                "npu_selected": true,
+                "provider": "qnn",
+                "transcript_characters": 13
+              }
+            ],
+            "segmented_input": false,
+            "selected_language": "zh"
+          },
+          "event": "asr_request_complete",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1039794.270591,
+          "native_received_monotonic_ms": 1039794.409654,
+          "performance_ms": 924739.1000000001,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:19.119Z"
+        },
+        {
+          "details": {
+            "asr_companion": true,
+            "asr_first_text_ms": 726.7999999999302,
+            "backend": "sensevoice_qnn",
+            "candidate_summaries": [
+              {
+                "backend": "sensevoice_qnn",
+                "cyrillic_characters": 0,
+                "han_characters": 12,
+                "hangul_characters": 0,
+                "kana_characters": 0,
+                "language_hint": "zh",
+                "latin_characters": 0,
+                "mean_token_log_probability": null,
+                "ok": true,
+                "provider": "qnn",
+                "transcript_characters": 13
+              }
+            ],
+            "confidence": 1,
+            "context_enabled": false,
+            "evidence": "explicit user selection via sensevoice_qnn",
+            "fallback_used": false,
+            "history_approx_tokens": 0,
+            "history_characters": 0,
+            "history_turns": 0,
+            "input_duration_seconds": 2.6073125,
+            "npu_candidate": "sensevoice_qnn_sm8850",
+            "npu_executed": true,
+            "npu_fallback_reason": null,
+            "npu_gate": "executed",
+            "npu_selected": true,
+            "provider": "qnn",
+            "resolution_reason": "explicit user selection via sensevoice_qnn",
+            "resolved_language": "zh",
+            "segment_count": 1,
+            "segment_summaries": [
+              {
+                "backend": "sensevoice_qnn",
+                "index": 0,
+                "npu_executed": true,
+                "npu_selected": true,
+                "provider": "qnn",
+                "transcript_characters": 13
+              }
+            ],
+            "segmented_input": false,
+            "selected_language": "zh",
+            "transcript_characters": 13,
+            "tts_locale": "zh-CN"
+          },
+          "event": "language_resolved",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1039794.725904,
+          "native_received_monotonic_ms": 1039794.933716,
+          "performance_ms": 924739.5,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:19.119Z"
+        },
+        {
+          "details": {
+            "engine_package": "com.reecedunn.espeak",
+            "generation": 1785697074503001,
+            "requested_locale": "zh-CN"
+          },
+          "event": "native_tts_init_requested",
+          "mode": "native_tts",
+          "monotonic_ms": 1039799.288924,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "context_decision_reason": "context_disabled",
+            "context_enabled": false,
+            "context_injected": false,
+            "context_policy": "followup_only",
+            "direct_lfm_interleaved": false,
+            "duplicate_audio_encode": false,
+            "english_response_style": "exact",
+            "history_turns": 0,
+            "memory_unavailable_action": null,
+            "resolved_tts_engine": null,
+            "response_backend": "qwen2_5_1_5b_q4_k_m_cpu",
+            "response_input": "asr_text",
+            "response_mode": "tts",
+            "response_model": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+            "response_token_limit": 768,
+            "tts_policy": "matcha_zh_baker",
+            "voice_backend": "android_native_tts",
+            "voice_delivery_reason": "offline voice mode selected"
+          },
+          "event": "conversation_request_ready",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1039799.62757,
+          "native_received_monotonic_ms": 1039799.738664,
+          "performance_ms": 924744.4,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:19.124Z"
+        },
+        {
+          "details": {
+            "context_decision_reason": "context_disabled",
+            "context_enabled": false,
+            "context_injected": false,
+            "context_policy": "followup_only",
+            "direct_lfm_interleaved": false,
+            "history_messages": 0,
+            "response_backend": "qwen2_5_1_5b_q4_k_m_cpu",
+            "response_model": "Qwen2.5-1.5B-Instruct-Q4_K_M"
+          },
+          "event": "response_backend_request_start",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1039799.878195,
+          "native_received_monotonic_ms": 1039800.013247,
+          "performance_ms": 924744.7000000001,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:19.124Z"
+        },
+        {
+          "details": {
+            "request_elapsed_ms": 1870.1999999999534,
+            "response_backend": "qwen2_5_1_5b_q4_k_m_cpu",
+            "response_backend_elapsed_ms": 1137.8999999999069
+          },
+          "event": "first_text_sse",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1040937.792778,
+          "native_received_monotonic_ms": 1040938.108976,
+          "performance_ms": 925882.7000000001,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:20.262Z"
+        },
+        {
+          "details": {
+            "engine": "matcha_zh_baker",
+            "engine_family": "matcha",
+            "engine_label": "Matcha ZH (baker)",
+            "generation": 1785697074503001,
+            "requested_locale": "zh-CN",
+            "resolved_locale": "zh",
+            "sample_rate_hz": 22050,
+            "threads": 1,
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_init_ready",
+          "mode": "native_tts",
+          "monotonic_ms": 1041066.694757,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "requested_locale": "zh-CN",
+            "resolved_locale": "zh",
+            "resolved_tts_engine": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "tts_engine_resolved",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1041068.113924,
+          "native_received_monotonic_ms": 1041068.285799,
+          "performance_ms": 926013,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:20.392Z"
+        },
+        {
+          "details": {
+            "reason": "first_chunk"
+          },
+          "event": "native_tts_queue_flush",
+          "mode": "native_tts",
+          "monotonic_ms": 1041278.05408,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "character_count": 35,
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "generation": 1785697074503001,
+            "locale": "zh-CN",
+            "pending_utterances": 1,
+            "queue_mode": "flush",
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_chunk_queued",
+          "mode": "native_tts",
+          "monotonic_ms": 1041278.466216,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "character_count": 35,
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "generation": 1785697074503001,
+            "locale": "zh-CN",
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_utterance_start",
+          "mode": "native_tts",
+          "monotonic_ms": 1041396.60934,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "character_count": 35,
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "generation": 1785697074503001,
+            "locale": "zh-CN",
+            "proxy": "UtteranceProgressListener.onStart",
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_first_audio_start_proxy",
+          "mode": "native_tts",
+          "monotonic_ms": 1041396.936997,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "character_count": 17,
+            "chunk_id": "chunk-1",
+            "chunk_index": 1,
+            "generation": 1785697074503001,
+            "locale": "zh-CN",
+            "pending_utterances": 2,
+            "queue_mode": "add",
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_chunk_queued",
+          "mode": "native_tts",
+          "monotonic_ms": 1041547.163872,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "chunks_queued": 2,
+            "generation": 1785697074503001,
+            "pending_utterances": 2
+          },
+          "event": "native_tts_queue_closed",
+          "mode": "native_tts",
+          "monotonic_ms": 1041571.565018,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "asr_companion": true,
+            "audio_chunks": 0,
+            "backend": "sensevoice_qnn",
+            "candidate_summaries": [
+              {
+                "backend": "sensevoice_qnn",
+                "cyrillic_characters": 0,
+                "han_characters": 12,
+                "hangul_characters": 0,
+                "kana_characters": 0,
+                "language_hint": "zh",
+                "latin_characters": 0,
+                "mean_token_log_probability": null,
+                "ok": true,
+                "provider": "qnn",
+                "transcript_characters": 13
+              }
+            ],
+            "confidence": 1,
+            "context_decision_reason": "context_disabled",
+            "context_enabled": false,
+            "context_injected": false,
+            "context_policy": "followup_only",
+            "direct_lfm_interleaved": false,
+            "english_response_style": "exact",
+            "evidence": "explicit user selection via sensevoice_qnn",
+            "fallback_used": false,
+            "finish_reason": "stop",
+            "first_audio_scheduled_ms": null,
+            "first_native_tts_start_proxy_ms": 2329.672082000063,
+            "first_output_head_ms": null,
+            "first_pcm_ms": null,
+            "first_text_ms": 1870.1999999999534,
+            "first_voiced_output_head_ms": null,
+            "first_voiced_pcm_offset_ms": null,
+            "first_voiced_scheduled_ms": null,
+            "history_approx_tokens": 0,
+            "history_characters": 0,
+            "history_mutated": false,
+            "history_reject_reason": "history_disabled",
+            "history_turns": 0,
+            "input_duration_seconds": 2.6073125,
+            "lfm_tts_audio_chunks": 0,
+            "lfm_tts_chunks_completed": 0,
+            "lfm_tts_chunks_submitted": 0,
+            "lfm_tts_voice": null,
+            "native_tts_chunks_confirmed": 2,
+            "native_tts_chunks_submitted": 2,
+            "native_tts_locale": "zh",
+            "npu_candidate": "sensevoice_qnn_sm8850",
+            "npu_executed": true,
+            "npu_fallback_reason": null,
+            "npu_gate": "executed",
+            "npu_selected": true,
+            "output_head_status": "not-started",
+            "pcm_duration_seconds": 0,
+            "pcm_samples": 0,
+            "playback_underflows": 0,
+            "provider": "qnn",
+            "reasoning_filter": {
+              "buffered_characters": 0,
+              "filtered_characters": 0,
+              "raw_characters": 52,
+              "reasoning_blocks_removed": 0,
+              "stray_closing_tags_removed": 0,
+              "visible_characters": 52
+            },
+            "repetition": {
+              "duplicate_gram_ratio": 0,
+              "gram_size": 4,
+              "max_gram_count": 1,
+              "token_count": 47
+            },
+            "request_elapsed_ms": 2504.29999999993,
+            "resolution_reason": "explicit user selection via sensevoice_qnn",
+            "resolved_language": "zh",
+            "resolved_tts_engine": "matcha_zh_baker",
+            "response_backend": "qwen2_5_1_5b_q4_k_m_cpu",
+            "response_model": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+            "response_token_limit": 768,
+            "sample_rate": 24000,
+            "segment_count": 1,
+            "segment_summaries": [
+              {
+                "backend": "sensevoice_qnn",
+                "index": 0,
+                "npu_executed": true,
+                "npu_selected": true,
+                "provider": "qnn",
+                "transcript_characters": 13
+              }
+            ],
+            "segmented_input": false,
+            "selected_language": "zh",
+            "sse_events": 31,
+            "tts_locale": "zh-CN",
+            "tts_policy": "matcha_zh_baker",
+            "voice_backend": "android_native_tts",
+            "voice_delivery_reason": "offline voice mode selected"
+          },
+          "event": "tts_text_sse_complete",
+          "input_mode": "push",
+          "mode": "tts",
+          "monotonic_ms": 1041571.778976,
+          "native_received_monotonic_ms": 1041572.013924,
+          "performance_ms": 926516.6000000001,
+          "schema_version": 1,
+          "turn_id": "1785697998329-1",
+          "wall_time_iso": "2026-08-02T19:13:20.896Z"
+        },
+        {
+          "details": {
+            "applied_gain_db": 3.59055212846361,
+            "audio_seconds": 8.6378231292517,
+            "audio_track_buffer_frames": 22050,
+            "audio_track_started": true,
+            "audio_track_write_quantum_ms": 20,
+            "audio_track_zero_write_retries": 0,
+            "dropped_chunks": 0,
+            "engine_family": "matcha",
+            "engine_generation": 1,
+            "engine_id": "matcha_zh_baker",
+            "first_chunk_ms": 99,
+            "generation": 1785697074503001,
+            "generation_language": "zh",
+            "pending_synthesis_tasks": 1,
+            "rtf": 0.04202447706653226,
+            "sample_rate_hz": 22050,
+            "serialized_synthesis": true,
+            "synthesis_ms": 363,
+            "threads": 1
+          },
+          "event": "native_tts_engine_metrics",
+          "mode": "native_tts",
+          "monotonic_ms": 1041642.059445,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "character_count": 17,
+            "chunk_id": "chunk-1",
+            "chunk_index": 1,
+            "generation": 1785697074503001,
+            "locale": "zh-CN",
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_utterance_start",
+          "mode": "native_tts",
+          "monotonic_ms": 1041781.285434,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "applied_gain_db": 3.5971707563652955,
+            "audio_seconds": 4.098321995464852,
+            "audio_track_buffer_frames": 22050,
+            "audio_track_started": true,
+            "audio_track_write_quantum_ms": 20,
+            "audio_track_zero_write_retries": 0,
+            "dropped_chunks": 0,
+            "engine_family": "matcha",
+            "engine_generation": 1,
+            "engine_id": "matcha_zh_baker",
+            "first_chunk_ms": 136,
+            "generation": 1785697074503001,
+            "generation_language": "zh",
+            "pending_synthesis_tasks": 0,
+            "rtf": 0.03391631993626063,
+            "sample_rate_hz": 22050,
+            "serialized_synthesis": true,
+            "synthesis_ms": 139,
+            "threads": 1
+          },
+          "event": "native_tts_engine_metrics",
+          "mode": "native_tts",
+          "monotonic_ms": 1041781.972517,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "character_count": 35,
+            "chunk_id": "chunk-0",
+            "chunk_index": 0,
+            "generation": 1785697074503001,
+            "locale": "zh-CN",
+            "pending_utterances": 1,
+            "queue_closed": true,
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_utterance_done",
+          "mode": "native_tts",
+          "monotonic_ms": 1049963.087775,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "character_count": 17,
+            "chunk_id": "chunk-1",
+            "chunk_index": 1,
+            "generation": 1785697074503001,
+            "locale": "zh-CN",
+            "pending_utterances": 0,
+            "queue_closed": true,
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_utterance_done",
+          "mode": "native_tts",
+          "monotonic_ms": 1054124.673242,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        },
+        {
+          "details": {
+            "chunks_queued": 2,
+            "generation": 1785697074503001,
+            "pending_utterances": 0,
+            "status": "completed",
+            "tts_engine_id": "matcha_zh_baker",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_playback_terminal",
+          "mode": "native_tts",
+          "monotonic_ms": 1054125.765586,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "1785697998329-1"
+        }
+      ],
+      "mode": "tts",
+      "native_tts": {
+        "chunks_queued": 2,
+        "network_connection_required": null,
+        "playback_terminal": true,
+        "playback_terminal_status": "completed",
+        "queue_cancelled": false,
+        "queue_closed": true,
+        "resolved_locale": "zh",
+        "text_sse_complete": true,
+        "used": true,
+        "voice_name": null
+      },
+      "output_head_status": null,
+      "output_quality": {
+        "finish_reason": "stop",
+        "pcm_duration_seconds": 0,
+        "repetition": {
+          "duplicate_gram_ratio": 0,
+          "gram_size": 4,
+          "max_gram_count": 1,
+          "token_count": 47
+        },
+        "response_token_limit": 768,
+        "sse_events": 31,
+        "warning_reasons": []
+      },
+      "queue_underflows": 0,
+      "timing_ms": {
+        "manual_input_stop_to_request_start": null,
+        "manual_input_stop_to_wav_ready": null,
+        "request_to_complete": 15058.44171299995,
+        "request_to_first_buffer_queued_event": null,
+        "request_to_first_pcm_sse": null,
+        "request_to_first_text_sse": 1870.468905000016,
+        "request_to_first_voiced_audio_scheduled": null,
+        "request_to_first_voiced_output_head_estimate": null,
+        "request_to_native_tts_first_audio_start_proxy": 2329.613124000025,
+        "request_to_native_tts_first_chunk_queued": 2211.142343000043,
+        "request_to_native_tts_init_ready": 1999.3708839999745,
+        "request_to_native_tts_last_utterance_done": 15057.349368999945,
+        "request_to_native_tts_playback_terminal": 15058.44171299995,
+        "request_to_native_tts_queue_closed": 2504.241144999978,
+        "request_to_native_tts_utterance_start": 2329.2854669999797,
+        "request_to_output_head": null,
+        "request_to_scheduled_first_buffer": null,
+        "request_to_tts_text_sse_complete": 2504.455103000044
+      },
+      "turn_id": "1785697998329-1"
+    },
+    {
+      "asr": {
+        "backend": null,
+        "npu_executed": null,
+        "npu_selected": null,
+        "provider": null,
+        "resolved_language": null,
+        "selected_language": null
+      },
+      "complete": false,
+      "errors": [],
+      "event_names": [
+        "native_tts_engine_selected"
+      ],
+      "events": [
+        {
+          "details": {
+            "previous_tts_policy": "auto",
+            "tts_policy": "matcha_zh_baker"
+          },
+          "event": "native_tts_engine_selected",
+          "mode": "native_tts",
+          "monotonic_ms": 115231.034485,
+          "schema_version": 1,
+          "source": "native",
+          "turn_id": "settings"
+        }
+      ],
+      "mode": "native_tts",
+      "native_tts": {
+        "chunks_queued": 0,
+        "network_connection_required": null,
+        "playback_terminal": false,
+        "playback_terminal_status": null,
+        "queue_cancelled": false,
+        "queue_closed": false,
+        "resolved_locale": null,
+        "text_sse_complete": false,
+        "used": false,
+        "voice_name": null
+      },
+      "output_head_status": null,
+      "output_quality": {
+        "finish_reason": null,
+        "pcm_duration_seconds": null,
+        "repetition": null,
+        "response_token_limit": null,
+        "sse_events": null,
+        "warning_reasons": []
+      },
+      "queue_underflows": 0,
+      "timing_ms": {
+        "manual_input_stop_to_request_start": null,
+        "manual_input_stop_to_wav_ready": null,
+        "request_to_complete": null,
+        "request_to_first_buffer_queued_event": null,
+        "request_to_first_pcm_sse": null,
+        "request_to_first_text_sse": null,
+        "request_to_first_voiced_audio_scheduled": null,
+        "request_to_first_voiced_output_head_estimate": null,
+        "request_to_native_tts_first_audio_start_proxy": null,
+        "request_to_native_tts_first_chunk_queued": null,
+        "request_to_native_tts_init_ready": null,
+        "request_to_native_tts_last_utterance_done": null,
+        "request_to_native_tts_playback_terminal": null,
+        "request_to_native_tts_queue_closed": null,
+        "request_to_native_tts_utterance_start": null,
+        "request_to_output_head": null,
+        "request_to_scheduled_first_buffer": null,
+        "request_to_tts_text_sse_complete": null
+      },
+      "turn_id": "settings"
+    }
+  ],
+  "unscoped_native_events": [
+    {
+      "details": {
+        "selection": "zh"
+      },
+      "event": "language_selection_changed",
+      "input_mode": "push",
+      "mode": "tts",
+      "monotonic_ms": 313297.714722,
+      "native_received_monotonic_ms": 313299.114827,
+      "performance_ms": 198242.8,
+      "schema_version": 1,
+      "turn_id": null,
+      "wall_time_iso": "2026-08-02T19:01:12.622Z"
+    },
+    {
+      "details": {
+        "selection": "en"
+      },
+      "event": "language_selection_changed",
+      "input_mode": "push",
+      "mode": "tts",
+      "monotonic_ms": 679930.10302,
+      "native_received_monotonic_ms": 679931.074843,
+      "performance_ms": 564875.2000000001,
+      "schema_version": 1,
+      "turn_id": null,
+      "wall_time_iso": "2026-08-02T19:07:19.255Z"
+    },
+    {
+      "details": {
+        "selection": "it"
+      },
+      "event": "language_selection_changed",
+      "input_mode": "push",
+      "mode": "tts",
+      "monotonic_ms": 730253.144511,
+      "native_received_monotonic_ms": 730254.00347,
+      "performance_ms": 615198.4,
+      "schema_version": 1,
+      "turn_id": null,
+      "wall_time_iso": "2026-08-02T19:08:09.578Z"
+    },
+    {
+      "details": {
+        "selection": "zh"
+      },
+      "event": "language_selection_changed",
+      "input_mode": "push",
+      "mode": "tts",
+      "monotonic_ms": 910292.199755,
+      "native_received_monotonic_ms": 910294.218818,
+      "performance_ms": 795237.7000000001,
+      "schema_version": 1,
+      "turn_id": null,
+      "wall_time_iso": "2026-08-02T19:11:09.617Z"
+    }
+  ]
+}

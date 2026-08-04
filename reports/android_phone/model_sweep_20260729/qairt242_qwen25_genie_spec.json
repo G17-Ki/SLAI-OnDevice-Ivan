@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "experiment_id": "qairt242_colab_qwen25_genie_sm8850_htp_v81_v1",
+  "claim_boundary": "Offline QAIRT 2.42 GGUF-to-Genie HTP context generation only. Success does not prove phone loading, HTP/NPU execution, numerical quality, latency, memory fit, or accepted-app integration.",
+  "execution_policy": {
+    "allowed_host": "Google Colab high-RAM on Ubuntu 22.04 x86_64",
+    "mac_execution_allowed": false,
+    "credentials_required": false,
+    "minimum_ram_bytes": 24000000000,
+    "minimum_workspace_free_bytes": 24000000000,
+    "minimum_scratch_free_bytes": 24000000000,
+    "resume_policy": "QAIRT cache_root is durable. A completed controller stage is reused only when its fingerprint and every recorded output size and SHA-256 still match.",
+    "fallback_policy": {
+      "allow_other_qairt_version": false,
+      "allow_qairt_245": false,
+      "allow_cpu_backend": false,
+      "allow_unknown_ggml_tensor_type": false,
+      "allow_unapproved_source_lock": false,
+      "allow_unverified_download": false
+    }
+  },
+  "host_dependencies": {
+    "ubuntu_version": "22.04",
+    "python_version_prefix": "3.10.",
+    "clang_major": 14,
+    "python_packages": {
+      "gguf": "0.9.1",
+      "onnx": "1.17.0",
+      "onnxruntime": "1.22.0",
+      "onnxruntime-genai": "0.8.2",
+      "onnxsim": "0.4.36",
+      "tokenizers": "0.19.1",
+      "torch": "2.4.1",
+      "transformers": "4.44.0"
+    },
+    "qairt_checker_compatibility_overrides": {
+      "matplotlib": "3.8.4",
+      "protobuf": "3.20.3",
+      "pyyaml": "6.0.2"
+    }
+  },
+  "qairt": {
+    "version": "2.42.0.251225",
+    "build_id": "2.42.0.251225135753_193295",
+    "url": "https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.42.0.251225/v2.42.0.251225.zip",
+    "filename": "v2.42.0.251225.zip",
+    "bytes": 1543955191,
+    "sha256": "1a744ed72a813fc9dd4a29e31b1685f784786102fd45414d74915bb3351ae321",
+    "sdk_root_member": "qairt/2.42.0.251225",
+    "critical_members": [
+      {
+        "path": "lib/python/qairt/gen_ai_api/gen_ai_builder_factory.py",
+        "bytes": 8220,
+        "sha256": "35df4aef0e6ca3e9aa6980e7a2da3006ef1922e761a5fcdf6d45457c622aac95"
+      },
+      {
+        "path": "lib/python/qairt/gen_ai_api/builders/qwen/builder.py",
+        "bytes": 443,
+        "sha256": "aaef1d3bf02a1cc0f045d7ed2f9b621cab89237ff2a85246b3675b6c44323b6b"
+      },
+      {
+        "path": "lib/python/qairt/gen_ai_api/builders/gen_ai_builder_htp.py",
+        "bytes": 27398,
+        "sha256": "577bfabaa625e6ff461b838329240aa545184da3ac5a39f4b6e3354594c33f59"
+      },
+      {
+        "path": "lib/python/qti/aisw/converters/gguf_builder/gguf_builder.py",
+        "bytes": 7620,
+        "sha256": "2500182ee2c77fcd50688291d4a2542e2fe9dcfb06646d3d6edb1e9e1534ffbe"
+      },
+      {
+        "path": "lib/python/qti/aisw/converters/gguf_builder/utils.py",
+        "bytes": 97278,
+        "sha256": "c65651fd6b027b771c25a6e8dcd0541492ad6f096408a059fd2bfe135ea6ac17"
+      },
+      {
+        "path": "lib/python/qti/aisw/converters/gguf_builder/ggml.py",
+        "bytes": 36131,
+        "sha256": "e7fc171263b4a38dc58eb1ea8c72a5f53b7049afa25235bfb5def6e8e54cf251"
+      },
+      {
+        "path": "examples/QAIRT/python/llm_on_device_inference.py",
+        "bytes": 9256,
+        "sha256": "ff57a5d96c5a4bdd598ffd4bf74eed4c905c142a6644363ca3d4d6449baaa4dd"
+      }
+    ],
+    "android_runtime_inventory": [
+      {
+        "path": "bin/aarch64-android/genie-t2t-run",
+        "bytes": 564056,
+        "sha256": "5e57676cdc1ad302b1417e85fe920016315c86af344a0ac6b3e4f81f78895219"
+      },
+      {
+        "path": "lib/aarch64-android/libGenie.so",
+        "bytes": 7465528,
+        "sha256": "d49b53137f478b7b4ccbd58b9166d83e832c299b681609c70628291c61ae7204"
+      },
+      {
+        "path": "lib/aarch64-android/libQnnHtp.so",
+        "bytes": 2641976,
+        "sha256": "10eb1923b34ac9a726e4a446b395d5eee2ea5388487917778aaf954e8bfb2d92"
+      },
+      {
+        "path": "lib/aarch64-android/libQnnSystem.so",
+        "bytes": 2689096,
+        "sha256": "a69cfc4350c16b226bcaa19c657234820bb93e3ff6116cf3845ae77557f1f7c3"
+      },
+      {
+        "path": "lib/aarch64-android/libQnnHtpPrepare.so",
+        "bytes": 83685856,
+        "sha256": "2daafb376fe6904aa325e29810480e3d76dc392991d1367ae6ea3508db2b60ac"
+      },
+      {
+        "path": "lib/aarch64-android/libQnnHtpNetRunExtensions.so",
+        "bytes": 867456,
+        "sha256": "a3bc48674377a04248fcacbdf578a98b47d457821c53e6450ca11b59a3c5ef93"
+      },
+      {
+        "path": "lib/aarch64-android/libQnnHtpV81Stub.so",
+        "bytes": 714000,
+        "sha256": "6e9e480223b248e70c43954e89dfbd9962600b59bdc9f3069bf4780fdcf98bba"
+      },
+      {
+        "path": "lib/hexagon-v81/unsigned/libQnnHtpV81Skel.so",
+        "bytes": 11271968,
+        "sha256": "a3e62af7044227804bc229437107cb54425e05f43d57cc26a876dd94d54a0cfc"
+      }
+    ]
+  },
+  "source_profiles": {
+    "qwen2_5_1_5b_instruct_q4_k_m": {
+      "role": "runnable_primary",
+      "repository": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "quantization_label": "Q4_K_M",
+      "expected_identity": {
+        "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+        "bytes": 1117320736,
+        "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+      },
+      "gguf_contract": {
+        "version": 3,
+        "metadata_kv_count": 26,
+        "tensor_count": 339,
+        "tensor_types": {
+          "F32": 141,
+          "Q4_K": 169,
+          "Q6_K": 29
+        },
+        "architecture": "qwen2",
+        "model_name": "qwen2.5-1.5b-instruct",
+        "vocab_size": 151936,
+        "context_length": 32768,
+        "hidden_size": 1536,
+        "intermediate_size": 8960,
+        "num_hidden_layers": 28,
+        "num_attention_heads": 12,
+        "num_key_value_heads": 2,
+        "head_dim": 128,
+        "rms_norm_eps": 0.000001,
+        "rope_theta": 1000000.0,
+        "bos_token_id": 151643,
+        "eos_token_id": 151645,
+        "padding_token_id": 151643,
+        "tokenizer_model": "gpt2",
+        "tokenizer_pre": "qwen2",
+        "token_count": 151936,
+        "token_type_count": 151936,
+        "merge_count": 151387
+      }
+    },
+    "qwen2_5_0_5b_instruct_q4_0": {
+      "role": "footprint_followup_requires_new_lock",
+      "repository": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+      "filename": "qwen2.5-0.5b-instruct-q4_0.gguf",
+      "quantization_label": "Q4_0",
+      "expected_identity": null
+    }
+  },
+  "builder_contract": {
+    "factory": "qairt.gen_ai_api.gen_ai_builder_factory.GenAIBuilderFactory",
+    "expected_builder": "qairt.gen_ai_api.builders.qwen.builder.QwenBuilderHTP",
+    "backend": "HTP",
+    "target_string": "chipset:SM8850;dsp_arch:v81;soc_model:87",
+    "cache_api": "cache_root",
+    "container_class": "qairt.gen_ai_api.containers.llm_container.LLMContainer",
+    "required_container_files": [
+      "metadata.json",
+      "gen_ai_config.json",
+      "tokenizer.json",
+      "backend_extensions.json",
+      "models/use_cases.json"
+    ],
+    "required_context_glob": "models/split_*/model.bin"
+  },
+  "target": {
+    "chipset": "SM8850",
+    "soc_model": 87,
+    "dsp_arch": "v81",
+    "backend": "HTP",
+    "target_abi": "aarch64-android"
+  },
+  "output_contract": {
+    "required_manifest_status": "context_generated_unexecuted",
+    "runtime_binaries_bundled": false,
+    "phone_execution_proven": false,
+    "npu_execution_proven": false
+  }
+}

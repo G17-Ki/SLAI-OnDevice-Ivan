@@ -1,0 +1,806 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T11:56:56.287252+00:00",
+  "warning": "This is a tiny deterministic smoke diagnostic, not a statistically meaningful language or knowledge benchmark.",
+  "configuration": {
+    "url": "http://127.0.0.1:8084/v1/chat/completions",
+    "model": "Qwen3-1.7B-Q4_0",
+    "thinking": "on",
+    "flush_chars": 64,
+    "suite": "scripts/multilingual_voice_quality_suite.json",
+    "suite_sha256": "18f1a1ec26da54b2f4a92b05484957e2fcfc54e55e83599b860b30c34cbd59e9"
+  },
+  "summary": {
+    "passes": 26,
+    "runs": 28,
+    "accuracy": 0.9285714285714286,
+    "first_token_ms": {
+      "min": 79.21704230830073,
+      "median": 136.63112511858344,
+      "p95": 496.6608751565218,
+      "max": 624.7213752940297,
+      "mean": 169.28369655007762
+    },
+    "first_visible_token_ms": {
+      "min": 1029.0003749541938,
+      "median": 1985.1269167847931,
+      "p95": 3929.547416046262,
+      "max": 5240.311041940004,
+      "mean": 2198.141450735016
+    },
+    "first_speakable_ms": {
+      "min": 1231.6396669484675,
+      "median": 2093.812166713178,
+      "p95": 4094.142165966332,
+      "max": 5257.013833150268,
+      "mean": 2322.198429058685
+    },
+    "total_ms": {
+      "min": 1251.4805002138019,
+      "median": 2205.6043334305286,
+      "p95": 5275.2242921851575,
+      "max": 7144.441084004939,
+      "mean": 2511.49666074863
+    },
+    "per_case": {
+      "en_fuji": {
+        "language": "en",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the elevation of Mount Fuji in meters. I remember that Mount Fuji is a well-known volcano in Japan. From what I recall, it's one of the most famous mountains in the world. I think the elevation is around 3,776 meters. But wait, I should double-check that number. Sometimes there might be slight variations depending on the source. Let me think... Yes, I've heard that it's approximately 3,776 meters. I don't think there's a commonly cited figure that's different. So, the answer should be 3,776 meters. I'll go with that.\n</think>\n\nThe elevation of Mount Fuji is approximately 3,776 meters."
+        ],
+        "visible_responses": [
+          "The elevation of Mount Fuji is approximately 3,776 meters."
+        ]
+      },
+      "en_math": {
+        "language": "en",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the product of 17 and 23. Let me calculate that. 17 multiplied by 23. Hmm, 17 times 20 is 340, and 17 times 3 is 51. Adding those together, 340 + 51 equals 391. Let me check again to be sure. 17 times 23: 23 times 10 is 230, 23 times 7 is 161, so 230 + 161 is 391. Yep, that's correct. The answer should be 391.\n</think>\n\n17 multiplied by 23 is 391."
+        ],
+        "visible_responses": [
+          "17 multiplied by 23 is 391."
+        ]
+      },
+      "en_planet": {
+        "language": "en",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking which planet is the largest in the Solar System. Let me think. I remember from school that Jupiter is the biggest. But wait, I should double-check. Saturn has a large moon called Titan, but in terms of size, Jupiter is the largest. Yeah, I think that's right. So the answer is Jupiter.\n</think>\n\nThe largest planet in the Solar System is Jupiter."
+        ],
+        "visible_responses": [
+          "The largest planet in the Solar System is Jupiter."
+        ]
+      },
+      "en_exact": {
+        "language": "en",
+        "category": "instruction",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user wants me to reply with exactly \"READY\" and nothing else. Let me make sure I don't add any extra text. I'll check the instructions again. Yep, just \"READY\" and nothing more. Alright, that's straightforward. No need for any explanation or additional responses. Let's go with that.\n</think>\n\nREADY"
+        ],
+        "visible_responses": [
+          "READY"
+        ]
+      },
+      "es_capital": {
+        "language": "es",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the capital of Canada in a short Spanish sentence. I know that Ottawa is the capital. Let me make sure that's correct. Yes, Ottawa is the capital city of Canada. I should just state that clearly and concisely in Spanish. No need for extra info. Let me check if there's any possibility of confusion with another city, but I'm pretty sure Ottawa is right. Alright, the answer is straightforward.\n</think>\n\nLa capital de Canadá es Ottawa."
+        ],
+        "visible_responses": [
+          "La capital de Canadá es Ottawa."
+        ]
+      },
+      "es_math": {
+        "language": "es",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for 12 multiplied by 8. Let me calculate that. 12 times 8 is 96. I should just state the answer clearly. The user wants it in Spanish, so I'll make sure to use the correct terms. \"12 multiplicado por 8\" is the correct phrasing. The answer is 96. Let me double-check to avoid any mistakes. Yep, 12 times 8 is indeed 96. No need to overcomplicate it. Just provide the answer simply.\n</think>\n\n12 multiplicado por 8 es 96."
+        ],
+        "visible_responses": [
+          "12 multiplicado por 8 es 96."
+        ]
+      },
+      "es_boiling": {
+        "language": "es",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking about the boiling point of pure water at standard pressure. I remember that standard pressure is usually 1 atmosphere, and I think water boils at 100°C under that condition. Let me double-check. Yes, I'm pretty sure that's correct. So the answer should be 100°C. I need to make sure there's no confusion with other temperature scales, but the question asks for Celsius, so 100°C is right. No need to explain further, just state it clearly.\n</think>\n\nEl agua pura hierve a 100°C a presión estándar."
+        ],
+        "visible_responses": [
+          "El agua pura hierve a 100°C a presión estándar."
+        ]
+      },
+      "de_capital": {
+        "language": "de",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the capital of Australia. I remember that Australia is a country in the Asia-Pacific region. The capital of Australia is Canberra. Let me double-check to make sure I'm correct. Yes, Canberra was established in 1851 as the capital and has been the official capital ever since. There's no other city that's the capital. So the answer should be Canberra in a short German sentence.\n</think>\n\nDie Hauptstadt von Australien ist Canberra."
+        ],
+        "visible_responses": [
+          "Die Hauptstadt von Australien ist Canberra."
+        ]
+      },
+      "de_math": {
+        "language": "de",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the sum of 15 and 27. Let me calculate that. 15 plus 27... Well, 15 plus 20 is 35, then plus 7 more is 42. So the answer should be 42. I need to make sure I didn't make a mistake. Yep, 15 + 27 is indeed 42. Alright, I'll just confirm once more. No, that's correct. So the answer is 42 in German.\n</think>\n\n42"
+        ],
+        "visible_responses": [
+          "42"
+        ]
+      },
+      "de_planet": {
+        "language": "de",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking which planet is known as a red planet. I remember that Mars is often called the red planet because of the rust-colored dust on its surface. Let me double-check. Yes, Mars is the only planet in our solar system that appears red from Earth. The other planets don't have the same color. So the answer should be Mars. I need to make sure there's no confusion with other planets like Venus or Earth, but Earth is not red. Alright, that's clear.\n</think>\n\nMars"
+        ],
+        "visible_responses": [
+          "Mars"
+        ]
+      },
+      "it_capital": {
+        "language": "it",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the capital of Portugal. I remember that Portugal's capital is Lisbon. Let me double-check to make sure. Yes, Lisbon is the capital city of Portugal. I don't think there's any confusion here. The answer should be straightforward.\n</think>\n\nLa capitale del Portogallo è Lisbona."
+        ],
+        "visible_responses": [
+          "La capitale del Portogallo è Lisbona."
+        ]
+      },
+      "it_math": {
+        "language": "it",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking \"Quanto fa 9 per 7?\" which means \"What is 9 times 7?\" in Italian. They want a concise answer. Let me calculate 9 multiplied by 7. 9 times 7 is 63. I should just state that clearly. No need for extra explanation. Make sure the answer is in Italian as requested.\n</think>\n\n9 per 7 è 63."
+        ],
+        "visible_responses": [
+          "9 per 7 è 63."
+        ]
+      },
+      "it_ocean": {
+        "language": "it",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking which is the largest ocean on Earth. Let me think. I remember from school that the Pacific Ocean is the biggest. But wait, I should double-check. The Pacific Ocean covers about 60 million square kilometers, followed by the Atlantic at around 105 million. Wait, no, that can't be right. The Atlantic is actually smaller than the Pacific. Wait, no, the Pacific is the largest. Let me confirm. Yes, the Pacific Ocean is the largest, spanning from the Arctic to the Southern Ocean. The Atlantic is second, and the Indian Ocean is third. So the answer should be the Pacific Ocean. I need to make sure I'm not mixing up the numbers. Yeah, I think that's correct.\n</think>\n\nL'oceano più grande della Terra è l'oceano Pacifico."
+        ],
+        "visible_responses": [
+          "L'oceano più grande della Terra è l'oceano Pacifico."
+        ]
+      },
+      "fr_capital": {
+        "language": "fr",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the capital of Germany in French. I remember that Berlin is the capital. Let me make sure. Yes, Germany's capital is Berlin. I should confirm that. No, I think that's correct. So the answer is Berlin.\n</think>\n\nLa capitale de l'Allemagne est Berne."
+        ],
+        "visible_responses": [
+          "La capitale de l'Allemagne est Berne."
+        ]
+      },
+      "fr_math": {
+        "language": "fr",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking \"Combien font 14 multiplié par 6 ?\" which means \"What is 14 multiplied by 6?\" They want the answer in French and concise.\n\nFirst, I need to calculate 14 times 6. 14 multiplied by 6 is 84. Let me double-check that. 10*6 is 60, 4*6 is 24, so 60+24=84. Yep, that's correct.\n\nNow, the answer should be in French. The word for \"multiplied by\" in French is \"multiplié par\". So \"14 multiplié par 6\" is the correct phrasing. The answer is 84. \n\nWait, the user wants the answer in French, but the question is in French. So the answer should be in French. The user might be testing if I know to respond in the same language. But the question is in French, so the answer should be in French. \n\nSo the answer is \"84\" in French. But the user wants it in French, so the answer is \"84\" in French. But the user might expect the answer in the same language as the question, which is French. So the answer is 84 in French. \n\nI think that's it. No need to overcomplicate. Just state the answer clearly.\n</think>\n\n84"
+        ],
+        "visible_responses": [
+          "84"
+        ]
+      },
+      "fr_freezing": {
+        "language": "fr",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking at normal atmospheric pressure, what temperature Celsius does pure water freeze. I remember from school that water freezes at 0 degrees Celsius. But wait, let me make sure. Sometimes people confuse it with other substances. Like, I think the freezing point of water is indeed 0°C. Yeah, that's right. So the answer should be 0°C. I don't think there's any trick here. The question is straightforward. Just need to confirm that there's no other factor mentioned, like pressure, but the user specified normal pressure. So yeah, 0°C is correct.\n</think>\n\nÀ pression normale, l'eau pure gèle à 0 °C."
+        ],
+        "visible_responses": [
+          "À pression normale, l'eau pure gèle à 0 °C."
+        ]
+      },
+      "zh_capital": {
+        "language": "zh",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\n好的，用户问的是澳大利亚的首都是哪里，需要用简短的中文回答。首先，我得确认澳大利亚的首都是悉尼。不过，有时候可能会有混淆，比如有人会误认为是堪培拉，但其实堪培拉是澳大利亚的首都，悉尼是澳大利亚的首府城市。不过，根据常识，澳大利亚的首都是堪培拉，而悉尼是悉尼市，是澳大利亚的经济和文化中心。不过，可能用户的问题有误，需要仔细确认。但根据官方资料，澳大利亚的首都是堪培拉。所以正确的回答应该是堪培拉。不过，可能用户的问题有误，需要确认。但根据现有知识，答案应该是堪培拉。不过，可能用户的问题有误，比如把悉尼当成了首府，但实际首府是堪培拉。所以正确回答是堪培拉。\n</think>\n\n澳大利亚的首都是堪培拉。"
+        ],
+        "visible_responses": [
+          "澳大利亚的首都是堪培拉。"
+        ]
+      },
+      "zh_math": {
+        "language": "zh",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the sum of 18 and 24. Let me calculate that. 18 plus 24... Well, 18 plus 20 is 38, then plus 4 more is 42. So the answer should be 42. I need to make sure that's correct. Let me check again: 18 + 24. If I break it down, 10 + 20 is 30, 8 + 4 is 12, so 30 + 12 is 42. Yep, that's right. The user wants the answer in Chinese, so I'll just state it as 42.\n</think>\n\n18加24等于42。"
+        ],
+        "visible_responses": [
+          "18加24等于42。"
+        ]
+      },
+      "zh_moon": {
+        "language": "zh",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\n好的，用户问的是“地球唯一的天然卫星是什么？请用中文简短回答。”首先，我需要确认这个问题的答案。地球的天然卫星指的是月球，对吧？不过得确认一下有没有其他可能的答案。\n\n用户可能是在学习天文学的基础知识，或者是在做相关的题目。他们可能知道月球是地球的唯一天然卫星，但需要确认是否正确。有没有可能用户有误解，比如认为其他天体比如火星或者木星的卫星？不过问题明确提到地球，所以答案应该是月球。\n\n另外，用户要求简短回答，所以不需要展开解释。直接回答“月球”即可。不过要确保没有拼写错误，比如“月球”是正确的中文名称。再检查一下是否还有其他可能，比如“地球的卫星”是否指其他天体，但根据常识，地球的唯一天然卫星就是月球。所以答案正确。\n</think>\n\n月球"
+        ],
+        "visible_responses": [
+          "月球"
+        ]
+      },
+      "ja_capital": {
+        "language": "ja",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the capital of Canada in Japanese. I need to provide a short answer. I remember that the capital of Canada is Ottawa. Let me confirm that. Yes, Ottawa is the capital city of Canada. So the answer should be \"オタワ\" in Japanese. Make sure it's a brief sentence.\n</think>\n\nカナダの首都はオタワです。"
+        ],
+        "visible_responses": [
+          "カナダの首都はオタワです。"
+        ]
+      },
+      "ja_math": {
+        "language": "ja",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for 7 multiplied by 8 in Japanese. Let me think. The calculation is 7 times 8, which is 56. They want the answer short and in Japanese. So, I should write it as \"7かける8は56です。\" But wait, in Japanese, the multiplication symbol is sometimes written as \"×\" but in formal contexts, \"かける\" is used. So \"7かける8は56です。\" That seems correct. Let me check if there's a more concise way. Maybe \"7×8=56\" but the user specified Japanese, so the answer should be in Japanese. Yes, the answer is correct.\n</think>\n\n7かける8は56です。"
+        ],
+        "visible_responses": [
+          "7かける8は56です。"
+        ]
+      },
+      "ja_planet": {
+        "language": "ja",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking which planet is known as a \"red planet\" in Japanese. I remember that in Japanese, the term for a red planet is \"赤い惑星\" (akai no gokkou). But wait, I should confirm if there's any other term used. Sometimes, the term \"red planet\" can refer to Mars, which is known for its reddish appearance. So the answer should be \"赤い惑星\" for Mars. I don't think there's another planet commonly referred to as a red planet in Japanese. Let me make sure there's no confusion with other planets like Venus or Earth, but Venus is sometimes called a \"red planet\" in some contexts, but that's more of a colloquial term. However, the official term is still \"赤い惑星\" for Mars. So the answer is correct.\n</think>\n\n赤い惑星は、火星です。"
+        ],
+        "visible_responses": [
+          "赤い惑星は、火星です。"
+        ]
+      },
+      "ko_capital": {
+        "language": "ko",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the capital of Germany in Korean. I know that Berlin is the capital of Germany. Let me make sure I'm correct. Yes, Berlin is the capital, and the answer should be \"베를린\" in Korean. I don't need to explain anything else because the question is straightforward.\n</think>\n\n베를린"
+        ],
+        "visible_responses": [
+          "베를린"
+        ]
+      },
+      "ko_math": {
+        "language": "ko",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the sum of 13 and 19 in Korean. Let me think. First, I need to calculate 13 plus 19. 13 plus 19 is 32. Now, how to express that in Korean. The word for \"plus\" is \"더하기\" or \"더\". So \"13 더하기 19는\" would be the sentence. Then the answer is 32. But wait, in Korean, when using the verb \"더하기\", the structure is \"A 더하기 B는 C\". So \"13 더하기 19는 32이다.\" But the user wants a short answer. Maybe just \"13 더하기 19는 32\" or \"13 + 19는 32\". But the user specified to answer in Korean and short. So probably \"13 더하기 19는 32\" is the answer. Let me check if that's correct. Yes, that's the correct phrase. So the final answer is 32.\n</think>\n\n13 더하기 19는 32."
+        ],
+        "visible_responses": [
+          "13 더하기 19는 32."
+        ]
+      },
+      "ko_planet": {
+        "language": "ko",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking which planet is the largest in the solar system in Korean. I need to make sure I get the correct answer. The largest planet is Jupiter, right? Let me confirm. Yes, Jupiter is the largest planet in our solar system. So the answer in Korean would be \"Jupiter\" or \"자전성 행성 중 가장 큰 것은.jupiter\". Wait, the user wants it short, so probably just \"자전성 행성 중 가장 큰 것은.jupiter\" but maybe they want it in Korean script. Wait, the user asked for the answer in Korean, so I should write it in Korean. The correct answer is Jupiter, which is \"지구\" in Korean, but no, Jupiter is \"지구\" in Korean? Wait, no. Wait, in Korean, the planets are named as follows: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. So Jupiter is \"지구\" in Korean? No, wait, \"지구\" is Earth. So Jupiter is \"지구\" in Korean? No, that's not right. Wait, maybe the user is using the Korean name for Jupiter, which is \"지구\" but that's not correct. Wait, no. Let me think. In Korean, the planets are named as: Mercury (금성), Venus (수성), Earth (지구), Mars (마르스), Jupiter (지구?), no, that's not right. Wait, maybe the user is confused. Wait, the correct Korean names for the planets are: Mercury (금성), Venus (수성), Earth (지구), Mars (마르스), Jupiter (지구?), no. Wait, no. Wait, in Korean, Jupiter is called \"지구\" but that's not correct. Wait, no. Wait, the Korean name for Jupiter is \"지구\" but that's not right. Wait, no. Let me check. Actually, in Korean, the planets are named as: Mercury (금성), Venus (수성), Earth (지구), Mars (마르스), Jupiter (지구?),"
+        ],
+        "visible_responses": [
+          ""
+        ]
+      },
+      "ru_capital": {
+        "language": "ru",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the capital of Japan in Russian. I remember that Tokyo is the capital. Let me confirm. Yes, Tokyo is the capital city of Japan. So the answer should be \"Токио\" in Russian. I need to make sure there's no confusion with other capitals. No, Tokyo is correct. Alright, that's the answer.\n</think>\n\nТокио"
+        ],
+        "visible_responses": [
+          "Токио"
+        ]
+      },
+      "ru_math": {
+        "language": "ru",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking for the product of 11 and 12 in a short Russian answer. Let me calculate that. 11 multiplied by 12 is 132. I should just state the answer directly. No need for extra explanation. Let me make sure there's no mistake. Yep, 11 times 12 is indeed 132. So the answer is 132.\n</think>\n\n132"
+        ],
+        "visible_responses": [
+          "132"
+        ]
+      },
+      "ru_freezing": {
+        "language": "ru",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "<think>\nOkay, the user is asking at what temperature Celsius water freezes under normal pressure. I remember that the freezing point of water is 0 degrees Celsius. But wait, let me make sure. Normal pressure is 1 atmosphere, and the freezing point is indeed 0°C. I think that's correct. The answer should be straightforward. Just need to confirm there's no trick here. Yeah, seems right. So the answer is 0°C.\n</think>\n\n0°C"
+        ],
+        "visible_responses": [
+          "0°C"
+        ]
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "en_fuji",
+      "language": "en",
+      "prompt": "What is the elevation of Mount Fuji in meters? Answer briefly in English.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 257.0253750309348,
+      "first_visible_token_ms": 2425.7517918013036,
+      "first_speakable_ms": 2654.4526666402817,
+      "total_ms": 2670.8380826748908,
+      "response": "<think>\nOkay, the user is asking for the elevation of Mount Fuji in meters. I remember that Mount Fuji is a well-known volcano in Japan. From what I recall, it's one of the most famous mountains in the world. I think the elevation is around 3,776 meters. But wait, I should double-check that number. Sometimes there might be slight variations depending on the source. Let me think... Yes, I've heard that it's approximately 3,776 meters. I don't think there's a commonly cited figure that's different. So, the answer should be 3,776 meters. I'll go with that.\n</think>\n\nThe elevation of Mount Fuji is approximately 3,776 meters.",
+      "response_visible": "The elevation of Mount Fuji is approximately 3,776 meters.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_math",
+      "language": "en",
+      "prompt": "What is 17 multiplied by 23? Answer briefly in English.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 133.89462511986494,
+      "first_visible_token_ms": 2544.1789999604225,
+      "first_speakable_ms": 2730.3033331409097,
+      "total_ms": 2747.3789998330176,
+      "response": "<think>\nOkay, the user is asking for the product of 17 and 23. Let me calculate that. 17 multiplied by 23. Hmm, 17 times 20 is 340, and 17 times 3 is 51. Adding those together, 340 + 51 equals 391. Let me check again to be sure. 17 times 23: 23 times 10 is 230, 23 times 7 is 161, so 230 + 161 is 391. Yep, that's correct. The answer should be 391.\n</think>\n\n17 multiplied by 23 is 391.",
+      "response_visible": "17 multiplied by 23 is 391.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_planet",
+      "language": "en",
+      "prompt": "Which is the largest planet in the Solar System? Answer in one short English sentence.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 163.49079087376595,
+      "first_visible_token_ms": 1322.850290685892,
+      "first_speakable_ms": 1463.7723746709526,
+      "total_ms": 1482.7915406785905,
+      "response": "<think>\nOkay, the user is asking which planet is the largest in the Solar System. Let me think. I remember from school that Jupiter is the biggest. But wait, I should double-check. Saturn has a large moon called Titan, but in terms of size, Jupiter is the largest. Yeah, I think that's right. So the answer is Jupiter.\n</think>\n\nThe largest planet in the Solar System is Jupiter.",
+      "response_visible": "The largest planet in the Solar System is Jupiter.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_exact",
+      "language": "en",
+      "prompt": "Reply with exactly READY and nothing else.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 104.80641713365912,
+      "first_visible_token_ms": 1252.5568339042366,
+      "first_speakable_ms": 1252.5568339042366,
+      "total_ms": 1268.5868749395013,
+      "response": "<think>\nOkay, the user wants me to reply with exactly \"READY\" and nothing else. Let me make sure I don't add any extra text. I'll check the instructions again. Yep, just \"READY\" and nothing more. Alright, that's straightforward. No need for any explanation or additional responses. Let's go with that.\n</think>\n\nREADY",
+      "response_visible": "READY",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_capital",
+      "language": "es",
+      "prompt": "¿Cuál es la capital de Canadá? Responde con una frase corta en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 161.12979222089052,
+      "first_visible_token_ms": 1717.0012090355158,
+      "first_speakable_ms": 1837.0586251839995,
+      "total_ms": 1860.351291950792,
+      "response": "<think>\nOkay, the user is asking for the capital of Canada in a short Spanish sentence. I know that Ottawa is the capital. Let me make sure that's correct. Yes, Ottawa is the capital city of Canada. I should just state that clearly and concisely in Spanish. No need for extra info. Let me check if there's any possibility of confusion with another city, but I'm pretty sure Ottawa is right. Alright, the answer is straightforward.\n</think>\n\nLa capital de Canadá es Ottawa.",
+      "response_visible": "La capital de Canadá es Ottawa.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_math",
+      "language": "es",
+      "prompt": "¿Cuánto es 12 multiplicado por 8? Responde brevemente en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 624.7213752940297,
+      "first_visible_token_ms": 2492.6243340596557,
+      "first_speakable_ms": 2672.892459202558,
+      "total_ms": 2689.953084103763,
+      "response": "<think>\nOkay, the user is asking for 12 multiplied by 8. Let me calculate that. 12 times 8 is 96. I should just state the answer clearly. The user wants it in Spanish, so I'll make sure to use the correct terms. \"12 multiplicado por 8\" is the correct phrasing. The answer is 96. Let me double-check to avoid any mistakes. Yep, 12 times 8 is indeed 96. No need to overcomplicate it. Just provide the answer simply.\n</think>\n\n12 multiplicado por 8 es 96.",
+      "response_visible": "12 multiplicado por 8 es 96.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_boiling",
+      "language": "es",
+      "prompt": "A presión estándar, ¿a qué temperatura Celsius hierve el agua pura? Responde brevemente en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 155.13341687619686,
+      "first_visible_token_ms": 1985.1269167847931,
+      "first_speakable_ms": 2284.361083060503,
+      "total_ms": 2301.5705831348896,
+      "response": "<think>\nOkay, the user is asking about the boiling point of pure water at standard pressure. I remember that standard pressure is usually 1 atmosphere, and I think water boils at 100°C under that condition. Let me double-check. Yes, I'm pretty sure that's correct. So the answer should be 100°C. I need to make sure there's no confusion with other temperature scales, but the question asks for Celsius, so 100°C is right. No need to explain further, just state it clearly.\n</think>\n\nEl agua pura hierve a 100°C a presión estándar.",
+      "response_visible": "El agua pura hierve a 100°C a presión estándar.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_capital",
+      "language": "de",
+      "prompt": "Was ist die Hauptstadt von Australien? Antworte in einem kurzen deutschen Satz.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 125.22920873016119,
+      "first_visible_token_ms": 1512.4713750556111,
+      "first_speakable_ms": 1643.58991663903,
+      "total_ms": 1660.8083746396005,
+      "response": "<think>\nOkay, the user is asking for the capital of Australia. I remember that Australia is a country in the Asia-Pacific region. The capital of Australia is Canberra. Let me double-check to make sure I'm correct. Yes, Canberra was established in 1851 as the capital and has been the official capital ever since. There's no other city that's the capital. So the answer should be Canberra in a short German sentence.\n</think>\n\nDie Hauptstadt von Australien ist Canberra.",
+      "response_visible": "Die Hauptstadt von Australien ist Canberra.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_math",
+      "language": "de",
+      "prompt": "Was ist 15 plus 27? Antworte kurz auf Deutsch.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 121.56324973329902,
+      "first_visible_token_ms": 2077.176459133625,
+      "first_speakable_ms": 2093.812166713178,
+      "total_ms": 2109.6380837261677,
+      "response": "<think>\nOkay, the user is asking for the sum of 15 and 27. Let me calculate that. 15 plus 27... Well, 15 plus 20 is 35, then plus 7 more is 42. So the answer should be 42. I need to make sure I didn't make a mistake. Yep, 15 + 27 is indeed 42. Alright, I'll just confirm once more. No, that's correct. So the answer is 42 in German.\n</think>\n\n42",
+      "response_visible": "42",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_planet",
+      "language": "de",
+      "prompt": "Welcher Planet ist als roter Planet bekannt? Antworte kurz auf Deutsch.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 120.63708389177918,
+      "first_visible_token_ms": 1804.8213343136013,
+      "first_speakable_ms": 1823.6787500791252,
+      "total_ms": 1844.8057500645518,
+      "response": "<think>\nOkay, the user is asking which planet is known as a red planet. I remember that Mars is often called the red planet because of the rust-colored dust on its surface. Let me double-check. Yes, Mars is the only planet in our solar system that appears red from Earth. The other planets don't have the same color. So the answer should be Mars. I need to make sure there's no confusion with other planets like Venus or Earth, but Earth is not red. Alright, that's clear.\n</think>\n\nMars",
+      "response_visible": "Mars",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_capital",
+      "language": "it",
+      "prompt": "Qual è la capitale del Portogallo? Rispondi con una breve frase in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 496.6608751565218,
+      "first_visible_token_ms": 1434.8819172009826,
+      "first_speakable_ms": 1609.903042204678,
+      "total_ms": 1624.8642089776695,
+      "response": "<think>\nOkay, the user is asking for the capital of Portugal. I remember that Portugal's capital is Lisbon. Let me double-check to make sure. Yes, Lisbon is the capital city of Portugal. I don't think there's any confusion here. The answer should be straightforward.\n</think>\n\nLa capitale del Portogallo è Lisbona.",
+      "response_visible": "La capitale del Portogallo è Lisbona.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_math",
+      "language": "it",
+      "prompt": "Quanto fa 9 per 7? Rispondi brevemente in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 79.21704230830073,
+      "first_visible_token_ms": 1450.9672923013568,
+      "first_speakable_ms": 1586.4426670596004,
+      "total_ms": 1604.034666903317,
+      "response": "<think>\nOkay, the user is asking \"Quanto fa 9 per 7?\" which means \"What is 9 times 7?\" in Italian. They want a concise answer. Let me calculate 9 multiplied by 7. 9 times 7 is 63. I should just state that clearly. No need for extra explanation. Make sure the answer is in Italian as requested.\n</think>\n\n9 per 7 è 63.",
+      "response_visible": "9 per 7 è 63.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_ocean",
+      "language": "it",
+      "prompt": "Qual è l'oceano più grande della Terra? Rispondi brevemente in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 145.66816668957472,
+      "first_visible_token_ms": 2717.2002089209855,
+      "first_speakable_ms": 2979.128999635577,
+      "total_ms": 2999.994874931872,
+      "response": "<think>\nOkay, the user is asking which is the largest ocean on Earth. Let me think. I remember from school that the Pacific Ocean is the biggest. But wait, I should double-check. The Pacific Ocean covers about 60 million square kilometers, followed by the Atlantic at around 105 million. Wait, no, that can't be right. The Atlantic is actually smaller than the Pacific. Wait, no, the Pacific is the largest. Let me confirm. Yes, the Pacific Ocean is the largest, spanning from the Arctic to the Southern Ocean. The Atlantic is second, and the Indian Ocean is third. So the answer should be the Pacific Ocean. I need to make sure I'm not mixing up the numbers. Yeah, I think that's correct.\n</think>\n\nL'oceano più grande della Terra è l'oceano Pacifico.",
+      "response_visible": "L'oceano più grande della Terra è l'oceano Pacifico.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_capital",
+      "language": "fr",
+      "prompt": "Quelle est la capitale de l'Allemagne ? Réponds par une courte phrase en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 100.19608400762081,
+      "first_visible_token_ms": 1029.0003749541938,
+      "first_speakable_ms": 1231.6396669484675,
+      "total_ms": 1251.4805002138019,
+      "response": "<think>\nOkay, the user is asking for the capital of Germany in French. I remember that Berlin is the capital. Let me make sure. Yes, Germany's capital is Berlin. I should confirm that. No, I think that's correct. So the answer is Berlin.\n</think>\n\nLa capitale de l'Allemagne est Berne.",
+      "response_visible": "La capitale de l'Allemagne est Berne.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "fr_math",
+      "language": "fr",
+      "prompt": "Combien font 14 multiplié par 6 ? Réponds brièvement en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 151.42858307808638,
+      "first_visible_token_ms": 5240.311041940004,
+      "first_speakable_ms": 5257.013833150268,
+      "total_ms": 5275.2242921851575,
+      "response": "<think>\nOkay, the user is asking \"Combien font 14 multiplié par 6 ?\" which means \"What is 14 multiplied by 6?\" They want the answer in French and concise.\n\nFirst, I need to calculate 14 times 6. 14 multiplied by 6 is 84. Let me double-check that. 10*6 is 60, 4*6 is 24, so 60+24=84. Yep, that's correct.\n\nNow, the answer should be in French. The word for \"multiplied by\" in French is \"multiplié par\". So \"14 multiplié par 6\" is the correct phrasing. The answer is 84. \n\nWait, the user wants the answer in French, but the question is in French. So the answer should be in French. The user might be testing if I know to respond in the same language. But the question is in French, so the answer should be in French. \n\nSo the answer is \"84\" in French. But the user wants it in French, so the answer is \"84\" in French. But the user might expect the answer in the same language as the question, which is French. So the answer is 84 in French. \n\nI think that's it. No need to overcomplicate. Just state the answer clearly.\n</think>\n\n84",
+      "response_visible": "84",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_freezing",
+      "language": "fr",
+      "prompt": "À pression normale, à quelle température Celsius l'eau pure gèle-t-elle ? Réponds brièvement en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 147.21695892512798,
+      "first_visible_token_ms": 2235.2787498384714,
+      "first_speakable_ms": 2517.8712918423116,
+      "total_ms": 2533.9693748392165,
+      "response": "<think>\nOkay, the user is asking at normal atmospheric pressure, what temperature Celsius does pure water freeze. I remember from school that water freezes at 0 degrees Celsius. But wait, let me make sure. Sometimes people confuse it with other substances. Like, I think the freezing point of water is indeed 0°C. Yeah, that's right. So the answer should be 0°C. I don't think there's any trick here. The question is straightforward. Just need to confirm that there's no other factor mentioned, like pressure, but the user specified normal pressure. So yeah, 0°C is correct.\n</think>\n\nÀ pression normale, l'eau pure gèle à 0 °C.",
+      "response_visible": "À pression normale, l'eau pure gèle à 0 °C.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_capital",
+      "language": "zh",
+      "prompt": "澳大利亚的首都是哪里？请用简短的中文句子回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 131.716666277498,
+      "first_visible_token_ms": 3080.0356660038233,
+      "first_speakable_ms": 3198.185999877751,
+      "total_ms": 3215.489124879241,
+      "response": "<think>\n好的，用户问的是澳大利亚的首都是哪里，需要用简短的中文回答。首先，我得确认澳大利亚的首都是悉尼。不过，有时候可能会有混淆，比如有人会误认为是堪培拉，但其实堪培拉是澳大利亚的首都，悉尼是澳大利亚的首府城市。不过，根据常识，澳大利亚的首都是堪培拉，而悉尼是悉尼市，是澳大利亚的经济和文化中心。不过，可能用户的问题有误，需要仔细确认。但根据官方资料，澳大利亚的首都是堪培拉。所以正确的回答应该是堪培拉。不过，可能用户的问题有误，需要确认。但根据现有知识，答案应该是堪培拉。不过，可能用户的问题有误，比如把悉尼当成了首府，但实际首府是堪培拉。所以正确回答是堪培拉。\n</think>\n\n澳大利亚的首都是堪培拉。",
+      "response_visible": "澳大利亚的首都是堪培拉。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_math",
+      "language": "zh",
+      "prompt": "18加24等于多少？请用中文简短回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 139.67854203656316,
+      "first_visible_token_ms": 2716.5338341146708,
+      "first_speakable_ms": 2844.149792101234,
+      "total_ms": 2859.886750113219,
+      "response": "<think>\nOkay, the user is asking for the sum of 18 and 24. Let me calculate that. 18 plus 24... Well, 18 plus 20 is 38, then plus 4 more is 42. So the answer should be 42. I need to make sure that's correct. Let me check again: 18 + 24. If I break it down, 10 + 20 is 30, 8 + 4 is 12, so 30 + 12 is 42. Yep, that's right. The user wants the answer in Chinese, so I'll just state it as 42.\n</think>\n\n18加24等于42。",
+      "response_visible": "18加24等于42。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_moon",
+      "language": "zh",
+      "prompt": "地球唯一的天然卫星是什么？请用中文简短回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 148.3685839921236,
+      "first_visible_token_ms": 3321.2525420822203,
+      "first_speakable_ms": 3336.5772920660675,
+      "total_ms": 3357.699166983366,
+      "response": "<think>\n好的，用户问的是“地球唯一的天然卫星是什么？请用中文简短回答。”首先，我需要确认这个问题的答案。地球的天然卫星指的是月球，对吧？不过得确认一下有没有其他可能的答案。\n\n用户可能是在学习天文学的基础知识，或者是在做相关的题目。他们可能知道月球是地球的唯一天然卫星，但需要确认是否正确。有没有可能用户有误解，比如认为其他天体比如火星或者木星的卫星？不过问题明确提到地球，所以答案应该是月球。\n\n另外，用户要求简短回答，所以不需要展开解释。直接回答“月球”即可。不过要确保没有拼写错误，比如“月球”是正确的中文名称。再检查一下是否还有其他可能，比如“地球的卫星”是否指其他天体，但根据常识，地球的唯一天然卫星就是月球。所以答案正确。\n</think>\n\n月球",
+      "response_visible": "月球",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ja_capital",
+      "language": "ja",
+      "prompt": "カナダの首都はどこですか。日本語の短い一文で答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 126.98645796626806,
+      "first_visible_token_ms": 1310.6418745592237,
+      "first_speakable_ms": 1471.1863747797906,
+      "total_ms": 1490.253624971956,
+      "response": "<think>\nOkay, the user is asking for the capital of Canada in Japanese. I need to provide a short answer. I remember that the capital of Canada is Ottawa. Let me confirm that. Yes, Ottawa is the capital city of Canada. So the answer should be \"オタワ\" in Japanese. Make sure it's a brief sentence.\n</think>\n\nカナダの首都はオタワです。",
+      "response_visible": "カナダの首都はオタワです。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ja_math",
+      "language": "ja",
+      "prompt": "7かける8はいくつですか。日本語で短く答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 203.61212501302361,
+      "first_visible_token_ms": 2778.3877910114825,
+      "first_speakable_ms": 2892.378832679242,
+      "total_ms": 2910.4743329808116,
+      "response": "<think>\nOkay, the user is asking for 7 multiplied by 8 in Japanese. Let me think. The calculation is 7 times 8, which is 56. They want the answer short and in Japanese. So, I should write it as \"7かける8は56です。\" But wait, in Japanese, the multiplication symbol is sometimes written as \"×\" but in formal contexts, \"かける\" is used. So \"7かける8は56です。\" That seems correct. Let me check if there's a more concise way. Maybe \"7×8=56\" but the user specified Japanese, so the answer should be in Japanese. Yes, the answer is correct.\n</think>\n\n7かける8は56です。",
+      "response_visible": "7かける8は56です。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ja_planet",
+      "language": "ja",
+      "prompt": "赤い惑星として知られる惑星は何ですか。日本語で短く答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 201.99295785278082,
+      "first_visible_token_ms": 3199.6540827676654,
+      "first_speakable_ms": 3331.1639996245503,
+      "total_ms": 3348.475415725261,
+      "response": "<think>\nOkay, the user is asking which planet is known as a \"red planet\" in Japanese. I remember that in Japanese, the term for a red planet is \"赤い惑星\" (akai no gokkou). But wait, I should confirm if there's any other term used. Sometimes, the term \"red planet\" can refer to Mars, which is known for its reddish appearance. So the answer should be \"赤い惑星\" for Mars. I don't think there's another planet commonly referred to as a red planet in Japanese. Let me make sure there's no confusion with other planets like Venus or Earth, but Venus is sometimes called a \"red planet\" in some contexts, but that's more of a colloquial term. However, the official term is still \"赤い惑星\" for Mars. So the answer is correct.\n</think>\n\n赤い惑星は、火星です。",
+      "response_visible": "赤い惑星は、火星です。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_capital",
+      "language": "ko",
+      "prompt": "독일의 수도는 어디인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 139.36762511730194,
+      "first_visible_token_ms": 1249.9166252091527,
+      "first_speakable_ms": 1280.8966673910618,
+      "total_ms": 1297.2850003279746,
+      "response": "<think>\nOkay, the user is asking for the capital of Germany in Korean. I know that Berlin is the capital of Germany. Let me make sure I'm correct. Yes, Berlin is the capital, and the answer should be \"베를린\" in Korean. I don't need to explain anything else because the question is straightforward.\n</think>\n\n베를린",
+      "response_visible": "베를린",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_math",
+      "language": "ko",
+      "prompt": "13 더하기 19는 얼마인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 107.65999974682927,
+      "first_visible_token_ms": 3929.547416046262,
+      "first_speakable_ms": 4094.142165966332,
+      "total_ms": 4110.835915897042,
+      "response": "<think>\nOkay, the user is asking for the sum of 13 and 19 in Korean. Let me think. First, I need to calculate 13 plus 19. 13 plus 19 is 32. Now, how to express that in Korean. The word for \"plus\" is \"더하기\" or \"더\". So \"13 더하기 19는\" would be the sentence. Then the answer is 32. But wait, in Korean, when using the verb \"더하기\", the structure is \"A 더하기 B는 C\". So \"13 더하기 19는 32이다.\" But the user wants a short answer. Maybe just \"13 더하기 19는 32\" or \"13 + 19는 32\". But the user specified to answer in Korean and short. So probably \"13 더하기 19는 32\" is the answer. Let me check if that's correct. Yes, that's the correct phrase. So the final answer is 32.\n</think>\n\n13 더하기 19는 32.",
+      "response_visible": "13 더하기 19는 32.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_planet",
+      "language": "ko",
+      "prompt": "태양계에서 가장 큰 행성은 무엇인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 105.84062524139881,
+      "first_visible_token_ms": null,
+      "first_speakable_ms": null,
+      "total_ms": 7144.441084004939,
+      "response": "<think>\nOkay, the user is asking which planet is the largest in the solar system in Korean. I need to make sure I get the correct answer. The largest planet is Jupiter, right? Let me confirm. Yes, Jupiter is the largest planet in our solar system. So the answer in Korean would be \"Jupiter\" or \"자전성 행성 중 가장 큰 것은.jupiter\". Wait, the user wants it short, so probably just \"자전성 행성 중 가장 큰 것은.jupiter\" but maybe they want it in Korean script. Wait, the user asked for the answer in Korean, so I should write it in Korean. The correct answer is Jupiter, which is \"지구\" in Korean, but no, Jupiter is \"지구\" in Korean? Wait, no. Wait, in Korean, the planets are named as follows: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. So Jupiter is \"지구\" in Korean? No, wait, \"지구\" is Earth. So Jupiter is \"지구\" in Korean? No, that's not right. Wait, maybe the user is using the Korean name for Jupiter, which is \"지구\" but that's not correct. Wait, no. Let me think. In Korean, the planets are named as: Mercury (금성), Venus (수성), Earth (지구), Mars (마르스), Jupiter (지구?), no, that's not right. Wait, maybe the user is confused. Wait, the correct Korean names for the planets are: Mercury (금성), Venus (수성), Earth (지구), Mars (마르스), Jupiter (지구?), no. Wait, no. Wait, in Korean, Jupiter is called \"지구\" but that's not correct. Wait, no. Wait, the Korean name for Jupiter is \"지구\" but that's not right. Wait, no. Let me check. Actually, in Korean, the planets are named as: Mercury (금성), Venus (수성), Earth (지구), Mars (마르스), Jupiter (지구?),",
+      "response_visible": "",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ru_capital",
+      "language": "ru",
+      "prompt": "Какова столица Японии? Ответь одним коротким предложением по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 119.55016711726785,
+      "first_visible_token_ms": 1347.1642499789596,
+      "first_speakable_ms": 1392.6244168542325,
+      "total_ms": 1408.4495422430336,
+      "response": "<think>\nOkay, the user is asking for the capital of Japan in Russian. I remember that Tokyo is the capital. Let me confirm. Yes, Tokyo is the capital city of Japan. So the answer should be \"Токио\" in Russian. I need to make sure there's no confusion with other capitals. No, Tokyo is correct. Alright, that's the answer.\n</think>\n\nТокио",
+      "response_visible": "Токио",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_math",
+      "language": "ru",
+      "prompt": "Сколько будет 11 умножить на 12? Ответь кратко по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 105.2939579822123,
+      "first_visible_token_ms": 1578.6869581788778,
+      "first_speakable_ms": 1608.7038330733776,
+      "total_ms": 1625.3194171003997,
+      "response": "<think>\nOkay, the user is asking for the product of 11 and 12 in a short Russian answer. Let me calculate that. 11 multiplied by 12 is 132. I should just state the answer directly. No need for extra explanation. Let me make sure there's no mistake. Yep, 11 times 12 is indeed 132. So the answer is 132.\n</think>\n\n132",
+      "response_visible": "132",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_freezing",
+      "language": "ru",
+      "prompt": "При нормальном давлении при какой температуре Цельсия замерзает чистая вода? Ответь кратко по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 121.85674998909235,
+      "first_visible_token_ms": 1595.7990000024438,
+      "first_speakable_ms": 1610.8705000951886,
+      "total_ms": 1627.0065419375896,
+      "response": "<think>\nOkay, the user is asking at what temperature Celsius water freezes under normal pressure. I remember that the freezing point of water is 0 degrees Celsius. But wait, let me make sure. Normal pressure is 1 atmosphere, and the freezing point is indeed 0°C. I think that's correct. The answer should be straightforward. Just need to confirm there's no trick here. Yeah, seems right. So the answer is 0°C.\n</think>\n\n0°C",
+      "response_visible": "0°C",
+      "pass": true,
+      "usage": null
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        // sherpa-onnx runtime AAR (48 MiB) is kept out of the repository;
+        // tools/fetch_sherpa_aar.sh places it here.
+        flatDir {
+            dirs "${System.getenv('SHERPA_AAR_DIR') ?: "${System.getProperty('user.home')}/.cache/lmf-demo/sherpa-aar"}"
+        }
+    }
+}
+
+rootProject.name = "LfmPhoneDemo"
+include(":app")
+include(":runtime-companion")
+include(":whisper-probe")
+include(":supertonic-probe")
+include(":supertonic-chain-probe")
+include(":supertonic-chain-diagnostic-probe")

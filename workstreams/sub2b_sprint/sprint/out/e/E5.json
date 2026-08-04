@@ -1,0 +1,139 @@
+{
+  "sprint_id": "E5",
+  "title": "Single QAIRT/QNN version pin and Lane E artifact registry",
+  "status": "COMPLETE_PIN_WITH_FAIL_CLOSED_EXECUTION_BLOCK",
+  "captured_at_utc": "2026-08-02T05:40:35Z",
+  "headline": "Lane E pins compile and device runtime to exact QAIRT 2.45.0.260326154327. The official runtime archive and 11 required members are locally hash-verified and staged, but NPU execution remains forbidden: the staged Parakeet contexts are exact QNN 2.40, the exact-2.45 Supertonic contexts are not downloaded/hashed, and no exact-2.45 app-UID runner exists.",
+  "evidence_policy": {
+    "binary_header_versions": "EXACT",
+    "local_sizes_and_sha256": "HOST",
+    "authenticated_ai_hub_object_metadata": "HOST",
+    "qualcomm_registry_and_release_metadata": "VENDOR unless an inventory count is explicitly EXACT",
+    "pin_choice": "PROJECTED decision over the cited evidence",
+    "unknown_fields": "Remain UNKNOWN and block execution or fetch acceptance where identity, checksum, licence or runtime compatibility is required"
+  },
+  "pin": {
+    "product": "QAIRT/QNN",
+    "compile_version": "2.45.0.260326154327",
+    "device_runtime_version": "2.45.0.260326154327",
+    "match_rule": "EXACT_STRING_EQUALITY",
+    "allow_backward_compatibility_assumption": false,
+    "allow_forward_compatibility_assumption": false,
+    "allow_unknown_context_build": false,
+    "one_runtime_provider_per_apk_or_process": true,
+    "load_policy": "The loader must reject every QNN context whose recorded compile build is absent or not exactly 2.45.0.260326154327. A refusal is a handled stop, not a crash and not a silent CPU fallback presented as NPU execution."
+  },
+  "decision_rationale": [
+    {
+      "candidate": "2.40.0.251030114326_189385",
+      "decision": "REJECT_FOR_PROGRAMME_PIN",
+      "evidence": "All three staged E3 Parakeet SM8850 contexts embed this exact build and would be REPACKAGE-safe only with this exact runtime.",
+      "reason": "Choosing 2.40 would strand every known Qualcomm SM8850 E4 registry artifact, the four existing Supertonic contexts and GenieX, all of which require 2.45. Under the sprint rule, the 2.40 contexts must instead be recompiled at the programme pin."
+    },
+    {
+      "candidate": "2.45.0.260326154327",
+      "decision": "SELECT",
+      "evidence": "The four authenticated Supertonic SM8850 HTP v81 contexts, E4's published SM8850 Qualcomm model rows, the Qwen3-0.6B GenieX-QAIRT registry package and GenieX v0.3.18 embedded QNN libraries all identify this exact build. The official full SDK archive and required members are now locally hash-verified.",
+      "reason": "It is the only build for which Lane E has both exact-target compiled-context identities and an exact Android runtime supply path, while also satisfying GenieX's 2.45 floor."
+    },
+    {
+      "candidate": "2.47.0.260601114230",
+      "decision": "REJECT",
+      "evidence": "E1 listed this build as selectable, but Lane E has no accepted SM8850 context set or pinned Android application runtime package at this exact build.",
+      "reason": "Selecting it would require recompiling every known 2.40/2.45 context and would lose direct comparability with the 2.45 SM8850 registry evidence."
+    },
+    {
+      "candidate": "2.48.0.260626120635",
+      "decision": "REJECT",
+      "evidence": "E1 completed one trivial 2.48 compile on SM8750, but this account could not select SM8850 in three selector forms. No SM8850 2.48 programme context was produced or staged.",
+      "reason": "A 2.48 runtime would mismatch all existing 2.45 contexts and the staged 2.40 Parakeet contexts. The E1 probe proves service access, not a usable SM8850 2.48 stack."
+    }
+  ],
+  "runtime_supply": {
+    "selected_staged_provider": "RAW_QAIRT_2_45_MEMBERS",
+    "archive": {
+      "url": "https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.45.0.260326/v2.45.0.260326.zip",
+      "bytes": 1657471677,
+      "sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+      "archive_disposition": "Deleted after verified extraction",
+      "required_member_count": 11,
+      "all_required_member_sizes_and_sha256_match": true,
+      "staged_root": "workstreams/sub2b_sprint/sprint/out/e/artifacts/nubia_bundle/runtimes/qairt-2.45.0.260326154327/sdk/qairt/2.45.0.260326/",
+      "evidence_class": "HOST"
+    },
+    "alternate_provider": {
+      "name": "Qualcomm GenieX Android AAR v0.3.18",
+      "url": "https://github.com/qualcomm/GenieX/releases/download/v0.3.18/geniex-android-aar-v0.3.18.aar",
+      "commit": "71fa27123de979fe484fa9355c3587afc2cd3f76",
+      "bytes": 81249217,
+      "published_sha256": "5df6803e5c750e903769dc991be654c0b6af0a0f2311471c5721b6818855612e",
+      "embedded_qairt_build": "2.45.0.260326154327",
+      "status": "FETCHABLE_NOT_DOWNLOADED_NOT_INTEGRATED",
+      "mutual_exclusion": "If selected later, remove the raw QAIRT runtime provider from that APK/process. The AAR already contains QNN runtime libraries."
+    },
+    "licence_boundary": "QAIRT runtime object code may only be distributed as permitted by the bundled Qualcomm licence and incorporated into the developer application, not as a standalone runtime bundle. The staged ignored files are local preparation, not a redistribution artifact."
+  },
+  "context_state": {
+    "staged_qnn_contexts": {
+      "model": "Parakeet-TDT 0.6B v3, 3-second SM8850 prebuilt",
+      "count": 3,
+      "embedded_build": "2.40.0.251030114326_189385",
+      "pin_match": false,
+      "execution_authorized": false,
+      "required_action": "Recompile encoder, decoder and joiner for SM8850 HTP v81 at exact 2.45.0.260326154327, then record exact bytes and SHA-256. E1 currently blocks this account from selecting SM8850."
+    },
+    "known_exact_pin_contexts_not_staged": {
+      "model": "Supertonic-3",
+      "count": 4,
+      "total_expected_bytes": 188518400,
+      "build": "2.45.0.260326154327",
+      "pin_match": true,
+      "execution_authorized": false,
+      "required_action": "Authenticated Linux download, external SHA-256 pin for all four objects, licence acceptance and app-runner integration."
+    },
+    "qwen3_0_6b_w4a16": {
+      "registry_package_build": "2.45.0.260326154327",
+      "pin_match": true,
+      "execution_authorized": false,
+      "blocker": "Package bytes/checksum are unverified and Qualcomm disables the path for accuracy failure: 70.3% device versus 94.9% benchmark."
+    }
+  },
+  "artifact_registry": {
+    "path": "workstreams/sub2b_sprint/sprint/out/e/artifact_registry.json",
+    "artifact_rows": 36,
+    "staged_file_rows": 19,
+    "staged_exact_pin_runtime_member_rows": 11,
+    "staged_qnn_context_rows": 3,
+    "staged_exact_pin_qnn_context_rows": 0,
+    "npu_execution_ready_rows": 0,
+    "missing_app_runner_rows": 1,
+    "scope_complete": false,
+    "scope_limitation": "The registry covers Lane E's verified/staged artifacts and identified fetch options. The final five-language stack identities from lanes A-D are an explicit UNKNOWN dependency, not fabricated rows."
+  },
+  "hard_blocks": [
+    "No phone NPU execution: zero staged context binaries match the exact 2.45 pin.",
+    "No app-UID APK/JNI runner exists for the staged exact-2.45 runtime.",
+    "Never pair the staged 2.40 Parakeet contexts with the staged 2.45 runtime.",
+    "Never stage the GenieX AAR beside the raw QAIRT runtime set in one APK/process.",
+    "Never accept a context, model, runtime, AAR or APK with unknown immutable revision, bytes, SHA-256, licence or required runtime where that field is applicable.",
+    "The complete five-language stack artifact manifest is still an unmet lanes A-D integration dependency."
+  ],
+  "sources": [
+    "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+    "workstreams/sub2b_sprint/sprint/out/e/E2.json",
+    "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+    "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+    "reports/android_phone/model_sweep_20260729/qairt245_supertonic_isolated_spec.json",
+    "reports/android_phone/model_sweep_20260729/QAIRT245_SUPERTONIC_ISOLATED_LANE.md",
+    "https://github.com/qualcomm/GenieX/releases/tag/v0.3.18",
+    "https://raw.githubusercontent.com/qualcomm/GenieX/71fa27123de979fe484fa9355c3587afc2cd3f76/LICENSE",
+    "https://raw.githubusercontent.com/qualcomm/GenieX/71fa27123de979fe484fa9355c3587afc2cd3f76/NOTICE"
+  ],
+  "limitations": [
+    "No phone was connected or mutated, and no staged QNN context was loaded.",
+    "SM8850 remains discoverable but not compile-selectable for this account, so the required Parakeet 2.45 recompile was not submitted.",
+    "The Supertonic context hashes remain UNKNOWN until authenticated download; opaque ETags are not treated as checksums.",
+    "The GenieX AAR full-file SHA-256 is upstream-published but not locally recomputed in this sprint.",
+    "The registry is lane-scoped and cannot be promoted to a complete shipping manifest until all selected stack artifacts arrive with immutable identities and licences."
+  ]
+}

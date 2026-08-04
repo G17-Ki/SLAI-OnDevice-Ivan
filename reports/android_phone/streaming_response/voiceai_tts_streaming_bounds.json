@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "analysis_type": "source_and_published_scorecard_derived_bounds",
+  "qai_hub_models_version": "0.58.0",
+  "inventory_sha256": "49b7a56ba8832c60d1ed585843f60b94f03c7ffc48d20064cb46680d81119f43",
+  "families": {
+    "PiperTTS": {
+      "constants": {
+        "SAMPLE_RATE": 22050,
+        "DEC_SEQ_OVERLAP": 12,
+        "MAX_DEC_SEQ_LEN": 40,
+        "UPSAMPLE_FACTOR": 256
+      },
+      "decoder_input_frames": 64,
+      "emitted_frames_per_call": 40,
+      "emitted_samples_per_call": 10240,
+      "emitted_audio_ms_per_call": 464.39909297052156,
+      "source": {
+        "constants_module": "models/_shared/pipertts/model.py",
+        "constants_sha256": "f48976d0b6db39c780f6a1184ae5c19478385642fc275c87155b2364ddf3234d",
+        "app_module": "models/_shared/pipertts/app.py",
+        "app_sha256": "6e65c751a083f3827ce04b2234c5af6eab07b0d78db7c681998c1996cb0b27b1"
+      }
+    },
+    "MeloTTS": {
+      "constants": {
+        "SAMPLE_RATE": 44100,
+        "MAX_DEC_SEQ_LEN": 40,
+        "DEC_SEQ_OVERLAP": 12,
+        "UPSAMPLE_FACTOR": 512
+      },
+      "decoder_input_frames": 64,
+      "emitted_frames_per_call": 40,
+      "emitted_samples_per_call": 20480,
+      "emitted_audio_ms_per_call": 464.39909297052156,
+      "source": {
+        "constants_module": "models/_shared/melotts/model.py",
+        "constants_sha256": "f92e406c03b1f010d95dd9befbaf7e9195ae8f4efb43e249706cdd105e7362fd",
+        "app_module": "models/_shared/melotts/app.py",
+        "app_sha256": "1a041829962eca773bd904200f7bd06fcd750659437206449455189f55c752bd"
+      }
+    }
+  },
+  "models": {
+    "pipertts_en": {
+      "name": "PiperTTS-EN",
+      "family": "PiperTTS",
+      "language": "en",
+      "evidence_class": "same_generation_retail_proxy",
+      "device": "Samsung Galaxy S26",
+      "precision": "float",
+      "core_components": [
+        "encoder",
+        "sdp",
+        "flow",
+        "decoder"
+      ],
+      "core_to_first_decoder_output_ms": 34.455,
+      "preprocess_components": [
+        "charsiu_encoder",
+        "charsiu_decoder"
+      ],
+      "preprocess_mode": "optional autoregressive CharSiU G2P; the Python reference app instead uses host piper_phonemize",
+      "preprocess_fixed_call_ms": 0.489,
+      "preprocess_decoder_per_token_ms": 0.281,
+      "one_preprocess_step_plus_core_ms": 35.224999999999994,
+      "decoder_call_ms": 1.827,
+      "decoder_audio_payload_ms": 464.39909297052156,
+      "decoder_compute_to_audio_ratio": 0.0039341162109375,
+      "decoder_audio_realtime_multiple": 254.18669565983666,
+      "all_listed_components_strict_npu": true,
+      "component_job_ids": {
+        "encoder": "jgl12m785",
+        "sdp": "j56dz4v0p",
+        "flow": "jp3w108l5",
+        "decoder": "jgo4n6mx5",
+        "charsiu_encoder": "jpv9rk4j5",
+        "charsiu_decoder": "jgjw2n1x5"
+      }
+    },
+    "pipertts_de": {
+      "name": "PiperTTS-DE",
+      "family": "PiperTTS",
+      "language": "de",
+      "evidence_class": "same_generation_retail_proxy",
+      "device": "Samsung Galaxy S26",
+      "precision": "float",
+      "core_components": [
+        "encoder",
+        "sdp",
+        "flow",
+        "decoder"
+      ],
+      "core_to_first_decoder_output_ms": 34.43300000000001,
+      "preprocess_components": [
+        "charsiu_encoder",
+        "charsiu_decoder"
+      ],
+      "preprocess_mode": "optional autoregressive CharSiU G2P; the Python reference app instead uses host piper_phonemize",
+      "preprocess_fixed_call_ms": 0.488,
+      "preprocess_decoder_per_token_ms": 0.26,
+      "one_preprocess_step_plus_core_ms": 35.181000000000004,
+      "decoder_call_ms": 1.822,
+      "decoder_audio_payload_ms": 464.39909297052156,
+      "decoder_compute_to_audio_ratio": 0.003923349609375,
+      "decoder_audio_realtime_multiple": 254.8842442209229,
+      "all_listed_components_strict_npu": true,
+      "component_job_ids": {
+        "encoder": "jpxdnwdlg",
+        "sdp": "j5mdqjd95",
+        "flow": "jprn8zn75",
+        "decoder": "jpy7r97lp",
+        "charsiu_encoder": "jp0v3nvng",
+        "charsiu_decoder": "jp840l4o5"
+      }
+    },
+    "pipertts_it": {
+      "name": "PiperTTS-IT",
+      "family": "PiperTTS",
+      "language": "it",
+      "evidence_class": "same_generation_retail_proxy",
+      "device": "Samsung Galaxy S26",
+      "precision": "float",
+      "core_components": [
+        "encoder",
+        "sdp",
+        "flow",
+        "decoder"
+      ],
+      "core_to_first_decoder_output_ms": 34.498999999999995,
+      "preprocess_components": [
+        "charsiu_encoder",
+        "charsiu_decoder"
+      ],
+      "preprocess_mode": "optional autoregressive CharSiU G2P; the Python reference app instead uses host piper_phonemize",
+      "preprocess_fixed_call_ms": 0.488,
+      "preprocess_decoder_per_token_ms": 0.266,
+      "one_preprocess_step_plus_core_ms": 35.25299999999999,
+      "decoder_call_ms": 1.821,
+      "decoder_audio_payload_ms": 464.39909297052156,
+      "decoder_compute_to_audio_ratio": 0.0039211962890625,
+      "decoder_audio_realtime_multiple": 255.02421360270267,
+      "all_listed_components_strict_npu": true,
+      "component_job_ids": {
+        "encoder": "j5770z995",
+        "sdp": "jp49kq315",
+        "flow": "jpxdnvxlg",
+        "decoder": "j5mdqr895",
+        "charsiu_encoder": "jgn7l2kqp",
+        "charsiu_decoder": "jprn8kw75"
+      }
+    },
+    "melotts_es": {
+      "name": "MeloTTS-ES",
+      "family": "MeloTTS",
+      "language": "es",
+      "evidence_class": "same_generation_retail_proxy",
+      "device": "Samsung Galaxy S26",
+      "precision": "mixed_with_float",
+      "core_components": [
+        "encoder",
+        "flow",
+        "decoder"
+      ],
+      "core_to_first_decoder_output_ms": 137.458,
+      "preprocess_components": [
+        "t5_encoder",
+        "t5_decoder"
+      ],
+      "preprocess_mode": "autoregressive T5 G2P; decoder call count depends on the text",
+      "preprocess_fixed_call_ms": 0.488,
+      "preprocess_decoder_per_token_ms": 0.267,
+      "one_preprocess_step_plus_core_ms": 138.213,
+      "decoder_call_ms": 42.433,
+      "decoder_audio_payload_ms": 464.39909297052156,
+      "decoder_compute_to_audio_ratio": 0.0913718408203125,
+      "decoder_audio_realtime_multiple": 10.94429083426865,
+      "all_listed_components_strict_npu": true,
+      "component_job_ids": {
+        "encoder": "jgk97md25",
+        "flow": "jgl16r785",
+        "decoder": "jp3wv28l5",
+        "t5_encoder": "jpv90x4j5",
+        "t5_decoder": "jgjwz41x5"
+      }
+    },
+    "melotts_zh": {
+      "name": "MeloTTS-ZH",
+      "family": "MeloTTS",
+      "language": "zh",
+      "evidence_class": "same_generation_retail_proxy",
+      "device": "Samsung Galaxy S26",
+      "precision": "mixed_with_float",
+      "core_components": [
+        "encoder",
+        "flow",
+        "decoder"
+      ],
+      "core_to_first_decoder_output_ms": 137.29899999999998,
+      "preprocess_components": [
+        "bert_wrapper"
+      ],
+      "preprocess_mode": "one fixed-shape BERT wrapper call in the published component inventory",
+      "preprocess_fixed_call_ms": 2.689,
+      "preprocess_decoder_per_token_ms": null,
+      "one_preprocess_step_plus_core_ms": 139.98799999999997,
+      "decoder_call_ms": 42.44,
+      "decoder_audio_payload_ms": 464.39909297052156,
+      "decoder_compute_to_audio_ratio": 0.09138691406249999,
+      "decoder_audio_realtime_multiple": 10.94248569676064,
+      "all_listed_components_strict_npu": true,
+      "component_job_ids": {
+        "encoder": "jp1vwzelp",
+        "flow": "jgdzq1ol5",
+        "decoder": "j577lrdr5",
+        "bert_wrapper": "jp49drwl5"
+      }
+    }
+  },
+  "interpretation": {
+    "proves": [
+      "The pinned reference decoder boundary yields one fixed audio payload per call.",
+      "Published same-generation v81 decoder compute is faster than the audio payload duration.",
+      "The reference app can be refactored to emit each decoder result instead of concatenating all chunks before writing a WAV."
+    ],
+    "does_not_prove": [
+      "Nubia or glasses text-to-first-audible latency",
+      "Android runtime/package compatibility",
+      "host preprocessing, model loading, transfer, scheduling, or speaker startup latency",
+      "audio quality or numerical equivalence on the exact QRD"
+    ]
+  }
+}

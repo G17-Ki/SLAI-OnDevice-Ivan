@@ -1,0 +1,181 @@
+{
+  "status": "passed",
+  "dataset": "hf-internal-testing/librispeech_asr_dummy clean/validation",
+  "sample_count": 18,
+  "conditions": {
+    "clean": "unaltered",
+    "gaussian_10db": "deterministic white noise at 10 dB SNR",
+    "competing_speech_5db": "another utterance mixed at 5 dB target-to-interferer ratio"
+  },
+  "normalization": "lowercase; strip control tokens and punctuation; collapse whitespace",
+  "models": [
+    "LiquidAI/LFM2.5-Audio-1.5B",
+    "openai/whisper-tiny",
+    "openai/whisper-base",
+    "openai/whisper-small"
+  ],
+  "lfm_revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+  "liquid_audio_commit": "19e65845923a7f136442c95137884ec61eb386aa",
+  "summary": [
+    {
+      "model": "LiquidAI/LFM2.5-Audio-1.5B",
+      "condition": "clean",
+      "samples": 18,
+      "audio_seconds": 178.68499999999997,
+      "inference_seconds": 12.348753215999864,
+      "real_time_factor": 0.06910906464448535,
+      "mean_first_token_ms": 101.7475057777675,
+      "wer_percent": 2.857142857142857,
+      "peak_allocated_gb": 3.14025728
+    },
+    {
+      "model": "LiquidAI/LFM2.5-Audio-1.5B",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "audio_seconds": 178.68499999999997,
+      "inference_seconds": 11.505561842999782,
+      "real_time_factor": 0.06439019415731474,
+      "mean_first_token_ms": 55.25314027777818,
+      "wer_percent": 6.428571428571428,
+      "peak_allocated_gb": 3.14025728
+    },
+    {
+      "model": "LiquidAI/LFM2.5-Audio-1.5B",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "audio_seconds": 178.68499999999997,
+      "inference_seconds": 13.279138408000108,
+      "real_time_factor": 0.07431591016593508,
+      "mean_first_token_ms": 55.60831905556066,
+      "wer_percent": 55.714285714285715,
+      "peak_allocated_gb": 3.14025728
+    },
+    {
+      "model": "openai/whisper-tiny",
+      "condition": "clean",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 1.3752548549999801,
+      "real_time_factor": 0.007696532193524807,
+      "mean_first_token_ms": null,
+      "wer_percent": 11.428571428571429,
+      "peak_allocated_gb": 0.174286336
+    },
+    {
+      "model": "openai/whisper-tiny",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 1.0354512710000563,
+      "real_time_factor": 0.005794841598343769,
+      "mean_first_token_ms": null,
+      "wer_percent": 21.666666666666668,
+      "peak_allocated_gb": 0.174523904
+    },
+    {
+      "model": "openai/whisper-tiny",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 1.2059218299999657,
+      "real_time_factor": 0.006748869966700986,
+      "mean_first_token_ms": null,
+      "wer_percent": 71.9047619047619,
+      "peak_allocated_gb": 0.174523904
+    },
+    {
+      "model": "openai/whisper-base",
+      "condition": "clean",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 1.4177034130000266,
+      "real_time_factor": 0.007934093029633302,
+      "mean_first_token_ms": null,
+      "wer_percent": 8.80952380952381,
+      "peak_allocated_gb": 0.2994304
+    },
+    {
+      "model": "openai/whisper-base",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 1.421089527999925,
+      "real_time_factor": 0.007953043221310825,
+      "mean_first_token_ms": null,
+      "wer_percent": 20.714285714285715,
+      "peak_allocated_gb": 0.299432448
+    },
+    {
+      "model": "openai/whisper-base",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 1.7478795030000356,
+      "real_time_factor": 0.009781903925903324,
+      "mean_first_token_ms": null,
+      "wer_percent": 55.00000000000001,
+      "peak_allocated_gb": 0.299432448
+    },
+    {
+      "model": "openai/whisper-small",
+      "condition": "clean",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 2.6658241869999983,
+      "real_time_factor": 0.014919126882502718,
+      "mean_first_token_ms": null,
+      "wer_percent": 7.142857142857142,
+      "peak_allocated_gb": 0.900499968
+    },
+    {
+      "model": "openai/whisper-small",
+      "condition": "gaussian_10db",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 2.57514161600011,
+      "real_time_factor": 0.014411627254666647,
+      "mean_first_token_ms": null,
+      "wer_percent": 10.714285714285714,
+      "peak_allocated_gb": 0.900502016
+    },
+    {
+      "model": "openai/whisper-small",
+      "condition": "competing_speech_5db",
+      "samples": 18,
+      "audio_seconds": 178.685,
+      "inference_seconds": 2.694900437000001,
+      "real_time_factor": 0.015081850390351743,
+      "mean_first_token_ms": null,
+      "wer_percent": 31.428571428571427,
+      "peak_allocated_gb": 0.900502016
+    }
+  ],
+  "lfm_output_intelligibility": [
+    {
+      "file": "lfm_turn1.wav",
+      "reference": "Sure! How about something like \"Crafting Your Dream Home,\" \"Handcrafted Woodworking, Perfectly Made,\" or \"Your Home, Handcrafted by Our Woodworkers.\"",
+      "whisper_small_transcript": " Sure! How about something like crafting your dream home, handcrafted woodworking perfectly made, or your home handcrafted by our woodworkers?",
+      "wer_percent": 0.0,
+      "audio_seconds": 11.84
+    },
+    {
+      "file": "lfm_turn2.wav",
+      "reference": "How about “Elegant, Comfortable Chairs, Handcrafted by Our Woodworkers” or “Timeless Seats, Handcrafted Woodworkers”?",
+      "whisper_small_transcript": " How about Elident, Comfortable Chairs, Handcrafted By Our Woodworkers, or Time With Seats, Handcrafted Woodworkers?",
+      "wer_percent": 21.428571428571427,
+      "audio_seconds": 8.96
+    }
+  ],
+  "environment": {
+    "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.56.1",
+    "datasets": "5.0.0",
+    "cuda_device": "NVIDIA L4"
+  },
+  "limitations": [
+    "This 18-utterance dummy LibriSpeech subset is a controlled smoke benchmark, not a publication-scale ASR evaluation.",
+    "Synthetic noise and two-speaker mixtures do not replace real glasses microphone recordings.",
+    "L4 throughput is a quality-run diagnostic and is not an AR1 latency estimate."
+  ]
+}

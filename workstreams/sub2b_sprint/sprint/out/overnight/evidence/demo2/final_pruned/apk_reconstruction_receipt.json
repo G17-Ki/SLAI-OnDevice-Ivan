@@ -1,0 +1,56 @@
+{
+  "schema_version": "overnight-apk-reconstruction/1.0",
+  "generated_at_utc": "2026-08-03T00:34:03Z",
+  "purpose": "Recover the byte-identical final Demo 2 main APK after the previously accepted host copy was lost.",
+  "output": {
+    "file": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/app-main-accepted-712632b7.apk",
+    "bytes": 20197812,
+    "sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+    "apk_signature_scheme_v2_verified": true,
+    "signer_certificate_sha256": "9ad7b2846b7c18853b99e444d4d05323321b3a9118c13c5a8fc242e58b5859e4"
+  },
+  "inputs": {
+    "base_demo1_apk": {
+      "file": "android-app/app/build/outputs/apk/debug/app-debug.apk",
+      "sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d"
+    },
+    "target_asset": {
+      "git_commit": "de57389",
+      "file": "android-app/app/src/main/assets/demo-ui/index.html",
+      "bytes": 235141,
+      "sha256": "e64a83deae562dd6b00db80e51716f5e03dff06bad535e1e1e4fdc0316e7e224"
+    },
+    "debug_keystore": {
+      "file": "<USER_HOME>/.android/debug.keystore",
+      "sha256": "0c7e628b61739e38392256ba4a5ed600228b17affcb4cda2083e6fad19ba501b"
+    }
+  },
+  "method": {
+    "operation": "Open a clone of the accepted Demo 1 APK with AGP SignedApk, delete assets/demo-ui/index.html, add the de57389 asset as a compression-level-1 BytesSource, and close with v2 signing enabled and v1/v3/v4 disabled.",
+    "min_sdk": 28,
+    "compression_level": 1,
+    "one_off_helper_sha256": "0db1107d54fe375f965f77bcf510e7beb9ce4a3bcff85b59b75b76cb682fe0a4",
+    "libraries": [
+      {
+        "name": "signflinger-8.7.3.jar",
+        "sha256": "c1dca2c683634ee1a294298f9c7179578af6a86e080bdc40f961915bc5c8142f"
+      },
+      {
+        "name": "zipflinger-8.7.3.jar",
+        "sha256": "81dd485618a509a3235929b9eb13091d884452661de6ce5a45cc38b1c555421c"
+      },
+      {
+        "name": "apksig-8.7.3.jar",
+        "sha256": "c070ed1394629d74641aa0906f60b2ffa1ee77e6366a1f93437f59717b1aeb89"
+      }
+    ]
+  },
+  "controls": {
+    "unchanged_asset_reproduced_base_apk_byte_for_byte": true,
+    "control_sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d",
+    "target_asset_inside_output_sha256": "e64a83deae562dd6b00db80e51716f5e03dff06bad535e1e1e4fdc0316e7e224",
+    "clean_gradle_rebuild_rejected_sha256": "755976fd73d51699778cb87828ff96ae63e77396b3d3f8d1ffde81ed3b31ea56",
+    "clean_gradle_rebuild_rejected_bytes": 20062390
+  },
+  "verdict": "PASS_BYTE_IDENTICAL_ACCEPTED_APK_RECOVERED"
+}

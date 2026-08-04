@@ -1,0 +1,175 @@
+plugins {
+    id "com.android.application"
+}
+
+import groovy.json.JsonSlurper
+import java.security.MessageDigest
+
+def payloadRootValue = System.getenv("SUPERTONIC_CHAIN_PROBE_PAYLOAD_DIR")
+def payloadRoot = payloadRootValue ? file(payloadRootValue) : null
+def stagedOrtAar = payloadRoot
+        ? new File(payloadRoot, "aar/onnxruntime-android-qnn-1.25.0.aar")
+        : null
+def defaultOrtAar = new File(
+        System.getProperty("user.home"),
+        ".cache/lmf-demo/whisper-small-v0.58.0/onnxruntime-android-qnn-1.25.0.aar"
+)
+def ortAar = file(System.getenv("SUPERTONIC_CHAIN_PROBE_ORT_AAR")
+        ?: (stagedOrtAar ?: defaultOrtAar))
+def expectedOrtSha256 = "397277c3e50326f5972409ca42ab5b4e69172b218557923630d68e55b11d6198"
+def expectedGateId = "supertonic3_full_chain_raw_onnx_ort_qnn_sm8850_probe_v1"
+def expectedPackage = "ai.liquid.lfmdemo.supertonicchainprobe"
+def expectedModels = [
+        "duration_predictor.int8.onnx": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db",
+        "text_encoder.int8.onnx": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff",
+        "vector_estimator.int8.onnx": "20cd86fa5c6effedfda0e7cffe5b0569ca401c440a0c3a1d72bf39286c0db3fd",
+        "vocoder.int8.onnx": "e923d60f53f95eb1ce235f1dc33ec56d9c057823c96fa6f8acf98f32b0da6152",
+]
+
+android {
+    namespace expectedPackage
+    compileSdk 35
+
+    defaultConfig {
+        applicationId expectedPackage
+        minSdk 28
+        targetSdk 35
+        versionCode 1
+        versionName "0.1.0-full-chain-raw-onnx-qnn-probe"
+        ndk {
+            abiFilters "arm64-v8a"
+        }
+        buildConfigField "boolean", "SUPERTONIC_CHAIN_PAYLOAD_EMBEDDED",
+                payloadRoot ? "true" : "false"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    sourceSets {
+        main {
+            if (payloadRoot) {
+                assets.srcDir new File(payloadRoot, "assets")
+                jniLibs.srcDir new File(payloadRoot, "jniLibs")
+            }
+        }
+    }
+
+    androidResources {
+        noCompress "onnx", "bin", "json", "i64le", "f32le"
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+            keepDebugSymbols += ["**/*.so"]
+        }
+    }
+
+    lint {
+        abortOnError true
+    }
+}
+
+dependencies {
+    implementation files(ortAar)
+}
+
+def sha256 = { File input ->
+    MessageDigest digest = MessageDigest.getInstance("SHA-256")
+    input.withInputStream { stream ->
+        byte[] block = new byte[1024 * 1024]
+        int count
+        while ((count = stream.read(block)) != -1) {
+            digest.update(block, 0, count)
+        }
+    }
+    digest.digest().collect { String.format("%02x", it & 0xff) }.join()
+}
+
+tasks.register("verifySupertonicChainProbeInputs") {
+    inputs.file ortAar
+    if (payloadRoot) {
+        inputs.file new File(
+                payloadRoot,
+                "assets/supertonic_chain_probe/payload_manifest.json"
+        )
+    }
+    doLast {
+        if (!ortAar.isFile() || sha256(ortAar) != expectedOrtSha256) {
+            throw new GradleException("ORT-QNN AAR identity mismatch: ${ortAar}")
+        }
+        if (payloadRoot) {
+            File manifestFile = new File(
+                    payloadRoot,
+                    "assets/supertonic_chain_probe/payload_manifest.json"
+            )
+            if (!manifestFile.isFile()) {
+                throw new GradleException("Missing staged Supertonic chain manifest")
+            }
+            def manifest = new JsonSlurper().parse(manifestFile)
+            if (manifest.gate_id != expectedGateId
+                    || manifest.target?.package != expectedPackage) {
+                throw new GradleException("Unexpected Supertonic chain payload identity")
+            }
+            if (manifest.runtime?.onnx_runtime != "1.25.0"
+                    || manifest.runtime?.qairt != "2.42.0.251225135753_193295"
+                    || manifest.runtime?.disable_cpu_ep_fallback != true) {
+                throw new GradleException("Supertonic chain runtime contract mismatch")
+            }
+            if (manifest.capabilities?.chained_pcm_tensor != true
+                    || manifest.capabilities?.audio_file_output != false
+                    || manifest.capabilities?.audio_playback != false
+                    || manifest.capabilities?.audio_quality_acceptance != false
+                    || manifest.capabilities?.production_integration != false) {
+                throw new GradleException("Supertonic chain claim boundary mismatch")
+            }
+            if (manifest.verification_policy?.require_all_four_sessions != true
+                    || manifest.verification_policy?.require_chained_outputs != true
+                    || manifest.verification_policy?.require_finite_tensors != true
+                    || manifest.verification_policy?.require_exact_shapes != true
+                    || manifest.verification_policy?.require_zero_masked_padding != true
+                    || manifest.verification_policy?.require_non_silent_waveform != true
+                    || manifest.verification_policy?.host_reference_comparisons_recorded != true
+                    || manifest.verification_policy?.host_reference_tolerances_calibrated_on_phone != false
+                    || manifest.verification_policy?.host_reference_comparisons_promoted != false
+                    || manifest.verification_policy?.audio_quality_promoted != false) {
+                throw new GradleException("Supertonic chain verification policy mismatch")
+            }
+            expectedModels.each { filename, expectedSha ->
+                def model = manifest.assets.find {
+                    it.path == "supertonic_chain_probe/models/${filename}"
+                }
+                if (model?.sha256 != expectedSha) {
+                    throw new GradleException("Supertonic model identity mismatch: ${filename}")
+                }
+            }
+            manifest.assets.each { record ->
+                File asset = new File(payloadRoot, "assets/${record.path}")
+                if (!asset.isFile()
+                        || asset.length() != record.bytes
+                        || sha256(asset) != record.sha256) {
+                    throw new GradleException("Supertonic asset identity mismatch: ${asset}")
+                }
+            }
+            manifest.native_libraries.each { record ->
+                File library = new File(payloadRoot, "jniLibs/${record.path}")
+                if (!library.isFile()
+                        || library.length() != record.bytes
+                        || sha256(library) != record.sha256) {
+                    throw new GradleException("QNN native-library identity mismatch: ${library}")
+                }
+            }
+        }
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn tasks.named("verifySupertonicChainProbeInputs")
+}

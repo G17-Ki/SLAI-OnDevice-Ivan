@@ -1,0 +1,1059 @@
+{
+  "schema_version": "overnight-cap-ledger/1.0",
+  "generated_at_utc": "2026-08-02T17:58:51Z",
+  "last_updated_at_utc": "2026-08-02T23:29:36Z",
+  "branch": "sprint/overnight",
+  "source_commit": "95bd4fc7cececeaab9e19f9b6a6c5b5f91c94586",
+  "evidence_through_commit": "95bd4fc",
+  "purpose": "Parameter-cap evidence for the two accepted overnight phone-demo inventories. This file separates unique learned parameters from a deliberately more conservative resident-artifact element bound and binds each accepted physical total to a complete phone inventory receipt.",
+  "licence_scope": "OUT_OF_SCOPE_FOR_THIS_RESEARCH_DEMO_RECORDED_BUT_NOT_GATING",
+  "counting_conventions": {
+    "learned_unique": {
+      "definition": "Unique learned logical tensor elements. Proven tied weights are de-duplicated; fixed integer buffers, quantization scales/zero-points, graph constants, and non-neural rule data are excluded.",
+      "relationship_to_cap": "This is the basis named by the user-facing strict parameter caps. A total must be strictly less than the cap, never equal to it.",
+      "evidence_classes_used": [
+        "EXACT"
+      ]
+    },
+    "conservative_resident": {
+      "definition": "A fail-safe upper-bound basis that counts serialized GGUF tensor elements reported by the running server and all ONNX initializer/Constant elements in resident exports, including quantization auxiliaries, fixed integer buffers, unused variants explicitly retained by the staged bundle, and selected style or voice banks.",
+      "relationship_to_cap": "This basis can over-count unique learned parameters. If it is below the cap, the learned-parameter cap follows without relying on de-duplication. It must not be relabelled as an exact learned-parameter total.",
+      "evidence_classes_used": [
+        "PHONE-MEASURED",
+        "EXACT",
+        "UB"
+      ]
+    },
+    "resident_inventory_rule": "Every model artifact retained across the main app and runtime-companion private directories counts in the conservative scope even when the current language selector cannot route to it. A target total becomes a physical-device claim only after a complete post-install file-and-hash inventory proves that excluded artifacts are absent.",
+    "non_neural_frontends": "Rule tables, token lists, lexicons, and code have zero learned parameters. They still require file/hash inventory but add zero to the learned-parameter ledger.",
+    "npu_boundary": "Parameter arithmetic proves no execution provider. No NPU claim follows from this ledger. NPU execution requires a version-matched compiled artifact and runtime plus phone telemetry."
+  },
+  "evidence_sources": {
+    "lane_a_ledger": {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "sha256": "ea0f24964f998a15e553c943a12ef9978957bd2dfc2819d8c4f61e30b40e0f91",
+      "use": "EXACT logical learned/tensor counts for Qwen2.5, Qwen3.5 LM, SenseVoiceSmall, Parakeet, RU Zipformer, Matcha, Vocos, Supertonic, and Silero VAD."
+    },
+    "adaptive_energy_vad_source": {
+      "path": "android-app/app/src/main/java/ai/liquid/lfmdemo/AdaptiveEnergyVad.java",
+      "sha256": "f43f07819d1bf8983809421bc6e0b436046fd7e7a96d2271a9209caf3db4da00",
+      "use": "EXACT deployed VAD implementation identity: dependency-free Java signal-processing code with zero learned model parameters. Physical absence of Silero weights is established separately by the accepted phone inventory receipts."
+    },
+    "adaptive_energy_vad_wiring": {
+      "path": "android-app/app/src/main/java/ai/liquid/lfmdemo/NativeAudioBridge.java",
+      "sha256": "1033279fb48e9a26279d0b99fba8e31acff12a530eaaad43883dbfa3a1a61fa2",
+      "use": "EXACT app wiring receipt: the native audio bridge constructs and runs AdaptiveEnergyVad for VAD capture mode."
+    },
+    "lane_a_parakeet_receipt": {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/A2.json",
+      "sha256": "5bc97c668923e245767ac22a4475862d67120d68a9a7ef3dd463538ba1979400",
+      "use": "Parakeet 627,057,286 learned / 627,057,310 all original tensor elements and the 24-buffer reconciliation."
+    },
+    "lane_a_component_receipt": {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/A3.json",
+      "sha256": "c95fddf64faa5af70009b1938aff4cd5ac6fb0431ff4a558ea13444d778ebb79",
+      "use": "Independent component rows used by the final Lane A ledger."
+    },
+    "onnx_direct_parser": {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/tools/onnxr.py",
+      "sha256": "52ee606b115820db69041dffcb14cfde36541b28507600aaee3ffa3311b93c31",
+      "use": "Direct local ONNX initializer and Constant-node tensor enumeration for the conservative export totals in this file."
+    },
+    "lane_b_qwen35_prereg": {
+      "path": "workstreams/sub2b_sprint/sprint/out/b/b1_prereg.json",
+      "sha256": "ff0ccbd0b2ca426bbfe287419c8e47a6ff71a28827da9aaa178ffce1adbc2eb6",
+      "use": "Authoritative Qwen3.5 GGUF repository, revision, filename, byte size, SHA-256, text-only setting, and no-vision-projector condition."
+    },
+    "lane_b_qwen35_execution": {
+      "path": "workstreams/sub2b_sprint/sprint/out/b/B3.json",
+      "sha256": "d2f3762047aed59163177f22cbbd1769e6079b6db88f32dfc32a2e4163888311",
+      "use": "HOST execution result tied to the exact Qwen3.5 GGUF identity."
+    },
+    "demo1_qwen35_inventory": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/qwen35_08b_gguf_inventory.json",
+      "sha256": "b3eae9a09258cefccc85fd57ee8e7a27406d3249b39908af73f5654af67d311e",
+      "use": "EXACT host download identity and GGUF header inventory: 752,393,024 tensor elements, zero MTP/draft tensors, and zero vision/visual/mmproj tensors."
+    },
+    "demo1_qwen35_phone_install": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/qwen35_runtime_install.json",
+      "sha256": "a28efb2f66a432dcf26c64cdeb97151275a56c3d781885de8ede5a3cfac2d407",
+      "use": "PHONE-MEASURED exact private installation identity: pinned Qwen3.5 hash/bytes, Qwen2.5 removed, one GGUF, and installed main/runtime APK hashes."
+    },
+    "demo1_model_provisioning": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/provisioning_receipt.json",
+      "sha256": "6ad57edca522b96e7ec1cc684a060d2a06d728bc691694b590b915df79749d30",
+      "use": "PHONE-MEASURED five-candidate TTS replacement and 16-row CPU-only Parakeet overlay with per-row atomic hash verification, no partial files, and no QNN/Qualcomm/context payload."
+    },
+    "demo1_final_inventory_receipt": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/inventory_receipt.json",
+      "sha256": "ea265985b3cb3ebaf0feb3f0d43203f56ea5cdeb7619bdcf8d5fe40330d0620b",
+      "use": "PHONE-MEASURED final Demo 1 physical acceptance: complete two-APK/private/external inventory, installed model identities, required absences, physical parameter totals, and binding to five completed turns in one cold-boot process."
+    },
+    "demo1_final_device_inventory": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/device_inventory.tsv",
+      "sha256": "2c8fc77faa6c4a0f4b3cbceb32e302d8b6923a1112e90fa77d36026426e892bf",
+      "use": "PHONE-MEASURED complete 61-row listing: two APKs, thirty-four private files, and twenty-five external TTS files."
+    },
+    "demo1_final_device_state": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/final_inventory/device_state.txt",
+      "sha256": "7c7d335ad522d4ec1666de451c59773dc00d890c8a99132723a7af204e426ea3",
+      "use": "PHONE-MEASURED NX809J identity, package/process UIDs and PIDs, airplane mode, empty ADB forwards, one GGUF, no LFM process, and no enumerated port-8080 listener."
+    },
+    "demo1_five_language_summary": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/final/summary.json",
+      "sha256": "365565af07a432351a7b39c04cc8e9d662d07df714b1ceb67f6d54c966a9de7e",
+      "use": "PHONE-MEASURED aggregate acceptance for five completed turns and five completed playbacks in one boot/process, with two SenseVoice QNN-executed turns and zero underflows, failures, or warnings."
+    },
+    "demo1_five_language_telemetry": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/final/telemetry.jsonl",
+      "sha256": "fac08614ea4b5916d9c3a6d613ae426379e6852bcf1f70fa9951c0dfe2267ece",
+      "use": "PHONE-MEASURED merged five-language telemetry retained for per-turn route and timing audit."
+    },
+    "demo1_five_language_report": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo1/five_language_cold/final/REPORT.md",
+      "sha256": "232a52d6797677efb5aa98921a32856f864d4dee8dcd682b70b67160bbbe5faa",
+      "use": "Human-readable aggregate five-language checkpoint report, including the Russian factual-quality warning."
+    },
+    "lane_c_asr": {
+      "path": "workstreams/sub2b_sprint/sprint/out/c/asr_table.json",
+      "sha256": "62172907d9d27415c316c2daea41ff03d79de59d9b41e2ac343b30f3b1e44179",
+      "use": "HOST ASR quality evidence; not used to upgrade parameter-count classes."
+    },
+    "lane_d_tts": {
+      "path": "workstreams/sub2b_sprint/sprint/out/d/tts_table.json",
+      "sha256": "e44a77791eff385f258208e9f440ac6d4e6bb32d72e772efddbac9689ea64762",
+      "use": "TTS route identities and technical limitations; not used to upgrade parameter-count classes."
+    },
+    "demo2_warm_smoke": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/warm/smoke.json",
+      "sha256": "c7ec74c774c753c57add08f952203be0e93c9f53daadf17e89e5976dc8aea474",
+      "use": "PHONE-MEASURED Qwen2.5 GGUF metadata n_params=1,777,088,000; proof that Qwen2.5, SenseVoice, Supertonic EN, Matcha ZH, and the LFM server were active in the last committed warm evidence."
+    },
+    "demo2_filechooser_provenance": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/no_forward_zh_filechooser/provenance.json",
+      "sha256": "c6715771cd6363d909f1e02ae43099569388f4699ec0d2e80ee27321fe5021f1",
+      "use": "PHONE-MEASURED app/APK identity, airplane mode, no-forward state, SenseVoice QNN execution, and Matcha ZH execution for one accepted Mandarin turn."
+    },
+    "demo2_no_lfm_build": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/no_lfm_build.json",
+      "sha256": "91083ea0f83ecc2289723c123bd23e2a14954b0476ed5421e86c3b7680a6dc85",
+      "use": "EXACT source/build receipt for the no-LFM APK: port 8080 removed from readiness, LfmService not started, APK SHA-256 a415970f...d3677ea. This source is build-only until a phone receipt lands."
+    },
+    "demo2_full_tts_manifest": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/bundle_manifest.json",
+      "sha256": "42d07adb4e5713c4f2ed6c965bf18a820834b153927f1745b1aab00c64ea424d",
+      "use": "Nineteen-candidate full TTS laboratory file inventory and per-file hashes used for the remove-LFM-only upper bound."
+    },
+    "demo2_full_tts_candidates": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/device_bundles/demo2/candidates.json",
+      "sha256": "14424db7f258dbe57dbc4ea11383fb35d566b3f6058acd8c649427d92b80d736",
+      "use": "Full laboratory candidate identities and language routes."
+    },
+    "lfm_component_matrix": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/CAP_LEDGER.md",
+      "sha256": "0748b51a2ee11f115242eafeeee4f46b298133e720bb93103cf9f0d2b654c025",
+      "use": "Public cap-ledger summary of the LFM2.5-Audio four-artifact logical total: 1,644,992,196 tensor elements / 1,644,992,171 learned."
+    },
+    "lfm_model_hash_list": {
+      "path": "android-app/model-files.sha256",
+      "sha256": "2dff60999ae141878d5a43535ae7b5134f8bec9bf2dd27d73020c2925ebec0ad",
+      "use": "Pinned SHA-256 identities for the four app-private LFM GGUF files."
+    },
+    "parakeet_overlay_manifest": {
+      "path": "workstreams/sub2b_sprint/sprint/out/f/artifacts/nubia_esfr_bundle/manifest/bundle_manifest.json",
+      "sha256": "a79f329b5ff369df480dfc3b6f7af632cae5362e17b4093c06e7a36bd6c96ea3",
+      "use": "Hash-pinned host-staged Parakeet INT8 CPU overlay. Lane F explicitly recorded zero phone execution."
+    },
+    "demo1_pruned_tts_manifest_ephemeral": {
+      "path": "/private/tmp/lmf-demo1-pruned.9JOlbI/bundle_manifest.json",
+      "sha256": "67ffedc475464216d64143c8c15332ea82398170fe11f66b91da3eb9051a3384",
+      "durable": false,
+      "use": "Historical HOST-STAGED five-candidate EN/ZH/ES/FR/RU TTS tree used for direct parsing. Its content hashes are bound to durable evidence copies and the accepted final phone inventory."
+    },
+    "demo1_pruned_tts_candidates_ephemeral": {
+      "path": "/private/tmp/lmf-demo1-pruned.9JOlbI/candidates.json",
+      "sha256": "7b781a3612f3b381be3e81273370464a4ef0df421b533dfd4dc66bd75c5cdf05",
+      "durable": false,
+      "use": "HOST-STAGED candidate list: Matcha ZH and one shared Supertonic voice for EN/ES/FR/RU."
+    },
+    "demo2_pruned_tts_manifest_ephemeral": {
+      "path": "/private/tmp/lmf-demo2-pruned.uIVoWR/bundle_manifest.json",
+      "sha256": "d02e2ffb61cd3f7f75ec1e003f6ad9f36de66507e224dcc08174e693139d0733",
+      "durable": false,
+      "use": "Historical HOST-STAGED two-candidate EN+ZH TTS tree. Its content was promoted into the durable accepted Demo 2 receipt."
+    },
+    "demo2_pruned_tts_candidates_ephemeral": {
+      "path": "/private/tmp/lmf-demo2-pruned.uIVoWR/candidates.json",
+      "sha256": "cf074772477afee15cf7262b3a517c33e0bec6f9815514a207dadebe7bc6afce",
+      "durable": false,
+      "use": "HOST-STAGED candidate list: Supertonic EN and Matcha ZH only."
+    },
+    "demo2_final_inventory_receipt": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json",
+      "sha256": "14fd19ce1e9bb06063a577923935571a7d82aff17a39734eee2792653c87ae5d",
+      "use": "PHONE-MEASURED final Demo 2 physical acceptance: package/APK identities, complete inventory coverage, installed model hashes, absent LFM/extra GGUF/stale TTS/Silero artifacts, and installed parameter totals."
+    },
+    "demo2_final_device_inventory": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/device_inventory.tsv",
+      "sha256": "14380fa29ca09fd96eb04b8566aee69a8b93460fbf59e3860c6bad18df22952a",
+      "use": "PHONE-MEASURED complete 42-row listing: two APKs, fifteen private files, and twenty-five external TTS files."
+    },
+    "demo2_final_device_state": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/device_state.txt",
+      "sha256": "959c42492bf47a4e08faffefb5bb90d0ceac325109e9655ffdad0ebc90042369",
+      "use": "PHONE-MEASURED NX809J identity, package versions, airplane mode, empty ADB forwards, one GGUF, process list, and no matched listener."
+    },
+    "demo2_final_tts_verify": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/tts_verify.txt",
+      "sha256": "3b8f0c1c6d9654218cbcf64277cd327fa916eebe713dd9e5166dca4a1fb5383f",
+      "use": "PHONE-MEASURED verification of two candidates, twenty-two authenticated referenced files, and three metadata files."
+    },
+    "demo2_final_tts_manifest": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/tts_bundle_manifest.json",
+      "sha256": "b0b03a99d8d2203d6b40f31925f047c5803770e3513767be8f427026d0db029b",
+      "source_sha256": "d02e2ffb61cd3f7f75ec1e003f6ad9f36de66507e224dcc08174e693139d0733",
+      "use": "Durable two-candidate TTS manifest receipt. The complete phone listing proves the unreferenced Vocos 24 kHz file is absent."
+    },
+    "demo2_final_tts_candidates": {
+      "path": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/tts_candidates.json",
+      "sha256": "1c4413e3135cd1f4c3b560f952cd6f4642ffaa0b15b50344489ffd2b1a9c49ef",
+      "source_sha256": "cf074772477afee15cf7262b3a517c33e0bec6f9815514a207dadebe7bc6afce",
+      "use": "Durable candidate list: Matcha ZH and Supertonic EN only."
+    }
+  },
+  "direct_parse_receipts": {
+    "parakeet_int8_export": {
+      "method_source": "onnx_direct_parser",
+      "evidence_class": "UB",
+      "rows": [
+        {
+          "file": "encoder.int8.onnx",
+          "sha256": "acfc2b4456377e15d04f0243af540b7fe7c992f8d898d751cf134c3a55fd2247",
+          "initializer_and_constant_elements": 619096503
+        },
+        {
+          "file": "decoder.int8.onnx",
+          "sha256": "179e50c43d1a9de79c8a24149a2f9bac6eb5981823f2a2ed88d655b24248db4e",
+          "initializer_and_constant_elements": 11807384
+        },
+        {
+          "file": "joiner.int8.onnx",
+          "sha256": "3164c13fc2821009440d20fcb5fdc78bff28b4db2f8d0f0b329101719c0948b3",
+          "initializer_and_constant_elements": 6321166
+        }
+      ],
+      "total_initializer_and_constant_elements": 637225053,
+      "arithmetic": "619096503 + 11807384 + 6321166 = 637225053",
+      "interpretation": "Conservative export bound. The logical model has 627,057,286 unique learned parameters; quantization auxiliaries and fixed export tensors explain the larger serialized-export element total."
+    },
+    "pruned_tts_export": {
+      "method_source": "onnx_direct_parser",
+      "evidence_class": "UB",
+      "rows": [
+        {
+          "file": "matcha-icefall-zh-baker/model-steps-3.onnx",
+          "sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+          "learned_unique_elements": 18664582,
+          "initializer_and_constant_elements": 18665803
+        },
+        {
+          "file": "shared/vocos-22khz-univ.onnx",
+          "sha256": "0574a135aa1db2de6e181050db2ec528496cacd4a4701fc5d7faf9f9804c0081",
+          "learned_unique_elements": 13460015,
+          "initializer_and_constant_elements": 13460021
+        },
+        {
+          "file": "shared/vocos-24khz.onnx",
+          "sha256": "bcb3b970e384161c4d634f0bb9e999ff1c471b34c9bc0b1049a5014065ed3cc0",
+          "learned_unique_elements": 13531675,
+          "initializer_and_constant_elements": 13531681,
+          "route_status": "UNUSED_BY_THE_SELECTED_FIVE_CANDIDATES_BUT_RETAINED_AND_COUNTED"
+        },
+        {
+          "file": "supertonic3-int8/duration_predictor.int8.onnx",
+          "sha256": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db",
+          "initializer_and_constant_elements": 865234
+        },
+        {
+          "file": "supertonic3-int8/text_encoder.int8.onnx",
+          "sha256": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff",
+          "initializer_and_constant_elements": 9001916
+        },
+        {
+          "file": "supertonic3-int8/vector_estimator.int8.onnx",
+          "sha256": "20cd86fa5c6effedfda0e7cffe5b0569ca401c440a0c3a1d72bf39286c0db3fd",
+          "initializer_and_constant_elements": 64176445
+        },
+        {
+          "file": "supertonic3-int8/vocoder.int8.onnx",
+          "sha256": "e923d60f53f95eb1ce235f1dc33ec56d9c057823c96fa6f8acf98f32b0da6152",
+          "initializer_and_constant_elements": 25456318
+        },
+        {
+          "file": "supertonic3-int8/voice.bin",
+          "sha256": "67d5209b0ee8ce6c74105ffbe12fe6a7628aea3b4ba2fcb308a4a67938a93ce8",
+          "learned_unique_elements": 129280,
+          "resident_elements": 129280
+        }
+      ],
+      "supertonic_logical_graph_learned_unique_elements": 99217620,
+      "supertonic_int8_export_initializer_and_constant_elements": 99499913,
+      "total_learned_unique_elements": 145003172,
+      "total_conservative_resident_elements": 145286698,
+      "learned_arithmetic": "18664582 + 13460015 + 13531675 + 99217620 + 129280 = 145003172",
+      "conservative_arithmetic": "18665803 + 13460021 + 13531681 + 865234 + 9001916 + 64176445 + 25456318 + 129280 = 145286698"
+    },
+    "installed_demo2_tts_export": {
+      "physical_inventory_source": "demo2_final_inventory_receipt",
+      "evidence_class": "UB",
+      "absent_overcounted_row": "shared/vocos-24khz.onnx",
+      "learned_unique_elements": 131471497,
+      "conservative_resident_elements": 131755017,
+      "learned_arithmetic": "18664582 + 13460015 + 99217620 + 129280 = 131471497",
+      "conservative_arithmetic": "18665803 + 13460021 + 865234 + 9001916 + 64176445 + 25456318 + 129280 = 131755017",
+      "interpretation": "The complete phone inventory proves the staged but unreferenced Vocos 24 kHz row is absent. All twenty-two referenced TTS files plus three metadata files are installed and verified."
+    },
+    "installed_demo1_tts_export": {
+      "physical_inventory_source": "demo1_final_inventory_receipt",
+      "evidence_class": "UB",
+      "absent_overcounted_row": "shared/vocos-24khz.onnx",
+      "learned_unique_elements": 131471497,
+      "conservative_resident_elements": 131755017,
+      "learned_arithmetic": "18664582 + 13460015 + 99217620 + 129280 = 131471497",
+      "conservative_arithmetic": "18665803 + 13460021 + 865234 + 9001916 + 64176445 + 25456318 + 129280 = 131755017",
+      "interpretation": "The complete Demo 1 phone inventory proves the unreferenced Vocos 24 kHz row is absent. The four Supertonic language policies share one physical graph/style set, and all twenty-two referenced TTS files plus three metadata files are installed and verified."
+    },
+    "full_tts_laboratory_bound": {
+      "evidence_class": "UB",
+      "manifest_source": "demo2_full_tts_manifest",
+      "onnx_initializer_and_constant_elements": 582600946,
+      "one_unique_kokoro_voice_bank_elements": 13447680,
+      "supertonic_style_bank_elements": 129280,
+      "total_conservative_resident_elements": 596177906,
+      "arithmetic": "582600946 + 13447680 + 129280 = 596177906",
+      "interpretation": "Deliberately conservative full-laboratory bound. It counts FP32 and INT8 variants, quantization auxiliaries, and otherwise unused candidate artifacts. No learned-unique total is asserted for this scope."
+    }
+  },
+  "excluded_or_replaced_components": {
+    "lfm25_audio": {
+      "artifact_files": [
+        "LFM2.5-Audio-1.5B-Q4_0.gguf",
+        "mmproj-LFM2.5-Audio-1.5B-Q4_0.gguf",
+        "tokenizer-LFM2.5-Audio-1.5B-Q4_0.gguf",
+        "vocoder-LFM2.5-Audio-1.5B-Q4_0.gguf"
+      ],
+      "learned_unique_elements": 1644992171,
+      "learned_evidence_class": "EXACT",
+      "all_tensor_elements": 1644992196,
+      "all_tensor_evidence_class": "EXACT",
+      "count_note": "The all-tensor total is 25 elements higher because it includes fixed non-learned tensor entries.",
+      "source_ids": [
+        "lfm_component_matrix",
+        "lfm_model_hash_list"
+      ],
+      "required_state_for_both_demo_cap_claims": "ABSENT_FROM_ALL_SHIPPED_APP_PRIVATE_INVENTORIES",
+      "last_committed_phone_evidence": "ABSENT_IN_BOTH_ACCEPTED_PHYSICAL_INVENTORIES: the final Demo 2 and Demo 1 receipts supersede the older warm smoke and prove the four LFM weights absent, no LFM process, and no enumerated port-8080 listener.",
+      "effect_if_retained": {
+        "demo2_pruned_conservative_total": 3866976102,
+        "demo2_remove_lfm_only_scope_total": 4317867310,
+        "demo1_physical_conservative_total": 3465974498,
+        "note": "Adding LFM back invalidates both under-3B analytical scopes and the accepted under-2B Demo 1 inventory."
+      }
+    },
+    "qwen25_for_demo1": {
+      "conservative_serialized_elements": 1777088000,
+      "required_state": "REPLACED_NOT_ADDITIVE_AND_PHONE_VERIFIED: final Demo 1 inventory contains Qwen3.5 only.",
+      "effect_if_retained_with_demo1_host_target": 3612147374,
+      "effect_if_retained_with_demo1_physical_inventory": 3598070302
+    }
+  },
+  "demo2": {
+    "name": "IT'S GOOD",
+    "parameter_cap_exclusive": 3000000000,
+    "target_languages": [
+      "en",
+      "zh"
+    ],
+    "scopes": {
+      "installed_physical_acceptance": {
+        "status": "PASS_STRICTLY_UNDER_3B_PHONE_INVENTORY_ACCEPTED",
+        "physical_inventory_source_ids": [
+          "demo2_final_inventory_receipt",
+          "demo2_final_device_inventory",
+          "demo2_final_device_state",
+          "demo2_final_tts_verify"
+        ],
+        "rows": [
+          {
+            "component": "Qwen2.5-1.5B-Instruct Q4_K_M",
+            "learned_unique_elements": 1543714304,
+            "conservative_resident_elements": 1777088000,
+            "installed_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+          },
+          {
+            "component": "SenseVoiceSmall",
+            "learned_unique_elements": 233999167,
+            "conservative_resident_elements": 233999167,
+            "installed_sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30"
+          },
+          {
+            "component": "RU Zipformer INT8",
+            "learned_unique_elements": 65610041,
+            "conservative_resident_elements": 65610041,
+            "installed_state": "present_and_counted_not_exercised_in_demo2"
+          },
+          {
+            "component": "Installed TTS: Supertonic EN + Matcha/Vocos ZH",
+            "learned_unique_elements": 131471497,
+            "conservative_resident_elements": 131755017,
+            "source_id": "installed_demo2_tts_export",
+            "installed_state": "22_referenced_files_plus_3_metadata_verified; unreferenced_vocos_24khz_absent"
+          },
+          {
+            "component": "AdaptiveEnergyVad",
+            "learned_unique_elements": 0,
+            "conservative_resident_elements": 0,
+            "source_ids": [
+              "adaptive_energy_vad_source",
+              "adaptive_energy_vad_wiring"
+            ]
+          }
+        ],
+        "totals": {
+          "learned_unique_elements": 1974795009,
+          "learned_headroom": 1025204991,
+          "conservative_resident_elements": 2208452225,
+          "conservative_headroom": 791547775,
+          "strictly_below_cap": true
+        },
+        "arithmetic": {
+          "learned": "1543714304 + 233999167 + 65610041 + 131471497 + 0 = 1974795009",
+          "conservative": "1777088000 + 233999167 + 65610041 + 131755017 + 0 = 2208452225"
+        },
+        "exclusions_proven": {
+          "app_private_lfm_weights": true,
+          "extra_qwen_ggufs": true,
+          "stale_tts_trees": true,
+          "silero_weights": true,
+          "lfm_process_or_port_8080": true
+        }
+      },
+      "pruned_en_zh_target": {
+        "status": "SAFE_INTENTIONALLY_OVERCOUNTING_HOST_TARGET_BOUND; PHYSICAL_INSTALL_IS_SMALLER_BECAUSE_VOCOS_24KHZ_IS_ABSENT",
+        "rows": [
+          {
+            "component": "Qwen2.5-1.5B-Instruct Q4_K_M",
+            "role": "backbone",
+            "languages": [
+              "en",
+              "zh"
+            ],
+            "learned_unique_elements": 1543714304,
+            "learned_evidence_class": "EXACT",
+            "conservative_resident_elements": 1777088000,
+            "conservative_evidence_class": "PHONE-MEASURED",
+            "source_ids": [
+              "lane_a_ledger",
+              "demo2_warm_smoke"
+            ],
+            "installed_state": "PHONE_INSTALLED_HASH_VERIFIED_AND_EXECUTED_IN_FINAL_DEMO2_ACCEPTANCE"
+          },
+          {
+            "component": "SenseVoiceSmall",
+            "role": "ASR",
+            "languages": [
+              "en",
+              "zh"
+            ],
+            "learned_unique_elements": 233999167,
+            "learned_evidence_class": "EXACT",
+            "conservative_resident_elements": 233999167,
+            "conservative_evidence_class": "EXACT",
+            "source_ids": [
+              "lane_a_ledger",
+              "demo2_warm_smoke",
+              "demo2_filechooser_provenance"
+            ],
+            "installed_state": "PHONE_INSTALLED_HASH_VERIFIED_AND_EXECUTED_IN_FINAL_EN_AND_ZH_ACCEPTANCE"
+          },
+          {
+            "component": "RU Zipformer INT8",
+            "role": "resident unused ASR",
+            "languages": [
+              "ru"
+            ],
+            "learned_unique_elements": 65610041,
+            "learned_evidence_class": "EXACT",
+            "conservative_resident_elements": 65610041,
+            "conservative_evidence_class": "EXACT",
+            "source_ids": [
+              "lane_a_ledger"
+            ],
+            "installed_state": "PHONE_INSTALLED_HASH_VERIFIED; COUNTED_BUT_NOT_EXECUTED_BY_DEMO2",
+            "scope_note": "Retained in the arithmetic even though Demo 2 exposes EN+ZH only. Removing it would create more headroom but is not required for the cap."
+          },
+          {
+            "component": "Pruned TTS: Supertonic EN + Matcha/Vocos ZH",
+            "role": "TTS",
+            "languages": [
+              "en",
+              "zh"
+            ],
+            "learned_unique_elements": 145003172,
+            "learned_evidence_class": "EXACT",
+            "conservative_resident_elements": 145286698,
+            "conservative_evidence_class": "UB",
+            "source_ids": [
+              "lane_a_ledger",
+              "demo2_pruned_tts_manifest_ephemeral",
+              "demo2_pruned_tts_candidates_ephemeral"
+            ],
+            "installed_state": "SAFE_HOST_BOUND_ONLY; COMPLETE_PHONE_INVENTORY_PROVES_THE_UNREFERENCED_VOCOS_24KHZ_ROW_IS_NOT_INSTALLED",
+            "scope_note": "This bound intentionally retains absent vocos-24khz.onnx. Use installed_physical_acceptance for the accepted phone total."
+          },
+          {
+            "component": "AdaptiveEnergyVad",
+            "role": "VAD",
+            "languages": [
+              "en",
+              "zh"
+            ],
+            "learned_unique_elements": 0,
+            "learned_evidence_class": "EXACT",
+            "conservative_resident_elements": 0,
+            "conservative_evidence_class": "EXACT",
+            "source_ids": [
+              "adaptive_energy_vad_source",
+              "adaptive_energy_vad_wiring"
+            ],
+            "installed_state": "DEPLOYED_SOURCE_AND_APK CODE; ZERO LEARNED PARAMETERS; NO SILERO MODEL ARTIFACT EXISTS"
+          }
+        ],
+        "totals": {
+          "learned_unique_elements": 1988326684,
+          "learned_headroom": 1011673316,
+          "conservative_resident_elements": 2221983906,
+          "conservative_headroom": 778016094,
+          "strictly_below_cap": true
+        },
+        "arithmetic": {
+          "learned": "1543714304 + 233999167 + 65610041 + 145003172 + 0 = 1988326684",
+          "conservative": "1777088000 + 233999167 + 65610041 + 145286698 + 0 = 2221983906"
+        }
+      },
+      "remove_lfm_only": {
+        "status": "CAP_BOUND_PROVEN_IF_AND_ONLY_IF_LFM_IS_REMOVED; FULL_TTS_TREE_INSTALL_STATE_REQUIRES_POST_REMOVAL_INVENTORY",
+        "rows": [
+          {
+            "component": "Qwen2.5-1.5B-Instruct Q4_K_M",
+            "conservative_resident_elements": 1777088000,
+            "evidence_class": "PHONE-MEASURED"
+          },
+          {
+            "component": "SenseVoiceSmall",
+            "conservative_resident_elements": 233999167,
+            "evidence_class": "EXACT"
+          },
+          {
+            "component": "RU Zipformer INT8",
+            "conservative_resident_elements": 65610041,
+            "evidence_class": "EXACT"
+          },
+          {
+            "component": "Full nineteen-candidate TTS laboratory inventory",
+            "conservative_resident_elements": 596177906,
+            "evidence_class": "UB",
+            "source_ids": [
+              "demo2_full_tts_manifest",
+              "demo2_full_tts_candidates"
+            ]
+          },
+          {
+            "component": "AdaptiveEnergyVad",
+            "conservative_resident_elements": 0,
+            "evidence_class": "EXACT",
+            "source_ids": [
+              "adaptive_energy_vad_source",
+              "adaptive_energy_vad_wiring"
+            ]
+          }
+        ],
+        "totals": {
+          "learned_unique_elements": null,
+          "learned_total_reason": "The full laboratory TTS scope was deliberately enumerated only as a conservative exported-element upper bound; no unique learned total is promoted for it.",
+          "conservative_resident_elements": 2672875114,
+          "conservative_headroom": 327124886,
+          "strictly_below_cap": true
+        },
+        "arithmetic": "1777088000 + 233999167 + 65610041 + 596177906 + 0 = 2672875114"
+      }
+    },
+    "physical_acceptance": {
+      "status": "PASS",
+      "receipt_source_id": "demo2_final_inventory_receipt",
+      "completed_gates": [
+        "Final main APK SHA-256 712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f installed.",
+        "All four LFM weights, extra GGUFs, stale TTS trees, Silero weights, and LFM process/port 8080 proven absent.",
+        "Two-candidate TTS tree verified: twenty-two referenced files plus three metadata files.",
+        "Complete two-package and external-TTS inventory captured: forty-two rows.",
+        "Cold EN and ZH on the final APK passed the request-to-first-audio gate in airplane mode with no ADB forwards."
+      ]
+    }
+  },
+  "demo1": {
+    "name": "IT FITS",
+    "parameter_cap_exclusive": 2000000000,
+    "target_languages": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "ru"
+    ],
+    "status": "PASS_STRICTLY_UNDER_2B_PHONE_INVENTORY_AND_FIVE_LANGUAGE_EXECUTION_ACCEPTED",
+    "host_target_scope_note": "The rows and totals immediately below are the intentionally overcounting host target. They retain an absent Vocos 24 kHz export. The accepted physical phone total is smaller and is recorded under physical_acceptance.",
+    "rows": [
+      {
+        "component": "Qwen3.5-0.8B Q4_0 text-only GGUF",
+        "role": "backbone",
+        "languages": [
+          "en",
+          "zh",
+          "es",
+          "fr",
+          "ru"
+        ],
+        "learned_unique_elements": 752393024,
+        "learned_evidence_class": "EXACT",
+        "conservative_resident_elements": 752393024,
+        "conservative_evidence_class": "EXACT",
+        "artifact": {
+          "repo": "unsloth/Qwen3.5-0.8B-GGUF",
+          "revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+          "filename": "Qwen3.5-0.8B-Q4_0.gguf",
+          "bytes": 507154688,
+          "sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701"
+        },
+        "source_ids": [
+          "lane_a_ledger",
+          "lane_b_qwen35_prereg",
+          "lane_b_qwen35_execution",
+          "demo1_qwen35_inventory",
+          "demo1_qwen35_phone_install"
+        ],
+        "installed_state": "PHONE_PRIVATE_HASH_VERIFIED_AND_EXECUTED; QWEN2.5 REMOVED; EXACTLY ONE QWEN3.5 GGUF"
+      },
+      {
+        "component": "SenseVoiceSmall",
+        "role": "ASR",
+        "languages": [
+          "en",
+          "zh"
+        ],
+        "learned_unique_elements": 233999167,
+        "learned_evidence_class": "EXACT",
+        "conservative_resident_elements": 233999167,
+        "conservative_evidence_class": "EXACT",
+        "source_ids": [
+          "lane_a_ledger"
+        ],
+        "installed_state": "PHONE_INSTALLED_HASH_VERIFIED_AND_QNN_EXECUTED_IN_ACCEPTED_EN_AND_ZH_TURNS"
+      },
+      {
+        "component": "Parakeet-TDT-0.6B-v3 INT8 CPU export",
+        "role": "ASR",
+        "languages": [
+          "es",
+          "fr"
+        ],
+        "learned_unique_elements": 627057286,
+        "learned_evidence_class": "EXACT",
+        "conservative_resident_elements": 637225053,
+        "conservative_evidence_class": "UB",
+        "source_ids": [
+          "lane_a_parakeet_receipt",
+          "parakeet_overlay_manifest",
+          "demo1_model_provisioning"
+        ],
+        "installed_state": "PHONE_PRIVATE_HASH_VERIFIED_AND_EXECUTED_IN_ACCEPTED_ES_AND_FR_TURNS; CPU_ONLY",
+        "execution_claim": "CPU only. This ledger does not authorize an NPU claim."
+      },
+      {
+        "component": "RU Zipformer INT8",
+        "role": "ASR",
+        "languages": [
+          "ru"
+        ],
+        "learned_unique_elements": 65610041,
+        "learned_evidence_class": "EXACT",
+        "conservative_resident_elements": 65610041,
+        "conservative_evidence_class": "EXACT",
+        "source_ids": [
+          "lane_a_ledger"
+        ],
+        "installed_state": "PHONE_INSTALLED_HASH_VERIFIED_AND_EXECUTED_IN_ACCEPTED_RU_COVERAGE_TURN; CPU_ONLY"
+      },
+      {
+        "component": "Five-language pruned TTS tree",
+        "role": "TTS",
+        "languages": [
+          "en",
+          "zh",
+          "es",
+          "fr",
+          "ru"
+        ],
+        "routes": {
+          "zh": "Matcha Baker + Vocos 22 kHz",
+          "en": "Supertonic 3 shared graphs/style",
+          "es": "Supertonic 3 shared graphs/style",
+          "fr": "Supertonic 3 shared graphs/style",
+          "ru": "Supertonic 3 shared graphs/style"
+        },
+        "learned_unique_elements": 145003172,
+        "learned_evidence_class": "EXACT",
+        "conservative_resident_elements": 145286698,
+        "conservative_evidence_class": "UB",
+        "source_ids": [
+          "lane_a_ledger",
+          "demo1_pruned_tts_manifest_ephemeral",
+          "demo1_pruned_tts_candidates_ephemeral",
+          "demo1_model_provisioning"
+        ],
+        "installed_state": "PHONE_REPLACED_AND_HASH_VERIFIED_FIVE_CANDIDATES; ALL FIVE LANGUAGE ROUTES EXECUTED",
+        "scope_note": "This intentionally overcounting host target retains an unused Vocos 24 kHz export. The complete physical listing proves that row is absent."
+      },
+      {
+        "component": "AdaptiveEnergyVad",
+        "role": "VAD",
+        "languages": [
+          "en",
+          "zh",
+          "es",
+          "fr",
+          "ru"
+        ],
+        "learned_unique_elements": 0,
+        "learned_evidence_class": "EXACT",
+        "conservative_resident_elements": 0,
+        "conservative_evidence_class": "EXACT",
+        "source_ids": [
+          "adaptive_energy_vad_source",
+          "adaptive_energy_vad_wiring"
+        ],
+        "installed_state": "DEPLOYED SOURCE CODE; ZERO LEARNED PARAMETERS; NO SILERO MODEL ARTIFACT EXISTS"
+      }
+    ],
+    "totals": {
+      "scope": "SAFE_INTENTIONALLY_OVERCOUNTING_HOST_TARGET_BOUND",
+      "learned_unique_elements": 1824062690,
+      "learned_headroom": 175937310,
+      "conservative_resident_elements": 1834513983,
+      "conservative_headroom": 165486017,
+      "strictly_below_cap": true
+    },
+    "arithmetic": {
+      "learned": "752393024 + 233999167 + 627057286 + 65610041 + 145003172 + 0 = 1824062690",
+      "conservative": "752393024 + 233999167 + 637225053 + 65610041 + 145286698 + 0 = 1834513983"
+    },
+    "qwen35_inventory_closure": {
+      "status": "CLOSED_PHONE_INSTALL_IDENTITY",
+      "source_id": "demo1_qwen35_phone_install",
+      "tensor_count": 320,
+      "tensor_elements": 752393024,
+      "mtp_or_draft_tensor_count": 0,
+      "vision_visual_or_mmproj_tensor_count": 0,
+      "interpretation": "The exact pinned GGUF contains neither the previously sensitivity-tested MTP subtree nor any vision projector, is hash-verified in app-private storage, and executed in all five accepted language turns."
+    },
+    "physical_acceptance": {
+      "status": "PASS",
+      "evidence_commit": "95bd4fc",
+      "receipt_source_id": "demo1_final_inventory_receipt",
+      "physical_inventory_source_ids": [
+        "demo1_final_inventory_receipt",
+        "demo1_final_device_inventory",
+        "demo1_final_device_state",
+        "demo1_five_language_summary",
+        "demo1_five_language_telemetry"
+      ],
+      "inventory_rows": {
+        "data": 61,
+        "apk": 2,
+        "private": 34,
+        "external": 25
+      },
+      "rows": [
+        {
+          "component": "Qwen3.5-0.8B Q4_0 text-only GGUF",
+          "learned_unique_elements": 752393024,
+          "conservative_resident_elements": 752393024,
+          "installed_sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701"
+        },
+        {
+          "component": "SenseVoiceSmall",
+          "learned_unique_elements": 233999167,
+          "conservative_resident_elements": 233999167,
+          "installed_sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30"
+        },
+        {
+          "component": "Parakeet-TDT-0.6B-v3 INT8 CPU export",
+          "learned_unique_elements": 627057286,
+          "conservative_resident_elements": 637225053,
+          "installed_state": "CPU-only payload; no QNN context or Qualcomm runtime payload installed"
+        },
+        {
+          "component": "RU Zipformer INT8",
+          "learned_unique_elements": 65610041,
+          "conservative_resident_elements": 65610041,
+          "installed_state": "CPU route executed; retained turn is coverage-only because the visible answer has a factual error"
+        },
+        {
+          "component": "Installed five-language TTS: shared Supertonic EN/ES/FR/RU plus Matcha/Vocos ZH",
+          "learned_unique_elements": 131471497,
+          "conservative_resident_elements": 131755017,
+          "source_id": "installed_demo1_tts_export",
+          "installed_state": "Twenty-two referenced files plus three metadata files verified; unreferenced Vocos 24 kHz export absent"
+        },
+        {
+          "component": "AdaptiveEnergyVad",
+          "learned_unique_elements": 0,
+          "conservative_resident_elements": 0,
+          "source_ids": [
+            "adaptive_energy_vad_source",
+            "adaptive_energy_vad_wiring"
+          ]
+        }
+      ],
+      "totals": {
+        "learned_unique_elements": 1810531015,
+        "learned_headroom": 189468985,
+        "conservative_resident_elements": 1820982302,
+        "conservative_headroom": 179017698,
+        "strictly_below_cap": true
+      },
+      "arithmetic": {
+        "learned": "752393024 + 233999167 + 627057286 + 65610041 + 131471497 + 0 = 1810531015",
+        "conservative": "752393024 + 233999167 + 637225053 + 65610041 + 131755017 + 0 = 1820982302"
+      },
+      "execution_binding": {
+        "same_boot_id": "67f1bad3-d306-4787-ac17-d9ab1c87e169",
+        "same_main_pid": 10316,
+        "same_runtime_pid": 10410,
+        "all_turns_airplane_mode": true,
+        "all_turns_no_adb_forwards": true,
+        "completed_turns": 5,
+        "completed_playbacks": 5,
+        "qnn_executed_turns": 2,
+        "underflows": 0,
+        "failures": 0,
+        "warnings": 0
+      },
+      "exclusions_proven": {
+        "qwen2_5_models": true,
+        "extra_ggufs": true,
+        "app_private_lfm_weights": true,
+        "silero_weights": true,
+        "vocos_24khz": true,
+        "stale_tts_candidate_trees": true,
+        "incoming_partial_files": true,
+        "lfm_server_process": true,
+        "enumerated_port_8080_listener": true,
+        "parakeet_qnn_context_or_runtime_files": true
+      },
+      "limits": [
+        "The unprivileged listener probe enumerated listening addresses but could not expose owning PIDs; no port-8080 listener was enumerated.",
+        "Transient caches are outside shipped model inventory.",
+        "The retained Russian turn proves route execution but fails factual-quality acceptance and should be replaced for filming."
+      ]
+    }
+  },
+  "installed_state_snapshot": {
+    "basis": "Accepted Demo 2 receipt plus final Demo 1 inventory receipt captured after the fifth turn on 2026-08-03T07:13:09+08:00.",
+    "proven_installed_and_executed": [
+      "Current Demo 1 state: Qwen3.5-0.8B Q4_0 CPU companion, single GGUF SHA-256 444406...c652c",
+      "SenseVoiceSmall with matched QNN execution in accepted EN and ZH turns",
+      "Parakeet CPU execution in accepted ES and FR turns and Zipformer CPU execution in the accepted RU coverage turn",
+      "Shared Supertonic EN/ES/FR/RU plus Matcha ZH from the verified five-candidate tree"
+    ],
+    "proven_absent": [
+      "All four app-private LFM weights",
+      "Qwen2.5 and any extra GGUF",
+      "Any stale or rollback TTS tree",
+      "Silero weights",
+      "Unreferenced Vocos 24 kHz export and partial incoming files",
+      "LFM process or enumerated listener on port 8080",
+      "Parakeet QNN context or Qualcomm runtime payload"
+    ],
+    "host_staged_not_phone_proven": [],
+    "not_available_or_not_proven_installed": [],
+    "demo2_final_acceptance": {
+      "source_id": "demo2_final_inventory_receipt",
+      "main_apk_sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+      "runtime_apk_sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244",
+      "inventory_rows": 42,
+      "installed_learned_unique_total": 1974795009,
+      "installed_conservative_resident_total": 2208452225,
+      "state": "PHONE_ACCEPTED_STRICTLY_UNDER_3B"
+    },
+    "demo1_final_acceptance": {
+      "source_id": "demo1_final_inventory_receipt",
+      "evidence_commit": "95bd4fc",
+      "main_apk_sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d",
+      "runtime_apk_sha256": "d43c0423d66e1cbe9e3fac313b54437c5c58ef8a5a8498382a255f619ad46ae1",
+      "qwen35_sha256": "1f2002727f6f9c9ea39bdb0eefb58703d5d2652d55a185902aab5dcf1b4ad701",
+      "qwen25_removed": true,
+      "exact_only_gguf": true,
+      "tts_candidates_verified": 5,
+      "tts_referenced_files_verified": 22,
+      "tts_metadata_files_verified": 3,
+      "parakeet_provider": "cpu",
+      "inventory_rows": 61,
+      "installed_learned_unique_total": 1810531015,
+      "installed_conservative_resident_total": 1820982302,
+      "accepted_app_turns": [
+        "en",
+        "zh",
+        "es",
+        "fr",
+        "ru"
+      ],
+      "state": "PHONE_ACCEPTED_STRICTLY_UNDER_2B; RU_EXECUTION_COVERAGE_ONLY_FACTUAL_QUALITY_WARNING"
+    }
+  },
+  "validation": {
+    "device_contact_by_reporting_agent": false,
+    "demo2_final_phone_receipt_ingested": true,
+    "demo1_final_phone_receipt_ingested": true,
+    "demo1_final_receipt_sha256": "7da4c77a757c9f1dfab63316470b0986233866427312734a3b75fbf1ab546b4a",
+    "source_hashes_checked": true,
+    "integer_arithmetic_checked": true,
+    "json_parse_checked": true,
+    "checks": [
+      {
+        "id": "demo2_installed_learned_sum",
+        "expected": 1974795009,
+        "actual": 1974795009,
+        "passed": true
+      },
+      {
+        "id": "demo2_installed_conservative_sum",
+        "expected": 2208452225,
+        "actual": 2208452225,
+        "passed": true
+      },
+      {
+        "id": "demo2_installed_learned_headroom",
+        "expected": 1025204991,
+        "actual": 1025204991,
+        "passed": true
+      },
+      {
+        "id": "demo2_installed_conservative_headroom",
+        "expected": 791547775,
+        "actual": 791547775,
+        "passed": true
+      },
+      {
+        "id": "demo2_pruned_learned_sum",
+        "expected": 1988326684,
+        "actual": 1988326684,
+        "passed": true
+      },
+      {
+        "id": "demo2_pruned_conservative_sum",
+        "expected": 2221983906,
+        "actual": 2221983906,
+        "passed": true
+      },
+      {
+        "id": "demo2_remove_lfm_only_sum",
+        "expected": 2672875114,
+        "actual": 2672875114,
+        "passed": true
+      },
+      {
+        "id": "demo1_installed_learned_sum",
+        "expected": 1810531015,
+        "actual": 1810531015,
+        "passed": true
+      },
+      {
+        "id": "demo1_installed_conservative_sum",
+        "expected": 1820982302,
+        "actual": 1820982302,
+        "passed": true
+      },
+      {
+        "id": "demo1_installed_learned_headroom",
+        "expected": 189468985,
+        "actual": 189468985,
+        "passed": true
+      },
+      {
+        "id": "demo1_installed_conservative_headroom",
+        "expected": 179017698,
+        "actual": 179017698,
+        "passed": true
+      },
+      {
+        "id": "demo1_inventory_rows",
+        "expected": {
+          "data": 61,
+          "apk": 2,
+          "private": 34,
+          "external": 25
+        },
+        "actual": {
+          "data": 61,
+          "apk": 2,
+          "private": 34,
+          "external": 25
+        },
+        "passed": true
+      },
+      {
+        "id": "demo1_host_target_learned_sum",
+        "expected": 1824062690,
+        "actual": 1824062690,
+        "passed": true
+      },
+      {
+        "id": "demo1_host_target_conservative_sum",
+        "expected": 1834513983,
+        "actual": 1834513983,
+        "passed": true
+      },
+      {
+        "id": "demo2_pruned_learned_headroom",
+        "expected": 1011673316,
+        "actual": 1011673316,
+        "passed": true
+      },
+      {
+        "id": "demo2_pruned_conservative_headroom",
+        "expected": 778016094,
+        "actual": 778016094,
+        "passed": true
+      },
+      {
+        "id": "demo2_remove_lfm_only_headroom",
+        "expected": 327124886,
+        "actual": 327124886,
+        "passed": true
+      },
+      {
+        "id": "demo1_host_target_learned_headroom",
+        "expected": 175937310,
+        "actual": 175937310,
+        "passed": true
+      },
+      {
+        "id": "demo1_host_target_conservative_headroom",
+        "expected": 165486017,
+        "actual": 165486017,
+        "passed": true
+      }
+    ],
+    "status": "PASS"
+  }
+}

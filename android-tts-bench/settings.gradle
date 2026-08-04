@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        // The sherpa-onnx runtime is a 48 MiB AAR. It is deliberately kept
+        // outside this repository; fetch_sherpa_aar.sh places it in the
+        // directory named by SHERPA_AAR_DIR (see app/build.gradle).
+        flatDir {
+            dirs "${System.getenv('SHERPA_AAR_DIR') ?: "${rootDir}/../.sherpa-aar"}"
+        }
+    }
+}
+
+rootProject.name = "LfmTtsBench"
+include(":app")

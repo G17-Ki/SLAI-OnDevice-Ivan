@@ -1,0 +1,13 @@
+sample_id,language,reference,hypothesis,wer,cer,primary_metric,final_ms_first_repeat
+common_voice_en_27710027,en,"Joe Keaton disapproved of films, and Buster also had reservations about the medium.",Joe Keaton disapproved of films and Buster also had reservations about the media.,0.07692307692307693,0.028985507246376812,wer,130.898083
+common_voice_en_699711,en,She'll be all right.,She'd be all right.,0.2,0.13333333333333333,wer,54.873958
+common_voice_en_21953345,en,six,S.,1.0,0.6666666666666666,wer,139.633083
+common_voice_ja_39179447,ja,今日の天気は曇りである,今日の 天気は曇り である。,3.0,0.0,cer,63.275292
+common_voice_ja_38960071,ja,ソリア県の県都はソリアである,ソりア県の 剣とソリア である。,3.0,0.2857142857142857,cer,78.126375
+common_voice_ja_21409740,ja,祖母は、おおむね機嫌よく、サイコロをころがしている。,祖母を重機嫌をくさえコロコロがしている。,1.0,0.4782608695652174,cer,82.887542
+common_voice_ko_39767692,ko,부지런한 자의 경영은 풍부함에 이를 것이나 조급한 자는 궁핍함에 이를 따름이니라,부지런 한 저의 동 은 풍부 함 에 이를을 것 이나 조 급 한 자는 궁핍 함의 일 을 따름 믿 니라.,1.9090909090909092,0.23529411764705882,cer,143.884292
+common_voice_ko_38257692,ko,이거 놔! 놓으라고!,이거 나 놓으라고.,0.3333333333333333,0.14285714285714285,cer,73.712
+common_voice_ko_36838360,ko,선비는 생각지 않은 이 말에 앞이 아뜩해지며 방 안이 핑핑 돌았다.,선비는 생각지 않은 이 말에 앞이 아득해지며 방안이 핑핑 돌았다.,0.2727272727272727,0.038461538461538464,cer,140.503167
+common_voice_zh-CN_33411896,zh,黑身准裂腹鱼为辐鳍鱼纲鲤形目鲤科的其中一种。,非针准裂富鱼为富脊鱼钢离型目理科的其中一种。,1.0,0.42857142857142855,cer,173.84275
+common_voice_zh-CN_32269533,zh,否,房。,1.0,1.0,cer,58.836541
+common_voice_zh-CN_22069600,zh,宋朝末年年间定居粉岭围。,宋朝末年年间，定居粉岭为。,2.0,0.09090909090909091,cer,120.132584

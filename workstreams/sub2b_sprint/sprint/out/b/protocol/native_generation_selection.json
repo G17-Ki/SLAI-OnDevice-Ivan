@@ -1,0 +1,88 @@
+{
+  "authoring_note": "Prompts were authored directly in each target language by Codex subagents to a shared category blueprint. They were not exposed to candidate-model outputs. No native-human authorship or validation is claimed.",
+  "items_per_language": 40,
+  "languages": [
+    "en",
+    "zh",
+    "es",
+    "fr",
+    "ru"
+  ],
+  "manifest_path": "native_generation_40x5.jsonl",
+  "manifest_sha256": "aa8160ab5aacb180c2e1869878c947ed3e9987daa0169b934f22f89519d20e80",
+  "regex_engine_for_run": "regex==2026.7.19, VERSION1 Unicode mode",
+  "schema_version": "lane-b-native-prompts/1.0",
+  "source_file_sha256": {
+    "en": "8284f0b1bc77cca9719df727925adf1bcf22f7379afc1893c37218b3948eb8bd",
+    "es_fr": "31f75fa010933edece66dbb3157687875070dae33e39dd9d8d0cde7cebba2099",
+    "ru_zh": "1531985491bdfee5ce87d54db97b36b1c0e27ba505d2c4f8bf0279a54878dc56"
+  },
+  "total_items": 200,
+  "validation": {
+    "en": {
+      "category_counts_as_authored": {
+        "concise_summarisation_rephrasing": 3,
+        "culture_civic_school_geography": 6,
+        "everyday_local_factual_practical": 16,
+        "instruction_following": 8,
+        "repair_noisy_input": 4,
+        "safety_refusal_discriminator": 3
+      },
+      "count": 40,
+      "max_chars": null,
+      "max_words": 60
+    },
+    "es": {
+      "category_counts_as_authored": {
+        "benign_safety_refusal": 3,
+        "culture_civic_school_geography": 6,
+        "everyday_local": 16,
+        "instruction_following": 8,
+        "repair_noisy_input": 4,
+        "summarisation_rephrasing": 3
+      },
+      "count": 40,
+      "max_chars": null,
+      "max_words": 60
+    },
+    "fr": {
+      "category_counts_as_authored": {
+        "benign_safety_refusal": 3,
+        "culture_civic_school_geography": 6,
+        "everyday_local": 16,
+        "instruction_following": 8,
+        "repair_noisy_input": 4,
+        "summarisation_rephrasing": 3
+      },
+      "count": 40,
+      "max_chars": null,
+      "max_words": 60
+    },
+    "ru": {
+      "category_counts_as_authored": {
+        "benign_safety_refusal": 3,
+        "culture_civic_school_geography": 6,
+        "everyday_practical": 16,
+        "instruction_following": 8,
+        "repair_noisy_input": 4,
+        "summarisation_rephrasing": 3
+      },
+      "count": 40,
+      "max_chars": null,
+      "max_words": 60
+    },
+    "zh": {
+      "category_counts_as_authored": {
+        "benign_safety_refusal": 3,
+        "culture_civic_school_geography": 6,
+        "everyday_practical": 16,
+        "instruction_following": 8,
+        "repair_noisy_input": 4,
+        "summarisation_rephrasing": 3
+      },
+      "count": 40,
+      "max_chars": 90,
+      "max_words": null
+    }
+  }
+}

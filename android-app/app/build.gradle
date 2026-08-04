@@ -1,0 +1,46 @@
+plugins {
+    id "com.android.application"
+    // Kotlin is used only by the optional sherpa-onnx TTS backend. The
+    // sherpa API is Kotlin with default arguments and 10-argument config
+    // constructors; driving it from Java by hand would be far more error-prone
+    // than adding the plugin.
+    id "org.jetbrains.kotlin.android"
+}
+
+android {
+    namespace "ai.liquid.lfmdemo"
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "ai.liquid.lfmdemo"
+        minSdk 28
+        targetSdk 35
+        versionCode 26
+        versionName "0.6.0-unplugged"
+        // arm64 only: the sherpa AAR carries four ABIs and the other three
+        // would treble the APK for a device that cannot use them.
+        ndk {
+            abiFilters "arm64-v8a"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+            keepDebugSymbols += ["**/*.so"]
+        }
+    }
+}
+
+dependencies {
+    implementation(name: "sherpa-onnx-1.13.4", ext: "aar")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
+}

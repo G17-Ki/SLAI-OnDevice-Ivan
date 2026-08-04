@@ -1,0 +1,82 @@
+started 2026-07-15T15:54:36Z repeats=5
+running config=f16_fa_on audio=question repeat=1 2026-07-15T15:54:36Z
+passed config=f16_fa_on audio=question repeat=1
+running config=f16_fa_on audio=question repeat=2 2026-07-15T15:54:38Z
+passed config=f16_fa_on audio=question repeat=2
+running config=f16_fa_on audio=question repeat=3 2026-07-15T15:54:40Z
+passed config=f16_fa_on audio=question repeat=3
+running config=f16_fa_on audio=question repeat=4 2026-07-15T15:54:42Z
+passed config=f16_fa_on audio=question repeat=4
+running config=f16_fa_on audio=question repeat=5 2026-07-15T15:54:44Z
+passed config=f16_fa_on audio=question repeat=5
+running config=f16_fa_on audio=asr repeat=1 2026-07-15T15:54:46Z
+passed config=f16_fa_on audio=asr repeat=1
+running config=f16_fa_on audio=asr repeat=2 2026-07-15T15:54:51Z
+passed config=f16_fa_on audio=asr repeat=2
+running config=f16_fa_on audio=asr repeat=3 2026-07-15T15:54:55Z
+passed config=f16_fa_on audio=asr repeat=3
+running config=f16_fa_on audio=asr repeat=4 2026-07-15T15:55:00Z
+passed config=f16_fa_on audio=asr repeat=4
+running config=f16_fa_on audio=asr repeat=5 2026-07-15T15:55:04Z
+passed config=f16_fa_on audio=asr repeat=5
+running config=q8_fa_on audio=question repeat=1 2026-07-15T15:55:08Z
+passed config=q8_fa_on audio=question repeat=1
+running config=q8_fa_on audio=question repeat=2 2026-07-15T15:55:10Z
+passed config=q8_fa_on audio=question repeat=2
+running config=q8_fa_on audio=question repeat=3 2026-07-15T15:55:13Z
+passed config=q8_fa_on audio=question repeat=3
+running config=q8_fa_on audio=question repeat=4 2026-07-15T15:55:15Z
+passed config=q8_fa_on audio=question repeat=4
+running config=q8_fa_on audio=question repeat=5 2026-07-15T15:55:16Z
+passed config=q8_fa_on audio=question repeat=5
+running config=q8_fa_on audio=asr repeat=1 2026-07-15T15:55:18Z
+passed config=q8_fa_on audio=asr repeat=1
+running config=q8_fa_on audio=asr repeat=2 2026-07-15T15:55:22Z
+passed config=q8_fa_on audio=asr repeat=2
+running config=q8_fa_on audio=asr repeat=3 2026-07-15T15:55:26Z
+passed config=q8_fa_on audio=asr repeat=3
+running config=q8_fa_on audio=asr repeat=4 2026-07-15T15:55:31Z
+passed config=q8_fa_on audio=asr repeat=4
+running config=q8_fa_on audio=asr repeat=5 2026-07-15T15:55:36Z
+passed config=q8_fa_on audio=asr repeat=5
+running config=q4_fa_on audio=question repeat=1 2026-07-15T15:55:40Z
+passed config=q4_fa_on audio=question repeat=1
+running config=q4_fa_on audio=question repeat=2 2026-07-15T15:55:42Z
+passed config=q4_fa_on audio=question repeat=2
+running config=q4_fa_on audio=question repeat=3 2026-07-15T15:55:44Z
+passed config=q4_fa_on audio=question repeat=3
+running config=q4_fa_on audio=question repeat=4 2026-07-15T15:55:46Z
+passed config=q4_fa_on audio=question repeat=4
+running config=q4_fa_on audio=question repeat=5 2026-07-15T15:55:47Z
+passed config=q4_fa_on audio=question repeat=5
+running config=q4_fa_on audio=asr repeat=1 2026-07-15T15:55:49Z
+passed config=q4_fa_on audio=asr repeat=1
+running config=q4_fa_on audio=asr repeat=2 2026-07-15T15:55:53Z
+passed config=q4_fa_on audio=asr repeat=2
+running config=q4_fa_on audio=asr repeat=3 2026-07-15T15:55:57Z
+passed config=q4_fa_on audio=asr repeat=3
+running config=q4_fa_on audio=asr repeat=4 2026-07-15T15:56:02Z
+passed config=q4_fa_on audio=asr repeat=4
+running config=q4_fa_on audio=asr repeat=5 2026-07-15T15:56:06Z
+passed config=q4_fa_on audio=asr repeat=5
+running config=f16_fa_off audio=question repeat=1 2026-07-15T15:56:10Z
+passed config=f16_fa_off audio=question repeat=1
+running config=f16_fa_off audio=question repeat=2 2026-07-15T15:56:12Z
+passed config=f16_fa_off audio=question repeat=2
+running config=f16_fa_off audio=question repeat=3 2026-07-15T15:56:14Z
+passed config=f16_fa_off audio=question repeat=3
+running config=f16_fa_off audio=question repeat=4 2026-07-15T15:56:15Z
+passed config=f16_fa_off audio=question repeat=4
+running config=f16_fa_off audio=question repeat=5 2026-07-15T15:56:17Z
+passed config=f16_fa_off audio=question repeat=5
+running config=f16_fa_off audio=asr repeat=1 2026-07-15T15:56:20Z
+passed config=f16_fa_off audio=asr repeat=1
+running config=f16_fa_off audio=asr repeat=2 2026-07-15T15:56:24Z
+passed config=f16_fa_off audio=asr repeat=2
+running config=f16_fa_off audio=asr repeat=3 2026-07-15T15:56:29Z
+passed config=f16_fa_off audio=asr repeat=3
+running config=f16_fa_off audio=asr repeat=4 2026-07-15T15:56:34Z
+passed config=f16_fa_off audio=asr repeat=4
+running config=f16_fa_off audio=asr repeat=5 2026-07-15T15:56:38Z
+passed config=f16_fa_off audio=asr repeat=5
+finished 2026-07-15T15:56:43Z failures=0

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "component": "encoder",
+  "language": "it",
+  "conclusion": "The initial numerical warning was a comparison-bookkeeping error, not an encoder inference error.",
+  "cloud_resubmission_performed": false,
+  "local_declared_output_order": [
+    "x_encoded",
+    "m_p",
+    "logs_p",
+    "x_mask"
+  ],
+  "torchscript_evidence": {
+    "wrapper_tuple_order": [
+      "enc_p_output_0",
+      "enc_p_output_1",
+      "enc_p_output_2",
+      "enc_p_output_3"
+    ],
+    "text_encoder_source_return_order": [
+      "x",
+      "m",
+      "logs",
+      "x_mask"
+    ]
+  },
+  "linked_qnn_output_order": [
+    "m_p",
+    "logs_p",
+    "x_encoded",
+    "x_mask"
+  ],
+  "linked_output_order_job": "jprnkxrk5",
+  "original_comparator_mapping": {
+    "x_encoded_golden": "m_p_remote",
+    "m_p_golden": "logs_p_remote",
+    "logs_p_golden": "x_encoded_remote",
+    "x_mask_golden": "x_mask_remote"
+  },
+  "matrix_axes": {
+    "rows": "AI Hub semantic response key",
+    "columns": "local golden output"
+  },
+  "remote_vs_golden_matrix": {
+    "x_encoded": {
+      "x_encoded": {
+        "passed": true,
+        "cosine_similarity": 0.9999994389230594,
+        "normalized_rmse": 0.0010622967352664054,
+        "max_abs_error": 0.0011949241161346436
+      },
+      "m_p": {
+        "passed": false,
+        "cosine_similarity": -0.04718704102571366,
+        "normalized_rmse": 1.1644414330553046,
+        "max_abs_error": 2.217313051223755
+      },
+      "logs_p": {
+        "passed": false,
+        "cosine_similarity": -0.0963307553889981,
+        "normalized_rmse": 1.1531331132309666,
+        "max_abs_error": 2.762929677963257
+      }
+    },
+    "m_p": {
+      "x_encoded": {
+        "passed": false,
+        "cosine_similarity": -0.047226405207463386,
+        "normalized_rmse": 2.1129602929738422,
+        "max_abs_error": 2.215583363547921
+      },
+      "m_p": {
+        "passed": true,
+        "cosine_similarity": 0.999998989653838,
+        "normalized_rmse": 0.0014571449129877154,
+        "max_abs_error": 0.004935264587402344
+      },
+      "logs_p": {
+        "passed": false,
+        "cosine_similarity": -0.0668152465587567,
+        "normalized_rmse": 1.3766727244724024,
+        "max_abs_error": 3.2090673446655273
+      }
+    },
+    "logs_p": {
+      "x_encoded": {
+        "passed": false,
+        "cosine_similarity": -0.09631105081325188,
+        "normalized_rmse": 2.373515633784435,
+        "max_abs_error": 2.763551354408264
+      },
+      "m_p": {
+        "passed": false,
+        "cosine_similarity": -0.0671039514681784,
+        "normalized_rmse": 1.5619594893306654,
+        "max_abs_error": 3.2080488204956055
+      },
+      "logs_p": {
+        "passed": true,
+        "cosine_similarity": 0.9999999488980226,
+        "normalized_rmse": 0.0003384275813897489,
+        "max_abs_error": 0.000996321439743042
+      }
+    }
+  },
+  "x_mask_identity_comparison": {
+    "passed": true,
+    "cosine_similarity": 0.9999999999999998,
+    "normalized_rmse": 0.0,
+    "max_abs_error": 0.0
+  },
+  "unique_supported_mapping": {
+    "x_encoded": "x_encoded",
+    "m_p": "m_p",
+    "logs_p": "logs_p",
+    "x_mask": "x_mask"
+  },
+  "code_fix": "compare_outputs now prefers an exact AI Hub response key before linked-order or positional fallbacks.",
+  "regression_test": {
+    "path": "scripts/test_aihub_tts_v81.py",
+    "status": "passed",
+    "tests": 1
+  }
+}

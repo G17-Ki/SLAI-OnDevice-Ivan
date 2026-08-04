@@ -1,0 +1,10 @@
+d74e971956010953f5fbdf46ea8c4db6873b1b13a7893c4830f39f2ce7bba313  LFM2.5-Audio-1.5B-JP-Q4_0.gguf
+5730a8407b06c04efa55049a48709818fa8c5bf66921a07eb9eb94c34bd62cc4  mmproj-LFM2.5-Audio-1.5B-JP-Q4_0.gguf
+d00983edd937e3dc53727319f5c5cf7f53c278545a3935b4affff6a230947398  vocoder-LFM2.5-Audio-1.5B-JP-Q4_0.gguf
+d776c8b615971ee21a2465ad573fcd4c348b568d16b83e6a7ce70ead74a889ec  tokenizer-LFM2.5-Audio-1.5B-JP-Q4_0.gguf
+66a4cf42b33b4eba7d2ac5d0b8f9c8e3102608207276e226ec45d0191e423aa8  runners/llama-liquid-audio-android-arm64.zip
+e59b7be254b6386960fc1d3cf51851709220202a4fdf7f83eb29953987992c9b  runners/llama-liquid-audio-macos-arm64.zip
+8953f8ad134ede3855b735dd47fb55e1a9ac08d476c3ab78b3292906c67c4b6b  README.md
+c138fe99cb339429d6daba8aa44c3dc5996e1a8caf55dec76170f8d2d626ddf7  LICENSE
+4ce958e1ddb6729a6be9479b4d1f003ac97e94c7a0abc28fa354b501380c3c18  assets/question_jp.wav
+48d3b3b0fba92aa0d95d26ac61e32b149de701ff8aef78bbd08996bebc2fd92a  assets/asr_jp.wav

@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "purpose": "Pinned small multilingual text-model candidates for the Nubia phone voice demo",
+  "llama_cpp": {
+    "release": "b10083",
+    "source_revision": "846e991ec3c7ccec49112ff2c5b00b710e5f551d",
+    "archive_filename": "llama-b10083-bin-ubuntu-x64.tar.gz",
+    "archive_url": "https://github.com/ggml-org/llama.cpp/releases/download/b10083/llama-b10083-bin-ubuntu-x64.tar.gz",
+    "archive_bytes": 16074914,
+    "archive_sha256": "912ff9b0f853b6d66591dab6555b6b0b586987d8ae3492268a734bd2d9c52d12",
+    "license": "MIT"
+  },
+  "phone_equivalent_runtime": {
+    "context_tokens": 1024,
+    "generation_threads": 4,
+    "batch_threads": 4,
+    "http_threads": 1,
+    "parallel_slots": 1,
+    "batch_tokens": 128,
+    "microbatch_tokens": 64,
+    "gpu_layers": 0,
+    "reasoning": "off",
+    "reasoning_budget": 0,
+    "reasoning_format": "deepseek"
+  },
+  "models": [
+    {
+      "id": "qwen3_1_7b_q4_0_baseline",
+      "alias": "Qwen3-1.7B-Q4_0",
+      "filename": "Qwen3-1.7B-Q4_0.gguf",
+      "repository": "unsloth/Qwen3-1.7B-GGUF",
+      "revision": "d7f544eead698dbd1f15126ef60b45a1e1933222",
+      "url": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/d7f544eead698dbd1f15126ef60b45a1e1933222/Qwen3-1.7B-Q4_0.gguf?download=true",
+      "bytes": 1056782912,
+      "sha256": "c876f159707a4e4f70e045106c69db15bfc935a4981706fd4f65c6e7ea1e81c5",
+      "upstream_model": "Qwen/Qwen3-1.7B",
+      "license": "Apache-2.0",
+      "license_url": "https://huggingface.co/Qwen/Qwen3-1.7B/blob/main/LICENSE",
+      "role": "current physical-phone baseline",
+      "primary_run": true,
+      "priority_runs": 3
+    },
+    {
+      "id": "qwen2_5_1_5b_q4_0",
+      "alias": "Qwen2.5-1.5B-Instruct-Q4_0",
+      "filename": "qwen2.5-1.5b-instruct-q4_0.gguf",
+      "repository": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/91cad51170dc346986eccefdc2dd33a9da36ead9/qwen2.5-1.5b-instruct-q4_0.gguf?download=true",
+      "bytes": 1066227232,
+      "sha256": "dcd819ff094852c38faba6873d8ff0c9d51eadb2844539e52042ae5d647bbfdb",
+      "upstream_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "license": "Apache-2.0",
+      "license_url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/blob/91cad51170dc346986eccefdc2dd33a9da36ead9/LICENSE",
+      "role": "same-size drop-in candidate",
+      "primary_run": false,
+      "priority_runs": 1
+    },
+    {
+      "id": "qwen2_5_1_5b_q4_k_m",
+      "alias": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+      "filename": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "repository": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/91cad51170dc346986eccefdc2dd33a9da36ead9/qwen2.5-1.5b-instruct-q4_k_m.gguf?download=true",
+      "bytes": 1117320736,
+      "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "upstream_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "license": "Apache-2.0",
+      "license_url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/blob/91cad51170dc346986eccefdc2dd33a9da36ead9/LICENSE",
+      "role": "recommended-size higher-fidelity candidate",
+      "primary_run": true,
+      "priority_runs": 3
+    },
+    {
+      "id": "qwen2_5_3b_q4_k_m",
+      "alias": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "filename": "qwen2.5-3b-instruct-q4_k_m.gguf",
+      "repository": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+      "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/7dabda4d13d513e3e842b20f0d435c732f172cbe/qwen2.5-3b-instruct-q4_k_m.gguf?download=true",
+      "bytes": 2104932768,
+      "sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
+      "upstream_model": "Qwen/Qwen2.5-3B-Instruct",
+      "license": "Qwen Research License (non-commercial only)",
+      "license_url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/blob/7dabda4d13d513e3e842b20f0d435c732f172cbe/LICENSE",
+      "role": "quality ceiling, license and memory caveat",
+      "primary_run": false,
+      "priority_runs": 3
+    },
+    {
+      "id": "gemma3_1b_q4_k_m",
+      "alias": "Gemma-3-1B-IT-Q4_K_M",
+      "filename": "gemma-3-1b-it-Q4_K_M.gguf",
+      "repository": "ggml-org/gemma-3-1b-it-GGUF",
+      "revision": "f9c28bcd85737ffc5aef028638d3341d49869c27",
+      "url": "https://huggingface.co/ggml-org/gemma-3-1b-it-GGUF/resolve/f9c28bcd85737ffc5aef028638d3341d49869c27/gemma-3-1b-it-Q4_K_M.gguf?download=true",
+      "bytes": 806058240,
+      "sha256": "8ccc5cd1f1b3602548715ae25a66ed73fd5dc68a210412eea643eb20eb75a135",
+      "upstream_model": "google/gemma-3-1b-it",
+      "license": "Gemma Terms of Use",
+      "license_url": "https://ai.google.dev/gemma/terms",
+      "role": "smaller multilingual alternative",
+      "primary_run": false,
+      "priority_runs": 1
+    },
+    {
+      "id": "lfm2_5_1_2b_q4_0",
+      "alias": "LFM2.5-1.2B-Instruct-Q4_0",
+      "filename": "LFM2.5-1.2B-Instruct-Q4_0.gguf",
+      "repository": "LiquidAI/LFM2.5-1.2B-Instruct-GGUF",
+      "revision": "047e06635fbe71469926b35ea414537245218200",
+      "url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF/resolve/047e06635fbe71469926b35ea414537245218200/LFM2.5-1.2B-Instruct-Q4_0.gguf?download=true",
+      "bytes": 695751488,
+      "sha256": "2ea801949d760cdf1a2cc04a54262c22c3c0c54f0769d57760c9adeb0e59233f",
+      "upstream_model": "LiquidAI/LFM2.5-1.2B-Instruct",
+      "license": "LFM Open License v1.0 (commercial-use revenue threshold applies)",
+      "license_url": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF/blob/047e06635fbe71469926b35ea414537245218200/LICENSE",
+      "role": "compact on-device follow-up",
+      "primary_run": false,
+      "priority_runs": 3
+    }
+  ],
+  "metadata_only_rejections": [
+    {
+      "model": "ibm-granite/granite-3.3-2b-instruct-GGUF",
+      "reason": "Apache-2.0 and Chinese-capable, but IBM lists 12 supported languages and Russian is not one of them. It cannot satisfy the required bilingual floor without an unsupported-language gamble."
+    },
+    {
+      "model": "bartowski/SmolLM2-1.7B-Instruct-GGUF",
+      "reason": "Attractive size and Apache-2.0 license, but not a Chinese/Russian-first model; lower-priority than the Qwen2.5 and Gemma candidates for this bounded run."
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "reason": "The officially supported multilingual set does not include Chinese or Russian, and the model is gated/custom-licensed."
+    }
+  ]
+}

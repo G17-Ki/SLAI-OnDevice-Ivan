@@ -1,0 +1,3 @@
+name,runtime_args,idle_rss_mib,active_peak_rss_mib,vmhwm_mib,gguf_rss_mib,anonymous_rss_mib,first_text_ms,first_audio_ms,total_ms,exact_normalized,transcript,error
+repack_default,-c 512,1646.4140625,1702.37109375,1701.6015625,697.63671875,994.16015625,276.2391660362482,,493.1337907910347,True,Can you help me come up with a slogan for my woodworking site business?,
+no_repack,-c 512 --no-repack,1109.30859375,1164.17578125,1163.375,707.19140625,446.4765625,559.2841668985784,,815.9638326615095,True,Can you help me come up with a slogan for my woodworking site business?,

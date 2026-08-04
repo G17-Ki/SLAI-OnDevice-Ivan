@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "cpu_provider": "sherpa-onnx SenseVoiceSmall INT8 / CPU",
+  "sherpa_onnx_version": "1.13.4",
+  "model_sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+  "tokens_sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+  "settings": {
+    "language": "auto",
+    "use_itn": true,
+    "num_threads": 2
+  },
+  "runs": [
+    {
+      "wav": "en.wav",
+      "wav_sha256": "eb1eb008904465b74c304aad8342e8c7d3c6e61ffe9f66adcaca9cf0f76a93f4",
+      "duration_seconds": 7.152,
+      "sample_rate": 16000,
+      "qnn": {
+        "text": "The tribal chieftain called for the boy and presented him with 50 pieces of gold.",
+        "language": "<|en|>"
+      },
+      "cpu_variable": {
+        "text": "The tribal chieftain called for the boy and presented him with 50 pieces of code.",
+        "language": "<|en|>",
+        "decode_ms": 250.616542
+      },
+      "cpu_fixed_10s": {
+        "text": "The tribal chieftain called for the boy and presented him with 50 pieces of gold.",
+        "language": "<|en|>",
+        "decode_ms": 367.12425
+      },
+      "exact_text_parity_variable": false,
+      "exact_text_parity_fixed_10s": true,
+      "language_parity_variable": true,
+      "language_parity_fixed_10s": true,
+      "normalized_text_parity_variable": false,
+      "normalized_text_parity_fixed_10s": true
+    },
+    {
+      "wav": "zh.wav",
+      "wav_sha256": "b77f1794fe374a0ba1ee1dc458bfaf9349496cbbfc32780c50ba3c5a7ad8e373",
+      "duration_seconds": 5.592,
+      "sample_rate": 16000,
+      "qnn": {
+        "text": "开饭时间早上9点至下午5点。",
+        "language": "<|zh|>"
+      },
+      "cpu_variable": {
+        "text": "开放时间早上9点至下午5点。",
+        "language": "<|zh|>",
+        "decode_ms": 198.009667
+      },
+      "cpu_fixed_10s": {
+        "text": "开饭时间早上9点至下午5点。",
+        "language": "<|zh|>",
+        "decode_ms": 354.471041
+      },
+      "exact_text_parity_variable": false,
+      "exact_text_parity_fixed_10s": true,
+      "language_parity_variable": true,
+      "language_parity_fixed_10s": true,
+      "normalized_text_parity_variable": false,
+      "normalized_text_parity_fixed_10s": true
+    }
+  ],
+  "parity": {
+    "en": "pass",
+    "zh": "pass"
+  }
+}

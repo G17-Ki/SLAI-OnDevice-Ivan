@@ -1,0 +1,69 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <permission
+        android:name="ai.liquid.lfmdemo.permission.START_RUNTIME"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="false"
+        android:extractNativeLibs="true"
+        android:label="LFM Offline Runtime"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
+
+        <!--
+        QNN's HTP v81 stub reaches the DSP through the phone's public Qualcomm
+        RPC library. Android does not expose vendor libraries to an app linker
+        namespace unless the package declares them. Without this declaration,
+        deviceCreate() fails with QNN error 14001 even though all packaged QNN
+        libraries and the context binary are present.
+        -->
+        <uses-native-library
+            android:name="libcdsprpc.so"
+            android:required="false" />
+
+        <provider
+            android:name=".RuntimeBootstrapProvider"
+            android:authorities="ai.liquid.lfmdemo.runtime.bootstrap"
+            android:exported="true"
+            android:grantUriPermissions="false"
+            android:permission="ai.liquid.lfmdemo.permission.START_RUNTIME" />
+
+        <activity
+            android:name=".RuntimeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".RuntimeBootstrapActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:finishOnTaskLaunch="true"
+            android:noHistory="true"
+            android:permission="ai.liquid.lfmdemo.permission.START_RUNTIME"
+            android:taskAffinity=""
+            android:theme="@style/RuntimeBootstrapTheme" />
+
+        <service
+            android:name=".RuntimeService"
+            android:exported="true"
+            android:foregroundServiceType="specialUse"
+            android:permission="ai.liquid.lfmdemo.permission.START_RUNTIME">
+            <intent-filter>
+                <action android:name="ai.liquid.lfmdemo.runtime.START" />
+            </intent-filter>
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Continuous private on-device ASR and language-model inference while the user runs the voice demo" />
+        </service>
+    </application>
+</manifest>

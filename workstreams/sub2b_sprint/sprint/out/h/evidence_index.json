@@ -1,0 +1,2026 @@
+{
+  "schema_version": 1,
+  "index_id": "lane-h-report-evidence-index-v1",
+  "generated_at_utc": "2026-08-02T08:22:13Z",
+  "scope": {
+    "landed_lanes": [
+      "A",
+      "D",
+      "E",
+      "H"
+    ],
+    "pending_lanes": [
+      "B",
+      "C",
+      "F"
+    ],
+    "h5_rescan_utc": "2026-08-02T08:10:14Z",
+    "h5_result": "No final backbone_verdict.json, asr_table.json, or Lane F result file was present; all three report slots remain PENDING.",
+    "rule": "Every claim is a traceable restatement of a landed lane output. PENDING rows are placeholders only and carry no inferred value.",
+    "supersession_rule": "Later final ledgers override earlier provisional arithmetic, but superseded observations remain indexed and explicitly labelled."
+  },
+  "evidence_policy": {
+    "classes": [
+      "EXACT",
+      "UB",
+      "VENDOR",
+      "BENCHMARK",
+      "HOST",
+      "AIHUB-PROFILED",
+      "PRIOR",
+      "PROJECTED",
+      "UNKNOWN",
+      "PENDING"
+    ],
+    "no_upgrade": true,
+    "composite_claim_rule": "A composite claim uses the weakest directly supporting landed class and names material limits in its value.",
+    "profile_rule": "Qualcomm repository profiles remain VENDOR, not AIHUB-PROFILED, because Lane E did not profile the Nubia NX809J."
+  },
+  "source_files": [
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "sha256": "ea0f24964f998a15e553c943a12ef9978957bd2dfc2819d8c4f61e30b40e0f91",
+      "lane": "A",
+      "producing_task": "A7"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/A1.json",
+      "sha256": "63d8b844e0375466f571107f45b285f291e8fbd02d4988af23a3e2195b4a7382",
+      "lane": "A",
+      "producing_task": "A1"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/A2.json",
+      "sha256": "5bc97c668923e245767ac22a4475862d67120d68a9a7ef3dd463538ba1979400",
+      "lane": "A",
+      "producing_task": "A2"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/A3.json",
+      "sha256": "c95fddf64faa5af70009b1938aff4cd5ac6fb0431ff4a558ea13444d778ebb79",
+      "lane": "A",
+      "producing_task": "A3"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/A5.json",
+      "sha256": "f58b41ff7b242b3c281477cc96c6084d9c07316ec2cf9de78b9e3dbcf698ae47",
+      "lane": "A",
+      "producing_task": "A5"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/a/A6.json",
+      "sha256": "b4e559e39df2e55481f727355b9285b23cefe8591ca277de6fa0ab8c74c6bb8a",
+      "lane": "A",
+      "producing_task": "A6"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/d/tts_table.json",
+      "sha256": "e44a77791eff385f258208e9f440ac6d4e6bb32d72e772efddbac9689ea64762",
+      "lane": "D",
+      "producing_task": "D1-D5 synthesis"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "sha256": "3307b2735f9ca9f82ccd9743b584f15b7eed5f702c6dcf6ed646a3087cb0f6b8",
+      "lane": "D",
+      "producing_task": "D1"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/d/D2.json",
+      "sha256": "d642d9e485e0caecf81a83367e64497707e2cd9fe187d9581c6552b92fa0933e",
+      "lane": "D",
+      "producing_task": "D2"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+      "lane": "D",
+      "producing_task": "D3"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/d/D4.json",
+      "sha256": "6eb380529af0a1c798d678f84c428334c1ba60d310c50c1ac6b5751b25ac1e8a",
+      "lane": "D",
+      "producing_task": "D4"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/d/D5.json",
+      "sha256": "a231431460e3269734f1fd462b4f482fe0e861a49f2cd2716bf59437233e6988",
+      "lane": "D",
+      "producing_task": "D5"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+      "sha256": "d621ce8509ac9a29c677a8c064b74331a677d8671a0aeceb98e1beecbc785464",
+      "lane": "E",
+      "producing_task": "E1"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/e/E2.json",
+      "sha256": "d39edd576eaa60ee19b0cb8655e3af9af229395a64116dc87e0edb3fa32320ae",
+      "lane": "E",
+      "producing_task": "E2"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+      "sha256": "13d64730bdbe072444ee46e55bf538857915aed60d70988f505ebf5767ae4de6",
+      "lane": "E",
+      "producing_task": "E3"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "lane": "E",
+      "producing_task": "E4"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/e/E5.json",
+      "sha256": "63bcb89c2c2bea215d51b4a2565c5d0b19663c365e13bf9427fee7ca689311b9",
+      "lane": "E",
+      "producing_task": "E5"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/e/E6.json",
+      "sha256": "1f18a51156cbb6c61d46e3dcdaa0ba1c5ff49c4fa0b7e0a60a49a711e7e960cc",
+      "lane": "E",
+      "producing_task": "E6"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/e/artifact_registry.json",
+      "sha256": "8e88daec51983e0938aed9371ffb04b4307752a085a64799e77e749fe6072d38",
+      "lane": "E",
+      "producing_task": "E5"
+    },
+    {
+      "path": "workstreams/sub2b_sprint/sprint/out/h/DEMO_SHOTLIST.md",
+      "sha256": "d57b8d820bd19609486e79317eb4924d9d05fc9b49c33d8953b0106ba55a453d",
+      "lane": "H",
+      "producing_task": "H3/H5"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "A-CAP-001",
+      "claim": "The complete shipped inventory cap is strictly fewer than 2,000,000,000 parameters.",
+      "value": 2000000000,
+      "unit": "exclusive parameter ceiling",
+      "evidence_class": "EXACT",
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/parameter_cap_exclusive"
+    },
+    {
+      "claim_id": "A-LEDGER-001",
+      "claim": "Lane A's final ledger has 58 component rows: 52 EXACT, 6 UNKNOWN, and zero UB rows.",
+      "value": {
+        "rows": 58,
+        "exact": 52,
+        "unknown": 6,
+        "ub": 0
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/stacks"
+    },
+    {
+      "claim_id": "A-STACK-H-001",
+      "claim": "Lane A's measured ledger records Stack H below the cap.",
+      "value": {
+        "total_measured": 1396245218,
+        "pct_of_cap": 69.8123,
+        "report_display_pct": "69.81%",
+        "headroom": 603754782,
+        "worst_case_total": 1396245218,
+        "worst_case_headroom": 603754782,
+        "verdict": "COMPLIANT",
+        "open_rows": [],
+        "licence_traffic_light": "RED"
+      },
+      "evidence_class": "EXACT",
+      "evidence_by_field": {
+        "total_measured_pct_headroom": "EXACT",
+        "worst_case_total_and_headroom": "EXACT",
+        "open_rows_and_complete_stack_result": "EXACT"
+      },
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/stacks/H"
+    },
+    {
+      "claim_id": "A-STACK-L-001",
+      "claim": "Lane A's measured ledger records Stack L below the cap, with two unresolved rows and an UNVERIFIED verdict.",
+      "value": {
+        "total_measured": 1676733894,
+        "pct_of_cap": 83.8367,
+        "report_display_pct": "83.84%",
+        "headroom": 323266106,
+        "worst_case_total": 1720220241,
+        "worst_case_headroom": 279779759,
+        "ub_scope": "RECORDED_KNOWN_ROW_BOUND; complete-stack worst case remains UNKNOWN until L9 and L10 close",
+        "verdict": "UNVERIFIED",
+        "open_rows": [
+          "L9",
+          "L10"
+        ],
+        "licence_traffic_light": "AMBER"
+      },
+      "evidence_class": "UNKNOWN",
+      "evidence_by_field": {
+        "total_measured_pct_headroom": "EXACT",
+        "worst_case_total_and_headroom": "UB",
+        "open_rows_and_complete_stack_result": "UNKNOWN"
+      },
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/stacks/L"
+    },
+    {
+      "claim_id": "A-STACK-D-001",
+      "claim": "Lane A's measured ledger records Stack D below the cap, with one unresolved row and an UNVERIFIED verdict.",
+      "value": {
+        "total_measured": 1831533225,
+        "pct_of_cap": 91.5767,
+        "report_display_pct": "91.58%",
+        "headroom": 168466775,
+        "worst_case_total": 1831533225,
+        "worst_case_headroom": 168466775,
+        "ub_scope": "RECORDED_KNOWN_ROW_BOUND; complete-stack worst case remains UNKNOWN until D11b closes",
+        "verdict": "UNVERIFIED",
+        "open_rows": [
+          "D11b"
+        ],
+        "licence_traffic_light": "RED"
+      },
+      "evidence_class": "UNKNOWN",
+      "evidence_by_field": {
+        "total_measured_pct_headroom": "EXACT",
+        "worst_case_total_and_headroom": "UB",
+        "open_rows_and_complete_stack_result": "UNKNOWN"
+      },
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/stacks/D"
+    },
+    {
+      "claim_id": "A-STACK-M-001",
+      "claim": "Lane A's measured ledger records Stack M below the cap, with one unresolved row and an UNVERIFIED verdict.",
+      "value": {
+        "total_measured": 1674645423,
+        "pct_of_cap": 83.7323,
+        "report_display_pct": "83.73%",
+        "headroom": 325354577,
+        "worst_case_total": 1880539567,
+        "worst_case_headroom": 119460433,
+        "ub_scope": "RECORDED_KNOWN_ROW_BOUND; complete-stack worst case remains UNKNOWN until M7 closes",
+        "verdict": "UNVERIFIED",
+        "open_rows": [
+          "M7"
+        ],
+        "licence_traffic_light": "GREEN"
+      },
+      "evidence_class": "UNKNOWN",
+      "evidence_by_field": {
+        "total_measured_pct_headroom": "EXACT",
+        "worst_case_total_and_headroom": "UB",
+        "open_rows_and_complete_stack_result": "UNKNOWN"
+      },
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/stacks/M"
+    },
+    {
+      "claim_id": "A-STACK-Q-001",
+      "claim": "Lane A's measured ledger records Stack Q below the cap, but its unresolved punctuation row leaves it UNVERIFIED.",
+      "value": {
+        "total_measured": 1964482923,
+        "pct_of_cap": 98.2241,
+        "report_display_pct": "98.22%",
+        "headroom": 35517077,
+        "worst_case_total": 1964482923,
+        "worst_case_headroom": 35517077,
+        "ub_scope": "RECORDED_KNOWN_ROW_BOUND; complete-stack worst case remains UNKNOWN until Q9 closes",
+        "verdict": "UNVERIFIED",
+        "open_rows": [
+          "Q9"
+        ],
+        "licence_traffic_light": "RED"
+      },
+      "evidence_class": "UNKNOWN",
+      "evidence_by_field": {
+        "total_measured_pct_headroom": "EXACT",
+        "worst_case_total_and_headroom": "UB",
+        "open_rows_and_complete_stack_result": "UNKNOWN"
+      },
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/stacks/Q"
+    },
+    {
+      "claim_id": "A-STACK-F-001",
+      "claim": "Lane A's measured ledger records Stack F below the cap, but its unresolved punctuation row leaves it UNVERIFIED.",
+      "value": {
+        "total_measured": 1975632107,
+        "pct_of_cap": 98.7816,
+        "report_display_pct": "98.78%",
+        "headroom": 24367893,
+        "worst_case_total": 1975632107,
+        "worst_case_headroom": 24367893,
+        "ub_scope": "RECORDED_KNOWN_ROW_BOUND; complete-stack worst case remains UNKNOWN until F9 closes",
+        "verdict": "UNVERIFIED",
+        "open_rows": [
+          "F9"
+        ],
+        "licence_traffic_light": "RED"
+      },
+      "evidence_class": "UNKNOWN",
+      "evidence_by_field": {
+        "total_measured_pct_headroom": "EXACT",
+        "worst_case_total_and_headroom": "UB",
+        "open_rows_and_complete_stack_result": "UNKNOWN"
+      },
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/stacks/F"
+    },
+    {
+      "claim_id": "A-ALL-STACKS-001",
+      "claim": "All six measured subtotals and Lane A's six recorded known-row UB subtotals are below 2B; only Stack H has no unresolved row, so complete-stack worst cases for L, D, M, Q, and F remain UNKNOWN.",
+      "value": {
+        "all_measured_below_cap": true,
+        "all_recorded_known_row_ub_subtotals_below_cap": true,
+        "noncompliant_stack_count_on_measured_basis": 0,
+        "only_arithmetic_compliant_stack": "H",
+        "complete_stack_worst_case_known_for": [
+          "H"
+        ],
+        "complete_stack_worst_case_unknown_for": [
+          "L",
+          "D",
+          "M",
+          "Q",
+          "F"
+        ]
+      },
+      "evidence_class": "UNKNOWN",
+      "producing_task": "A7",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/ledger.json",
+      "source_file_sha256": "c20710a43a2d1c8f9ff6ad9693fdeb67437aaf68055c734703c64e2d88383e15",
+      "source_pointer": "/stacks",
+      "limit": "The recorded ledger field is named ub_worst_case_total, but UNKNOWN component rows have null bounds and are excluded from those subtotals. Arithmetic compliance is not a shippability or licence verdict."
+    },
+    {
+      "claim_id": "A-FRONTEND-OMNI-001",
+      "claim": "OmniASR-CTC-300M cannot emit punctuation from its tokenizer, so Stacks Q and F require an external or backbone punctuation source.",
+      "value": {
+        "tokenizer_bytes": 87562,
+        "punctuation_occurrences_for_dot_comma_question_exclamation_semicolon_colon": 0,
+        "affected_stacks": [
+          "Q",
+          "F"
+        ]
+      },
+      "evidence_class": "EXACT",
+      "evidence_detail": "architectural conclusion from the exact tokenizer inventory",
+      "producing_task": "A5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A5.json",
+      "source_file_sha256": "fb4fb723e2a6010e15f198d38c0aa00daa457ab9c1e1bc8577ab620ad4025772",
+      "source_pointer": "/structural_findings/0"
+    },
+    {
+      "claim_id": "A-FRONTEND-PUNCT-001",
+      "claim": "The cheapest measured credible five-language neural punctuation restorer has 58,199,117 parameters.",
+      "value": {
+        "repo": "1-800-BAD-CODE/punct_cap_seg_47_language",
+        "parameters": 58199117
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "A5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A5.json",
+      "source_file_sha256": "fb4fb723e2a6010e15f198d38c0aa00daa457ab9c1e1bc8577ab620ad4025772",
+      "source_pointer": "/hazard_envelope_measured/punct_itn_cheapest_5lang"
+    },
+    {
+      "claim_id": "A-FRONTEND-QF-001",
+      "claim": "The cheapest measured neural punctuation restorer would breach both Q and F; those stacks remain under cap only if punctuation/ITN is delegated at zero added parameters.",
+      "value": {
+        "Q": {
+          "headroom": 35517077,
+          "margin_after_restorer": -22682040
+        },
+        "F": {
+          "headroom": 24367893,
+          "margin_after_restorer": -33831224
+        },
+        "required_architecture": "backbone delegation at zero added parameters"
+      },
+      "evidence_class": "PROJECTED",
+      "producing_task": "A5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A5.json",
+      "source_file_sha256": "fb4fb723e2a6010e15f198d38c0aa00daa457ab9c1e1bc8577ab620ad4025772",
+      "source_pointer": "/affordability_by_stack"
+    },
+    {
+      "claim_id": "A-LICENCE-M-001",
+      "claim": "Stack M is the only stack with a clean end-to-end licence sheet in Lane A's engineering review.",
+      "value": {
+        "traffic_light": "GREEN",
+        "model_licences": "Apache-2.0 for ASR, backbone, TTS and tokenizer; MIT for VAD",
+        "training_data_provenance": "not disclosed by vendors"
+      },
+      "evidence_class": "EXACT",
+      "evidence_detail": "licence fields verified at pinned revisions; Qwen LICENSE files fetched",
+      "producing_task": "A6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A6.json",
+      "source_file_sha256": "674587807286ab834ef62aad7d37928af66935e6112ee8c3ba2f4cf30aeea5bb",
+      "source_pointer": "/components/11",
+      "limit": "Engineering licence review, not legal advice; vendor training-data provenance remains undisclosed."
+    },
+    {
+      "claim_id": "A-LICENCE-PIPER-001",
+      "claim": "Every tested Piper voice descends from the Lessac voice, whose archived corpus licence is research-only and non-sublicensable; H, Q and F therefore require legal clearance or replacement.",
+      "value": {
+        "affected_stacks": [
+          "H",
+          "Q",
+          "F"
+        ],
+        "traffic_light": "RED",
+        "commercial_use": "BLOCKED pending legal review"
+      },
+      "evidence_class": "EXACT",
+      "evidence_detail": "both the corpus licence text and the vendor's own derivation metadata are archived verbatim",
+      "producing_task": "A6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A6.json",
+      "source_file_sha256": "674587807286ab834ef62aad7d37928af66935e6112ee8c3ba2f4cf30aeea5bb",
+      "source_pointer": "/components/0",
+      "sha256": {
+        "blizzard_lessac_licence": "b007e10389e71f84f9ebd71beae3755a96d15782c99781a966f4ebed7c5b295e",
+        "piper_lessac_model_card": "865a967337b3bea6e2d21d1fbc793f38ca2e96dcc5df3833149c84546fcaddb2",
+        "piper_dmitri_model_card": "d356fcb5182704c5e09ea6123febf63be07230ccca9a056e7f0bbeb3eab9ee55",
+        "piper_huayan_model_card": "e665b0aea3779399d866d2ef9b965038d26261fbed99286737605e98dd8cd914"
+      }
+    },
+    {
+      "claim_id": "A-LICENCE-MATCHA-001",
+      "claim": "Matcha zh-baker has no declared model licence and its own README says the Baker dataset is non-commercial; the route is commercially blocked pending rights or replacement.",
+      "value": {
+        "affected_stacks": [
+          "D",
+          "Q",
+          "F"
+        ],
+        "traffic_light": "RED",
+        "commercial_use": "BLOCKED"
+      },
+      "evidence_class": "EXACT",
+      "evidence_detail": "verbatim from the model's own README, archived",
+      "producing_task": "A6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A6.json",
+      "source_file_sha256": "674587807286ab834ef62aad7d37928af66935e6112ee8c3ba2f4cf30aeea5bb",
+      "source_pointer": "/components/2",
+      "sha256": "b4e559e39df2e55481f727355b9285b23cefe8591ca277de6fa0ab8c74c6bb8a"
+    },
+    {
+      "claim_id": "A-LICENCE-FALCON-001",
+      "claim": "Falcon-H1-1.5B's governing licence is not established for the exact model and its cited AUP is mutable, so Stack F's backbone licence remains unresolved.",
+      "value": {
+        "affected_stack": "F",
+        "traffic_light": "RED",
+        "repo_license_file_present": false,
+        "falcon_h1_mentions_on_cited_terms_page": 0
+      },
+      "evidence_class": "EXACT",
+      "evidence_detail": "full page captured, SHA-256 recorded, and dated",
+      "producing_task": "A6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A6.json",
+      "source_file_sha256": "674587807286ab834ef62aad7d37928af66935e6112ee8c3ba2f4cf30aeea5bb",
+      "source_pointer": "/components/3",
+      "sha256": {
+        "falcon_terms": "8063fa67e517c00e6a7037aa639dd6036f89d74c1eb0c9d32827f18f3587cb01",
+        "falcon3_licence": "ff2e9289b78026455cc7a8860c99dd12c27df4b68d6c8220b75b3b967c8953ad"
+      }
+    },
+    {
+      "claim_id": "A-LICENCE-TENVAD-001",
+      "claim": "TEN VAD carries an Agora non-compete rider in addition to Apache-2.0.",
+      "value": {
+        "affected_stack": "H",
+        "traffic_light": "AMBER",
+        "restriction": "May not be deployed in a way that competes with Agora's offerings."
+      },
+      "evidence_class": "EXACT",
+      "evidence_detail": "full licence text archived",
+      "producing_task": "A6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A6.json",
+      "source_file_sha256": "674587807286ab834ef62aad7d37928af66935e6112ee8c3ba2f4cf30aeea5bb",
+      "source_pointer": "/components/4",
+      "sha256": "b4e559e39df2e55481f727355b9285b23cefe8591ca277de6fa0ab8c74c6bb8a"
+    },
+    {
+      "claim_id": "A-LICENCE-CHARSIU-001",
+      "claim": "The charsiu byT5 G2P repository declares no licence, leaving Stack H's 20,653,952-parameter G2P row without an identified grant.",
+      "value": {
+        "affected_stack": "H",
+        "parameters": 20653952,
+        "traffic_light": "AMBER",
+        "model_licence": "NONE DECLARED"
+      },
+      "evidence_class": "EXACT",
+      "evidence_detail": "absence verified via HF API cardData and full file tree",
+      "producing_task": "A6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A6.json",
+      "source_file_sha256": "674587807286ab834ef62aad7d37928af66935e6112ee8c3ba2f4cf30aeea5bb",
+      "source_pointer": "/components/9"
+    },
+    {
+      "claim_id": "A-QWEN3-ASR-TIE-001",
+      "claim": "Qwen3-ASR-0.6B's lm_head and token embedding are materially duplicated on disk but byte-identical, so the unique parameter basis is 782,426,112.",
+      "value": {
+        "verdict": "TIED",
+        "unique_parameters": 782426112,
+        "serialized_parameters": 938008576,
+        "region_bytes_each": 311164928
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "A1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A1.json",
+      "source_file_sha256": "63d8b844e0375466f571107f45b285f291e8fbd02d4988af23a3e2195b4a7382",
+      "source_pointer": "/evidence/2",
+      "sha256": {
+        "lm_head_region": "ab067cf4287b06781cd926874df9d0917e79a2360381e661b5010b99651ffc09",
+        "embed_tokens_region": "ab067cf4287b06781cd926874df9d0917e79a2360381e661b5010b99651ffc09"
+      },
+      "limit": "Export-time re-materialisation remains UNKNOWN until the shipped export is enumerated."
+    },
+    {
+      "claim_id": "A-PARAKEET-COUNT-001",
+      "claim": "Parakeet-TDT 0.6B v3 has 627,057,286 learned F32 parameters and 627,057,310 total tensor elements; the delta is 24 I64 BatchNorm counters.",
+      "value": {
+        "learned_f32_parameters": 627057286,
+        "all_tensor_elements": 627057310,
+        "delta": 24,
+        "byte_reconciliation_residual": 0
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "A2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A2.json",
+      "source_file_sha256": "5bc97c668923e245767ac22a4475862d67120d68a9a7ef3dd463538ba1979400",
+      "source_pointer": "/dtype_partition"
+    },
+    {
+      "claim_id": "A-MAGPIE-CODEC-001",
+      "claim": "Magpie TTS ships no waveform codec and requires a separate NeMo Nano Codec row of 62,600,978 inference-path parameters.",
+      "value": {
+        "stack": "L",
+        "new_component_id": "L5b",
+        "inference_path_parameters": 62600978,
+        "full_checkpoint_parameters": 106087325
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "A3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A3.json",
+      "source_file_sha256": "e968131497fa9d9c0591a2143873dff776bfddd62d8382cc3ca3fabf48269920",
+      "source_pointer": "/hidden_dependencies_found/0"
+    },
+    {
+      "claim_id": "A-QWEN35-VISION-001",
+      "claim": "Qwen3.5-0.8B upstream safetensors include a 100,592,896-parameter vision tower; exclusion is valid only for the LM-only shipped artefact.",
+      "value": {
+        "lm_parameters": 752393024,
+        "mtp_parameters": 20452864,
+        "vision_tower_parameters": 100592896,
+        "upstream_total": 873438784
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "A3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A3.json",
+      "source_file_sha256": "e968131497fa9d9c0591a2143873dff776bfddd62d8382cc3ca3fabf48269920",
+      "source_pointer": "/hidden_dependencies_found/1"
+    },
+    {
+      "claim_id": "A-MOSS-EXPORT-001",
+      "claim": "Naive per-graph ONNX summation overcounts MOSS-TTS-Nano because the audio-token embedding is materialised three times.",
+      "value": {
+        "naive_per_graph_sum": 391092480,
+        "unique_by_external_offset": 167622912,
+        "true_bf16_checkpoint": 117311232,
+        "trap_ratio": 3.33
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "A3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/a/A3.json",
+      "source_file_sha256": "e968131497fa9d9c0591a2143873dff776bfddd62d8382cc3ca3fabf48269920",
+      "source_pointer": "/moss_onnx_s4_trap"
+    },
+    {
+      "claim_id": "D-TTS-HEADLINE-001",
+      "claim": "No single tested engine safely covers EN, ZH, ES, FR and RU on Lane D's sprint evidence.",
+      "value": false,
+      "evidence_class": "HOST",
+      "producing_task": "D1-D5 synthesis",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/tts_table.json",
+      "source_file_sha256": "e44a77791eff385f258208e9f440ac6d4e6bb32d72e772efddbac9689ea64762",
+      "source_pointer": "/headline/single_engine_safe_all_five"
+    },
+    {
+      "claim_id": "D-TTS-HEADLINE-002",
+      "claim": "No single tested engine is commercially unblocked across all five languages on the landed Lane D evidence.",
+      "value": false,
+      "evidence_class": "HOST",
+      "producing_task": "D1-D5 synthesis",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/tts_table.json",
+      "source_file_sha256": "e44a77791eff385f258208e9f440ac6d4e6bb32d72e772efddbac9689ea64762",
+      "source_pointer": "/headline/single_engine_commercially_unblocked_all_five",
+      "limit": "Composite route disposition combines HOST technical tests with pinned licence facts; it is not legal advice."
+    },
+    {
+      "claim_id": "D-TTS-ZH-001",
+      "claim": "Lane D found no general Mandarin ship route in the tested set.",
+      "value": {
+        "general_zh_ship_route_from_tested_set": false,
+        "kokoro": "unsafe non-finite PCM",
+        "matcha": "mixed-script omission risk and commercial provenance block"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1-D5 synthesis",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/tts_table.json",
+      "source_file_sha256": "e44a77791eff385f258208e9f440ac6d4e6bb32d72e772efddbac9689ea64762",
+      "source_pointer": "/headline/general_zh_ship_route_from_tested_set"
+    },
+    {
+      "claim_id": "D-TTS-ROUTES-001",
+      "claim": "The best supported sprint routes are Kokoro or Supertonic for EN/ES/FR, Supertonic for RU, and none for ZH.",
+      "value": {
+        "en": [
+          "kokoro",
+          "supertonic"
+        ],
+        "es": [
+          "kokoro",
+          "supertonic"
+        ],
+        "fr": [
+          "kokoro",
+          "supertonic"
+        ],
+        "ru": [
+          "supertonic"
+        ],
+        "zh": []
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1-D5 synthesis",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/tts_table.json",
+      "source_file_sha256": "e44a77791eff385f258208e9f440ac6d4e6bb32d72e772efddbac9689ea64762",
+      "source_pointer": "/headline/best_supported_sprint_routes",
+      "limit": "Sprint candidates are not TH-13 cleared, product-accepted, or native-listener accepted."
+    },
+    {
+      "claim_id": "D-D1-SCREEN-001",
+      "claim": "Twelve complete engine-language comparisons at n=40 were at or below the +5 pp point-estimate ceiling, but no cell cleared TH-13 because TH-13 requires n at least 60.",
+      "value": {
+        "complete_comparisons": 12,
+        "n_per_cell": 40,
+        "all_point_estimates_at_or_below_plus_5pp": true,
+        "th13_cleared_cells": 0,
+        "required_n": 60
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/headline"
+    },
+    {
+      "claim_id": "D-D1-EN-KOKORO-001",
+      "claim": "English Kokoro D1 matched-human delta WER was -8.333 pp at n=40.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -8.333333333333332,
+        "ci95_percent_points": [
+          -11.600928074245942,
+          -5.405405405405405
+        ],
+        "normalizer_control": "STABLE",
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/0"
+    },
+    {
+      "claim_id": "D-D1-EN-PIPER-001",
+      "claim": "English Piper D1 matched-human delta WER was -6.366 pp at n=40.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -6.36574074074074,
+        "ci95_percent_points": [
+          -9.741844795937624,
+          -3.128530561993051
+        ],
+        "normalizer_control": "STABLE",
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/1"
+    },
+    {
+      "claim_id": "D-D1-EN-SUPERTONIC-001",
+      "claim": "English Supertonic D1 matched-human delta WER was -8.912 pp at n=40.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -8.912037037037036,
+        "ci95_percent_points": [
+          -12.336930385437272,
+          -5.749621606134031
+        ],
+        "normalizer_control": "STABLE",
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/2"
+    },
+    {
+      "claim_id": "D-D1-ZH-MATCHA-001",
+      "claim": "Mandarin Matcha D1 matched-human delta CER was -0.351 pp at n=40, but its normalizer control was unstable and the row is inadmissible for ranking.",
+      "value": {
+        "metric": "CER",
+        "n": 40,
+        "delta_percent_points": -0.35137034434293835,
+        "ci95_percent_points": [
+          -3.143389907785568,
+          2.414536973082274
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/3"
+    },
+    {
+      "claim_id": "D-D1-ES-KOKORO-001",
+      "claim": "Spanish Kokoro D1 matched-human delta WER was -7.735 pp at n=40; its normalizer control was unstable.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -7.735321528424977,
+        "ci95_percent_points": [
+          -10.531706023801535,
+          -4.890739403092886
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/4"
+    },
+    {
+      "claim_id": "D-D1-ES-PIPER-001",
+      "claim": "Spanish Piper D1 matched-human delta WER was -1.491 pp at n=40; its normalizer control was unstable.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -1.4911463187325253,
+        "ci95_percent_points": [
+          -4.719805794412829,
+          1.688926453143535
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/5"
+    },
+    {
+      "claim_id": "D-D1-ES-SUPERTONIC-001",
+      "claim": "Spanish Supertonic D1 matched-human delta WER was -7.549 pp at n=40; its normalizer control was unstable.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -7.548928238583411,
+        "ci95_percent_points": [
+          -9.829867674858223,
+          -5.158578698655038
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/6"
+    },
+    {
+      "claim_id": "D-D1-FR-KOKORO-001",
+      "claim": "French Kokoro D1 matched-human delta WER was -17.500 pp at n=40; its normalizer control was unstable.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -17.5,
+        "ci95_percent_points": [
+          -23.04724948641863,
+          -12.298820046600001
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/7"
+    },
+    {
+      "claim_id": "D-D1-FR-PIPER-001",
+      "claim": "French Piper D1 matched-human delta WER was -15.500 pp at n=40; its normalizer control was unstable.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -15.499999999999996,
+        "ci95_percent_points": [
+          -22.278764910209308,
+          -8.959502394875926
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/8"
+    },
+    {
+      "claim_id": "D-D1-FR-SUPERTONIC-001",
+      "claim": "French Supertonic D1 matched-human delta WER was -18.500 pp at n=40; its normalizer control was unstable.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": -18.499999999999996,
+        "ci95_percent_points": [
+          -24.461944027511258,
+          -12.87004732181021
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/9"
+    },
+    {
+      "claim_id": "D-D1-RU-PIPER-001",
+      "claim": "Russian Piper D1 matched-human delta WER was +3.008 pp at n=40; its normalizer control was unstable.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": 3.007518796992481,
+        "ci95_percent_points": [
+          0.8695652173913049,
+          5.4727635706816224
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/10"
+    },
+    {
+      "claim_id": "D-D1-RU-SUPERTONIC-001",
+      "claim": "Russian Supertonic D1 matched-human delta WER was +1.504 pp at n=40; its normalizer control was unstable.",
+      "value": {
+        "metric": "WER",
+        "n": 40,
+        "delta_percent_points": 1.5037593984962405,
+        "ci95_percent_points": [
+          -0.38512148922057504,
+          3.2846835224493316
+        ],
+        "normalizer_control": "UNSTABLE",
+        "ranking_inadmissible": true,
+        "th13": "INSUFFICIENT_N_40_LT_60"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons/11"
+    },
+    {
+      "claim_id": "D-D1-KOKORO-ZH-FAIL-001",
+      "claim": "Kokoro v1.1 ZH emitted non-finite PCM for 7 of 40 D1 items, leaving 33 valid outputs; the arm was not scored or imputed.",
+      "value": {
+        "attempted": 40,
+        "valid": 33,
+        "nonfinite": 7,
+        "score_disposition": "NOT_SCORED_NO_IMPUTATION"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/unscored_or_unsupported/0"
+    },
+    {
+      "claim_id": "D-D1-MATCHA-OOV-001",
+      "claim": "A 14-case Matcha frontend probe logged explicit Ignore OOV diagnostics for Latin and acronym spans, so its Mandarin CER is not evidence of mixed-script coverage.",
+      "value": {
+        "finding": "SILENT_LATIN_OOV_OMISSION",
+        "case_count": 14,
+        "examples": [
+          "CPU",
+          "RAM",
+          "GB",
+          "API",
+          "JSON",
+          "Wi",
+          "Fi",
+          "VPN"
+        ]
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/frontend_findings/0",
+      "sha256": "3307b2735f9ca9f82ccd9743b584f15b7eed5f702c6dcf6ed646a3087cb0f6b8"
+    },
+    {
+      "claim_id": "D-D1-NORMALIZER-001",
+      "claim": "Only English D1 normalizer controls were stable enough for engine ranking; ES, FR, RU and ZH rows are point estimates without ranking weight.",
+      "value": {
+        "stable_languages": [
+          "en"
+        ],
+        "ranking_inadmissible_languages": [
+          "zh",
+          "es",
+          "fr",
+          "ru"
+        ]
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/comparisons"
+    },
+    {
+      "claim_id": "D-D1-CORPUS-LIMIT-001",
+      "claim": "The local D1 corpus manifest and retained WAVs are hash-pinned, but the mutable source Parquet revision and source blob hashes were not retained.",
+      "value": {
+        "local_manifest_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+        "items_canonical_sha256": "fac305ffe07d7fa9a508111001aa114e610f5541a24e0a9c74ab27600e5844c5",
+        "dataset_source_ref": "refs/convert/parquet",
+        "source_ref_status": "MUTABLE_REF_NOT_RESOLVED_OR_HASHED_AT_FETCH",
+        "source_parquet_hashes_retained": false
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D1.json",
+      "source_file_sha256": "b4c838a70db4a2d9955f5c58c4470b91d708ea08fcfd23f0ae0d6fbc0d0496a2",
+      "source_pointer": "/protocol/corpus",
+      "sha256": "3307b2735f9ca9f82ccd9743b584f15b7eed5f702c6dcf6ed646a3087cb0f6b8"
+    },
+    {
+      "claim_id": "D-D2-SILERO-PARAM-001",
+      "claim": "Silero v5_cis_base has 20,926,952 learned parameters.",
+      "value": 20926952,
+      "unit": "learned parameters",
+      "evidence_class": "EXACT",
+      "producing_task": "D2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D2.json",
+      "source_file_sha256": "d642d9e485e0caecf81a83367e64497707e2cd9fe187d9581c6552b92fa0933e",
+      "source_pointer": "/headline/silero_v5_cis_base_parameters"
+    },
+    {
+      "claim_id": "D-D2-STACK-L-PROJECTION-001",
+      "claim": "D2's provisional substitution projected Stack L at 1,611,051,613 parameters with 388,948,387 headroom.",
+      "value": {
+        "total_parameters": 1611051613,
+        "headroom": 388948387
+      },
+      "evidence_class": "PROJECTED",
+      "producing_task": "D2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D2.json",
+      "source_file_sha256": "d642d9e485e0caecf81a83367e64497707e2cd9fe187d9581c6552b92fa0933e",
+      "source_pointer": "/headline",
+      "status": "SUPERSEDED_BY_A-STACK-L-001",
+      "limit": "Do not use this provisional total in the final report; Lane A's later complete ledger includes additional dependencies and is authoritative."
+    },
+    {
+      "claim_id": "D-D2-SILERO-STRESS-001",
+      "claim": "Silero v5_cis_base does not bundle a neural accentor and requires an explicit Russian stress frontend for a production route.",
+      "value": {
+        "stress_marking_required": true,
+        "bundled_neural_accentor": false,
+        "probe_used_manual_stress": true
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "D2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D2.json",
+      "source_file_sha256": "d642d9e485e0caecf81a83367e64497707e2cd9fe187d9581c6552b92fa0933e",
+      "source_pointer": "/silero/front_end_dependency"
+    },
+    {
+      "claim_id": "D-D2-SILERO-HOST-001",
+      "claim": "One representative Silero host run had a 0.252 s warm median full-utterance time for 12.3 s of audio, RTF 0.0205.",
+      "value": {
+        "warm_median_full_seconds": 0.251921416958794,
+        "audio_duration_seconds": 12.3,
+        "warm_median_rtf": 0.02048141601291008,
+        "sample_rate_hz": 24000
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D2.json",
+      "source_file_sha256": "d642d9e485e0caecf81a83367e64497707e2cd9fe187d9581c6552b92fa0933e",
+      "source_pointer": "/silero/synthesis",
+      "limit": "One host utterance; not phone, naturalness, intelligibility, or systematic short-input evidence."
+    },
+    {
+      "claim_id": "D-D2-NATURALNESS-001",
+      "claim": "D2 did not establish naturalness or intelligibility for the Russian routes.",
+      "value": {
+        "naturalness": "UNKNOWN_USER_LISTENING_REQUIRED",
+        "intelligibility": "UNKNOWN_NO_ASR_BACKCHECK_IN_D2"
+      },
+      "evidence_class": "UNKNOWN",
+      "producing_task": "D2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D2.json",
+      "source_file_sha256": "d642d9e485e0caecf81a83367e64497707e2cd9fe187d9581c6552b92fa0933e",
+      "source_pointer": "/representative_probe_verdict"
+    },
+    {
+      "claim_id": "D-D3-TOTAL-001",
+      "claim": "Lane D's short-input waveform gate passed 90 of 96 attempted outputs and failed 6.",
+      "value": {
+        "attempted": 96,
+        "passed": 90,
+        "failed": 6
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "source_file_sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+      "source_pointer": "/headline"
+    },
+    {
+      "claim_id": "D-D3-PIPER-ES-FAIL-001",
+      "claim": "Piper DaveFX Spanish failed D3 on input 'A' because 0.081270 s was below the 0.15 s duration floor.",
+      "value": {
+        "text": "A",
+        "duration_seconds": 0.08126984126984127,
+        "floor_seconds": 0.15
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "source_file_sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+      "source_pointer": "/named_failures/0"
+    },
+    {
+      "claim_id": "D-D3-PIPER-RU-FAIL-001",
+      "claim": "Piper Dmitri Russian failed D3 on input 'Да' because 0.116100 s was below the 0.15 s duration floor.",
+      "value": {
+        "text": "Да",
+        "duration_seconds": 0.11609977324263039,
+        "floor_seconds": 0.15
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "source_file_sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+      "source_pointer": "/named_failures/1"
+    },
+    {
+      "claim_id": "D-D3-KOKORO-ZH-FAIL-001",
+      "claim": "Kokoro v1.1 ZH failed 4 of 9 D3 runs with all-non-finite PCM.",
+      "value": {
+        "attempted": 9,
+        "passed": 5,
+        "failed": 4,
+        "verdict": "UNSAFE_HARD_FAIL_NONFINITE_PCM"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "source_file_sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+      "source_pointer": "/routes/14"
+    },
+    {
+      "claim_id": "D-D3-SUPERTONIC-001",
+      "claim": "Supertonic passed all 24 D3 short-input runs across EN, ES, FR and RU.",
+      "value": {
+        "languages": [
+          "en",
+          "es",
+          "fr",
+          "ru"
+        ],
+        "attempted": 24,
+        "passed": 24,
+        "failed": 0
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "source_file_sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+      "source_pointer": "/routes/0"
+    },
+    {
+      "claim_id": "D-D3-MATCHA-HAN-001",
+      "claim": "Matcha Baker plus Vocos passed 9 of 9 Han-only D3 runs.",
+      "value": {
+        "attempted": 9,
+        "passed": 9,
+        "failed": 0,
+        "verdict": "SAFE_ON_D3_HAN_PROBE"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "source_file_sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+      "source_pointer": "/routes/10",
+      "limit": "Han-only waveform safety does not repair the mixed-script omission or licensing findings."
+    },
+    {
+      "claim_id": "D-D3-SCOPE-001",
+      "claim": "A D3 pass establishes short-input waveform safety only, not intelligibility, language correctness, naturalness, frontend coverage or licensing.",
+      "value": "waveform-only safety scope",
+      "evidence_class": "HOST",
+      "producing_task": "D3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D3.json",
+      "source_file_sha256": "c68e1d37be7bacb362de0ca1563d5831ad80f86f283db2a03f93f672a020f5f0",
+      "source_pointer": "/scope_warning"
+    },
+    {
+      "claim_id": "D-D4-TIMING-001",
+      "claim": "On the Apple M2 host, Matcha's canonical short clause reached first PCM callback at 181.919 ms median and 296.435 ms p95 over 10 runs.",
+      "value": {
+        "n": 10,
+        "median_ms": 181.919,
+        "p95_ms": 296.435,
+        "boundary": "first PCM callback"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D4.json",
+      "source_file_sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+      "source_pointer": "/headline/canonical_first_chunk_ms"
+    },
+    {
+      "claim_id": "D-D4-RTF-001",
+      "claim": "Across 70 Matcha host cases, median RTF was 0.101239 and p95 RTF was 0.1888.",
+      "value": {
+        "n": 70,
+        "median": 0.101239,
+        "p95": 0.1888
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D4.json",
+      "source_file_sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+      "source_pointer": "/headline/all_case_rtf"
+    },
+    {
+      "claim_id": "D-D4-PRIOR-PHONE-001",
+      "claim": "The earlier Matcha phone anchor was 118 ms end-to-speaker, RTF 0.055 and CER 0.048.",
+      "value": {
+        "end_to_speaker_ms": 118,
+        "rtf": 0.055,
+        "backcheck_cer": 0.048
+      },
+      "evidence_class": "PRIOR",
+      "producing_task": "D4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D4.json",
+      "source_file_sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+      "source_pointer": "/non_comparability/prior_phone_anchor"
+    },
+    {
+      "claim_id": "D-D4-NONCOMPARE-001",
+      "claim": "The D4 host first-callback timing cannot be compared to the prior phone end-to-speaker timing; no speedup or delta is supported.",
+      "value": {
+        "comparison_permitted": false,
+        "reason": "Hardware, runtime, operating load and metric boundary differ."
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D4.json",
+      "source_file_sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+      "source_pointer": "/non_comparability"
+    },
+    {
+      "claim_id": "D-D4-MATCHA-LICENCE-001",
+      "claim": "The exact Matcha acoustic checkpoint has no model-licence text and its embedded Baker dataset metadata says non-commercial use only.",
+      "value": {
+        "checkpoint_bytes": 75624611,
+        "weight_licence": "ABSENT/UNKNOWN",
+        "training_corpus_commercial_use": "NON_COMMERCIAL_ONLY",
+        "ship_disposition": "BLOCKED_PENDING_WRITTEN_RIGHTS_OR_REPLACEMENT"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "D4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D4.json",
+      "source_file_sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+      "source_pointer": "/provenance_and_licensing/acoustic_model",
+      "sha256": "6eb380529af0a1c798d678f84c428334c1ba60d310c50c1ac6b5751b25ac1e8a"
+    },
+    {
+      "claim_id": "D-D4-REPLACEMENT-001",
+      "claim": "A newly recorded commercially cleared Mandarin voice was estimated at $3,075-$15,250 in known recording and GPU cash cost.",
+      "value": {
+        "low_usd": 3075,
+        "high_usd": 15250,
+        "excluded": [
+          "engineering",
+          "data cleaning and labeling",
+          "rights review",
+          "evaluation and native review"
+        ]
+      },
+      "evidence_class": "PROJECTED",
+      "producing_task": "D4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D4.json",
+      "source_file_sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+      "source_pointer": "/commercial_replacement_cost/new_clean_voice/known_cash_subtotal_usd"
+    },
+    {
+      "claim_id": "D-D4-COMMERCIAL-PRICE-001",
+      "claim": "The price of direct commercial rights for the Baker corpus/checkpoint chain is not published.",
+      "value": null,
+      "evidence_class": "UNKNOWN",
+      "producing_task": "D4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D4.json",
+      "source_file_sha256": "3208a9d41ff7e261e8ae863ce97ab2df5e5fb49e3fec29eff1358c37c0d03fbd",
+      "source_pointer": "/commercial_replacement_cost/direct_commercial_license/price"
+    },
+    {
+      "claim_id": "D-D5-BUNDLE-001",
+      "claim": "At Lane D's D5 capture, the listening artifact workspace contained 278 of 280 expected WAVs; all 278 present WAVs were readable and passed the waveform gate.",
+      "value": {
+        "expected_wavs": 280,
+        "present_wavs": 278,
+        "missing_wavs": 2,
+        "total_wav_bytes": 96321818,
+        "waveform_gate_pass": 278,
+        "waveform_gate_fail": 0
+      },
+      "evidence_class": "HOST",
+      "producing_task": "D5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D5.json",
+      "source_file_sha256": "dac26b1fb522c6c730435054c33be122f56bcf78b2b0813464cab4b193dcaed6",
+      "source_pointer": "/inventory",
+      "sha256": "a231431460e3269734f1fd462b4f482fe0e861a49f2cd2716bf59437233e6988",
+      "scope_limit": "Historical D5 HOST inventory. The git-ignored listening WAVs are not present in the current Lane H checkout; see H-MEDIA-AVAILABILITY-001."
+    },
+    {
+      "claim_id": "D-D5-MISSING-001",
+      "claim": "The two withheld listening clips are zh_kokoro_09.wav and zh_kokoro_14.wav because generation produced known non-finite PCM.",
+      "value": [
+        "zh_kokoro_09.wav",
+        "zh_kokoro_14.wav"
+      ],
+      "evidence_class": "HOST",
+      "producing_task": "D5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D5.json",
+      "source_file_sha256": "dac26b1fb522c6c730435054c33be122f56bcf78b2b0813464cab4b193dcaed6",
+      "source_pointer": "/missing_expected"
+    },
+    {
+      "claim_id": "D-D5-NATURALNESS-001",
+      "claim": "Lane D did not run a listening panel; naturalness remains user judgment.",
+      "value": "USER_JUDGMENT_REQUIRED_NO_PANEL",
+      "evidence_class": "UNKNOWN",
+      "producing_task": "D5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/d/D5.json",
+      "source_file_sha256": "dac26b1fb522c6c730435054c33be122f56bcf78b2b0813464cab4b193dcaed6",
+      "source_pointer": "/naturalness_disposition"
+    },
+    {
+      "claim_id": "E-E1-AUTH-001",
+      "claim": "qai-hub 0.53.0 authenticated successfully and the account accepted at least one compile job.",
+      "value": {
+        "client_version": "0.53.0",
+        "authenticated": true,
+        "minimum_proven_capacity": "at least one compile job at capture time"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+      "source_file_sha256": "0fdb463aae95871b1e5970cead0c6c5bf84f3b2affc09cd7262d29612f2da4cc",
+      "source_pointer": "/client"
+    },
+    {
+      "claim_id": "E-E1-DEVICES-001",
+      "claim": "AI Hub listed 79 devices and exposed five SM8850-class device entries, including the SM8850 QRD.",
+      "value": {
+        "total_devices": 79,
+        "sm8850_discoverable": true,
+        "sm8850_match_count": 5
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+      "source_file_sha256": "0fdb463aae95871b1e5970cead0c6c5bf84f3b2affc09cd7262d29612f2da4cc",
+      "source_pointer": "/device_inventory"
+    },
+    {
+      "claim_id": "E-E1-SM8850-SELECT-001",
+      "claim": "SM8850 was discoverable but not compile-selectable for this account; all three selector forms were refused with the same no-match message.",
+      "value": {
+        "selectable": false,
+        "attempts": 3,
+        "verbatim_message": "No devices match the given OS name, version, and attributes."
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+      "source_file_sha256": "0fdb463aae95871b1e5970cead0c6c5bf84f3b2affc09cd7262d29612f2da4cc",
+      "source_pointer": "/sm8850_selectability"
+    },
+    {
+      "claim_id": "E-E1-COMPILE-001",
+      "claim": "A 119-byte trivial ONNX compiled successfully for SM8750 as a QNN context binary at QAIRT 2.48.0.260626120635 in 70.951 seconds round trip.",
+      "value": {
+        "device": "Samsung Galaxy S25 (Family)",
+        "soc": "SM8750",
+        "qairt_version": "2.48.0.260626120635",
+        "job_id": "jp2ej3v4p",
+        "target_model_id": "mq3ldy1kq",
+        "round_trip_seconds": 70.95084066595882,
+        "status": "SUCCESS"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+      "source_file_sha256": "0fdb463aae95871b1e5970cead0c6c5bf84f3b2affc09cd7262d29612f2da4cc",
+      "source_pointer": "/compile_probe",
+      "sha256": "d621ce8509ac9a29c677a8c064b74331a677d8671a0aeceb98e1beecbc785464",
+      "limit": "This was SM8750 compilation only, not SM8850 or a profile."
+    },
+    {
+      "claim_id": "E-E1-QUOTA-001",
+      "claim": "The numeric Qualcomm AI Hub account quota is unknown.",
+      "value": null,
+      "evidence_class": "UNKNOWN",
+      "producing_task": "E1",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E1.json",
+      "source_file_sha256": "0fdb463aae95871b1e5970cead0c6c5bf84f3b2affc09cd7262d29612f2da4cc",
+      "source_pointer": "/quota/numeric_job_quota"
+    },
+    {
+      "claim_id": "E-E2-CATALOG-001",
+      "claim": "The three sherpa-onnx QNN release tags contain 2,238 assets across 11 SoCs: 2,237 QNN archives plus one checksum file.",
+      "value": {
+        "total_assets": 2238,
+        "qnn_archives": 2237,
+        "auxiliary_assets": 1,
+        "soc_count": 11
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "E2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E2.json",
+      "source_file_sha256": "b2148af573d74daf9fc96c089097631c6966758e22660fe159f379f84d3760d8",
+      "source_pointer": "/claim_tests/0"
+    },
+    {
+      "claim_id": "E-E2-SM8850-001",
+      "claim": "Exactly 236 catalog assets target SM8850.",
+      "value": {
+        "total": 236,
+        "by_release_tag": {
+          "asr-models-qnn-binary": 102,
+          "asr-models-qnn-binary-2": 87,
+          "asr-models-qnn-binary-3": 47
+        }
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "E2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E2.json",
+      "source_file_sha256": "b2148af573d74daf9fc96c089097631c6966758e22660fe159f379f84d3760d8",
+      "source_pointer": "/catalog/sm8850_assets"
+    },
+    {
+      "claim_id": "E-E2-PARAKEET-WINDOWS-001",
+      "claim": "Parakeet-TDT 0.6B v3 has 12 SM8850 window assets from 3 through 30 seconds at the enumerated windows.",
+      "value": [
+        3,
+        5,
+        8,
+        10,
+        13,
+        15,
+        18,
+        20,
+        23,
+        25,
+        28,
+        30
+      ],
+      "evidence_class": "EXACT",
+      "producing_task": "E2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E2.json",
+      "source_file_sha256": "b2148af573d74daf9fc96c089097631c6966758e22660fe159f379f84d3760d8",
+      "source_pointer": "/claim_tests/2"
+    },
+    {
+      "claim_id": "E-E2-NEMOTRON-001",
+      "claim": "Nemotron 3.5 streaming SM8850 assets include 80, 160, 320, 560 and 1120 ms chunks; 80 ms is the minimum explicitly time-encoded chunk.",
+      "value": [
+        80,
+        160,
+        320,
+        560,
+        1120
+      ],
+      "unit": "milliseconds",
+      "evidence_class": "EXACT",
+      "producing_task": "E2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E2.json",
+      "source_file_sha256": "b2148af573d74daf9fc96c089097631c6966758e22660fe159f379f84d3760d8",
+      "source_pointer": "/claim_tests/3"
+    },
+    {
+      "claim_id": "E-E2-PRECISION-001",
+      "claim": "Treating no-suffix sherpa archives as float is a publication naming convention, not an inspected payload-dtype result.",
+      "value": "filename without -int8.tar.bz2 => float",
+      "evidence_class": "VENDOR",
+      "producing_task": "E2",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E2.json",
+      "source_file_sha256": "b2148af573d74daf9fc96c089097631c6966758e22660fe159f379f84d3760d8",
+      "source_pointer": "/precision_parsing"
+    },
+    {
+      "claim_id": "E-E3-ARCHIVE-001",
+      "claim": "The selected SM8850 Parakeet v3 3-second archive verified at 437,668,456 bytes and its published SHA-256.",
+      "value": {
+        "asset_id": 465352256,
+        "filename": "sherpa-onnx-qnn-SM8850-binary-parakeet-tdt-0.6b-v3-3s-transducer.tar.bz2",
+        "bytes": 437668456,
+        "size_match": true,
+        "sha256_match": true
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+      "source_file_sha256": "9935bbeecab3583516bbf437fa750cf2d2daf9959f2702f3b18781d6c5988b2f",
+      "source_pointer": "/archive_verification",
+      "sha256": "13d64730bdbe072444ee46e55bf538857915aed60d70988f505ebf5767ae4de6"
+    },
+    {
+      "claim_id": "E-E3-CONTEXTS-001",
+      "claim": "All three extracted Parakeet context headers independently identify SM8850, HTP minimum architecture 81 and QNN v2.40.0.251030114326_189385.",
+      "value": {
+        "context_count": 3,
+        "embedded_qnn_build": "v2.40.0.251030114326_189385",
+        "soc_type": "SM8850",
+        "min_arch": 81,
+        "quantize_graph": false
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "E3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+      "source_file_sha256": "9935bbeecab3583516bbf437fa750cf2d2daf9959f2702f3b18781d6c5988b2f",
+      "source_pointer": "/context_header_inspection",
+      "sha256": {
+        "encoder.bin": "38151957887dbe87718ade940f06c69871d14f25f43024dd9af4c8ed3fc2695a",
+        "decoder.bin": "e4da17c61b01f371f33a00a1c02b8560a3521d08b4a20c309c114b3e706ef0a1",
+        "joiner.bin": "adce9764ef654fd9fc6aed03aa8f5a614c02d3ae50729b22e19408604a21ecdb"
+      }
+    },
+    {
+      "claim_id": "E-E3-VERDICT-001",
+      "claim": "The verified Parakeet prebuilt is REPACKAGE-safe only with an isolated exact-QNN-2.40 runtime; under the programme's single 2.45 pin it requires EXPORT/recompile.",
+      "value": {
+        "programme_single_pin_verdict": "EXPORT",
+        "artifact_level_verdict": "REPACKAGE_IF_EXACT_QNN_2_40_RUNTIME_IS_SELECTED",
+        "programme_pin": "2.45.0.260326154327",
+        "artifact_build": "2.40.0.251030114326_189385"
+      },
+      "evidence_class": "PROJECTED",
+      "producing_task": "E3/E5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+      "source_file_sha256": "9935bbeecab3583516bbf437fa750cf2d2daf9959f2702f3b18781d6c5988b2f",
+      "source_pointer": "/fork_decision",
+      "supporting_source_file": "workstreams/sub2b_sprint/sprint/out/e/E5.json",
+      "supporting_source_file_sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+      "supporting_source_pointer": "/evidence_policy/pin_choice",
+      "limit": "The downloaded bytes and context build are HOST/EXACT observations; selecting the programme-wide 2.45 pin and applying the resulting programme verdict are PROJECTED policy decisions."
+    },
+    {
+      "claim_id": "E-E3-CPU-REFERENCE-001",
+      "claim": "A pinned FP32 ONNX equivalent produced CPU transcripts, tokens and timestamps for all three bundled test WAVs.",
+      "value": {
+        "source_revision": "1a468a35cbba69418f126de829e75261dea4a4e4",
+        "runtime": "sherpa-onnx 1.13.4 CPU greedy_search",
+        "wav_count": 3,
+        "process_wall_seconds": 51.33,
+        "maximum_resident_set_bytes": 1371701248
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+      "source_file_sha256": "9935bbeecab3583516bbf437fa750cf2d2daf9959f2702f3b18781d6c5988b2f",
+      "source_pointer": "/cpu_numerical_reference",
+      "sha256": {
+        "encoder.onnx": "3eed7ce424bf8339ad09233533c687e2dbd07e74ccf5027b5e7344019ea373b0",
+        "encoder.weights": "3af3f51af5f2d01dbbf5af47d42c7962a2c205f11004254bb4f2b979862f39a8",
+        "decoder.onnx": "d593cdb0e571f5a457ec2219af9968cbf6b0e8198e8f7839b40a8754593bf68c",
+        "joiner.onnx": "b9b0bcf88ac571902e69a6536223ed2d94885e981b85045410f1403d53121a63"
+      },
+      "limit": "This is not QNN execution, device performance, or numerical parity evidence."
+    },
+    {
+      "claim_id": "E-E3-QNN-PARITY-001",
+      "claim": "QNN numerical parity and device performance remain unmeasured.",
+      "value": null,
+      "evidence_class": "UNKNOWN",
+      "producing_task": "E3",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E3.json",
+      "source_file_sha256": "9935bbeecab3583516bbf437fa750cf2d2daf9959f2702f3b18781d6c5988b2f",
+      "source_pointer": "/limitations"
+    },
+    {
+      "claim_id": "E-E4-REPOSITORY-001",
+      "claim": "Lane E's Qualcomm registry findings are pinned to ai-hub-models commit 6bbb3e18034b15df2cc4b41736fd900b980a95df.",
+      "value": {
+        "commit_sha": "6bbb3e18034b15df2cc4b41736fd900b980a95df",
+        "tree_sha": "cd30d7c3b7e4473c6239e362b3e71e0739ab458f",
+        "tree_entries": 5515
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/repository"
+    },
+    {
+      "claim_id": "E-E4-ZIPFORMER-001",
+      "claim": "The usable published Zipformer ZH-EN registry path is float-only; mixed/quantized QNN paths are disabled after failing Qualcomm scorecard jobs.",
+      "value": {
+        "usable_precision": "float",
+        "mixed_precision": {
+          "encoder": "w8a16",
+          "decoder": "w16a16",
+          "joiner": "w16a16"
+        },
+        "mixed_path_status": "FAILED_AND_DISABLED"
+      },
+      "evidence_class": "VENDOR",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/zipformer_zh_en/quantized_path"
+    },
+    {
+      "claim_id": "E-E4-ZIPFORMER-PROFILES-001",
+      "claim": "The pinned repository contains 84 passing float Zipformer profile rows across 17 devices at QAIRT 2.45; the counts are exact, while profile values are vendor evidence.",
+      "value": {
+        "profile_rows": 84,
+        "passed_rows": 84,
+        "device_count": 17,
+        "qairt_version": "2.45.0.260326154327",
+        "primary_compute_unit": "NPU"
+      },
+      "evidence_class": "VENDOR",
+      "evidence_by_field": {
+        "profile_row_pass_and_device_counts_and_pinned_version": "EXACT",
+        "primary_compute_unit_and_profile_values": "VENDOR"
+      },
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/zipformer_zh_en/float_profile_summary",
+      "limit": "Individual profile values are VENDOR and are not exact-phone measurements."
+    },
+    {
+      "claim_id": "E-E4-TTS-COUNT-001",
+      "claim": "All six published Qualcomm TTS models at the pinned commit have VoiceAI/QNN NPU profiles and SM8850-for-Galaxy asset rows at QAIRT 2.45.",
+      "value": {
+        "published_tts_model_count": 6,
+        "models": [
+          "pipertts_en",
+          "pipertts_de",
+          "pipertts_it",
+          "melotts_en",
+          "melotts_es",
+          "melotts_zh"
+        ],
+        "qairt_version": "2.45.0.260326154327"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/tts_htp"
+    },
+    {
+      "claim_id": "E-E4-TTS-PROFILE-001",
+      "claim": "Qualcomm's SM8850-for-Galaxy TTS rows report NPU placement, but their latency and job values remain vendor evidence and are component-level, not end-to-end synthesis latency.",
+      "value": {
+        "named_device": "Samsung Galaxy S26",
+        "primary_compute_unit": "NPU",
+        "all_layers_on_npu": true,
+        "must_not_sum_components": true
+      },
+      "evidence_class": "VENDOR",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/tts_htp/all_profile_values_and_job_statuses_evidence_class"
+    },
+    {
+      "claim_id": "E-E4-QWEN3-PACKAGE-001",
+      "claim": "A Qwen3-0.6B SM8850 w4a16 GenieX-QAIRT package entry exists at QAIRT 2.45.",
+      "value": {
+        "exists": true,
+        "precision": "w4a16",
+        "runtime": "geniex_qairt",
+        "qairt_version": "2.45.0.260326154327"
+      },
+      "evidence_class": "EXACT",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/llm/qwen3_0_6b/registry_presence_evidence_class"
+    },
+    {
+      "claim_id": "E-E4-QWEN3-ACCURACY-001",
+      "claim": "Qualcomm disables the Qwen3-0.6B w4a16 QAIRT path after an accuracy failure: 70.3% device versus 94.9% benchmark.",
+      "value": {
+        "verdict": "DISABLED_FOR_ACCURACY_FAILURE",
+        "device_accuracy_percent": 70.3,
+        "benchmark_percent": 94.9,
+        "deviation_percentage_points": -24.6,
+        "threshold_percentage_points": 10
+      },
+      "evidence_class": "VENDOR",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/llm/qwen3_0_6b/accuracy_status"
+    },
+    {
+      "claim_id": "E-E4-QWEN35-OFFERING-001",
+      "claim": "The pinned Qualcomm registry offers Qwen3.5-0.8B as q4_0 GenieX-llama.cpp only, not GenieX-QAIRT w4a16.",
+      "value": {
+        "offering": "GENIEX_LLAMACPP_Q4_0_ONLY",
+        "geniex_qairt_offered": false,
+        "w4a16_offered": false,
+        "declared_model_size_mb": 507
+      },
+      "evidence_class": "VENDOR",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/llm/qwen3_5_0_8b"
+    },
+    {
+      "claim_id": "E-E4-QWEN35-PROFILE-001",
+      "claim": "At context 4096 on Qualcomm's SM8850 QRD row, Qwen3.5-0.8B CPU decode is 59.414 tok/s and NPU decode is 41.909 tok/s; NPU prefill is 1084.604 tok/s versus CPU 355.529 tok/s.",
+      "value": {
+        "device": "Snapdragon 8 Elite Gen 5 QRD",
+        "context_length": 4096,
+        "cpu_decode_tokens_per_second": 59.414176,
+        "npu_decode_tokens_per_second": 41.909392,
+        "cpu_prefill_tokens_per_second": 355.529292,
+        "npu_prefill_tokens_per_second": 1084.603868
+      },
+      "evidence_class": "VENDOR",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/llm/qwen3_5_0_8b/sm8850_vendor_profile"
+    },
+    {
+      "claim_id": "E-E4-QWEN35-DERIVED-001",
+      "claim": "On that vendor row, CPU decode exceeds NPU by 17.505 tok/s while NPU prefill is 3.051 times CPU.",
+      "value": {
+        "cpu_decode_minus_npu_tokens_per_second": 17.504784,
+        "npu_prefill_divided_by_cpu": 3.050674
+      },
+      "evidence_class": "PROJECTED",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/findings/llm/qwen3_5_0_8b/derived_comparison"
+    },
+    {
+      "claim_id": "E-E4-NUBIA-PROFILE-001",
+      "claim": "No E4 result is an exact Nubia NX809J profile.",
+      "value": null,
+      "evidence_class": "UNKNOWN",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/limitations/2"
+    },
+    {
+      "claim_id": "E-E4-NONADDITIVE-001",
+      "claim": "ASR/TTS component milliseconds and LLM token rates in E4 must not be summed into an end-to-end budget.",
+      "value": {
+        "must_not_sum": true,
+        "asr_tts_device": "Samsung Galaxy S26",
+        "llm_device": "Snapdragon 8 Elite Gen 5 QRD"
+      },
+      "evidence_class": "VENDOR",
+      "producing_task": "E4",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E4.json",
+      "source_file_sha256": "e58012b138ca0b3c62617b77d6173be679d4574898b19ff5e94410776bc7c9a7",
+      "source_pointer": "/non_additivity"
+    },
+    {
+      "claim_id": "E-E5-PIN-001",
+      "claim": "Lane E selected one exact programme pin for compile and device runtime: QAIRT/QNN 2.45.0.260326154327, with exact string equality and no backward/forward compatibility assumption.",
+      "value": {
+        "compile_version": "2.45.0.260326154327",
+        "device_runtime_version": "2.45.0.260326154327",
+        "match_rule": "EXACT_STRING_EQUALITY",
+        "allow_backward_compatibility_assumption": false,
+        "allow_forward_compatibility_assumption": false,
+        "one_runtime_provider_per_apk_or_process": true
+      },
+      "evidence_class": "PROJECTED",
+      "producing_task": "E5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E5.json",
+      "source_file_sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+      "source_pointer": "/pin"
+    },
+    {
+      "claim_id": "E-E5-RUNTIME-001",
+      "claim": "The official QAIRT 2.45 archive verified locally at 1,657,471,677 bytes; all 11 required member sizes and hashes matched.",
+      "value": {
+        "bytes": 1657471677,
+        "required_member_count": 11,
+        "all_required_members_match": true,
+        "archive_disposition": "Deleted after verified extraction"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E5.json",
+      "source_file_sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+      "source_pointer": "/runtime_supply/archive",
+      "sha256": "63bcb89c2c2bea215d51b4a2565c5d0b19663c365e13bf9427fee7ca689311b9"
+    },
+    {
+      "claim_id": "E-E5-CONTEXT-MISMATCH-001",
+      "claim": "All three staged Parakeet contexts are exact QNN 2.40 and do not match the exact 2.45 programme pin; NPU execution is unauthorized until they are recompiled.",
+      "value": {
+        "staged_context_count": 3,
+        "embedded_build": "2.40.0.251030114326_189385",
+        "programme_pin": "2.45.0.260326154327",
+        "pin_match": false,
+        "execution_authorized": false
+      },
+      "evidence_class": "PROJECTED",
+      "evidence_by_field": {
+        "staged_context_count_and_embedded_build": "EXACT",
+        "programme_pin_and_execution_authorization": "PROJECTED"
+      },
+      "producing_task": "E5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E5.json",
+      "source_file_sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+      "source_pointer": "/context_state/staged_qnn_contexts"
+    },
+    {
+      "claim_id": "E-E5-SUPERTONIC-CONTEXTS-001",
+      "claim": "Four Supertonic contexts are identified at the exact 2.45 pin, but they are not staged, externally hash-pinned or execution-authorized.",
+      "value": {
+        "count": 4,
+        "total_expected_bytes": 188518400,
+        "build": "2.45.0.260326154327",
+        "staged": false,
+        "execution_authorized": false
+      },
+      "evidence_class": "UNKNOWN",
+      "producing_task": "E5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E5.json",
+      "source_file_sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+      "source_pointer": "/context_state/known_exact_pin_contexts_not_staged",
+      "limit": "Sizes/registry identities are known, but artifact hashes and local bytes remain UNKNOWN."
+    },
+    {
+      "claim_id": "E-E5-REGISTRY-001",
+      "claim": "Lane E's artifact registry has 36 rows, including 19 staged files, 11 staged exact-pin runtime members, 3 staged mismatched contexts, and zero NPU-ready rows.",
+      "value": {
+        "artifact_rows": 36,
+        "staged_file_rows": 19,
+        "staged_exact_pin_runtime_member_rows": 11,
+        "staged_qnn_context_rows": 3,
+        "staged_exact_pin_qnn_context_rows": 0,
+        "npu_execution_ready_rows": 0,
+        "missing_app_runner_rows": 1
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E5.json",
+      "source_file_sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+      "source_pointer": "/artifact_registry",
+      "sha256": "63bcb89c2c2bea215d51b4a2565c5d0b19663c365e13bf9427fee7ca689311b9"
+    },
+    {
+      "claim_id": "E-E5-RUNNER-001",
+      "claim": "No exact-2.45 app-UID APK/JNI runner exists in the staged bundle.",
+      "value": {
+        "runner_present": false,
+        "blocking": true
+      },
+      "evidence_class": "UNKNOWN",
+      "producing_task": "E5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/artifact_registry.json",
+      "source_file_sha256": "aff2f154319d88db81a4125c35882395cd88c024959ca3cc3cda3ba442ef2df0",
+      "source_pointer": "/artifacts/35"
+    },
+    {
+      "claim_id": "E-E6-BUNDLE-001",
+      "claim": "The staged Nubia bundle contains 46 files totaling 760,928,954 bytes, including 3 QNN contexts totaling 634,474,496 bytes.",
+      "value": {
+        "total_files": 46,
+        "total_file_bytes": 760928954,
+        "model_payload_files": 8,
+        "model_payload_bytes": 635553382,
+        "qnn_context_files": 3,
+        "qnn_context_bytes": 634474496
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E6.json",
+      "source_file_sha256": "20537fcee83c9eda592b7b7729d4f33291dfbc5ffafe29a5795aaa3b2f3c57a8",
+      "source_pointer": "/bundle"
+    },
+    {
+      "claim_id": "E-E6-VALIDATION-001",
+      "claim": "Bundle scripts passed bash syntax, shellcheck and seven mocked-adb safety cases; no real adb invocation occurred.",
+      "value": {
+        "bash_n": "PASS",
+        "shellcheck": "PASS",
+        "mock_adb_cases": 7,
+        "mock_adb_passed": 7,
+        "real_adb_invocations": 0
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E6.json",
+      "source_file_sha256": "20537fcee83c9eda592b7b7729d4f33291dfbc5ffafe29a5795aaa3b2f3c57a8",
+      "source_pointer": "/validation"
+    },
+    {
+      "claim_id": "E-E6-PHONE-ACTIVITY-001",
+      "claim": "Lane E connected no phone, pushed no files, installed no APKs, loaded no contexts and ran no inference.",
+      "value": {
+        "phone_connected": false,
+        "adb_calls_to_real_device": 0,
+        "files_pushed": 0,
+        "apks_installed": 0,
+        "contexts_loaded": 0,
+        "inference_runs": 0
+      },
+      "evidence_class": "HOST",
+      "producing_task": "E6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E6.json",
+      "source_file_sha256": "20537fcee83c9eda592b7b7729d4f33291dfbc5ffafe29a5795aaa3b2f3c57a8",
+      "source_pointer": "/phone_activity"
+    },
+    {
+      "claim_id": "E-E6-EXECUTION-STATUS-001",
+      "claim": "The staged bundle is CPU_STAGE_ONLY and BLOCKED_APP_RUNNER_MISSING; zero exact-2.45 QNN context pairs are enabled.",
+      "value": {
+        "status": "STAGED_BLOCKED_APP_RUNNER_MISSING_CPU_STAGE_ONLY",
+        "exact_pin_context_pairs_enabled": 0,
+        "apk_present": false,
+        "runner_protocol_present": false,
+        "npu_execution_authorized": false
+      },
+      "evidence_class": "PROJECTED",
+      "evidence_by_field": {
+        "apk_runner_and_enabled_pair_inventory": "HOST",
+        "programme_status_and_npu_authorization": "PROJECTED"
+      },
+      "producing_task": "E6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E6.json",
+      "source_file_sha256": "20537fcee83c9eda592b7b7729d4f33291dfbc5ffafe29a5795aaa3b2f3c57a8",
+      "source_pointer": "/status"
+    },
+    {
+      "claim_id": "E-E6-ONDEVICE-EVIDENCE-001",
+      "claim": "Phone latency, on-device NPU parity, placement, thermals, memory, quality and end-to-end success remain unmeasured.",
+      "value": null,
+      "evidence_class": "UNKNOWN",
+      "producing_task": "E6",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/e/E6.json",
+      "source_file_sha256": "20537fcee83c9eda592b7b7729d4f33291dfbc5ffafe29a5795aaa3b2f3c57a8",
+      "source_pointer": "/phone_activity"
+    },
+    {
+      "claim_id": "H-MEDIA-AVAILABILITY-001",
+      "claim": "Lane D's D5 record validates a 278-WAV listening bundle, but the git-ignored listening directory contains zero WAVs in the current Lane H checkout; playback remains PENDING until the original Lane D artifact workspace is restored and verified.",
+      "value": {
+        "d5_recorded_wavs": 278,
+        "current_checkout_wavs": 0,
+        "current_checkout_path": "workstreams/sub2b_sprint/sprint/out/d/artifacts/listening/",
+        "playback_disposition": "PENDING_LANE_D_MEDIA"
+      },
+      "evidence_class": "HOST",
+      "producing_task": "H3/H5",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/h/DEMO_SHOTLIST.md",
+      "source_file_sha256": "3284e50ee9ce1ca3cfcdbdbaf529402c2fcaf612ca19aa040b7ed1d984969130",
+      "source_pointer": "MEDIA BLOCKER IN THIS CHECKOUT",
+      "supporting_source_file": "workstreams/sub2b_sprint/sprint/out/d/D5.json",
+      "supporting_source_file_sha256": "dac26b1fb522c6c730435054c33be122f56bcf78b2b0813464cab4b193dcaed6",
+      "supporting_source_pointer": "/inventory"
+    },
+    {
+      "claim_id": "PENDING-B-BACKBONE-001",
+      "claim": "PENDING — Lane B backbone verdict and any backbone quality/performance results have not landed.",
+      "value": null,
+      "evidence_class": "PENDING",
+      "producing_task": "Lane B backbone evaluation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/b/backbone_verdict.json",
+      "pending_reason": "Expected output absent at H1 capture and confirmed absent at the H5 rescan; do not infer a winner or numbers."
+    },
+    {
+      "claim_id": "PENDING-C-ASR-001",
+      "claim": "PENDING — Lane C ASR route table and measured ASR results have not landed.",
+      "value": null,
+      "evidence_class": "PENDING",
+      "producing_task": "Lane C ASR evaluation",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/c/asr_table.json",
+      "pending_reason": "Expected output absent at H1 capture and confirmed absent at the H5 rescan; do not invent ASR accuracy, latency or route verdicts."
+    },
+    {
+      "claim_id": "PENDING-F-INTEGRATION-001",
+      "claim": "PENDING — Lane F Spanish/French integration results have not landed.",
+      "value": null,
+      "evidence_class": "PENDING",
+      "producing_task": "Lane F ES/FR integration",
+      "source_file": "workstreams/sub2b_sprint/sprint/out/f/",
+      "pending_reason": "Lane F output directory/results absent at H1 capture and confirmed absent at the H5 rescan; do not infer integration success or timings."
+    }
+  ],
+  "summary": {
+    "claim_count": 108,
+    "landed_claim_count": 105,
+    "pending_claim_count": 3,
+    "claims_by_lane": {
+      "A": 23,
+      "D": 43,
+      "E": 38,
+      "H": 1,
+      "PENDING": 3
+    },
+    "claims_by_evidence_class": {
+      "EXACT": 27,
+      "HOST": 46,
+      "PENDING": 3,
+      "PRIOR": 1,
+      "PROJECTED": 8,
+      "UNKNOWN": 15,
+      "VENDOR": 8
+    },
+    "note": "Counts validated mechanically. Base evidence classes use the common enum; Lane A's parenthetical EXACT qualifiers are preserved in evidence_detail."
+  }
+}

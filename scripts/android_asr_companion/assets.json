@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "sensevoice_manifest": "../npu_multilingual/assets.json",
+  "russian_zipformer": {
+    "filename": "sherpa-onnx-zipformer-ru-int8-2025-04-20.tar.bz2",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-ru-int8-2025-04-20.tar.bz2",
+    "bytes": 60239942,
+    "sha256": "d6a651569aacc9a177259fa54705dd76acae23f6a4d62ea6797bd220d4b57163",
+    "model_directory": "sherpa-onnx-zipformer-ru-int8-2025-04-20",
+    "source_model": "https://huggingface.co/alphacep/vosk-model-ru/tree/main",
+    "license": "Apache-2.0",
+    "required_files": [
+      "encoder.int8.onnx",
+      "decoder.onnx",
+      "joiner.int8.onnx",
+      "tokens.txt",
+      "bpe.model",
+      "README.md"
+    ],
+    "repository_policy": "external_acquisition_only"
+  }
+}

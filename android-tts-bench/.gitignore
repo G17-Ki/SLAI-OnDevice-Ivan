@@ -1,0 +1,5 @@
+# Build output and the 48 MiB sherpa-onnx runtime are never committed.
+build/
+.gradle/
+local.properties
+*.apk

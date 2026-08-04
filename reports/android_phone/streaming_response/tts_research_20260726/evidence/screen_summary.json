@@ -1,0 +1,1758 @@
+{
+  "schema_version": 1,
+  "gates": {
+    "first_chunk_p95_s": 0.9,
+    "rtf": 0.7,
+    "zh_micro_cer": 0.2,
+    "zh_micro_cer_hard": 0.4,
+    "ru_micro_wer": 0.3,
+    "ru_micro_wer_hard": 0.5,
+    "ru_micro_cer": 0.2,
+    "weights_preferred_mib": 250,
+    "weights_conditional_mib": 500
+  },
+  "asr_judge_calibration": {
+    "zh": [
+      {
+        "wav": "question_zh.wav",
+        "reference": "请用中文简单介绍一下北京。",
+        "hypothesis": "请用中文简单介绍一下北京",
+        "dominant_script": "han",
+        "reference_normalized": "请用中文简单介绍一下北京",
+        "hypothesis_normalized": "请用中文简单介绍一下北京",
+        "ref_char_count": 12,
+        "cer_edits": 0,
+        "cer": 0.0
+      }
+    ],
+    "ru": [
+      {
+        "wav": "question_ru.wav",
+        "reference": "Расскажи коротко о Москве.",
+        "hypothesis": " Расскажи короткое о Москве.",
+        "dominant_script": "cyrillic",
+        "reference_normalized": "расскажи коротко о москве",
+        "hypothesis_normalized": "расскажи короткое о москве",
+        "ref_char_count": 22,
+        "cer_edits": 1,
+        "cer": 0.045454545454545456,
+        "ref_word_count": 4,
+        "wer_edits": 1,
+        "wer": 0.25
+      }
+    ]
+  },
+  "asr_digit_rendering_cases_excluded": {
+    "zh": [
+      "zh_answer_medium",
+      "zh_numbers"
+    ],
+    "ru": [
+      "ru_answer_medium",
+      "ru_numbers"
+    ]
+  },
+  "note": "screen_only_naturalness_requires_blinded_listening",
+  "rows": [
+    {
+      "key": "espeak_ng",
+      "engine_id": "espeak_ng",
+      "tag": "",
+      "family": "eSpeak NG (formant synthesis)",
+      "language": "en",
+      "bench_dir": "espeak_en",
+      "first_chunk_p95_s": 0.01892485858988948,
+      "first_chunk_p95_worst_case_s": 0.021736641618190333,
+      "rtf_median_worst_case": 0.009529004073166711,
+      "rtf_p95_worst_case": 0.009548167945887403,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": null,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 0.0,
+      "load_s": 0.008153790986398235,
+      "incremental_rss_mib": 0.4,
+      "peak_rss_mib": 48.8,
+      "rss_cap_exceeded": false,
+      "license_weights": "GPL-3.0-or-later (engine + data)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "espeak_ng",
+      "engine_id": "espeak_ng",
+      "tag": "",
+      "family": "eSpeak NG (formant synthesis)",
+      "language": "es",
+      "bench_dir": "espeak_es",
+      "first_chunk_p95_s": null,
+      "first_chunk_p95_worst_case_s": 0.020536025002365933,
+      "rtf_median_worst_case": 0.0061307536776676495,
+      "rtf_p95_worst_case": 0.006218935510172205,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": null,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 0.0,
+      "load_s": 0.008152541995514184,
+      "incremental_rss_mib": 0.4,
+      "peak_rss_mib": 47.0,
+      "rss_cap_exceeded": false,
+      "license_weights": "GPL-3.0-or-later (engine + data)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "espeak_ng",
+      "engine_id": "espeak_ng",
+      "tag": "",
+      "family": "eSpeak NG (formant synthesis)",
+      "language": "fr",
+      "bench_dir": "espeak_fr",
+      "first_chunk_p95_s": null,
+      "first_chunk_p95_worst_case_s": 0.020040691591566427,
+      "rtf_median_worst_case": 0.006972238470705242,
+      "rtf_p95_worst_case": 0.007079190823652554,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": null,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 0.0,
+      "load_s": 0.008249000005889684,
+      "incremental_rss_mib": 0.4,
+      "peak_rss_mib": 47.3,
+      "rss_cap_exceeded": false,
+      "license_weights": "GPL-3.0-or-later (engine + data)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "espeak_ng",
+      "engine_id": "espeak_ng",
+      "tag": "",
+      "family": "eSpeak NG (formant synthesis)",
+      "language": "it",
+      "bench_dir": "espeak_it",
+      "first_chunk_p95_s": null,
+      "first_chunk_p95_worst_case_s": 0.02026307479827665,
+      "rtf_median_worst_case": 0.006548369719289132,
+      "rtf_p95_worst_case": 0.006642989031980852,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": null,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 0.0,
+      "load_s": 0.008183625002857298,
+      "incremental_rss_mib": 0.4,
+      "peak_rss_mib": 46.8,
+      "rss_cap_exceeded": false,
+      "license_weights": "GPL-3.0-or-later (engine + data)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "espeak_ng",
+      "engine_id": "espeak_ng",
+      "tag": "",
+      "family": "eSpeak NG (formant synthesis)",
+      "language": "ru",
+      "bench_dir": "espeak_ru",
+      "first_chunk_p95_s": 0.02459312499850057,
+      "first_chunk_p95_worst_case_s": 0.03669279979658313,
+      "rtf_median_worst_case": 0.02771919917977026,
+      "rtf_p95_worst_case": 0.03220371792962394,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [
+        "peak_near_full_scale:0.9941"
+      ],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.3011049723756906,
+      "micro_wer": 0.6166666666666667,
+      "asr_hard_failures": [
+        "wrong_dominant_script:latin"
+      ],
+      "footprint_mib": 0.0,
+      "load_s": 0.0083740419941023,
+      "incremental_rss_mib": 0.0,
+      "peak_rss_mib": 74.1,
+      "rss_cap_exceeded": false,
+      "license_weights": "GPL-3.0-or-later (engine + data)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {
+        "Да": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Да.": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Хорошо": {
+          "chars": 6,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Секунду": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Одну минуту": {
+          "chars": 11,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Сейчас посмотрю": {
+          "chars": 15,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [
+        "Russian micro-WER 61.7% above the 50% hard limit",
+        "ASR hard failure: wrong_dominant_script:latin"
+      ],
+      "missed_targets": [
+        "micro-WER 61.7% > 30% target",
+        "micro-CER 30.1% > 20% target",
+        "weights license restricted"
+      ],
+      "screen_verdict": "blocked"
+    },
+    {
+      "key": "espeak_ng",
+      "engine_id": "espeak_ng",
+      "tag": "",
+      "family": "eSpeak NG (formant synthesis)",
+      "language": "zh",
+      "bench_dir": "espeak_zh",
+      "first_chunk_p95_s": 0.01991482439334504,
+      "first_chunk_p95_worst_case_s": 0.04316050840425305,
+      "rtf_median_worst_case": 0.024609424750659414,
+      "rtf_p95_worst_case": 0.027750371453062323,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [
+        "peak_near_full_scale:0.9994",
+        "peak_near_full_scale:0.9996"
+      ],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.512,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 0.0,
+      "load_s": 0.009934166999300942,
+      "incremental_rss_mib": 0.2,
+      "peak_rss_mib": 75.8,
+      "rss_cap_exceeded": false,
+      "license_weights": "GPL-3.0-or-later (engine + data)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {
+        "好": {
+          "chars": 1,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的。": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "你好啊": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "这是测试": {
+          "chars": 4,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "请稍等一下": {
+          "chars": 5,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "北京今天很晴朗": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [
+        "Mandarin micro-CER 51.2% above the 40% hard limit"
+      ],
+      "missed_targets": [
+        "micro-CER 51.2% > 20% target",
+        "weights license restricted"
+      ],
+      "screen_verdict": "blocked"
+    },
+    {
+      "key": "kokoro_zh",
+      "engine_id": "kokoro_zh",
+      "tag": "",
+      "family": "Kokoro v1.1 multi-lang (INT8)",
+      "language": "zh",
+      "bench_dir": "kokoro_zh",
+      "first_chunk_p95_s": 2.6535028500133193,
+      "first_chunk_p95_worst_case_s": 5.080644949997077,
+      "rtf_median_worst_case": 1.3852316245566882,
+      "rtf_p95_worst_case": 1.4120119960043274,
+      "audio_gate_pass": false,
+      "audio_gate_failures": [
+        "all_samples_non_finite"
+      ],
+      "gate_warnings": [
+        "dc_offset_needs_blocker:0.025007",
+        "dc_offset_needs_blocker:0.025035",
+        "dc_offset_needs_blocker:0.025036",
+        "dc_offset_needs_blocker:0.025056",
+        "dc_offset_needs_blocker:0.025087",
+        "dc_offset_needs_blocker:0.026380",
+        "dc_offset_needs_blocker:0.026382",
+        "dc_offset_needs_blocker:0.026394",
+        "dc_offset_needs_blocker:0.026405",
+        "dc_offset_needs_blocker:0.026587",
+        "dc_offset_needs_blocker:0.026619",
+        "dc_offset_needs_blocker:0.026663",
+        "dc_offset_needs_blocker:0.026681",
+        "dc_offset_needs_blocker:0.026715",
+        "dc_offset_needs_blocker:0.027299",
+        "dc_offset_needs_blocker:0.027363",
+        "dc_offset_needs_blocker:0.027423",
+        "dc_offset_needs_blocker:0.027443",
+        "dc_offset_needs_blocker:0.027455",
+        "dc_offset_needs_blocker:0.028463",
+        "dc_offset_needs_blocker:0.028469",
+        "dc_offset_needs_blocker:0.028518",
+        "dc_offset_needs_blocker:0.028553",
+        "dc_offset_needs_blocker:0.028567",
+        "dc_offset_needs_blocker:0.028589",
+        "dc_offset_needs_blocker:0.028590",
+        "dc_offset_needs_blocker:0.028606",
+        "dc_offset_needs_blocker:0.028626",
+        "dc_offset_needs_blocker:0.028671"
+      ],
+      "gap_free_1_5x": false,
+      "micro_cer": 0.08943089430894309,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 199.26,
+      "load_s": 1.4282361659861635,
+      "incremental_rss_mib": 361.3,
+      "peak_rss_mib": 519.1,
+      "rss_cap_exceeded": false,
+      "license_weights": "Apache-2.0",
+      "license_risk": "clear",
+      "chunk_floor_summary": {
+        "好": {
+          "chars": 1,
+          "runs": 5,
+          "gate_pass": 0,
+          "failures": [
+            "all_samples_non_finite"
+          ]
+        },
+        "好的": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 0,
+          "failures": [
+            "all_samples_non_finite"
+          ]
+        },
+        "好的。": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 0,
+          "failures": [
+            "all_samples_non_finite"
+          ]
+        },
+        "你好啊": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "这是测试": {
+          "chars": 4,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "请稍等一下": {
+          "chars": 5,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "北京今天很晴朗": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [
+        "waveform gate failed on 1 case(s): all_samples_non_finite"
+      ],
+      "missed_targets": [
+        "first playable chunk P95 2.65s >= 0.90s",
+        "worst single-case first chunk P95 5.08s >= 0.90s (orchestrator must bound the first flush length)",
+        "RTF 1.39 >= 0.70",
+        "RTF P95 1.41 >= 0.70",
+        "simulated playback gap at 1.5x host slowdown"
+      ],
+      "screen_verdict": "blocked"
+    },
+    {
+      "key": "kokoro_zh_fp32",
+      "engine_id": "kokoro_zh_fp32",
+      "tag": "",
+      "family": "Kokoro v1.1 multi-lang (float32)",
+      "language": "zh",
+      "bench_dir": "kokoro_zh_fp32",
+      "first_chunk_p95_s": 2.0690092254139016,
+      "first_chunk_p95_worst_case_s": 3.6449068422138224,
+      "rtf_median_worst_case": 1.2040327821468921,
+      "rtf_p95_worst_case": 1.346778893260014,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [
+        "dc_offset_needs_blocker:0.024404",
+        "dc_offset_needs_blocker:0.024405",
+        "dc_offset_needs_blocker:0.024413",
+        "dc_offset_needs_blocker:0.024414",
+        "dc_offset_needs_blocker:0.025957",
+        "dc_offset_needs_blocker:0.025966",
+        "dc_offset_needs_blocker:0.025968",
+        "dc_offset_needs_blocker:0.025984",
+        "dc_offset_needs_blocker:0.025985",
+        "dc_offset_needs_blocker:0.026251",
+        "dc_offset_needs_blocker:0.026253",
+        "dc_offset_needs_blocker:0.026260",
+        "dc_offset_needs_blocker:0.026266",
+        "dc_offset_needs_blocker:0.026268",
+        "dc_offset_needs_blocker:0.027001",
+        "dc_offset_needs_blocker:0.027010",
+        "dc_offset_needs_blocker:0.027013",
+        "dc_offset_needs_blocker:0.027014",
+        "dc_offset_needs_blocker:0.027016",
+        "dc_offset_needs_blocker:0.027024",
+        "dc_offset_needs_blocker:0.027036",
+        "dc_offset_needs_blocker:0.027043",
+        "dc_offset_needs_blocker:0.027047",
+        "dc_offset_needs_blocker:0.027055",
+        "dc_offset_needs_blocker:0.027569",
+        "dc_offset_needs_blocker:0.027579",
+        "dc_offset_needs_blocker:0.027580",
+        "dc_offset_needs_blocker:0.027582",
+        "dc_offset_needs_blocker:0.027604",
+        "dc_offset_needs_blocker:0.027870",
+        "dc_offset_needs_blocker:0.027876",
+        "dc_offset_needs_blocker:0.027894",
+        "dc_offset_needs_blocker:0.027896",
+        "dc_offset_needs_blocker:0.027911"
+      ],
+      "gap_free_1_5x": false,
+      "micro_cer": 0.072,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 400.81,
+      "load_s": 1.6842840409954078,
+      "incremental_rss_mib": 564.8,
+      "peak_rss_mib": 662.3,
+      "rss_cap_exceeded": false,
+      "license_weights": "Apache-2.0",
+      "license_risk": "clear",
+      "chunk_floor_summary": {
+        "好": {
+          "chars": 1,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的。": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "你好啊": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "这是测试": {
+          "chars": 4,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "请稍等一下": {
+          "chars": 5,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "北京今天很晴朗": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "first playable chunk P95 2.07s >= 0.90s",
+        "worst single-case first chunk P95 3.64s >= 0.90s (orchestrator must bound the first flush length)",
+        "RTF 1.20 >= 0.70",
+        "RTF P95 1.35 >= 0.70",
+        "simulated playback gap at 1.5x host slowdown",
+        "footprint 401 MiB above the 250 MiB preference"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s4",
+      "engine_id": "supertonic3",
+      "tag": "_s4",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "ru",
+      "bench_dir": "latency_supertonic_s4",
+      "first_chunk_p95_s": 0.43686687950976194,
+      "first_chunk_p95_worst_case_s": 3.1963482624909374,
+      "rtf_median_worst_case": 0.2871539919190289,
+      "rtf_p95_worst_case": 0.313896878260459,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [
+        "peak_near_full_scale:0.9991",
+        "peak_near_full_scale:1.0569"
+      ],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.024861878453038673,
+      "micro_wer": 0.08333333333333333,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.6656634170212783,
+      "incremental_rss_mib": 213.8,
+      "peak_rss_mib": 517.2,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "worst single-case first chunk P95 3.20s >= 0.90s (orchestrator must bound the first flush length)",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s5",
+      "engine_id": "supertonic3",
+      "tag": "_s5",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "ru",
+      "bench_dir": "latency_supertonic_s5",
+      "first_chunk_p95_s": 0.5293242747895419,
+      "first_chunk_p95_worst_case_s": 4.042339154385262,
+      "rtf_median_worst_case": 0.34953836284379575,
+      "rtf_p95_worst_case": 0.35091013491208356,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.0027624309392265192,
+      "micro_wer": 0.016666666666666666,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.6999592909996863,
+      "incremental_rss_mib": 222.9,
+      "peak_rss_mib": 479.7,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "worst single-case first chunk P95 4.04s >= 0.90s (orchestrator must bound the first flush length)",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s6",
+      "engine_id": "supertonic3",
+      "tag": "_s6",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "ru",
+      "bench_dir": "latency_supertonic_s6",
+      "first_chunk_p95_s": 0.703867779194843,
+      "first_chunk_p95_worst_case_s": 9.041988583898632,
+      "rtf_median_worst_case": 0.4492710090743618,
+      "rtf_p95_worst_case": 0.60800507446633,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.0027624309392265192,
+      "micro_wer": 0.016666666666666666,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.7000337080098689,
+      "incremental_rss_mib": 201.8,
+      "peak_rss_mib": 482.4,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "worst single-case first chunk P95 9.04s >= 0.90s (orchestrator must bound the first flush length)",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s8",
+      "engine_id": "supertonic3",
+      "tag": "_s8",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "ru",
+      "bench_dir": "latency_supertonic_s8",
+      "first_chunk_p95_s": 2.1598869670910057,
+      "first_chunk_p95_worst_case_s": 9.47142333749507,
+      "rtf_median_worst_case": 0.7762167516747729,
+      "rtf_p95_worst_case": 1.6073152120126715,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.011049723756906077,
+      "micro_wer": 0.05,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 1.1421139580197632,
+      "incremental_rss_mib": 239.1,
+      "peak_rss_mib": 450.4,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "first playable chunk P95 2.16s >= 0.90s",
+        "worst single-case first chunk P95 9.47s >= 0.90s (orchestrator must bound the first flush length)",
+        "RTF 0.78 >= 0.70",
+        "RTF P95 1.61 >= 0.70",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "matcha_zh_baker",
+      "engine_id": "matcha_zh_baker",
+      "tag": "",
+      "family": "Matcha-TTS (flow matching) + Vocos",
+      "language": "zh",
+      "bench_dir": "matcha_zh_baker",
+      "first_chunk_p95_s": 0.1563374835939612,
+      "first_chunk_p95_worst_case_s": 0.39117329998407513,
+      "rtf_median_worst_case": 0.14553574989145082,
+      "rtf_p95_worst_case": 0.14589719026058387,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.04,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.93,
+      "load_s": 1.442701958003454,
+      "incremental_rss_mib": 182.2,
+      "peak_rss_mib": 286.8,
+      "rss_cap_exceeded": false,
+      "license_weights": "Baker (data-baker) corpus: non-commercial use only",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {
+        "好": {
+          "chars": 1,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的。": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "你好啊": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "这是测试": {
+          "chars": 4,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "请稍等一下": {
+          "chars": 5,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "北京今天很晴朗": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "melotts_zh",
+      "engine_id": "melotts_zh",
+      "tag": "",
+      "family": "MeloTTS (VITS)",
+      "language": "zh",
+      "bench_dir": "melotts_zh",
+      "first_chunk_p95_s": 0.9926160159928259,
+      "first_chunk_p95_worst_case_s": 3.7390575168072244,
+      "rtf_median_worst_case": 0.7149905021655659,
+      "rtf_p95_worst_case": 0.9417544015764179,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": false,
+      "micro_cer": 0.176,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 182.39,
+      "load_s": 2.517067874985514,
+      "incremental_rss_mib": 217.5,
+      "peak_rss_mib": 481.9,
+      "rss_cap_exceeded": false,
+      "license_weights": "MIT (MyShell.ai MeloTTS)",
+      "license_risk": "clear",
+      "chunk_floor_summary": {
+        "好": {
+          "chars": 1,
+          "runs": 5,
+          "gate_pass": 0,
+          "failures": [
+            "near_silent_rms:0.002906",
+            "near_silent_rms:0.003392",
+            "near_silent_rms:0.003597",
+            "near_silent_rms:0.003894",
+            "near_silent_rms:0.004691"
+          ]
+        },
+        "好的": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的。": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "你好啊": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "这是测试": {
+          "chars": 4,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "请稍等一下": {
+          "chars": 5,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "北京今天很晴朗": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "first playable chunk P95 0.99s >= 0.90s",
+        "worst single-case first chunk P95 3.74s >= 0.90s (orchestrator must bound the first flush length)",
+        "RTF 0.71 >= 0.70",
+        "RTF P95 0.94 >= 0.70",
+        "simulated playback gap at 1.5x host slowdown"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "melotts_zh_int8",
+      "engine_id": "melotts_zh_int8",
+      "tag": "",
+      "family": "MeloTTS (VITS, INT8)",
+      "language": "zh",
+      "bench_dir": "melotts_zh_int8",
+      "first_chunk_p95_s": 3.2384938165894708,
+      "first_chunk_p95_worst_case_s": 8.36758165000938,
+      "rtf_median_worst_case": 2.2878757386145407,
+      "rtf_p95_worst_case": 2.8350063727954016,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [
+        "very_low_peak:0.0451",
+        "very_low_peak:0.0482",
+        "very_low_peak:0.0498"
+      ],
+      "gap_free_1_5x": false,
+      "micro_cer": 0.192,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 70.89,
+      "load_s": 1.7787561249861028,
+      "incremental_rss_mib": 175.3,
+      "peak_rss_mib": 265.6,
+      "rss_cap_exceeded": false,
+      "license_weights": "MIT (MyShell.ai MeloTTS)",
+      "license_risk": "clear",
+      "chunk_floor_summary": {
+        "好": {
+          "chars": 1,
+          "runs": 5,
+          "gate_pass": 0,
+          "failures": [
+            "near_silent_rms:0.002238",
+            "near_silent_rms:0.002576",
+            "near_silent_rms:0.002959",
+            "near_silent_rms:0.003036",
+            "near_silent_rms:0.004384"
+          ]
+        },
+        "好的": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的。": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "你好啊": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "这是测试": {
+          "chars": 4,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "请稍等一下": {
+          "chars": 5,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "北京今天很晴朗": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "first playable chunk P95 3.24s >= 0.90s",
+        "worst single-case first chunk P95 8.37s >= 0.90s (orchestrator must bound the first flush length)",
+        "RTF 2.29 >= 0.70",
+        "RTF P95 2.84 >= 0.70",
+        "simulated playback gap at 1.5x host slowdown"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "piper_ru_dmitri",
+      "engine_id": "piper_ru_dmitri",
+      "tag": "",
+      "family": "Piper (VITS medium)",
+      "language": "ru",
+      "bench_dir": "piper_ru_dmitri",
+      "first_chunk_p95_s": 0.1314156248117797,
+      "first_chunk_p95_worst_case_s": 0.5471319578005932,
+      "rtf_median_worst_case": 0.12954529455930663,
+      "rtf_p95_worst_case": 0.14200086174498977,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.04696132596685083,
+      "micro_wer": 0.13333333333333333,
+      "asr_hard_failures": [],
+      "footprint_mib": 77.38,
+      "load_s": 0.7458912909787614,
+      "incremental_rss_mib": 151.2,
+      "peak_rss_mib": 304.8,
+      "rss_cap_exceeded": false,
+      "license_weights": "Nabu Casa voice-datasets: CC0",
+      "license_risk": "clear",
+      "chunk_floor_summary": {
+        "Да": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Да.": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Хорошо": {
+          "chars": 6,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Секунду": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Одну минуту": {
+          "chars": 11,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Сейчас посмотрю": {
+          "chars": 15,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [],
+      "screen_verdict": "clear"
+    },
+    {
+      "key": "piper_ru_irina",
+      "engine_id": "piper_ru_irina",
+      "tag": "",
+      "family": "Piper (VITS medium)",
+      "language": "ru",
+      "bench_dir": "piper_ru_irina",
+      "first_chunk_p95_s": 0.22941318359808066,
+      "first_chunk_p95_worst_case_s": 0.5231755585875362,
+      "rtf_median_worst_case": 0.10939278114528964,
+      "rtf_p95_worst_case": 0.11213018894547967,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.013812154696132596,
+      "micro_wer": 0.05,
+      "asr_hard_failures": [],
+      "footprint_mib": 77.38,
+      "load_s": 0.7029734999814536,
+      "incremental_rss_mib": 121.9,
+      "peak_rss_mib": 416.0,
+      "rss_cap_exceeded": false,
+      "license_weights": "RHVoice corpus: license Unknown (per Piper MODEL_CARD)",
+      "license_risk": "unclear",
+      "chunk_floor_summary": {
+        "Да": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Да.": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Хорошо": {
+          "chars": 6,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Секунду": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Одну минуту": {
+          "chars": 11,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Сейчас посмотрю": {
+          "chars": 15,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [
+        "weights license unclear"
+      ],
+      "missed_targets": [],
+      "screen_verdict": "blocked"
+    },
+    {
+      "key": "piper_ru_ruslan",
+      "engine_id": "piper_ru_ruslan",
+      "tag": "",
+      "family": "Piper (VITS medium)",
+      "language": "ru",
+      "bench_dir": "piper_ru_ruslan",
+      "first_chunk_p95_s": 0.14051718360278756,
+      "first_chunk_p95_worst_case_s": 0.6309897497936617,
+      "rtf_median_worst_case": 0.09251884217974293,
+      "rtf_p95_worst_case": 0.1509387895582108,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.049723756906077346,
+      "micro_wer": 0.18333333333333332,
+      "asr_hard_failures": [],
+      "footprint_mib": 77.38,
+      "load_s": 0.7108908329973929,
+      "incremental_rss_mib": 117.0,
+      "peak_rss_mib": 405.8,
+      "rss_cap_exceeded": false,
+      "license_weights": "RUSLAN corpus: CC BY-NC-SA 4.0",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {
+        "Да": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Да.": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Хорошо": {
+          "chars": 6,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Секунду": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Одну минуту": {
+          "chars": 11,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Сейчас посмотрю": {
+          "chars": 15,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "piper_zh_huayan",
+      "engine_id": "piper_zh_huayan",
+      "tag": "",
+      "family": "Piper (VITS medium)",
+      "language": "zh",
+      "bench_dir": "piper_zh_huayan",
+      "first_chunk_p95_s": 0.15410624140640722,
+      "first_chunk_p95_worst_case_s": 0.7528372835949995,
+      "rtf_median_worst_case": 0.0907691549001648,
+      "rtf_p95_worst_case": 0.15800445346371686,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.096,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 77.43,
+      "load_s": 1.0092526670196094,
+      "incremental_rss_mib": 120.3,
+      "peak_rss_mib": 322.5,
+      "rss_cap_exceeded": false,
+      "license_weights": "HuaYan_TTS dataset: license Unknown (per Piper MODEL_CARD)",
+      "license_risk": "unclear",
+      "chunk_floor_summary": {
+        "好": {
+          "chars": 1,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的。": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "你好啊": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "这是测试": {
+          "chars": 4,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "请稍等一下": {
+          "chars": 5,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "北京今天很晴朗": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [
+        "weights license unclear"
+      ],
+      "missed_targets": [],
+      "screen_verdict": "blocked"
+    },
+    {
+      "key": "supertonic3_s4",
+      "engine_id": "supertonic3",
+      "tag": "_s4",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "en",
+      "bench_dir": "supertonic_en",
+      "first_chunk_p95_s": 0.5686821750074159,
+      "first_chunk_p95_worst_case_s": 1.10862042439403,
+      "rtf_median_worst_case": 0.22848622464372836,
+      "rtf_p95_worst_case": 0.22928853035046132,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": null,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.7117150830163155,
+      "incremental_rss_mib": 226.1,
+      "peak_rss_mib": 385.8,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "worst single-case first chunk P95 1.11s >= 0.90s (orchestrator must bound the first flush length)",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s4",
+      "engine_id": "supertonic3",
+      "tag": "_s4",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "es",
+      "bench_dir": "supertonic_es",
+      "first_chunk_p95_s": null,
+      "first_chunk_p95_worst_case_s": 0.7977944833866786,
+      "rtf_median_worst_case": 0.18011252945837605,
+      "rtf_p95_worst_case": 0.18067293345123778,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": null,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.6475025840045419,
+      "incremental_rss_mib": 188.8,
+      "peak_rss_mib": 327.6,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s4",
+      "engine_id": "supertonic3",
+      "tag": "_s4",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "fr",
+      "bench_dir": "supertonic_fr",
+      "first_chunk_p95_s": null,
+      "first_chunk_p95_worst_case_s": 0.7981964330014307,
+      "rtf_median_worst_case": 0.18053985011655826,
+      "rtf_p95_worst_case": 0.180868194118174,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": null,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.6481840829947032,
+      "incremental_rss_mib": 188.8,
+      "peak_rss_mib": 331.6,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s4",
+      "engine_id": "supertonic3",
+      "tag": "_s4",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "it",
+      "bench_dir": "supertonic_it",
+      "first_chunk_p95_s": null,
+      "first_chunk_p95_worst_case_s": 0.7925886995973996,
+      "rtf_median_worst_case": 0.18886452065182277,
+      "rtf_p95_worst_case": 0.18976685540607882,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": null,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.6452318750089034,
+      "incremental_rss_mib": 189.1,
+      "peak_rss_mib": 329.0,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {},
+      "blocking_failures": [],
+      "missed_targets": [
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s4",
+      "engine_id": "supertonic3",
+      "tag": "_s4",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "ru",
+      "bench_dir": "supertonic_ru_s4",
+      "first_chunk_p95_s": 0.4717591169930529,
+      "first_chunk_p95_worst_case_s": 3.6178450663923285,
+      "rtf_median_worst_case": 0.2864630683643849,
+      "rtf_p95_worst_case": 0.28872252067818216,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [
+        "peak_near_full_scale:0.9991",
+        "peak_near_full_scale:1.0569"
+      ],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.024861878453038673,
+      "micro_wer": 0.08333333333333333,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.7385797500028275,
+      "incremental_rss_mib": 206.2,
+      "peak_rss_mib": 472.2,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {
+        "Да": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Да.": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Хорошо": {
+          "chars": 6,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Секунду": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Одну минуту": {
+          "chars": 11,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Сейчас посмотрю": {
+          "chars": 15,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "worst single-case first chunk P95 3.62s >= 0.90s (orchestrator must bound the first flush length)",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s5",
+      "engine_id": "supertonic3",
+      "tag": "_s5",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "ru",
+      "bench_dir": "supertonic_ru_s5",
+      "first_chunk_p95_s": 0.934665116405813,
+      "first_chunk_p95_worst_case_s": 4.519318933191244,
+      "rtf_median_worst_case": 0.4268430896438477,
+      "rtf_p95_worst_case": 0.4892582175235678,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.0027624309392265192,
+      "micro_wer": 0.016666666666666666,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.7794354580109939,
+      "incremental_rss_mib": 213.5,
+      "peak_rss_mib": 440.7,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {
+        "Да": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Да.": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Хорошо": {
+          "chars": 6,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Секунду": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Одну минуту": {
+          "chars": 11,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Сейчас посмотрю": {
+          "chars": 15,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "first playable chunk P95 0.93s >= 0.90s",
+        "worst single-case first chunk P95 4.52s >= 0.90s (orchestrator must bound the first flush length)",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s6",
+      "engine_id": "supertonic3",
+      "tag": "_s6",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "ru",
+      "bench_dir": "supertonic_ru_s6",
+      "first_chunk_p95_s": 0.621464666799875,
+      "first_chunk_p95_worst_case_s": 4.301891875383444,
+      "rtf_median_worst_case": 0.41289329466553387,
+      "rtf_p95_worst_case": 0.4166248670753703,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.0027624309392265192,
+      "micro_wer": 0.016666666666666666,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.7040674580202904,
+      "incremental_rss_mib": 212.9,
+      "peak_rss_mib": 512.0,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {
+        "Да": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Да.": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Хорошо": {
+          "chars": 6,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Секунду": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Одну минуту": {
+          "chars": 11,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Сейчас посмотрю": {
+          "chars": 15,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "worst single-case first chunk P95 4.30s >= 0.90s (orchestrator must bound the first flush length)",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "supertonic3_s8",
+      "engine_id": "supertonic3",
+      "tag": "_s8",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "language": "ru",
+      "bench_dir": "supertonic_ru_s8",
+      "first_chunk_p95_s": 0.8073595832160209,
+      "first_chunk_p95_worst_case_s": 5.605405899416655,
+      "rtf_median_worst_case": 0.5403486182613483,
+      "rtf_p95_worst_case": 0.5736966763149289,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [],
+      "gap_free_1_5x": true,
+      "micro_cer": 0.011049723756906077,
+      "micro_wer": 0.05,
+      "asr_hard_failures": [],
+      "footprint_mib": 138.56,
+      "load_s": 0.7012822499964386,
+      "incremental_rss_mib": 197.0,
+      "peak_rss_mib": 491.9,
+      "rss_cap_exceeded": false,
+      "license_weights": "OpenRAIL-M (use restrictions apply; redistribution permitted)",
+      "license_risk": "restricted",
+      "chunk_floor_summary": {
+        "Да": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Да.": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Хорошо": {
+          "chars": 6,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Секунду": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Одну минуту": {
+          "chars": 11,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "Сейчас посмотрю": {
+          "chars": 15,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [],
+      "missed_targets": [
+        "worst single-case first chunk P95 5.61s >= 0.90s (orchestrator must bound the first flush length)",
+        "weights license restricted"
+      ],
+      "screen_verdict": "conditional"
+    },
+    {
+      "key": "zipvoice_zh",
+      "engine_id": "zipvoice_zh",
+      "tag": "",
+      "family": "ZipVoice-distill (flow matching, zero-shot)",
+      "language": "zh",
+      "bench_dir": "zipvoice_zh",
+      "first_chunk_p95_s": 3.5948827334155795,
+      "first_chunk_p95_worst_case_s": 9.009545733203414,
+      "rtf_median_worst_case": 3.354869658083129,
+      "rtf_p95_worst_case": 4.758040369138631,
+      "audio_gate_pass": true,
+      "audio_gate_failures": [],
+      "gate_warnings": [
+        "peak_near_full_scale:0.9958",
+        "peak_near_full_scale:1.0042",
+        "peak_near_full_scale:1.0228",
+        "peak_near_full_scale:1.0243",
+        "peak_near_full_scale:1.0285",
+        "peak_near_full_scale:1.0509",
+        "peak_near_full_scale:1.0857",
+        "peak_near_full_scale:1.0952",
+        "peak_near_full_scale:1.1030",
+        "peak_near_full_scale:1.1167",
+        "peak_near_full_scale:1.1279",
+        "peak_near_full_scale:1.1394",
+        "peak_near_full_scale:1.1552",
+        "peak_near_full_scale:1.1631",
+        "peak_near_full_scale:1.1800",
+        "peak_near_full_scale:1.1968",
+        "peak_near_full_scale:1.2099"
+      ],
+      "gap_free_1_5x": false,
+      "micro_cer": 0.048,
+      "micro_wer": null,
+      "asr_hard_failures": [],
+      "footprint_mib": 194.65,
+      "load_s": 1.4269293329853099,
+      "incremental_rss_mib": 314.3,
+      "peak_rss_mib": 1007.5,
+      "rss_cap_exceeded": false,
+      "license_weights": "Emilia dataset training; sherpa-onnx release (verify before shipping)",
+      "license_risk": "unclear",
+      "chunk_floor_summary": {
+        "好": {
+          "chars": 1,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的": {
+          "chars": 2,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "好的。": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "你好啊": {
+          "chars": 3,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "这是测试": {
+          "chars": 4,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "请稍等一下": {
+          "chars": 5,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        },
+        "北京今天很晴朗": {
+          "chars": 7,
+          "runs": 5,
+          "gate_pass": 5,
+          "failures": []
+        }
+      },
+      "blocking_failures": [
+        "weights license unclear"
+      ],
+      "missed_targets": [
+        "first playable chunk P95 3.59s >= 0.90s",
+        "worst single-case first chunk P95 9.01s >= 0.90s (orchestrator must bound the first flush length)",
+        "RTF 3.35 >= 0.70",
+        "RTF P95 4.76 >= 0.70",
+        "simulated playback gap at 1.5x host slowdown"
+      ],
+      "screen_verdict": "blocked"
+    }
+  ]
+}

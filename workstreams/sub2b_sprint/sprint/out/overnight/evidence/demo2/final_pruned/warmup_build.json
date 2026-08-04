@@ -1,0 +1,102 @@
+{
+  "schema_version": 2,
+  "milestone": "demo2_qwen_production_prefix_warmup_final",
+  "created_at": "2026-08-03T04:35:05+08:00",
+  "branch": "sprint/overnight",
+  "source_parent_commit": "f509d1087668a3758e67fe61fd52f44b92830bf4",
+  "problem_history": [
+    {
+      "trace": "en_cold",
+      "apk_scope": "pre-warmup final-pruned source",
+      "first_audio_start_proxy_ms": 3873.129165999999,
+      "verdict": "FAIL_RETAINED"
+    },
+    {
+      "trace": "en_cold_warmed",
+      "apk_scope": "generic one-token warmup",
+      "first_audio_start_proxy_ms": 4040.407,
+      "verdict": "FAIL_RETAINED",
+      "diagnosis": "A generic prompt did not share the production system/language prefix and did not warm the first real completion path."
+    },
+    {
+      "trace": "en_cold_prefix",
+      "apk_scope": "intermediate production-prefix build",
+      "first_audio_start_proxy_ms": 2694.633,
+      "verdict": "PASS_INTERMEDIATE_ONLY"
+    }
+  ],
+  "change": {
+    "source": "android-app/app/src/main/assets/demo-ui/index.html",
+    "description": "Cache the exact production system/language prompt prefix, keep input disabled until the startup English warmup completes, and warm the Mandarin prefix on explicit ZH selection before re-enabling input.",
+    "request_cache_prompt": true,
+    "startup_warm_language": "en",
+    "selection_warm_languages": [
+      "en",
+      "zh"
+    ],
+    "new_runtime_provider": false,
+    "new_phone_process": false,
+    "network_required": false
+  },
+  "verification": {
+    "tests": [
+      {
+        "command": "node scripts/test_streaming_audio_ui.mjs",
+        "result": "PASS"
+      },
+      {
+        "command": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_android_native_tts_bridge.py",
+        "result": "PASS"
+      },
+      {
+        "command": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_runtime_companion_source.py",
+        "result": "PASS"
+      }
+    ],
+    "final_main_apk": {
+      "path": "android-app/app/build/outputs/apk/debug/app-debug.apk",
+      "bytes": 20197812,
+      "sha256": "712632b7987557f02bd3bf67b77c00b49025207178f1719094bbb6a81cb2f53f",
+      "installed_hash_matches_host": true
+    },
+    "runtime_apk": {
+      "bytes": 121215600,
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    },
+    "cold_main_app_only_acceptance": {
+      "english": {
+        "trace": "en_cold_final_712",
+        "startup_prefix_warmup_ms": 2075.800000000003,
+        "request_to_first_text_ms": 758.8620309999678,
+        "request_to_first_audio_start_proxy_ms": 2452.153905999963,
+        "playback": "completed",
+        "sensevoice_qnn_executed": true,
+        "underflows": 0,
+        "verdict": "PASS_UNDER_3000_MS"
+      },
+      "mandarin": {
+        "trace": "zh_cold_prefix",
+        "startup_english_prefix_warmup_ms": 2482.800000000003,
+        "selection_zh_prefix_warmup_ms": 549.7999999999884,
+        "request_to_first_text_ms": 617.9064060000237,
+        "request_to_first_audio_start_proxy_ms": 2446.833123999997,
+        "playback": "completed",
+        "sensevoice_qnn_executed": true,
+        "underflows": 0,
+        "verdict": "PASS_UNDER_3000_MS"
+      }
+    },
+    "physical_inventory": {
+      "receipt": "workstreams/sub2b_sprint/sprint/out/overnight/evidence/demo2/final_pruned/inventory_receipt.json",
+      "receipt_sha256": "73f5e9d6e5fb8e4becb529de19f0dceee8519284a1b90586a446d5ab363f302b",
+      "note": "The receipt hash is updated independently if its inventory metadata changes; evidence_index.json is the authoritative final hash index."
+    }
+  },
+  "acceptance_status": "PASS_FINAL_APK_COLD_EN_ZH_AND_PHYSICAL_UNDER_3B",
+  "limits": [
+    "First-audio timing is an Android software proxy, not microphone-observed acoustic onset.",
+    "The hard gate is request-to-first-audio proxy, not boot-to-audio.",
+    "Only SenseVoice is claimed as QNN-executed; Qwen and TTS remain CPU paths.",
+    "The retained failed and intermediate traces are not erased or relabelled."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T22:18:00Z",
+  "evidence_class": "account_owned_exact_sm8850_qrd_profile",
+  "status": "profile_passed_strict_npu",
+  "artifact": {
+    "filename": "model.bin",
+    "bytes": 254193664,
+    "sha256": "522763135f536bc43e9d122bac39254f49df4afbb003462d6d8bcdb77051de30",
+    "fixed_audio_context_s": 10,
+    "upstream_generator": "QNN SDK 2.40.0.251030"
+  },
+  "target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "chipset": "sm8850",
+    "htp": "v81",
+    "profile_runtime": "QAIRT 2.45"
+  },
+  "jobs": {
+    "model_id": "mmxkykorn",
+    "profile_job_id": "j5w1ov24g",
+    "job_status": "SUCCESS",
+    "profile_iterations": 20
+  },
+  "metrics": {
+    "estimated_inference_latency_ms": 10.871,
+    "estimated_inference_peak_memory_mib": 126.22265625,
+    "first_load_ms": 159.548,
+    "warm_load_ms": 159.479,
+    "inference_samples_ms": [
+      11.42,
+      10.928,
+      10.895,
+      10.884,
+      11.056,
+      10.906,
+      10.909,
+      10.956,
+      10.914,
+      11.046,
+      12.189,
+      11.076,
+      10.911,
+      10.877,
+      10.871,
+      10.942,
+      10.939,
+      10.942,
+      10.93,
+      10.901
+    ]
+  },
+  "placement": {
+    "operation_count": 2597,
+    "hexagon_npu": 2597,
+    "cpu_fallback": 0,
+    "unsupported_or_unknown": 0,
+    "strict_npu_pass": true
+  },
+  "compatibility": {
+    "matching_qairt_2_40_profile_request": "rejected_before_job_submission because AI Hub does not expose QAIRT API version 2.40",
+    "qairt_2_45_result": "accepted and profiled successfully",
+    "interpretation": "QNN 2.40 context compatibility on the account's QAIRT 2.45 exact-SM8850 runtime"
+  },
+  "limitations": {
+    "numerical_comparison": "unavailable_without_matching_source_golden",
+    "transcript_equivalence": "not measured",
+    "phone_execution": "not measured",
+    "glasses_execution": "not measured",
+    "excluded_from_latency": [
+      "audio decode and resampling",
+      "host-side feature or token preparation",
+      "VAD endpointing",
+      "application scheduling and transfers",
+      "audio playback"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "lane-b-execution-resource-correction-fallback/1.0",
+  "sprint_id": "B1",
+  "recorded_at_utc": "2026-08-02T07:36:08Z",
+  "recorded_before_candidate_inference": false,
+  "recorded_after_failed_unscored_candidate_attempt": true,
+  "candidate_result_rows_observed": 0,
+  "parent_preregistration": {
+    "path": "b1_prereg.json",
+    "sha256": "ff0ccbd0b2ca426bbfe287419c8e47a6ff71a28827da9aaa178ffce1adbc2eb6"
+  },
+  "parent_records": [
+    {
+      "path": "b1_execution_resource_correction.json",
+      "sha256": "b58ee65ee9c58b8dc180aeaa352f80690d791b5a947274ef21964851a82dcac4"
+    }
+  ],
+  "failed_attempt": {
+    "model_id": "qwen35_08b",
+    "run_kind": "global_mmlu_log_likelihood",
+    "previous_harness_source_sha256": "82e65de893d047378af9e6c702aaec8d2ca29fe89b1ecef6caba273b204c097c",
+    "returncode": -9,
+    "raw_jsonl_created": false,
+    "cumulative_accuracy_rows_observed": 0,
+    "command": {
+      "context_tokens": 4096,
+      "batch_size": 1024,
+      "ubatch_size": 128,
+      "parallel": 4
+    },
+    "log_artifact": "failures/qwen35_08b.mcq.ctx4096.batch1024.ubatch128.parallel4.sigkill.log",
+    "log_sha256": "c6a4e4eac96c54be575f2dcfe0236210c2c15d53233884b6e6bbcdc7c22f5f51",
+    "log_bytes": 854,
+    "last_progress": "multiple_choice_score began calculating 400 tasks and printed the task/acc_norm header; the process was killed before emitting any task row"
+  },
+  "corrected_mcq_execution": {
+    "applies_identically_to_models": [
+      "qwen35_08b",
+      "qwen25_15b",
+      "qwen3_06b",
+      "falcon_h1_15b"
+    ],
+    "context_tokens": 3072,
+    "batch_size": 1024,
+    "ubatch_size": 128,
+    "parallel": 4,
+    "gpu_layers": 999,
+    "seed": 1729,
+    "largest_observed_qwen35_task_sequence_tokens": 577,
+    "per_sequence_context_tokens": 768,
+    "fixed_qwen35_logits_allocation_bytes": 3051279360,
+    "invariance_basis": "Pinned llama.cpp divides the 3072-token context across the four A/B/C/D sequences, leaving 768 tokens per sequence. The largest frozen Qwen3.5 sequence is 577 tokens, so no prompt or candidate is truncated. Prompt bytes, candidate bytes, task order, length-normalized log-likelihood scoring, GPU offload, and seed are unchanged. The smaller context reduces the unavoidable context-by-vocabulary float32 scratch allocation from 3.789 GiB to 2.842 GiB."
+  },
+  "fallback_not_authorized_by_this_record": "If this correction still receives SIGKILL, stop. No further execution change is authorized without another append-only record.",
+  "scope": "This is a disclosed resource-execution correction after a second unscored allocation failure, not response-conditioned tuning. It changes no model, revision, quantization, item, prompt, candidate answer, scoring rubric, weight, threshold, or verdict rule."
+}

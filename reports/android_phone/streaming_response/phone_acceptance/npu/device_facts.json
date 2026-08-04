@@ -1,0 +1,18 @@
+{
+  "abi": "arm64-v8a",
+  "abilist64": "arm64-v8a",
+  "android_release": "16",
+  "board_platform": "canoe",
+  "connected": true,
+  "hardware": "qcom",
+  "probe_status": "ok",
+  "product": "NX809J",
+  "qnn_libraries": [
+    "/system/etc/custom_config/app/systemUI/depth/libQnnHtp.so",
+    "/system/etc/custom_config/app/systemUI/depth/libQnnHtpV81.so",
+    "/system/etc/custom_config/app/systemUI/depth/libQnnHtpV81Skel.so",
+    "/system/etc/custom_config/app/systemUI/depth/libQnnHtpV81Stub.so",
+    "/system/etc/custom_config/app/systemUI/depth/libQnnSystem.so"
+  ],
+  "soc_model": "SM8850"
+}

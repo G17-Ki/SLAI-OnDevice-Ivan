@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source": "workstreams/sub2b_sprint/sprint/out/f/artifacts/f2_parakeet_cpu_reference.json",
+  "evidence_class_of_transcripts": "HOST",
+  "note": "These strings were produced by the same model files and the same canonical WAVs on an Apple M2 CPU. Requiring exact equality on the phone is a parity assertion, not an accuracy claim. A mismatch means the phone is not running what was measured.",
+  "languages": {
+    "es": {
+      "backend": "parakeet_v3_cpu",
+      "provider": "cpu",
+      "fixture": "fixtures/asr/asr_es_parakeet_vendor.wav",
+      "fixture_sha256": "b0bad1bdf474dcad2f30fbbf850695d90f86ea5b543872d7c6370762a237ccea",
+      "transcript": "No preguntes qué puede hacer tu país por ti, pregunta qué puedes hacer tú por tu país.",
+      "host_real_time_factor_median": 0.19508599173288102
+    },
+    "fr": {
+      "backend": "parakeet_v3_cpu",
+      "provider": "cpu",
+      "fixture": "fixtures/asr/asr_fr_parakeet_vendor.wav",
+      "fixture_sha256": "c28d2afd8d0b85ff3fdc2bf8d6ff8e75f5574bd1332531b56b1a20a8a3ccc199",
+      "transcript": "Ne vous demandez pas ce que votre pays peut faire pour vous. Demandez-vous plutôt ce que vous pouvez faire pour lui.",
+      "host_real_time_factor_median": 0.13524899474161767
+    }
+  }
+}

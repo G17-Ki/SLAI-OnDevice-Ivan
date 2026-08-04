@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-22T10:18:19Z",
+  "dataset": {
+    "repo_id": "argmaxinc/common_voice_17_0-debug-zip",
+    "revision": "e77e410d41a77f733efbaf7307bd0ff7ebd6d0af",
+    "source_release": "Mozilla Common Voice Corpus 17.0",
+    "license": "CC0-1.0",
+    "archive_sha256": "4dc5cd3f2f65f0ede599dc778b893d25baa9efb97570d114bf6085ea86208c57",
+    "metadata_sha256": "826476a68f5f90d238bc72e894ff1dfe4a0233bc2c869d4573db3f5325627d70"
+  },
+  "selection": {
+    "method": "all three debug clips for each requested language",
+    "languages": [
+      "en",
+      "es",
+      "de",
+      "fr",
+      "ja",
+      "ko",
+      "zh"
+    ],
+    "sample_count": 21
+  },
+  "samples": [
+    {
+      "sample_id": "common_voice_en_27710027",
+      "language": "en",
+      "common_voice_locale": "English[en]",
+      "reference": "Joe Keaton disapproved of films, and Buster also had reservations about the medium.",
+      "duration_metadata_s": 6.3,
+      "archive_member": "en/common_voice_en_27710027.mp3",
+      "audio_path": "samples/en/common_voice_en_27710027.mp3",
+      "audio_bytes": 37845,
+      "audio_sha256": "b1cfcb382f75a321d4cf4c81f1cb1fe6ce234cc1a3343d887429953818cb4975"
+    },
+    {
+      "sample_id": "common_voice_en_699711",
+      "language": "en",
+      "common_voice_locale": "English[en]",
+      "reference": "She'll be all right.",
+      "duration_metadata_s": 2.184,
+      "archive_member": "en/common_voice_en_699711.mp3",
+      "audio_path": "samples/en/common_voice_en_699711.mp3",
+      "audio_bytes": 17505,
+      "audio_sha256": "07b329b705fe9a6b429290a8904706b20b5a800087754035f7bb8ae8e0c3647e"
+    },
+    {
+      "sample_id": "common_voice_en_21953345",
+      "language": "en",
+      "common_voice_locale": "English[en]",
+      "reference": "six",
+      "duration_metadata_s": 6.576,
+      "archive_member": "en/common_voice_en_21953345.mp3",
+      "audio_path": "samples/en/common_voice_en_21953345.mp3",
+      "audio_bytes": 52653,
+      "audio_sha256": "07fbd7a52e7478def94ebce079d178649e5121b9c256be0955ca217e80e0b6a2"
+    },
+    {
+      "sample_id": "common_voice_es_19698530",
+      "language": "es",
+      "common_voice_locale": "Spanish[es]",
+      "reference": "Habita en aguas poco profundas y rocosas.",
+      "duration_metadata_s": 3.672,
+      "archive_member": "es/common_voice_es_19698530.mp3",
+      "audio_path": "samples/es/common_voice_es_19698530.mp3",
+      "audio_bytes": 29421,
+      "audio_sha256": "41bccd7962201cd07ebab840dc94f55a3f0d80aec00fc69440b837f7c0f3546f"
+    },
+    {
+      "sample_id": "common_voice_es_28799578",
+      "language": "es",
+      "common_voice_locale": "Spanish[es]",
+      "reference": "Son sujetos muy sensibles emocionalmente.",
+      "duration_metadata_s": 3.636,
+      "archive_member": "es/common_voice_es_28799578.mp3",
+      "audio_path": "samples/es/common_voice_es_28799578.mp3",
+      "audio_bytes": 21861,
+      "audio_sha256": "47363865a54d969b96f42c682e8e9f28e07ba51fb543623c32c0f69b265048f9"
+    },
+    {
+      "sample_id": "common_voice_es_19987333",
+      "language": "es",
+      "common_voice_locale": "Spanish[es]",
+      "reference": "Opera principalmente vuelos de cabotaje y regionales de carga.",
+      "duration_metadata_s": 6.864,
+      "archive_member": "es/common_voice_es_19987333.mp3",
+      "audio_path": "samples/es/common_voice_es_19987333.mp3",
+      "audio_bytes": 54957,
+      "audio_sha256": "dc1306b5ef0d39cf3e8b023e3161f446355223ebc93d21927f565cbee381a0e7"
+    },
+    {
+      "sample_id": "common_voice_de_17922420",
+      "language": "de",
+      "common_voice_locale": "German[de]",
+      "reference": "Zieht euch bitte draußen die Schuhe aus.",
+      "duration_metadata_s": 3.552,
+      "archive_member": "de/common_voice_de_17922420.mp3",
+      "audio_path": "samples/de/common_voice_de_17922420.mp3",
+      "audio_bytes": 28461,
+      "audio_sha256": "c6a9875a70d28ff2615881033a0bbf6d16e208a3344840d3e5f221b240df3e2b"
+    },
+    {
+      "sample_id": "common_voice_de_27060918",
+      "language": "de",
+      "common_voice_locale": "German[de]",
+      "reference": "Es gibt auch mehrere Campingplätze.",
+      "duration_metadata_s": 4.104,
+      "archive_member": "de/common_voice_de_27060918.mp3",
+      "audio_path": "samples/de/common_voice_de_27060918.mp3",
+      "audio_bytes": 24669,
+      "audio_sha256": "f7e667cc4d6a14abe2389c10074ee7036a5f0bc6fa2cc77d6289670822df64ce"
+    },
+    {
+      "sample_id": "common_voice_de_36992722",
+      "language": "de",
+      "common_voice_locale": "German[de]",
+      "reference": "Als Kind wollte er nach eigenen Aussagen Footballspieler werden.",
+      "duration_metadata_s": 5.76,
+      "archive_member": "de/common_voice_de_36992722.mp3",
+      "audio_path": "samples/de/common_voice_de_36992722.mp3",
+      "audio_bytes": 34702,
+      "audio_sha256": "4a055f3664555bfb43bc939f518ad3f01c754265cd714bb5eda2db22c6691f23"
+    },
+    {
+      "sample_id": "common_voice_fr_19738183",
+      "language": "fr",
+      "common_voice_locale": "French[fr]",
+      "reference": "Ce dernier a évolué tout au long de l'histoire romaine.",
+      "duration_metadata_s": 3.816,
+      "archive_member": "fr/common_voice_fr_19738183.mp3",
+      "audio_path": "samples/fr/common_voice_fr_19738183.mp3",
+      "audio_bytes": 30573,
+      "audio_sha256": "a021fed5b9f0c160f6cb12132e4a1a6c95d7fd622d2580ad927a38ce6e68e41f"
+    },
+    {
+      "sample_id": "common_voice_fr_27024649",
+      "language": "fr",
+      "common_voice_locale": "French[fr]",
+      "reference": "Son actionnaire majoritaire est le Conseil territorial de Saint-Pierre-et-Miquelon.",
+      "duration_metadata_s": 6.336,
+      "archive_member": "fr/common_voice_fr_27024649.mp3",
+      "audio_path": "samples/fr/common_voice_fr_27024649.mp3",
+      "audio_bytes": 38061,
+      "audio_sha256": "41689c7f392783d73d67adefe8b56c4a623eccc803d98ca64b1756cb928e5ae8"
+    },
+    {
+      "sample_id": "common_voice_fr_19364697",
+      "language": "fr",
+      "common_voice_locale": "French[fr]",
+      "reference": "Ce site contient quatre tombeaux de la dynastie achéménide et sept des Sassanides.",
+      "duration_metadata_s": 7.128,
+      "archive_member": "fr/common_voice_fr_19364697.mp3",
+      "audio_path": "samples/fr/common_voice_fr_19364697.mp3",
+      "audio_bytes": 57069,
+      "audio_sha256": "048c871798d7746d608216bcd99149378a9e2890bc747207042ae8b9a4048c6d"
+    },
+    {
+      "sample_id": "common_voice_ja_39179447",
+      "language": "ja",
+      "common_voice_locale": "Japanese[ja]",
+      "reference": "今日の天気は曇りである",
+      "duration_metadata_s": 2.736,
+      "archive_member": "ja/common_voice_ja_39179447.mp3",
+      "audio_path": "samples/ja/common_voice_ja_39179447.mp3",
+      "audio_bytes": 16461,
+      "audio_sha256": "bbde8e43020065f159eacad3c16bc9fd23a0f1afee54d2024bc2c0f1d0e08d69"
+    },
+    {
+      "sample_id": "common_voice_ja_38960071",
+      "language": "ja",
+      "common_voice_locale": "Japanese[ja]",
+      "reference": "ソリア県の県都はソリアである",
+      "duration_metadata_s": 3.672,
+      "archive_member": "ja/common_voice_ja_38960071.mp3",
+      "audio_path": "samples/ja/common_voice_ja_38960071.mp3",
+      "audio_bytes": 22174,
+      "audio_sha256": "446a5fcfa7c93373ee1641cc0559783de38a3e51222c048cda0d8fa2bdf85eb3"
+    },
+    {
+      "sample_id": "common_voice_ja_21409740",
+      "language": "ja",
+      "common_voice_locale": "Japanese[ja]",
+      "reference": "祖母は、おおむね機嫌よく、サイコロをころがしている。",
+      "duration_metadata_s": 3.744,
+      "archive_member": "ja/common_voice_ja_21409740.mp3",
+      "audio_path": "samples/ja/common_voice_ja_21409740.mp3",
+      "audio_bytes": 29997,
+      "audio_sha256": "fee4c8d742c8fab06adf4e0238a027faea88621be9cbeb041a0a160560bb1075"
+    },
+    {
+      "sample_id": "common_voice_ko_39767692",
+      "language": "ko",
+      "common_voice_locale": "Korean[ko]",
+      "reference": "부지런한 자의 경영은 풍부함에 이를 것이나 조급한 자는 궁핍함에 이를 따름이니라",
+      "duration_metadata_s": 6.696,
+      "archive_member": "ko/common_voice_ko_39767692.mp3",
+      "audio_path": "samples/ko/common_voice_ko_39767692.mp3",
+      "audio_bytes": 40221,
+      "audio_sha256": "78bed182a1a53fb3e6e05736a8bc00f78504f27e3919eb3fe9b538a31cf43004"
+    },
+    {
+      "sample_id": "common_voice_ko_38257692",
+      "language": "ko",
+      "common_voice_locale": "Korean[ko]",
+      "reference": "이거 놔! 놓으라고!",
+      "duration_metadata_s": 3.312,
+      "archive_member": "ko/common_voice_ko_38257692.mp3",
+      "audio_path": "samples/ko/common_voice_ko_38257692.mp3",
+      "audio_bytes": 20014,
+      "audio_sha256": "0c8108a7c76c036d9d86ce64843901ed48f12f17e57af1c33fe6503041785d6b"
+    },
+    {
+      "sample_id": "common_voice_ko_36838360",
+      "language": "ko",
+      "common_voice_locale": "Korean[ko]",
+      "reference": "선비는 생각지 않은 이 말에 앞이 아뜩해지며 방 안이 핑핑 돌았다.",
+      "duration_metadata_s": 6.66,
+      "archive_member": "ko/common_voice_ko_36838360.mp3",
+      "audio_path": "samples/ko/common_voice_ko_36838360.mp3",
+      "audio_bytes": 40005,
+      "audio_sha256": "d8da5c5cc6d864d2615462072aa698122431ea0989a7a86a10e229a1a0d7e22a"
+    },
+    {
+      "sample_id": "common_voice_zh-CN_33411896",
+      "language": "zh",
+      "common_voice_locale": "Chinese (China)[zh-CN]",
+      "reference": "黑身准裂腹鱼为辐鳍鱼纲鲤形目鲤科的其中一种。",
+      "duration_metadata_s": 8.136,
+      "archive_member": "zh-CN/common_voice_zh-CN_33411896.mp3",
+      "audio_path": "samples/zh-CN/common_voice_zh-CN_33411896.mp3",
+      "audio_bytes": 48861,
+      "audio_sha256": "d3b9f620b11295d3cf3396e0f10443abad0f5a91ac2cfed23b17d63a35cde8b4"
+    },
+    {
+      "sample_id": "common_voice_zh-CN_32269533",
+      "language": "zh",
+      "common_voice_locale": "Chinese (China)[zh-CN]",
+      "reference": "否",
+      "duration_metadata_s": 2.376,
+      "archive_member": "zh-CN/common_voice_zh-CN_32269533.mp3",
+      "audio_path": "samples/zh-CN/common_voice_zh-CN_32269533.mp3",
+      "audio_bytes": 14301,
+      "audio_sha256": "2e0a99254c524e98f98a46acb3431400025157ebad2fbb66982dd4c2efefc485"
+    },
+    {
+      "sample_id": "common_voice_zh-CN_22069600",
+      "language": "zh",
+      "common_voice_locale": "Chinese (China)[zh-CN]",
+      "reference": "宋朝末年年间定居粉岭围。",
+      "duration_metadata_s": 5.52,
+      "archive_member": "zh-CN/common_voice_zh-CN_22069600.mp3",
+      "audio_path": "samples/zh-CN/common_voice_zh-CN_22069600.mp3",
+      "audio_bytes": 44205,
+      "audio_sha256": "f54a7261afd4ad37bbcd22ea365183356fafff8b9ef1b9f704d141438805d64c"
+    }
+  ]
+}

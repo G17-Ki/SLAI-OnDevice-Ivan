@@ -1,0 +1,20 @@
+category,item,bytes,mib,source
+measured file,BF16 main checkpoint,2940723992,2804.4929428100586,<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/model.safetensors
+measured file,BF16 input audio tokenizer checkpoint,384644900,366.8259620666504,<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/tokenizer-e351c8d8-checkpoint125.safetensors
+measured file,FP32 output audio detokenizer checkpoint,314137512,299.58487701416016,<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/audio_detokenizer/model.safetensors
+measured file,Q4 backbone/main GGUF,695750880,663.5197448730469,<workspace>/work/models/lfm25-audio-gguf/LFM2.5-Audio-1.5B-Q4_0.gguf
+measured file,Q4 audio projection/encoder GGUF,219511136,209.34213256835938,<workspace>/work/models/lfm25-audio-gguf/mmproj-LFM2.5-Audio-1.5B-Q4_0.gguf
+measured file,Q4 vocoder GGUF,108986560,103.93768310546875,<workspace>/work/models/lfm25-audio-gguf/vocoder-LFM2.5-Audio-1.5B-Q4_0.gguf
+measured file,Q4 tokenizer GGUF,50546112,48.20452880859375,<workspace>/work/models/lfm25-audio-gguf/tokenizer-LFM2.5-Audio-1.5B-Q4_0.gguf
+derived cache,"LFM backbone KV cache, 4096 positions, BF16/FP16",50331648,48.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 8192 positions, BF16/FP16",100663296,96.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 16384 positions, BF16/FP16",201326592,192.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 32768 positions, BF16/FP16",402653184,384.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 128000 positions, BF16/FP16",1572864000,1500.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM fixed convolution cache, BF16/FP16",122880,0.1171875,Derived from pinned config: 10 conv layers x hidden 2048 x cache length 3
+derived cache,"LFM backbone KV cache, 4096 positions, INT8",25165824,24.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 8192 positions, INT8",50331648,48.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 16384 positions, INT8",100663296,96.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 32768 positions, INT8",201326592,192.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM backbone KV cache, 128000 positions, INT8",786432000,750.0,"Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+derived cache,"LFM fixed convolution cache, INT8",61440,0.05859375,Derived from pinned config: 10 conv layers x hidden 2048 x cache length 3

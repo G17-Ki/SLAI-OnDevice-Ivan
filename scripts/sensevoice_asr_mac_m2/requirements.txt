@@ -1,0 +1,4 @@
+huggingface-hub==1.24.0
+numpy==2.4.6
+psutil==7.0.0
+sherpa-onnx==1.13.4

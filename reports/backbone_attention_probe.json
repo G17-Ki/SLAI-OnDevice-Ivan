@@ -1,0 +1,101 @@
+{
+  "status": "passed",
+  "stage": "local_fixed_shape_export",
+  "component": "attention",
+  "model": "LiquidAI/LFM2.5-Audio-1.5B",
+  "model_revision": "c362a0625dfe45aa588dce5f0ada28a7e5707628",
+  "transformers_layer_class": "Lfm2DecoderLayer",
+  "layer_idx": 2,
+  "layer_type": "full_attention",
+  "checkpoint": "<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/model.safetensors",
+  "selective_checkpoint_key_count": 11,
+  "selective_checkpoint_keys": [
+    "lfm.layers.2.feed_forward.w1.weight",
+    "lfm.layers.2.feed_forward.w2.weight",
+    "lfm.layers.2.feed_forward.w3.weight",
+    "lfm.layers.2.ffn_norm.weight",
+    "lfm.layers.2.operator_norm.weight",
+    "lfm.layers.2.self_attn.k_layernorm.weight",
+    "lfm.layers.2.self_attn.k_proj.weight",
+    "lfm.layers.2.self_attn.out_proj.weight",
+    "lfm.layers.2.self_attn.q_layernorm.weight",
+    "lfm.layers.2.self_attn.q_proj.weight",
+    "lfm.layers.2.self_attn.v_proj.weight"
+  ],
+  "dtype": "float32",
+  "fixed_input_shapes": {
+    "hidden_states": [
+      1,
+      16,
+      2048
+    ]
+  },
+  "flat_output_shapes": {
+    "output": [
+      1,
+      16,
+      2048
+    ]
+  },
+  "parameter_count": 60821632,
+  "parameter_bytes": 243286528,
+  "eager_latency": {
+    "runs": 5,
+    "median_ms": 17.920208862051368,
+    "min_ms": 17.865832895040512,
+    "max_ms": 18.456917023286223
+  },
+  "exported_latency": {
+    "runs": 5,
+    "median_ms": 19.663082901388407,
+    "min_ms": 19.65337502770126,
+    "max_ms": 20.081583177670836
+  },
+  "export_seconds": 0.30008670897223055,
+  "memory": {
+    "metric": "process_max_rss_high_water_mark",
+    "rss_before_load_bytes": 370900992,
+    "rss_after_load_bytes": 897679360,
+    "rss_after_eager_bytes": 897679360,
+    "rss_after_export_bytes": 1200275456
+  },
+  "export": {
+    "format": "torch.export pt2",
+    "artifact": "<workspace>/work/lfm-feasibility/exports/lfm2_layer2_attention_seq16.pt2",
+    "artifact_bytes": 243608981,
+    "numpy_io": "<workspace>/work/lfm-feasibility/exports/lfm2_layer2_attention_seq16.npz",
+    "golden": "<workspace>/work/lfm-feasibility/artifacts/backbone-probes/attention/golden.pt"
+  },
+  "exported_vs_local_golden": {
+    "max_abs": 0.0,
+    "mean_abs": 0.0
+  },
+  "exported_aten_operator_counts": {
+    "aten._assert_tensor_metadata.default": 9,
+    "aten.add.Tensor": 9,
+    "aten.cat.default": 2,
+    "aten.contiguous.default": 1,
+    "aten.dropout.default": 1,
+    "aten.expand.default": 2,
+    "aten.linear.default": 7,
+    "aten.matmul.default": 2,
+    "aten.mean.dim": 4,
+    "aten.mul.Tensor": 14,
+    "aten.neg.default": 2,
+    "aten.pow.Tensor_Scalar": 4,
+    "aten.reshape.default": 3,
+    "aten.rsqrt.default": 4,
+    "aten.silu.default": 1,
+    "aten.slice.Tensor": 16,
+    "aten.softmax.int": 1,
+    "aten.to.dtype": 9,
+    "aten.transpose.int": 5,
+    "aten.unsqueeze.default": 4,
+    "aten.view.default": 3
+  },
+  "aihub": {
+    "status": "not_submitted",
+    "operator_placement": "pending AI Hub credentials and target device selection"
+  },
+  "scope_note": "Prefill-style fixed sequence probe without KV cache. It includes the official operator, normalization, residual, and feed-forward sublayers."
+}

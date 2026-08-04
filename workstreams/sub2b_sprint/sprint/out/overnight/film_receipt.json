@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-03T04:46:14Z",
+  "review_mode": "fast_handoff_automated_media_checks_only",
+  "films": {
+    "demo1_it_fits": {
+      "status": "PASS_CAPTURED_NORMALIZED",
+      "device_raw_name": "Screenrecorder-20260803-095521.mp4",
+      "raw_host_staging_path": "/private/tmp/DEMO1_IT_FITS_RAW.mp4",
+      "raw_bytes": 296612917,
+      "raw_duration_seconds": 5701.162667,
+      "raw_sha256": "77ede33cda056022c6d90cb4a82706f90bfcc9e87ea9a55bb9bed804a80f9457",
+      "normalized_path": "films/DEMO1_IT_FITS.mp4",
+      "normalized_bytes": 46810178,
+      "normalized_duration_seconds": 5701.162,
+      "normalized_sha256": "cf7ba53b9cf1a387b4c52501161253906e1002284b7cc48bd4907a0e80367958",
+      "video": {
+        "codec": "h264",
+        "profile": "High",
+        "pixel_format": "yuv420p",
+        "width": 1216,
+        "height": 2688
+      },
+      "audio": {
+        "codec": "aac",
+        "profile": "LC",
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "mean_volume_db": -43.7,
+        "max_volume_db": -0.5
+      },
+      "checks": {
+        "ffprobe_streams_present": true,
+        "full_decode_exit_code": 0,
+        "audio_stream_present": true,
+        "non_silent_audio_detected": true,
+        "hash_and_size_recorded": true
+      },
+      "manual_exception_check": {
+        "scope": "final Russian answer only",
+        "result": "PASS_FACTUALLY_CORRECT",
+        "visible_answer": "Москва",
+        "fact": "Moscow is the capital of Russia.",
+        "frame_path": "evidence/demo1/film_ru_fact_check.png",
+        "frame_bytes": 461854,
+        "frame_sha256": "05c6f6f251e542886cbb9aeb7a1d62f60ca3964bc4a2e99fcd7b2bb471a5dfb5"
+      },
+      "fixture": {
+        "text": "Какова столица России?",
+        "path": "evidence/demo1/fixtures/question_ru_simple.wav",
+        "bytes": 53538,
+        "duration_seconds": 1.670625,
+        "sha256": "e8d931545ebddf124d63acd5d42bbde10fab7ba2f3f65998ce2ab7237693bc45"
+      },
+      "editorial_note": "The full untrimmed film retains the failed long Russian attempt before the final correct retry, by fast-handoff instruction."
+    },
+    "demo2_its_good": {
+      "status": "PASS_CAPTURED_NORMALIZED",
+      "source_order": [
+        "en",
+        "zh"
+      ],
+      "raw_captures": {
+        "en": {
+          "device_raw_name": "Screenrecorder-20260803-122223.mp4",
+          "raw_host_staging_path": "/private/tmp/DEMO2_EN_COLD_RAW.mp4",
+          "raw_bytes": 9221301,
+          "raw_duration_seconds": 227.106356,
+          "raw_sha256": "94de25b7e435960cdc47ec0dff164007113112f1cec35abfcceddc77e7a17d19",
+          "cold_boot_id": "2104f95c-ce7b-42a8-bcbb-12666d0808e5",
+          "capture_receipt_path": "evidence/demo2/film_capture/demo2_en_film_capture.json",
+          "capture_receipt_bytes": 37526,
+          "capture_receipt_sha256": "a44dfcef18bb48c70b9a59668d4c9e1481e223915edfd8bcd90bc022f893b00a",
+          "request_to_first_audio_proxy_ms": 1988.9219270001631,
+          "runner_acceptance": "PASS"
+        },
+        "zh": {
+          "device_raw_name": "Screenrecorder-20260803-123351.mp4",
+          "raw_host_staging_path": "/private/tmp/DEMO2_ZH_COLD_RAW.mp4",
+          "raw_bytes": 9519479,
+          "raw_duration_seconds": 129.237756,
+          "raw_sha256": "8f11da64f4b3591e644613d59ef29c7b1e230e889e6660ec4b60acef32ebe599",
+          "cold_boot_id": "bec32a85-12b9-4106-afb5-2828b512c2dc",
+          "capture_receipt_path": "evidence/demo2/film_capture/demo2_zh_film_capture.json",
+          "capture_receipt_bytes": 37545,
+          "capture_receipt_sha256": "745ada5ade3b432ca954857d15e6cb0cdf9bf6c85a4d02bfa67c1e3ba1b163c4",
+          "request_to_first_audio_proxy_ms": 1740.2889569999825,
+          "runner_acceptance": "PASS",
+          "operator_note": "A pre-request setup attempt occurred before TTS mode was enabled and submitted no audio; the retained runner case is the first real request."
+        }
+      },
+      "normalized_path": "films/DEMO2_ITS_GOOD.mp4",
+      "normalized_bytes": 4807655,
+      "normalized_duration_seconds": 356.36,
+      "normalized_sha256": "68740c0d2d521d01564bebd53003bfd32e4bcef0c46b7f4a1ce732c27369871d",
+      "normalization": {
+        "source_order": "full EN capture followed by full ZH capture",
+        "timeline_trimmed": false,
+        "video_frame_rate_mode": "CFR",
+        "video_frame_rate_fps": 25
+      },
+      "video": {
+        "codec": "h264",
+        "profile": "High",
+        "level": "5.1",
+        "pixel_format": "yuv420p",
+        "width": 1216,
+        "height": 2688,
+        "frames": 8909
+      },
+      "audio": {
+        "codec": "aac",
+        "profile": "LC",
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "mean_volume_db": -36.6,
+        "max_volume_db": -0.7
+      },
+      "checks": {
+        "ffprobe_streams_present": true,
+        "full_decode_exit_code": 0,
+        "audio_stream_present": true,
+        "non_silent_audio_detected": true,
+        "hash_and_size_recorded": true
+      },
+      "review": {
+        "mode": "AUTOMATED_MEDIA_ONLY",
+        "full_semantic_review": null,
+        "film_quality_review": null,
+        "owner_review_pending": true
+      },
+      "editorial_note": "The normalized handoff preserves the complete EN capture followed by the complete ZH capture; no editorial trimming or manual film-quality review was performed."
+    }
+  }
+}

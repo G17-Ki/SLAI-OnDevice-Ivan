@@ -1,0 +1,31 @@
+{
+  "device": {
+    "connected": false,
+    "probe_status": "no_device"
+  },
+  "schema_version": 1,
+  "selection": {
+    "auto_scope": "all",
+    "backend": "cpu_multilingual",
+    "contract": {
+      "cpu": "multilingual CPU backend must support zh/en/ru/fr/it/es and preserve the requested or detected language",
+      "qnn": "fixed 10-second SenseVoice context; pad short input and segment input longer than 10 seconds"
+    },
+    "fallback_required": true,
+    "provider": "cpu",
+    "qnn_activated": false,
+    "reason_codes": [
+      "broad_auto_requires_cpu_multilingual_asr",
+      "phone_disconnected",
+      "bundle_soc_mismatch",
+      "bundle_htp_mismatch",
+      "bundle_qnn_version_mismatch",
+      "qnn_runtime_directory_missing",
+      "sensevoice_model_bin_missing",
+      "sensevoice_tokens_missing",
+      "phone_qnn_smoke_not_passed"
+    ],
+    "requested_language": "auto",
+    "resolved_request": "auto_all"
+  }
+}

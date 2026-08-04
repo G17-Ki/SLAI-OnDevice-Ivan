@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "purpose": "Scoped language-specific English-pivot control for the retained Qwen3 baseline",
+  "model_id": "qwen3_1_7b_q4_0_baseline",
+  "runs": 3,
+  "temperature": 0.2,
+  "top_p": 0.8,
+  "policies": {
+    "zh": "只用简体中文回答当前用户，不要使用英文或拼音。在生成最终答案前，在内部用英语理解问题并核对事实，但不要显示分析、推理或英文；只输出最终的简体中文答案。",
+    "ru": "Ответь на запрос пользователя только по-русски, кириллицей. Внутренне пойми вопрос и проверь факт на английском, но не показывай анализ, рассуждения или английский текст; выведи только окончательный ответ по-русски, кириллицей."
+  },
+  "case_ids": [
+    "zh_australia_capital",
+    "zh_china_capital",
+    "zh_canada_capital",
+    "zh_freezing",
+    "zh_largest_planet",
+    "zh_prc_year",
+    "zh_context_distractor",
+    "ru_russia_capital_current_prompt",
+    "ru_japan_capital",
+    "ru_canada_capital",
+    "ru_freezing",
+    "ru_largest_planet",
+    "ru_context_distractor"
+  ]
+}

@@ -1,0 +1,2323 @@
+{
+  "schema_version": 1,
+  "budget_s": 2.0,
+  "case_groups": {
+    "bounded_first_flush": [
+      "answer",
+      "prosody",
+      "streaming_first_chunk",
+      "streaming_floor"
+    ],
+    "long_response": [
+      "long_response"
+    ]
+  },
+  "method": "minimum startup cushion that keeps the clause-streamed playback queue fed, derived from recorded chunk callback times and sizes; earliest safe first audible = first chunk time x slowdown + that cushion",
+  "caveat": "host measurement; slowdown factors are a proxy for phone CPU, not a phone measurement",
+  "rows": [
+    {
+      "key": "espeak_ng",
+      "language": "ru",
+      "family": "eSpeak NG (formant synthesis)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.02301862498279661,
+              "max": 0.025776791997486725
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.034527937474194914,
+              "max": 0.03866518799623009
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.04603724996559322,
+              "max": 0.05155358399497345
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.03650183300487697,
+              "max": 0.03671445799409412
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.05475274950731546,
+              "max": 0.05507168699114118
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.07300366600975394,
+              "max": 0.07342891598818824
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        }
+      }
+    },
+    {
+      "key": "espeak_ng",
+      "language": "zh",
+      "family": "eSpeak NG (formant synthesis)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.021840291999978945,
+              "max": 0.0247594160027802
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.03276043799996842,
+              "max": 0.0371391240041703
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.04368058399995789,
+              "max": 0.0495188320055604
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.04205154100782238,
+              "max": 0.04342737499973737
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.06307731151173357,
+              "max": 0.06514106249960605
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.08410308201564476,
+              "max": 0.08685474999947473
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        }
+      }
+    },
+    {
+      "key": "kokoro_zh_fp32",
+      "language": "zh",
+      "family": "Kokoro v1.1 multi-lang (float32)",
+      "license_risk": "clear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        }
+      }
+    },
+    {
+      "key": "matcha_zh_baker",
+      "language": "zh",
+      "family": "Matcha-TTS (flow matching) + Vocos",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        }
+      }
+    },
+    {
+      "key": "melotts_zh",
+      "language": "zh",
+      "family": "MeloTTS (VITS)",
+      "license_risk": "clear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        }
+      }
+    },
+    {
+      "key": "piper_ru_dmitri",
+      "language": "ru",
+      "family": "Piper (VITS medium)",
+      "license_risk": "clear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        }
+      }
+    },
+    {
+      "key": "piper_zh_huayan",
+      "language": "zh",
+      "family": "Piper (VITS medium)",
+      "license_risk": "unclear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s4",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s5",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s8",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "1.5x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          },
+          "2.0x": {
+            "min_cushion_s": null,
+            "earliest_safe_first_audible_s": null,
+            "worst_case_fits_budget": null,
+            "median_fits_budget": null
+          }
+        }
+      }
+    },
+    {
+      "key": "kokoro_zh",
+      "language": "zh",
+      "family": "Kokoro v1.1 multi-lang (INT8)",
+      "license_risk": "clear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 1.7105266666665362
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 3.681277040974237,
+              "max": 4.399956708661901
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 3.7266238953029585
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 5.5219155614613555,
+              "max": 8.169636812491808
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 6.2486446660324
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 7.362554081948474,
+              "max": 12.172015749989077
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 4.202873499995796,
+              "max": 4.475738999691716
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 8.9362273750091,
+              "max": 9.2381106666831
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 13.161435249993694,
+              "max": 13.56977516620424
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 20.25859106251365,
+              "max": 20.713332666691315
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 22.119996999991592,
+              "max": 22.66381133271676
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 31.580954750018197,
+              "max": 32.18855466669953
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "kokoro_zh_fp32",
+      "language": "zh",
+      "family": "Kokoro v1.1 multi-lang (float32)",
+      "license_risk": "clear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 1.0814079583492906
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 2.049542041329046,
+              "max": 2.979279999328855
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 2.5786952708572692
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 3.3013649370259373,
+              "max": 5.425503332326615
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 4.197136833340705
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 4.401819916034583,
+              "max": 7.9714664159719835
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.059649582990212835
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 2.9909195420041215,
+              "max": 3.3798136659897864
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 2.7056981656832324,
+              "max": 6.880161874485319
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 7.192077478689415,
+              "max": 11.762259124525125
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 8.128291998688754,
+              "max": 13.700674165980425
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 14.110131082696997,
+              "max": 20.210137166033498
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s4",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 0.7417484999750741,
+              "max": 1.2403230000054464
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 1.1126227499626111,
+              "max": 1.8604845000081696
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 1.4834969999501482,
+              "max": 2.4806460000108927
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 2.995009000005666,
+              "max": 3.2834927499934565
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 4.492513500008499,
+              "max": 4.925239124990185
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 5.990018000011332,
+              "max": 6.566985499986913
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s5",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 0.9012186249892693,
+              "max": 1.4345256249944214
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 1.351827937483904,
+              "max": 2.151788437491632
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 1.8024372499785386,
+              "max": 2.8690512499888428
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 3.6136640000040643,
+              "max": 4.8027963749773335
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 5.420496000006096,
+              "max": 7.204194562466
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 7.227328000008129,
+              "max": 9.605592749954667
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s6",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 1.0805254580045585,
+              "max": 2.2405006249900907
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 1.6207881870068377,
+              "max": 3.360750937485136
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 2.161050916009117,
+              "max": 4.4810012499801815
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 6.106314541975735,
+              "max": 12.10697066699504
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 9.159471812963602,
+              "max": 18.16045600049256
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 12.21262908395147,
+              "max": 24.21394133399008
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s8",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 1.3953675419907086,
+              "max": 3.9798600829963107
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 2.093051312986063,
+              "max": 5.969790124494466
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 75,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 75,
+              "median": 2.790735083981417,
+              "max": 7.959720165992621
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 6.6362481249962,
+              "max": 10.157456499990076
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 9.9543721874943,
+              "max": 15.236184749985114
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 15,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 15,
+              "median": 13.2724962499924,
+              "max": 20.31491299998015
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "matcha_zh_baker",
+      "language": "zh",
+      "family": "Matcha-TTS (flow matching) + Vocos",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.1543912079941947,
+              "max": 0.26707999999052845
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.23158681199129205,
+              "max": 0.4006199999857927
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.3087824159883894,
+              "max": 0.5341599999810569
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.3075777909834869,
+              "max": 0.35724112499156035
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.4613666864752304,
+              "max": 0.5358616874873405
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.6151555819669738,
+              "max": 0.7144822499831207
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        }
+      }
+    },
+    {
+      "key": "melotts_zh",
+      "language": "zh",
+      "family": "MeloTTS (VITS)",
+      "license_risk": "clear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.40554941355681073
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.0517898329999298,
+              "max": 1.9445231670106295
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 1.3861926010608396
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.8262105514936133,
+              "max": 2.9314561645473542
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 2.3668357885648685
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 3.192918900206697,
+              "max": 4.427187206546888
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.5686170347602175
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 2.6418557500001043,
+              "max": 3.0706376597794307
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 1.0481549317322507,
+              "max": 6.67532918025824
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 5.010938556732407,
+              "max": 10.42836011778706
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 5.27914232772161,
+              "max": 12.782041325756262
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 10.562853827721819,
+              "max": 17.786082575794687
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "melotts_zh_int8",
+      "language": "zh",
+      "family": "MeloTTS (VITS, INT8)",
+      "license_risk": "clear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 5.134972894208848
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 5.657605083019007,
+              "max": 10.184146686218089
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 8.486132810701028
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 8.48640762452851,
+              "max": 16.059893498714892
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 11.837292727193207
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 11.315210166038014,
+              "max": 21.935640311211692
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 12.929067167472928,
+              "max": 13.304409042456788
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 20.41484812547187,
+              "max": 20.68745175046697
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 25.239224333975834,
+              "max": 25.802237146451624
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 36.467895770974245,
+              "max": 36.876801208466894
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 37.54938150047874,
+              "max": 38.30006525044646
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 52.52094341647662,
+              "max": 53.06615066646682
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "piper_ru_dmitri",
+      "language": "ru",
+      "family": "Piper (VITS medium)",
+      "license_risk": "clear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.1853388330200687,
+              "max": 0.5674390000058338
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.27800824953010306,
+              "max": 0.8511585000087507
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.3706776660401374,
+              "max": 1.1348780000116676
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.4242366249964107,
+              "max": 0.5655072910012677
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.636354937494616,
+              "max": 0.8482609365019016
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.8484732499928214,
+              "max": 1.1310145820025355
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        }
+      }
+    },
+    {
+      "key": "piper_ru_irina",
+      "language": "ru",
+      "family": "Piper (VITS medium)",
+      "license_risk": "unclear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.23727275000419468,
+              "max": 0.5014870000013616
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.355909125006292,
+              "max": 0.7522305000020424
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.47454550000838935,
+              "max": 1.0029740000027232
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.5045931659988128,
+              "max": 0.5202161670022178
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.7568897489982191,
+              "max": 0.7803242505033268
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 1.0091863319976255,
+              "max": 1.0404323340044357
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        }
+      }
+    },
+    {
+      "key": "piper_ru_ruslan",
+      "language": "ru",
+      "family": "Piper (VITS medium)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.18605437499354593,
+              "max": 0.43693524997797795
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.2790815624903189,
+              "max": 0.6554028749669669
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.37210874998709187,
+              "max": 0.8738704999559559
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.4322505419841036,
+              "max": 0.4952382920018863
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.6483758129761554,
+              "max": 0.7428574380028294
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.8645010839682072,
+              "max": 0.9904765840037726
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        }
+      }
+    },
+    {
+      "key": "piper_zh_huayan",
+      "language": "zh",
+      "family": "Piper (VITS medium)",
+      "license_risk": "unclear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.2813380000006873,
+              "max": 0.7999359169916715
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.422007000001031,
+              "max": 1.1999038754875073
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.5626760000013746,
+              "max": 1.599871833983343
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.3359957500069868,
+              "max": 0.5233879169973079
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.5039936250104802,
+              "max": 0.7850818754959619
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 0.6719915000139736,
+              "max": 1.0467758339946158
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s4",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 0.7609181250154506,
+              "max": 1.4611860000004526
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.141377187523176,
+              "max": 2.191779000000679
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.5218362500309013,
+              "max": 2.9223720000009052
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 3.4473586670064833,
+              "max": 3.6362654579861555
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 5.171038000509725,
+              "max": 5.454398186979233
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 6.894717334012967,
+              "max": 7.272530915972311
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s5",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.0185118329827674,
+              "max": 1.829308290994959
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.527767749474151,
+              "max": 2.7439624364924384
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 2.0370236659655347,
+              "max": 3.658616581989918
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 4.1987838330096565,
+              "max": 4.583596749987919
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 6.298175749514485,
+              "max": 6.875395124981878
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 8.397567666019313,
+              "max": 9.167193499975838
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s6",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.0620322909962852,
+              "max": 1.7445268330047838
+            },
+            "worst_case_fits_budget": true,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.5930484364944277,
+              "max": 2.6167902495071758
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 2.1240645819925703,
+              "max": 3.4890536660095677
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 4.242084583005635,
+              "max": 4.30350416697911
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 6.363126874508453,
+              "max": 6.455256250468665
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 8.48416916601127,
+              "max": 8.60700833395822
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "supertonic3_s8",
+      "language": "ru",
+      "family": "Supertonic 3 (INT8, diffusion-style denoiser)",
+      "license_risk": "restricted",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 1.3828359170001931,
+              "max": 2.1496789589873515
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": true
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 2.0742538755002897,
+              "max": 3.2245184384810273
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 2.7656718340003863,
+              "max": 4.299357917974703
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 5.4950794159958605,
+              "max": 5.619738666020567
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 8.24261912399379,
+              "max": 8.42960799903085
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 10.990158831991721,
+              "max": 11.239477332041133
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    },
+    {
+      "key": "zipvoice_zh",
+      "language": "zh",
+      "family": "ZipVoice-distill (flow matching, zero-shot)",
+      "license_risk": "unclear",
+      "groups": {
+        "bounded_first_flush": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 4.430331375013338,
+              "max": 6.351022374990862
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 6.645497062520008,
+              "max": 9.526533562486293
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 25,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 25,
+              "median": 8.860662750026677,
+              "max": 12.702044749981724
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        },
+        "long_response": {
+          "1.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 0.0,
+              "max": 0.0
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 8.69834216698655,
+              "max": 9.017437875008909
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "1.5x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 2.0476776671705696,
+              "max": 2.7750964166910084
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 15.035692853677824,
+              "max": 15.573834479683933
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          },
+          "2.0x": {
+            "min_cushion_s": {
+              "n": 5,
+              "median": 6.70534800067187,
+              "max": 7.675239666699122
+            },
+            "earliest_safe_first_audible_s": {
+              "n": 5,
+              "median": 24.02270158268154,
+              "max": 24.740223750689687
+            },
+            "worst_case_fits_budget": false,
+            "median_fits_budget": false
+          }
+        }
+      }
+    }
+  ]
+}

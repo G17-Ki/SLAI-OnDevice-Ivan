@@ -1,0 +1,65 @@
+[
+  {
+    "id": "kokoro_en_short",
+    "kind": "kokoro_quality_sanity",
+    "language": "en",
+    "audio_path": "reports/android_phone/streaming_response/kokoro_int8_mac_m2/samples/en_short.wav",
+    "reference": "Sure, I can help with that."
+  },
+  {
+    "id": "kokoro_en_fact",
+    "kind": "kokoro_quality_sanity",
+    "language": "en",
+    "audio_path": "reports/android_phone/streaming_response/kokoro_int8_mac_m2/samples/en_fact.wav",
+    "reference": "Paris is the capital of France."
+  },
+  {
+    "id": "kokoro_en_chunked",
+    "kind": "kokoro_quality_sanity",
+    "language": "en",
+    "audio_path": "reports/android_phone/streaming_response/kokoro_int8_mac_m2/samples/en_chunked.wav",
+    "reference": "I found three nearby cafes that are still open. The closest one is two minutes away. Would you like walking directions?"
+  },
+  {
+    "id": "kokoro_zh_short",
+    "kind": "kokoro_quality_sanity",
+    "language": "zh",
+    "audio_path": "reports/android_phone/streaming_response/kokoro_int8_mac_m2/samples/zh_short.wav",
+    "reference": "当然可以，我可以帮你。"
+  },
+  {
+    "id": "kokoro_zh_fact",
+    "kind": "kokoro_quality_sanity",
+    "language": "zh",
+    "audio_path": "reports/android_phone/streaming_response/kokoro_int8_mac_m2/samples/zh_fact.wav",
+    "reference": "巴黎是法国的首都。"
+  },
+  {
+    "id": "kokoro_zh_chunked",
+    "kind": "kokoro_quality_sanity",
+    "language": "zh",
+    "audio_path": "reports/android_phone/streaming_response/kokoro_int8_mac_m2/samples/zh_chunked.wav",
+    "reference": "我找到三家还在营业的咖啡馆。最近的一家步行只需两分钟。需要我为你导航吗？"
+  },
+  {
+    "id": "supertonic_ja_request",
+    "kind": "separate_crosscheck_not_kokoro",
+    "language": "ja",
+    "audio_path": "reports/android_phone/streaming_response/multilingual_request_samples/ja_request.wav",
+    "reference": "フランスの首都はどこですか。"
+  },
+  {
+    "id": "lfm_jp_tts_01",
+    "kind": "separate_crosscheck_not_kokoro",
+    "language": "ja",
+    "audio_path": "reports/android_phone/streaming_response/lfm_jp_q4_mac_m2/audio/tts-01.wav",
+    "reference": "こんにちは、お元気ですか？"
+  },
+  {
+    "id": "supertonic_ko_request",
+    "kind": "separate_crosscheck_not_kokoro",
+    "language": "ko",
+    "audio_path": "reports/android_phone/streaming_response/multilingual_request_samples/ko_request.wav",
+    "reference": "프랑스의 수도는 어디인가요?"
+  }
+]

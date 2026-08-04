@@ -1,0 +1,844 @@
+{
+  "schema_version": 2,
+  "gate_id": "supertonic3_full_chain_raw_onnx_ort_qnn_sm8850_probe_v1",
+  "target": {
+    "abi": "arm64-v8a",
+    "android_api": 28,
+    "htp_arch": "v81",
+    "package": "ai.liquid.lfmdemo.supertonicchainprobe",
+    "soc": "SM8850"
+  },
+  "runtime": {
+    "backend": "libQnnHtp.so",
+    "disable_cpu_ep_fallback": true,
+    "enable_htp_fp16_precision": true,
+    "execution_mode": "sequential",
+    "htp_performance_mode": "burst",
+    "inter_op_threads": 1,
+    "intra_op_threads": 1,
+    "onnx_runtime": "1.25.0",
+    "qairt": "2.42.0.251225135753_193295",
+    "qnn_provider": "QNNExecutionProvider"
+  },
+  "models": {
+    "duration_predictor": {
+      "bytes": 3700147,
+      "filename": "duration_predictor.int8.onnx",
+      "inputs": {
+        "style_dp": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            8,
+            16
+          ]
+        },
+        "text_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            32
+          ]
+        },
+        "text_mask": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            1,
+            32
+          ]
+        }
+      },
+      "outputs": {
+        "duration": {
+          "dtype": "float32",
+          "shape": [
+            1
+          ]
+        }
+      },
+      "sha256": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db"
+    },
+    "text_encoder": {
+      "bytes": 36416150,
+      "filename": "text_encoder.int8.onnx",
+      "inputs": {
+        "style_ttl": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            50,
+            256
+          ]
+        },
+        "text_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            32
+          ]
+        },
+        "text_mask": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            1,
+            32
+          ]
+        }
+      },
+      "outputs": {
+        "text_emb": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            256,
+            32
+          ]
+        }
+      },
+      "sha256": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff"
+    },
+    "vector_estimator": {
+      "bytes": 78400833,
+      "filename": "vector_estimator.int8.onnx",
+      "inputs": {
+        "current_step": {
+          "dtype": "float32",
+          "shape": [
+            1
+          ]
+        },
+        "latent_mask": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            1,
+            32
+          ]
+        },
+        "noisy_latent": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            144,
+            32
+          ]
+        },
+        "style_ttl": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            50,
+            256
+          ]
+        },
+        "text_emb": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            256,
+            32
+          ]
+        },
+        "text_mask": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            1,
+            32
+          ]
+        },
+        "total_step": {
+          "dtype": "float32",
+          "shape": [
+            1
+          ]
+        }
+      },
+      "outputs": {
+        "denoised_latent": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            144,
+            32
+          ]
+        }
+      },
+      "sha256": "20cd86fa5c6effedfda0e7cffe5b0569ca401c440a0c3a1d72bf39286c0db3fd"
+    },
+    "vocoder": {
+      "bytes": 25991073,
+      "filename": "vocoder.int8.onnx",
+      "inputs": {
+        "latent": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            144,
+            32
+          ]
+        }
+      },
+      "outputs": {
+        "wav_tts": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            98304
+          ]
+        }
+      },
+      "sha256": "e923d60f53f95eb1ce235f1dc33ec56d9c057823c96fa6f8acf98f32b0da6152"
+    }
+  },
+  "fixture": {
+    "array_records": [
+      {
+        "array_sha256": "b4943d187105cd5efaecacac8e967219215ba8875248b17550182f17deb09ede",
+        "bytes": 18432,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/fixtures/latent_initial.f32le",
+        "role": "seed_42_initial_noise",
+        "sha256": "37a1675b066843621dd192a2cfb1773aa15a1070b401ce581dd9f012aaa62012",
+        "shape": [
+          1,
+          144,
+          32
+        ]
+      },
+      {
+        "array_sha256": "31e29f29a1e668fa9ef0460e44bc9e0e2f5279b4c646c1415b5ee8ea16116865",
+        "bytes": 128,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/fixtures/latent_mask.f32le",
+        "role": "fixed_latent_mask_31_of_32",
+        "sha256": "58bcfdc0e2776765bee81fb0f15f95beef9d6f35d54098a7e713c4dc004a7754",
+        "shape": [
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "array_sha256": "1340f291942c45d0ff4226da9c77ecc1e8cf4301379a2f1249a1efbf77ea4e21",
+        "bytes": 512,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/fixtures/style_dp.f32le",
+        "role": "duration_style_input",
+        "sha256": "a7b917508369dff804c60307661ddcbcc6c80daf090cbe811dae95a3df792f8a",
+        "shape": [
+          1,
+          8,
+          16
+        ]
+      },
+      {
+        "array_sha256": "fb92cc6a6f470d5570c2cce6a4ace633ea63087f064a4f0e096f8d434da416f6",
+        "bytes": 51200,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/fixtures/style_ttl.f32le",
+        "role": "text_and_vector_style_input",
+        "sha256": "760f9766592d73a0c9c1a3a7043548dce3f37edaa7445ec08e9f1195e59f25f9",
+        "shape": [
+          1,
+          50,
+          256
+        ]
+      },
+      {
+        "array_sha256": "2fd3fac41650673075085524f4b2e3a5aed442ddff672caeba14c9f7cb8d5890",
+        "bytes": 256,
+        "dtype": "int64",
+        "path": "supertonic_chain_probe/fixtures/text_ids.i64le",
+        "role": "duration_and_text_encoder_input",
+        "sha256": "130c7ce81e66b732020423e4b83265a67da1cecdb4e9ec33b00d1e158f15068c",
+        "shape": [
+          1,
+          32
+        ]
+      },
+      {
+        "array_sha256": "4c821d782d02e504c72b4f24521dd786a78f6e8af8f14aa9a4e85ab96089f746",
+        "bytes": 128,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/fixtures/text_mask.f32le",
+        "role": "all_text_stage_mask",
+        "sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717",
+        "shape": [
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "array_sha256": "9790218b17df1d99d3dfcf02a11a7aafc59f3e8346ee0f4e55dbb2fda7df5cbe",
+        "bytes": 4,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/goldens/duration.f32le",
+        "role": "host_duration_reference",
+        "sha256": "7c55c050f781a693e2501d6ad4b7b69bff4d3ec504754a5206f43b69b30c3060",
+        "shape": [
+          1
+        ]
+      },
+      {
+        "array_sha256": "846ad1358af4037379a2415f5917b444dd9fd882e7edc2935f7124a2412cd063",
+        "bytes": 18432,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/goldens/latent_step_0.f32le",
+        "role": "host_vector_step_0_reference",
+        "sha256": "c62713b58f67fd1bff4697f3b5a3e9fd5b631948ad668ae2f14eb4c84c1f2007",
+        "shape": [
+          1,
+          144,
+          32
+        ]
+      },
+      {
+        "array_sha256": "99ea75c8103b36b69f4e5dc6491bb1838948caa1dbc8b0dd92d0bb3452daea24",
+        "bytes": 18432,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/goldens/latent_step_1.f32le",
+        "role": "host_vector_step_1_reference",
+        "sha256": "54799fd4340fcaeffb33fe362e692403be494f5c32a3a44ec1fbd0bdd1a02a05",
+        "shape": [
+          1,
+          144,
+          32
+        ]
+      },
+      {
+        "array_sha256": "12910d6b341b84e014f487ab34bea2a0ae85afe7da6ff92fbf0ccb1c81268aef",
+        "bytes": 18432,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/goldens/latent_step_2.f32le",
+        "role": "host_vector_step_2_reference",
+        "sha256": "a5e1a2a5324fb3120033567693b4ee4e417f7dd263accdaaf45181dab3fd0cb4",
+        "shape": [
+          1,
+          144,
+          32
+        ]
+      },
+      {
+        "array_sha256": "095b2d9cfeecd92c1da39954029c945b769e5cce67f889d67a93df63dc450c6a",
+        "bytes": 18432,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/goldens/latent_step_3.f32le",
+        "role": "host_vector_step_3_reference",
+        "sha256": "94dfc1a592686bb8872be8c8b1ce36a19e2af306948c61fc7e63ba4f75c6810a",
+        "shape": [
+          1,
+          144,
+          32
+        ]
+      },
+      {
+        "array_sha256": "e059e5281d8085604a861857f6d9c63a4a42b8f09c573aa458991378fffc1fe7",
+        "bytes": 32768,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/goldens/text_embedding.f32le",
+        "role": "host_text_encoder_reference",
+        "sha256": "429d3f1a9311a3d494d3526f2f2899b2d4f1d5667ce0313856f3c8f2d6d3bff7",
+        "shape": [
+          1,
+          256,
+          32
+        ]
+      },
+      {
+        "array_sha256": "179b32995063b8f3ef19c6c406d90fd5ab96712d12cf80974d09cadd6cee7880",
+        "bytes": 393216,
+        "dtype": "float32",
+        "path": "supertonic_chain_probe/goldens/waveform_padded.f32le",
+        "role": "host_vocoder_reference_diagnostic_only",
+        "sha256": "62f6b7596e286b690dfcb950d4b8bc1f15eee5401f674e1617b5e9b013495705",
+        "shape": [
+          1,
+          98304
+        ]
+      }
+    ],
+    "duration_absolute_tolerance": 0.1,
+    "duration_reference": 2.127588987350464,
+    "fixed_latent_length": 32,
+    "fixed_text_length": 32,
+    "fixture_contract_sha256": "660d62daa0570c1d18ca8a6ce4df3ea6d12bacbee019ffb63f77d61b299ba714",
+    "language": "en",
+    "latent_channels": 144,
+    "padded_positions": 1,
+    "processed_text": "<en>It is Paris, in France.</en>",
+    "real_latent_length": 31,
+    "sample_rate": 44100,
+    "samples_per_latent": 3072,
+    "seed": 42,
+    "speaker": 6,
+    "speed": 1,
+    "steps": 4,
+    "text": "It is Paris, in France.",
+    "wav_length": 93826
+  },
+  "fixture_source": {
+    "fixture_npz": {
+      "bytes": 1024940,
+      "sha256": "1a9f30f1e31c85777e335d9c68cde1ff35344fcf8153292bebd23121b56868e4"
+    },
+    "fixture_manifest": {
+      "bytes": 10138,
+      "sha256": "277bc5b31320a06bbcff587df33a2338c8d080520ee0356d476cc9fc50649163"
+    },
+    "generator_runtime": {
+      "numpy": "1.26.4",
+      "onnxruntime": "1.28.0",
+      "local_threads": 1,
+      "omp_num_threads": 1
+    }
+  },
+  "verification_policy": {
+    "audio_quality_promoted": false,
+    "host_reference_comparisons_promoted": false,
+    "host_reference_comparisons_recorded": true,
+    "host_reference_tolerances_calibrated_on_phone": false,
+    "require_all_four_sessions": true,
+    "require_chained_outputs": true,
+    "require_exact_shapes": true,
+    "require_finite_tensors": true,
+    "require_non_silent_waveform": true,
+    "require_zero_masked_padding": true
+  },
+  "capabilities": {
+    "audio_file_output": false,
+    "audio_playback": false,
+    "audio_quality_acceptance": false,
+    "chained_pcm_tensor": true,
+    "duration_execution": true,
+    "four_step_vector_execution": true,
+    "production_integration": false,
+    "text_encoder_execution": true,
+    "vocoder_execution": true
+  },
+  "claim_boundary": "Isolated raw-ONNX four-component compatibility scaffold. A pass may prove QNN session/execution, chaining, finite tensors, shape safety, and a non-silent PCM tensor only. Host-reference tolerances, audio quality, language identity, playback, latency promotion, unplugged durability, and production integration remain unclaimed.",
+  "accepted_packages": {
+    "ai.liquid.lfmdemo": {
+      "sha256": "a24e203a30dcaaf9215dc3f0d5b99fa4b893a9e0ceca71c99c13e49bdb1b020a"
+    },
+    "ai.liquid.lfmdemo.runtime": {
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "apk": {
+    "path": "android-app/supertonic-chain-probe/build/outputs/apk/debug/supertonic-chain-probe-debug.apk",
+    "bytes": 197687829,
+    "sha256": "4929a85fbb72da8ee83152e6b0258f223e5d9c4692724be7c14c0eb42538c981"
+  },
+  "apk_policy": {
+    "package": "ai.liquid.lfmdemo.supertonicchainprobe",
+    "version_code": 1,
+    "version_name": "0.1.0-full-chain-raw-onnx-qnn-probe",
+    "compile_sdk": 35,
+    "min_sdk": 28,
+    "target_sdk": 35,
+    "launcher": "ai.liquid.lfmdemo.supertonicchainprobe.ProbeActivity",
+    "application_label": "Supertonic chain probe",
+    "permissions": [],
+    "native_abis": [
+      "arm64-v8a"
+    ],
+    "required_native_libraries": [],
+    "optional_native_libraries": [
+      "libcdsprpc.so"
+    ],
+    "optional_features": [],
+    "debuggable": true,
+    "allow_backup": false,
+    "supports_rtl": true,
+    "extract_native_libs": true,
+    "uses_cleartext_traffic": false,
+    "launcher_exported": true,
+    "signing": {
+      "v1": false,
+      "v2": true,
+      "v3": false,
+      "v3_1": false,
+      "v4": false,
+      "source_stamp": false,
+      "signer_count": 1,
+      "certificate_sha256": "9ad7b2846b7c18853b99e444d4d05323321b3a9118c13c5a8fc242e58b5859e4"
+    }
+  },
+  "stager": {
+    "path": "scripts/stage_supertonic_chain_ort_qnn_probe.py",
+    "bytes": 23032,
+    "sha256": "831b442d6a62a02a58b6c8ba352441937eee73bed904503840ea5692f94ca5c5"
+  },
+  "ort_aar": {
+    "bytes": 7720525,
+    "sha256": "397277c3e50326f5972409ca42ab5b4e69172b218557923630d68e55b11d6198"
+  },
+  "payload_manifest": {
+    "path": "supertonic_chain_probe/payload_manifest.json",
+    "bytes": 19378,
+    "sha256": "735e61b070c7ad199a67bc18829036f4575551b5533a49e9ead5b36392f0819f"
+  },
+  "required_assets": [
+    {
+      "array_sha256": "b4943d187105cd5efaecacac8e967219215ba8875248b17550182f17deb09ede",
+      "bytes": 18432,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/fixtures/latent_initial.f32le",
+      "role": "seed_42_initial_noise",
+      "sha256": "37a1675b066843621dd192a2cfb1773aa15a1070b401ce581dd9f012aaa62012",
+      "shape": [
+        1,
+        144,
+        32
+      ]
+    },
+    {
+      "array_sha256": "31e29f29a1e668fa9ef0460e44bc9e0e2f5279b4c646c1415b5ee8ea16116865",
+      "bytes": 128,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/fixtures/latent_mask.f32le",
+      "role": "fixed_latent_mask_31_of_32",
+      "sha256": "58bcfdc0e2776765bee81fb0f15f95beef9d6f35d54098a7e713c4dc004a7754",
+      "shape": [
+        1,
+        1,
+        32
+      ]
+    },
+    {
+      "array_sha256": "1340f291942c45d0ff4226da9c77ecc1e8cf4301379a2f1249a1efbf77ea4e21",
+      "bytes": 512,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/fixtures/style_dp.f32le",
+      "role": "duration_style_input",
+      "sha256": "a7b917508369dff804c60307661ddcbcc6c80daf090cbe811dae95a3df792f8a",
+      "shape": [
+        1,
+        8,
+        16
+      ]
+    },
+    {
+      "array_sha256": "fb92cc6a6f470d5570c2cce6a4ace633ea63087f064a4f0e096f8d434da416f6",
+      "bytes": 51200,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/fixtures/style_ttl.f32le",
+      "role": "text_and_vector_style_input",
+      "sha256": "760f9766592d73a0c9c1a3a7043548dce3f37edaa7445ec08e9f1195e59f25f9",
+      "shape": [
+        1,
+        50,
+        256
+      ]
+    },
+    {
+      "array_sha256": "2fd3fac41650673075085524f4b2e3a5aed442ddff672caeba14c9f7cb8d5890",
+      "bytes": 256,
+      "dtype": "int64",
+      "path": "supertonic_chain_probe/fixtures/text_ids.i64le",
+      "role": "duration_and_text_encoder_input",
+      "sha256": "130c7ce81e66b732020423e4b83265a67da1cecdb4e9ec33b00d1e158f15068c",
+      "shape": [
+        1,
+        32
+      ]
+    },
+    {
+      "array_sha256": "4c821d782d02e504c72b4f24521dd786a78f6e8af8f14aa9a4e85ab96089f746",
+      "bytes": 128,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/fixtures/text_mask.f32le",
+      "role": "all_text_stage_mask",
+      "sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717",
+      "shape": [
+        1,
+        1,
+        32
+      ]
+    },
+    {
+      "array_sha256": "9790218b17df1d99d3dfcf02a11a7aafc59f3e8346ee0f4e55dbb2fda7df5cbe",
+      "bytes": 4,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/goldens/duration.f32le",
+      "role": "host_duration_reference",
+      "sha256": "7c55c050f781a693e2501d6ad4b7b69bff4d3ec504754a5206f43b69b30c3060",
+      "shape": [
+        1
+      ]
+    },
+    {
+      "array_sha256": "846ad1358af4037379a2415f5917b444dd9fd882e7edc2935f7124a2412cd063",
+      "bytes": 18432,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/goldens/latent_step_0.f32le",
+      "role": "host_vector_step_0_reference",
+      "sha256": "c62713b58f67fd1bff4697f3b5a3e9fd5b631948ad668ae2f14eb4c84c1f2007",
+      "shape": [
+        1,
+        144,
+        32
+      ]
+    },
+    {
+      "array_sha256": "99ea75c8103b36b69f4e5dc6491bb1838948caa1dbc8b0dd92d0bb3452daea24",
+      "bytes": 18432,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/goldens/latent_step_1.f32le",
+      "role": "host_vector_step_1_reference",
+      "sha256": "54799fd4340fcaeffb33fe362e692403be494f5c32a3a44ec1fbd0bdd1a02a05",
+      "shape": [
+        1,
+        144,
+        32
+      ]
+    },
+    {
+      "array_sha256": "12910d6b341b84e014f487ab34bea2a0ae85afe7da6ff92fbf0ccb1c81268aef",
+      "bytes": 18432,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/goldens/latent_step_2.f32le",
+      "role": "host_vector_step_2_reference",
+      "sha256": "a5e1a2a5324fb3120033567693b4ee4e417f7dd263accdaaf45181dab3fd0cb4",
+      "shape": [
+        1,
+        144,
+        32
+      ]
+    },
+    {
+      "array_sha256": "095b2d9cfeecd92c1da39954029c945b769e5cce67f889d67a93df63dc450c6a",
+      "bytes": 18432,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/goldens/latent_step_3.f32le",
+      "role": "host_vector_step_3_reference",
+      "sha256": "94dfc1a592686bb8872be8c8b1ce36a19e2af306948c61fc7e63ba4f75c6810a",
+      "shape": [
+        1,
+        144,
+        32
+      ]
+    },
+    {
+      "array_sha256": "e059e5281d8085604a861857f6d9c63a4a42b8f09c573aa458991378fffc1fe7",
+      "bytes": 32768,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/goldens/text_embedding.f32le",
+      "role": "host_text_encoder_reference",
+      "sha256": "429d3f1a9311a3d494d3526f2f2899b2d4f1d5667ce0313856f3c8f2d6d3bff7",
+      "shape": [
+        1,
+        256,
+        32
+      ]
+    },
+    {
+      "array_sha256": "179b32995063b8f3ef19c6c406d90fd5ab96712d12cf80974d09cadd6cee7880",
+      "bytes": 393216,
+      "dtype": "float32",
+      "path": "supertonic_chain_probe/goldens/waveform_padded.f32le",
+      "role": "host_vocoder_reference_diagnostic_only",
+      "sha256": "62f6b7596e286b690dfcb950d4b8bc1f15eee5401f674e1617b5e9b013495705",
+      "shape": [
+        1,
+        98304
+      ]
+    },
+    {
+      "bytes": 3700147,
+      "path": "supertonic_chain_probe/models/duration_predictor.int8.onnx",
+      "role": "raw_onnx_duration_predictor",
+      "sha256": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db"
+    },
+    {
+      "bytes": 36416150,
+      "path": "supertonic_chain_probe/models/text_encoder.int8.onnx",
+      "role": "raw_onnx_text_encoder",
+      "sha256": "c7befd5ea8c3119769e8a6c1486c4edc6a3bc8365c67621c881bbb774b9902ff"
+    },
+    {
+      "bytes": 78400833,
+      "path": "supertonic_chain_probe/models/vector_estimator.int8.onnx",
+      "role": "raw_onnx_vector_estimator",
+      "sha256": "20cd86fa5c6effedfda0e7cffe5b0569ca401c440a0c3a1d72bf39286c0db3fd"
+    },
+    {
+      "bytes": 25991073,
+      "path": "supertonic_chain_probe/models/vocoder.int8.onnx",
+      "role": "raw_onnx_vocoder",
+      "sha256": "e923d60f53f95eb1ce235f1dc33ec56d9c057823c96fa6f8acf98f32b0da6152"
+    },
+    {
+      "bytes": 8253,
+      "path": "supertonic_chain_probe/support/tts.json",
+      "role": "source_support_tts.json",
+      "sha256": "42078d3aef1cd43ab43021f3c54f47d2d75ceb4e75f627f118890128b06a0d09"
+    },
+    {
+      "bytes": 262144,
+      "path": "supertonic_chain_probe/support/unicode_indexer.bin",
+      "role": "source_support_unicode_indexer.bin",
+      "sha256": "8402ca48e5189a8950138580b0fff64db6f072f24ac07cd54ba8b2fbb9883b30"
+    },
+    {
+      "bytes": 517168,
+      "path": "supertonic_chain_probe/support/voice.bin",
+      "role": "source_support_voice.bin",
+      "sha256": "67d5209b0ee8ce6c74105ffbe12fe6a7628aea3b4ba2fcb308a4a67938a93ce8"
+    }
+  ],
+  "payload_native_libraries": [
+    {
+      "bytes": 2641976,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtp.so",
+      "role": "qairt_libQnnHtp.so",
+      "sha256": "10eb1923b34ac9a726e4a446b395d5eee2ea5388487917778aaf954e8bfb2d92"
+    },
+    {
+      "bytes": 83685856,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtpPrepare.so",
+      "role": "qairt_libQnnHtpPrepare.so",
+      "sha256": "2daafb376fe6904aa325e29810480e3d76dc392991d1367ae6ea3508db2b60ac"
+    },
+    {
+      "bytes": 11271968,
+      "elf": "hexagon-v81",
+      "path": "arm64-v8a/libQnnHtpV81Skel.so",
+      "role": "qairt_libQnnHtpV81Skel.so",
+      "sha256": "a3e62af7044227804bc229437107cb54425e05f43d57cc26a876dd94d54a0cfc"
+    },
+    {
+      "bytes": 714000,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtpV81Stub.so",
+      "role": "qairt_libQnnHtpV81Stub.so",
+      "sha256": "6e9e480223b248e70c43954e89dfbd9962600b59bdc9f3069bf4780fdcf98bba"
+    },
+    {
+      "bytes": 2689096,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnSystem.so",
+      "role": "qairt_libQnnSystem.so",
+      "sha256": "a69cfc4350c16b226bcaa19c657234820bb93e3ff6116cf3845ae77557f1f7c3"
+    }
+  ],
+  "required_native_libraries": [
+    {
+      "path": "arm64-v8a/libonnxruntime.so",
+      "role": "onnxruntime_android_qnn_1.25.0",
+      "elf": "aarch64",
+      "bytes": 20352056,
+      "sha256": "491f2fa4260cf8d379d0720795e211325b294db830ce7db2055bce9733c849a2"
+    },
+    {
+      "path": "arm64-v8a/libonnxruntime4j_jni.so",
+      "role": "onnxruntime_java_jni_1.25.0",
+      "elf": "aarch64",
+      "bytes": 111488,
+      "sha256": "72496f82823056fd3d2195e668a7afbb7771892419befa36c5e6d1c9bd6d204c"
+    },
+    {
+      "bytes": 2641976,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtp.so",
+      "role": "qairt_libQnnHtp.so",
+      "sha256": "10eb1923b34ac9a726e4a446b395d5eee2ea5388487917778aaf954e8bfb2d92"
+    },
+    {
+      "bytes": 83685856,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtpPrepare.so",
+      "role": "qairt_libQnnHtpPrepare.so",
+      "sha256": "2daafb376fe6904aa325e29810480e3d76dc392991d1367ae6ea3508db2b60ac"
+    },
+    {
+      "bytes": 11271968,
+      "elf": "hexagon-v81",
+      "path": "arm64-v8a/libQnnHtpV81Skel.so",
+      "role": "qairt_libQnnHtpV81Skel.so",
+      "sha256": "a3e62af7044227804bc229437107cb54425e05f43d57cc26a876dd94d54a0cfc"
+    },
+    {
+      "bytes": 714000,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtpV81Stub.so",
+      "role": "qairt_libQnnHtpV81Stub.so",
+      "sha256": "6e9e480223b248e70c43954e89dfbd9962600b59bdc9f3069bf4780fdcf98bba"
+    },
+    {
+      "bytes": 2689096,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnSystem.so",
+      "role": "qairt_libQnnSystem.so",
+      "sha256": "a69cfc4350c16b226bcaa19c657234820bb93e3ff6116cf3845ae77557f1f7c3"
+    }
+  ],
+  "zip_policy": {
+    "alignment_bytes": 4,
+    "all_assets_stored": true,
+    "other_members": [
+      "AndroidManifest.xml",
+      "META-INF/com/android/build/gradle/app-metadata.properties",
+      "classes.dex",
+      "classes2.dex",
+      "classes3.dex",
+      "resources.arsc"
+    ]
+  },
+  "device_output_contract": {
+    "evidence_schema_version": 1,
+    "report_path": "/data/user/0/ai.liquid.lfmdemo.supertonicchainprobe/files/supertonic_chain_probe/reports/latest.json",
+    "partial_report_path": "/data/user/0/ai.liquid.lfmdemo.supertonicchainprobe/files/supertonic_chain_probe/reports/latest.json.partial",
+    "completion_marker": "SUPERTONIC_CHAIN_PROBE_REPORT_COMPLETE_V1",
+    "run_trigger": "automation_intent"
+  },
+  "device_policy": {
+    "model": "NX809J",
+    "soc": "SM8850",
+    "abi": "arm64-v8a",
+    "airplane_mode_on": 1,
+    "max_process_rss_kib": 1228800,
+    "max_resident_payload_kib": 358400,
+    "required_loaded_libraries": [
+      "libQnnHtp.so",
+      "libQnnHtpV81Stub.so",
+      "libQnnSystem.so",
+      "libcdsprpc.so",
+      "libonnxruntime.so",
+      "libonnxruntime4j_jni.so"
+    ],
+    "required_app_owned_libraries": [
+      "libQnnHtp.so",
+      "libQnnHtpV81Stub.so",
+      "libQnnSystem.so",
+      "libonnxruntime.so",
+      "libonnxruntime4j_jni.so"
+    ],
+    "required_fastrpc_fd": "/dev/fastrpc-cdsp",
+    "minimum_qcom_dmabuf_count": 1
+  },
+  "verification_toolchain": {
+    "aapt2": {
+      "relative_path": "aapt2",
+      "bytes": 10240448,
+      "sha256": "22d092d529b050c71016f3f4402f53fadcd358a65fe16df408c400f0fe9ffe62"
+    },
+    "apksigner": {
+      "relative_path": "apksigner",
+      "bytes": 2959,
+      "sha256": "b47549e373b895ce6ca620d0c7887e674d9615ffa837a86ac601dcfd04adb0f0"
+    },
+    "zipalign": {
+      "relative_path": "zipalign",
+      "bytes": 559232,
+      "sha256": "4e0bf80ede4ddb7f48d83a7f0d09b343acebf44b8ff3224a6130f9f470957706"
+    }
+  }
+}
+

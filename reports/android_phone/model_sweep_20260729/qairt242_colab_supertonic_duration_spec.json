@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "experiment_id": "qairt242_colab_supertonic_duration_sm8850_htp_v81_v1",
+  "claim_boundary": "Offline QAIRT 2.42 context-generation canary only. Success does not prove phone loading, HTP execution, numerical equivalence, audio quality, latency, or integration with an accepted APK.",
+  "execution_policy": {
+    "allowed_host": "Google Colab on Ubuntu 22.04 x86_64",
+    "required_python": "3.10",
+    "required_clang_major": 14,
+    "mac_execution_allowed": false,
+    "credentials_required": false,
+    "network_hosts": [
+      "softwarecenter.qualcomm.com",
+      "github.com"
+    ],
+    "resume_policy": "A completed stage is reused only when its recorded input fingerprint and every output hash still match. Invalid completed outputs fail closed; interrupted partial directories are quarantined before retry.",
+    "fallback_policy": {
+      "allow_other_qairt_version": false,
+      "allow_qairt_245_context_in_qairt_242_phone_runtime": false,
+      "allow_other_supertonic_graph": false,
+      "allow_unverified_download": false
+    }
+  },
+  "host_dependencies": {
+    "ubuntu_version": "22.04",
+    "python_version_prefix": "3.10.",
+    "clang_major": 14,
+    "cmake_minimum": "3.22",
+    "python_packages": {
+      "matplotlib": "3.8.4",
+      "numpy": "1.26.4",
+      "onnx": "1.16.1",
+      "onnxruntime": "1.18.0",
+      "onnxsim": "0.4.36",
+      "protobuf": "3.20.3",
+      "pyyaml": "6.0.2"
+    },
+    "compatibility_note": "QAIRT's dependency checker pins older matplotlib/PyYAML/protobuf builds that are not a reliable Python 3.10 wheel set or conflict with ONNX 1.16.1 metadata. Install these exact Python-3.10-compatible overrides before running the SDK checker; the converter/framework pins remain fixed."
+  },
+  "archives": {
+    "qairt": {
+      "url": "https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.42.0.251225/v2.42.0.251225.zip",
+      "filename": "v2.42.0.251225.zip",
+      "bytes": 1543955191,
+      "sha256": "1a744ed72a813fc9dd4a29e31b1685f784786102fd45414d74915bb3351ae321",
+      "sdk_root_member": "qairt/2.42.0.251225",
+      "build_id": "2.42.0.251225135753_193295"
+    },
+    "supertonic": {
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2",
+      "filename": "sherpa-onnx-supertonic-3-tts-int8-2026-05-11.tar.bz2",
+      "sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427"
+    }
+  },
+  "component": {
+    "name": "duration_predictor",
+    "archive_basename": "duration_predictor.int8.onnx",
+    "source_bytes": 3700147,
+    "source_sha256": "c3eb91414d5ff8a7a239b7fe9e34e7e2bf8a8140d8375ffb14718b1c639325db",
+    "onnx_contract": {
+      "ir_version": 9,
+      "opset": 19,
+      "graph_name": "main_graph",
+      "inputs": {
+        "style_dp": {
+          "source_dtype": "float32",
+          "qnn_boundary_dtype": "float32",
+          "shape": [
+            1,
+            8,
+            16
+          ]
+        },
+        "text_ids": {
+          "source_dtype": "int64",
+          "qnn_boundary_dtype": "int32",
+          "shape": [
+            1,
+            32
+          ],
+          "boundary_note": "Matches the existing --truncate_64bit_io compile contract; Gather accepts int32 indices. No weight or node rewrite is allowed."
+        },
+        "text_mask": {
+          "source_dtype": "float32",
+          "qnn_boundary_dtype": "float32",
+          "shape": [
+            1,
+            1,
+            32
+          ]
+        }
+      },
+      "outputs": {
+        "duration": {
+          "dtype": "float32",
+          "shape": [
+            1
+          ]
+        }
+      }
+    }
+  },
+  "target": {
+    "chipset": "SM8850",
+    "device_generation": "Snapdragon 8 Elite Gen 5",
+    "soc_model": 87,
+    "dsp_arch": "v81",
+    "target_abi": "aarch64-android",
+    "backend": "HTP",
+    "pd_session": "unsigned",
+    "graph_optimization_level": 3,
+    "vtcm_mb": 8,
+    "qnn_precision": "FLOAT16"
+  },
+  "tool_contract": {
+    "converter": "bin/x86_64-linux-clang/qnn-onnx-converter",
+    "model_lib_generator": "bin/x86_64-linux-clang/qnn-model-lib-generator",
+    "context_binary_generator": "bin/x86_64-linux-clang/qnn-context-binary-generator",
+    "context_binary_utility": "bin/x86_64-linux-clang/qnn-context-binary-utility",
+    "htp_backend": "lib/x86_64-linux-clang/libQnnHtp.so",
+    "htp_extension": "lib/x86_64-linux-clang/libQnnHtpNetRunExtensions.so",
+    "android_runtime_inventory": [
+      "lib/aarch64-android/libQnnHtp.so",
+      "lib/aarch64-android/libQnnHtpV81Stub.so",
+      "lib/aarch64-android/libQnnSystem.so",
+      "lib/hexagon-v81/unsigned/libQnnHtpV81.so",
+      "lib/hexagon-v81/unsigned/libQnnHtpV81Skel.so"
+    ]
+  },
+  "output_contract": {
+    "context_basename": "supertonic_duration_sm8850_htp_v81_qairt242",
+    "required_manifest_status": "context_generated_unexecuted",
+    "minimum_context_bytes": 1024,
+    "include_runtime_binaries_in_bundle": false
+  }
+}

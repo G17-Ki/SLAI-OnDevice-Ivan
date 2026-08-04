@@ -1,0 +1,182 @@
+{
+  "audio_samples": 179712,
+  "bert_valid_tokens": 24,
+  "created_utc": "2026-07-26T05:16:23Z",
+  "decoder_schedule": [
+    {
+      "call_index": 0,
+      "kept_audio_end_sample_exclusive": 20480,
+      "kept_audio_start_sample": 0,
+      "source_end_frame_exclusive": 52,
+      "source_start_frame": 0
+    },
+    {
+      "call_index": 1,
+      "kept_audio_end_sample_exclusive": 26624,
+      "kept_audio_start_sample": 6144,
+      "source_end_frame_exclusive": 92,
+      "source_start_frame": 28
+    },
+    {
+      "call_index": 2,
+      "kept_audio_end_sample_exclusive": 26624,
+      "kept_audio_start_sample": 6144,
+      "source_end_frame_exclusive": 132,
+      "source_start_frame": 68
+    },
+    {
+      "call_index": 3,
+      "kept_audio_end_sample_exclusive": 26624,
+      "kept_audio_start_sample": 6144,
+      "source_end_frame_exclusive": 172,
+      "source_start_frame": 108
+    },
+    {
+      "call_index": 4,
+      "kept_audio_end_sample_exclusive": 26624,
+      "kept_audio_start_sample": 6144,
+      "source_end_frame_exclusive": 212,
+      "source_start_frame": 148
+    },
+    {
+      "call_index": 5,
+      "kept_audio_end_sample_exclusive": 26624,
+      "kept_audio_start_sample": 6144,
+      "source_end_frame_exclusive": 252,
+      "source_start_frame": 188
+    },
+    {
+      "call_index": 6,
+      "kept_audio_end_sample_exclusive": 26624,
+      "kept_audio_start_sample": 6144,
+      "source_end_frame_exclusive": 292,
+      "source_start_frame": 228
+    },
+    {
+      "call_index": 7,
+      "kept_audio_end_sample_exclusive": 26624,
+      "kept_audio_start_sample": 6144,
+      "source_end_frame_exclusive": 332,
+      "source_start_frame": 268
+    },
+    {
+      "call_index": 8,
+      "kept_audio_end_sample_exclusive": 26624,
+      "kept_audio_start_sample": 6144,
+      "source_end_frame_exclusive": 372,
+      "source_start_frame": 308
+    }
+  ],
+  "normalized_text": "北京是中国的首都,也是全国的政治和文化中心.",
+  "parameters": {
+    "length_scale": 1.0,
+    "noise_scale": 0.667,
+    "noise_scale_w": 0.8,
+    "sdp_ratio": 0.2
+  },
+  "phone_count": 89,
+  "sample_rate_hz": 44100,
+  "schema_version": 1,
+  "sources": {
+    "bert_revision": "7cbf9a625e29989f6b9c6c2fa68234c304f7e38f",
+    "melotts_checkpoint": {
+      "sha256": "a74e9eadffff065c75eb6dfa040efa72cad23e72cfea70d39190bc174fb97093"
+    },
+    "melotts_commit": "209145371cff8fc3bd60d7be902ea69cbdb7965a",
+    "melotts_config": {
+      "sha256": "d58b5acdab89ad2bbd65325affab309ae3cb964834b02f9a60587474e81c8bb9"
+    },
+    "qai_hub_models_wheel": {
+      "bytes": 5398875,
+      "sha256": "2100a95f173c6c7b8f3bf65dcb710586098099522a5a901c6f918f3b981c4ada"
+    },
+    "voice_ai_artifacts": {
+      "bert_normalizer.bin": {
+        "bytes": 264948,
+        "sha256": "5d2e6435b23d107aa4cb4a87009ff1b1d6ee4069a866648b07377569b879d093"
+      },
+      "bert_wrapper.bin": {
+        "bytes": 307294208,
+        "sha256": "45fd58047d0234d3287f806eec34a994b868a9a7452a5dceb34014ac1603566a"
+      },
+      "bert_zh_tokenizer.bin": {
+        "bytes": 2563596,
+        "sha256": "b65662fb769a81fe214b2e596b6781ef7b965148a62b1e1025d247f140136133"
+      },
+      "config.json": {
+        "bytes": 1624,
+        "sha256": "848eace069369919a914b509814e807e5221b820fced8132a5c540b0583fa696"
+      },
+      "decoder.bin": {
+        "bytes": 21479424,
+        "sha256": "d5ab0849b39e0289db84baf0ffa1964d2fa3004c3bc70de833910cf808393895"
+      },
+      "encoder.bin": {
+        "bytes": 18739200,
+        "sha256": "dbd5fbe6a09c4d4de973e9cc5e9a41ed7b7706bedace62390b8d91cd41d19090"
+      },
+      "flow.bin": {
+        "bytes": 30769152,
+        "sha256": "836982f3e2afe440450fa33ea769abf570874acf1ffa12ecb4159222fe24a6f4"
+      },
+      "metadata.json": {
+        "bytes": 9256,
+        "sha256": "d368b4fe93bb5aa06dd953e4571e29408c7ea193e450e780ee5ce34d93c298a1"
+      }
+    }
+  },
+  "status": "completed_local_golden",
+  "text": "北京是中国的首都，也是全国的政治和文化中心。",
+  "word2ph": [
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    2,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    2,
+    2
+  ],
+  "y_length_frames": 351,
+  "artifact_digests": {
+    "bert_inputs.npz": "8f1f977fb2520c621345946e8e4dcc25f3c706bc6f49b4def915173fce563757",
+    "bert_local_outputs.npz": "f221a2eaffaef1cccf409e741129952f389376edddfcd06a52bf228ccb91f14a",
+    "decoder_inputs.npz": "474ab94401c3604fddeff09416b2e6865f6f0486a4de774b8d0e1106e85bdf8b",
+    "decoder_local_outputs.npz": "ada2fa72172a5d2366830d09e84380181589dc1ff9f1cecf915d60734b344d70",
+    "encoder_inputs.npz": "41b5c566d7b25b23828377f797e4ccef09a256d3aa634b151d95497ead8c1ec7",
+    "encoder_local_outputs.npz": "747164886b38f5ea0ade4eac26616b2cd7f3b0c60dea655d34714141340da43b",
+    "flow_inputs.npz": "c7638906a326723e77b15139430dbd3a7804d23bc09b2ba54c4ebaccf6fa5174",
+    "flow_local_outputs.npz": "bcf6573adc8af2e363096284ee25f681853e7238a9155fd967b221fb0bac1330",
+    "local_golden.wav": "e864e90314dc0faa966f1ab6f8f19a2e31f1f8bb50b57767ce36f66d8e46c05c"
+  },
+  "host_resource_guard": {
+    "abort_pressure_level": 4,
+    "initial_pressure_level": 1,
+    "max_pressure_level_observed": 2,
+    "maximum_process_tree_rss_bytes": 2684354560,
+    "peak_process_tree_rss_bytes": 1403650048,
+    "pressure_level": 2,
+    "pressure_level_increase_samples": 50,
+    "process_tree_rss_bytes": 1214693376,
+    "reason": null,
+    "root_pid": 93912,
+    "status": "completed",
+    "time_utc": "2026-07-26T05:16:23Z"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "demo": "DEMO 1 - IT FITS",
+  "run_scope": "cold-boot uninterrupted five-language sequence, Spanish checkpoint after English, Russian, and Mandarin",
+  "captured_at": "2026-08-03T06:50:50+08:00",
+  "branch": "sprint/overnight",
+  "boot": {
+    "boot_id": "67f1bad3-d306-4787-ac17-d9ab1c87e169",
+    "airplane_mode_on": true,
+    "adb_forward_list_immediately_before_inference": [],
+    "adb_forward_list_after_capture": [],
+    "main_pid_after_turn": 10316,
+    "runtime_pid_after_turn": 10410,
+    "same_main_and_runtime_processes_as_prior_language_checkpoints": true
+  },
+  "device": {
+    "model": "Nubia NX809J",
+    "serial": "REDACTED_DEVICE_SERIAL",
+    "soc": "Snapdragon SM8850"
+  },
+  "packages": {
+    "main": {
+      "package": "ai.liquid.lfmdemo",
+      "uid": 10538,
+      "version": "0.6.0-unplugged",
+      "installed_apk_sha256": "cab69190ec67f79c436c8b55e78be0303296ba523b9465038cd8304e356a140d"
+    },
+    "runtime": {
+      "package": "ai.liquid.lfmdemo.runtime",
+      "uid": 10514,
+      "version": "0.1.0-unplugged-runtime",
+      "installed_apk_sha256": "d43c0423d66e1cbe9e3fac313b54437c5c58ef8a5a8498382a255f619ad46ae1"
+    }
+  },
+  "configuration": {
+    "mode": "tts",
+    "ui_label": "Offline voice",
+    "selected_language": "es",
+    "memory_enabled": false,
+    "asr_backend": "parakeet_v3_cpu",
+    "asr_provider": "cpu",
+    "response_backend": "qwen3_5_0_8b_q4_0_cpu",
+    "response_model": "Qwen3.5-0.8B-Q4_0",
+    "tts_policy": "supertonic3_es_s5",
+    "tts_ui_label": "Supertonic 3 ES — 5 steps"
+  },
+  "fixture": {
+    "filename": "question_es.wav",
+    "bytes": 84334,
+    "sha256": "792ed9bc7afbc46cb8050a7c8cb7e6cedcdaced84213ea258146eb4fc99b450e",
+    "verbatim_asr_transcript": "Dime brevemente cuál es la capital de España."
+  },
+  "result": {
+    "turn_id": "1785710879392-4",
+    "complete": true,
+    "visible_response": "La capital de España es Madrid.",
+    "npu_selected": false,
+    "npu_executed": false,
+    "cpu_execution_claim_only": true,
+    "first_text_ms": 2348.7394780004397,
+    "first_audio_start_proxy_ms": 3343.35744599998,
+    "request_to_playback_terminal_ms": 6104.679059999995,
+    "tts_chunks_queued": 1,
+    "tts_chunk_metrics": [
+      {
+        "chunk_index": 0,
+        "generation_ms": 691,
+        "rtf": 0.24892186243695635,
+        "audio_seconds": 2.7920408163265305
+      }
+    ],
+    "dropped_chunks": 0,
+    "playback_underflows": 0,
+    "playback_status": "completed",
+    "reasoning_filter": {
+      "raw_characters": 50,
+      "visible_characters": 31,
+      "filtered_characters": 19,
+      "reasoning_blocks_removed": 1,
+      "user_visible_reasoning_leakage": false
+    }
+  },
+  "asr_runner_binding": {
+    "runner_provider_argument": "--provider=cpu",
+    "model_family": "Parakeet v3 transducer",
+    "model_create_seconds": 1.982,
+    "runner_decode_seconds": 0.101,
+    "runner_rtf": 0.038,
+    "source": "last-parakeet.stderr.txt"
+  },
+  "evidence_sha256": {
+    "telemetry.jsonl": "2299d48621374ecba022375743e243845a0a43041cbb71e020b3c6217a2c2217",
+    "summary.json": "2bdd811d0510bfad0ed0992138c1831360c4e2efd55148cd59c9fe213e13f08a",
+    "REPORT.md": "ee78c701c0d3329ebe3b716c959ddfc8547b22e551df3fc663a55c1e56e4ecf5",
+    "ui.xml": "392160456d6bb618efb6efccc0606fff29cfe49b2257a4f9db337787ac0ba596",
+    "screen_result.png": "0d0ce7b46ff0be6de55c65cfd02b7d466a746a23cfbc7261e862379306085805",
+    "last-parakeet.stdout.txt": "d88a9b1e0fdf124fceb309d28a4be4fd3fa6221a888df1716c0e421969d717a5",
+    "last-parakeet.stderr.txt": "ec053df5c3047963efa3a9a28c790f254c0752e568478473bcd38e825a72ed02",
+    "device_state.txt": "0198f60c1a6b3edad58b6f8c15a3b38aebab4967dfa46ec40376253a54d9ed9a",
+    "adb_forwards_before.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "adb_forwards_after.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "claim_boundary": "This checkpoint proves a completed explicit-Spanish no-forward in-app Parakeet-CPU/Qwen3.5/Supertonic turn in the same airplane-mode cold-boot process as the prior language turns. It is filmable as a correct short capital answer, and playback completed with no drops or underflows. No Spanish NPU claim is made. First audio is an in-app software start proxy, not microphone-observed acoustic onset. Qwen again emitted one hidden reasoning-tag block; the supported claim is no user-visible reasoning leakage. The stale English response & advanced label above the result and EN / Chinese footer below it must be cropped from a five-language film frame."
+}

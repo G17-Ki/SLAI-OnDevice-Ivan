@@ -1,0 +1,814 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-28T17:02:41.308132+00:00",
+  "warning": "This is a small deterministic diagnostic, not a statistically meaningful language or knowledge benchmark. Repeated temperature-zero responses measure timing stability, not independent quality samples.",
+  "configuration": {
+    "url": "http://127.0.0.1:62963/v1/chat/completions",
+    "model": "Qwen2.5-1.5B-Instruct-Q4_K_M",
+    "thinking": "off",
+    "model_capabilities": {
+      "qwen3_thinking_controls": false
+    },
+    "system_prompt": "Answer accurately and concisely. Use the same language as the user. Do not show reasoning. If unsure, say that you are unsure rather than inventing a fact.",
+    "max_tokens": 64,
+    "flush_chars": 64,
+    "case_count": 28,
+    "measured_repetitions_per_case": 1,
+    "warmups_per_case": 0,
+    "suite": "scripts/multilingual_voice_quality_suite.json",
+    "suite_sha256": "18f1a1ec26da54b2f4a92b05484957e2fcfc54e55e83599b860b30c34cbd59e9"
+  },
+  "summary": {
+    "passes": 23,
+    "runs": 28,
+    "accuracy": 0.8214285714285714,
+    "first_token_ms": {
+      "min": 174.15204201824963,
+      "median": 304.08789598732255,
+      "p95": 474.72137497970834,
+      "max": 687.1087920153514,
+      "mean": 318.8233482443528
+    },
+    "first_visible_token_ms": {
+      "min": 174.15204201824963,
+      "median": 304.08789598732255,
+      "p95": 474.72137497970834,
+      "max": 687.1087920153514,
+      "mean": 318.8233482443528
+    },
+    "first_speakable_ms": {
+      "min": 174.15204201824963,
+      "median": 672.2699160163756,
+      "p95": 1253.3273329609074,
+      "max": 1498.686707986053,
+      "mean": 716.3701636330059
+    },
+    "total_ms": {
+      "min": 208.053459005896,
+      "median": 706.6423534997739,
+      "p95": 1600.6890420103446,
+      "max": 2017.5712920026854,
+      "mean": 793.2411651709117
+    },
+    "per_case": {
+      "en_fuji": {
+        "language": "en",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 1,
+        "responses": [
+          "Mount Fuji's elevation is 3, 776 meters (12, 388 feet) above sea level."
+        ],
+        "visible_responses": [
+          "Mount Fuji's elevation is 3, 776 meters (12, 388 feet) above sea level."
+        ]
+      },
+      "en_math": {
+        "language": "en",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "17 multiplied by 23 is 391."
+        ],
+        "visible_responses": [
+          "17 multiplied by 23 is 391."
+        ]
+      },
+      "en_planet": {
+        "language": "en",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "The largest planet in the Solar System is Jupiter."
+        ],
+        "visible_responses": [
+          "The largest planet in the Solar System is Jupiter."
+        ]
+      },
+      "en_exact": {
+        "language": "en",
+        "category": "instruction",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "READY"
+        ],
+        "visible_responses": [
+          "READY"
+        ]
+      },
+      "es_capital": {
+        "language": "es",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "La capital de Canadá es Ottawa."
+        ],
+        "visible_responses": [
+          "La capital de Canadá es Ottawa."
+        ]
+      },
+      "es_math": {
+        "language": "es",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "12 multiplicado por 8 es 96."
+        ],
+        "visible_responses": [
+          "12 multiplicado por 8 es 96."
+        ]
+      },
+      "es_boiling": {
+        "language": "es",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "La presión estándar para que el agua hierve es de 101.3 kilopascales (kPa) o 1 bar. Esta presión se alcanza a una temperatura de 100 grados Celsius."
+        ],
+        "visible_responses": [
+          "La presión estándar para que el agua hierve es de 101.3 kilopascales (kPa) o 1 bar. Esta presión se alcanza a una temperatura de 100 grados Celsius."
+        ]
+      },
+      "de_capital": {
+        "language": "de",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "Die Hauptstadt von Australien ist Canberra."
+        ],
+        "visible_responses": [
+          "Die Hauptstadt von Australien ist Canberra."
+        ]
+      },
+      "de_math": {
+        "language": "de",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "15 plus 27 ist 42."
+        ],
+        "visible_responses": [
+          "15 plus 27 ist 42."
+        ]
+      },
+      "de_planet": {
+        "language": "de",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "Der rote Planet, der als Planetenbegriff bekannt ist, ist Mars."
+        ],
+        "visible_responses": [
+          "Der rote Planet, der als Planetenbegriff bekannt ist, ist Mars."
+        ]
+      },
+      "it_capital": {
+        "language": "it",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "La capitale del Portogallo è Lisbona."
+        ],
+        "visible_responses": [
+          "La capitale del Portogallo è Lisbona."
+        ]
+      },
+      "it_math": {
+        "language": "it",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "9 x 7 = 63"
+        ],
+        "visible_responses": [
+          "9 x 7 = 63"
+        ]
+      },
+      "it_ocean": {
+        "language": "it",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "L'oceano più grande della Terra è l'Oceano Pacifico."
+        ],
+        "visible_responses": [
+          "L'oceano più grande della Terra è l'Oceano Pacifico."
+        ]
+      },
+      "fr_capital": {
+        "language": "fr",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 1,
+        "responses": [
+          "La capitale de l'Allemagne est Berne."
+        ],
+        "visible_responses": [
+          "La capitale de l'Allemagne est Berne."
+        ]
+      },
+      "fr_math": {
+        "language": "fr",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "14 multiplié par 6 fait 84."
+        ],
+        "visible_responses": [
+          "14 multiplié par 6 fait 84."
+        ]
+      },
+      "fr_freezing": {
+        "language": "fr",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "L'eau pure gèle à 0°C à la pression normale."
+        ],
+        "visible_responses": [
+          "L'eau pure gèle à 0°C à la pression normale."
+        ]
+      },
+      "zh_capital": {
+        "language": "zh",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "澳大利亚的首都是堪培拉。"
+        ],
+        "visible_responses": [
+          "澳大利亚的首都是堪培拉。"
+        ]
+      },
+      "zh_math": {
+        "language": "zh",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "18加24等于42。"
+        ],
+        "visible_responses": [
+          "18加24等于42。"
+        ]
+      },
+      "zh_moon": {
+        "language": "zh",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "地球唯一的天然卫星是月球。"
+        ],
+        "visible_responses": [
+          "地球唯一的天然卫星是月球。"
+        ]
+      },
+      "ja_capital": {
+        "language": "ja",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 1,
+        "responses": [
+          "カナダの首都はバンクーバーです。"
+        ],
+        "visible_responses": [
+          "カナダの首都はバンクーバーです。"
+        ]
+      },
+      "ja_math": {
+        "language": "ja",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "7かける8は56です。"
+        ],
+        "visible_responses": [
+          "7かける8は56です。"
+        ]
+      },
+      "ja_planet": {
+        "language": "ja",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "赤い惑星として知られるのは火星です。"
+        ],
+        "visible_responses": [
+          "赤い惑星として知られるのは火星です。"
+        ]
+      },
+      "ko_capital": {
+        "language": "ko",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 1,
+        "responses": [
+          "독일의 수도는 뮌헨입니다."
+        ],
+        "visible_responses": [
+          "독일의 수도는 뮌헨입니다."
+        ]
+      },
+      "ko_math": {
+        "language": "ko",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "13 더하기 19는 32입니다."
+        ],
+        "visible_responses": [
+          "13 더하기 19는 32입니다."
+        ]
+      },
+      "ko_planet": {
+        "language": "ko",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 1,
+        "responses": [
+          "태양계에서 가장 큰 행성은 행성 태양입니다."
+        ],
+        "visible_responses": [
+          "태양계에서 가장 큰 행성은 행성 태양입니다."
+        ]
+      },
+      "ru_capital": {
+        "language": "ru",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "Токио - столица Японии."
+        ],
+        "visible_responses": [
+          "Токио - столица Японии."
+        ]
+      },
+      "ru_math": {
+        "language": "ru",
+        "category": "arithmetic",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "11 умножить на 12 будет 132."
+        ],
+        "visible_responses": [
+          "11 умножить на 12 будет 132."
+        ]
+      },
+      "ru_freezing": {
+        "language": "ru",
+        "category": "knowledge",
+        "passes": 1,
+        "runs": 1,
+        "responses": [
+          "Чистая вода замерзает при температуре 0°C при нормальном давлении."
+        ],
+        "visible_responses": [
+          "Чистая вода замерзает при температуре 0°C при нормальном давлении."
+        ]
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "en_fuji",
+      "language": "en",
+      "prompt": "What is the elevation of Mount Fuji in meters? Answer briefly in English.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 687.1087920153514,
+      "first_visible_token_ms": 687.1087920153514,
+      "first_speakable_ms": 1498.686707986053,
+      "total_ms": 1600.6890420103446,
+      "response": "Mount Fuji's elevation is 3, 776 meters (12, 388 feet) above sea level.",
+      "response_visible": "Mount Fuji's elevation is 3, 776 meters (12, 388 feet) above sea level.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "en_math",
+      "language": "en",
+      "prompt": "What is 17 multiplied by 23? Answer briefly in English.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 272.10437500616536,
+      "first_visible_token_ms": 272.10437500616536,
+      "first_speakable_ms": 674.1670410265215,
+      "total_ms": 708.1064160447568,
+      "response": "17 multiplied by 23 is 391.",
+      "response_visible": "17 multiplied by 23 is 391.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_planet",
+      "language": "en",
+      "prompt": "Which is the largest planet in the Solar System? Answer in one short English sentence.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 281.1936659854837,
+      "first_visible_token_ms": 281.1936659854837,
+      "first_speakable_ms": 582.3432499892078,
+      "total_ms": 615.756249986589,
+      "response": "The largest planet in the Solar System is Jupiter.",
+      "response_visible": "The largest planet in the Solar System is Jupiter.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_exact",
+      "language": "en",
+      "prompt": "Reply with exactly READY and nothing else.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 174.15204201824963,
+      "first_visible_token_ms": 174.15204201824963,
+      "first_speakable_ms": 174.15204201824963,
+      "total_ms": 208.053459005896,
+      "response": "READY",
+      "response_visible": "READY",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_capital",
+      "language": "es",
+      "prompt": "¿Cuál es la capital de Canadá? Responde con una frase corta en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 317.07412499235943,
+      "first_visible_token_ms": 317.07412499235943,
+      "first_speakable_ms": 586.9302079663612,
+      "total_ms": 621.0661669611,
+      "response": "La capital de Canadá es Ottawa.",
+      "response_visible": "La capital de Canadá es Ottawa.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_math",
+      "language": "es",
+      "prompt": "¿Cuánto es 12 multiplicado por 8? Responde brevemente en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 297.3621250130236,
+      "first_visible_token_ms": 297.3621250130236,
+      "first_speakable_ms": 668.3797920122743,
+      "total_ms": 702.4420840316452,
+      "response": "12 multiplicado por 8 es 96.",
+      "response_visible": "12 multiplicado por 8 es 96.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_boiling",
+      "language": "es",
+      "prompt": "A presión estándar, ¿a qué temperatura Celsius hierve el agua pura? Responde brevemente en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 290.38395796669647,
+      "first_visible_token_ms": 290.38395796669647,
+      "first_speakable_ms": 897.617457958404,
+      "total_ms": 2017.5712920026854,
+      "response": "La presión estándar para que el agua hierve es de 101.3 kilopascales (kPa) o 1 bar. Esta presión se alcanza a una temperatura de 100 grados Celsius.",
+      "response_visible": "La presión estándar para que el agua hierve es de 101.3 kilopascales (kPa) o 1 bar. Esta presión se alcanza a una temperatura de 100 grados Celsius.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_capital",
+      "language": "de",
+      "prompt": "Was ist die Hauptstadt von Australien? Antworte in einem kurzen deutschen Satz.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 300.0917919562198,
+      "first_visible_token_ms": 300.0917919562198,
+      "first_speakable_ms": 569.8954169638455,
+      "total_ms": 603.6095419549383,
+      "response": "Die Hauptstadt von Australien ist Canberra.",
+      "response_visible": "Die Hauptstadt von Australien ist Canberra.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_math",
+      "language": "de",
+      "prompt": "Was ist 15 plus 27? Antworte kurz auf Deutsch.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 233.54049999034032,
+      "first_visible_token_ms": 233.54049999034032,
+      "first_speakable_ms": 570.3355830046348,
+      "total_ms": 604.2750409687869,
+      "response": "15 plus 27 ist 42.",
+      "response_visible": "15 plus 27 ist 42.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_planet",
+      "language": "de",
+      "prompt": "Welcher Planet ist als roter Planet bekannt? Antworte kurz auf Deutsch.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 279.86695896834135,
+      "first_visible_token_ms": 279.86695896834135,
+      "first_speakable_ms": 859.9440840189345,
+      "total_ms": 895.481708983425,
+      "response": "Der rote Planet, der als Planetenbegriff bekannt ist, ist Mars.",
+      "response_visible": "Der rote Planet, der als Planetenbegriff bekannt ist, ist Mars.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_capital",
+      "language": "it",
+      "prompt": "Qual è la capitale del Portogallo? Rispondi con una breve frase in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 307.502374984324,
+      "first_visible_token_ms": 307.502374984324,
+      "first_speakable_ms": 653.4092919901013,
+      "total_ms": 688.1517499568872,
+      "response": "La capitale del Portogallo è Lisbona.",
+      "response_visible": "La capitale del Portogallo è Lisbona.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_math",
+      "language": "it",
+      "prompt": "Quanto fa 9 per 7? Rispondi brevemente in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 307.3239579680376,
+      "first_visible_token_ms": 307.3239579680376,
+      "first_speakable_ms": 549.2792499717325,
+      "total_ms": 583.9870829950087,
+      "response": "9 x 7 = 63",
+      "response_visible": "9 x 7 = 63",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_ocean",
+      "language": "it",
+      "prompt": "Qual è l'oceano più grande della Terra? Rispondi brevemente in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 300.85183400660753,
+      "first_visible_token_ms": 300.85183400660753,
+      "first_speakable_ms": 821.4091249974445,
+      "total_ms": 855.8867499814369,
+      "response": "L'oceano più grande della Terra è l'Oceano Pacifico.",
+      "response_visible": "L'oceano più grande della Terra è l'Oceano Pacifico.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_capital",
+      "language": "fr",
+      "prompt": "Quelle est la capitale de l'Allemagne ? Réponds par une courte phrase en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 313.4797079837881,
+      "first_visible_token_ms": 313.4797079837881,
+      "first_speakable_ms": 728.398582956288,
+      "total_ms": 763.1549159996212,
+      "response": "La capitale de l'Allemagne est Berne.",
+      "response_visible": "La capitale de l'Allemagne est Berne.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "fr_math",
+      "language": "fr",
+      "prompt": "Combien font 14 multiplié par 6 ? Réponds brièvement en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 344.22758396249264,
+      "first_visible_token_ms": 344.22758396249264,
+      "first_speakable_ms": 758.6299589602277,
+      "total_ms": 793.5636249603704,
+      "response": "14 multiplié par 6 fait 84.",
+      "response_visible": "14 multiplié par 6 fait 84.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_freezing",
+      "language": "fr",
+      "prompt": "À pression normale, à quelle température Celsius l'eau pure gèle-t-elle ? Réponds brièvement en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 421.0182500537485,
+      "first_visible_token_ms": 421.0182500537485,
+      "first_speakable_ms": 939.9354580091313,
+      "total_ms": 975.3155830549076,
+      "response": "L'eau pure gèle à 0°C à la pression normale.",
+      "response_visible": "L'eau pure gèle à 0°C à la pression normale.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_capital",
+      "language": "zh",
+      "prompt": "澳大利亚的首都是哪里？请用简短的中文句子回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 254.31170797673985,
+      "first_visible_token_ms": 254.31170797673985,
+      "first_speakable_ms": 496.08966696541756,
+      "total_ms": 531.3190830056556,
+      "response": "澳大利亚的首都是堪培拉。",
+      "response_visible": "澳大利亚的首都是堪培拉。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_math",
+      "language": "zh",
+      "prompt": "18加24等于多少？请用中文简短回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 240.1477080420591,
+      "first_visible_token_ms": 240.1477080420591,
+      "first_speakable_ms": 516.0315420362167,
+      "total_ms": 550.8197920280509,
+      "response": "18加24等于42。",
+      "response_visible": "18加24等于42。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_moon",
+      "language": "zh",
+      "prompt": "地球唯一的天然卫星是什么？请用中文简短回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 235.69704202236608,
+      "first_visible_token_ms": 235.69704202236608,
+      "first_speakable_ms": 478.1257499707863,
+      "total_ms": 512.4357920140028,
+      "response": "地球唯一的天然卫星是月球。",
+      "response_visible": "地球唯一的天然卫星是月球。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ja_capital",
+      "language": "ja",
+      "prompt": "カナダの首都はどこですか。日本語の短い一文で答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 320.80524996854365,
+      "first_visible_token_ms": 320.80524996854365,
+      "first_speakable_ms": 736.2901669694111,
+      "total_ms": 770.8214579615742,
+      "response": "カナダの首都はバンクーバーです。",
+      "response_visible": "カナダの首都はバンクーバーです。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ja_math",
+      "language": "ja",
+      "prompt": "7かける8はいくつですか。日本語で短く答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 283.710208022967,
+      "first_visible_token_ms": 283.710208022967,
+      "first_speakable_ms": 525.593958038371,
+      "total_ms": 560.6152910040691,
+      "response": "7かける8は56です。",
+      "response_visible": "7かける8は56です。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ja_planet",
+      "language": "ja",
+      "prompt": "赤い惑星として知られる惑星は何ですか。日本語で短く答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 323.85041599627584,
+      "first_visible_token_ms": 323.85041599627584,
+      "first_speakable_ms": 670.3727910062298,
+      "total_ms": 705.178290954791,
+      "response": "赤い惑星として知られるのは火星です。",
+      "response_visible": "赤い惑星として知られるのは火星です。",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_capital",
+      "language": "ko",
+      "prompt": "독일의 수도는 어디인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 274.48383398586884,
+      "first_visible_token_ms": 274.48383398586884,
+      "first_speakable_ms": 619.8441250016913,
+      "total_ms": 654.8454590374604,
+      "response": "독일의 수도는 뮌헨입니다.",
+      "response_visible": "독일의 수도는 뮌헨입니다.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ko_math",
+      "language": "ko",
+      "prompt": "13 더하기 19는 얼마인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 348.0843330034986,
+      "first_visible_token_ms": 348.0843330034986,
+      "first_speakable_ms": 763.7667909730226,
+      "total_ms": 798.8679579575546,
+      "response": "13 더하기 19는 32입니다.",
+      "response_visible": "13 더하기 19는 32입니다.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_planet",
+      "language": "ko",
+      "prompt": "태양계에서 가장 큰 행성은 무엇인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 314.4574590260163,
+      "first_visible_token_ms": 314.4574590260163,
+      "first_speakable_ms": 825.6450000335462,
+      "total_ms": 859.8307920037769,
+      "response": "태양계에서 가장 큰 행성은 행성 태양입니다.",
+      "response_visible": "태양계에서 가장 큰 행성은 행성 태양입니다.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ru_capital",
+      "language": "ru",
+      "prompt": "Какова столица Японии? Ответь одним коротким предложением по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 357.81570797553286,
+      "first_visible_token_ms": 357.81570797553286,
+      "first_speakable_ms": 728.7661249865778,
+      "total_ms": 762.6246669678949,
+      "response": "Токио - столица Японии.",
+      "response_visible": "Токио - столица Японии.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_math",
+      "language": "ru",
+      "prompt": "Сколько будет 11 умножить на 12? Ответь кратко по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 371.68666697107255,
+      "first_visible_token_ms": 371.68666697107255,
+      "first_speakable_ms": 910.9980829525739,
+      "total_ms": 945.0820829952136,
+      "response": "11 умножить на 12 будет 132.",
+      "response_visible": "11 умножить на 12 будет 132.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_freezing",
+      "language": "ru",
+      "prompt": "При нормальном давлении при какой температуре Цельсия замерзает чистая вода? Ответь кратко по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 474.72137497970834,
+      "first_visible_token_ms": 474.72137497970834,
+      "first_speakable_ms": 1253.3273329609074,
+      "total_ms": 1321.2012499570847,
+      "response": "Чистая вода замерзает при температуре 0°C при нормальном давлении.",
+      "response_visible": "Чистая вода замерзает при температуре 0°C при нормальном давлении.",
+      "pass": true,
+      "usage": null
+    }
+  ]
+}

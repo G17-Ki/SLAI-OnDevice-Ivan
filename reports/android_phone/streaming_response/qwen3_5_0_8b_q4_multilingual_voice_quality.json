@@ -1,0 +1,1763 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-22T15:16:55.405866+00:00",
+  "warning": "This is a small deterministic diagnostic, not a statistically meaningful language or knowledge benchmark. Repeated temperature-zero responses measure timing stability, not independent quality samples.",
+  "configuration": {
+    "url": "http://127.0.0.1:8085/v1/chat/completions",
+    "model": "Qwen3.5-0.8B-Q4_0",
+    "thinking": "off",
+    "system_prompt": "Answer accurately and concisely. Use the same language as the user. Do not show reasoning. If unsure, say that you are unsure rather than inventing a fact.",
+    "max_tokens": 64,
+    "flush_chars": 64,
+    "case_count": 28,
+    "measured_repetitions_per_case": 3,
+    "warmups_per_case": 0,
+    "suite": "scripts/multilingual_voice_quality_suite.json",
+    "suite_sha256": "18f1a1ec26da54b2f4a92b05484957e2fcfc54e55e83599b860b30c34cbd59e9"
+  },
+  "summary": {
+    "passes": 54,
+    "runs": 84,
+    "accuracy": 0.6428571428571429,
+    "first_token_ms": {
+      "min": 35.7227090000265,
+      "median": 54.83512450001626,
+      "p95": 98.80920799997739,
+      "max": 338.9125830000239,
+      "mean": 63.864178059526736
+    },
+    "first_visible_token_ms": {
+      "min": 35.7227090000265,
+      "median": 54.83512450001626,
+      "p95": 98.80920799997739,
+      "max": 338.9125830000239,
+      "mean": 63.864178059526736
+    },
+    "first_speakable_ms": {
+      "min": 38.60004199998457,
+      "median": 186.58318749999125,
+      "p95": 273.4289999999646,
+      "max": 534.4074170000113,
+      "mean": 184.14298213095782
+    },
+    "total_ms": {
+      "min": 51.510416999974495,
+      "median": 199.0145000000041,
+      "p95": 385.1209160000053,
+      "max": 717.9236669999796,
+      "mean": 206.13812745238357
+    },
+    "per_case": {
+      "en_fuji": {
+        "language": "en",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nMount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+          "<think>\n\n</think>\n\nMount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+          "<think>\n\n</think>\n\nMount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level."
+        ],
+        "visible_responses": [
+          "Mount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+          "Mount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+          "Mount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level."
+        ]
+      },
+      "en_math": {
+        "language": "en",
+        "category": "arithmetic",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n17 multiplied by 23 equals 391.",
+          "<think>\n\n</think>\n\n17 multiplied by 23 equals 391.",
+          "<think>\n\n</think>\n\n17 multiplied by 23 equals 391."
+        ],
+        "visible_responses": [
+          "17 multiplied by 23 equals 391.",
+          "17 multiplied by 23 equals 391.",
+          "17 multiplied by 23 equals 391."
+        ]
+      },
+      "en_planet": {
+        "language": "en",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nThe Sun is the largest planet in the Solar System.",
+          "<think>\n\n</think>\n\nThe Sun is the largest planet in the Solar System.",
+          "<think>\n\n</think>\n\nThe Sun is the largest planet in the Solar System."
+        ],
+        "visible_responses": [
+          "The Sun is the largest planet in the Solar System.",
+          "The Sun is the largest planet in the Solar System.",
+          "The Sun is the largest planet in the Solar System."
+        ]
+      },
+      "en_exact": {
+        "language": "en",
+        "category": "instruction",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nREADY",
+          "<think>\n\n</think>\n\nREADY",
+          "<think>\n\n</think>\n\nREADY"
+        ],
+        "visible_responses": [
+          "READY",
+          "READY",
+          "READY"
+        ]
+      },
+      "es_capital": {
+        "language": "es",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nLa capital de Canadá es Ottawa.",
+          "<think>\n\n</think>\n\nLa capital de Canadá es Ottawa.",
+          "<think>\n\n</think>\n\nLa capital de Canadá es Ottawa."
+        ],
+        "visible_responses": [
+          "La capital de Canadá es Ottawa.",
+          "La capital de Canadá es Ottawa.",
+          "La capital de Canadá es Ottawa."
+        ]
+      },
+      "es_math": {
+        "language": "es",
+        "category": "arithmetic",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n12 multiplicado por 8 es 96.",
+          "<think>\n\n</think>\n\n12 multiplicado por 8 es 96.",
+          "<think>\n\n</think>\n\n12 multiplicado por 8 es 96."
+        ],
+        "visible_responses": [
+          "12 multiplicado por 8 es 96.",
+          "12 multiplicado por 8 es 96.",
+          "12 multiplicado por 8 es 96."
+        ]
+      },
+      "es_boiling": {
+        "language": "es",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nEl agua pura hierve a 100°C.",
+          "<think>\n\n</think>\n\nEl agua pura hierve a 100°C.",
+          "<think>\n\n</think>\n\nEl agua pura hierve a 100°C."
+        ],
+        "visible_responses": [
+          "El agua pura hierve a 100°C.",
+          "El agua pura hierve a 100°C.",
+          "El agua pura hierve a 100°C."
+        ]
+      },
+      "de_capital": {
+        "language": "de",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nDie Hauptstadt von Australien ist Sydney.",
+          "<think>\n\n</think>\n\nDie Hauptstadt von Australien ist Sydney.",
+          "<think>\n\n</think>\n\nDie Hauptstadt von Australien ist Sydney."
+        ],
+        "visible_responses": [
+          "Die Hauptstadt von Australien ist Sydney.",
+          "Die Hauptstadt von Australien ist Sydney.",
+          "Die Hauptstadt von Australien ist Sydney."
+        ]
+      },
+      "de_math": {
+        "language": "de",
+        "category": "arithmetic",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n15 plus 27 ist 42.",
+          "<think>\n\n</think>\n\n15 plus 27 ist 42.",
+          "<think>\n\n</think>\n\n15 plus 27 ist 42."
+        ],
+        "visible_responses": [
+          "15 plus 27 ist 42.",
+          "15 plus 27 ist 42.",
+          "15 plus 27 ist 42."
+        ]
+      },
+      "de_planet": {
+        "language": "de",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nDer Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+          "<think>\n\n</think>\n\nDer Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+          "<think>\n\n</think>\n\nDer Planet, der als \"roter Planet\" bekannt ist, ist **Mars**."
+        ],
+        "visible_responses": [
+          "Der Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+          "Der Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+          "Der Planet, der als \"roter Planet\" bekannt ist, ist **Mars**."
+        ]
+      },
+      "it_capital": {
+        "language": "it",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nLa capitale del Portogallo è Lisbona.",
+          "<think>\n\n</think>\n\nLa capitale del Portogallo è Lisbona.",
+          "<think>\n\n</think>\n\nLa capitale del Portogallo è Lisbona."
+        ],
+        "visible_responses": [
+          "La capitale del Portogallo è Lisbona.",
+          "La capitale del Portogallo è Lisbona.",
+          "La capitale del Portogallo è Lisbona."
+        ]
+      },
+      "it_math": {
+        "language": "it",
+        "category": "arithmetic",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n9 div 7 è circa 1,285.",
+          "<think>\n\n</think>\n\n9 div 7 è circa 1,285.",
+          "<think>\n\n</think>\n\n9 div 7 è circa 1,285."
+        ],
+        "visible_responses": [
+          "9 div 7 è circa 1,285.",
+          "9 div 7 è circa 1,285.",
+          "9 div 7 è circa 1,285."
+        ]
+      },
+      "it_ocean": {
+        "language": "it",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nL'oceano più grande della Terra è l'Atlantico.",
+          "<think>\n\n</think>\n\nL'oceano più grande della Terra è l'Atlantico.",
+          "<think>\n\n</think>\n\nL'oceano più grande della Terra è l'Atlantico."
+        ],
+        "visible_responses": [
+          "L'oceano più grande della Terra è l'Atlantico.",
+          "L'oceano più grande della Terra è l'Atlantico.",
+          "L'oceano più grande della Terra è l'Atlantico."
+        ]
+      },
+      "fr_capital": {
+        "language": "fr",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nLa capitale de l'Allemagne est la ville de Berlin.",
+          "<think>\n\n</think>\n\nLa capitale de l'Allemagne est la ville de Berlin.",
+          "<think>\n\n</think>\n\nLa capitale de l'Allemagne est la ville de Berlin."
+        ],
+        "visible_responses": [
+          "La capitale de l'Allemagne est la ville de Berlin.",
+          "La capitale de l'Allemagne est la ville de Berlin.",
+          "La capitale de l'Allemagne est la ville de Berlin."
+        ]
+      },
+      "fr_math": {
+        "language": "fr",
+        "category": "arithmetic",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n14 × 6 = 84",
+          "<think>\n\n</think>\n\n14 × 6 = 84",
+          "<think>\n\n</think>\n\n14 × 6 = 84"
+        ],
+        "visible_responses": [
+          "14 × 6 = 84",
+          "14 × 6 = 84",
+          "14 × 6 = 84"
+        ]
+      },
+      "fr_freezing": {
+        "language": "fr",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nÀ la pression normale, l'eau pure gèle à 0°C.",
+          "<think>\n\n</think>\n\nÀ la pression normale, l'eau pure gèle à 0°C.",
+          "<think>\n\n</think>\n\nÀ la pression normale, l'eau pure gèle à 0°C."
+        ],
+        "visible_responses": [
+          "À la pression normale, l'eau pure gèle à 0°C.",
+          "À la pression normale, l'eau pure gèle à 0°C.",
+          "À la pression normale, l'eau pure gèle à 0°C."
+        ]
+      },
+      "zh_capital": {
+        "language": "zh",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n悉尼。",
+          "<think>\n\n</think>\n\n悉尼。",
+          "<think>\n\n</think>\n\n悉尼。"
+        ],
+        "visible_responses": [
+          "悉尼。",
+          "悉尼。",
+          "悉尼。"
+        ]
+      },
+      "zh_math": {
+        "language": "zh",
+        "category": "arithmetic",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n18 + 24 = 42",
+          "<think>\n\n</think>\n\n18 + 24 = 42",
+          "<think>\n\n</think>\n\n18 + 24 = 42"
+        ],
+        "visible_responses": [
+          "18 + 24 = 42",
+          "18 + 24 = 42",
+          "18 + 24 = 42"
+        ]
+      },
+      "zh_moon": {
+        "language": "zh",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n木星。",
+          "<think>\n\n</think>\n\n木星。",
+          "<think>\n\n</think>\n\n木星。"
+        ],
+        "visible_responses": [
+          "木星。",
+          "木星。",
+          "木星。"
+        ]
+      },
+      "ja_capital": {
+        "language": "ja",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nカナダの首都はオバカです。",
+          "<think>\n\n</think>\n\nカナダの首都はオバカです。",
+          "<think>\n\n</think>\n\nカナダの首都はオバカです。"
+        ],
+        "visible_responses": [
+          "カナダの首都はオバカです。",
+          "カナダの首都はオバカです。",
+          "カナダの首都はオバカです。"
+        ]
+      },
+      "ja_math": {
+        "language": "ja",
+        "category": "arithmetic",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n7 × 8 = 56",
+          "<think>\n\n</think>\n\n7 × 8 = 56",
+          "<think>\n\n</think>\n\n7 × 8 = 56"
+        ],
+        "visible_responses": [
+          "7 × 8 = 56",
+          "7 × 8 = 56",
+          "7 × 8 = 56"
+        ]
+      },
+      "ja_planet": {
+        "language": "ja",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n赤い惑星は「赤い惑星」です。",
+          "<think>\n\n</think>\n\n赤い惑星は「赤い惑星」です。",
+          "<think>\n\n</think>\n\n赤い惑星は「赤い惑星」です。"
+        ],
+        "visible_responses": [
+          "赤い惑星は「赤い惑星」です。",
+          "赤い惑星は「赤い惑星」です。",
+          "赤い惑星は「赤い惑星」です。"
+        ]
+      },
+      "ko_capital": {
+        "language": "ko",
+        "category": "knowledge",
+        "passes": 0,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n독일의 수도는 베르리나입니다.",
+          "<think>\n\n</think>\n\n독일의 수도는 베르리나입니다.",
+          "<think>\n\n</think>\n\n독일의 수도는 베르리나입니다."
+        ],
+        "visible_responses": [
+          "독일의 수도는 베르리나입니다.",
+          "독일의 수도는 베르리나입니다.",
+          "독일의 수도는 베르리나입니다."
+        ]
+      },
+      "ko_math": {
+        "language": "ko",
+        "category": "arithmetic",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n19 + 13 = 32",
+          "<think>\n\n</think>\n\n19 + 13 = 32",
+          "<think>\n\n</think>\n\n19 + 13 = 32"
+        ],
+        "visible_responses": [
+          "19 + 13 = 32",
+          "19 + 13 = 32",
+          "19 + 13 = 32"
+        ]
+      },
+      "ko_planet": {
+        "language": "ko",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n행성계에서 가장 큰 행성은 목성 (목성).",
+          "<think>\n\n</think>\n\n행성계에서 가장 큰 행성은 목성 (목성).",
+          "<think>\n\n</think>\n\n행성계에서 가장 큰 행성은 목성 (목성)."
+        ],
+        "visible_responses": [
+          "행성계에서 가장 큰 행성은 목성 (목성).",
+          "행성계에서 가장 큰 행성은 목성 (목성).",
+          "행성계에서 가장 큰 행성은 목성 (목성)."
+        ]
+      },
+      "ru_capital": {
+        "language": "ru",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nСтолица Японии — это Токио.",
+          "<think>\n\n</think>\n\nСтолица Японии — это Токио.",
+          "<think>\n\n</think>\n\nСтолица Японии — это Токио."
+        ],
+        "visible_responses": [
+          "Столица Японии — это Токио.",
+          "Столица Японии — это Токио.",
+          "Столица Японии — это Токио."
+        ]
+      },
+      "ru_math": {
+        "language": "ru",
+        "category": "arithmetic",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\n11 умножить на 12 получится 132.",
+          "<think>\n\n</think>\n\n11 умножить на 12 получится 132.",
+          "<think>\n\n</think>\n\n11 умножить на 12 получится 132."
+        ],
+        "visible_responses": [
+          "11 умножить на 12 получится 132.",
+          "11 умножить на 12 получится 132.",
+          "11 умножить на 12 получится 132."
+        ]
+      },
+      "ru_freezing": {
+        "language": "ru",
+        "category": "knowledge",
+        "passes": 3,
+        "runs": 3,
+        "responses": [
+          "<think>\n\n</think>\n\nПри нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+          "<think>\n\n</think>\n\nПри нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+          "<think>\n\n</think>\n\nПри нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F)."
+        ],
+        "visible_responses": [
+          "При нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+          "При нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+          "При нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F)."
+        ]
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "en_fuji",
+      "language": "en",
+      "prompt": "What is the elevation of Mount Fuji in meters? Answer briefly in English.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 338.9125830000239,
+      "first_visible_token_ms": 338.9125830000239,
+      "first_speakable_ms": 534.4074170000113,
+      "total_ms": 717.9236669999796,
+      "response": "<think>\n\n</think>\n\nMount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+      "response_visible": "Mount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "en_fuji",
+      "language": "en",
+      "prompt": "What is the elevation of Mount Fuji in meters? Answer briefly in English.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 62.29570900001136,
+      "first_visible_token_ms": 62.29570900001136,
+      "first_speakable_ms": 243.82237499997927,
+      "total_ms": 411.91991699997743,
+      "response": "<think>\n\n</think>\n\nMount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+      "response_visible": "Mount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "en_fuji",
+      "language": "en",
+      "prompt": "What is the elevation of Mount Fuji in meters? Answer briefly in English.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 50.268250000044645,
+      "first_visible_token_ms": 50.268250000044645,
+      "first_speakable_ms": 246.4887500000259,
+      "total_ms": 428.65845800002944,
+      "response": "<think>\n\n</think>\n\nMount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+      "response_visible": "Mount Fuji is located at an elevation of approximately 3,778 meters (12,350 feet) above sea level.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "en_math",
+      "language": "en",
+      "prompt": "What is 17 multiplied by 23? Answer briefly in English.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 98.77024999997275,
+      "first_visible_token_ms": 98.77024999997275,
+      "first_speakable_ms": 245.413874999997,
+      "total_ms": 258.56904199997643,
+      "response": "<think>\n\n</think>\n\n17 multiplied by 23 equals 391.",
+      "response_visible": "17 multiplied by 23 equals 391.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_math",
+      "language": "en",
+      "prompt": "What is 17 multiplied by 23? Answer briefly in English.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 54.43570800002817,
+      "first_visible_token_ms": 54.43570800002817,
+      "first_speakable_ms": 200.99445800002513,
+      "total_ms": 213.370292000036,
+      "response": "<think>\n\n</think>\n\n17 multiplied by 23 equals 391.",
+      "response_visible": "17 multiplied by 23 equals 391.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_math",
+      "language": "en",
+      "prompt": "What is 17 multiplied by 23? Answer briefly in English.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 53.80683299995326,
+      "first_visible_token_ms": 53.80683299995326,
+      "first_speakable_ms": 199.9057079999602,
+      "total_ms": 212.28916699999445,
+      "response": "<think>\n\n</think>\n\n17 multiplied by 23 equals 391.",
+      "response_visible": "17 multiplied by 23 equals 391.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_planet",
+      "language": "en",
+      "prompt": "Which is the largest planet in the Solar System? Answer in one short English sentence.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 81.03304200000139,
+      "first_visible_token_ms": 81.03304200000139,
+      "first_speakable_ms": 203.51499999998168,
+      "total_ms": 216.3405830000329,
+      "response": "<think>\n\n</think>\n\nThe Sun is the largest planet in the Solar System.",
+      "response_visible": "The Sun is the largest planet in the Solar System.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "en_planet",
+      "language": "en",
+      "prompt": "Which is the largest planet in the Solar System? Answer in one short English sentence.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 55.4837500000076,
+      "first_visible_token_ms": 55.4837500000076,
+      "first_speakable_ms": 176.97875000004615,
+      "total_ms": 189.86662500003604,
+      "response": "<think>\n\n</think>\n\nThe Sun is the largest planet in the Solar System.",
+      "response_visible": "The Sun is the largest planet in the Solar System.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "en_planet",
+      "language": "en",
+      "prompt": "Which is the largest planet in the Solar System? Answer in one short English sentence.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 51.45841700004894,
+      "first_visible_token_ms": 51.45841700004894,
+      "first_speakable_ms": 172.13570800004163,
+      "total_ms": 185.0498330000505,
+      "response": "<think>\n\n</think>\n\nThe Sun is the largest planet in the Solar System.",
+      "response_visible": "The Sun is the largest planet in the Solar System.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "en_exact",
+      "language": "en",
+      "prompt": "Reply with exactly READY and nothing else.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 77.03537499997992,
+      "first_visible_token_ms": 77.03537499997992,
+      "first_speakable_ms": 77.03537499997992,
+      "total_ms": 90.19345899997688,
+      "response": "<think>\n\n</think>\n\nREADY",
+      "response_visible": "READY",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_exact",
+      "language": "en",
+      "prompt": "Reply with exactly READY and nothing else.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 43.30804200003513,
+      "first_visible_token_ms": 43.30804200003513,
+      "first_speakable_ms": 43.30804200003513,
+      "total_ms": 56.31345900002316,
+      "response": "<think>\n\n</think>\n\nREADY",
+      "response_visible": "READY",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "en_exact",
+      "language": "en",
+      "prompt": "Reply with exactly READY and nothing else.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 38.60004199998457,
+      "first_visible_token_ms": 38.60004199998457,
+      "first_speakable_ms": 38.60004199998457,
+      "total_ms": 51.510416999974495,
+      "response": "<think>\n\n</think>\n\nREADY",
+      "response_visible": "READY",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_capital",
+      "language": "es",
+      "prompt": "¿Cuál es la capital de Canadá? Responde con una frase corta en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 66.20866600002273,
+      "first_visible_token_ms": 66.20866600002273,
+      "first_speakable_ms": 137.90020800001912,
+      "total_ms": 150.10679100004154,
+      "response": "<think>\n\n</think>\n\nLa capital de Canadá es Ottawa.",
+      "response_visible": "La capital de Canadá es Ottawa.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_capital",
+      "language": "es",
+      "prompt": "¿Cuál es la capital de Canadá? Responde con una frase corta en español.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 35.7227090000265,
+      "first_visible_token_ms": 35.7227090000265,
+      "first_speakable_ms": 107.96229200002472,
+      "total_ms": 120.25800000003528,
+      "response": "<think>\n\n</think>\n\nLa capital de Canadá es Ottawa.",
+      "response_visible": "La capital de Canadá es Ottawa.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_capital",
+      "language": "es",
+      "prompt": "¿Cuál es la capital de Canadá? Responde con una frase corta en español.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 46.75254099998938,
+      "first_visible_token_ms": 46.75254099998938,
+      "first_speakable_ms": 119.04574999999795,
+      "total_ms": 131.33920799998577,
+      "response": "<think>\n\n</think>\n\nLa capital de Canadá es Ottawa.",
+      "response_visible": "La capital de Canadá es Ottawa.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_math",
+      "language": "es",
+      "prompt": "¿Cuánto es 12 multiplicado por 8? Responde brevemente en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 85.56912500000635,
+      "first_visible_token_ms": 85.56912500000635,
+      "first_speakable_ms": 220.29724999998734,
+      "total_ms": 233.12066699998013,
+      "response": "<think>\n\n</think>\n\n12 multiplicado por 8 es 96.",
+      "response_visible": "12 multiplicado por 8 es 96.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_math",
+      "language": "es",
+      "prompt": "¿Cuánto es 12 multiplicado por 8? Responde brevemente en español.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 49.50949999999921,
+      "first_visible_token_ms": 49.50949999999921,
+      "first_speakable_ms": 182.43570799995723,
+      "total_ms": 194.46212499997273,
+      "response": "<think>\n\n</think>\n\n12 multiplicado por 8 es 96.",
+      "response_visible": "12 multiplicado por 8 es 96.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_math",
+      "language": "es",
+      "prompt": "¿Cuánto es 12 multiplicado por 8? Responde brevemente en español.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 52.388417000031495,
+      "first_visible_token_ms": 52.388417000031495,
+      "first_speakable_ms": 186.02583300003062,
+      "total_ms": 198.19825000001856,
+      "response": "<think>\n\n</think>\n\n12 multiplicado por 8 es 96.",
+      "response_visible": "12 multiplicado por 8 es 96.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_boiling",
+      "language": "es",
+      "prompt": "A presión estándar, ¿a qué temperatura Celsius hierve el agua pura? Responde brevemente en español.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 99.76325000002362,
+      "first_visible_token_ms": 99.76325000002362,
+      "first_speakable_ms": 235.23483300004955,
+      "total_ms": 248.18175000001474,
+      "response": "<think>\n\n</think>\n\nEl agua pura hierve a 100°C.",
+      "response_visible": "El agua pura hierve a 100°C.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_boiling",
+      "language": "es",
+      "prompt": "A presión estándar, ¿a qué temperatura Celsius hierve el agua pura? Responde brevemente en español.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 57.04429099995423,
+      "first_visible_token_ms": 57.04429099995423,
+      "first_speakable_ms": 191.06729099996755,
+      "total_ms": 203.4434159999705,
+      "response": "<think>\n\n</think>\n\nEl agua pura hierve a 100°C.",
+      "response_visible": "El agua pura hierve a 100°C.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "es_boiling",
+      "language": "es",
+      "prompt": "A presión estándar, ¿a qué temperatura Celsius hierve el agua pura? Responde brevemente en español.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 53.37191699999266,
+      "first_visible_token_ms": 53.37191699999266,
+      "first_speakable_ms": 186.36083399997005,
+      "total_ms": 198.5619589999601,
+      "response": "<think>\n\n</think>\n\nEl agua pura hierve a 100°C.",
+      "response_visible": "El agua pura hierve a 100°C.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_capital",
+      "language": "de",
+      "prompt": "Was ist die Hauptstadt von Australien? Antworte in einem kurzen deutschen Satz.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 89.36475000001565,
+      "first_visible_token_ms": 89.36475000001565,
+      "first_speakable_ms": 161.87945799998715,
+      "total_ms": 174.43916700000273,
+      "response": "<think>\n\n</think>\n\nDie Hauptstadt von Australien ist Sydney.",
+      "response_visible": "Die Hauptstadt von Australien ist Sydney.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "de_capital",
+      "language": "de",
+      "prompt": "Was ist die Hauptstadt von Australien? Antworte in einem kurzen deutschen Satz.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 48.66333300003589,
+      "first_visible_token_ms": 48.66333300003589,
+      "first_speakable_ms": 121.2596670000039,
+      "total_ms": 133.59058300000015,
+      "response": "<think>\n\n</think>\n\nDie Hauptstadt von Australien ist Sydney.",
+      "response_visible": "Die Hauptstadt von Australien ist Sydney.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "de_capital",
+      "language": "de",
+      "prompt": "Was ist die Hauptstadt von Australien? Antworte in einem kurzen deutschen Satz.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 44.95554099997889,
+      "first_visible_token_ms": 44.95554099997889,
+      "first_speakable_ms": 117.65137499997991,
+      "total_ms": 129.87229099996966,
+      "response": "<think>\n\n</think>\n\nDie Hauptstadt von Australien ist Sydney.",
+      "response_visible": "Die Hauptstadt von Australien ist Sydney.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "de_math",
+      "language": "de",
+      "prompt": "Was ist 15 plus 27? Antworte kurz auf Deutsch.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 71.35470800000121,
+      "first_visible_token_ms": 71.35470800000121,
+      "first_speakable_ms": 192.29279199998928,
+      "total_ms": 205.12258299999075,
+      "response": "<think>\n\n</think>\n\n15 plus 27 ist 42.",
+      "response_visible": "15 plus 27 ist 42.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_math",
+      "language": "de",
+      "prompt": "Was ist 15 plus 27? Antworte kurz auf Deutsch.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 51.761499999997795,
+      "first_visible_token_ms": 51.761499999997795,
+      "first_speakable_ms": 172.75258300003316,
+      "total_ms": 185.44412500000362,
+      "response": "<think>\n\n</think>\n\n15 plus 27 ist 42.",
+      "response_visible": "15 plus 27 ist 42.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_math",
+      "language": "de",
+      "prompt": "Was ist 15 plus 27? Antworte kurz auf Deutsch.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 50.61112499998899,
+      "first_visible_token_ms": 50.61112499998899,
+      "first_speakable_ms": 171.5284580000116,
+      "total_ms": 184.0255409999827,
+      "response": "<think>\n\n</think>\n\n15 plus 27 ist 42.",
+      "response_visible": "15 plus 27 ist 42.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_planet",
+      "language": "de",
+      "prompt": "Welcher Planet ist als roter Planet bekannt? Antworte kurz auf Deutsch.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 76.55479199996762,
+      "first_visible_token_ms": 76.55479199996762,
+      "first_speakable_ms": 283.8662919999706,
+      "total_ms": 296.4781249999646,
+      "response": "<think>\n\n</think>\n\nDer Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+      "response_visible": "Der Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_planet",
+      "language": "de",
+      "prompt": "Welcher Planet ist als roter Planet bekannt? Antworte kurz auf Deutsch.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 47.630875000038486,
+      "first_visible_token_ms": 47.630875000038486,
+      "first_speakable_ms": 258.94991600000594,
+      "total_ms": 272.2992500000032,
+      "response": "<think>\n\n</think>\n\nDer Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+      "response_visible": "Der Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "de_planet",
+      "language": "de",
+      "prompt": "Welcher Planet ist als roter Planet bekannt? Antworte kurz auf Deutsch.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 59.179292000010264,
+      "first_visible_token_ms": 59.179292000010264,
+      "first_speakable_ms": 272.0341250000047,
+      "total_ms": 284.4064999999887,
+      "response": "<think>\n\n</think>\n\nDer Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+      "response_visible": "Der Planet, der als \"roter Planet\" bekannt ist, ist **Mars**.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_capital",
+      "language": "it",
+      "prompt": "Qual è la capitale del Portogallo? Rispondi con una breve frase in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 79.2352910000318,
+      "first_visible_token_ms": 79.2352910000318,
+      "first_speakable_ms": 189.21037500001603,
+      "total_ms": 201.25504100002445,
+      "response": "<think>\n\n</think>\n\nLa capitale del Portogallo è Lisbona.",
+      "response_visible": "La capitale del Portogallo è Lisbona.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_capital",
+      "language": "it",
+      "prompt": "Qual è la capitale del Portogallo? Rispondi con una breve frase in italiano.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 52.00070799998002,
+      "first_visible_token_ms": 52.00070799998002,
+      "first_speakable_ms": 160.50691599997435,
+      "total_ms": 173.26266599997098,
+      "response": "<think>\n\n</think>\n\nLa capitale del Portogallo è Lisbona.",
+      "response_visible": "La capitale del Portogallo è Lisbona.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_capital",
+      "language": "it",
+      "prompt": "Qual è la capitale del Portogallo? Rispondi con una breve frase in italiano.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 50.33091699999659,
+      "first_visible_token_ms": 50.33091699999659,
+      "first_speakable_ms": 158.95508300002348,
+      "total_ms": 171.44712499998604,
+      "response": "<think>\n\n</think>\n\nLa capitale del Portogallo è Lisbona.",
+      "response_visible": "La capitale del Portogallo è Lisbona.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "it_math",
+      "language": "it",
+      "prompt": "Quanto fa 9 per 7? Rispondi brevemente in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 76.14091600004258,
+      "first_visible_token_ms": 76.14091600004258,
+      "first_speakable_ms": 223.24312500001042,
+      "total_ms": 235.83350000001246,
+      "response": "<think>\n\n</think>\n\n9 div 7 è circa 1,285.",
+      "response_visible": "9 div 7 è circa 1,285.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "it_math",
+      "language": "it",
+      "prompt": "Quanto fa 9 per 7? Rispondi brevemente in italiano.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 57.21141700001908,
+      "first_visible_token_ms": 57.21141700001908,
+      "first_speakable_ms": 212.11116700004595,
+      "total_ms": 224.41658300004974,
+      "response": "<think>\n\n</think>\n\n9 div 7 è circa 1,285.",
+      "response_visible": "9 div 7 è circa 1,285.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "it_math",
+      "language": "it",
+      "prompt": "Quanto fa 9 per 7? Rispondi brevemente in italiano.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 43.77408400000604,
+      "first_visible_token_ms": 43.77408400000604,
+      "first_speakable_ms": 187.8697500000044,
+      "total_ms": 200.5715419999774,
+      "response": "<think>\n\n</think>\n\n9 div 7 è circa 1,285.",
+      "response_visible": "9 div 7 è circa 1,285.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "it_ocean",
+      "language": "it",
+      "prompt": "Qual è l'oceano più grande della Terra? Rispondi brevemente in italiano.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 107.25316600002088,
+      "first_visible_token_ms": 107.25316600002088,
+      "first_speakable_ms": 273.59679099998857,
+      "total_ms": 285.8467080000082,
+      "response": "<think>\n\n</think>\n\nL'oceano più grande della Terra è l'Atlantico.",
+      "response_visible": "L'oceano più grande della Terra è l'Atlantico.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "it_ocean",
+      "language": "it",
+      "prompt": "Qual è l'oceano più grande della Terra? Rispondi brevemente in italiano.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 40.59866699998338,
+      "first_visible_token_ms": 40.59866699998338,
+      "first_speakable_ms": 210.44662500003142,
+      "total_ms": 222.61070900003688,
+      "response": "<think>\n\n</think>\n\nL'oceano più grande della Terra è l'Atlantico.",
+      "response_visible": "L'oceano più grande della Terra è l'Atlantico.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "it_ocean",
+      "language": "it",
+      "prompt": "Qual è l'oceano più grande della Terra? Rispondi brevemente in italiano.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 53.53850000000193,
+      "first_visible_token_ms": 53.53850000000193,
+      "first_speakable_ms": 225.85441699999365,
+      "total_ms": 239.15045799998325,
+      "response": "<think>\n\n</think>\n\nL'oceano più grande della Terra è l'Atlantico.",
+      "response_visible": "L'oceano più grande della Terra è l'Atlantico.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "fr_capital",
+      "language": "fr",
+      "prompt": "Quelle est la capitale de l'Allemagne ? Réponds par une courte phrase en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 89.10466700001507,
+      "first_visible_token_ms": 89.10466700001507,
+      "first_speakable_ms": 223.39916700002505,
+      "total_ms": 236.6987080000058,
+      "response": "<think>\n\n</think>\n\nLa capitale de l'Allemagne est la ville de Berlin.",
+      "response_visible": "La capitale de l'Allemagne est la ville de Berlin.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_capital",
+      "language": "fr",
+      "prompt": "Quelle est la capitale de l'Allemagne ? Réponds par une courte phrase en français.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 55.234541000004356,
+      "first_visible_token_ms": 55.234541000004356,
+      "first_speakable_ms": 189.35120800000504,
+      "total_ms": 202.4597500000027,
+      "response": "<think>\n\n</think>\n\nLa capitale de l'Allemagne est la ville de Berlin.",
+      "response_visible": "La capitale de l'Allemagne est la ville de Berlin.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_capital",
+      "language": "fr",
+      "prompt": "Quelle est la capitale de l'Allemagne ? Réponds par une courte phrase en français.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 53.41529200001105,
+      "first_visible_token_ms": 53.41529200001105,
+      "first_speakable_ms": 187.9380420000416,
+      "total_ms": 200.76616700004024,
+      "response": "<think>\n\n</think>\n\nLa capitale de l'Allemagne est la ville de Berlin.",
+      "response_visible": "La capitale de l'Allemagne est la ville de Berlin.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_math",
+      "language": "fr",
+      "prompt": "Combien font 14 multiplié par 6 ? Réponds brièvement en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 98.80920799997739,
+      "first_visible_token_ms": 98.80920799997739,
+      "first_speakable_ms": 196.60962500000778,
+      "total_ms": 209.4698330000142,
+      "response": "<think>\n\n</think>\n\n14 × 6 = 84",
+      "response_visible": "14 × 6 = 84",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_math",
+      "language": "fr",
+      "prompt": "Combien font 14 multiplié par 6 ? Réponds brièvement en français.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 53.6563339999816,
+      "first_visible_token_ms": 53.6563339999816,
+      "first_speakable_ms": 150.9953749999795,
+      "total_ms": 163.43895899996141,
+      "response": "<think>\n\n</think>\n\n14 × 6 = 84",
+      "response_visible": "14 × 6 = 84",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_math",
+      "language": "fr",
+      "prompt": "Combien font 14 multiplié par 6 ? Réponds brièvement en français.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 48.20808299996315,
+      "first_visible_token_ms": 48.20808299996315,
+      "first_speakable_ms": 143.49412499996106,
+      "total_ms": 155.39612499998157,
+      "response": "<think>\n\n</think>\n\n14 × 6 = 84",
+      "response_visible": "14 × 6 = 84",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_freezing",
+      "language": "fr",
+      "prompt": "À pression normale, à quelle température Celsius l'eau pure gèle-t-elle ? Réponds brièvement en français.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 75.649124999984,
+      "first_visible_token_ms": 75.649124999984,
+      "first_speakable_ms": 246.64041699998052,
+      "total_ms": 259.0976669999918,
+      "response": "<think>\n\n</think>\n\nÀ la pression normale, l'eau pure gèle à 0°C.",
+      "response_visible": "À la pression normale, l'eau pure gèle à 0°C.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_freezing",
+      "language": "fr",
+      "prompt": "À pression normale, à quelle température Celsius l'eau pure gèle-t-elle ? Réponds brièvement en français.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 56.45895800000744,
+      "first_visible_token_ms": 56.45895800000744,
+      "first_speakable_ms": 228.23529099997586,
+      "total_ms": 241.71812499997714,
+      "response": "<think>\n\n</think>\n\nÀ la pression normale, l'eau pure gèle à 0°C.",
+      "response_visible": "À la pression normale, l'eau pure gèle à 0°C.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "fr_freezing",
+      "language": "fr",
+      "prompt": "À pression normale, à quelle température Celsius l'eau pure gèle-t-elle ? Réponds brièvement en français.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 56.08995800002958,
+      "first_visible_token_ms": 56.08995800002958,
+      "first_speakable_ms": 222.16558300004863,
+      "total_ms": 234.34445800000958,
+      "response": "<think>\n\n</think>\n\nÀ la pression normale, l'eau pure gèle à 0°C.",
+      "response_visible": "À la pression normale, l'eau pure gèle à 0°C.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_capital",
+      "language": "zh",
+      "prompt": "澳大利亚的首都是哪里？请用简短的中文句子回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 69.23458300002494,
+      "first_visible_token_ms": 69.23458300002494,
+      "first_speakable_ms": 82.06379200004221,
+      "total_ms": 94.34562500001675,
+      "response": "<think>\n\n</think>\n\n悉尼。",
+      "response_visible": "悉尼。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "zh_capital",
+      "language": "zh",
+      "prompt": "澳大利亚的首都是哪里？请用简短的中文句子回答。",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 39.192084000035265,
+      "first_visible_token_ms": 39.192084000035265,
+      "first_speakable_ms": 51.919166999994104,
+      "total_ms": 64.12637500000073,
+      "response": "<think>\n\n</think>\n\n悉尼。",
+      "response_visible": "悉尼。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "zh_capital",
+      "language": "zh",
+      "prompt": "澳大利亚的首都是哪里？请用简短的中文句子回答。",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 38.30874999999878,
+      "first_visible_token_ms": 38.30874999999878,
+      "first_speakable_ms": 51.136458000030416,
+      "total_ms": 62.5295830000141,
+      "response": "<think>\n\n</think>\n\n悉尼。",
+      "response_visible": "悉尼。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "zh_math",
+      "language": "zh",
+      "prompt": "18加24等于多少？请用中文简短回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 62.60537499997554,
+      "first_visible_token_ms": 62.60537499997554,
+      "first_speakable_ms": 170.46941699999252,
+      "total_ms": 182.00704200000928,
+      "response": "<think>\n\n</think>\n\n18 + 24 = 42",
+      "response_visible": "18 + 24 = 42",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_math",
+      "language": "zh",
+      "prompt": "18加24等于多少？请用中文简短回答。",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 42.48975000001565,
+      "first_visible_token_ms": 42.48975000001565,
+      "first_speakable_ms": 150.60570899998993,
+      "total_ms": 163.0415420000304,
+      "response": "<think>\n\n</think>\n\n18 + 24 = 42",
+      "response_visible": "18 + 24 = 42",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_math",
+      "language": "zh",
+      "prompt": "18加24等于多少？请用中文简短回答。",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 46.82904199995619,
+      "first_visible_token_ms": 46.82904199995619,
+      "first_speakable_ms": 154.6266249999917,
+      "total_ms": 167.0986669999479,
+      "response": "<think>\n\n</think>\n\n18 + 24 = 42",
+      "response_visible": "18 + 24 = 42",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "zh_moon",
+      "language": "zh",
+      "prompt": "地球唯一的天然卫星是什么？请用中文简短回答。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 74.77425000001858,
+      "first_visible_token_ms": 74.77425000001858,
+      "first_speakable_ms": 87.07329200001368,
+      "total_ms": 99.43462500001488,
+      "response": "<think>\n\n</think>\n\n木星。",
+      "response_visible": "木星。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "zh_moon",
+      "language": "zh",
+      "prompt": "地球唯一的天然卫星是什么？请用中文简短回答。",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 42.30733299999656,
+      "first_visible_token_ms": 42.30733299999656,
+      "first_speakable_ms": 54.35008300003119,
+      "total_ms": 66.56116700003167,
+      "response": "<think>\n\n</think>\n\n木星。",
+      "response_visible": "木星。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "zh_moon",
+      "language": "zh",
+      "prompt": "地球唯一的天然卫星是什么？请用中文简短回答。",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 37.15433299998949,
+      "first_visible_token_ms": 37.15433299998949,
+      "first_speakable_ms": 49.980583000035494,
+      "total_ms": 62.11512499999117,
+      "response": "<think>\n\n</think>\n\n木星。",
+      "response_visible": "木星。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ja_capital",
+      "language": "ja",
+      "prompt": "カナダの首都はどこですか。日本語の短い一文で答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 64.58183400002326,
+      "first_visible_token_ms": 64.58183400002326,
+      "first_speakable_ms": 172.8462920000311,
+      "total_ms": 185.34495900001957,
+      "response": "<think>\n\n</think>\n\nカナダの首都はオバカです。",
+      "response_visible": "カナダの首都はオバカです。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ja_capital",
+      "language": "ja",
+      "prompt": "カナダの首都はどこですか。日本語の短い一文で答えてください。",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 47.52533299995321,
+      "first_visible_token_ms": 47.52533299995321,
+      "first_speakable_ms": 155.76412499996195,
+      "total_ms": 168.15349999995988,
+      "response": "<think>\n\n</think>\n\nカナダの首都はオバカです。",
+      "response_visible": "カナダの首都はオバカです。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ja_capital",
+      "language": "ja",
+      "prompt": "カナダの首都はどこですか。日本語の短い一文で答えてください。",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 44.93141700004344,
+      "first_visible_token_ms": 44.93141700004344,
+      "first_speakable_ms": 152.41416700001764,
+      "total_ms": 164.93858300003694,
+      "response": "<think>\n\n</think>\n\nカナダの首都はオバカです。",
+      "response_visible": "カナダの首都はオバカです。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ja_math",
+      "language": "ja",
+      "prompt": "7かける8はいくつですか。日本語で短く答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 74.15020899998126,
+      "first_visible_token_ms": 74.15020899998126,
+      "first_speakable_ms": 160.23158399997328,
+      "total_ms": 172.15391700000282,
+      "response": "<think>\n\n</think>\n\n7 × 8 = 56",
+      "response_visible": "7 × 8 = 56",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ja_math",
+      "language": "ja",
+      "prompt": "7かける8はいくつですか。日本語で短く答えてください。",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 48.58820799995556,
+      "first_visible_token_ms": 48.58820799995556,
+      "first_speakable_ms": 133.23249999996278,
+      "total_ms": 145.7410829999617,
+      "response": "<think>\n\n</think>\n\n7 × 8 = 56",
+      "response_visible": "7 × 8 = 56",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ja_math",
+      "language": "ja",
+      "prompt": "7かける8はいくつですか。日本語で短く答えてください。",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 47.39312500004189,
+      "first_visible_token_ms": 47.39312500004189,
+      "first_speakable_ms": 131.443250000018,
+      "total_ms": 143.80470800000467,
+      "response": "<think>\n\n</think>\n\n7 × 8 = 56",
+      "response_visible": "7 × 8 = 56",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ja_planet",
+      "language": "ja",
+      "prompt": "赤い惑星として知られる惑星は何ですか。日本語で短く答えてください。",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 73.30220900001905,
+      "first_visible_token_ms": 73.30220900001905,
+      "first_speakable_ms": 220.70895900003507,
+      "total_ms": 233.8766670000041,
+      "response": "<think>\n\n</think>\n\n赤い惑星は「赤い惑星」です。",
+      "response_visible": "赤い惑星は「赤い惑星」です。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ja_planet",
+      "language": "ja",
+      "prompt": "赤い惑星として知られる惑星は何ですか。日本語で短く答えてください。",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 56.266957999980605,
+      "first_visible_token_ms": 56.266957999980605,
+      "first_speakable_ms": 203.33841699999766,
+      "total_ms": 216.4209580000147,
+      "response": "<think>\n\n</think>\n\n赤い惑星は「赤い惑星」です。",
+      "response_visible": "赤い惑星は「赤い惑星」です。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ja_planet",
+      "language": "ja",
+      "prompt": "赤い惑星として知られる惑星は何ですか。日本語で短く答えてください。",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 54.11195799996449,
+      "first_visible_token_ms": 54.11195799996449,
+      "first_speakable_ms": 200.6517909999843,
+      "total_ms": 213.1632499999796,
+      "response": "<think>\n\n</think>\n\n赤い惑星は「赤い惑星」です。",
+      "response_visible": "赤い惑星は「赤い惑星」です。",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ko_capital",
+      "language": "ko",
+      "prompt": "독일의 수도는 어디인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 86.82895900000176,
+      "first_visible_token_ms": 86.82895900000176,
+      "first_speakable_ms": 196.90216700001884,
+      "total_ms": 210.11083400003372,
+      "response": "<think>\n\n</think>\n\n독일의 수도는 베르리나입니다.",
+      "response_visible": "독일의 수도는 베르리나입니다.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ko_capital",
+      "language": "ko",
+      "prompt": "독일의 수도는 어디인가요? 한국어로 짧게 답하세요.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 52.0905000000198,
+      "first_visible_token_ms": 52.0905000000198,
+      "first_speakable_ms": 162.03775000002452,
+      "total_ms": 174.75070800003323,
+      "response": "<think>\n\n</think>\n\n독일의 수도는 베르리나입니다.",
+      "response_visible": "독일의 수도는 베르리나입니다.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ko_capital",
+      "language": "ko",
+      "prompt": "독일의 수도는 어디인가요? 한국어로 짧게 답하세요.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 50.675417000036305,
+      "first_visible_token_ms": 50.675417000036305,
+      "first_speakable_ms": 159.4059580000362,
+      "total_ms": 171.98658300003444,
+      "response": "<think>\n\n</think>\n\n독일의 수도는 베르리나입니다.",
+      "response_visible": "독일의 수도는 베르리나입니다.",
+      "pass": false,
+      "usage": null
+    },
+    {
+      "case_id": "ko_math",
+      "language": "ko",
+      "prompt": "13 더하기 19는 얼마인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 74.63766600000099,
+      "first_visible_token_ms": 74.63766600000099,
+      "first_speakable_ms": 184.74962500005176,
+      "total_ms": 197.89050000002817,
+      "response": "<think>\n\n</think>\n\n19 + 13 = 32",
+      "response_visible": "19 + 13 = 32",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_math",
+      "language": "ko",
+      "prompt": "13 더하기 19는 얼마인가요? 한국어로 짧게 답하세요.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 53.463209000028655,
+      "first_visible_token_ms": 53.463209000028655,
+      "first_speakable_ms": 162.71416700004693,
+      "total_ms": 174.74508400005107,
+      "response": "<think>\n\n</think>\n\n19 + 13 = 32",
+      "response_visible": "19 + 13 = 32",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_math",
+      "language": "ko",
+      "prompt": "13 더하기 19는 얼마인가요? 한국어로 짧게 답하세요.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 51.38216599999623,
+      "first_visible_token_ms": 51.38216599999623,
+      "first_speakable_ms": 160.20300000002408,
+      "total_ms": 172.90766600001461,
+      "response": "<think>\n\n</think>\n\n19 + 13 = 32",
+      "response_visible": "19 + 13 = 32",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_planet",
+      "language": "ko",
+      "prompt": "태양계에서 가장 큰 행성은 무엇인가요? 한국어로 짧게 답하세요.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 76.38354099998423,
+      "first_visible_token_ms": 76.38354099998423,
+      "first_speakable_ms": 237.00612499999352,
+      "total_ms": 250.75916599996617,
+      "response": "<think>\n\n</think>\n\n행성계에서 가장 큰 행성은 목성 (목성).",
+      "response_visible": "행성계에서 가장 큰 행성은 목성 (목성).",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_planet",
+      "language": "ko",
+      "prompt": "태양계에서 가장 큰 행성은 무엇인가요? 한국어로 짧게 답하세요.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 56.39662499999076,
+      "first_visible_token_ms": 56.39662499999076,
+      "first_speakable_ms": 216.5236660000005,
+      "total_ms": 229.46445799999537,
+      "response": "<think>\n\n</think>\n\n행성계에서 가장 큰 행성은 목성 (목성).",
+      "response_visible": "행성계에서 가장 큰 행성은 목성 (목성).",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ko_planet",
+      "language": "ko",
+      "prompt": "태양계에서 가장 큰 행성은 무엇인가요? 한국어로 짧게 답하세요.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 55.321583000022656,
+      "first_visible_token_ms": 55.321583000022656,
+      "first_speakable_ms": 214.31141699997625,
+      "total_ms": 227.20270799999298,
+      "response": "<think>\n\n</think>\n\n행성계에서 가장 큰 행성은 목성 (목성).",
+      "response_visible": "행성계에서 가장 큰 행성은 목성 (목성).",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_capital",
+      "language": "ru",
+      "prompt": "Какова столица Японии? Ответь одним коротким предложением по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 90.10225000002947,
+      "first_visible_token_ms": 90.10225000002947,
+      "first_speakable_ms": 186.80554100001245,
+      "total_ms": 199.46704100004808,
+      "response": "<think>\n\n</think>\n\nСтолица Японии — это Токио.",
+      "response_visible": "Столица Японии — это Токио.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_capital",
+      "language": "ru",
+      "prompt": "Какова столица Японии? Ответь одним коротким предложением по-русски.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 52.548458999979175,
+      "first_visible_token_ms": 52.548458999979175,
+      "first_speakable_ms": 150.03366700000242,
+      "total_ms": 162.49299999998357,
+      "response": "<think>\n\n</think>\n\nСтолица Японии — это Токио.",
+      "response_visible": "Столица Японии — это Токио.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_capital",
+      "language": "ru",
+      "prompt": "Какова столица Японии? Ответь одним коротким предложением по-русски.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 49.17962500002204,
+      "first_visible_token_ms": 49.17962500002204,
+      "first_speakable_ms": 146.2591250000287,
+      "total_ms": 158.15700000001698,
+      "response": "<think>\n\n</think>\n\nСтолица Японии — это Токио.",
+      "response_visible": "Столица Японии — это Токио.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_math",
+      "language": "ru",
+      "prompt": "Сколько будет 11 умножить на 12? Ответь кратко по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 89.01870799996914,
+      "first_visible_token_ms": 89.01870799996914,
+      "first_speakable_ms": 263.341999999966,
+      "total_ms": 277.08512499998506,
+      "response": "<think>\n\n</think>\n\n11 умножить на 12 получится 132.",
+      "response_visible": "11 умножить на 12 получится 132.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_math",
+      "language": "ru",
+      "prompt": "Сколько будет 11 умножить на 12? Ответь кратко по-русски.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 55.271875000016735,
+      "first_visible_token_ms": 55.271875000016735,
+      "first_speakable_ms": 228.8413750000018,
+      "total_ms": 242.68791700001202,
+      "response": "<think>\n\n</think>\n\n11 умножить на 12 получится 132.",
+      "response_visible": "11 умножить на 12 получится 132.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_math",
+      "language": "ru",
+      "prompt": "Сколько будет 11 умножить на 12? Ответь кратко по-русски.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 58.2152079999787,
+      "first_visible_token_ms": 58.2152079999787,
+      "first_speakable_ms": 230.5577079999921,
+      "total_ms": 243.3825829999705,
+      "response": "<think>\n\n</think>\n\n11 умножить на 12 получится 132.",
+      "response_visible": "11 умножить на 12 получится 132.",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_freezing",
+      "language": "ru",
+      "prompt": "При нормальном давлении при какой температуре Цельсия замерзает чистая вода? Ответь кратко по-русски.",
+      "repetition": 0,
+      "measured": true,
+      "first_token_ms": 104.29966700002069,
+      "first_visible_token_ms": 104.29966700002069,
+      "first_speakable_ms": 318.01779200003466,
+      "total_ms": 424.93154200002436,
+      "response": "<think>\n\n</think>\n\nПри нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+      "response_visible": "При нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_freezing",
+      "language": "ru",
+      "prompt": "При нормальном давлении при какой температуре Цельсия замерзает чистая вода? Ответь кратко по-русски.",
+      "repetition": 1,
+      "measured": true,
+      "first_token_ms": 60.95458299995471,
+      "first_visible_token_ms": 60.95458299995471,
+      "first_speakable_ms": 273.4289999999646,
+      "total_ms": 385.1209160000053,
+      "response": "<think>\n\n</think>\n\nПри нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+      "response_visible": "При нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+      "pass": true,
+      "usage": null
+    },
+    {
+      "case_id": "ru_freezing",
+      "language": "ru",
+      "prompt": "При нормальном давлении при какой температуре Цельсия замерзает чистая вода? Ответь кратко по-русски.",
+      "repetition": 2,
+      "measured": true,
+      "first_token_ms": 45.54999999999154,
+      "first_visible_token_ms": 45.54999999999154,
+      "first_speakable_ms": 262.2409580000067,
+      "total_ms": 374.463124999977,
+      "response": "<think>\n\n</think>\n\nПри нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+      "response_visible": "При нормальном давлении чистая вода замерзает при температуре 0 °C (32 °F).",
+      "pass": true,
+      "usage": null
+    }
+  ]
+}

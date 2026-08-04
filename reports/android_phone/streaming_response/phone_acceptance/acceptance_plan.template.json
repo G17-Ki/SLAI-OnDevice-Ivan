@@ -1,0 +1,102 @@
+{
+  "name": "nubia-0.4.1-public-acceptance-template",
+  "resetTelemetry": true,
+  "cooldownMs": 900,
+  "cases": [
+    {
+      "name": "english_voice_response",
+      "mode": "chat",
+      "language": "en",
+      "audio": "vendor/liquid-audio/assets/question.wav",
+      "expected_input": "Can you help me come up with a slogan for my woodworking site business?",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "sapphire_history_turn_1",
+      "mode": "chat",
+      "language": "en",
+      "audio": "work/phone_acceptance/fixtures/sapphire_turn1.wav",
+      "expected_input": "Please remember that the passphrase is sapphire. Reply in one short sentence.",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "sapphire_history_turn_2",
+      "mode": "chat",
+      "language": "en",
+      "audio": "work/phone_acceptance/fixtures/sapphire_turn2.wav",
+      "expected_input": "What is the passphrase?"
+    },
+    {
+      "name": "explicit_fr_chat",
+      "mode": "chat",
+      "language": "fr",
+      "audio": "work/phone_acceptance/fixtures/fr_language.wav",
+      "expected_input": "Dis-moi brièvement quelle est la capitale de la France.",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "explicit_it_chat",
+      "mode": "chat",
+      "language": "it",
+      "audio": "work/phone_acceptance/fixtures/it_language.wav",
+      "expected_input": "Dimmi brevemente qual è la capitale d'Italia.",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "explicit_es_chat",
+      "mode": "chat",
+      "language": "es",
+      "audio": "work/phone_acceptance/fixtures/es_language.wav",
+      "expected_input": "Dime brevemente cuál es la capital de España.",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "auto_zh_asr",
+      "mode": "asr",
+      "language": "auto",
+      "audio": "work/phone_acceptance/fixtures/zh_language.wav",
+      "expected_input": "请用中文只输出中国的首都。",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "explicit_zh_chat",
+      "mode": "chat",
+      "language": "zh",
+      "audio": "work/phone_acceptance/fixtures/zh_language.wav",
+      "expected_input": "请用中文只输出中国的首都。",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "auto_zh_chat",
+      "mode": "chat",
+      "language": "auto",
+      "audio": "work/phone_acceptance/fixtures/zh_language.wav",
+      "expected_input": "请用中文只输出中国的首都。",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "auto_ru_asr",
+      "mode": "asr",
+      "language": "auto",
+      "audio": "work/phone_acceptance/fixtures/ru_language.wav",
+      "expected_input": "Скажи кратко, как называется столица России.",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "explicit_ru_chat",
+      "mode": "chat",
+      "language": "ru",
+      "audio": "work/phone_acceptance/fixtures/ru_language.wav",
+      "expected_input": "Скажи кратко, как называется столица России.",
+      "clearHistoryBefore": true
+    },
+    {
+      "name": "auto_ru_chat",
+      "mode": "chat",
+      "language": "auto",
+      "audio": "work/phone_acceptance/fixtures/ru_language.wav",
+      "expected_input": "Скажи кратко, как называется столица России.",
+      "clearHistoryBefore": true
+    }
+  ]
+}

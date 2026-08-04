@@ -1,0 +1,158 @@
+{
+  "totals": {
+    "bf16_downloaded_runtime_checkpoints_bytes": 3639506404,
+    "bf16_downloaded_runtime_checkpoints_gib": 3.389554474502802,
+    "q4_gguf_bundle_bytes": 1074794688,
+    "q4_gguf_bundle_gib": 1.0009805560112
+  },
+  "architecture": {
+    "attention_layers": 6,
+    "convolution_layers": 10,
+    "hidden_size": 2048,
+    "attention_heads": 32,
+    "kv_heads": 8,
+    "head_dim": 64,
+    "conv_cache_length": 3,
+    "kv_elements_per_position": 6144
+  },
+  "rows": [
+    {
+      "category": "measured file",
+      "item": "BF16 main checkpoint",
+      "bytes": 2940723992,
+      "mib": 2804.4929428100586,
+      "source": "<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/model.safetensors"
+    },
+    {
+      "category": "measured file",
+      "item": "BF16 input audio tokenizer checkpoint",
+      "bytes": 384644900,
+      "mib": 366.8259620666504,
+      "source": "<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/tokenizer-e351c8d8-checkpoint125.safetensors"
+    },
+    {
+      "category": "measured file",
+      "item": "FP32 output audio detokenizer checkpoint",
+      "bytes": 314137512,
+      "mib": 299.58487701416016,
+      "source": "<workspace>/work/cache/huggingface/hub/models--LiquidAI--LFM2.5-Audio-1.5B/snapshots/c362a0625dfe45aa588dce5f0ada28a7e5707628/audio_detokenizer/model.safetensors"
+    },
+    {
+      "category": "measured file",
+      "item": "Q4 backbone/main GGUF",
+      "bytes": 695750880,
+      "mib": 663.5197448730469,
+      "source": "<workspace>/work/models/lfm25-audio-gguf/LFM2.5-Audio-1.5B-Q4_0.gguf"
+    },
+    {
+      "category": "measured file",
+      "item": "Q4 audio projection/encoder GGUF",
+      "bytes": 219511136,
+      "mib": 209.34213256835938,
+      "source": "<workspace>/work/models/lfm25-audio-gguf/mmproj-LFM2.5-Audio-1.5B-Q4_0.gguf"
+    },
+    {
+      "category": "measured file",
+      "item": "Q4 vocoder GGUF",
+      "bytes": 108986560,
+      "mib": 103.93768310546875,
+      "source": "<workspace>/work/models/lfm25-audio-gguf/vocoder-LFM2.5-Audio-1.5B-Q4_0.gguf"
+    },
+    {
+      "category": "measured file",
+      "item": "Q4 tokenizer GGUF",
+      "bytes": 50546112,
+      "mib": 48.20452880859375,
+      "source": "<workspace>/work/models/lfm25-audio-gguf/tokenizer-LFM2.5-Audio-1.5B-Q4_0.gguf"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 4096 positions, BF16/FP16",
+      "bytes": 50331648,
+      "mib": 48.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 8192 positions, BF16/FP16",
+      "bytes": 100663296,
+      "mib": 96.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 16384 positions, BF16/FP16",
+      "bytes": 201326592,
+      "mib": 192.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 32768 positions, BF16/FP16",
+      "bytes": 402653184,
+      "mib": 384.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 128000 positions, BF16/FP16",
+      "bytes": 1572864000,
+      "mib": 1500.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM fixed convolution cache, BF16/FP16",
+      "bytes": 122880,
+      "mib": 0.1171875,
+      "source": "Derived from pinned config: 10 conv layers x hidden 2048 x cache length 3"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 4096 positions, INT8",
+      "bytes": 25165824,
+      "mib": 24.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 8192 positions, INT8",
+      "bytes": 50331648,
+      "mib": 48.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 16384 positions, INT8",
+      "bytes": 100663296,
+      "mib": 96.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 32768 positions, INT8",
+      "bytes": 201326592,
+      "mib": 192.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM backbone KV cache, 128000 positions, INT8",
+      "bytes": 786432000,
+      "mib": 750.0,
+      "source": "Derived from pinned config: 6 attention layers, 8 KV heads, head_dim 64, K+V"
+    },
+    {
+      "category": "derived cache",
+      "item": "LFM fixed convolution cache, INT8",
+      "bytes": 61440,
+      "mib": 0.05859375,
+      "source": "Derived from pinned config: 10 conv layers x hidden 2048 x cache length 3"
+    }
+  ],
+  "limitations": [
+    "File sizes are static storage, not total resident application memory.",
+    "Cache estimates exclude allocator alignment, QNN context buffers, activations, VAD, audio I/O, and the application.",
+    "The Q4 bundle is a macOS/llama.cpp packaging reference, not a QNN artifact or AR1 fit measurement."
+  ]
+}

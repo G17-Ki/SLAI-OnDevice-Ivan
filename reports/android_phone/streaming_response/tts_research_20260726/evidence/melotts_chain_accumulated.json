@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "variant": "accumulated",
+  "target": {
+    "device": "Snapdragon 8 Elite Gen 5 QRD",
+    "os": "16",
+    "chipset": "sm8850",
+    "htp": "v81",
+    "requested_qairt": "2.45"
+  },
+  "model_ids": {
+    "bert_wrapper": "mngxvev5q",
+    "encoder": "mqk5d8d7q",
+    "flow": "mmxkydy2n",
+    "decoder": "mmr8ygo6n"
+  },
+  "job_ids": {
+    "bert": "jprw64wv5",
+    "encoder": "jp064162p",
+    "flow": "jpv7q177p",
+    "decoder": "jgd2nr2k5"
+  },
+  "fixture": {
+    "dir_name": "melotts-fixture-20260726",
+    "text": "北京是中国的首都，也是全国的政治和文化中心。",
+    "normalized_text": "北京是中国的首都,也是全国的政治和文化中心.",
+    "phone_count": 89,
+    "y_length_frames": 351,
+    "decoder_call_count": 9
+  },
+  "remote_audio": {
+    "samples": 179712,
+    "duration_s": 4.0751020408163265,
+    "finite": true,
+    "peak_abs": 0.41683828830718994,
+    "wav": "remote_accumulated.wav"
+  },
+  "comparisons": {
+    "bert.hidden_states": {
+      "finite": true,
+      "nonfinite_count": 0,
+      "max_abs": 0.14794540405273438,
+      "mean_abs": 0.006971680434228726,
+      "nrmse": 0.008499128791565818,
+      "cosine": 0.9999648583036289
+    },
+    "encoder": {
+      "m_p": {
+        "finite": true,
+        "nonfinite_count": 0,
+        "max_abs": 0.06251212954521179,
+        "mean_abs": 0.00024706316058888816,
+        "nrmse": 0.01220062524741563,
+        "cosine": 0.999925575636077
+      },
+      "logs_p": {
+        "finite": true,
+        "nonfinite_count": 0,
+        "max_abs": 0.006282418966293335,
+        "mean_abs": 5.226410890675955e-05,
+        "nrmse": 0.0004168518803293529,
+        "cosine": 0.9999999144575884
+      },
+      "w_ceil": {
+        "finite": true,
+        "nonfinite_count": 0,
+        "max_abs": 1.0,
+        "mean_abs": 0.021484375,
+        "nrmse": 0.08320212031959598,
+        "cosine": 0.9968528198121961
+      },
+      "y_lengths": {
+        "finite": true,
+        "nonfinite_count": 0,
+        "max_abs": 11.0,
+        "mean_abs": 11.0,
+        "nrmse": 0.03133903133903134,
+        "cosine": 1.0
+      },
+      "x_mask": {
+        "finite": true,
+        "nonfinite_count": 0,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "nrmse": 0.0,
+        "cosine": 1.0000000000000002
+      },
+      "g": {
+        "finite": true,
+        "nonfinite_count": 0,
+        "max_abs": 0.00018721818923950195,
+        "mean_abs": 1.0274307122415394e-05,
+        "nrmse": 0.00019191329907135835,
+        "cosine": 0.999999981710616
+      }
+    },
+    "flow.z": {
+      "finite": true,
+      "nonfinite_count": 0,
+      "max_abs": 0.1923614740371704,
+      "mean_abs": 0.001968310997759416,
+      "nrmse": 0.008746447237936024,
+      "cosine": 0.999961958015735
+    },
+    "decoder.stitched_audio": {
+      "finite": true,
+      "nonfinite_count": 0,
+      "max_abs": 0.3631998598575592,
+      "mean_abs": 0.007972786226288496,
+      "nrmse": 0.3595767271818969,
+      "cosine": 0.9343972172170879
+    }
+  }
+}

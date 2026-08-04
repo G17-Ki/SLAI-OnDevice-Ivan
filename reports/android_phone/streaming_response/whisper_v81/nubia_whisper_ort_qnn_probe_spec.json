@@ -1,0 +1,287 @@
+{
+  "accepted_packages": {
+    "ai.liquid.lfmdemo": {
+      "sha256": "a24e203a30dcaaf9215dc3f0d5b99fa4b893a9e0ceca71c99c13e49bdb1b020a"
+    },
+    "ai.liquid.lfmdemo.runtime": {
+      "sha256": "33bf0d6d284d6eaad96308f22a8d10c3879ba6d0b792f893486be03f0a17e244"
+    }
+  },
+  "apk_policy": {
+    "compile_sdk": 35,
+    "launcher": "ai.liquid.lfmdemo.whisperprobe.ProbeActivity",
+    "min_sdk": 28,
+    "native_abis": [
+      "arm64-v8a"
+    ],
+    "optional_native_libraries": [
+      "libcdsprpc.so"
+    ],
+    "package": "ai.liquid.lfmdemo.whisperprobe",
+    "permissions": [],
+    "required_native_libraries": [],
+    "required_optional_features": [
+      "android.hardware.microphone"
+    ],
+    "signing": {
+      "certificate_sha256": "9ad7b2846b7c18853b99e444d4d05323321b3a9118c13c5a8fc242e58b5859e4",
+      "signer_count": 1,
+      "source_stamp": false,
+      "v1": false,
+      "v2": true,
+      "v3": false,
+      "v3_1": false,
+      "v4": false
+    },
+    "target_sdk": 35,
+    "version_code": 1,
+    "version_name": "0.1.0-ort-qnn-probe"
+  },
+  "claim_boundary": {
+    "final_runtime_integration": false,
+    "probe_package_feasibility_only": true,
+    "real_audio_acceptance": false
+  },
+  "embedded_manifest": {
+    "build_inputs": {
+      "model_archive": {
+        "bytes": 294053273,
+        "filename": "whisper_small_quantized-precompiled_qnn_onnx-w8a16-qualcomm_snapdragon_8_elite_gen5-v0.55.0.zip",
+        "sha256": "3cc2d238a167b7fc9094ae02a08d5cfdab0238fd8211ccde97bb7ff2897dd1be"
+      },
+      "ort_aar": {
+        "bytes": 7720525,
+        "path": "aar/onnxruntime-android-qnn-1.25.0.aar",
+        "sha256": "397277c3e50326f5972409ca42ab5b4e69172b218557923630d68e55b11d6198"
+      },
+      "voice_ai_archive": {
+        "bytes": 294167485,
+        "config_runtime_note": "config.json requests QAIRT 2.45; only config/vocab provenance is reused. The ORT EPContext route is pinned to its own QAIRT 2.42 build.",
+        "filename": "whisper_small_quantized-voice_ai-w8a16-qualcomm_snapdragon_8_elite_gen5_for_galaxy.zip",
+        "sha256": "7472bd2bdc06d71dd95039ff2202e8bd8bf8e89dcd1a8cef02c8724dd91af69c"
+      }
+    },
+    "capabilities": {
+      "contract_enumeration": true,
+      "four_step_decode": true,
+      "microphone_input": false,
+      "prequantized_feature_fixture": true,
+      "real_audio_frontend": false,
+      "real_audio_transcription": false,
+      "session_load": true,
+      "synthetic_quantized_encoder": true,
+      "vocab_decode": true
+    },
+    "decode_contract": {
+      "attention_mask_filled_uint16": 65535,
+      "attention_mask_unfilled_uint16": 0,
+      "attention_unmask_order": [
+        199,
+        198,
+        197,
+        196
+      ],
+      "eos_token_id": 50257,
+      "initial_token_id": 50258,
+      "logits_argmax_dtype": "uint16",
+      "position_ids": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "self_kv_logical_zero_uint8": 128,
+      "steps": 4
+    },
+    "feature_fixture": {
+      "bytes": 480000,
+      "path": "whisper_probe/models/input_features.u16le",
+      "role": "prequantized_feature_fixture",
+      "sha256": "29c478d40bb98b7782280dcfbc98662cee514df7e62c180c5ba849db24a2f6a1"
+    },
+    "gate_id": "nubia_whisper_small_ort_qnn_epcontext_sm8850_probe_v1",
+    "model": {
+      "encoder_feature_dtype": "uint16",
+      "encoder_feature_shape": [
+        1,
+        80,
+        3000
+      ],
+      "encoder_feature_zero_point": 32072,
+      "id": "whisper_small_quantized",
+      "precision": "w8a16",
+      "runtime": "precompiled_qnn_onnx",
+      "tensor_contract_sha256": "b2ecfbc6d7ffabfb933a32f04a4b20f03ee7d15a40001f631372f72220f1b2a3"
+    },
+    "repository_payloads": false,
+    "runtime": {
+      "backend": "libQnnHtp.so",
+      "disable_cpu_ep_fallback": true,
+      "onnx_runtime": "1.25.0",
+      "qairt": "2.42.0.251225135753_193295",
+      "qnn_provider": "QNNExecutionProvider"
+    },
+    "schema_version": 1,
+    "target": {
+      "abi": "arm64-v8a",
+      "android_api": 28,
+      "htp_arch": "v81",
+      "package": "ai.liquid.lfmdemo.whisperprobe",
+      "soc": "SM8850"
+    },
+    "vocabulary": {
+      "base_entries": 50257,
+      "decode": "concatenate bytes, then decode UTF-8 once",
+      "empty_token_id": 50256,
+      "first_special_token_id": 50257,
+      "format": "NUL-delimited raw token bytes",
+      "raw_nul_token_id": 188
+    }
+  },
+  "gate_id": "nubia_whisper_small_ort_qnn_epcontext_sm8850_probe_v1",
+  "payload_manifest_sha256": "d26436d1bc3ae254622cf4e627017957f88ad3c1d0b005995e0a2803666763df",
+  "relationship": {
+    "canonical_gate": "nubia_whisper_small_ort_qnn_epcontext_sm8850_v1",
+    "canonical_target_package": "ai.liquid.lfmdemo.runtime",
+    "scope": "coexistable isolated feasibility probe; canonical gate remains unchanged"
+  },
+  "required_assets": [
+    {
+      "bytes": 39448,
+      "path": "whisper_probe/models/decoder.onnx",
+      "role": "model_decoder.onnx",
+      "sha256": "68d2df9598ef91ca259e4fd492371f128011df805bc837143e413a831bb7944b"
+    },
+    {
+      "bytes": 225492992,
+      "path": "whisper_probe/models/decoder_qairt_context.bin",
+      "role": "model_decoder_qairt_context.bin",
+      "sha256": "0eafa59c9f921cf195a344d5004cf596f36f59cef96fe42b8b0b01827fd0716a"
+    },
+    {
+      "bytes": 12690,
+      "path": "whisper_probe/models/encoder.onnx",
+      "role": "model_encoder.onnx",
+      "sha256": "ef98bc252765daf43ce30bfc411799a7eca694b5d7afd41cc3aca04fd0ebc117"
+    },
+    {
+      "bytes": 133652480,
+      "path": "whisper_probe/models/encoder_qairt_context.bin",
+      "role": "model_encoder_qairt_context.bin",
+      "sha256": "72b46ef12f7e33a2b1f4afc8712b5f85375a7cb52b8d8119095402825d5d62b7"
+    },
+    {
+      "bytes": 480000,
+      "path": "whisper_probe/models/input_features.u16le",
+      "role": "prequantized_feature_fixture",
+      "sha256": "29c478d40bb98b7782280dcfbc98662cee514df7e62c180c5ba849db24a2f6a1"
+    },
+    {
+      "bytes": 43677,
+      "path": "whisper_probe/models/metadata.json",
+      "role": "model_metadata.json",
+      "sha256": "451c583967ff6262c4afeee71ec32add18c54c49cefa5a4fc464b4388b31a9c0"
+    },
+    {
+      "bytes": 874,
+      "path": "whisper_probe/voice_ai/config.json",
+      "role": "voice_ai_config.json",
+      "sha256": "b55a56acd03d62469e00566b9f48230485b4bd6919e85134f662a4a20f48f281"
+    },
+    {
+      "bytes": 357313,
+      "path": "whisper_probe/voice_ai/vocab.bin",
+      "role": "voice_ai_vocab.bin",
+      "sha256": "0ba87984671b92e03b56b84ce9b217020663f6a269b5a9800901391430b79c4b"
+    }
+  ],
+  "required_device_checks": {
+    "app_private_assets_verified": true,
+    "decoder_four_steps_passed": true,
+    "decoder_session_created": true,
+    "encoder_fixture_execute_passed": true,
+    "encoder_session_created": true,
+    "htp_v81_loaded": true,
+    "no_cpu_ep_fallback": true,
+    "qnn_backend_loaded": true,
+    "report_written_by_package_uid": true,
+    "run_as_package_uid": true
+  },
+  "required_native_libraries": [
+    {
+      "bytes": 2641976,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtp.so",
+      "role": "qairt_libQnnHtp.so",
+      "sha256": "10eb1923b34ac9a726e4a446b395d5eee2ea5388487917778aaf954e8bfb2d92"
+    },
+    {
+      "bytes": 83685856,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtpPrepare.so",
+      "role": "qairt_libQnnHtpPrepare.so",
+      "sha256": "2daafb376fe6904aa325e29810480e3d76dc392991d1367ae6ea3508db2b60ac"
+    },
+    {
+      "bytes": 11271968,
+      "elf": "hexagon-v81",
+      "path": "arm64-v8a/libQnnHtpV81Skel.so",
+      "role": "qairt_libQnnHtpV81Skel.so",
+      "sha256": "a3e62af7044227804bc229437107cb54425e05f43d57cc26a876dd94d54a0cfc"
+    },
+    {
+      "bytes": 714000,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnHtpV81Stub.so",
+      "role": "qairt_libQnnHtpV81Stub.so",
+      "sha256": "6e9e480223b248e70c43954e89dfbd9962600b59bdc9f3069bf4780fdcf98bba"
+    },
+    {
+      "bytes": 2689096,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libQnnSystem.so",
+      "role": "qairt_libQnnSystem.so",
+      "sha256": "a69cfc4350c16b226bcaa19c657234820bb93e3ff6116cf3845ae77557f1f7c3"
+    },
+    {
+      "bytes": 20352056,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libonnxruntime.so",
+      "role": "ort_libonnxruntime.so",
+      "sha256": "491f2fa4260cf8d379d0720795e211325b294db830ce7db2055bce9733c849a2",
+      "source": "ort_aar"
+    },
+    {
+      "bytes": 111488,
+      "elf": "aarch64",
+      "path": "arm64-v8a/libonnxruntime4j_jni.so",
+      "role": "ort_libonnxruntime4j_jni.so",
+      "sha256": "72496f82823056fd3d2195e668a7afbb7771892419befa36c5e6d1c9bd6d204c",
+      "source": "ort_aar"
+    }
+  ],
+  "schema_version": 2,
+  "target": {
+    "abi": "arm64-v8a",
+    "htp_arch": "v81",
+    "package": "ai.liquid.lfmdemo.whisperprobe",
+    "soc": "SM8850"
+  },
+  "verification_toolchain": {
+    "aapt2": {
+      "bytes": 10240448,
+      "relative_path": "aapt2",
+      "sha256": "22d092d529b050c71016f3f4402f53fadcd358a65fe16df408c400f0fe9ffe62"
+    },
+    "apksigner": {
+      "bytes": 2959,
+      "relative_path": "apksigner",
+      "sha256": "b47549e373b895ce6ca620d0c7887e674d9615ffa837a86ac601dcfd04adb0f0"
+    },
+    "zipalign": {
+      "bytes": 559232,
+      "relative_path": "zipalign",
+      "sha256": "4e0bf80ede4ddb7f48d83a7f0d09b343acebf44b8ff3224a6130f9f470957706"
+    }
+  }
+}

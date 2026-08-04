@@ -1,0 +1,95 @@
+{
+  "name": "SenseVoiceSmall INT8",
+  "source_model": "iic/SenseVoiceSmall",
+  "source_mirror": "FunAudioLLM/SenseVoiceSmall",
+  "source_revision": null,
+  "source_revision_status": "not declared by the dated Sherpa-ONNX conversion archive; the archive SHA-256 pins the executable artifact",
+  "conversion": "k2-fsa/sherpa-onnx dated SenseVoice INT8 asset",
+  "archive": {
+    "name": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2",
+    "github_release_tag": "asr-models",
+    "github_asset_id": 288366523,
+    "asset_created_utc": "2025-09-01T08:32:52Z",
+    "expected_sha256": "7d1efa2138a65b0b488df37f8b89e3d91a60676e416f515b952358d83dfd347e",
+    "local_bytes": 163002883,
+    "local_sha256": "7d1efa2138a65b0b488df37f8b89e3d91a60676e416f515b952358d83dfd347e"
+  },
+  "files": [
+    {
+      "name": "LICENSE",
+      "bytes": 71,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "name": "README.md",
+      "bytes": 104,
+      "sha256": "e131e4884e087984d62d90287b95714904385d9f0093a08497b17d7e19243f79"
+    },
+    {
+      "name": "export-onnx.py",
+      "bytes": 5905,
+      "sha256": "c97f6a33f9d7135efd4d55b3e24e288c47d925f3b4f04b8b3418c2821c0a89ce"
+    },
+    {
+      "name": "model.int8.onnx",
+      "bytes": 239233841,
+      "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51"
+    },
+    {
+      "name": "tokens.txt",
+      "bytes": 315894,
+      "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc"
+    }
+  ],
+  "total_file_bytes": 239555815,
+  "load_ms_median": 627.0088539999999,
+  "load_ms_by_language": {
+    "en": 727.520542,
+    "ja": 662.274,
+    "ko": 587.702958,
+    "zh": 591.743708
+  },
+  "rss_after_load_increment_mb_max": 601.671875,
+  "incremental_peak_rss_mb": 620.578125,
+  "memory_by_language": {
+    "en": {
+      "rss_before_model_mb": 41.875,
+      "rss_after_model_mb": 490.578125,
+      "rss_after_load_increment_mb": 448.703125,
+      "peak_rss_mb": 508.28125,
+      "incremental_peak_rss_mb": 466.40625
+    },
+    "ja": {
+      "rss_before_model_mb": 41.484375,
+      "rss_after_model_mb": 571.0625,
+      "rss_after_load_increment_mb": 529.578125,
+      "peak_rss_mb": 576.15625,
+      "incremental_peak_rss_mb": 534.671875
+    },
+    "ko": {
+      "rss_before_model_mb": 41.921875,
+      "rss_after_model_mb": 643.59375,
+      "rss_after_load_increment_mb": 601.671875,
+      "peak_rss_mb": 662.5,
+      "incremental_peak_rss_mb": 620.578125
+    },
+    "zh": {
+      "rss_before_model_mb": 41.46875,
+      "rss_after_model_mb": 531.96875,
+      "rss_after_load_increment_mb": 490.5,
+      "peak_rss_mb": 551.046875,
+      "incremental_peak_rss_mb": 509.578125
+    }
+  },
+  "weights_license": {
+    "name": "FunASR Model Open Source License Agreement v1.1",
+    "spdx": null,
+    "url": "https://github.com/modelscope/FunASR/blob/58830eca4012644aac0c3218c3ccc7d98f003fda/MODEL_LICENSE",
+    "notes": "custom model license; attribution and model-name retention required; not represented as an OSI-approved license"
+  },
+  "runtime_license": {
+    "name": "Apache-2.0",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/blob/master/LICENSE"
+  }
+}
