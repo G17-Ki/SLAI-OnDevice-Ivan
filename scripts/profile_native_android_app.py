@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Any
 
 
-PACKAGE = "ai.liquid.lfmdemo"
+PACKAGE = "ai.liquid.lfmdemo.dev"
 ACTIVITY = f"{PACKAGE}/.MainActivity"
 API_URL = "http://127.0.0.1:18080/v1/chat/completions"
 ROOT_URL = "http://127.0.0.1:18080/"

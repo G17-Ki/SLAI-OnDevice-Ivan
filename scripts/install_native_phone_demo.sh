@@ -3,7 +3,7 @@ set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-PACKAGE="ai.liquid.lfmdemo"
+PACKAGE="ai.liquid.lfmdemo.dev"
 ACTIVITY="$PACKAGE/.MainActivity"
 APK="$REPO_ROOT/android-app/releases/lfm-audio-demo-0.4.13-expressive-lfm-debug.apk"
 MODEL_DIR="${LFM_MODEL_DIR:-}"

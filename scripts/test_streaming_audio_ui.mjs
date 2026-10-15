@@ -963,17 +963,18 @@ const compactEnglishPrompt = api.buildConversationUserText({
   transcript: englishTranscript,
   languageRoute: api.resolveLanguageSelection("en")
 });
-assert.match(compactEnglishPrompt, /Answer only in concise, natural English/);
-assert.match(compactEnglishPrompt, /What should I wear\?/);
+// Language policies are intentionally not injected: the Qwen3-ASR decoder is
+// trained with the fixed Chinese system prompt and follows the transcript
+// language (host-verified: zh in -> zh out, en in -> en out).
+assert.equal(compactEnglishPrompt, englishTranscript);
 assert.doesNotMatch(compactEnglishPrompt, /\/no_think/);
 const chineseTranscript = "今天天气怎么样？";
 const compactChinesePrompt = api.buildConversationUserText({
   transcript: chineseTranscript,
   languageRoute: api.resolveLanguageSelection("zh")
 });
-assert.match(compactChinesePrompt, /简体中文/);
-assert.match(compactChinesePrompt, /今天天气怎么样/);
-assert(compactChinesePrompt.length <= 100, "a no-memory language hint must remain compact");
+assert.equal(compactChinesePrompt, chineseTranscript);
+assert(compactChinesePrompt.length <= 100, "a no-memory user segment must remain compact");
 assert.doesNotMatch(compactChinesePrompt, /Conversation history|Current user utterance|Never mention|instructions/i);
 
 const payloadHistory = api.createConversationHistory({
@@ -992,32 +993,35 @@ const conversationPayload = api.buildConversationPayload({
   historyMessages: payloadHistory.toMessages("fr")
 });
 assert.equal("modalities" in conversationPayload, false, "the text companion must not receive audio modalities");
-assert.equal(conversationPayload.model, "Qwen2.5-1.5B-Instruct-Q4_K_M");
+assert.equal(conversationPayload.model, "Qwen3-ASR-0.6B-Text-Q4_K_M");
 assert.equal(conversationPayload.max_tokens, 768);
-assert.equal(conversationPayload.repeat_penalty, 1.08);
-assert.equal("chat_template_kwargs" in conversationPayload, false);
-assert.match(conversationPayload.messages[0].content, /Answer the current user directly and accurately/);
-assert.deepEqual(conversationPayload.messages.map(message => message.role), ["system", "user", "assistant", "user"]);
-assert.equal(conversationPayload.messages[1].content, "Quel temps fait-il ?");
-assert.equal(conversationPayload.messages[2].content, "Il fait beau.");
-assert.match(conversationPayload.messages[3].content, /Répondez directement et uniquement en français/);
-assert.match(conversationPayload.messages[3].content, /Que dois-je porter \?/);
-assert.doesNotMatch(conversationPayload.messages[3].content, /\/no_think/);
-assert.doesNotMatch(conversationPayload.messages[1].content, /What is the weather|It is sunny/);
+assert.equal("messages" in conversationPayload, false, "the Qwen3-ASR text path sends a raw prompt, not chat messages");
+assert.equal(conversationPayload.temperature, 0);
+assert.equal(conversationPayload.top_k, 1);
+assert.equal("repeat_penalty" in conversationPayload, false);
+// Trained prompt format (teacher_explicit_roles_v1), ported verbatim from
+// scripts/qwen3_asr_llm_swap/dialogue_prompt.py.
+assert.match(conversationPayload.prompt, /^下面是一段用户和助手之间的真实对话。\n你现在扮演“助手”。/);
+assert.match(conversationPayload.prompt, /系统：你是一个有帮助的中文语音助手。请根据对话内容直接、简洁、准确地回答用户的问题。\n/);
+assert.doesNotMatch(conversationPayload.prompt, /Answer only in|Répondez directement|简体中文回答/);
+assert.match(conversationPayload.prompt, /用户：Quel temps fait-il \?\n助手回答：Il fait beau\./);
+assert(conversationPayload.prompt.endsWith("\n用户：Que dois-je porter ?\n助手回答："));
+assert.doesNotMatch(conversationPayload.prompt, /\/no_think/);
+assert.doesNotMatch(conversationPayload.prompt, /What is the weather|It is sunny/);
 assert.doesNotMatch(JSON.stringify(conversationPayload), /input_audio|CURRENT-AUDIO/);
-assert.match(
+assert.equal(
   api.buildConversationUserText({
     transcript: "13たす19はいくつですか。",
     languageRoute: api.resolveLanguageSelection("ja")
   }),
-  /日本語だけで答えてください/
+  "13たす19はいくつですか。"
 );
-assert.match(
+assert.equal(
   api.buildConversationUserText({
     transcript: "13 더하기 19는 얼마인가요?",
     languageRoute: api.resolveLanguageSelection("ko")
   }),
-  /한국어로만 답하세요/
+  "13 더하기 19는 얼마인가요?"
 );
 assert.throws(
   () => api.buildConversationPayload({
@@ -1657,8 +1661,8 @@ const chineseVoicePayload = api.buildConversationPayload({
 });
 assert.equal("modalities" in chineseVoicePayload, false);
 assert.equal(chineseVoicePayload.max_tokens, 768, "system-TTS text generation gets the extended response budget");
-assert.match(chineseVoicePayload.messages[0].content, /Answer the current user directly and accurately/);
-assert.match(chineseVoicePayload.messages[1].content, /只用简体中文回答当前用户/);
+assert.match(chineseVoicePayload.prompt, /系统：你是一个有帮助的中文语音助手。请根据对话内容直接、简洁、准确地回答用户的问题。\n/);
+assert.match(chineseVoicePayload.prompt, /用户：今天天气怎么样？\n助手回答：$/);
 const noMemoryPayload = api.buildConversationPayload({
   requestMode: "chat",
   transcript: "What secret phrase did I ask you to remember?",
@@ -1666,8 +1670,8 @@ const noMemoryPayload = api.buildConversationPayload({
   historyMessages: [],
   memoryUnavailableAction: "recall"
 });
-assert.match(noMemoryPayload.messages.at(-1).content, /Conversation memory is unavailable/);
-assert.match(noMemoryPayload.messages.at(-1).content, /Do not repeat the question or name any phrase/);
+assert.match(noMemoryPayload.prompt, /Conversation memory is unavailable/);
+assert.match(noMemoryPayload.prompt, /Do not repeat the question or name any phrase/);
 
 const makeMetrics = () => ({
   requestStartedNativeMs: 1000,
@@ -2016,13 +2020,12 @@ assert.deepEqual(
   "the Java-provided WAV must reach the companion byte-for-byte"
 );
 const responseHandoffPayload = JSON.parse(handoffRequests[1].options.body);
-assert.match(String(handoffRequests[1].url), /127\.0\.0\.1:6020\/v1\/chat\/completions/);
-assert.equal(responseHandoffPayload.model, "Qwen2.5-1.5B-Instruct-Q4_K_M");
+assert.match(String(handoffRequests[1].url), /127\.0\.0\.1:6020\/v1\/completions/);
+assert.equal(responseHandoffPayload.model, "Qwen3-ASR-0.6B-Text-Q4_K_M");
 assert.equal("chat_template_kwargs" in responseHandoffPayload, false);
-assert.match(responseHandoffPayload.messages[0].content, /Answer the current user directly and accurately/);
-assert.equal(typeof responseHandoffPayload.messages[1].content, "string");
-assert.match(responseHandoffPayload.messages[1].content, /Hello, please help me\./);
-assert.doesNotMatch(responseHandoffPayload.messages[1].content, /\/no_think/);
+assert.match(responseHandoffPayload.prompt, /系统：你是一个有帮助的中文语音助手。请根据对话内容直接、简洁、准确地回答用户的问题。\n/);
+assert.match(responseHandoffPayload.prompt, /用户：Hello, please help me\.\n助手回答：$/);
+assert.doesNotMatch(responseHandoffPayload.prompt, /\/no_think/);
 assert.doesNotMatch(JSON.stringify(responseHandoffPayload), /input_audio|BASE64/);
 assert.equal(elements.get("response").textContent, "Of course. What do you need?");
 const handoffSpokenText = nativeTtsCalls.slice(handoffNativeTtsCallStart)
@@ -2054,11 +2057,11 @@ assert.equal(languageResolvedEvent.details.backend, "sensevoice_qnn");
 assert.equal(languageResolvedEvent.details.npu_executed, true);
 assert.equal(responseReadyEvent.details.response_input, "asr_text");
 assert.equal(responseReadyEvent.details.duplicate_audio_encode, false);
-assert.equal(responseReadyEvent.details.response_backend, "qwen2_5_1_5b_q4_k_m_cpu");
+assert.equal(responseReadyEvent.details.response_backend, "qwen3_asr_0p6b_text_q4_k_m_cpu");
 assert.equal(completionEvent.details.history_turns, 0);
 assert.equal(completionEvent.details.history_mutated, false);
 assert.equal(completionEvent.details.voice_backend, "lfm_audio_natural_tts_streaming");
-assert.equal(completionEvent.details.response_backend, "qwen2_5_1_5b_q4_k_m_cpu");
+assert.equal(completionEvent.details.response_backend, "qwen3_asr_0p6b_text_q4_k_m_cpu");
 assert.equal(completionEvent.details.lfm_tts_chunks_submitted, 2);
 assert.equal(completionEvent.details.lfm_tts_chunks_completed, 2);
 assert.equal(completionEvent.details.lfm_tts_audio_chunks, 2);

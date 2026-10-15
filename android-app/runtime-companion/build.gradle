@@ -8,7 +8,7 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId "ai.liquid.lfmdemo.runtime"
+        applicationId "ai.liquid.lfmdemo.dev.runtime"
         minSdk 28
         targetSdk 35
         versionCode 1

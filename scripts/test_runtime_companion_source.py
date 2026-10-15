@@ -37,17 +37,18 @@ def main() -> None:
     asr_server = ASR_SERVER.read_text(encoding="utf-8")
     installer = INSTALLER.read_text(encoding="utf-8")
 
-    assert '"qwen2.5-1.5b-instruct-q4_k_m.gguf"' in service
-    assert '"Qwen2.5-1.5B-Instruct-Q4_K_M"' in service
+    assert '"qwen3_asr_0p6b_text-q4_k_m.gguf"' in service
+    assert '"Qwen3-ASR-0.6B-Text-Q4_K_M"' in service
     assert 'command.add("--reasoning");' not in service
     assert 'command.add("--reasoning-format");' not in service
+    assert 'command.add("--no-cache-prompt");' in service
     assert 'android.permission.WAKE_LOCK' in manifest
     assert "PowerManager.PARTIAL_WAKE_LOCK" in service
-    assert 'ai.liquid.lfmdemo.runtime:active-client' in service
+    assert 'ai.liquid.lfmdemo.runtime:service-alive' in service
     assert "activeClientWakeLock.setReferenceCounted(false)" in service
-    assert "acquireActiveClientWakeLock();\n        startRuntimes();" in service
+    assert "startForeground(NOTIFICATION_ID, notification(\"Starting ASR and response model…\"));\n        acquireActiveClientWakeLock();\n        startRuntimes();" in service
     assert "public boolean onUnbind(Intent intent)" in service
-    assert "releaseActiveClientWakeLock();\n        return true;" in service
+    assert "releaseActiveClientWakeLock();\n        return true;" not in service
     assert "public void onRebind(Intent intent)" in service
     assert (
         "public void onRebind(Intent intent) {\n"
@@ -56,7 +57,7 @@ def main() -> None:
         "        startRuntimes();\n"
         "    }"
     ) in service
-    assert service.count("releaseActiveClientWakeLock();") >= 2
+    assert service.count("releaseActiveClientWakeLock();") == 1
     assert "START_STICKY" in service
     start_runtimes = service.split("private synchronized void startRuntimes()", 1)[1].split(
         "private synchronized void startTextModel()", 1
@@ -186,7 +187,7 @@ def main() -> None:
     assert '"bootstrap_runnable_skipped"' in main_activity
     assert '"bootstrap_runnable_dispatch"' in main_activity
     assert "startRuntimeBootstrapProvider(attachEpoch);" in main_activity
-    assert 'Uri.parse("content://ai.liquid.lfmdemo.runtime.bootstrap")' in main_activity
+    assert 'Uri.parse("content://ai.liquid.lfmdemo.dev.runtime.bootstrap")' in main_activity
     assert 'RUNTIME_BOOTSTRAP_METHOD = "start_runtime"' in main_activity
     assert "getContentResolver().call(" in main_activity
     assert '}, "runtime-bootstrap-provider");' in main_activity
@@ -242,16 +243,16 @@ def main() -> None:
     assert "cancelRuntimeActivityBootstrapFallback();" in cancel_callbacks
 
     assert 'android:name=".RuntimeBootstrapProvider"' in manifest
-    assert 'android:authorities="ai.liquid.lfmdemo.runtime.bootstrap"' in manifest
+    assert 'android:authorities="ai.liquid.lfmdemo.dev.runtime.bootstrap"' in manifest
     assert 'android:exported="true"' in manifest
     assert 'android:grantUriPermissions="false"' in manifest
     assert (
-        'android:permission="ai.liquid.lfmdemo.permission.START_RUNTIME"'
+        'android:permission="ai.liquid.lfmdemo.dev.permission.START_RUNTIME"'
         in manifest
     )
     assert "extends ContentProvider" in bootstrap_provider
     assert "enforceCallingOrSelfPermission(" in bootstrap_provider
-    assert 'ALLOWED_CALLER = "ai.liquid.lfmdemo"' in bootstrap_provider
+    assert 'ALLOWED_CALLER = "ai.liquid.lfmdemo.dev"' in bootstrap_provider
     assert "getCallingPackage();" in bootstrap_provider
     assert 'METHOD_START_RUNTIME.equals(method)' in bootstrap_provider
     assert "new Intent(context, RuntimeService.class)" in bootstrap_provider
@@ -304,7 +305,7 @@ def main() -> None:
     assert 'android:name=".RuntimeBootstrapActivity"' in manifest
     assert 'android:noHistory="true"' in manifest
     assert 'android:excludeFromRecents="true"' in manifest
-    assert 'android:permission="ai.liquid.lfmdemo.permission.START_RUNTIME"' in manifest
+    assert 'android:permission="ai.liquid.lfmdemo.dev.permission.START_RUNTIME"' in manifest
     assert 'android:theme="@style/RuntimeBootstrapTheme"' in manifest
     assert "startForegroundService(service);" in bootstrap_activity
     assert "finish();\n            overridePendingTransition(0, 0);" in bootstrap_activity

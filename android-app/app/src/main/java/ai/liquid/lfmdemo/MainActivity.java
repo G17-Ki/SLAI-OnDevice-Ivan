@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.util.Log;
 import android.view.WindowManager;
 import android.webkit.PermissionRequest;
@@ -30,13 +31,13 @@ public final class MainActivity extends Activity {
     private static final String TAG = "LfmMainActivity";
     private static final int PERMISSION_REQUEST = 10;
     private static final int FILE_CHOOSER_REQUEST = 11;
-    private static final String RUNTIME_PACKAGE = "ai.liquid.lfmdemo.runtime";
+    private static final String RUNTIME_PACKAGE = "ai.liquid.lfmdemo.dev.runtime";
     private static final String RUNTIME_SERVICE =
             "ai.liquid.lfmdemo.runtime.RuntimeService";
     private static final String RUNTIME_BOOTSTRAP_ACTIVITY =
             "ai.liquid.lfmdemo.runtime.RuntimeBootstrapActivity";
     private static final Uri RUNTIME_BOOTSTRAP_URI =
-            Uri.parse("content://ai.liquid.lfmdemo.runtime.bootstrap");
+            Uri.parse("content://ai.liquid.lfmdemo.dev.runtime.bootstrap");
     private static final String RUNTIME_BOOTSTRAP_METHOD = "start_runtime";
     private static final String RUNTIME_BOOTSTRAP_DIAGNOSTICS =
             "runtime_bootstrap_diagnostics";
@@ -46,6 +47,7 @@ public final class MainActivity extends Activity {
     private static final int MAX_RUNTIME_CONNECTION_RECOVERIES = 1;
     private WebView webView;
     private NativeAudioBridge nativeAudio;
+    private PowerManager.WakeLock visibleWakeLock;
     private ValueCallback<Uri[]> fileChooserCallback;
     private final Handler runtimeHandler = new Handler(Looper.getMainLooper());
     private boolean runtimeBindingDesired;
@@ -90,6 +92,7 @@ public final class MainActivity extends Activity {
         unbindRuntimeCompanion("post_bootstrap_retry");
         startRuntimeCompanion();
         bindRuntimeCompanion();
+        scheduleRuntimeBootstrapFallback();
     }
 
     private void runRuntimeActivityBootstrapFallback(long attachEpoch) {
@@ -156,6 +159,22 @@ public final class MainActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+        // Nubia's ROM-level cgroup freezer suspends any app UID without a held
+        // partial wake lock once touch activity stops, even while the activity
+        // is the top resumed one. A frozen WebView blocks every CDP evaluate
+        // and every loopback call into the runtime companion, so the visible
+        // session must hold its own lock while the activity is started.
+        PowerManager power = getSystemService(PowerManager.class);
+        if (visibleWakeLock == null) {
+            visibleWakeLock = power.newWakeLock(
+                    PowerManager.PARTIAL_WAKE_LOCK,
+                    "ai.liquid.lfmdemo:activity-visible"
+            );
+            visibleWakeLock.setReferenceCounted(false);
+        }
+        if (!visibleWakeLock.isHeld()) {
+            visibleWakeLock.acquire();
+        }
         cancelRuntimeAttachCallbacks();
         runtimeAttachEpoch += 1L;
         runtimeBindingDesired = true;
@@ -172,6 +191,7 @@ public final class MainActivity extends Activity {
 
     @Override
     protected void onStop() {
+        releaseVisibleWakeLock();
         recordRuntimeEvent("lifecycle_on_stop_entry", "runtime_attach_cancel");
         runtimeBindingDesired = false;
         cancelRuntimeAttachCallbacks();
@@ -183,7 +203,7 @@ public final class MainActivity extends Activity {
     private Intent runtimeCompanionIntent() {
         Intent runtime = new Intent();
         runtime.setClassName(RUNTIME_PACKAGE, RUNTIME_SERVICE);
-        runtime.setAction("ai.liquid.lfmdemo.runtime.START");
+        runtime.setAction("ai.liquid.lfmdemo.dev.runtime.START");
         return runtime;
     }
 
@@ -689,12 +709,19 @@ public final class MainActivity extends Activity {
         }
     }
 
+    private void releaseVisibleWakeLock() {
+        if (visibleWakeLock != null && visibleWakeLock.isHeld()) {
+            visibleWakeLock.release();
+        }
+    }
+
     @Override
     protected void onDestroy() {
         recordRuntimeEvent("lifecycle_on_destroy_entry", "runtime_attach_cancel");
         runtimeBindingDesired = false;
         cancelRuntimeAttachCallbacks();
         unbindRuntimeCompanion("on_destroy");
+        releaseVisibleWakeLock();
         if (fileChooserCallback != null) {
             fileChooserCallback.onReceiveValue(null);
             fileChooserCallback = null;

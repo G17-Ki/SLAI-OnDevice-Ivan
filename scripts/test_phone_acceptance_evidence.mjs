@@ -21,8 +21,8 @@ import {
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 
 const responseFetch = overrides => ({
-  requestBackend: "qwen2_5_1_5b_q4_k_m_cpu",
-  requestModel: "Qwen2.5-1.5B-Instruct-Q4_K_M",
+  requestBackend: "qwen3_asr_0p6b_text_q4_k_m_cpu",
+  requestModel: "Qwen3-ASR-0.6B-Text-Q4_K_M",
   ...overrides,
 });
 
@@ -33,7 +33,7 @@ assert.equal(responseThinkingDisabled([responseFetch({ enableThinking: false })]
 assert.equal(responseThinkingDisabled([responseFetch({ enableThinking: true })]), false);
 assert.equal(responseThinkingDisabled([{
   requestBackend: null,
-  requestModelIdentity: "Qwen2.5-1.5B-Instruct-Q4_K_M",
+  requestModelIdentity: "Qwen3-ASR-0.6B-Text-Q4_K_M",
 }]), true);
 assert.equal(responseThinkingDisabled([{
   requestBackend: "qwen3_1_7b_q4_cpu",
@@ -119,16 +119,16 @@ const completePlanCase = {
 };
 assert.deepEqual(validateAcceptancePlan({
   schema_version: 3,
-  expectedResponseBackend: "qwen2_5_1_5b_q4_k_m_cpu",
-  expectedResponseModel: "Qwen2.5-1.5B-Instruct-Q4_K_M",
+  expectedResponseBackend: "qwen3_asr_0p6b_text_q4_k_m_cpu",
+  expectedResponseModel: "Qwen3-ASR-0.6B-Text-Q4_K_M",
   expectedFinishReason: "stop",
   expectedNoReasoning: true,
   cases: [completePlanCase],
 }), []);
 assert.deepEqual(validateAcceptancePlan({
   schema_version: 3,
-  expectedResponseBackend: "qwen2_5_1_5b_q4_k_m_cpu",
-  expectedResponseModel: "Qwen2.5-1.5B-Instruct-Q4_K_M",
+  expectedResponseBackend: "qwen3_asr_0p6b_text_q4_k_m_cpu",
+  expectedResponseModel: "Qwen3-ASR-0.6B-Text-Q4_K_M",
   expectedFinishReason: "stop",
   expectedNoReasoning: true,
   cases: [{ ...completePlanCase, name: "en_native_tts", mode: "tts" }],
@@ -137,8 +137,8 @@ const schema3WithoutAudioHash = structuredClone(completePlanCase);
 delete schema3WithoutAudioHash.expectedAudioSha256;
 const missingAudioHashErrors = validateAcceptancePlan({
   schema_version: 3,
-  expectedResponseBackend: "qwen2_5_1_5b_q4_k_m_cpu",
-  expectedResponseModel: "Qwen2.5-1.5B-Instruct-Q4_K_M",
+  expectedResponseBackend: "qwen3_asr_0p6b_text_q4_k_m_cpu",
+  expectedResponseModel: "Qwen3-ASR-0.6B-Text-Q4_K_M",
   expectedFinishReason: "stop",
   expectedNoReasoning: true,
   cases: [schema3WithoutAudioHash],
@@ -150,8 +150,8 @@ const uppercaseAudioHash = {
 };
 assert(validateAcceptancePlan({
   schema_version: 3,
-  expectedResponseBackend: "qwen2_5_1_5b_q4_k_m_cpu",
-  expectedResponseModel: "Qwen2.5-1.5B-Instruct-Q4_K_M",
+  expectedResponseBackend: "qwen3_asr_0p6b_text_q4_k_m_cpu",
+  expectedResponseModel: "Qwen3-ASR-0.6B-Text-Q4_K_M",
   expectedFinishReason: "stop",
   expectedNoReasoning: true,
   cases: [uppercaseAudioHash],
@@ -160,8 +160,8 @@ const schema3ChatWithoutTranscript = structuredClone(completePlanCase);
 delete schema3ChatWithoutTranscript.expectedTranscriptScript;
 const missingChatTranscriptErrors = validateAcceptancePlan({
   schema_version: 3,
-  expectedResponseBackend: "qwen2_5_1_5b_q4_k_m_cpu",
-  expectedResponseModel: "Qwen2.5-1.5B-Instruct-Q4_K_M",
+  expectedResponseBackend: "qwen3_asr_0p6b_text_q4_k_m_cpu",
+  expectedResponseModel: "Qwen3-ASR-0.6B-Text-Q4_K_M",
   expectedFinishReason: "stop",
   expectedNoReasoning: true,
   cases: [schema3ChatWithoutTranscript],
@@ -171,8 +171,8 @@ assert(missingChatTranscriptErrors.some(value =>
 ));
 assert.deepEqual(validateAcceptancePlan({
   schema_version: 2,
-  expectedResponseBackend: "qwen2_5_1_5b_q4_k_m_cpu",
-  expectedResponseModel: "Qwen2.5-1.5B-Instruct-Q4_K_M",
+  expectedResponseBackend: "qwen3_asr_0p6b_text_q4_k_m_cpu",
+  expectedResponseModel: "Qwen3-ASR-0.6B-Text-Q4_K_M",
   expectedFinishReason: "stop",
   expectedNoReasoning: true,
   cases: [schema3ChatWithoutTranscript],

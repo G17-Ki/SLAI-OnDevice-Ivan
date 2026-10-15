@@ -23,7 +23,7 @@ public final class RuntimeBootstrapActivity extends Activity {
     protected void onCreate(Bundle state) {
         super.onCreate(state);
         Intent service = new Intent(this, RuntimeService.class)
-                .setAction("ai.liquid.lfmdemo.runtime.START");
+                .setAction("ai.liquid.lfmdemo.dev.runtime.START");
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 startForegroundService(service);

@@ -5,10 +5,10 @@ script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
 repo_root=$(CDPATH='' cd -- "$script_dir/.." && pwd)
 cache_root=${XDG_CACHE_HOME:-$HOME/.cache}/lmf-demo
 
-package=ai.liquid.lfmdemo.runtime
-main_package=ai.liquid.lfmdemo
-activity=ai.liquid.lfmdemo.runtime/.RuntimeActivity
-model_alias=Qwen2.5-1.5B-Instruct-Q4_K_M
+package=ai.liquid.lfmdemo.dev.runtime
+main_package=ai.liquid.lfmdemo.dev
+activity=ai.liquid.lfmdemo.dev.runtime/ai.liquid.lfmdemo.runtime.RuntimeActivity
+model_alias=Qwen3-ASR-0.6B-Text-Q4_K_M
 model_manifest=$repo_root/reports/android_phone/streaming_response/model_candidate_followup/candidate_manifest.json
 model_cache=$cache_root/android-text-companion/models
 asr_external_root=$cache_root/android-asr-companion
@@ -94,11 +94,11 @@ import sys
 
 manifest = json.load(open(sys.argv[1], encoding="utf-8"))
 for item in manifest["models"]:
-    if item.get("id") == "qwen2_5_1_5b_q4_k_m":
+    if item.get("id") == "qwen3_asr_0p6b_text_q4_k_m":
         print("\t".join((item["filename"], str(item["bytes"]), item["sha256"])))
         break
 else:
-    raise SystemExit("Qwen2.5 Q4_K_M is absent from candidate_manifest.json")
+    raise SystemExit("Qwen3-ASR-0.6B text Q4_K_M is absent from candidate_manifest.json")
 PY
 )
 IFS=$'\t' read -r model_filename model_bytes model_sha256 <<< "$model_fields"
@@ -280,7 +280,7 @@ stop_known_legacy /data/local/tmp/lmf-text-companion
 
 remote_stage=/data/local/tmp/lmf-runtime-install-$$
 "${adb_cmd[@]}" shell mkdir -p "$remote_stage"
-"${adb_cmd[@]}" shell chmod 700 "$remote_stage"
+"${adb_cmd[@]}" shell chmod 711 "$remote_stage"
 
 private_hash() {
   "${adb_cmd[@]}" shell run-as "$package" toybox sha256sum "$1" 2>/dev/null \

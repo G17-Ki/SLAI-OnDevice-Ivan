@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 
-PACKAGE = "ai.liquid.lfmdemo"
+PACKAGE = "ai.liquid.lfmdemo.dev"
 TELEMETRY_PATH = "files/streaming-telemetry.jsonl"
 
 

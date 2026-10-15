@@ -242,7 +242,7 @@ def main() -> None:
         "us_female",
         "us_male",
     ], "only physically accepted LFM voices should be exposed"
-    assert 'const TEXT_API_URL = "http://127.0.0.1:6020/v1/chat/completions"' in ui
+    assert 'const TEXT_API_URL = "http://127.0.0.1:6020/v1/completions"' in ui
     assert (
         "const LFM_RUNTIME_ENABLED = Boolean(window.NativeAudio?.lfmRuntimeEnabled?.());"
         in ui
@@ -259,7 +259,7 @@ def main() -> None:
     assert "LFM ASR is disabled in this deployment" in ui, (
         "companion ASR failure must fail closed instead of contacting port 8080"
     )
-    assert 'const QWEN_TEXT_MODEL = "Qwen2.5-1.5B-Instruct-Q4_K_M"' in ui
+    assert 'const QWEN_TEXT_MODEL = "Qwen3-ASR-0.6B-Text-Q4_K_M"' in ui
     assert 'const DEFAULT_LANGUAGE_SELECTION = "en"' in ui
     assert 'const LANGUAGE_SELECTION_STORAGE_KEY = "lfm.language.selection.v1"' in ui
     assert 'asr_resident_route_invalidated' in ui

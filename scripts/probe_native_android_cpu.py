@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from profile_native_android_app import request_once  # noqa: E402
 
 
-PACKAGE = "ai.liquid.lfmdemo"
+PACKAGE = "ai.liquid.lfmdemo.dev"
 
 
 def shell(command: str) -> str:

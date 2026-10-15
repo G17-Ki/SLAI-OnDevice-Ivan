@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-PACKAGE="ai.liquid.lfmdemo"
+PACKAGE="ai.liquid.lfmdemo.dev"
 ACTIVITY="$PACKAGE/.MainActivity"
 REMOTE="/data/local/tmp/lfm-runtime.args"
 RESTART=1

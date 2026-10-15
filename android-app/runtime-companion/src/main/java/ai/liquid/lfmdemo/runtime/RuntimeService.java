@@ -23,9 +23,9 @@ public final class RuntimeService extends Service {
     private static final String CHANNEL_ID = "lfm-offline-runtime";
     private static final int NOTIFICATION_ID = 61;
     private static final String TEXT_MODEL_FILE =
-            "qwen2.5-1.5b-instruct-q4_k_m.gguf";
+            "qwen3_asr_0p6b_text-q4_k_m.gguf";
     private static final String TEXT_MODEL_ALIAS =
-            "Qwen2.5-1.5B-Instruct-Q4_K_M";
+            "Qwen3-ASR-0.6B-Text-Q4_K_M";
 
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final IBinder localBinder = new Binder();
@@ -39,6 +39,7 @@ public final class RuntimeService extends Service {
         super.onCreate();
         createNotificationChannel();
         startForeground(NOTIFICATION_ID, notification("Starting ASR and response model…"));
+        acquireActiveClientWakeLock();
         startRuntimes();
     }
 
@@ -57,7 +58,6 @@ public final class RuntimeService extends Service {
 
     @Override
     public boolean onUnbind(Intent intent) {
-        releaseActiveClientWakeLock();
         return true;
     }
 
@@ -84,17 +84,20 @@ public final class RuntimeService extends Service {
     }
 
     /**
-     * Nubia's freezer can suspend this foreground service even when Android has
-     * promoted its bound process to adj 0. Keep the UID runnable only while the
-     * visible demo has an active binding; otherwise loopback sockets remain
-     * open but ASR and Qwen requests block indefinitely in the freezer trap.
+     * Nubia's cgroup freezer suspends this UID's whole cgroup (llama-server and
+     * the ASR runner included) whenever the app is considered inactive, even
+     * while the main demo holds its own wake lock. The lock is therefore held
+     * for the service's lifetime instead of per binder connection: releasing it
+     * on unbind lets the freezer land in the rebind gap, and a frozen service
+     * can never run the onBind that would re-acquire the lock, leaving the
+     * loopback sockets open but every ASR and Qwen request blocked forever.
      */
     private synchronized void acquireActiveClientWakeLock() {
         if (activeClientWakeLock == null) {
             PowerManager power = getSystemService(PowerManager.class);
             activeClientWakeLock = power.newWakeLock(
                     PowerManager.PARTIAL_WAKE_LOCK,
-                    "ai.liquid.lfmdemo.runtime:active-client"
+                    "ai.liquid.lfmdemo.runtime:service-alive"
             );
             activeClientWakeLock.setReferenceCounted(false);
         }
@@ -179,6 +182,12 @@ public final class RuntimeService extends Service {
         command.add("--n-gpu-layers");
         command.add("0");
         command.add("--jinja");
+        // T1.8 (2026-10-15): b10083 prompt-cache (LCP KV reuse) corrupts this model
+        // under the app's shared-prefix raw prompts: empty completions then all ggml
+        // compute threads exit and the server wedges. Server-side off; clients may
+        // still send cache_prompt, it is ignored. Measured cost: none (first_token
+        // 272 ms median without reuse, vs 304 ms baseline with the old model).
+        command.add("--no-cache-prompt");
         command.add("--host");
         command.add("127.0.0.1");
         command.add("--port");

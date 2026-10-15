@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>端侧离线多语言语音助手 — 项目真实状态与级联替换指南</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#1c2430; --muted:#5c6a7a;
+    --line:#e3e8ee; --accent:#0b5cad; --accent-soft:#e8f1fb;
+    --ok:#1a7f4b; --ok-soft:#e6f4ec; --warn:#b26a00; --warn-soft:#fdf3e0;
+    --bad:#b3362b; --bad-soft:#fdecea;
+    --main:#0b5cad; --main-soft:#e8f1fb; --rt:#1a7f4b; --rt-soft:#e6f4ec;
+    --npu:#7048c6; --npu-soft:#f1eafb; --cpu:#5c6a7a; --cpu-soft:#eef1f5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,sans-serif;
+    line-height:1.65;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 64px}
+  header.hero{background:linear-gradient(135deg,#0d2b4e 0%,#0b5cad 70%,#2f7fd0 100%);
+    color:#fff;border-radius:14px;padding:34px 36px;margin-bottom:24px}
+  header.hero h1{margin:0 0 10px;font-size:27px;line-height:1.35}
+  header.hero p{margin:4px 0;color:#dce9f7;font-size:14px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+  .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+    border-radius:10px;padding:12px 14px}
+  .stat b{display:block;font-size:21px}
+  .stat span{font-size:12.5px;color:#cfe0f2}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;margin-bottom:24px}
+  nav.toc b{display:block;margin-bottom:8px;color:var(--muted);font-size:13px;letter-spacing:.06em}
+  nav.toc a{display:inline-block;margin:4px 14px 4px 0;color:var(--accent);text-decoration:none;font-size:14px}
+  nav.toc a:hover{text-decoration:underline}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 30px;margin-bottom:22px}
+  h2{margin:0 0 16px;font-size:21px;border-bottom:2px solid var(--accent-soft);padding-bottom:10px}
+  h2 .no{color:var(--accent);margin-right:10px}
+  h3{font-size:16.5px;margin:24px 0 10px}
+  h4{font-size:14.5px;margin:16px 0 8px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.8px}
+  th{background:#f0f3f7;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:600}
+  td{padding:8px 10px;border:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#fafbfc}
+  code{background:#eef1f5;border:1px solid var(--line);border-radius:4px;
+    padding:1px 5px;font-size:12.5px;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.8px}
+  .badge{display:inline-block;border-radius:20px;padding:1px 9px;font-size:11.5px;font-weight:600;white-space:nowrap}
+  .b-main{background:var(--main-soft);color:var(--main)}
+  .b-rt{background:var(--rt-soft);color:var(--rt)}
+  .b-npu{background:var(--npu-soft);color:var(--npu)}
+  .b-cpu{background:var(--cpu-soft);color:var(--cpu)}
+  .b-ok{background:var(--ok-soft);color:var(--ok)}
+  .b-warn{background:var(--warn-soft);color:var(--warn)}
+  .b-bad{background:var(--bad-soft);color:var(--bad)}
+  .callout{border-left:4px solid var(--accent);background:var(--accent-soft);
+    border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0;font-size:14px}
+  .callout.warn{border-color:var(--warn);background:var(--warn-soft)}
+  .callout.bad{border-color:var(--bad);background:var(--bad-soft)}
+  .callout.ok{border-color:var(--ok);background:var(--ok-soft)}
+  /* pipeline diagram */
+  .pipe{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin:18px 0 6px}
+  .stage{flex:1 1 0;min-width:128px;border-radius:10px;padding:12px 10px;text-align:center;
+    border:2px solid var(--line);background:#fff;display:flex;flex-direction:column;justify-content:center}
+  .stage .t{font-weight:700;font-size:14px;margin-bottom:4px}
+  .stage .d{font-size:11.5px;color:var(--muted);line-height:1.45}
+  .stage.m{border-color:var(--main);background:var(--main-soft)}
+  .stage.r{border-color:var(--rt);background:var(--rt-soft)}
+  .stage.sys{border-color:var(--cpu);background:var(--cpu-soft)}
+  .arrow{flex:0 0 34px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:20px}
+  .legend{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+  .legend .badge{margin-right:6px}
+  ul,ol{padding-left:22px;margin:8px 0}
+  li{margin:5px 0}
+  .kv{font-size:13.5px}
+  .small{font-size:12.5px;color:var(--muted)}
+  footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:30px}
+  @media print{
+    body{background:#fff}
+    section{border:none;padding:14px 0;break-inside:avoid}
+    header.hero{border-radius:0}
+  }
+  @media (max-width:720px){
+    .arrow{flex:0 0 20px;transform:rotate(90deg);align-self:center}
+    .stage{flex:1 1 46%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>端侧离线多语言语音助手<br>项目真实状态 · 全流程组件 · 级联替换最小改动方案</h1>
+  <p>设备基线：Nubia NX809J / 高通 SM8850 / Android 16 / arm64 · 双 APK 应用自有架构 · 全链路 127.0.0.1 回环</p>
+  <p>证据分级：手机物理实测 ≠ 宿主测试 ≠ AI Hub 同芯片组参考（三者不可互相替代）</p>
+  <div class="stats">
+    <div class="stat"><b>5 种语言</b><span>EN/ZH/RU/JA/KO 完整轮物理通过（飞行模式）</span></div>
+    <div class="stat"><b>≈2.16 s</b><span>说完 → 出声 中位代理值（目标 ≤2.0 s）</span></div>
+    <div class="stat"><b>304 ms</b><span>LLM 首 token 中位（Qwen2.5-1.5B, CPU）</span></div>
+    <div class="stat"><b>118 ms</b><span>Matcha 中文 TTS end-to-speaker</span></div>
+    <div class="stat"><b>0 网络依赖</b><span>推理全部 app UID 自有，无 ADB forward</span></div>
+  </div>
+</header>
+
+<nav class="toc">
+  <b>目录</b>
+  <a href="#s1">1 项目定位</a>
+  <a href="#s2">2 最真实的状态（已验证 / 边界 / 未关闭）</a>
+  <a href="#s3">3 端到端流程与每步组件</a>
+  <a href="#s4">4 时延实测汇总</a>
+  <a href="#s5">5 级联替换：最小最保险的改动方式</a>
+  <a href="#s6">6 风险、许可与存储</a>
+</nav>
+
+<section id="s1">
+  <h2><span class="no">1</span>项目一句话</h2>
+  <p>在一台零售高通手机上跑通了一个<strong>完全离线</strong>（飞行模式可用）的多语言语音助手闭环：
+  <span class="mono">用户说话 → VAD 判停 → ASR（NPU/CPU）→ LLM 流式生成 → TTS 流式合成 → 扬声器</span>。
+  不依赖网络、不依赖 ADB，推理进程全部归应用自有 UID。</p>
+  <div class="callout">项目核心价值是<strong>「证明可行性 + 可复现的工程底座」</strong>，不是一个可直接发布的成品。当前是 debuggable 研究构建，未做生产加固。</div>
+</section>
+
+<section id="s2">
+  <h2><span class="no">2</span>最真实的项目状态</h2>
+
+  <h3>2.1 已物理验证（真机实测，非仿真）</h3>
+  <table>
+    <tr><th>项</th><th>证据</th><th>状态</th></tr>
+    <tr><td>双 APK 应用自有架构，推理进程归 app UID（非 shell）</td><td class="mono">reports/progress_20260729/ASR_QNN_AUDIT.md</td><td><span class="badge b-ok">实测</span></td></tr>
+    <tr><td>EN/ZH/JA/KO ASR 走高通 NPU（QNN 2.40 / HTP v81），精确转录 + 语言标签匹配</td><td class="mono">同上</td><td><span class="badge b-ok">实测</span></td></tr>
+    <tr><td>RU ASR（Zipformer INT8，CPU）精确转录</td><td class="mono">同上</td><td><span class="badge b-ok">实测</span></td></tr>
+    <tr><td>Qwen2.5-1.5B 28 题手机扫描 24/28；首 token 304/475 ms（中位/P95）</td><td class="mono">reports/progress_20260729/LLM_AUDIT.md</td><td><span class="badge b-ok">实测</span></td></tr>
+    <tr><td>五语言完整对话轮：飞行模式 + 冷重启后仅开主应用，5/5 通过</td><td class="mono">reports/android_phone/full_turns/POST_SWEEP_FULL_TURN_ACCEPTANCE_20260730.md</td><td><span class="badge b-ok">实测</span></td></tr>
+    <tr><td>TTS：Matcha 中文 118 ms end-to-speaker（RTF 0.033）；Supertonic 首块 RU 496 / JA 577 / KO 395 ms，零 underrun</td><td class="mono">reports/.../tts_research_20260726/DEVICE_RESULTS.md</td><td><span class="badge b-ok">实测</span></td></tr>
+    <tr><td>宿主 ADB 关闭 70 s 四进程存活、零 forward（adbd cgroup 缺陷已消除）</td><td class="mono">reports/.../final_apk_a24e_33bf_cold_reboot_provenance_20260729.md</td><td><span class="badge b-ok">实测</span></td></tr>
+  </table>
+
+  <h3>2.2 必须说清楚的证据边界</h3>
+  <ul>
+    <li><strong>当前源码 ≠ 已验收安装对。</strong>已验收的是手机上安装的 APK 对（主 <span class="mono">a24e203a…</span> / runtime <span class="mono">33bf0d6d…</span>）。当前源码更新，且<strong>已关闭 LFM 运行时</strong>（<span class="mono">LFM_RUNTIME_ENABLED=false</span>，无代码启动 <span class="mono">LfmService</span>）。README 的 "Current phone stack" 描述的是手机上那对旧 APK。当前源码要继承其时延/离线声明，必须重跑设备验收。</li>
+    <li><strong>AI Hub QRD 数字是同芯片组参考</strong>，不是零售手机时延，更不能外推到眼镜（AR1）。</li>
+    <li><strong>物理拔 USB 线仍是操作员门槛，未完成</strong>。现有证据是「宿主 ADB 关闭 70 s 进程存活」，不是「拔线后对话」。</li>
+    <li>法/意/西/德的 eSpeak 标签<strong>不等于</strong>这些语言有健壮的端到端路线。</li>
+    <li>宿主测试不能证明手机时延、HTP 执行、声学质量、热稳定、拔线存活。</li>
+  </ul>
+
+  <h3>2.3 未关闭的门槛</h3>
+  <table>
+    <tr><th>#</th><th>门槛</th><th>状态</th></tr>
+    <tr><td>1</td><td>物理拔线 + 手机 UI 完整轮（EN/ZH/RU/JA/KO）</td><td><span class="badge b-bad">未做</span></td></tr>
+    <tr><td>2</td><td>长时不间断电池 / 热浸泡</td><td><span class="badge b-bad">未做</span></td></tr>
+    <tr><td>3</td><td>真实麦克风：噪声/口音/远距/回声（energy VAD 非神经 VAD，barge-in 默认关闭）</td><td><span class="badge b-warn">部分</span></td></tr>
+    <tr><td>4</td><td>日/韩语可听质量人工评审（转录精确但无人耳确认）</td><td><span class="badge b-bad">未做</span></td></tr>
+    <tr><td>5</td><td>当前源码构建重新验收</td><td><span class="badge b-bad">未做</span></td></tr>
+  </table>
+
+  <h3>2.4 模型质量诚实声明</h3>
+  <ul>
+    <li>Qwen2.5-1.5B 在小扫描（28 题）中 FR/JA/KO 存在事实错误 → <strong>不能作为「通用多语言模型」宣传</strong>；中文/俄语小集合通过。</li>
+    <li>SenseVoice 中文在 3 片段诊断上 CER 33%（小样本冒烟，非发表级基准）。</li>
+    <li>Matcha 中文音色继承<strong>非商业训练语料限制</strong>，再分发/商用前必须审 TTS 报告。</li>
+    <li>ASR 固定 10 秒图（短音频零填充，长音频切 9.5 s 段）；单句 15 s 上限（手动录音 30 s）。</li>
+    <li>除 SenseVoice EN/ZH/JA/KO 在 NPU 外，全部推理在 CPU；Qwen 进程 PSS ≈1.95 GB。</li>
+  </ul>
+</section>
+
+<section id="s3">
+  <h2><span class="no">3</span>端到端流程与每步的组件、逻辑</h2>
+
+  <h3>0) 东西跑在哪：进程与安全架构</h3>
+  <div class="pipe">
+    <div class="stage sys"><div class="t">麦克风</div><div class="d">AudioRecord<br>16 kHz mono PCM16</div></div>
+    <div class="arrow">→</div>
+    <div class="stage m"><div class="t">VAD</div><div class="d">AdaptiveEnergyVad<br>能量状态机（纯 Java）</div></div>
+    <div class="arrow">→</div>
+    <div class="stage r"><div class="t">ASR</div><div class="d">SenseVoice <span class="badge b-npu">NPU</span><br>Zipformer <span class="badge b-cpu">CPU</span> · :6010</div></div>
+    <div class="arrow">→</div>
+    <div class="stage r"><div class="t">LLM</div><div class="d">Qwen2.5-1.5B<br>llama.cpp · :6020 <span class="badge b-cpu">CPU</span></div></div>
+    <div class="arrow">→</div>
+    <div class="stage m"><div class="t">TTS</div><div class="d">Matcha / Supertonic<br>sherpa-onnx · 流式</div></div>
+    <div class="arrow">→</div>
+    <div class="stage sys"><div class="t">扬声器</div><div class="d">有序播放队列<br>140 ms cushion</div></div>
+  </div>
+  <p class="legend"><span class="badge b-main">蓝 = 主 APK（ai.liquid.lfmdemo.dev）</span><span class="badge b-rt">绿 = runtime APK（…dev.runtime）</span><span class="badge b-npu">NPU = QNN 2.40 / HTP v81</span><span class="badge b-cpu">CPU</span></p>
+  <ul>
+    <li>两 APK <strong>同签名</strong>；主应用经 signature 权限 + 显式 intent 拉起 runtime 前台服务，另有 ContentProvider / Activity 两级兜底（应对 OEM 拦截）。</li>
+    <li>所有 HTTP <strong>只绑 127.0.0.1</strong>（UI 8765 / LFM 8080 当前停用 / ASR 6010 / LLM 6020），不需要 ADB forward。</li>
+    <li><strong>WebView 里的 JS 是整条流水线的编排器</strong>；<span class="mono">NativeAudioBridge</span> 是麦克风/VAD/TTS 原生桥；遥测逐轮写 <span class="mono">streaming-telemetry.jsonl</span>。</li>
+    <li>模型权重在包私有存储、SHA-256 pin、安装器 fail-closed；<strong>文件在 ≠ 就绪</strong>，必须当前进程出过真实转录。</li>
+  </ul>
+
+  <h3>1) 收音 + VAD（主 APK，纯 CPU，无模型）</h3>
+  <p class="kv">320 样本（20 ms）帧喂入确定性状态机 <span class="mono">IDLE → LISTENING → SPEECH → HANGOVER → ENDPOINT</span>。</p>
+  <table>
+    <tr><th>参数</th><th>值</th><th>目的</th></tr>
+    <tr><td>初始校准</td><td>300 ms</td><td>先学房间底噪</td></tr>
+    <tr><td>激活连续帧 / 最小有声</td><td>60 ms / 160 ms</td><td>拒绝单击、短促非语音</td></tr>
+    <tr><td>pre-roll</td><td>240 ms</td><td>保住句首辅音</td></tr>
+    <tr><td><strong>尾端静音判停</strong></td><td><strong>420 ms</strong></td><td>刻意压在 300–500 ms 延迟预算内——「说完」到「开始处理」的固定代价</td></tr>
+    <tr><td>单句上限</td><td>15 s</td><td>有界捕获</td></tr>
+    <tr><td>激活 / 释放阈值</td><td>max(-48 dBFS, 噪声+10 dB) / max(-54 dBFS, 噪声+6 dB)</td><td>动态门限 + 滞回</td></tr>
+  </table>
+  <p class="kv">噪声底只在非脉冲非活跃帧学习，确认语音后冻结；<strong>助手播放期间 VAD 整体屏蔽</strong>（barge-in=DISABLED，能量门无法可靠区分用户与合成音）。设计取舍：宁可多等 420 ms，不截断尾音、不误触发。</p>
+
+  <h3>2) ASR（runtime APK，<span class="mono">127.0.0.1:6010</span>）</h3>
+  <ul>
+    <li><strong>契约</strong>：<span class="mono">POST /asr?language=…</span>，规范 16 kHz mono WAV（≤10 s），<strong>零填充到固定 10 秒图</strong>（320,044 字节）后调 QNN。</li>
+    <li><strong>路由</strong>：en/zh/ja/ko → SenseVoiceSmall INT8 <span class="badge b-npu">NPU</span>（RTF≈0.009，返回文本 + 语言标签 <span class="mono">&lt;|ja|&gt;</span> 等）；ru → Zipformer INT8 <span class="badge b-cpu">CPU</span>；代码中另存 parakeet_v3_cpu 备用路线。</li>
+    <li><strong>持久 runner</strong>：ASR 引擎常驻子进程（stdin-json 协议）；切换语言路线先 quit 旧进程再分配，避免双份内存。</li>
+    <li><strong>执行感知健康</strong>：<span class="mono">artifacts_ready</span>（文件在盘）/ <span class="mono">execution_verified</span>（当前进程出过非空转录）/ <span class="mono">ready</span> + UID 归属证据 + QNN 日志须含 <span class="mono">Initializing HtpProvider</span>。</li>
+    <li><strong>串行代价（已明确记录）</strong>：对话模式先完成 ASR 再启动 LLM，音频被处理两遍——这是 ~2 s 预算里可优化的部分。</li>
+  </ul>
+
+  <h3>3) LLM（runtime APK，<span class="mono">:6020</span>，CPU）</h3>
+  <ul>
+    <li>官方 llama.cpp <span class="mono">b10083</span> server 加载 <strong>Qwen2.5-1.5B-Instruct Q4_K_M</strong>。</li>
+    <li>参数：ctx 2048 / 1 slot / 4 线程 / batch 128 / micro-batch 64 / 0 GPU 层。</li>
+    <li>接口：OpenAI 兼容 <span class="mono">POST /v1/chat/completions</span>（<strong>流式</strong>）+ <span class="mono">/health</span> + <span class="mono">/v1/models</span>；只对 Qwen3 发 thinking 控制字段（能力探测）。</li>
+    <li>手机实测（28 题短问）：首 token <strong>304/475 ms</strong>；首句可读文本 <strong>672/1,253 ms</strong>；整句 707/1,601 ms；84.4/33.2 tok/s；PSS ≈1.95 GB。</li>
+    <li><span class="mono">RuntimeService</span> 负责启动、监控、崩溃重启该子进程，持 active-client 非引用计数 wakelock。</li>
+  </ul>
+
+  <h3>4) TTS（主 APK，语言感知路由，流式）</h3>
+  <ul>
+    <li>候选<strong>不在 APK 里</strong>：<span class="mono">CandidateRegistry</span> 从外部 bundle 的 <span class="mono">candidates.json</span> 读取——换音色/加候选不重编译 APK（刻意设计）。</li>
+    <li><strong>自动路由</strong>：zh → matcha_zh_baker；ru/ja/ko → supertonic3 五步；其余 → eSpeak 离线兜底。手动 pin 文件不全必须显式报错，不许静默落错模型。</li>
+    <li><strong>流式链路</strong>：LLM 吐出第一句可读分句（标点/长度 flush）即提交 TTS → 每块过 <span class="mono">PcmGate</span> 安全门（非有限 PCM / 近静音 / 削波 / DC 偏移 → 丢块不播噪声）→ 有序播放队列（播放前/后取消、多块排序）。</li>
+    <li>空闲预载：按当前 locale 预热线图，独立 token，绝不推进在途轮次。</li>
+    <li>实测：Matcha 中文 end-to-speaker <strong>118 ms</strong>；Supertonic 首块 RU 496 / JA 577 / KO 395 ms，全部零掉块。</li>
+  </ul>
+
+  <h3>5) 播放与半双工</h3>
+  <p class="kv">播放期间 VAD 屏蔽 + 噪声底冻结（防自激）；规划播放 cushion 140 ms。实测完整轮 27 块 PCM、零 underflow、零质量告警。</p>
+</section>
+
+<section id="s4">
+  <h2><span class="no">4</span>时延汇总（手机实测，软件时间戳代理值）</h2>
+  <table>
+    <tr><th>阶段</th><th>中位</th><th>P95</th><th>备注</th></tr>
+    <tr><td>VAD 尾端判停</td><td>+420 ms</td><td>—</td><td>说完后固定代价</td></tr>
+    <tr><td>ASR（NPU 路线）</td><td>~百 ms 级</td><td>—</td><td>RTF 0.009；CPU 俄语更慢</td></tr>
+    <tr><td>ASR 完 → 首句文本</td><td>672 ms</td><td>1,253 ms</td><td>LLM 流式</td></tr>
+    <tr><td>首句文本 → 出声</td><td>90–130 ms（中）/ 395–577 ms（俄日韩）</td><td>—</td><td>TTS 首块</td></tr>
+    <tr><td>请求 → 首文本</td><td>812 ms</td><td>—</td><td>离线轮次代理值</td></tr>
+    <tr><td><strong>说完 → 出声（总）</strong></td><td><strong>≈2.16 s</strong></td><td>—</td><td>验收目标：中位 ≤2.0 s / P95 ≤3.0 s，<span class="badge b-warn">实测贴线</span></td></tr>
+  </table>
+  <p class="kv">完整一整轮（含把回答播完）：KO 3.1 s / JA 4.2 s / EN 4.5 s / RU 4.9 s / ZH 14.5 s（中文回答本身长）。<br>
+  <strong>瓶颈排序</strong>：VAD 420 ms 判停 &gt; LLM 首句（CPU）&gt; 俄日韩 TTS 首块 &gt; NPU ASR。</p>
+</section>
+
+<section id="s5">
+  <h2><span class="no">5</span>用另一个级联方案替换某个模型：最小最保险的改动方式</h2>
+
+  <h3>5.1 核心原则：在「契约缝」上换，不在流程里换</h3>
+  <div class="callout ok">这套架构最大的资产：四个模型角色之间<strong>只有三条稳定的回环 HTTP 契约</strong>。只要新方案在<strong>同一端口、同一套协议</strong>后面，主应用（UI / VAD / 编排 / TTS / 播放 / 遥测）<strong>一行代码都不用改</strong>，替换边界被压缩到 runtime companion 内部。</div>
+  <table>
+    <tr><th>契约</th><th>端口</th><th>协议</th></tr>
+    <tr><td>ASR</td><td class="mono">6010</td><td><span class="mono">POST /asr</span> → <span class="mono">candidates[i].result.text</span>（16 kHz WAV in）</td></tr>
+    <tr><td>LLM</td><td class="mono">6020</td><td>OpenAI 兼容 <span class="mono">/v1/chat/completions</span>（流式）+ <span class="mono">/health</span> + <span class="mono">/v1/models</span></td></tr>
+    <tr><td>LFM</td><td class="mono">8080</td><td>llama.cpp 风格（当前停用）</td></tr>
+  </table>
+
+  <h3>5.2 放置位置：必须进 runtime companion APK</h3>
+  <ul>
+    <li><strong>不能</strong>在 adb shell 里跑（adbd cgroup 生命周期缺陷，已被架构淘汰）；</li>
+    <li><strong>不能</strong>走云端（离线是硬需求）；</li>
+    <li>companion 是现成的「模型运行时」边界：子进程启动/监控/重启、模型私有存储、健康端点、UID 归属验证都在那里；</li>
+    <li>若新方案本身是多模型级联（如小模型意图路由 + 大模型生成），实现为 companion 内新子进程（或 llama.cpp 多模型/多 slot），<span class="mono">RuntimeService</span> 按现有模式纳入生命周期管理，对外仍只暴露一个 :6020。</li>
+  </ul>
+
+  <h3>5.3 最小 diff 食谱（以替换 LLM 为例，难度最低的一段）</h3>
+  <table>
+    <tr><th>#</th><th>改什么</th><th>文件</th></tr>
+    <tr><td>1</td><td>新模型 pin（repo / revision / filename / 字节数 / SHA-256）</td><td class="mono">reports/.../model_candidate_followup/candidate_manifest.json</td></tr>
+    <tr><td>2</td><td>server 启动命令（模型路径、别名、ctx、线程、batch）；保持 /health、/v1/models 语义</td><td class="mono">runtime-companion/.../RuntimeService.java</td></tr>
+    <tr><td>3</td><td>模型文件校验 + 身份断言（/v1/models 返回 id）+ 真实 fixture</td><td class="mono">scripts/install_app_owned_runtime.sh</td></tr>
+    <tr><td>4</td><td>源一致性断言（新启动参数、无禁用 flag）</td><td class="mono">scripts/test_runtime_companion_source.py</td></tr>
+    <tr><td>5</td><td>主应用</td><td><span class="badge b-ok">零改动</span></td></tr>
+  </table>
+  <p class="kv">预算检查：首 token 守住 672 ms 量级（否则吃掉 2 s 总预算）；PSS 预算（现 ~2 GB）；响应长度上限在主应用侧，需同步。</p>
+
+  <h3>5.4 分段替换难度一览</h3>
+  <table>
+    <tr><th>要换的段</th><th>难度</th><th>关键点</th></tr>
+    <tr><td><strong>LLM</strong></td><td><span class="badge b-ok">低（小时级）</span></td><td>任意 GGUF + OpenAI 兼容 API；只动 manifest pin + 身份检查 + fixture</td></tr>
+    <tr><td><strong>TTS</strong></td><td><span class="badge b-ok">低（小时级）</span></td><td>天生热插拔：新 bundle + candidates.json；引擎须在 SherpaTtsEngine 支持集内（matcha / supertonic / piper / kokoro 等 sherpa-onnx 引擎）</td></tr>
+    <tr><td><strong>ASR（CPU）</strong></td><td><span class="badge b-warn">中（天级）</span></td><td>ONNX 导出 + sherpa-onnx 支持 + 固定 10 s 零填充契约 + 语言路由 + fixture 精确转录</td></tr>
+    <tr><td><strong>ASR（NPU）</strong></td><td><span class="badge b-bad">高（周级）</span></td><td>QNN context 构建（AI Hub，固定形状图）+ HTP v81 skel + libcdsprpc 声明 + 执行感知验证；工具链已走过一次（SenseVoice）可复用</td></tr>
+    <tr><td><strong>LFM</strong></td><td><span class="badge b-bad">高（周级）</span></td><td>native server 是 Liquid Audio 架构专属 fork；换架构=重写，换家族=改 4 个文件名。<strong>当前源码已停用，通常无需动</strong></td></tr>
+  </table>
+
+  <h3>5.5 验证阶梯（每级不过，不上下一级）</h3>
+  <table>
+    <tr><th>级</th><th>内容</th></tr>
+    <tr><td>0</td><td><strong>宿主门</strong>：源一致性 + 协议/单元门</td></tr>
+    <tr><td>1</td><td><strong>构建 dev pair</strong>：<span class="mono">ai.liquid.lfmdemo.dev</span> / <span class="mono">.dev.runtime</span>（14 处包名/契约已改好并全门通过）——现有生产 app 零影响，模型传输自动落 .dev 包私有存储</td></tr>
+    <tr><td>2</td><td><strong>dev 包安装 + 执行感知健康</strong>：真实 fixture（精确转录 + 语言标签 + QNN provider），不看文件存在</td></tr>
+    <tr><td>3</td><td><strong>飞行模式完整对话轮</strong>：五语言回归 + 新方案目标语言；UI 绿灯不算数</td></tr>
+    <tr><td>4</td><td><strong>遥测对照</strong>：首文本/首 PCM/underrun、PSS、温度逐项对比旧方案</td></tr>
+    <tr><td>5</td><td><strong>冷重启 + OEM 策略</strong>（Nubia Apps AI-control 对新包名重配 + dumpsys AutoLaunch 验证）</td></tr>
+    <tr><td>6</td><td><strong>回迁生产包</strong>：全部通过后才应用到 <span class="mono">ai.liquid.lfmdemo*</span>；保留旧 APK 哈希做回滚锚点</td></tr>
+  </table>
+
+  <h3>5.6 保险清单（明确不做的事）</h3>
+  <ul>
+    <li><strong>不动</strong> VAD、ASR 输入契约（16 kHz / 10 s 零填充）、TTS bundle 结构、端口、签名权限——除非新方案本身改变输入形态。</li>
+    <li><strong>不</strong>在生产包上直接试错：用 .dev 隔离；签名不一致的安装会<strong>失败而非损坏</strong>（天然保险）。</li>
+    <li><strong>不</strong>接受「文件在 = 就绪」：沿用 execution_verified 语义。</li>
+    <li><strong>先量时延再谈质量</strong>：流水线串行，新段每慢 100 ms 直接吃掉 2 s 预算。</li>
+    <li><strong>许可同级审查</strong>：新模型 license 与 Matcha 语料限制一样进 THIRD_PARTY_NOTICES 与发布说明。</li>
+    <li>双 pair <strong>不能同时运行</strong>（固定回环端口 8765/6010/6020/8080）：切换时 force-stop 旧 pair（不是卸载）。</li>
+  </ul>
+</section>
+
+<section id="s6">
+  <h2><span class="no">6</span>风险、许可与存储</h2>
+  <table>
+    <tr><th>项</th><th>说明</th></tr>
+    <tr><td>许可</td><td>一方代码 Apache-2.0；vendor / native 库 / 模型权重 / 语音 bundle / Qualcomm 运行时各自条款；<span class="badge b-warn">Matcha 中文音色带非商业语料限制</span>，再分发/商用前必须审 TTS 报告</td></tr>
+    <tr><td>存储</td><td>每套 ~3 GiB（LFM 1 G + Qwen 1.1 G + ASR/QNN + TTS 1.4 G）；.dev 隔离开发再 +3 GiB</td></tr>
+    <tr><td>加固</td><td>当前为 debuggable 研究构建：loopback + signature 权限保护，未做生产加固</td></tr>
+    <tr><td>设备绑定</td><td>QNN context 与 HTP v81 负载绑定 SM8850；安装器拒绝非 arm64 / 非 SM8850 目标</td></tr>
+    <tr><td>证据继承</td><td>当前源码构建未继承任何已验收时延/离线声明，需重跑设备验收</td></tr>
+  </table>
+  <div class="callout">
+    <strong>开发隔离（本次已完成）</strong>：本 worktree 已将开发版改为独立包 <span class="mono">ai.liquid.lfmdemo.dev</span> / <span class="mono">ai.liquid.lfmdemo.dev.runtime</span>
+    （14 处：2 个 build.gradle、2 个 Manifest、4 个 Java 契约文件、3 个安装脚本、5 个运维脚本、1 个源一致性测试），全部宿主门通过。
+    手机上现有 app 的 APK、数据、模型、OEM 策略不受开发版安装影响；开发版直接 <span class="mono">adb uninstall ai.liquid.lfmdemo.dev*</span> 即可清除。
+  </div>
+</section>
+
+<footer>
+  依据：仓库当前源码 + reports/ 手机实测证据 · 证据文件索引见 LEADER_BRIEFING.md · 设备：Nubia NX809J / SM8850
+</footer>
+
+</div>
+</body>
+</html>

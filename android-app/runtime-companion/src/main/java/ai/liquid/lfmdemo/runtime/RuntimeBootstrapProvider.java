@@ -22,13 +22,13 @@ import android.util.Log;
  * creation, call delivery, and service-start acceptance after a failed run.
  */
 public final class RuntimeBootstrapProvider extends ContentProvider {
-    static final String AUTHORITY = "ai.liquid.lfmdemo.runtime.bootstrap";
+    static final String AUTHORITY = "ai.liquid.lfmdemo.dev.runtime.bootstrap";
     static final String METHOD_START_RUNTIME = "start_runtime";
 
     private static final String TAG = "LfmRuntimeProvider";
     private static final String START_PERMISSION =
-            "ai.liquid.lfmdemo.permission.START_RUNTIME";
-    private static final String ALLOWED_CALLER = "ai.liquid.lfmdemo";
+            "ai.liquid.lfmdemo.dev.permission.START_RUNTIME";
+    private static final String ALLOWED_CALLER = "ai.liquid.lfmdemo.dev";
     private static final String DIAGNOSTICS = "runtime_bootstrap_diagnostics";
 
     private int providerCreateCount;
@@ -89,7 +89,7 @@ public final class RuntimeBootstrapProvider extends ContentProvider {
         String errorMessage = "";
         try {
             Intent service = new Intent(context, RuntimeService.class)
-                    .setAction("ai.liquid.lfmdemo.runtime.START");
+                    .setAction("ai.liquid.lfmdemo.dev.runtime.START");
             ComponentName started;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 started = context.startForegroundService(service);

@@ -30,7 +30,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any, Iterable, Sequence
 
 
-PACKAGE = "ai.liquid.lfmdemo"
+PACKAGE = "ai.liquid.lfmdemo.dev"
 ACTIVITY = f"{PACKAGE}/.MainActivity"
 REMOTE_ROOT = f"/sdcard/Android/data/{PACKAGE}/files/tts-eval"
 PARTIAL_SUFFIX = ".lmf-install.partial"

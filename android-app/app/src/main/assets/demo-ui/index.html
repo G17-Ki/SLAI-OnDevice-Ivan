@@ -572,10 +572,10 @@
     const LFM_API_URL = "http://127.0.0.1:8080/v1/chat/completions";
     const LFM_HEALTH_URL = "http://127.0.0.1:8080/";
     const LFM_RUNTIME_ENABLED = Boolean(window.NativeAudio?.lfmRuntimeEnabled?.());
-    const TEXT_API_URL = "http://127.0.0.1:6020/v1/chat/completions";
+    const TEXT_API_URL = "http://127.0.0.1:6020/v1/completions";
     const TEXT_HEALTH_URL = "http://127.0.0.1:6020/health";
-    const QWEN_TEXT_MODEL = "Qwen2.5-1.5B-Instruct-Q4_K_M";
-    const QWEN_RESPONSE_BACKEND = "qwen2_5_1_5b_q4_k_m_cpu";
+    const QWEN_TEXT_MODEL = "Qwen3-ASR-0.6B-Text-Q4_K_M";
+    const QWEN_RESPONSE_BACKEND = "qwen3_asr_0p6b_text_q4_k_m_cpu";
     const LFM_DIRECT_MODEL = "LFM2.5-Audio-1.5B";
     const LFM_DIRECT_RESPONSE_BACKEND = "lfm2_5_audio_interleaved_q4_cpu";
     const LFM_DIRECT_VOICE_BACKEND = "lfm_audio_interleaved_streaming";
@@ -962,6 +962,7 @@
     let asrPreparePromise = null;
     let selectedRouteWarmupPromise = null;
     let selectedRouteWarmupSequence = 0;
+    let runtimeRecoveryRequestedAt = Number.NEGATIVE_INFINITY;
     let lfmModelReady = !LFM_RUNTIME_ENABLED;
     let mediaRecorder = null;
     let mediaStream = null;
@@ -1522,9 +1523,12 @@
 
     function extractSafeTtsChunks(input, flush = false, options = {}) {
       const commaMinChars = options.commaMinChars ?? 32;
+      const cjkLeadCommaMinChars = options.cjkLeadCommaMinChars ?? 10;
       const minBoundedChars = options.minBoundedChars ?? 50;
       const maxChars = options.maxChars ?? 70;
       const allowClauseBoundaries = options.allowClauseBoundaries !== false;
+      const allowCjkLeadComma = options.leadChunkQueued !== true
+        && ["zh", "ja", "ko"].includes(options.language);
       let remainder = String(input || "").replace(/\r/g, "");
       const chunks = [];
 
@@ -1539,9 +1543,21 @@
           const isAsciiStop = (allowClauseBoundaries ? /[.!?;:]/u : /[.!?]/u).test(character)
             && (flush || Boolean(next && /\s/u.test(next)));
           const isNewline = character === "\n";
-          const isComma = allowClauseBoundaries && /[,，、]/u.test(character)
-            && remainder.slice(0, index + 1).trim().length >= commaMinChars
-            && (isUnicodeStop || flush || !next || /\s/u.test(next));
+          let isComma = false;
+          if (allowClauseBoundaries && /[,，、]/u.test(character)) {
+            const commaPrefix = remainder.slice(0, index + 1).trim();
+            const cjkLeadCommaReady = character === "，"
+              || (options.language === "ja" && character === "、")
+              || (character === "," && Boolean(next && /\s/u.test(next)));
+            const isCjkLeadComma = allowCjkLeadComma
+              && chunks.length === 0
+              && Array.from(commaPrefix).length >= cjkLeadCommaMinChars
+              && cjkLeadCommaReady
+              && ttsChunkScriptCheck(commaPrefix, { language: options.language }).safe;
+            const isTightCjkComma = isCjkLeadComma && /[，、]/u.test(character);
+            isComma = (commaPrefix.length >= commaMinChars || isCjkLeadComma)
+              && (isTightCjkComma || flush || !next || /\s/u.test(next));
+          }
           if (isUnicodeStop || isAsciiStop || isNewline || isComma) {
             boundary = end;
             break;
@@ -3486,6 +3502,33 @@
       es: "Responde directamente y solamente en español."
     });
 
+    // Trained prompt format (teacher_explicit_roles_v1) for the Qwen3-ASR-0.6B
+    // text decoder. Ported verbatim from scripts/qwen3_asr_llm_swap/dialogue_prompt.py.
+    // The model's text path does not use a chat template: history is folded into a
+    // single raw prompt sent to /v1/completions. The response language follows the
+    // ASR transcript language, so no RESPONSE_LANGUAGE_POLICIES line is injected.
+    const QWEN3ASR_SYSTEM = "你是一个有帮助的中文语音助手。请根据对话内容直接、简洁、准确地回答用户的问题。";
+    function qwen3AsrBasePrompt(system) {
+      return ("下面是一段用户和助手之间的真实对话。\n"
+        + "你现在扮演“助手”。\n"
+        + "请站在助手的角色回答最后一个用户问题。\n"
+        + "注意区分用户说的“我”和对助手说的“你”。\n"
+        + "只回答问题，不要继续编写新的用户对话。\n\n"
+        + "系统：" + system + "\n");
+    }
+    function buildQwen3AsrPrompt(historyMessages, userText) {
+      let prompt = qwen3AsrBasePrompt(QWEN3ASR_SYSTEM);
+      for (const message of historyMessages) {
+        if (message.role === "user") {
+          prompt += "\n用户：" + message.content + "\n助手回答：";
+        } else {
+          prompt += message.content;
+        }
+      }
+      prompt += "\n用户：" + userText + "\n助手回答：";
+      return prompt;
+    }
+
     function asrSystemPrompt() {
       return LFM_ASR_SYSTEM_PROMPT;
     }
@@ -3524,13 +3567,14 @@
       const normalizedTranscript = String(transcript || "").replace(/\s+/gu, " ").trim();
       if (!normalizedTranscript) throw new Error("A response request needs a non-empty transcript.");
       const language = languageRoute?.language || "en";
-      const languagePolicy = RESPONSE_LANGUAGE_POLICIES[language]
-        || `Answer only in ${TTS_LANGUAGE_NAMES[language] || language}.`;
+      // Language policy intentionally omitted: the Qwen3-ASR decoder is trained
+      // with the fixed Chinese system prompt above and follows the transcript
+      // language (verified host-side: zh in -> zh out, en in -> en out).
       const memoryDirective = memoryUnavailableAction
         ? (MEMORY_UNAVAILABLE_DIRECTIVES[language]?.[memoryUnavailableAction]
           || MEMORY_UNAVAILABLE_DIRECTIVES.en[memoryUnavailableAction])
         : null;
-      return [languagePolicy, memoryDirective, normalizedTranscript]
+      return [memoryDirective, normalizedTranscript]
         .filter(Boolean)
         .join("\n");
     }
@@ -3568,18 +3612,13 @@
         model: QWEN_TEXT_MODEL,
         stream: true,
         cache_prompt: true,
-        temperature: 0.2,
-        top_p: 0.8,
-        repeat_penalty: 1.08,
-        max_tokens: RESPONSE_TOKEN_LIMITS[requestMode] || RESPONSE_TOKEN_LIMITS.text,
-        messages: [
-          { role: "system", content: conversationSystemPrompt(requestMode, languageRoute) },
-          ...safeHistory,
-          {
-            role: "user",
-            content: buildConversationUserText({ transcript, languageRoute, memoryUnavailableAction })
-          }
-        ]
+        prompt: buildQwen3AsrPrompt(
+          safeHistory,
+          buildConversationUserText({ transcript, languageRoute, memoryUnavailableAction })
+        ),
+        temperature: 0,
+        top_k: 1,
+        max_tokens: RESPONSE_TOKEN_LIMITS[requestMode] || RESPONSE_TOKEN_LIMITS.text
       };
     }
 
@@ -4759,6 +4798,7 @@
       let ttsAcceptedText = "";
       let ttsQualityAborted = false;
       let naturalTtsLeadQueued = false;
+      let nativeTtsLeadQueued = false;
       let ttsChunkSequence = 0;
       let ttsQueueChain = Promise.resolve();
       let ttsReadyPromise = null;
@@ -5315,9 +5355,13 @@
               }
             }
           } else {
-            const extracted = extractSafeTtsChunks(ttsTextRemainder);
+            const extracted = extractSafeTtsChunks(ttsTextRemainder, false, {
+              language: languageRoute.language,
+              leadChunkQueued: nativeTtsLeadQueued
+            });
             ttsTextRemainder = extracted.remainder;
             enqueueQualityCheckedTtsChunks(extracted.chunks);
+            if (extracted.chunks.length) nativeTtsLeadQueued = true;
           }
         }
       };
@@ -5343,8 +5387,11 @@
               finishReason = String(choice.finish_reason);
             }
             const delta = choice.delta || {};
-            if (delta.content) {
-              appendVisibleAssistantText(reasoningFilter.push(delta.content));
+            // /v1/chat/completions streams carry choices[0].delta.content;
+            // /v1/completions streams carry choices[0].text.
+            const deltaText = delta.content || choice.text || "";
+            if (deltaText) {
+              appendVisibleAssistantText(reasoningFilter.push(deltaText));
             }
             const audioDelta = responseMode === "chat" && !usesLfmTts
               ? decodeAudioDelta(delta)
@@ -5622,6 +5669,35 @@
       return `sensevoice_qnn:${selection}`;
     }
 
+    function asrBackendForSelection(language = "auto") {
+      const selection = asrSelectionForLanguage(language);
+      if (selection === "ru") return "zipformer_ru_cpu";
+      if (PARAKEET_CPU_LANGUAGES.includes(selection)) return "parakeet_v3_cpu";
+      return "sensevoice_qnn";
+    }
+
+    function fallBackFromUnavailableAsrRoute(asrHealth, selection) {
+      if (selection === "auto" || selectedRouteTransitionBusy()) return selection;
+      const backendId = asrBackendForSelection(selection);
+      const backend = asrHealth?.backends?.[backendId];
+      const autoBackend = asrHealth?.backends?.sensevoice_qnn;
+      if (backend?.available !== false || autoBackend?.available !== true) return selection;
+
+      languageSelect.value = "auto";
+      storeLanguageSelection("auto");
+      renderPendingLanguageSelection();
+      asrPreparedLanguage = null;
+      selectedRouteWarmupSequence += 1;
+      modelWaitAttempts = 0;
+      emitTelemetry(null, "language_selection_unavailable_fallback", {
+        requested_selection: selection,
+        fallback_selection: "auto",
+        unavailable_backend: backendId,
+        reason: "selected_asr_backend_unavailable"
+      });
+      return "auto";
+    }
+
     function selectedRouteWarmState(language = "auto") {
       const asrSelection = asrSelectionForLanguage(language);
       const responseLanguage = responseLanguageForSelection(language);
@@ -5773,18 +5849,38 @@
       return sequence === selectedRouteWarmupSequence && result;
     }
 
-    function describeMissingServices() {
+    function selectedRouteTransitionBusy() {
+      return Boolean(turnCoordinator.current)
+        || Boolean(vadState.processingTurn)
+        || ttsClientTurns.size > 0;
+    }
+
+    function describeMissingServices(asrHealthy, textHealthy, lfmHealthy) {
       const down = [];
-      if (!asrModelReady) down.push("speech recognition (port 6010)");
-      if (LFM_RUNTIME_ENABLED && !lfmModelReady) down.push("the LFM server (port 8080)");
-      if (!textModelReady) down.push("the language model (port 6020)");
+      if (!asrHealthy) down.push("speech recognition (port 6010)");
+      if (LFM_RUNTIME_ENABLED && !lfmHealthy) down.push("the LFM server (port 8080)");
+      if (!textHealthy) down.push("the language model (port 6020)");
       return down;
+    }
+
+    async function fetchHealth(url, timeoutMs = 2500) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        return await fetch(url, {
+          method: "GET",
+          cache: "no-store",
+          signal: controller.signal
+        });
+      } finally {
+        clearTimeout(timeout);
+      }
     }
 
     async function waitForModel() {
       const readinessChecks = [
-        fetch(ASR_COMPANION_HEALTH_URL, { method: "GET", cache: "no-store" }),
-        fetch(TEXT_HEALTH_URL, { method: "GET", cache: "no-store" })
+        fetchHealth(ASR_COMPANION_HEALTH_URL),
+        fetchHealth(TEXT_HEALTH_URL)
       ];
       // The custom LFM server has no dedicated health route; a reachable
       // HTTP response (currently 404 at `/`) proves that the process is listening.
@@ -5792,16 +5888,21 @@
         readinessChecks.push(fetch(LFM_HEALTH_URL, { method: "GET", cache: "no-store" }));
       }
       const [asrResult, textResult, lfmResult] = await Promise.allSettled(readinessChecks);
-      const selectedLanguage = languageSelect.value || DEFAULT_LANGUAGE_SELECTION;
+      let selectedLanguage = languageSelect.value || DEFAULT_LANGUAGE_SELECTION;
       let asrHealth = null;
       if (asrResult.status === "fulfilled" && asrResult.value.ok) {
         asrHealth = await asrResult.value.json().catch(() => null);
       }
       asrModelReady = asrHealth?.ok === true;
+      if (asrModelReady) {
+        selectedLanguage = fallBackFromUnavailableAsrRoute(asrHealth, selectedLanguage);
+      }
       const expectedAsrRoute = asrRouteForSelection(selectedLanguage);
       const residentAsr = asrHealth?.resident_runner;
+      const routeTransitionBusy = selectedRouteTransitionBusy();
       if (asrModelReady && asrPreparedLanguage
-          && (residentAsr?.active !== true || residentAsr?.route !== expectedAsrRoute)) {
+          && (residentAsr?.active !== true || residentAsr?.route !== expectedAsrRoute)
+          && !routeTransitionBusy) {
         emitTelemetry(null, "asr_resident_route_invalidated", {
           selected_language: selectedLanguage,
           expected_route: expectedAsrRoute,
@@ -5812,10 +5913,15 @@
       }
       if (!asrModelReady) asrPreparedLanguage = null;
       const textModelHealthy = textResult.status === "fulfilled" && textResult.value.ok;
+      const lfmModelHealthy = !LFM_RUNTIME_ENABLED || lfmResult?.status === "fulfilled";
+      if (asrModelReady && textModelHealthy) {
+        runtimeRecoveryRequestedAt = Number.NEGATIVE_INFINITY;
+      }
       if (!textModelHealthy) textModelWarmLanguage = null;
       let routeWarmState = selectedRouteWarmState(selectedLanguage);
       if (asrModelReady && textModelHealthy
-          && !routeWarmState.ready && !selectedRouteWarmupPromise) {
+          && !routeWarmState.ready && !selectedRouteWarmupPromise
+          && !routeTransitionBusy) {
         deviceStatusText.textContent = "Warming selected offline route";
         recordLabel.textContent = "Preparing first response";
         timer.textContent = "one-time offline route warmup";
@@ -5827,7 +5933,7 @@
         && routeWarmState.ready
         && !textModelWarmupPromise
         && !selectedRouteWarmupPromise;
-      lfmModelReady = !LFM_RUNTIME_ENABLED || lfmResult?.status === "fulfilled";
+      lfmModelReady = lfmModelHealthy;
       modelReady = asrModelReady && textModelReady
         && (!LFM_RUNTIME_ENABLED || lfmModelReady);
       if (modelReady && !selectedRouteWarmupPromise) {
@@ -5840,10 +5946,34 @@
       } else {
         modelWaitAttempts += 1;
         if (modelWaitAttempts >= MODEL_WAIT_ATTEMPTS_BEFORE_DIAGNOSIS) {
-          const down = describeMissingServices();
-          deviceStatusText.textContent = `Not running: ${down.join(" and ")}`;
-          recordLabel.textContent = "Companion not running";
-          timer.textContent = "runtime companion is starting on the phone";
+          const down = describeMissingServices(
+            asrModelReady,
+            textModelHealthy,
+            lfmModelHealthy
+          );
+          if (down.length > 0) {
+            deviceStatusText.textContent = `Not running: ${down.join(" and ")}`;
+            recordLabel.textContent = "Companion not running";
+            timer.textContent = "runtime companion is restarting on the phone";
+            const recoveryRequestDue = performance.now() - runtimeRecoveryRequestedAt
+              >= 10_000;
+            if ((!asrModelReady || !textModelHealthy) && recoveryRequestDue) {
+              runtimeRecoveryRequestedAt = performance.now();
+              let accepted = false;
+              try {
+                accepted = window.NativeAudio?.ensureRuntimeCompanion?.() === true;
+              } catch (_) {}
+              emitTelemetry(null, "runtime_health_recovery_requested", {
+                accepted,
+                asr_healthy: asrModelReady,
+                text_healthy: textModelHealthy
+              });
+            }
+          } else {
+            deviceStatusText.textContent = "Preparing selected offline route";
+            recordLabel.textContent = "Preparing first response";
+            timer.textContent = "one-time offline route warmup";
+          }
         } else {
           deviceStatusText.textContent = !asrModelReady
             ? "Starting speech recognition"

@@ -25,6 +25,21 @@
   },
   "models": [
     {
+      "id": "qwen3_asr_0p6b_text_q4_k_m",
+      "alias": "Qwen3-ASR-0.6B-Text-Q4_K_M",
+      "filename": "qwen3_asr_0p6b_text-q4_k_m.gguf",
+      "repository": null,
+      "revision": null,
+      "url": null,
+      "bytes": 396700032,
+      "sha256": "f9c2f25634a7a6424254c955bf80a49ba425ceeb012f0eadfd14b8d16b6d13ce",
+      "upstream_model": "self-trained Qwen3-0.6B text decoder: thinker.model.* extracted from AudioTrain qwen3_asr_0p6b_spoken_multiturn_90h_20261014 (base Qwen3-0.6B, 90h spoken multilingual multiturn post-training); see scripts/qwen3_asr_llm_swap/",
+      "license": "self-trained on top of Apache-2.0 Qwen3-0.6B",
+      "role": "primary LLM swap candidate (task-finetuned for the phone voice-dialogue scenario); not published - stage the GGUF manually in the host model cache, installer verifies sha256",
+      "primary_run": true,
+      "priority_runs": 1
+    },
+    {
       "id": "qwen3_1_7b_q4_0_baseline",
       "alias": "Qwen3-1.7B-Q4_0",
       "filename": "Qwen3-1.7B-Q4_0.gguf",

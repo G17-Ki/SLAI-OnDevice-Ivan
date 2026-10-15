@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <permission
-        android:name="ai.liquid.lfmdemo.permission.START_RUNTIME"
+        android:name="ai.liquid.lfmdemo.dev.permission.START_RUNTIME"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,7 +13,7 @@
     <application
         android:allowBackup="false"
         android:extractNativeLibs="true"
-        android:label="LFM Offline Runtime"
+        android:label="LFM Offline Runtime DEV"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <!--
@@ -29,10 +29,10 @@
 
         <provider
             android:name=".RuntimeBootstrapProvider"
-            android:authorities="ai.liquid.lfmdemo.runtime.bootstrap"
+            android:authorities="ai.liquid.lfmdemo.dev.runtime.bootstrap"
             android:exported="true"
             android:grantUriPermissions="false"
-            android:permission="ai.liquid.lfmdemo.permission.START_RUNTIME" />
+            android:permission="ai.liquid.lfmdemo.dev.permission.START_RUNTIME" />
 
         <activity
             android:name=".RuntimeActivity"
@@ -49,7 +49,7 @@
             android:exported="true"
             android:finishOnTaskLaunch="true"
             android:noHistory="true"
-            android:permission="ai.liquid.lfmdemo.permission.START_RUNTIME"
+            android:permission="ai.liquid.lfmdemo.dev.permission.START_RUNTIME"
             android:taskAffinity=""
             android:theme="@style/RuntimeBootstrapTheme" />
 
@@ -57,9 +57,9 @@
             android:name=".RuntimeService"
             android:exported="true"
             android:foregroundServiceType="specialUse"
-            android:permission="ai.liquid.lfmdemo.permission.START_RUNTIME">
+            android:permission="ai.liquid.lfmdemo.dev.permission.START_RUNTIME">
             <intent-filter>
-                <action android:name="ai.liquid.lfmdemo.runtime.START" />
+                <action android:name="ai.liquid.lfmdemo.dev.runtime.START" />
             </intent-filter>
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"

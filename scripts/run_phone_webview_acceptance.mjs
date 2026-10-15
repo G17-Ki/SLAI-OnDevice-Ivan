@@ -305,10 +305,21 @@ const STATIC_INSPECTION = String.raw`(async () => {
       asrInputAudioKeys: countAudioKeys(asrPayload),
       responseInputAudioParts: countAudioParts(responsePayload),
       responseInputAudioKeys: countAudioKeys(responsePayload),
-      asrRoles: asrPayload.messages.map(message => message.role),
-      responseRoles: responsePayload.messages.map(message => message.role),
-      responseUserType: typeof responsePayload.messages[1].content,
-      responseUserText: responsePayload.messages[1].content,
+      asrRoles: Array.isArray(asrPayload.messages)
+        ? asrPayload.messages.map(message => message.role)
+        : null,
+      responseProtocol: typeof responsePayload.prompt === "string"
+        ? "raw_prompt"
+        : (Array.isArray(responsePayload.messages) ? "chat_messages" : null),
+      responseRoles: Array.isArray(responsePayload.messages)
+        ? responsePayload.messages.map(message => message.role)
+        : null,
+      responseUserType: Array.isArray(responsePayload.messages)
+        ? typeof responsePayload.messages[1].content
+        : typeof responsePayload.prompt,
+      responseUserText: Array.isArray(responsePayload.messages)
+        ? responsePayload.messages[1].content
+        : (typeof responsePayload.prompt === "string" ? responsePayload.prompt : null),
       asrModalities: asrPayload.modalities,
       responseModalities: responsePayload.modalities
     },
@@ -451,7 +462,8 @@ const INSTALL_FETCH_CAPTURE = String.raw`(() => {
     const url = typeof input === "string" ? input : (input?.url || String(input));
     let capture = null;
     const isAsrCompanion = url.includes("127.0.0.1:6010/asr");
-    const isResponseCompanion = url.includes("127.0.0.1:6020/v1/chat/completions");
+    const isResponseCompanion = url.includes("127.0.0.1:6020/v1/chat/completions")
+      || url.includes("127.0.0.1:6020/v1/completions");
     if (isAsrCompanion) {
       let requestedLanguage = null;
       try {
@@ -472,7 +484,8 @@ const INSTALL_FETCH_CAPTURE = String.raw`(() => {
         userContentType: null,
         userText: null
       };
-    } else if (url.includes("/v1/chat/completions") && typeof options?.body === "string") {
+    } else if ((url.includes("/v1/chat/completions") || url.includes("/v1/completions"))
+        && typeof options?.body === "string") {
       try {
         const body = JSON.parse(options.body);
         const systemPrompt = body.messages?.[0]?.content ?? null;
@@ -482,6 +495,9 @@ const INSTALL_FETCH_CAPTURE = String.raw`(() => {
           && body.modalities.includes("audio");
         const userMessage = [...(body.messages || [])].reverse().find(message => message?.role === "user");
         const userContent = userMessage?.content;
+        const isRawPrompt = isResponseCompanion
+          && !Array.isArray(body.messages)
+          && typeof body.prompt === "string";
         const countInputAudioKeys = value => {
           if (!value || typeof value !== "object") return 0;
           if (Array.isArray(value)) return value.reduce((count, item) => count + countInputAudioKeys(item), 0);
@@ -510,16 +526,19 @@ const INSTALL_FETCH_CAPTURE = String.raw`(() => {
               : null),
           requestModel: body.model ?? null,
           requestModelIdentity: modelIdentity(body.model),
+          responseProtocol: isRawPrompt
+            ? "raw_prompt"
+            : (Array.isArray(body.messages) ? "chat_messages" : null),
           roles: Array.isArray(body.messages) ? body.messages.map(message => message.role) : [],
           modalities: body.modalities || null,
           inputAudioParts: Array.isArray(userContent)
             ? userContent.filter(part => part?.type === "input_audio").length
             : 0,
           inputAudioKeys: countInputAudioKeys(body),
-          userContentType: typeof userContent,
-          userText: typeof userContent === "string"
-            ? userContent
-            : null
+          userContentType: isRawPrompt ? "string" : typeof userContent,
+          userText: isRawPrompt
+            ? body.prompt
+            : (typeof userContent === "string" ? userContent : null)
         };
       } catch (error) {
         capture = { url, at: new Date().toISOString(), parseError: String(error) };
@@ -816,6 +835,7 @@ function buildCaseExpression(testCase, encodedWav) {
       item?.stage === "response" || item?.stage === "response_companion"
     );
     const responseCompanionFetches = fetches.filter(item => item?.stage === "response_companion");
+    const responseTurnFetches = responseFetches.filter(item => item?.stream === true);
     const modelFetches = fetches.filter(item =>
       ["asr", "response", "response_companion", "unknown"].includes(item?.stage)
     );
@@ -836,26 +856,30 @@ function buildCaseExpression(testCase, encodedWav) {
       companionUsesRawWav: companionFetches.length
         ? validCompanionAsr
         : null,
-      responseRequestPresent: expectsResponseRequest ? responseFetches.length === 1 : null,
+      responseRequestPresent: expectsResponseRequest ? responseTurnFetches.length === 1 : null,
       responseContainsNoInputAudio: expectsResponseRequest
-        ? responseFetches.length === 1 && responseFetches.every(item =>
+        ? responseTurnFetches.length === 1 && responseTurnFetches.every(item =>
           item.inputAudioParts === 0 && item.inputAudioKeys === 0
         )
         : null,
       responseUsesTextUserContent: expectsResponseRequest
-        ? responseFetches.length === 1
-          && responseFetches.every(item => item.userContentType === "string")
+        ? responseTurnFetches.length === 1
+          && responseTurnFetches.every(item => item.userContentType === "string")
         : null,
       asrRolesOnlySystemAndUser: asrFetches.every(item =>
         Array.isArray(item.roles) && item.roles.every(role => role === "system" || role === "user")
       ),
       responseRolesSupported: expectsResponseRequest
-        ? responseFetches.length === 1 && responseFetches.every(item =>
-          Array.isArray(item.roles)
-          && item.roles.length >= 2
-          && item.roles[0] === "system"
-          && item.roles.at(-1) === "user"
-          && item.roles.every(role => ["system", "user", "assistant"].includes(role))
+        ? responseTurnFetches.length === 1 && responseTurnFetches.every(item =>
+          (Array.isArray(item.roles)
+            && item.roles.length >= 2
+            && item.roles[0] === "system"
+            && item.roles.at(-1) === "user"
+            && item.roles.every(role => ["system", "user", "assistant"].includes(role)))
+          || (item.stage === "response_companion"
+            && item.responseProtocol === "raw_prompt"
+            && typeof item.userText === "string"
+            && item.userText.length > 0)
         )
         : null,
       responseThinkingDisabled: responseCompanionFetches.length
@@ -864,8 +888,8 @@ function buildCaseExpression(testCase, encodedWav) {
     };
     const observedOutcome = thrown ? "blocked" : "complete";
     const asrFacts = turn.languageRoute?.asrFacts || null;
-    const responseRequestText = responseFetches.at(-1)?.userText || null;
-    const responseFetch = responseFetches.at(-1) || null;
+    const responseRequestText = responseTurnFetches.at(-1)?.userText || null;
+    const responseFetch = responseTurnFetches.at(-1) || null;
     const completedResponseText = responseEl.textContent;
     const completedTranscript = turn.transcript
       || (turn.responseMode === "asr" ? responseEl.textContent : "");

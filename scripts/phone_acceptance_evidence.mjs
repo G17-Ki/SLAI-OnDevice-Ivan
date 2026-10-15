@@ -6,7 +6,11 @@ export function responseThinkingDisabled(responseFetches) {
       item?.requestModel || item?.requestModelIdentity || "",
     ).toLocaleLowerCase();
     const isQwen25 = /qwen2(?:[._-]?5)/u.test(`${backend}\n${model}`);
-    return isQwen25
+    // The Qwen3-ASR text decoder is served through the raw /v1/completions
+    // prompt path (no chat template), so its serving path has no thinking
+    // mode at all - the same no-thinking category as Qwen2.5.
+    const isRawPromptNoThinking = /qwen3[-_]?asr[-_]?0[._-p]?6b/u.test(`${backend}\n${model}`);
+    return (isQwen25 || isRawPromptNoThinking)
       ? item?.enableThinking == null || item.enableThinking === false
       : item?.enableThinking === false;
   });
