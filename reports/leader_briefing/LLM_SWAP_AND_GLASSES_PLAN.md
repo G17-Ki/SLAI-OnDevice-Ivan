@@ -244,6 +244,121 @@
 5. **判定：NO-GO（纯质量原因；稳定性缺陷已按用户要求修复，见本节第 4 条与 §5.10 末）**。语言路由回退亦无数据支撑（回退要求 zh/en 新模型 ≥ 基线，实测 en 2/4 < 3/4、zh 2/3 < 3/3）。**建议：整体回退，手机 LLM 槽位保留 Qwen2.5-1.5B**；若内存减半是硬需求，替代路径 = 1.5B 更低量化（q3/q4_0 ≈ 1 GB）或换更小的通用模型，而非本 ASR 微调解码器（其强项是中文口语简洁应答，QA 面全线退化）
 6. **副产物**：harness warmup-fetch 过滤（`responseTurnFetches` stream===true）；T1.8 plan 按 .dev 现实改写（EN 路由 = tts/android_native_tts：`NativeAudioBridge.java:40` LFM_RUNTIME_ENABLED=false 为快照固有；.dev 无研究 TTS bundle → 全语言 readyEngine="system"）；sweep 脚本（逐例落盘/健康探测中止/--cache-prompt/--app-warmup/--sleep）；wakelock 修复两 APK（runtime sha256 `9ddc68b3…`、主 `cf577709a40ac6a7…`，已装未提交）
 
+### 5.12 Rokid Glasses ADB 侦察 + 开发者模式解锁（2026-10-15 晚，用户自有 Rokid Glasses，固件 1.26.011）
+
+**目标**：评估能否把麦克风流客户端 APK 装进眼镜（路径 C：眼镜侧 app → 16kHz PCM → 手机级联 → TTS 回传）。
+
+**通道**（本机 = 用户 Windows 机器的 WSL2）：眼镜 USB 只对 Windows 可见 → Windows 侧 `adb -a -P 5038 start-server`（platform-tools 拷至 C:\adb-win），WSL 内经 NAT `adb -H 172.18.0.1 -P 5038` 操作。usbipd 转发 WSL 失败（attach rc=0 但设备未枚举，报错文本被 interop 层破坏为乱码不可读）；注意 **usbipd `bind`（Shared 态）会把设备从 Windows PnP 栈摘除**，排障完需 `unbind` 交还。
+
+**设备画像**（只读侦察，零写入）：
+- `Rokid/glasses/glasses:12/SKQ1.240613.001/1.26.011-20260929-150201:user/release-keys` — **Android 12 (SDK 32)、user 构建**（无 root）、SELinux **Enforcing**、高通平台、368 进程
+- Wi-Fi radio 存在；/data 19G 空闲 16G；USB 接口 `18d1:4ee7 "RG-glasses-IDP"`，Windows 通用 ADB 驱动自动匹配并授权
+- 设备内已有 `com.example.rokidhello`（69MB 语音助手 app：sherpa-onnx ASR 14M 中文 int8 + `librokid-llama.so` + onnxruntime + TTS kit 许可文件，minSdk24/targetSdk37，装于 09-30）——**第三方用 AI 做的社区 app，非 Rokid 官方**（用户更正）；仍是有用数据点：完整端侧语音链路（麦→ASR→LLM→TTS→喇叭）曾在这副眼镜上安装运行
+
+**默认状态厂商锁定（用户开开发者模式前实测，三证据）**：
+1. **`adb install` 被显式禁止**：8.5KB 最小探测 APK → `adb: failed to install: error: not allow package install!`（厂商定制报错，非标准 `INSTALL_FAILED_*`）
+2. **shell 域一切 binder 服务调用被强制 kill**（会话关闭，非拒绝）：`pm list users`/`cmd package`/`cmd statusbar`/`dumpsys battery`/`service list`/`logcat` 全 `error: closed`；对照 `sleep 10`、50 连发 `getprop` 均正常 → 排除链路抖动，是策略层主动 kill（adbd 日志 tag `RKD--` = Rokid 定制 adbd，锁定在其内实现）
+3. **user 构建 + release-keys** → 无 root
+
+**用户开启开发者模式后（乐奇 App 内操作）→ 锁定全解**：
+- `pm`/`service list`(203 服务)/`logcat`/`svc` 全部可用
+- `adb install` 成功：8.5KB 探测包 `com.probe.lfm` 安装 OK（首两次失败为我方 APK 缺陷：缺 uses-sdk → `INSTALL_FAILED_NEWER_SDK`、缺 classes.dex → "code is missing"，非设备限制）
+- **结论更新：路径 C 可用（前提 = 保持开发者模式开启；需确认 OTA 升级是否重置该状态）**
+- 注意：开发者模式状态持久性未验证，每次 OTA 后需复检（`pm list packages -3` 能否运行即判据）
+
+**Wi-Fi 实测（shell 全程可控）**：
+- `svc wifi enable` 可用；`cmd wifi connect-network <ssid> open` 可连（`add-network` 子命令在该 build 语法失效，connect 自带保存即可）
+- 眼镜连 `SLAI` 5GHz（BSSID `60:a6:c5:c5:a2:90` @5300MHz，IP 10.200.123.252/18）；手机连 `SLAI`（BSSID `d8:40:08:81:88:50` @5280MHz，IP 10.200.126.193/18）
+- **同子网但双向 ping 全丢 = 同 SSID 多 AP 分 VLAN（6E/5G/2.4 分池）**；`SLAI-Guest`（眼镜原保存网）另属隔离 guest VLAN（同测不通）
+- → **Wi-Fi 直连 TCP 暂不可用**（除非改路由器 VLAN/合并频段池）；**传输主选 = BT SPP**（RFCOMM，经典蓝牙，眼镜↔手机本就 BT 配对为通话设备，SPP 吞吐 200–1000 KB/s 对 16kHz PCM16=32KB/s 绰绰有余，且与所处 Wi-Fi 环境无关）；Wi-Fi TCP 留作改好路由后的加速选项
+
+**Rokid 软件栈**（ps，均 system uid）：`com.rokid.os.sprite.assistserver`（+独立 `:tts` 子进程 = "乐奇" AI 助手后端）/ `com.rokid.os.master.screenstream`（眼镜→手机屏幕流，手机为 master）/ `com.rokid.os.sprite.{launcher,live}` / `com.rokid.glass.ota` / `com.rokid.sysconfig` / `com.rokid.cxrservice`；/product/app 含 Alipay/WeixinPay/JdPay（声纹支付）+ RokidOtaUpgrade/RokidScreenRecord
+
+**路线裁定（更新）**：
+- 路径 C（侧载）✅ **可用**（开发者模式开启时）：眼镜侧装客户端 app（麦→VAD→SPP/WiFi→手机级联→TTS 回流→喇叭）
+- 路径 A（BT HFP 通话桥）降级为**备选**（C 已通；A 的价值 = 不依赖开发者模式，OTA 后若模式被重置可退回 A 的纯手机侧方案）
+- 路径 B（官方开发者通道）仍值得并行询（open.rokid.com / `Glasses.BD@rokid.com`）：确认开发者模式是否官方支持、OTA 持久性、未来是否有正式 SDK
+- T2.1–T2.5 契约仍有效，客户端形态 = 眼镜侧 app（C 路径，主）；契约按传输无关设计（v1 = BT SPP，后升 Wi-Fi TCP）
+- **已知风险**：眼镜麦与 Rokid 自带"乐奇"助手共用麦克风（音频焦点竞争），客户端需按会话态申请/释放焦点
+
+### 5.13 阶段 2 落地：手机桥 + 眼镜客户端 + SPP 连通（2026-10-15 晚，进行中，代码未提交）
+
+**代码（全部编译通过并装机；分支 `t18-qwen3-asr-0p6b-tts-parity`）**：
+- 手机侧（`.dev`）：新增 `glasses/GlassesBridgeService.kt`（SPP server，UUID `00001101-...3f83`，名 "LFM-Glasses"；Session = 16k PCM16 麦流→VAD→ASR 6010→LLM 6020 SSE→sherpa TTS→SPP 回写，tts_start/stop 半双工切麦；ClauseChunker/TtsPool/本地 PcmRing）+ `SppProtocol.kt`（帧 `[0x80|type][len:2BE][payload]`；AUDIO_IN=01/AUDIO_OUT=02/CONTROL=03；hello/ready/heard/said/tts_start{rate}/tts_stop/error）；Manifest 加 BLUETOOTH(_ADMIN maxSdk30)/BLUETOOTH_CONNECT + service dataSync；`NativeAudioBridge` 加 JS 钩子 start/stopGlassesBridge；MainActivity 加权限请求；demo-ui 加 "Glasses bridge" 按钮。`app-debug.apk` 20.3MB 装机
+- 眼镜侧：新模块 `:glasses-client`（`ai.liquid.lfm.glasses`，minSdk24/target32）：SppProtocol.java 镜像 + `GlassesClientService`（3s 重连、secure→insecure SPP、VOICE_RECOGNITION 16k mono 1280B 帧、AudioTrack 播放、前台通知）+ `MainActivity`（bonded 设备 spinner + 语言 zh/en/ja/ko/ru + START/STOP，prefs `lfm.glasses`）。17.9KB 装机
+- 新模块 `:bt-pair-probe`（`ai.liquid.lfm.btpairprobe`，createBond 工具）、`:pair-responder`（`ai.liquid.lfm.pairesponder`，无头配对应答器，见下）
+
+**关键发现：Rokid 眼镜不显示系统配对对话框**：
+- 显示层只镜像前台 app 窗口（眼镜 uiautomator 只能见 1×1 `com.rokid.sysconfig` MockWindow；screencap 黑屏=息屏 ~15s 自动睡）→ passkey 确认无人能点，`createBond` 三次全部 30s 超时（BONDING→NONE）
+- 解法 = `pair-responder`：manifest receiver 收 `ACTION_PAIRING_REQUEST`，等主机侧把手机显示的 6 位码送达（`am start -n ai.liquid.lfm.pairesponder/.MainActivity --es pin <码>`），反射调 `setPin()` 程序化确认（本项目 android.jar stub 缺 `BluetoothPairingRequest` 类，故全反射 + extras 字符串字面量）→ **17:51:13 一次成 bond（BOND_STATE_BONDED）**
+- 副产物：拿到手机 BT MAC `dc:f0:90:68:76:6e`（手机 Android 16 自身 dumpsys 掩码；眼镜 Android 12 侧不掩码）；眼镜 MAC `AC:86:D1:5A:E9:73`（名 Glasses_1491）
+
+**端到端状态（17:53 时刻）**：
+- Bond ✅（眼镜 bonded 列表 = 一加12 `BC:E8:FA:8F:F1:C6` / HONOR 90 Pro / 红魔11S PRO+氘锋透明 `DC:F0:90:68:76:6E`）
+- SPP 连接 ✅（眼镜 logcat 17:52:20 "connecting to 红魔11S PRO+氘锋透明 → connected"；手机 `GlassesBridgeService` 运行中；6010/6020 LISTEN；demo UI 经 `adb reverse 8765` 正常加载）
+- 麦流 ✅（眼镜 PAL 日志 audio-record 流开启，1280B/40ms≈32KB/s）
+- **待验收**：对眼镜说一句中文 → VAD endpoint→ASR→LLM→TTS 从眼镜喇叭放出；live 捕获（持久 PTY `logcat -s LfmGlassesClient:V`），预期日志 `bridge heard` → `bridge said` → `speaker up at 24000 Hz`
+
+**本轮新环境坑（沉淀）**：
+- 手机 logcat 损坏（main 缓冲全空，OEM 限制）→ 观察靠 dumpsys/dropbox/screencap；眼镜 logcat 可用但 PAL 音频日志冲爆 ring（~9 万行/分钟）→ 必须 `-s` tag 过滤或流式进 PTY
+- **碰手机 WebView devtools 端口（`webview_devtools_remote_*` forward + curl）会直接崩 app**（SIGTRAP TRAP_BRKPT in libwebviewchromium，devtools protocol CHECK；dropbox data_app_native_crash）——禁碰
+- 手机 Android 16 shell 不能 start 非 exported 服务（"Requires permission not exported"）；activity 启动须全限定 `am start -n ai.liquid.lfmdemo.dev/ai.liquid.lfmdemo.MainActivity`；`cmd bluetooth_manager` 无 scan/pair 子命令；眼镜无 `cmd bluetooth_manager`
+- 演示 UI = 主机 `python3 -m http.server 8765 --bind 127.0.0.1`（PTY 起）+ `adb reverse tcp:8765`（手机→主机方向）；主机长驻进程必须 PTY 起（nohup 会被工具会话回收）
+- 眼镜 prefs 可 `run-as ai.liquid.lfm.glasses` 改（debuggable）：`shared_prefs/lfm.glasses.xml` 的 address
+- Kotlin 移植坑：`Regex` 无 `.test()`（JS 习惯，单字符用 `.matches()`）；`AdaptiveEnergyVad` ENDPOINT 后必须 `rearm()`；`OfflineTts` 是 `release()` 非 `shutdown()`；包私有 `PcmRingBuffer` 跨包子包不可见 → 本地 `PcmRing`；inner class 的 private 成员外层不可访问
+- UI 坐标（供复现）：眼镜 480×640，START≈(125,428)；手机 1216×2688，swipe(540,1800→540,600) 后展开 advanced (460,732)、Glasses bridge 按钮 (578,2044)、配对对话框 配对 按钮 (881,2524)
+
+### 5.14 SPP 帧协议 bug 修复 + 握手成功 + 新需求（2026-10-15 18:30–19:00）
+
+**帧级通信打通**：18:46:47 手机 `session started for Glasses_1491` + 眼镜 `bridge ready` / `bridge hello_ack`——SPP 双向控制帧首次真正握手成功，客户端稳定连接。
+
+**根因：SppProtocol 帧头校验 bug（两侧同款，从首版就有）**：Reader 要求首字节 **恰好** `0x80`，而协议实际帧头是 `0x80|type` → 任何带类型的帧（AUDIO_IN 0x81 / AUDIO_OUT 0x82 / CONTROL 0x83）都抛 `desync: bad frame flag`。所以此前"connected"后从未交换过一帧——17:52/18:21 的"链路验证"实际只验证到 RFCOMM 层。修复：`(header & 0x80) == 0x80` 即合法。`SppProtocol.kt` + `glasses-client/SppProtocol.java` 同修。
+
+**同轮修复/加固**：
+- 手机桥 `GlassesBridgeService`：构造期 `filesDir` NPE（属性初始化早于 context 注入 → `by lazy`）；BT-off 时静默 `stopBridge()` 无任何日志（三处早退加 `blog()`）；accept 循环单点故障（旧代码 accept 抛 IOException 即 break 永久停服 → 重开 socket 永不 break）
+- **手机 logcat 完全锁死**（main/system/crash 全空，OEM 限制）→ 桥新增文件日志 `files/glasses-bridge.log`（run-as 可读），覆盖 onStartCommand/listen 成败/session 启停/VAD endpoint/turn heard/done/FAILED/TTS 引擎加载
+- shell 直启钩子（绕开 UI 点击自动化）：手机 `am start -n ai.liquid.lfmdemo.dev/.MainActivity --ez lfm.glasses_bridge_start true`；眼镜 `am start -n ai.liquid.lfm.glasses/.MainActivity --ez lfm.auto_start true`（读 prefs address/lang 直接起服务）
+- 手机 `startGlassesBridge` JS 钩子加 1.5s 存活校验（getRunningServices），失败信息指向文件日志
+
+**环境坑（续）**：
+- 手机 BT 曾被打到 OFF（原因未明，非我方命令）→ 桥启动时 adapter off 即自杀；排查顺序 = `dumpsys bluetooth_manager | grep '^state'`
+- 乐奇 AssistServer（`com.rokid.os.sprite.assistserver`）在场景切换时 `ThirdAppScene -> forceStopPackage` 杀所有第三方 app（已杀眼镜客户端两次）；`pm disable-user --user 0` 被厂商 build 拒绝；短期对策 = 测试前 `am force-stop` + 客户端 auto_start 一条命令即恢复
+- 用户一加 12 经 A2DP 往眼镜放音乐（"歌声"）——测试前须关其蓝牙
+- 手机侧 SPP 连接曾出现"幽灵 SDP"：旧进程 socket 的 SDP 记录疑似残留，客户端 `connected` 但手机 accept() 永不触发；`svc bluetooth disable/enable` 整栈重置后消失（未 100% 定因，复发即先做此重置）
+- 眼镜 USB（Windows adb 5038 隧道）偶发断链（长命令 `error: closed`，短命令可通）→ 拆短命令重试
+
+**用户确认的新需求（排入阶段 2 收尾，E2E 语音验收后做）**：
+1. **打开即自动连接**：眼镜 app 打开 = 自动起桥（不再点 Start；prefs 无 address 时才回退手动选择）
+2. **文字显示**：眼镜 app 窗口显示用户转写 + 模型回答（控制通道现成，手机发 `heard`/`said` 文本帧 → 客户端 UI 渲染）
+
+**待验收（当前）**：用户戴眼镜说"你好，1加1等于几？"→ 预期 `vad endpoint` → `turn 1 heard: …` → LLM → TTS → 眼镜喇叭出声 + `speaker up at NNNN Hz`。级联 6010/6020 已确认 LISTEN，会话 18:46:46 建立且无断连日志。
+
+### 5.15 阶段 2 E2E 语音验收通过 + 收尾两项落地（2026-10-15 19:20–19:50，代码未提交）
+
+**E2E 语音全链路验收通过（用户在场亲测）**：戴眼镜说"请你给我讲1个30个字的故事。"→ `vad endpoint 3.02s` → `turn g-8 heard` → LLM 出 38 字故事 → TTS `matcha_zh_baker @ 22050Hz` → 眼镜喇叭完整播出（用户确认"效果不错"）。随后**连续 7 轮**问答（g-8…g-13）全部成功：ASR 转写 → LLM → TTS 完整播放 → 麦克风自动恢复 → 下一轮立即可说。无 desync、无麦流中断、无 TTS 截断。
+
+**验收前修复的三个客户端 bug（都在 `glasses-client`）**：
+1. **麦线程一轮即死**：`while (micStreaming && running)` 循环，TTS 期间 `pauseMic()` 置 `micStreaming=false` → 线程退出，`resumeMic()` 只置位无线程 → 麦克风永久死（"只能测一次"根因）。改持久线程 `while (running)` + 暂停时 `sleep(20)`，释放才退。
+2. **TTS 尾巴被丢**：手机发完音频即发 `tts_stop`，客户端旧逻辑 `stopSpeaker()` 立即 `release()` AudioTrack 并丢队列 → 短回答播 ~2 字即断（"回答两个字就断掉"根因）。改 **drain 模式**：`tts_stop` 只置 `speakerDrain=true`，播放线程把队列排空才真正停。播放改为独立线程 + `LinkedBlockingQueue` 异步，readLoop 不再被 AudioTrack 阻塞（防 RX 停顿→对端缓冲溢出）。
+3. **大帧分片**：手机 `send()` 按 `MAX_SEND_PAYLOAD=8192` 分帧，避免单帧过大。
+   - 注：`OutputStream.write(byte[],int,int)` 返回 `void`（非计数），无"部分写"回写循环；单次 `write(frame)` 即全量。
+
+**收尾两项（用户批准）已落地**：
+1. **打开即自动连接**：`MainActivity.onCreate` → `maybeAutoStart()`（权限齐 + 有配对手机即自动起服务，不再点 Start；`lfm.auto_start` extra 钩子保留兼容）。裸 `am start` 验证 19:49:57 自动连上。
+2. **文字显示**：手机 `heard`/`said` 控制帧（带 `text`）→ 客户端 `GlassesClientService.UiListener`（静态 `CopyOnWriteArrayList`）→ `MainActivity` 两个 TextView（我 22sp / 助手 26sp，大字适配眼镜）实时渲染。
+
+**UI 重排 + 屏幕常亮（用户反馈后）**：
+- 对话区（我/助手大字）移到屏幕顶部，设置项（设备/语言 Spinner + Start/Stop）压到底部小字（"位置太靠下/上面都是设置"反馈）。
+- **屏幕常亮**：`FLAG_KEEP_SCREEN_ON`（onCreate 加到 window）。**关键硬件特性：Rokid 眼镜麦克风增益与屏幕唤醒状态绑定**——`dumpsys power` 显示 `mWakefulness=Asleep` 时麦峰值仅 51-67（VAD 只见 short burst 不出 endpoint，"说话没反应"根因）；Awake 时正常（说话峰值 1385-2177）。排查命令：`dumpsys power | grep mWakefulness`；手动唤醒 `input keyevent 224`（~15s 自睡）。
+- **最终验收（用户确认"现在非常好"）**：E2E 多轮语音问答 + 退出 app 重开自动连接识别 + 文字显示 + 常亮，全部通过（19:58 前后）。
+- **手机桥打开即自启（用户要求，对称眼镜侧）**：`MainActivity.maybeStartGlassesBridge()` 去掉 `lfm.glasses_bridge_start` extra 条件（extra 保留兼容为 no-op），权限齐即 `startForegroundService`。验证：20:11:18 裸启动 → +4ms `SPP server listening` → +2s 眼镜自动重连。**冷启动完整流程 = 手机打开 app（级联+桥自启）+ 眼镜打开 app（自动连接），顺序无关**。
+- **HONOR 90 Pro（48:C1:EE:8D:20:0A）旧 bond 清理尝试**：仅眼镜侧有 bond（手机侧只有 Glasses_1491）。眼镜厂商 BT 栈无 `cmd bluetooth_manager`（"No shell command implementation"）、无 root（/data/misc/bluedroid 拒读）、系统设置 UI 也不显示该设备（只有红魔）→ **shell/UI 均无法删除**。残余影响仅 app 设备选择器里多一行；自动连接用 prefs 存的地址，不会被误选。要彻底清需用户在 HONOR 90 Pro 本机 BT 设置里取消与 Glasses_1491 的配对。
+
+**遗留（非阻塞）**：
+- 当前 6020 LLM = `Qwen3-ASR-0.6B-Text`（T1.8 NO-GO 模型，用户决定**暂不换**）：简单问答/短故事可用，复杂指令退化（"讲个笑话"有时输出"一个故事，讲完。"）；日期类事实会幻觉（问"星期几"答"星期日"，实为周四）。要提升回答质量再单独换模型。
+- ASR 对数字/量词偶发误转（"三十个字"→"30个字/3"），可接受。
+- 阶段 2 全部代码（手机桥 + 眼镜客户端 + 两侧 SppProtocol + shell 钩子 + 文档）**未提交**，待用户确认后 commit。
+
 ## 6. 环境与复现
 
 - 工作目录：`~/.cache/lmf-demo/llm-swap/`（持久）：`.venv`（uv + Python 3.12 + torch CPU + transformers）、`llama-b10083/`（预编译 ubuntu-x64 二进制，需 `LD_LIBRARY_PATH` 指 torch 的 libgomp）、`llama.cpp-b10083/`（converter 源码）、`out/`（产物）
@@ -270,9 +385,49 @@
 | （已完成）阶段 0 全部 | 用户连手机 → USB/usbipd 通道 | — |
 | （已完成）T1.7 构建 dev pair | 本机 JDK 17 + Android SDK 35（已装，§5.8） | — |
 | （可选，建议）训练团队确认 | 用户联系 AudioTrain 团队：llama.cpp 路径下 dialogue 分支的行为（宿主已验证 server 路径干净，但值得让他们知晓 + 确认采样建议） | 不阻塞 |
+| （阶段 2）Rokid 官方开发者通道确认（路径 B） | 用户已开开发者模式（C 可用）；询 open.rokid.com / `Glasses.BD@rokid.com`：开发者模式是否官方支持 + OTA 持久性 + 正式 SDK 时间表（§5.12） | 不阻塞（C 先行） |
+| （阶段 2）眼镜↔手机传输 | v1 = BT SPP（Wi-Fi 直连被同 SSID 多 AP 分 VLAN 隔断，§5.12）；若用户调整路由器 VLAN 可升级 Wi-Fi TCP | 不阻塞 |
 
 ## 8. 回滚
 
 - 手机：`.dev` 隔离 → 现有 `ai.liquid.lfmdemo*` 全程未动；dev pair 失败 = force-stop + 卸载 dev 包，现版 app 原样可用
 - 宿主：所有产物可重建（§6）；仓库脚本幂等
 - 模型：若 T1.8 不过 → 语言路由回退（中/英新模型，俄/日/韩 Qwen2.5）或整体回退（保留 Qwen2.5 GGUF 于 `~/phone-backup/`）
+
+## 9. 以后替换 LLM 模型权重（复用现有眼镜/手机功能的操作手册）
+
+**架构结论：眼镜功能与 LLM 权重完全解耦。** 眼镜桥（`GlassesBridgeService`）只依赖两个回环端点：`127.0.0.1:6010`（ASR）和 `127.0.0.1:6020/v1/completions`（LLM，OpenAI 兼容流式）。SPP 帧协议、VAD、TTS、眼镜客户端全部模型无关。**只要新权重继续以"同端口 6020 + 同名 alias + 兼容的 prompt 格式"提供服务，换权重后眼镜/手机功能零改动直接可用**（眼镜侧一个字节都不用动）。
+
+**权重加载链路**（`runtime-companion` 包 `ai.liquid.lfmdemo.dev.runtime`）：
+- `RuntimeService.startTextModel()` 起 `libqwenserver.so`（llama.cpp fork，在 APK nativeLibraryDir）
+- 权重文件：`/data/data/ai.liquid.lfmdemo.dev.runtime/files/text/models/<文件名>.gguf`（当前 `qwen3_asr_0p6b_text-q4_k_m.gguf`）
+- 关键启动参数：`--model <路径> --alias Qwen3-ASR-0.6B-Text-Q4_K_M --ctx-size 2048 --threads 4 --parallel 1 --n-gpu-layers 0 --no-cache-prompt --host 127.0.0.1 --port 6020 --no-webui`
+- **权重不在 APK 里**，装 files 目录 → 重装 APK 不丢权重；只有卸载/清数据才丢（>1MB 模型按 T0.3 惯例留 sha256 清单）
+
+**替换步骤**：
+1. 准备 GGUF（架构须被 `libqwenserver.so` 支持——当前已验证 Qwen 系；非 Qwen 架构先验证 server 二进制，必要时重编）
+2. 推入设备（runtime 包 debuggable，run-as 可用）：
+   ```bash
+   adb -s <phone> push new_model.gguf /data/local/tmp/
+   adb -s <phone> shell run-as ai.liquid.lfmdemo.dev.runtime sh -c \
+     'mkdir -p files/text/models && mv /data/local/tmp/new_model.gguf files/text/models/'
+   ```
+3. 代码改动——三处硬编码模型名 + 一处文件名：
+   | 位置 | 常量 | 作用 |
+   |---|---|---|
+   | `runtime-companion/.../RuntimeService.java:25-28` | `TEXT_MODEL_FILE` / `TEXT_MODEL_ALIAS` | 服务端加载文件名 + 对外 alias |
+   | `app/.../glasses/GlassesBridgeService.kt:98` | `llmModel` | 眼镜桥请求的 model 名 |
+   | `app/assets/demo-ui/index.html:582` | `QWEN_TEXT_MODEL` | 手机 chat UI 请求的 model 名 |
+   
+   **最省事的换法：只改 `TEXT_MODEL_FILE`（文件名），alias 保持原名不变 → 代码零改动**。长期维护建议三处一起改成真实名字（保持服务端 alias 与两个客户端一致即可，客户端之间互相无关）。
+4. 按新模型调 server 参数（`RuntimeService.startTextModel()`）：`--ctx-size`（历史长度↔内存）、`--threads`（CPU 核数）；`--no-cache-prompt` 是 b10083 针对现模型的 workaround，保留无害（实测零代价，§5.11）
+5. 重建 + 装 runtime 包：`./gradlew :runtime-companion:assembleDebug` → push + `pm install -r` → force-stop 后重新打开主 app（bootstrap 自动拉起）
+6. 验证：
+   - `adb -s <phone> shell "curl -s http://127.0.0.1:6020/health"` → ok
+   - 手机 chat UI 或眼镜问一句（如"今天星期几"）→ 回答合理
+7. **prompt 格式兼容（唯一功能性差异）**：眼镜桥 `buildRawPrompt()` 与手机 chat 用"用户：…\n助手回答：…"raw 对话格式（对齐 Qwen3-ASR-0.6B spoken_multiturn_90h 微调，材料见 `scripts/qwen3_asr_llm_swap/PROMPT_ALIGNMENT.md`）。换通用 instruct 模型时其 chat template 不同：
+   - 快路径：raw prompt 原样用（可用但质量退化，T1.8 有量化数据）
+   - 正路：改 `buildRawPrompt()`（~20 行单函数）对齐新模型模板，或改走 `/v1/chat/completions` + server 端 `--jinja`
+8. **眼镜侧零改动**：SPP 协议/帧/客户端 app 都不感知模型；换完后打开眼镜 app 自动连接即用。
+
+**资源参考**：0.6B Q4 ≈ PSS 1.1 GB；Qwen2.5-1.5B Q4 基线 ≈ 2 GB。手机（红魔）内存宽裕，上限看 PSS+ASR+TTS 之和是否触发 swap；ctx 2048 是当前历史长度与内存的折中。

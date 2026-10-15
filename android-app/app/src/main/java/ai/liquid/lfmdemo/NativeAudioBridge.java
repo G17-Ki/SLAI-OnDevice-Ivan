@@ -140,6 +140,57 @@ final class NativeAudioBridge {
     }
 
     @JavascriptInterface
+    public boolean glassesBridgePermissionGranted() {
+        return android.os.Build.VERSION.SDK_INT < 31
+                || context.checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT)
+                        == PackageManager.PERMISSION_GRANTED;
+    }
+
+    @JavascriptInterface
+    public boolean startGlassesBridge() {
+        if (android.os.Build.VERSION.SDK_INT >= 31
+                && context.checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT)
+                        != PackageManager.PERMISSION_GRANTED) {
+            Log.w(TAG, "glasses bridge: BLUETOOTH_CONNECT not granted");
+            return false;
+        }
+        try {
+            context.startForegroundService(
+                    new Intent(context, ai.liquid.lfmdemo.glasses.GlassesBridgeService.class));
+        } catch (Exception error) {
+            Log.e(TAG, "glasses bridge: start failed", error);
+            return false;
+        }
+        // The service can exit within seconds (e.g. SPP listen failure), so
+        // verify it actually stayed up before reporting success to the UI.
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException ignored) {
+            Thread.currentThread().interrupt();
+        }
+        android.app.ActivityManager manager =
+                (android.app.ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (manager == null) {
+            return true;
+        }
+        String target = ai.liquid.lfmdemo.glasses.GlassesBridgeService.class.getName();
+        for (android.app.ActivityManager.RunningServiceInfo info
+                : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (target.equals(info.service.getClassName())) {
+                return true;
+            }
+        }
+        Log.w(TAG, "glasses bridge: service did not stay up");
+        return false;
+    }
+
+    @JavascriptInterface
+    public void stopGlassesBridge() {
+        context.stopService(
+                new Intent(context, ai.liquid.lfmdemo.glasses.GlassesBridgeService.class));
+    }
+
+    @JavascriptInterface
     public double monotonicNowMs() {
         return SystemClock.elapsedRealtimeNanos() / 1_000_000.0;
     }

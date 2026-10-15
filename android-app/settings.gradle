@@ -21,6 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "LfmPhoneDemo"
 include(":app")
+include(":glasses-client")
+include(":bt-pair-probe")
+include(":pair-responder")
 include(":runtime-companion")
 include(":whisper-probe")
 include(":supertonic-probe")

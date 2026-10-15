@@ -528,6 +528,11 @@
               <button type="button" id="clear-history">Clear history</button>
               <span class="control-hint">Drops any stored turns immediately</span>
             </div>
+            <div class="control">
+              <span class="control-label">Glasses bridge</span>
+              <button type="button" id="glasses-toggle">Start SPP server</button>
+              <span class="control-hint" id="glasses-status">Rokid glasses as mic &amp; speaker over Bluetooth SPP</span>
+            </div>
           </div>
         </details>
       </div>
@@ -645,6 +650,33 @@
     const ttsEngineSelect = document.getElementById("tts-engine-select");
     const ttsEngineStatus = document.getElementById("tts-engine-status");
     const ttsMetricsPanel = document.getElementById("tts-metrics");
+    const glassesToggle = document.getElementById("glasses-toggle");
+    const glassesStatus = document.getElementById("glasses-status");
+
+    let glassesActive = false;
+    glassesToggle?.addEventListener("click", () => {
+      const native = window.NativeAudio;
+      if (!native) return;
+      if (glassesActive) {
+        native.stopGlassesBridge();
+        glassesActive = false;
+        glassesToggle.textContent = "Start SPP server";
+        glassesStatus.textContent = "Stopped · no glasses connection";
+        return;
+      }
+      if (!native.glassesBridgePermissionGranted()) {
+        glassesStatus.textContent = "Bluetooth permission missing · reopen the app to grant it";
+        return;
+      }
+      const started = native.startGlassesBridge();
+      glassesStatus.textContent = started
+        ? "Running · waiting for glasses to connect"
+        : "Start failed · service did not stay up (files/glasses-bridge.log)";
+      if (started) {
+        glassesActive = true;
+        glassesToggle.textContent = "Stop SPP server";
+      }
+    });
 
     // Offline voice selection. The engine list comes from the pushed model
     // bundle at run time, so adding or retuning a voice is a file change on the

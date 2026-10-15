@@ -669,6 +669,23 @@ public final class MainActivity extends Activity {
         });
         setContentView(webView);
         webView.loadUrl("http://127.0.0.1:8765/");
+        maybeStartGlassesBridge();
+    }
+
+    /**
+     * Open the app = start the glasses bridge (user-approved, mirrors the
+     * glasses client auto-connect). The legacy `lfm.glasses_bridge_start`
+     * extra is still accepted (no-op now). The service logs its lifecycle
+     * to files/glasses-bridge.log (phone logcat is unusable on this device).
+     */
+    private void maybeStartGlassesBridge() {
+        if (Build.VERSION.SDK_INT >= 31
+                && checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT)
+                        != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        startForegroundService(
+                new Intent(this, ai.liquid.lfmdemo.glasses.GlassesBridgeService.class));
     }
 
     @Override
@@ -694,6 +711,10 @@ public final class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT >= 33
                 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             missing.add(Manifest.permission.POST_NOTIFICATIONS);
+        }
+        if (Build.VERSION.SDK_INT >= 31
+                && checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            missing.add(Manifest.permission.BLUETOOTH_CONNECT);
         }
         if (!missing.isEmpty()) {
             requestPermissions(missing.toArray(new String[0]), PERMISSION_REQUEST);
