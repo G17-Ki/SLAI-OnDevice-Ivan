@@ -13,6 +13,8 @@ import android.bluetooth.BluetoothServerSocket
 import android.bluetooth.BluetoothSocket
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.content.BroadcastReceiver
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.IBinder
@@ -86,6 +88,25 @@ class GlassesBridgeService : Service() {
     private var wakeLock: PowerManager.WakeLock? = null
     private var serverSocket: BluetoothServerSocket? = null
     private var acceptThread: Thread? = null
+
+    // After a full BT stack reset (svc bluetooth disable/enable, phone reboot
+    // races) the vendor stack can leave the blocked accept() sleeping forever
+    // on the old listen socket. Close it on any adapter state change so the
+    // accept loop re-opens a fresh socket.
+    private val btStateReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (intent.action == BluetoothAdapter.ACTION_STATE_CHANGED) {
+                val state =
+                    intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR)
+                blog("BT state changed: $state (on=${state == BluetoothAdapter.STATE_ON})")
+                if (state == BluetoothAdapter.STATE_ON) {
+                    val stale = serverSocket
+                    serverSocket = null
+                    try { stale?.close() } catch (_: IOException) {}
+                }
+            }
+        }
+    }
     @Volatile private var running = false
     @Volatile private var activeSession: Session? = null
     private val turnQueue = LinkedBlockingQueue<Utterance>(8)
@@ -121,6 +142,9 @@ class GlassesBridgeService : Service() {
     override fun onDestroy() {
         running = false
         turnWorker.interrupt()
+        try {
+            unregisterReceiver(btStateReceiver)
+        } catch (_: Exception) {}
         try { serverSocket?.close() } catch (_: IOException) {}
         activeSession?.close("service_destroyed")
         ttsPool.shutdown()
@@ -160,6 +184,15 @@ class GlassesBridgeService : Service() {
             return
         }
         serverSocket = socket
+        try {
+            registerReceiver(
+                btStateReceiver,
+                IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED),
+                Context.RECEIVER_NOT_EXPORTED
+            )
+        } catch (error: Exception) {
+            blog("BT state receiver registration failed: ${error.message}")
+        }
         acceptThread = Thread({
             var current = socket
             while (running) {
@@ -172,11 +205,15 @@ class GlassesBridgeService : Service() {
                     // exit the loop: the glasses client reconnects on its own.
                     blog("accept failed: ${error.javaClass.simpleName}: ${error.message}; re-opening")
                     try { current.close() } catch (_: IOException) {}
-                    val next = openServerSocket(adapter)
-                    if (next == null) {
-                        try { Thread.sleep(1_000) } catch (_: InterruptedException) {}
-                        continue
+                    var next: BluetoothServerSocket? = null
+                    while (running && next == null) {
+                        next = openServerSocket(adapter)
+                        if (next == null) {
+                            blog("reopen failed (adapter off?); retrying in 1s")
+                            try { Thread.sleep(1_000) } catch (_: InterruptedException) {}
+                        }
                     }
+                    if (next == null) break
                     current = next
                     serverSocket = current
                     continue

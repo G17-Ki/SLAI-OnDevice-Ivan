@@ -354,10 +354,21 @@
 - **手机桥打开即自启（用户要求，对称眼镜侧）**：`MainActivity.maybeStartGlassesBridge()` 去掉 `lfm.glasses_bridge_start` extra 条件（extra 保留兼容为 no-op），权限齐即 `startForegroundService`。验证：20:11:18 裸启动 → +4ms `SPP server listening` → +2s 眼镜自动重连。**冷启动完整流程 = 手机打开 app（级联+桥自启）+ 眼镜打开 app（自动连接），顺序无关**。
 - **HONOR 90 Pro（48:C1:EE:8D:20:0A）旧 bond 清理尝试**：仅眼镜侧有 bond（手机侧只有 Glasses_1491）。眼镜厂商 BT 栈无 `cmd bluetooth_manager`（"No shell command implementation"）、无 root（/data/misc/bluedroid 拒读）、系统设置 UI 也不显示该设备（只有红魔）→ **shell/UI 均无法删除**。残余影响仅 app 设备选择器里多一行；自动连接用 prefs 存的地址，不会被误选。要彻底清需用户在 HONOR 90 Pro 本机 BT 设置里取消与 Glasses_1491 的配对。
 
-**遗留（非阻塞）**：
+ **遗留（非阻塞）**：
 - 当前 6020 LLM = `Qwen3-ASR-0.6B-Text`（T1.8 NO-GO 模型，用户决定**暂不换**）：简单问答/短故事可用，复杂指令退化（"讲个笑话"有时输出"一个故事，讲完。"）；日期类事实会幻觉（问"星期几"答"星期日"，实为周四）。要提升回答质量再单独换模型。
 - ASR 对数字/量词偶发误转（"三十个字"→"30个字/3"），可接受。
-- 阶段 2 全部代码（手机桥 + 眼镜客户端 + 两侧 SppProtocol + shell 钩子 + 文档）**未提交**，待用户确认后 commit。
+- 阶段 2 代码已提交：`e015fe9`（2026-10-15，含本文 §9 LLM 权重替换手册）。
+
+### 5.16 BT 栈重置后桥自愈合修复（2026-10-16 早）
+
+**现象**：手机+眼镜从关机插电后，客户端无限 `connection attempt failed`（RFCOMM 握手被拒），手机桥日志停在 `SPP server listening` 无任何 accept 记录；`svc bluetooth disable/enable` 整栈重置后依然如此（客户端"connected"但手机 accept() 永不触发 = §5.14 已知"幽灵 SDP"症状的变体）。手动 force-stop + 重开手机 app 后 1.2s 内连通。
+
+**根因（新发现）**：厂商 BT 栈整栈重置后，**阻塞在 accept() 上的旧 listen socket 永远不会被唤醒**（不抛异常、不返回，日志零报错）—— accept 循环就此静默挂死。旧代码的容错（accept 抛异常→重开 socket）对此场景无效，因为异常根本不会抛。
+
+**修复（`GlassesBridgeService`，已部署）**：
+1. 注册 `BluetoothAdapter.ACTION_STATE_CHANGED` 广播 receiver（`RECEIVER_NOT_EXPORTED`）：adapter 变 ON 时主动 `close()` 当前 listen socket → 阻塞的 accept() 立即抛异常 → 走既有重开路径拿到新 socket
+2. accept 循环 reopen 失败路径修正：原代码 reopen 失败后 `continue` 回到旧（已关）socket 的 accept() 空转；改为内层循环每秒重试 `openServerSocket` 直到成功或 service 停止
+3. 效果：手机重启 / BT 被重置 / 幽灵 SDP 场景下桥自动恢复，**无需手动重启 app**（09:27:37 会话建立 + 心跳验证通过；receiver 路径待下次真实 BT 切换再验一次）
 
 ## 6. 环境与复现
 
