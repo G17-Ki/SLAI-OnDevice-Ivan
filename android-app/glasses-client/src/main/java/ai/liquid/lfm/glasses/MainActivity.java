@@ -40,6 +40,7 @@ public class MainActivity extends Activity
     private Spinner deviceSpinner;
     private final Button[] modeButtons = new Button[MODES.length];
     private int modeIndex = 0;
+    private Button clearHistoryButton;
     private Button startButton;
     private Button stopButton;
     private TextView statusText;
@@ -209,6 +210,24 @@ public class MainActivity extends Activity
                     new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT, 72));
         }
+
+        // Full-width stacked clear-history button: drops the session context
+        // on the bridge (history + LLM slot reset) when the model starts
+        // repeating user input.
+        clearHistoryButton = new Button(this);
+        clearHistoryButton.setText("清空历史");
+        clearHistoryButton.setTextSize(14);
+        clearHistoryButton.setOnClickListener(v -> {
+            GlassesClientService service = GlassesClientService.getInstance();
+            if (service != null) {
+                service.clearHistory();
+            } else {
+                statusText.setText("Not connected");
+            }
+        });
+        root.addView(clearHistoryButton,
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, 56));
 
         LinearLayout settings = new LinearLayout(this);
         settings.setOrientation(LinearLayout.HORIZONTAL);

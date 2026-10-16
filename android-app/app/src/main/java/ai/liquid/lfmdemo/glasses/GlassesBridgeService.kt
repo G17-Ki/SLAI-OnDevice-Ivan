@@ -154,6 +154,7 @@ class GlassesBridgeService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        setInstance(this)
         val power = getSystemService(Context.POWER_SERVICE) as PowerManager
         wakeLock = power.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ai.liquid.lfmdemo:glasses-bridge")
         wakeLock?.setReferenceCounted(false)
@@ -181,12 +182,22 @@ class GlassesBridgeService : Service() {
         activeSession?.close("service_destroyed")
         ttsPool.shutdown()
         if (wakeLock?.isHeld == true) wakeLock?.release()
+        setInstance(null)
         super.onDestroy()
     }
 
     fun stopBridge() {
         stopForeground(STOP_FOREGROUND_REMOVE)
         stopSelf()
+    }
+
+    // Shared by the phone-UI reset (companion.clearSessionContext) and the
+    // glasses client's clear_history control message.
+    private fun resetSessionContext(session: Session, source: String) {
+        synchronized(session) { session.historyClear() }
+        restartLlm()
+        blog("session context cleared ($source)")
+        session.sendControl("history_cleared", mapOf("ok" to true))
     }
 
     // ---- SPP server ----
@@ -309,8 +320,10 @@ class GlassesBridgeService : Service() {
         @Volatile var muted = false
 
         private val history = ArrayDeque<Pair<String, String>>()
-        fun historySnapshot(): List<Pair<String, String>> = ArrayList(history)
+        fun historySnapshot(): List<Pair<String, String>> =
+            history.filter { (user, assistant) -> isStorableTurn(user, assistant) }
         fun historyAdd(user: String, assistant: String) {
+            if (!isStorableTurn(user, assistant)) return
             history.addLast(user to assistant)
             while (history.size > MAX_HISTORY) history.removeFirst()
         }
@@ -435,6 +448,7 @@ class GlassesBridgeService : Service() {
                     sendControl("mode_ack", mapOf("mode" to requestedMode.name))
                 }
                 "ping" -> sendControl("pong")
+                "clear_history" -> resetSessionContext(this, "glasses client")
                 "bye" -> close("client_bye")
             }
         }
@@ -541,6 +555,16 @@ class GlassesBridgeService : Service() {
             blog("turn $turnId heard: $transcript")
             session.sendControl("heard", mapOf("text" to transcript))
 
+            // Punctuation-only transcripts (ASR noise like "。") are a
+            // degenerate attractor for the 0.6B model: a stored "user: 。"
+            // history pair makes it echo the next question verbatim
+            // (reproduced deterministically on a fresh process at temp=0).
+            // Skip the turn entirely instead of asking the model.
+            if (transcript.none { it.isLetterOrDigit() }) {
+                blog("turn $turnId skipped: no letters or digits in transcript")
+                return
+            }
+
             val tts = ttsPool.engineFor(utterance.mode.ttsLang)
             val history = synchronized(session) { session.historySnapshot() }
             // Translation modes: exemplar only. Real turns keep landing in the
@@ -550,7 +574,7 @@ class GlassesBridgeService : Service() {
             // utterance anyway.
             val promptHistory = when (utterance.mode) {
                 BridgeMode.QA -> history
-                else -> listOf(utterance.mode.example)
+                else -> utterance.mode.examples
             }
             val prompt = buildRawPrompt(utterance.mode, promptHistory, transcript)
             val response = StringBuilder()
@@ -567,7 +591,15 @@ class GlassesBridgeService : Service() {
                         mapOf("rate" to tts.sampleRate, "channels" to 1, "bits" to 16)
                     )
                 }
-                synthesizeClause(session, tts, clause)
+                // The Chinese TTS lexicon cannot speak ASCII digits; convert
+                // them to Han readings ("1加1等于2" -> "一加一等于二") or the
+                // digits are silently dropped from the audio.
+                val spoken = if (utterance.mode.ttsLang == "zh") {
+                    ChineseTtsNormalizer.normalize(clause)
+                } else {
+                    clause
+                }
+                synthesizeClause(session, tts, spoken)
             }
 
             waitForLlm(20_000)
@@ -959,6 +991,28 @@ class GlassesBridgeService : Service() {
         private const val RING_CAPACITY_SAMPLES =
             (MAX_UTTERANCE_MS + PRE_ROLL_MS + ENDPOINT_HANGOVER_MS) * SAMPLE_RATE / 1000
         private val turnCounter = AtomicLong(0)
+
+        // Live service instance so the phone UI (NativeAudioBridge) and the
+        // glasses client can reset the conversation context on demand.
+        @Volatile private var instance: GlassesBridgeService? = null
+
+        fun setInstance(service: GlassesBridgeService?) {
+            instance = service
+        }
+
+        /**
+         * Drop the active session's history and reset the LLM's slot state.
+         * A contaminated context (near-echo or "请说…内容" pairs) makes the
+         * 0.6B model repeat user input verbatim; this is the manual reset.
+         * Returns true when an active session was cleared.
+         */
+        @JvmStatic
+        fun clearSessionContext(): Boolean {
+            val service = instance ?: return false
+            val session = service.activeSession ?: return false
+            service.resetSessionContext(session, "manual clear")
+            return true
+        }
     }
 }
 
@@ -1090,6 +1144,27 @@ internal class PcmRing(capacitySamples: Int) {
 }
 
 /**
+ * Assistant "clarify the request" replies such as
+ * "好的，请说要翻译的内容和目标语言。" / "好的，请说要确认的内容。" put the
+ * 0.6B model into a "translation echo" state: the very next user turn is
+ * repeated verbatim instead of answered (reproduced deterministically on a
+ * fresh process at temp=0; the user line is irrelevant, only this assistant
+ * line matters). Such replies are still spoken but must never enter the
+ * prompt history.
+ */
+private val TRANSLATE_ASK_REGEX = Regex("请说.{0,12}内容")
+
+/** Whether a (user, assistant) turn may be kept in the prompt history. */
+private fun isStorableTurn(user: String, assistant: String): Boolean {
+    // A punctuation-only user line (ASR noise like "。") is a degenerate
+    // trigger; it is dropped before reaching the model anyway.
+    if (user.none { it.isLetterOrDigit() }) return false
+    // A clarify-the-request reply poisons every subsequent turn.
+    if (TRANSLATE_ASK_REGEX.containsMatchIn(assistant)) return false
+    return true
+}
+
+/**
  * Prompt spec V1 (智能眼镜语音模型统一 Prompt 规范): shared system prompt +
  * per-task prompts. The task prompt is selected by [BridgeMode].
  */
@@ -1127,14 +1202,31 @@ private enum class BridgeMode(
     val asrLang: String,
     val ttsLang: String,
     val taskPrompt: String,
-    // In-context exemplar shown as the first history pair in translation
-    // modes. The 0.6B model needs it to follow "translate, don't answer";
-    // the spec prompt text itself stays untouched.
-    val example: Pair<String, String>
+    // In-context exemplars shown as the leading history pairs in translation
+    // modes. The 0.6B model needs them to follow "translate, don't answer":
+    // with a single exemplar it answers English questions in English instead
+    // of translating them (verified on-phone 2026-10-16: 1 exemplar -> 1/6
+    // question turns translated, 3 exemplars spanning statement + question +
+    // self-introduction -> 8/8). The spec prompt text itself stays untouched.
+    val examples: List<Pair<String, String>>
 ) {
-    QA("zh", "zh", TASK_INTERACT, "" to ""),
-    ZH2EN("zh", "en", TASK_TRANSLATE_ZH2EN, "我想喝水" to "I would like some water, please."),
-    EN2ZH("en", "zh", TASK_TRANSLATE_EN2ZH, "Where is the nearest station?" to "最近的地铁站在哪里？");
+    QA("zh", "zh", TASK_INTERACT, emptyList()),
+    ZH2EN(
+        "zh", "en", TASK_TRANSLATE_ZH2EN,
+        listOf(
+            "我想喝水" to "I would like some water, please.",
+            "今天天气怎么样？" to "What's the weather like today?",
+            "我叫林悦。" to "My name is Lin Yue."
+        )
+    ),
+    EN2ZH(
+        "en", "zh", TASK_TRANSLATE_EN2ZH,
+        listOf(
+            "Where is the nearest station?" to "最近的地铁站在哪里？",
+            "What's the weather like today?" to "今天天气怎么样？",
+            "My name is Lin Yue." to "我叫林悦。"
+        )
+    );
 
     companion object {
         fun fromName(name: String): BridgeMode = when (name.lowercase()) {

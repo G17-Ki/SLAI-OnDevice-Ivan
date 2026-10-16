@@ -26,6 +26,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -39,6 +40,7 @@ final class NativeAudioBridge {
     private static final String TAG = "LfmNativeAudio";
     private static final boolean LFM_RUNTIME_ENABLED = false;
     private static final String TELEMETRY_FILE = "streaming-telemetry.jsonl";
+    private static final String MODEL_INFO_FILE = "model-info.json";
     private static final String TTS_ENGINE_PACKAGE = "com.reecedunn.espeak";
     private static final int SAMPLE_RATE = 16_000;
     private static final int MAX_SECONDS = 30;
@@ -188,6 +190,27 @@ final class NativeAudioBridge {
     public void stopGlassesBridge() {
         context.stopService(
                 new Intent(context, ai.liquid.lfmdemo.glasses.GlassesBridgeService.class));
+    }
+
+    @JavascriptInterface
+    public boolean clearGlassesHistory() {
+        return ai.liquid.lfmdemo.glasses.GlassesBridgeService.clearSessionContext();
+    }
+
+    @JavascriptInterface
+    public String getLlmModelInfo() {
+        try (FileInputStream in = context.openFileInput(MODEL_INFO_FILE)) {
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            byte[] buf = new byte[4096];
+            int n;
+            while ((n = in.read(buf)) > 0) {
+                out.write(buf, 0, n);
+            }
+            String text = out.toString(StandardCharsets.UTF_8.name()).trim();
+            return text.isEmpty() ? "{}" : text;
+        } catch (Exception ignored) {
+            return "{}";
+        }
     }
 
     @JavascriptInterface

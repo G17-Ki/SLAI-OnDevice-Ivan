@@ -262,6 +262,10 @@ public class GlassesClientService extends Service {
                     Log.i(TAG, "bridge mode: " + ackMode);
                     fireStatus("模式: " + modeLabel(ackMode));
                     return;
+                case "history_cleared":
+                    Log.i(TAG, "bridge history cleared");
+                    fireStatus("历史已清空");
+                    return;
                 case "heard": {
                     String text = json.optString("text", "");
                     Log.i(TAG, "bridge heard: " + text);
@@ -321,6 +325,20 @@ public class GlassesClientService extends Service {
             sendControl(new JSONObject().put("t", "set_mode").put("mode", mode));
         } catch (Exception error) {
             Log.w(TAG, "set_mode build failed: " + error.getMessage());
+        }
+    }
+
+    /**
+     * Ask the bridge to drop the session's conversation context (history +
+     * LLM slot reset). Used to escape a contaminated session where the model
+     * starts repeating user input verbatim.
+     */
+    public void clearHistory() {
+        Log.i(TAG, "clear_history");
+        try {
+            sendControl(new JSONObject().put("t", "clear_history"));
+        } catch (Exception error) {
+            Log.w(TAG, "clear_history build failed: " + error.getMessage());
         }
     }
 
@@ -484,18 +502,18 @@ public class GlassesClientService extends Service {
                     if (read < buffer.length) {
                         if ((read & 1) != 0) read--;
                         if (read == 0) continue;
-                        byte[] partial = Arrays.copyOf(buffer, read);
                         try {
-                            SppProtocol.writeFrame(output, SppProtocol.AUDIO_IN, partial);
-                        } catch (IOException error) {
+                            byte[] partial = Arrays.copyOf(buffer, read);
+                            writeMicFrame(partial);
+                        } catch (Exception error) {
                             stopReason = "write " + error;
                             break;
                         }
                         continue;
                     }
                     try {
-                        SppProtocol.writeFrame(output, SppProtocol.AUDIO_IN, buffer);
-                    } catch (IOException error) {
+                        writeMicFrame(buffer);
+                    } catch (Exception error) {
                         stopReason = "write " + error;
                         break;
                     }
@@ -506,6 +524,19 @@ public class GlassesClientService extends Service {
             }
         }, "lfm-glasses-mic");
         micThread.start();
+    }
+
+    // Snapshot the output field at call time: closeSocket() nulls the field on
+    // BT drop, and writing through a null stream used to NPE the mic thread
+    // (NPE is not an IOException, so the old catch let it kill the process).
+    // Any exception here stops the thread cleanly; the reconnect path starts a
+    // fresh thread via startMic().
+    private void writeMicFrame(byte[] payload) throws IOException {
+        OutputStream out = output;
+        if (out == null) {
+            throw new IOException("output closed");
+        }
+        SppProtocol.writeFrame(out, SppProtocol.AUDIO_IN, payload);
     }
 
     private void resumeMic() {

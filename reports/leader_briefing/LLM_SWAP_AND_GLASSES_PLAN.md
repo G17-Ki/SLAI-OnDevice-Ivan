@@ -407,12 +407,14 @@
 
 ## 9. 以后替换 LLM 模型权重（复用现有眼镜/手机功能的操作手册）
 
+> **模型库存、sha256、当前部署状态以登记簿为准**：`reports/android_phone/streaming_response/model_candidate_followup/MODEL_REGISTRY.md`（每次换权重必须更新它）。本节只讲架构与链路。
+
 **架构结论：眼镜功能与 LLM 权重完全解耦。** 眼镜桥（`GlassesBridgeService`）只依赖两个回环端点：`127.0.0.1:6010`（ASR）和 `127.0.0.1:6020/v1/completions`（LLM，OpenAI 兼容流式）。SPP 帧协议、VAD、TTS、眼镜客户端全部模型无关。**只要新权重继续以"同端口 6020 + 同名 alias + 兼容的 prompt 格式"提供服务，换权重后眼镜/手机功能零改动直接可用**（眼镜侧一个字节都不用动）。
 
 **权重加载链路**（`runtime-companion` 包 `ai.liquid.lfmdemo.dev.runtime`）：
 - `RuntimeService.startTextModel()` 起 `libqwenserver.so`（llama.cpp fork，在 APK nativeLibraryDir）
 - 权重文件：`/data/data/ai.liquid.lfmdemo.dev.runtime/files/text/models/<文件名>.gguf`（当前 `qwen3_asr_0p6b_text-q4_k_m.gguf`）
-- 关键启动参数：`--model <路径> --alias Qwen3-ASR-0.6B-Text-Q4_K_M --ctx-size 2048 --threads 4 --parallel 1 --n-gpu-layers 0 --no-cache-prompt --host 127.0.0.1 --port 6020 --no-webui`
+- 关键启动参数：`--model <路径> --alias Qwen3-ASR-0.6B-Text-Q4_K_M --ctx-size 8192 --threads 4 --parallel 1 --n-gpu-layers 0 --no-cache-prompt --host 127.0.0.1 --port 6020 --no-webui`（ctx 2048→8192 于 2026-10-15 上调）
 - **权重不在 APK 里**，装 files 目录 → 重装 APK 不丢权重；只有卸载/清数据才丢（>1MB 模型按 T0.3 惯例留 sha256 清单）
 
 **替换步骤**：

@@ -243,3 +243,6 @@ reports/android_phone/streaming_response/whisper_v81/*_proc_status.txt
 workstreams/sub2b_sprint/sprint/out/*/artifacts/
 workstreams/sub2b_sprint/sprint/**/*.wav
 workstreams/sub2b_sprint/sprint/**/*.gguf
+part_b
+part_c
+part_d

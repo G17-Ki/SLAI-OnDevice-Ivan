@@ -11,7 +11,7 @@
     "license": "MIT"
   },
   "phone_equivalent_runtime": {
-    "context_tokens": 1024,
+    "context_tokens": 8192,
     "generation_threads": 4,
     "batch_threads": 4,
     "http_threads": 1,
@@ -32,12 +32,13 @@
       "revision": null,
       "url": null,
       "bytes": 396700032,
-      "sha256": "f9c2f25634a7a6424254c955bf80a49ba425ceeb012f0eadfd14b8d16b6d13ce",
-      "upstream_model": "self-trained Qwen3-0.6B text decoder: thinker.model.* extracted from AudioTrain qwen3_asr_0p6b_spoken_multiturn_90h_20261014 (base Qwen3-0.6B, 90h spoken multilingual multiturn post-training); see scripts/qwen3_asr_llm_swap/",
+      "sha256": "197774bd21689fa8b24d7050a819e8b6d4fa11abc6e3895afb285601200c9ba9",
+      "upstream_model": "self-trained Qwen3-0.6B text decoder: thinker.model.* extracted from AudioTrain qwen3_asr_0p6b_edge_multiturn_64k_final_20261016 (base Qwen3-0.6B, multiturn post-training final checkpoint; swapped in 2026-10-16 from edge_all_64k_step748, see previous_sha256); see scripts/qwen3_asr_llm_swap/ and MODEL_REGISTRY.md",
       "license": "self-trained on top of Apache-2.0 Qwen3-0.6B",
       "role": "primary LLM swap candidate (task-finetuned for the phone voice-dialogue scenario); not published - stage the GGUF manually in the host model cache, installer verifies sha256",
       "primary_run": true,
-      "priority_runs": 1
+      "priority_runs": 1,
+      "previous_sha256": "fc4059b693255a6a3b92891c5520299eda46d9070c8c834b6f04950263c56e43"
     },
     {
       "id": "qwen3_1_7b_q4_0_baseline",

@@ -113,6 +113,20 @@
       box-shadow: 0 0 0 5px color-mix(in srgb, var(--success) 15%, transparent);
     }
 
+    .model-badge {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      padding: 5px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
     main { padding: 40px 26px 28px; }
 
     .intro { text-align: center; max-width: 640px; margin: 0 auto; }
@@ -442,6 +456,7 @@
           <span>Snapdragon multilingual feasibility demo</span>
         </div>
       </div>
+      <div class="model-badge" id="llm-model-badge">LLM: …</div>
       <div class="device-status" id="device-status">
         <span class="dot" aria-hidden="true"></span>
         <span id="device-status-text">Starting model</span>
@@ -532,6 +547,11 @@
               <span class="control-label">Glasses bridge</span>
               <button type="button" id="glasses-toggle">Start SPP server</button>
               <span class="control-hint" id="glasses-status">Rokid glasses as mic &amp; speaker over Bluetooth SPP</span>
+            </div>
+            <div class="control">
+              <span class="control-label">Glasses history</span>
+              <button type="button" id="glasses-clear-history">Clear conversation</button>
+              <span class="control-hint" id="glasses-history-status">Drops the session context and resets the LLM slot</span>
             </div>
           </div>
         </details>
@@ -652,6 +672,30 @@
     const ttsMetricsPanel = document.getElementById("tts-metrics");
     const glassesToggle = document.getElementById("glasses-toggle");
     const glassesStatus = document.getElementById("glasses-status");
+    const glassesClearHistory = document.getElementById("glasses-clear-history");
+    const glassesHistoryStatus = document.getElementById("glasses-history-status");
+    const llmModelBadge = document.getElementById("llm-model-badge");
+
+    function refreshLlmModelBadge() {
+      try {
+        const raw = window.NativeAudio ? NativeAudio.getLlmModelInfo() : null;
+        const info = raw ? JSON.parse(raw) : {};
+        if (info && info.name) {
+          const sha = info.sha256 ? " · " + String(info.sha256).slice(0, 8) : "";
+          const at = info.deployed_at ? " · " + String(info.deployed_at).slice(5, 10) : "";
+          llmModelBadge.textContent = "LLM: " + info.name + sha + at;
+          llmModelBadge.title =
+            (info.sha256 ? "sha256: " + info.sha256 + "\n" : "") +
+            (info.deployed_at ? "deployed: " + info.deployed_at : "");
+        } else {
+          llmModelBadge.textContent = "LLM: unknown";
+          llmModelBadge.title = "no model-info.json (set by the deploy step)";
+        }
+      } catch (error) {
+        llmModelBadge.textContent = "LLM: unknown";
+      }
+    }
+    refreshLlmModelBadge();
 
     let glassesActive = false;
     glassesToggle?.addEventListener("click", () => {
@@ -676,6 +720,15 @@
         glassesActive = true;
         glassesToggle.textContent = "Stop SPP server";
       }
+    });
+
+    glassesClearHistory?.addEventListener("click", () => {
+      const native = window.NativeAudio;
+      if (!native) return;
+      const cleared = native.clearGlassesHistory();
+      glassesHistoryStatus.textContent = cleared
+        ? "Cleared · context reset"
+        : "No active glasses session";
     });
 
     // Offline voice selection. The engine list comes from the pushed model
