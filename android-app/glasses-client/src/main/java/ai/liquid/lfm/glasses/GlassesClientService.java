@@ -26,6 +26,7 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -53,7 +54,16 @@ public class GlassesClientService extends Service {
     private volatile boolean running = false;
     private String deviceAddress;
     private String language = "zh";
+    private String mode = "qa";
     private Thread loopThread;
+
+    // Static instance so the activity can push UI commands (mode switch)
+    // without a binding.
+    private static volatile GlassesClientService instance;
+
+    public static GlassesClientService getInstance() {
+        return instance;
+    }
 
     private BluetoothSocket socket;
     private InputStream input;
@@ -72,6 +82,8 @@ public class GlassesClientService extends Service {
         void onHeard(String text);
 
         void onSaid(String text);
+
+        void onStatus(String text);
     }
 
     private static final List<UiListener> uiListeners = new CopyOnWriteArrayList<>();
@@ -85,11 +97,37 @@ public class GlassesClientService extends Service {
     }
 
     private static void fireHeard(String text) {
+        lastHeard = text;
         for (UiListener listener : uiListeners) listener.onHeard(text);
     }
 
     private static void fireSaid(String text) {
+        lastSaid = text;
         for (UiListener listener : uiListeners) listener.onSaid(text);
+    }
+
+    private static volatile String lastHeard = "";
+    private static volatile String lastSaid = "";
+
+    public static String lastHeard() {
+        return lastHeard;
+    }
+
+    public static String lastSaid() {
+        return lastSaid;
+    }
+
+    private static void fireStatus(String text) {
+        lastStatus = text;
+        for (UiListener listener : uiListeners) listener.onStatus(text);
+    }
+
+    // AssistServer periodically pauses this app, dropping the activity's
+    // listener; the activity re-syncs from here on resume.
+    private static volatile String lastStatus = "";
+
+    public static String lastStatus() {
+        return lastStatus;
     }
 
     @Override
@@ -99,9 +137,14 @@ public class GlassesClientService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        instance = this;
         startForeground(NOTIFICATION_ID, buildNotification());
         if (intent != null) {
             deviceAddress = intent.getStringExtra("address");
+            String modeExtra = intent.getStringExtra("mode");
+            if (modeExtra != null && !modeExtra.isEmpty()) {
+                setModeLocal(modeExtra);
+            }
             String lang = intent.getStringExtra("lang");
             if (lang != null && !lang.isEmpty()) language = lang;
         }
@@ -120,6 +163,7 @@ public class GlassesClientService extends Service {
 
     @Override
     public void onDestroy() {
+        instance = null;
         running = false;
         closeSocket();
         stopMic();
@@ -155,7 +199,10 @@ public class GlassesClientService extends Service {
                 input = socket.getInputStream();
                 output = socket.getOutputStream();
                 Log.i(TAG, "connected");
-                sendControl(new JSONObject().put("t", "hello").put("lang", language));
+                sendControl(new JSONObject()
+                        .put("t", "hello")
+                        .put("lang", language)
+                        .put("mode", mode));
                 startMic();
                 try {
                     readLoop();
@@ -206,6 +253,14 @@ public class GlassesClientService extends Service {
                 case "ready":
                 case "listening":
                     Log.i(TAG, "bridge " + json.optString("t"));
+                    if ("hello_ack".equals(json.optString("t"))) {
+                        fireStatus("已连接 · " + modeLabel(mode));
+                    }
+                    return;
+                case "mode_ack":
+                    String ackMode = json.optString("mode", "");
+                    Log.i(TAG, "bridge mode: " + ackMode);
+                    fireStatus("模式: " + modeLabel(ackMode));
                     return;
                 case "heard": {
                     String text = json.optString("text", "");
@@ -251,6 +306,40 @@ public class GlassesClientService extends Service {
         } catch (IOException error) {
             Log.w(TAG, "control send failed: " + error.getMessage());
         }
+    }
+
+    // ---- mode (prompt spec V1): qa | zh2en | en2zh ----
+
+    /**
+     * Switch the session task mode from the UI. Takes effect on the next turn;
+     * a fresh session picks it up through hello.
+     */
+    public void setMode(String newMode) {
+        setModeLocal(newMode);
+        Log.i(TAG, "set_mode " + mode);
+        try {
+            sendControl(new JSONObject().put("t", "set_mode").put("mode", mode));
+        } catch (Exception error) {
+            Log.w(TAG, "set_mode build failed: " + error.getMessage());
+        }
+    }
+
+    private void setModeLocal(String newMode) {
+        String normalized = newMode == null ? "qa" : newMode.trim().toLowerCase(Locale.ROOT);
+        if (!"qa".equals(normalized) && !"zh2en".equals(normalized) && !"en2zh".equals(normalized)) {
+            normalized = "qa";
+        }
+        mode = normalized;
+        // Keep the legacy lang field consistent (used by older bridges).
+        language = "en2zh".equals(normalized) ? "en" : "zh";
+    }
+
+    /** Accepts client-side (zh2en) and bridge-side (ZH2EN) spellings. */
+    private static String modeLabel(String modeName) {
+        String m = modeName == null ? "" : modeName.trim().toLowerCase(Locale.ROOT);
+        if (m.equals("zh2en") || m.equals("zh-en") || m.equals("zh_en")) return "中译英";
+        if (m.equals("en2zh") || m.equals("en-zh") || m.equals("en_zh")) return "英译中";
+        return "QA 问答";
     }
 
     // ---- microphone (glasses -> phone) ----

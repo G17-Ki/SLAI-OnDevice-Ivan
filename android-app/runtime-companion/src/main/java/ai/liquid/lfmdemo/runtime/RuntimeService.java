@@ -5,7 +5,11 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Binder;
 import android.os.IBinder;
@@ -26,9 +30,29 @@ public final class RuntimeService extends Service {
             "qwen3_asr_0p6b_text-q4_k_m.gguf";
     private static final String TEXT_MODEL_ALIAS =
             "Qwen3-ASR-0.6B-Text-Q4_K_M";
+    /**
+     * Sent by the glasses bridge to reset the LLM's slot state. The b10083
+     * server accumulates per-slot KV across requests even with
+     * --no-cache-prompt; a mixed zh/en prompt history degrades later turns
+     * (observed: QA answers drift into English after translation turns).
+     * Restarting the process is the only clean reset the prebuilt server
+     * offers; the existing monitor respawns it.
+     */
+    static final String ACTION_RESTART_TEXT_MODEL =
+            "ai.liquid.lfmdemo.dev.runtime.RESTART_TEXT_MODEL";
 
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final IBinder localBinder = new Binder();
+    private final BroadcastReceiver textRestartReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null
+                    && ACTION_RESTART_TEXT_MODEL.equals(intent.getAction())) {
+                Log.i(TAG, "text model restart requested");
+                restartTextModel();
+            }
+        }
+    };
     private AsrHttpServer asrServer;
     private Process textProcess;
     private PowerManager.WakeLock activeClientWakeLock;
@@ -40,6 +64,12 @@ public final class RuntimeService extends Service {
         createNotificationChannel();
         startForeground(NOTIFICATION_ID, notification("Starting ASR and response model…"));
         acquireActiveClientWakeLock();
+        IntentFilter filter = new IntentFilter(ACTION_RESTART_TEXT_MODEL);
+        if (Build.VERSION.SDK_INT >= 33) {
+            registerReceiver(textRestartReceiver, filter, Context.RECEIVER_EXPORTED);
+        } else {
+            registerReceiver(textRestartReceiver, filter);
+        }
         startRuntimes();
     }
 
@@ -72,6 +102,10 @@ public final class RuntimeService extends Service {
     public void onDestroy() {
         shuttingDown = true;
         handler.removeCallbacksAndMessages(null);
+        try {
+            unregisterReceiver(textRestartReceiver);
+        } catch (IllegalArgumentException ignored) {
+        }
         releaseActiveClientWakeLock();
         if (asrServer != null) {
             asrServer.close();
@@ -166,7 +200,7 @@ public final class RuntimeService extends Service {
         command.add("--alias");
         command.add(TEXT_MODEL_ALIAS);
         command.add("--ctx-size");
-        command.add("2048");
+        command.add("8192");
         command.add("--threads");
         command.add("4");
         command.add("--threads-batch");
@@ -241,6 +275,34 @@ public final class RuntimeService extends Service {
 
     private void scheduleTextRestart() {
         if (!shuttingDown) handler.postDelayed(this::startTextModel, 5000);
+    }
+
+    /**
+     * Kill the text server and respawn it immediately (no 5s monitor delay).
+     * The monitor's own delayed restart is a harmless no-op once a fresh
+     * process is alive (startTextModel is guarded by isAlive).
+     */
+    private void restartTextModel() {
+        Process target;
+        synchronized (this) {
+            target = textProcess;
+        }
+        if (target == null || !target.isAlive()) return;
+        target.destroy();
+        Thread thread = new Thread(() -> {
+            try {
+                target.waitFor();
+            } catch (InterruptedException ignored) {
+                Thread.currentThread().interrupt();
+            }
+            if (shuttingDown) return;
+            synchronized (RuntimeService.this) {
+                if (textProcess == target) textProcess = null;
+            }
+            startTextModel();
+        }, "qwen-restart");
+        thread.setDaemon(true);
+        thread.start();
     }
 
     private void createNotificationChannel() {

@@ -85,6 +85,38 @@ class GlassesBridgeService : Service() {
         }
     }
 
+    // The prebuilt b10083 LLM server accumulates per-slot KV across requests
+    // even with --no-cache-prompt; a mixed zh/en prompt history degrades later
+    // turns (QA answers drift into English after translation turns). The only
+    // clean reset the server offers is a process restart, which the runtime app
+    // performs on this broadcast and respawns automatically.
+    private fun restartLlm() {
+        try {
+            sendBroadcast(
+                Intent("ai.liquid.lfmdemo.dev.runtime.RESTART_TEXT_MODEL")
+                    .setPackage("ai.liquid.lfmdemo.dev.runtime")
+            )
+            blog("llm restart requested")
+        } catch (error: Exception) {
+            blog("llm restart request failed: ${error.message}")
+        }
+    }
+
+    // Block until the LLM answers /health (a restart may be in flight) so a
+    // turn lands on a live server instead of failing mid-request.
+    private fun waitForLlm(maxMs: Long) {
+        val deadline = System.currentTimeMillis() + maxMs
+        while (System.currentTimeMillis() < deadline) {
+            if (httpGetOk(llmHealthUrl, 1000)) return
+            try {
+                Thread.sleep(500)
+            } catch (_: InterruptedException) {
+                return
+            }
+        }
+        blog("llm still not ready after ${maxMs}ms")
+    }
+
     private var wakeLock: PowerManager.WakeLock? = null
     private var serverSocket: BluetoothServerSocket? = null
     private var acceptThread: Thread? = null
@@ -273,6 +305,7 @@ class GlassesBridgeService : Service() {
         private val readerAlive = AtomicBoolean(true)
 
         @Volatile var language = "zh"
+        @Volatile var mode: BridgeMode = BridgeMode.QA
         @Volatile var muted = false
 
         private val history = ArrayDeque<Pair<String, String>>()
@@ -280,6 +313,9 @@ class GlassesBridgeService : Service() {
         fun historyAdd(user: String, assistant: String) {
             history.addLast(user to assistant)
             while (history.size > MAX_HISTORY) history.removeFirst()
+        }
+        fun historyClear() {
+            history.clear()
         }
 
         private val vad = AdaptiveEnergyVad(vadConfig(), { event ->
@@ -301,6 +337,10 @@ class GlassesBridgeService : Service() {
                 close("start_failed")
                 return
             }
+            // Fresh glasses session: reset the LLM's accumulated slot state so
+            // the session starts on a clean context (the user hasn't spoken
+            // yet, so the restart window is invisible).
+            restartLlm()
             Thread({ readLoop() }, "lfm-glasses-reader").start()
         }
 
@@ -372,7 +412,27 @@ class GlassesBridgeService : Service() {
                 "hello" -> {
                     val requested = json.optString("lang", "zh")
                     if (requested.length in 1..8) language = requested
-                    sendControl("hello_ack", mapOf("lang" to language))
+                    val requestedMode = json.optString("mode", "")
+                    if (requestedMode.isNotEmpty()) {
+                        mode = BridgeMode.fromName(requestedMode)
+                        language = mode.asrLang
+                    }
+                    sendControl("hello_ack", mapOf("lang" to language, "mode" to mode.name))
+                }
+                "set_mode" -> {
+                    val requestedMode = BridgeMode.fromName(json.optString("mode", ""))
+                    if (requestedMode != mode) {
+                        // A new task starts with a clean context; QA dialogue
+                        // would pollute the translation prompt (and vice versa).
+                        synchronized(this) { historyClear() }
+                        // Different task prompts = different context; reset
+                        // the LLM slot so mode A's history can't bias mode B.
+                        restartLlm()
+                    }
+                    mode = requestedMode
+                    language = requestedMode.asrLang
+                    blog("mode switched to ${requestedMode.name}")
+                    sendControl("mode_ack", mapOf("mode" to requestedMode.name))
                 }
                 "ping" -> sendControl("pong")
                 "bye" -> close("client_bye")
@@ -429,10 +489,10 @@ class GlassesBridgeService : Service() {
                 }
                 blog("vad endpoint: ${"%.2f".format(seconds)}s utterance queued")
                 val copy = utterance.copyOf()
-                if (!turnQueue.offer(Utterance(copy, language))) {
+                if (!turnQueue.offer(Utterance(copy, language, mode))) {
                     Log.w(tag, "turn queue full; dropping oldest")
                     turnQueue.poll()
-                    turnQueue.offer(Utterance(copy, language))
+                    turnQueue.offer(Utterance(copy, language, mode))
                 }
             }
         }
@@ -448,7 +508,7 @@ class GlassesBridgeService : Service() {
 
     // ---- turn cascade ----
 
-    private class Utterance(val pcm: ShortArray, val language: String)
+    private class Utterance(val pcm: ShortArray, val language: String, val mode: BridgeMode)
 
     private fun drainTurnQueue() {
         while (true) {
@@ -481,11 +541,20 @@ class GlassesBridgeService : Service() {
             blog("turn $turnId heard: $transcript")
             session.sendControl("heard", mapOf("text" to transcript))
 
-            val tts = ttsPool.engineFor(utterance.language)
+            val tts = ttsPool.engineFor(utterance.mode.ttsLang)
             val history = synchronized(session) { session.historySnapshot() }
-            val prompt = buildRawPrompt(history, transcript)
+            // Translation modes: exemplar only. Real turns keep landing in the
+            // 0.6B model's echo failure mode, and storing those pairs poisons
+            // every subsequent prompt (observed: 3 echo pairs override the
+            // translation exemplar). The spec translation task is single-
+            // utterance anyway.
+            val promptHistory = when (utterance.mode) {
+                BridgeMode.QA -> history
+                else -> listOf(utterance.mode.example)
+            }
+            val prompt = buildRawPrompt(utterance.mode, promptHistory, transcript)
             val response = StringBuilder()
-            val chunker = ClauseChunker(utterance.language)
+            val chunker = ClauseChunker(utterance.mode.ttsLang)
             var ttsStarted = false
 
             fun speakClause(clause: String) {
@@ -501,6 +570,7 @@ class GlassesBridgeService : Service() {
                 synthesizeClause(session, tts, clause)
             }
 
+            waitForLlm(20_000)
             streamLlm(prompt) { delta ->
                 response.append(delta)
                 for (clause in chunker.feed(delta)) speakClause(clause)
@@ -514,7 +584,11 @@ class GlassesBridgeService : Service() {
             if (answer.isEmpty()) {
                 session.sendControl("error", mapOf("msg" to "llm_empty"))
             } else {
-                synchronized(session) { session.historyAdd(transcript, answer) }
+                // Echo pairs (answer == transcript) teach the 0.6B model to
+                // repeat instead of answer/translate; never store them.
+                if (answer != transcript.trim()) {
+                    synchronized(session) { session.historyAdd(transcript, answer) }
+                }
                 session.sendControl("said", mapOf("text" to answer))
             }
             blog(
@@ -627,14 +701,15 @@ class GlassesBridgeService : Service() {
 
     // ---- raw prompt contract (mirrors demo-ui buildQwen3AsrPrompt) ----
 
-    private fun buildRawPrompt(history: List<Pair<String, String>>, userText: String): String {
+    private fun buildRawPrompt(mode: BridgeMode, history: List<Pair<String, String>>, userText: String): String {
         val prompt = StringBuilder()
         prompt.append("下面是一段用户和助手之间的真实对话。\n")
         prompt.append("你现在扮演“助手”。\n")
         prompt.append("请站在助手的角色回答最后一个用户问题。\n")
         prompt.append("注意区分用户说的“我”和对助手说的“你”。\n")
         prompt.append("只回答问题，不要继续编写新的用户对话。\n\n")
-        prompt.append("系统：").append(RAW_PROMPT_SYSTEM).append("\n")
+        prompt.append("系统：").append(PROMPT_SYSTEM).append("\n\n")
+        prompt.append(mode.taskPrompt).append("\n")
         for ((user, assistant) in history) {
             prompt.append("\n用户：").append(user).append("\n助手回答：").append(assistant)
         }
@@ -883,8 +958,6 @@ class GlassesBridgeService : Service() {
         private const val MAX_HISTORY = 10
         private const val RING_CAPACITY_SAMPLES =
             (MAX_UTTERANCE_MS + PRE_ROLL_MS + ENDPOINT_HANGOVER_MS) * SAMPLE_RATE / 1000
-        private const val RAW_PROMPT_SYSTEM =
-            "你是一个有帮助的中文语音助手。请根据对话内容直接、简洁、准确地回答用户的问题。"
         private val turnCounter = AtomicLong(0)
     }
 }
@@ -1013,5 +1086,61 @@ internal class PcmRing(capacitySamples: Int) {
             readIndex = (readIndex + 1) % samples.size
         }
         return result
+    }
+}
+
+/**
+ * Prompt spec V1 (智能眼镜语音模型统一 Prompt 规范): shared system prompt +
+ * per-task prompts. The task prompt is selected by [BridgeMode].
+ */
+private const val PROMPT_SYSTEM =
+    "你是深圳河套学院研发的智能眼镜 AI 助手。\n\n" +
+    "根据用户输入和对话上下文提供帮助。回答应准确、自然、简洁，适合语音交互。\n\n" +
+    "不编造事实，不确定时如实说明，不声称完成了实际未执行的操作。"
+
+private const val TASK_INTERACT =
+    "任务：交互\n\n" +
+    "结合历史对话和当前用户输入，理解用户意图，使用合适的语言自然回答。\n\n" +
+    "回答应切题、准确、简洁，必要时可以详细解释或追问。\n\n" +
+    "对于用户提出的翻译请求，直接翻译成指定语言。\n\n" +
+    "不确定时如实说明，不编造事实。"
+
+private const val TASK_TRANSLATE_ZH2EN =
+    "任务：翻译\n\n" +
+    "将原文从中文翻译成英文。\n\n" +
+    "准确、自然地保留原意、语气，以及姓名、数字、时间和否定关系等关键信息。\n\n" +
+    "原文中的问题或命令也只进行翻译，不回答或执行。\n\n" +
+    "只输出译文，不添加解释或前缀。"
+
+private const val TASK_TRANSLATE_EN2ZH =
+    "任务：翻译\n\n" +
+    "将原文从英文翻译成中文。\n\n" +
+    "准确、自然地保留原意、语气，以及姓名、数字、时间和否定关系等关键信息。\n\n" +
+    "原文中的问题或命令也只进行翻译，不回答或执行。\n\n" +
+    "只输出译文，不添加解释或前缀。"
+
+/**
+ * Session task mode (smart-glasses voice model prompt spec V1):
+ * drives ASR language, the task prompt, and TTS output language.
+ */
+private enum class BridgeMode(
+    val asrLang: String,
+    val ttsLang: String,
+    val taskPrompt: String,
+    // In-context exemplar shown as the first history pair in translation
+    // modes. The 0.6B model needs it to follow "translate, don't answer";
+    // the spec prompt text itself stays untouched.
+    val example: Pair<String, String>
+) {
+    QA("zh", "zh", TASK_INTERACT, "" to ""),
+    ZH2EN("zh", "en", TASK_TRANSLATE_ZH2EN, "我想喝水" to "I would like some water, please."),
+    EN2ZH("en", "zh", TASK_TRANSLATE_EN2ZH, "Where is the nearest station?" to "最近的地铁站在哪里？");
+
+    companion object {
+        fun fromName(name: String): BridgeMode = when (name.lowercase()) {
+            "zh2en", "zh-en", "zh_en" -> ZH2EN
+            "en2zh", "en-zh", "en_zh" -> EN2ZH
+            else -> QA
+        }
     }
 }

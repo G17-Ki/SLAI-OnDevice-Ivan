@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,22 +25,21 @@ import java.util.List;
 
 /**
  * Minimal control surface for the glasses bridge client: pick the bonded
- * phone, pick the cascade language, start or stop the SPP stream.
+ * phone, pick the task mode (prompt spec V1), start or stop the SPP stream.
  */
 public class MainActivity extends Activity
         implements GlassesClientService.UiListener {
     private static final String TAG = "LfmGlassesMain";
     private static final int PERMISSION_REQUEST = 7;
     private static final String PREFS = "lfm.glasses";
-    private static final String[] LANGUAGES = {"zh", "en", "ja", "ko", "ru"};
-    private static final String[] LANGUAGE_LABELS = {
-            "Chinese (中文)", "English", "日本語", "한국어", "Русский"
-    };
+    private static final String[] MODES = {"qa", "zh2en", "en2zh"};
+    private static final String[] MODE_LABELS = {"QA 问答", "中译英", "英译中"};
 
     private final List<String> deviceAddresses = new ArrayList<>();
     private final List<String> deviceLabels = new ArrayList<>();
     private Spinner deviceSpinner;
-    private Spinner languageSpinner;
+    private final Button[] modeButtons = new Button[MODES.length];
+    private int modeIndex = 0;
     private Button startButton;
     private Button stopButton;
     private TextView statusText;
@@ -54,11 +54,16 @@ public class MainActivity extends Activity
         getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(buildLayout());
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-        int langIndex = 0;
-        for (int i = 0; i < LANGUAGES.length; i++) {
-            if (LANGUAGES[i].equals(prefs.getString("lang", "zh"))) langIndex = i;
+        String savedMode = prefs.getString("mode", "qa");
+        for (int i = 0; i < MODES.length; i++) {
+            if (MODES[i].equals(savedMode)) modeIndex = i;
         }
-        languageSpinner.setSelection(langIndex);
+        for (int i = 0; i < MODES.length; i++) {
+            final int index = i;
+            modeButtons[i].setOnClickListener(v -> onModeSelected(index));
+        }
+        updateModeButtons();
+        updateTranscriptLabels();
         startButton.setOnClickListener(v -> startService());
         stopButton.setOnClickListener(v -> stopService());
         requestPermissionsIfNeeded();
@@ -101,12 +106,58 @@ public class MainActivity extends Activity
 
     @Override
     public void onHeard(String text) {
-        runOnUiThread(() -> heardText.setText("我: " + text));
+        runOnUiThread(() -> heardText.setText(prefixHeard() + text));
     }
 
     @Override
     public void onSaid(String text) {
-        runOnUiThread(() -> saidText.setText("助手: " + text));
+        runOnUiThread(() -> saidText.setText(prefixSaid() + text));
+    }
+
+    @Override
+    public void onStatus(String text) {
+        runOnUiThread(() -> statusText.setText(text));
+    }
+
+    private boolean isTranslationMode() {
+        String mode = MODES[modeIndex];
+        return "zh2en".equals(mode) || "en2zh".equals(mode);
+    }
+
+    private String prefixHeard() {
+        return isTranslationMode() ? "原文: " : "我: ";
+    }
+
+    private String prefixSaid() {
+        return isTranslationMode() ? "译文: " : "助手: ";
+    }
+
+    private void onModeSelected(int index) {
+        modeIndex = index;
+        getSharedPreferences(PREFS, MODE_PRIVATE).edit()
+                .putString("mode", MODES[index])
+                .apply();
+        updateModeButtons();
+        updateTranscriptLabels();
+        GlassesClientService service = GlassesClientService.getInstance();
+        if (service != null) {
+            service.setMode(MODES[index]);
+        }
+    }
+
+    private void updateModeButtons() {
+        for (int i = 0; i < modeButtons.length; i++) {
+            boolean selected = i == modeIndex;
+            modeButtons[i].setBackgroundColor(selected ? 0xFF1976D2 : 0x14000000);
+            modeButtons[i].setTextColor(selected ? 0xFFFFFFFF : 0xFF888888);
+            modeButtons[i].setTypeface(Typeface.DEFAULT,
+                    selected ? Typeface.BOLD : Typeface.NORMAL);
+        }
+    }
+
+    private void updateTranscriptLabels() {
+        heardText.setText(prefixHeard() + "…");
+        saidText.setText(prefixSaid() + "…");
     }
 
     @Override
@@ -146,29 +197,33 @@ public class MainActivity extends Activity
         statusText.setTextSize(14);
         root.addView(statusText);
 
+        // Full-width stacked mode buttons: the waveguide scan-out rotates the
+        // framebuffer, so wide single-column targets are far easier to hit
+        // than a 3-across row of ~133px buttons.
+        for (int i = 0; i < MODES.length; i++) {
+            Button button = new Button(this);
+            button.setText(MODE_LABELS[i]);
+            button.setTextSize(16);
+            modeButtons[i] = button;
+            root.addView(button,
+                    new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT, 72));
+        }
+
         LinearLayout settings = new LinearLayout(this);
         settings.setOrientation(LinearLayout.HORIZONTAL);
         deviceSpinner = new Spinner(this);
-        languageSpinner = new Spinner(this);
-        languageSpinner.setAdapter(new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, LANGUAGE_LABELS));
         settings.addView(deviceSpinner,
                 new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
-        settings.addView(languageSpinner,
-                new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
-        root.addView(settings);
-
-        LinearLayout buttons = new LinearLayout(this);
-        buttons.setOrientation(LinearLayout.HORIZONTAL);
         startButton = new Button(this);
         startButton.setText("Start");
         stopButton = new Button(this);
         stopButton.setText("Stop");
         startButton.setTextSize(13);
         stopButton.setTextSize(13);
-        buttons.addView(startButton);
-        buttons.addView(stopButton);
-        root.addView(buttons);
+        settings.addView(startButton);
+        settings.addView(stopButton);
+        root.addView(settings);
 
         return root;
     }
@@ -228,14 +283,14 @@ public class MainActivity extends Activity
         }
         int position = deviceSpinner.getSelectedItemPosition();
         String address = deviceAddresses.get(position);
-        String language = LANGUAGES[languageSpinner.getSelectedItemPosition()];
+        String mode = MODES[modeIndex];
         getSharedPreferences(PREFS, MODE_PRIVATE).edit()
                 .putString("address", address)
-                .putString("lang", language)
+                .putString("mode", mode)
                 .apply();
         Intent intent = new Intent(this, GlassesClientService.class);
         intent.putExtra("address", address);
-        intent.putExtra("lang", language);
+        intent.putExtra("mode", mode);
         startForegroundService(intent);
         serviceRunning = true;
         statusText.setText("Connecting to " + address + " ...");
@@ -267,6 +322,12 @@ public class MainActivity extends Activity
         super.onResume();
         serviceRunning = isClientServiceRunning();
         updateControls();
+        String status = GlassesClientService.lastStatus();
+        if (!status.isEmpty()) statusText.setText(status);
+        String heard = GlassesClientService.lastHeard();
+        if (!heard.isEmpty()) heardText.setText(prefixHeard() + heard);
+        String said = GlassesClientService.lastSaid();
+        if (!said.isEmpty()) saidText.setText(prefixSaid() + said);
     }
 
     private void updateControls() {
