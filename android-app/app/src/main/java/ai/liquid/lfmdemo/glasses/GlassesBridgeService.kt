@@ -141,6 +141,16 @@ class GlassesBridgeService : Service() {
     }
     @Volatile private var running = false
     @Volatile private var activeSession: Session? = null
+
+    // Conversation history outlives a Session: the merge97 client opens a
+    // fresh SPP connection per request, so per-Session history was wiped on
+    // every turn (observed: "我的名字是什么？" answered "我不知道" right
+    // after "我是小明" on the previous connection). Keyed by the remote
+    // device address — one conversation per paired glasses — mirroring the
+    // ManagedConversationStore semantics the merged protocol documents for
+    // the new-protocol path. The legacy path keeps the same MAX_HISTORY cap
+    // and clear_history still resets it.
+    private val conversations = HashMap<String, ArrayDeque<Pair<String, String>>>()
     private val turnQueue = LinkedBlockingQueue<Utterance>(8)
     private val turnWorker = Thread({ drainTurnQueue() }, "lfm-glasses-turn")
     private val ttsPool = TtsPool()
@@ -319,7 +329,9 @@ class GlassesBridgeService : Service() {
         @Volatile var mode: BridgeMode = BridgeMode.QA
         @Volatile var muted = false
 
-        private val history = ArrayDeque<Pair<String, String>>()
+        // Shared across reconnections from the same glasses (see `conversations`).
+        private val history: ArrayDeque<Pair<String, String>> =
+            conversations.getOrPut(socket.remoteDevice?.address ?: "unknown") { ArrayDeque() }
         fun historySnapshot(): List<Pair<String, String>> =
             history.filter { (user, assistant) -> isStorableTurn(user, assistant) }
         fun historyAdd(user: String, assistant: String) {
@@ -350,10 +362,14 @@ class GlassesBridgeService : Service() {
                 close("start_failed")
                 return
             }
-            // Fresh glasses session: reset the LLM's accumulated slot state so
-            // the session starts on a clean context (the user hasn't spoken
-            // yet, so the restart window is invisible).
-            restartLlm()
+            // The merge97 client opens a fresh SPP connection per request, so
+            // a restart here would add a ~1.1s cold start to EVERY turn. The
+            // slot-state reset is still done on set_mode / clear_history; for
+            // per-request reconnects the QA history isolation that motivated
+            // this restart is preserved by ManagedConversationStore semantics
+            // on the new protocol, and on the legacy protocol the accumulated
+            // state only degrades after many turns (8+), which clear_history
+            // already covers.
             Thread({ readLoop() }, "lfm-glasses-reader").start()
         }
 
@@ -572,9 +588,15 @@ class GlassesBridgeService : Service() {
             // every subsequent prompt (observed: 3 echo pairs override the
             // translation exemplar). The spec translation task is single-
             // utterance anyway.
-            val promptHistory = when (utterance.mode) {
-                BridgeMode.QA -> history
-                else -> utterance.mode.examples
+            val promptHistory = when {
+                utterance.mode != BridgeMode.QA -> utterance.mode.examples
+                // Identity questions answer from the system prompt, which the
+                // chitchat history overrides: with a "我叫小明" pair in context
+                // "你是谁？" degrades to "我是人工智能" (verified on-phone
+                // 2026-10-17, deterministic at temp=0 on a clean slot). The
+                // assistant's identity never depends on conversation history.
+                isIdentityQuestion(transcript) -> emptyList()
+                else -> history
             }
             val prompt = buildRawPrompt(utterance.mode, promptHistory, transcript)
             val response = StringBuilder()
@@ -984,7 +1006,12 @@ class GlassesBridgeService : Service() {
         private const val FRAME_BYTES = FRAME_SAMPLES * 2
         private const val MAX_SEND_PAYLOAD = 8192
         private const val PRE_ROLL_MS = 240
-        private const val ENDPOINT_HANGOVER_MS = 420
+        // merge97 records the whole utterance first (user presses stop) and
+        // only then uploads it, so the trailing-silence wait here is pure
+        // added latency on top of an already-delimited recording. 200ms keeps
+        // a small confirmation window for ASR padding without the old 420ms
+        // hold; the phone-UI path keeps its own independent VAD settings.
+        private const val ENDPOINT_HANGOVER_MS = 200
         private const val MAX_UTTERANCE_MS = 15_000
         private const val MIN_UTTERANCE_SECONDS = 0.4
         private const val MAX_HISTORY = 10
@@ -1163,6 +1190,18 @@ private fun isStorableTurn(user: String, assistant: String): Boolean {
     if (TRANSLATE_ASK_REGEX.containsMatchIn(assistant)) return false
     return true
 }
+
+/**
+ * Questions about the assistant's own identity ("你是谁", "谁研发的"…).
+ * Answered with an empty prompt history: the identity lives in the system
+ * prompt, and conversation context reliably overrides it on the 0.6B model.
+ */
+private val IDENTITY_QUESTION_REGEX = Regex(
+    "你是谁|你叫什么|你的名字|你是哪个|谁研发|谁开发|哪家公司|哪个机构|你是什么模型|你是AI吗|你是人工智能吗"
+)
+
+private fun isIdentityQuestion(transcript: String): Boolean =
+    IDENTITY_QUESTION_REGEX.containsMatchIn(transcript)
 
 /**
  * Prompt spec V1 (智能眼镜语音模型统一 Prompt 规范): shared system prompt +
