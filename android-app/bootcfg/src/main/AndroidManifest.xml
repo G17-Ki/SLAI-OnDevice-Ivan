@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <application android:label="BootCfg" android:allowBackup="false">
+        <activity
+            android:name=".Boot"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity="" />
+        <receiver
+            android:name=".ScreenSettingReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="ai.liquid.lfm.bootcfg.REAPPLY" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
