@@ -71,9 +71,13 @@ public class MainActivity extends Activity
         refreshDevices(prefs.getString("address", null));
         serviceRunning = isClientServiceRunning();
         updateControls();
-        // Open the app and it connects (user-approved behavior).
-        autoStartPending = true;
-        maybeAutoStart();
+        // No auto-connect: this app is now only a fallback client (the merge97
+        // glasses app owns the bridge), but launching it is still what arms the
+        // ScreenSettingReceiver BOOT receiver (installs/force-stop leave the
+        // package in stopped state, which disables BOOT_COMPLETED). Auto-
+        // connecting here would hold the bridge's single session and starve
+        // the merge97 per-request connections ("计算端通信中断").
+        autoStartPending = false;
     }
 
     @Override
