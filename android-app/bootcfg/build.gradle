@@ -10,7 +10,7 @@ android {
         applicationId "ai.liquid.lfm.bootcfg"
         minSdk 24
         targetSdk 32
-        versionCode 1
+        versionCode 9
         versionName "1.0"
     }
 
